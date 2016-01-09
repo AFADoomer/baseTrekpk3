@@ -1,0 +1,184 @@
+Function int IsLetter(str Character)
+{
+	int Temp = ((Character >= 65 && Character <= 90) || (Character >= 97 && Character <= 122));
+
+	return Temp;
+}
+
+Function str ChangeCase(str String, int Type)
+{
+	int l = 0;
+
+	str strLetter = GetChar(String, l);
+	str Temp = "";
+
+	While (l <= strLen(String))
+	{
+		strLetter = GetChar(String, l);
+
+		If (IsLetter(strLetter))
+		{
+			Switch (Type)
+			{
+				Case 0: //To lower
+					If (strLetter <= 90) strLetter = strLetter + 32;
+				break;
+				Case 1: //To upper
+					If (strLetter >= 97) strLetter = strLetter - 32;
+					break;
+				Case 2: //Capitalize first letter
+					If (l == 0)
+						If (strLetter >= 97) strLetter = strLetter - 32;
+				break;
+			}
+		}
+		Temp = strParam(s:Temp, c:strLetter);
+		l++;
+	}
+
+	return Temp;
+}
+
+Function int InStr (str String, str Find)
+{
+	int Temp = -1;
+
+	For (int c = 0; c <= StrLen(String); c++)
+	{
+		If (GetChar(String, c) == GetChar(Find, 0))
+		{
+			Temp = c;
+			break;
+		}
+	}
+
+	return Temp;
+}
+
+Function str Mid(str String, int Start, int End)
+{
+	str Temp = "";
+
+	For (int c = Start; c <= End; c++)
+		Temp = StrParam(s:Temp, c:GetChar(String, c));
+
+	return Temp;
+}
+
+Function str Right(str String, int Chars)
+{
+	return Mid(String, StrLen(String) - Chars, StrLen(String));
+}
+
+Function str Left(str String, int Chars)
+{
+	return Mid(String, 0, Chars - 1);
+}
+
+Function str Pad(int Input, int Digits)
+{
+	str strTemp = "";
+
+	For (int p = 1; p <= Digits - strLen(strParam(d:Input)); p++)
+	{
+		strTemp = strParam(c:'0',s:strTemp);
+	}
+
+	return strParam(s:strTemp,d:Input);
+}
+
+Function int Exp (int x, int n)
+{
+	int y = 1;
+
+	While (n-- > 0) y *= x;
+
+	Return y;
+}
+
+Function int ActorCos(int angle)
+{ //Derived from Enjay's Operation: Overlord
+	angle %= 1.0;
+
+	If (angle < 0)
+		angle += 1.0;
+
+	If(angle > 0.5)
+		angle = -angle + 1.0;
+
+	return Cos(angle);
+}
+
+Function int Abs(int x)
+{
+	If (x < 0)
+		Return -x;
+	Return x;
+}
+
+Function int Distance (int tid1, int tid2)
+{
+	int x, y, z, d;
+
+	x = GetActorX(tid1) - GetActorX(tid2) >> 16; // Convert fixed point to integer
+	y = GetActorY(tid1) - GetActorY(tid2) >> 16;
+	z = GetActorZ(tid1) - GetActorZ(tid2) >> 16;
+
+	d = sqrt( x*x + y*y + z*z );
+
+	return d;
+}
+
+Function int PointDistance (int x1, int y1, int z1, int x2, int y2, int z2)
+{
+	int x, y, z, d;
+
+	x = (x1 - x2) >> 16; // Convert fixed point to integer
+	y = (y1 - y2) >> 16;
+	z = (z1 - z2) >> 16;
+
+	d = sqrt( x*x + y*y + z*z );
+
+	Return d;
+}
+
+Function str Metric(int dist, int digits)
+{
+	str stringLeft, stringRight;
+
+	If (digits < 0) digits = 0;
+
+	int convert = Abs((dist / 1.0) * Exp(10, digits) / 40);
+
+	str string = StrParam(d:convert);
+	stringLeft = Mid(string, 0, StrLen(string) - digits - 1);
+
+	If (digits > 0)
+	{
+		string = StrParam(s:"00000", s:string);
+		stringRight = Right(string, digits);
+
+		if (StrCmp(stringLeft, "") == 0) stringLeft = "0";
+		if (StrCmp(stringRight, "") == 0) stringRight = "0";
+
+		return StrParam(s:stringLeft, s:".", s:stringRight);
+	}
+
+	return StrParam(s:stringLeft);
+}
+
+Function void FadeToImage (str strImage, int holdTime, int inTime, int outTime, int allPlayers)
+{
+	SetHudSize(320, 200, 1);
+	SetFont(strImage);
+	If (allPlayers)
+		HudMessageBold (s:"A"; 3, 0, -1, 160.0, 100.0, holdTime, inTime, outTime);
+	Else
+		HudMessage (s:"A"; 3, 0, -1, 160.0, 100.0, holdTime, inTime, outTime);
+}
+
+Function void Freeze(int Set)
+{
+	SetPlayerProperty(0, Set, PROP_NOTARGET);
+	SetPlayerProperty (0, Set, PROP_TOTALLYFROZEN);
+}

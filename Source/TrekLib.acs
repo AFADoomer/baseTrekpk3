@@ -1,0 +1,1750 @@
+#library "TrekLib"
+
+#include "zcommon.acs"
+#include "functions.acs"
+#include "radar.acs"
+#include "lift.acs"
+
+global int 1:RedAlert;
+
+int ReloadCount;
+int MapViewDelay;
+int PlayerX, PlayerY, PlayerAngle;
+int Flight;
+
+int mapRadius = 80;
+//int mapX = 425; //Tricorder screen overlay coords
+//int mapY = 650;
+//int mapX = 900; //Bottom right corner
+//int mapY = 644;
+//int mapX = 124; //Bottom left corner
+//int mapY = 600;
+//int mapX = 900; //Top right corner
+//int mapY = 124;
+int mapX = 124; //Top left corner
+int mapY = 124;
+
+int mapZoom = 10; 
+int maxMapZoom = 16;
+
+//int ScanRange = 4096;
+int ScanRange = 8192;
+
+int intStress = 2; 
+// Proposed levels:
+//   SickBay = 0
+//   Quarters, Pool, etc. = 1
+//   Shipboard = 2
+//   Ashore = 3
+//   Injured out of combat = 4
+//   Injured in combat = 5
+int intMaxStress = 5;
+int intHealTimer = 35;
+
+int bAutoHeal = 1;
+
+/*
+int ActiveMapMsgCountStart = 4096;
+int ActiveMapMsgCount;
+
+int MapActive = 0;
+int MapArray[2048][2048][2]; //Width, Height, Seen/Color
+int MapDiffArray[2048][2048]; //Width, Height
+int MapMoversArray[2048][2048][2]; //Width, Height, Color/Time
+*/
+
+Script "W_LevelStart" ENTER
+{
+	Thing_ChangeTID(0, 1001+PlayerNumber());
+
+	If (GameType() == GAME_TITLE_MAP)
+	{
+
+		SetHudSize(1024, 768, 0);
+
+		GiveInventory("HideHUD", 1);
+
+		SetMusic("music/opening.ogg", 0);
+
+		ChangeCamera(1, 1, 1);
+		Delay(35 * 7);
+
+		int showplanet = 0;
+
+		While (TRUE)
+		{
+			Thing_Activate(3);
+			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
+			For (int i = 0.0; i <= 1.0; i += 0.1)
+			{
+				SetActorProperty(2, APROP_Alpha, i);	
+				Delay(1);
+			}
+			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
+			Delay(35 * 2);
+
+			SetActorAngle(1, 0.2);
+			Thing_Activate(4);
+			Delay(35 * 2);
+
+			ChangeCamera(8, 1, 1);
+			Thing_Activate(5);
+			Delay(35 * 3);
+
+			ChangeCamera(6, 1, 1);
+			Delay(35* 6);
+
+			ChangeCamera(7, 1, 1);
+			Delay(35 * 4);
+
+			SetActorAngle(1, 0.25);
+			ChangeCamera(1, 1, 1);
+
+			//Title
+			If (showplanet == 0)
+			{
+				SetFont("Credits1");
+				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 5.0, 2.286, 0.0);
+			}
+
+			Thing_Activate(3);
+			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
+			For (i = 0.0; i <= 1.0; i += 0.1)
+			{
+				SetActorProperty(2, APROP_Alpha, i);	
+				Delay(1);
+			}
+			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
+
+			Delay(35 * 7);
+			If (showplanet == 0)
+			{
+//				SetFont("CreditsA");
+//				HudMessage(s:"A"; 0, 1000, 0, 512.0, 384.0, 0.0);
+			}
+
+			Delay(1);
+			If (showplanet == 0)
+			{
+//				SetFont("CreditsB");
+//				HudMessage(s:"A"; 0, 1000, 0, 512.0, 384.0, 0.0);
+			}
+
+			Delay(1);
+			If (showplanet == 0)
+			{
+//				SetFont("CreditsC");
+//				HudMessage(s:"A"; 0, 1000, 0, 512.0, 384.0, 0.0);
+			}
+
+			//Roddenberry
+			If (showplanet == 0)
+			{
+				SetFont("Credits2");
+				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 7.0, 2.0, 0.0);
+			}
+
+			Delay(33 + 35);
+
+			Thing_Activate(9);
+			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
+			For (i = 0.0; i <= 1.0; i += 0.1)
+			{
+				SetActorProperty(2, APROP_Alpha, i);	
+				Delay(1);
+			}
+			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
+			Delay(35 * 9);
+
+			//Shatner
+			If (showplanet == 0)
+			{
+				SetFont("Credits3");
+				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 3.0, 2.0, 0.0);
+			}
+
+			Thing_Activate(3);
+			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
+			For (i = 0.0; i <= 1.0; i += 0.1)
+			{
+				SetActorProperty(2, APROP_Alpha, i);	
+				Delay(1);
+			}
+			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
+			Delay(35 * 5);
+
+			//Nimoy
+			If (showplanet == 0)
+			{
+				SetFont("Credits4");
+				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 2.0, 2.0, 0.0);
+			}
+
+			Thing_Activate(9);
+			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
+			For (i = 0.0; i <= 1.0; i += 0.1)
+			{
+				SetActorProperty(2, APROP_Alpha, i);	
+				Delay(1);
+			}
+			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
+			Delay(35 * 4);
+
+			//Kelley
+			If (showplanet == 0)
+			{
+				SetFont("Credits5");
+				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 2.0, 2.0, 0.0);
+			}
+
+			SetMusic("*", 0);
+
+			Delay(35 * 10);
+
+			Switch (showplanet % 4)
+			{
+				Case 3:
+					SetActorState(20, "Spawn");
+				break;
+				Case 2:
+					SetActorState(20, "Hidden");
+				break;
+				Case 1:
+					SetActorState(20, "Shuttle");
+				break;
+				Case 0:
+					SetActorState(20, "Station");
+				break;
+			}
+
+			showplanet++;
+		}
+	}
+	Else
+	{
+		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Test") == 0)
+		{
+			Thing_Activate(5);
+		}
+	}
+
+	ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);
+	SetCameraToTexture(553, "SHU_CAM", 85);
+}
+
+Script "W_LevelReturn" RETURN
+{
+	Delay(35);
+	ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);
+}
+
+Script "W_RadarZoomIn" (void)
+{
+	mapZoom++;
+	If (mapZoom >= maxMapZoom) mapZoom = maxMapZoom - 1;
+}
+
+Script "W_RadarZoomOut" (void)
+{
+	mapZoom--;
+	If (mapZoom < 1) mapZoom = 1;
+}
+
+Script "W_PlayerLoop" ENTER
+{
+	If (CheckInventory("Charge") < GetAmmoCapacity("Charge") && CheckInventory("PhaserType1"))
+	{
+		If (ReloadCount == 8)
+		{
+			GiveInventory("Charge", 1);
+			ReloadCount = 0;
+		}
+		Else
+			ReloadCount++;
+	}
+
+	If (CheckInventory("Tricorder"))
+	{
+		int scale = 0;
+		int hud = 1;
+
+		int HUDX = GetScreenWidth();
+		int HUDY = GetScreenHeight();
+
+		SetHudSize(HUDX, HUDY, 1);
+
+		If(StrIcmp(GetWeapon(), "Tricorder") == 0)
+		{
+			ACS_NamedExecute("PrintScan", 0, 0);
+		}
+		Else
+		{
+			HudMessage(s:""; 0, 1003, 0, 0, 0, 0);
+			HudMessage(s:""; 0, 1002, 0, 0, 0, 0);
+			HudMessage(s:""; 0, 1001, 0, 0, 0, 0);
+
+			ACS_NamedExecute("PrintScan", 0, 1);
+		}
+
+		scale = maxMapZoom - mapZoom;
+
+		DrawRadar(0, scale, mapX, mapY, mapRadius * scale, hud);
+	}
+	Else
+	{
+		DrawRadar(0, 0, 0, 0, 0, 0);
+	}
+
+	If (!Flight)
+	{
+		DoMovement();
+
+		If (GetPlayerInput(-1, INPUT_BUTTONS) & BT_USER1)
+			ACS_NamedExecute("Lean", 0, -750);
+		Else If (GetPlayerInput(-1, INPUT_BUTTONS) & BT_USER2)
+			ACS_NamedExecute("Lean", 0, 750);		
+		Else
+		{
+			ACS_NamedExecute("Lean", 0, 0);
+			SetSideLean();
+		}
+	}
+
+	int intHealth = GetActorProperty(0, APROP_Health);
+
+	If (bAutoHeal && intHealth < 100)
+	{
+		intHealTimer--;
+
+		If (intHealTimer <= 0)
+		{		
+			int intHealRate = intMaxStress - intStress;
+			int intHealModRate = 35;
+
+			If(intHealth > 0)
+			{
+				GiveInventory("Health", 1);
+				intHealModRate = 100 * intHealModRate / intHealth;
+			}
+			intHealTimer = intHealModRate + (14 * intStress);
+
+			If (intHealTimer > 350) intHealTimer = 350;
+		}
+	}
+
+	Delay(1);
+	Restart;
+}
+
+Script "SetStress" (int intInput)
+{
+	intStress = intInput;
+}
+
+int intLeanCount;
+
+Function int SetSideLean(void)
+{
+	int intAmt, intDir, intCurRoll, intCurDir, intSpeed, intMaxLean;
+
+	intSpeed = VectorLength(GetActorVelX(0), GetActorVelY(0));
+
+	intMaxLean = intSpeed / 1.0 * 40;
+
+	intCurRoll = GetActorRoll(0);
+
+	If (intCurRoll > 0)
+		intCurDir = 1;
+	Else If (intCurRoll < 0)
+		intCurDir = -1;
+
+	If (GetPlayerInput(-1, INPUT_SIDEMOVE))
+		If (intLeanCount < intMaxLean) intLeanCount = intLeanCount + 20;
+
+	If ((GetPlayerInput(-1, INPUT_SIDEMOVE) > 0) && intCurDir >= 0)
+		intDir = 1;
+	Else If ((GetPlayerInput(-1, INPUT_SIDEMOVE) < 0) && intCurDir <= 0)
+		intDir = -1;
+
+	If (intDir == 0 || Abs(intCurRoll) > intMaxLean)
+	{
+		If (intLeanCount > 0)
+			intLeanCount = intLeanCount - 40;
+		Else
+			intLeanCount = 0;
+	}
+
+	If (intDir != 0 && Abs(intCurRoll) <= intMaxLean)
+		intAmt = intDir * intLeanCount;
+	Else
+	{
+		If (intCurDir > 0)
+			intAmt = intLeanCount;
+		Else If (intCurDir < 0)
+			intAmt = -intLeanCount;
+		Else
+			intAmt = 0;
+	}
+
+	return ChangeActorRoll(0, intAmt, TRUE);
+}
+
+str strState = "";
+int Active = 0;
+
+Function void DoMovement (void)
+{
+	If (GetActorProperty(0, APROP_Health) <= 0)
+	{
+		return;
+	}
+
+	int intX, intY, intZ, intSpeed, intVelZ, intForward, intTurn, intCrouch;
+		
+	intX = GetActorVelX(0);
+	intY = GetActorVelY(0);
+	intZ = GetActorVelZ(0);
+
+	intSpeed = FixedMul(intX, intX) + FixedMul(intY, intY) + FixedMul(intZ, intZ);
+
+	intForward = GetPlayerInput(-1, MODINPUT_FORWARDMOVE);
+	intTurn = GetPlayerInput(-1, MODINPUT_BUTTONS) & (BT_LEFT | BT_RIGHT);
+	intCrouch = GetActorProperty(0, APROP_Height) < 64.0;
+
+	intVelZ = intZ >> 16;
+
+	str strStateModifier = "";
+	str strWeaponClass = "";
+	str strOldState = strState;
+
+	str strWeapon = GetWeapon();
+
+	If (	StrICmp(strWeapon, "PhaserType1") == 0 ||
+		StrICmp(strWeapon, "PhaserType2") == 0 ||
+		StrICmp(strWeapon, "Disruptor") == 0)
+	{
+		SetUserVariable(0, "user_weaponclass", 1);
+	}
+	Else If (StrICmp(strWeapon, "PhotonGrenadeLauncher") == 0)
+	{
+		strWeaponClass = "2";
+		SetUserVariable(0, "user_weaponclass", 3);
+	}
+	Else
+	{
+		strWeaponClass = "2";
+		SetUserVariable(0, "user_weaponclass", 2);
+	}
+
+	If (intCrouch) strStateModifier = "Crouch.";
+	SetUserVariable(0, "user_crouch", intCrouch);
+
+	If (GetActorProperty(0, APROP_Waterlevel) >= 2) strStateModifier = "Swim.";
+
+	If (intVelZ != 0)
+	{
+		If (GetUserVariable(0, "user_climb"))
+		{
+			If (intVelZ >= 0)
+				strState = "Climb.Up";
+			Else
+				strState = "Climb.Down";
+		}
+		Else If (abs(intVelZ) > 6)
+			strState = "Jump";
+	}
+	Else If (intSpeed != 0)
+	{
+		If (intForward < 0)
+			strState = strParam(s:strStateModifier, s:"Walk.Back");
+		Else If (intForward >= 0)
+		{
+			If (intSpeed > 42.0)
+				strState = strParam(s:strStateModifier, s:"Run", s:strWeaponClass);
+			Else
+				strState = strParam(s:strStateModifier, s:"Walk", s:strWeaponClass);
+		}
+	}
+	Else
+	{
+		If (intTurn)
+			strState = strParam(s:"Turn", s:strWeaponClass);
+		Else
+			strState = strParam(s:"Stand", s:strWeaponClass);
+//			strState = "Spawn";
+
+		strState = strParam(s:strStateModifier, s:strState);
+	}
+
+	//Only change the state if it needs to change...
+	If (((StrICmp(strState, strOldState) != 0) && !GetUserVariable(0, "user_active")) || GetUserVariable(0, "user_forcestatechange"))
+	{
+		SetActorState(0, strState);
+	}
+/*
+	If ((intForward < -1) &&
+		!GetUserVariable(0, "user_back") &&
+		!GetUserVariable(0, "user_active"))
+	{
+		SetActorState(0, "WalkBack");
+		SetUserVariable(0, "user_back", 1);
+		SetUserVariable(0, "user_spawn", 0);
+	}
+	Else If ((!intForward && intTurn) && 
+		!GetUserVariable(0, "user_back") &&
+		!GetUserVariable(0, "user_active"))
+	{
+		SetActorState(0, "Turn");
+		SetUserVariable(0, "user_back", 0);
+		SetUserVariable(0, "user_spawn", 0);
+	}
+	Else If ((intForward > 1) &&
+		(intSpeed > 21.0) &&
+		!GetUserVariable(0, "user_back") &&
+		!GetUserVariable(0, "user_active"))
+	{
+		SetActorState(0, "Run");
+		SetUserVariable(0, "user_back", 1);
+		SetUserVariable(0, "user_spawn", 0);
+	}
+	Else If ((intForward > 1) &&
+		!GetUserVariable(0, "user_back") &&
+		!GetUserVariable(0, "user_active"))
+	{
+		SetActorState(0, "Walk");
+		SetUserVariable(0, "user_back", 1);
+		SetUserVariable(0, "user_spawn", 0);
+	}
+	Else If (intSpeed == 0 && !intTurn && !GetUserVariable(0, "user_active") && !GetUserVariable(0, "user_spawn"))
+	{
+		SetActorState(0, "Spawn");
+		SetUserVariable(0, "user_back", 0);
+		SetUserVariable(0, "user_spawn", 1);
+	}
+
+	If (!GetUserVariable(0, "user_active"))
+	{
+		If (intVelZ != 0)
+		{
+			If (GetUserVariable(0, "user_climb"))
+				SetActorState(0, "Climb");
+			Else
+				SetActorState(0, "Jump");
+			SetUserVariable(0, "user_active", 1);
+		}
+		Else If (intVelZ < 0)
+		{
+			If (GetUserVariable(0, "user_climb"))
+				SetActorState(0, "Climb");
+			Else
+				SetActorState(0, "Jump.Loop");
+			SetUserVariable(0, "user_active", 1);
+		}
+	}
+
+	If (GetActorProperty(0, APROP_Waterlevel) >= 2 && !GetUserVariable(0, "user_active"))
+	{
+		SetActorState(0, "Swim");
+		SetUserVariable(0, "user_active", 1);
+	}
+
+	If (GetActorProperty(0, APROP_Height) < 64.0 && !GetUserVariable(0, "user_active"))
+	{
+		SetActorState(0, "Crouch");
+		SetUserVariable(0, "user_crouch", 1);
+		SetUserVariable(0, "user_active", 1);
+	}
+	Else If (GetActorProperty(0, APROP_Height) >= 64.0)
+	{
+		SetUserVariable(0, "user_crouch", 0);
+	}
+*/
+	If (intVelZ == 0)
+	{
+		SetActorVelocity(0, GetActorVelX(0) * 8 / 10, GetActorVelY(0) * 8 / 10, 0, 0, 1);
+
+		//Decrease speed with lower health
+	 	int intNewSpeed = 1.0 + (GetActorProperty(0, APROP_Health) * 0.5 / 100);
+
+		//Increase speed with stress level/adrenaline
+		If (intStress > 0)
+			intNewSpeed += (intStress * intNewSpeed / 4) / intMaxStress;
+
+		If (intNewSpeed > 1.9) intNewSpeed = 1.9;
+		SetActorProperty(0, APROP_Speed, intNewSpeed);
+	}
+	Else
+		SetActorProperty(0, APROP_Speed, 1.0);
+}
+
+Script "Lean" (int intDir)
+{
+	If (GameType() == GAME_TITLE_MAP) Terminate;
+
+	int camTID = 90000 + PlayerNumber();
+	int PlayerTID = 1001 + PlayerNumber();
+
+	int intHeightOffset;
+
+/*
+	If (GetActorProperty(PlayerTID, APROP_Height) < GetActorProperty(PlayerTID, APROP_ViewHeight))
+		intHeightOffset = GetActorProperty(PlayerTID, APROP_ViewHeight) / 2;
+	Else
+*/
+	intHeightOffset = GetActorProperty(PlayerTID, APROP_Height);
+
+	If (intHeightOffset < 64.0) intHeightOffset += 20.0;
+
+	Spawn("LeanCam", 0, 0, 0, camTID, GetActorAngle(0) >> 8);
+	SetUserVariable(camTID, "user_ZHeight", intHeightOffset / 1.0);
+
+	ChangeActorRoll(camTID, intDir, TRUE);
+
+	SetActivator (camTID);
+	SetPointer (AAPTR_MASTER, PlayerTID);
+
+	ChangeCamera(camTID, 0, 1);
+	SetActorPitch(camTID, GetActorPitch(PlayerTID));
+
+	If (intDir > 0)
+		SetActorState(camTID, "Right");
+	Else If (intDir < 0)
+		SetActorState(camTID, "Left");
+	Else
+	{
+		ChangeCamera(0, 0, 1);
+		Thing_Remove(camTID);
+	}
+}
+
+Script "A_Disintegrate" (void)
+{
+	If (ActivatorTID() == 0) Thing_ChangeTID(0, UniqueTID());
+
+	If (CheckInventory("Health") <= 0 && !GetActorProperty(0, APROP_Invulnerable))
+	{
+		SetActorProperty(0, APROP_Invulnerable, 1);
+		SetActorProperty(0, APROP_NoTarget, 1);
+		SetActorProperty(0, APROP_StencilColor, 2620994);
+		SetActorProperty(0, APROP_Alpha, 1.0);
+		SetActorProperty(0, APROP_RenderStyle, STYLE_TranslucentStencil);
+
+		For (int d= 0; d <= 100; d = d + 5)
+		{
+			SetActorState(0, "Pain");
+			SetActorProperty(0, APROP_Alpha, 1.0 - (d * 0.01));
+			Delay (1);
+		}
+
+//		SetActorProperty(0, APROP_Invulnerable, 0);
+
+		SetActorState(0, "Death");
+		Thing_Destroy(ActivatorTID());
+	}
+}
+
+Script "A_Stun" (int time)
+{
+	int actor_health;
+
+	If (ActivatorTID() == 0) Thing_ChangeTID(0, UniqueTID());
+
+	actor_health = CheckInventory("Health");
+
+	If (actor_health <= 50 && actor_health > 0)
+	{
+		If (time == 0) time = 10;
+
+		Thing_Destroy(ActivatorTID());
+
+		Delay(35 * time);
+
+		Thing_Raise(ActivatorTID());
+		Thing_ChangeTID(0, 0);
+		SetActorProperty(0, APROP_Health, actor_health);
+		SetActorState(0, "Spawn");
+	}
+}
+
+Script "A_Transport" (int Fade, int BeamDir)
+{
+	SetActivatorToTarget(0);
+
+//	SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
+
+	If (BeamDir != 1)
+	{
+		SpawnForced("TransporterEffect", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
+		If (Fade) FadeRange (0, 0, 0, 0, 250, 234, 149, 1.0, 3.0);
+		SetActorProperty(0, APROP_Alpha, 1.0);
+
+		For (int out = 100; out >= 0; out = out - 1)
+		{
+			SetActorProperty(0, APROP_Alpha, out * 0.01);
+			Delay (1);
+		}
+	}
+
+	If (BeamDir > 1) Delay(35);
+
+	If (BeamDir > 0)
+	{
+		SpawnForced("TransporterEffect2", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
+		If (Fade) FadeRange (250, 234, 149, 1.0, 0, 0, 0, 0, 3.0);
+		SetActorProperty(0, APROP_Alpha, 0);
+
+		For (int in = 0; in <= 100; in = in + 1)
+		{
+			SetActorProperty(0, APROP_Alpha, in * 0.01);
+			Delay (1);
+		}
+		SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
+//		SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+	}
+}
+
+Script "A_AmmoStation" (int intType, int intAmt)
+{
+	If (intAmt <= 0) Terminate;
+
+	str strType, strWeapon;
+
+	SetActivatorToTarget(0);
+
+	Switch (intType)
+	{
+		Case 1:
+			strWeapon = "PhaserRifle";
+			strType = "RifleCharge";
+		break;
+		default:
+			strWeapon = "Disruptor";
+			strType = "DisruptorCharge";
+		break;
+	}
+
+	If (CheckInventory(strWeapon))
+	{
+		int intNeededToMax = GetAmmoCapacity(strType) - CheckInventory(strType);
+
+		If (intNeededToMax > 0)
+		{
+			int intModAmt = intNeededToMax % intAmt;
+
+			If (intModAmt == 0) intModAmt = intAmt;
+
+			GiveInventory(strType, intModAmt);
+			SetResultValue(intModAmt);
+		}
+		Else
+			SetResultValue(0);
+	}
+	Else
+	{
+		GiveInventory(strWeapon, 1);
+		SetWeapon(strWeapon);
+		SetResultValue(-1);
+	}
+}
+
+Script "ToggleFly" (int EnterExit, int Angle)
+{
+	If (PlayerNumber() < 0) Terminate;
+
+	If (EnterExit)
+	{
+		SetPlayerProperty (0, 1, PROP_FLY);
+		SetUserVariable(0, "user_climb", 1);
+/*
+		If (Angle)
+			SetActorAngle(0, Angle * 1.0 / 360);
+*/
+	}
+	Else
+	{
+		SetPlayerProperty (0, 0, PROP_FLY);
+		SetUserVariable(0, "user_climb", 0);
+	}
+}
+
+Function int WolfCoord(int intCoord)
+{
+	int intOriginal = intCoord;
+	int intReturn = 0;
+
+	intCoord = intCoord / 64.0;
+
+	intCoord = intCoord + 64;
+
+	return intCoord;
+}
+
+Script "A_CheckFrightened" (void)
+{
+	int Afraid = (GetUserVariable(0, "user_Ammo") <= 0) || (GetActorProperty(0, APROP_Health) <= GetUserVariable(0, "user_Health") >> 1);
+
+	If (Afraid)
+	{
+		If (CheckActorProperty(0, APROP_Frightened, 0))
+		{
+			SetActorProperty(0, APROP_Frightened, 1);
+			SetActorProperty(0, APROP_Speed, (GetActorProperty(0, APROP_Speed) * 2));
+			SetActorProperty(0, APROP_ReactionTime, 0x7fffffff);
+		}
+	}
+	Else
+	{
+		If (CheckActorProperty(0, APROP_Frightened, 1))
+		{
+			SetActorProperty(0, APROP_Frightened, 0);
+			SetActorProperty(0, APROP_Speed, (GetActorProperty(0, APROP_Speed) / 2));
+			SetActorProperty(0, APROP_ReactionTime, 8);
+		}
+	}
+}
+
+Script "Intro" (void)
+{
+	SetHudsize(1024, 768, 1);
+/*
+	SetFont("STARFLD");
+	HudMessage(s:"A"; HUDMSG_PLAIN, 200, CR_UNTRANSLATED, 0.5, 0.5, 0.0);
+*/
+
+	int warpfield = 1;
+
+	int entx = 512;
+	int enty = 384;
+
+	int size = 1000;
+
+	int baseid = 101;
+
+	While (warpfield)
+	{
+/*
+		entx = FixedMul (entx, 0.99);
+		enty = FixedMul (enty, 0.99);
+
+		int centx = entx * 2;
+		int centy = enty * 2;
+
+		SetHudsize(centx, centy, 1);
+		SetFont("ENTFRNTA");
+		HudMessage(s:"A"; HUDMSG_PLAIN, 99, CR_UNTRANSLATED, centx / 2 * 1.0, centy / 2 * 1.0, 0.0);
+
+		If (entx <= 300) ACS_NamedExecute("ScalePlanet", 0, enty * 2);
+
+		If (entx <= 256) warpfield = 0;
+*/
+		ACS_NamedExecuteAlways("ScaleStars", 0, baseid, size, 1);
+		baseid++;
+		If (baseid > 104 /*119*/)
+		{
+			baseid = 100;
+		}
+		Delay(20 /*5*/);
+	}
+/*
+	SetHudsize(1280, 1024, 1);
+	SetFont("Logo");
+	HudMessage(s:"A"; HUDMSG_FADEINOUT, 97, CR_UNTRANSLATED, 640.0, 100.1, 0.0, 1.0, 0.0);
+	SetFont("BIGFONT");
+	HudMessage(s:"A Doom Total Conversion"; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 96, "TOSMenuGold", 1180.2, 924.2, 0.0, 1.0, 0.0);
+	Delay(35);
+	SetFont("Logo");
+	HudMessage(s:"A"; HUDMSG_PLAIN, 97, CR_UNTRANSLATED, 640.0, 100.1, 0.0);
+	SetFont("BIGFONT");
+	HudMessage(s:"A Doom Total Conversion"; HUDMSG_PLAIN | HUDMSG_COLORSTRING, 96, "TOSMenuGold", 1180.2, 924.2, 0.0);
+*/
+}
+
+Script "ScaleStars" (int id, int size, int dir)
+{
+	int width, height, start;
+
+	if (dir == 0) dir = 1;
+
+	If (dir == -1)
+	{
+		width = 0;
+		height = 0;
+		start = size;
+	}
+	else
+	{
+		width = size * 4 / 3;
+		height = size;
+		start = 1;
+	}
+
+	str image = StrParam(s:"STARS",d:random(1,4));
+
+	SetFont(image);
+
+	int steps = size / 10;
+
+	For (int i = 0; i <= steps; i++)
+	{
+		SetHudsize(width - (i * 4 / 3 * dir * 10), height - (i * dir * 10), 1);
+		HudMessage(s:"A"; HUDMSG_PLAIN, id, CR_UNTRANSLATED, (width - (i * 4 / 3 * dir * 10)) / 2 * 1.0, (height - i * dir * 10) / 2 * 1.0, 0.0);
+		delay(1);
+	}
+	HudMessage(s:""; 0, id, 0, 0, 0, 0);
+}
+
+Script "ScalePlanet" (int size)
+{
+	int planetoffset = 0;
+
+	While (planetoffset <= 239)
+	{
+		SetHudsize(size * 4 / 3, size, 1);
+
+		int planx = (size * 4 / 3) - (planetoffset * 4 / 3);
+		int plany = size - planetoffset;
+			
+		SetFont("PLANET");
+		HudMessage(s:"A"; HUDMSG_PLAIN, 98, CR_UNTRANSLATED, planx * 1.0 + 0.1, plany * 1.0 + 0.1, 0.0);
+
+		planetoffset += 1;
+		delay(1);
+	}
+}
+
+Script "GetTargetTID" (void)
+{
+	SetActivator(0, AAPTR_PLAYER_GETTARGET);
+	int TID = ActivatorTID();
+
+	If (TID == 0) 
+	{
+		TID = UniqueTID(20000);
+		Thing_ChangeTID(0, TID);
+	}
+
+	SetResultValue (ActivatorTID());
+}
+
+Script "PrintInfo" (void)
+{
+	int TID = ACS_NamedExecuteWithResult("GetTargetTID", 0);
+
+	If (TID != 0)
+	{
+		int Height = GetActorProperty(TID, APROP_Height);
+		int Radius = GetActorProperty(TID, APROP_Radius);
+
+		int Mass = GetActorProperty(TID, APROP_Mass);
+
+		int Health = GetActorProperty(TID, APROP_Health);
+		int SpawnHealth = GetActorProperty(TID, APROP_SpawnHealth);
+		int Friend = GetActorProperty(TID, APROP_Friendly);
+		int Class = GetActorProperty(TID, APROP_NameTag);
+/*
+		If (!CheckFlag(TID, "SOLID"))
+		{
+			Height = Height / 1.0 * GetActorProperty(TID, APROP_ScaleY);
+			Radius = Radius / 1.0 * GetActorProperty(TID, APROP_ScaleX);
+		}
+		Else
+		{
+*/
+			If (GetUserVariable(TID, "user_height") > 0) Height = GetUserVariable(TID, "user_height") * 1.0;
+			If (GetUserVariable(TID, "user_width") > 0) Radius = (GetUserVariable(TID, "user_width") / 2) * 1.0;
+//		}
+
+		If (StrICmp(Right(Class, 5), "Radar") == 0)
+			Class = Left(Class, StrLen(Class) - 5);
+
+		int x = GetActorX(tid) - GetActorX(0);
+		int y = GetActorY(tid) - GetActorY(0); 
+
+		int vang = VectorAngle(x,y);
+		int ang = (vang - GetActorAngle(0) + 1.0) % 1.0;
+
+		int dist = 0;
+		if(((vang+0.125)%0.5) > 0.25) dist = FixedDiv(y, sin(vang));
+		else dist = FixedDiv(x, cos(vang));
+
+		If (Friend)
+			Class = StrParam(s:"\c[TOSBrightGreen]", s:Class);
+		Else If (SpawnHealth != 1000)
+			Class = StrParam(s:"\c[TOSBrightRed]", s:Class);
+		Else
+			Class = StrParam(s:"\c[TOSBrightBlue]", s:Class);
+
+		str Titles = StrParam(	s:Class, s:"\n",
+					s:"\n",
+					s:"\c[TOSBrightWhite]", s:"Height:\n",
+					s:"\c[TOSBrightWhite]", s:"Width:\n",
+					s:"\c[TOSBrightWhite]", s:"Distance:\n"
+					);
+
+		str Data = StrParam(	s:"\n",
+					s:"\n",
+					s:"\c[TOSMenuLightGold]", s:Metric(Height, 3), s:"m\n",
+					s:"\c[TOSMenuLightGold]", s:Metric(Radius * 2, 3), s:"m\n",
+					s:"\c[TOSMenuLightGold]", s:Metric(dist / 3, 3), s:"m\n"
+					);
+
+		If (Mass < 999999)
+		{
+			Titles = StrParam(s:Titles, 
+					s:"\n",
+					s:"\c[TOSBrightWhite]", s:"Mass:\n"
+					);
+
+			Data = StrParam(s:Data, 
+					s:"\n",
+					s:"\c[TOSMenuLightGold]", d:FixedMul(Mass * 1.0, 0.85) / 1.0, s:"kg\n"
+					);
+		}
+
+		If (!GetActorProperty(TID, APROP_Invulnerable))
+		{
+			Titles = StrParam(s:Titles, 
+					s:"\c[TOSBrightWhite]", s:"Health:"
+					);
+
+			Data = StrParam(s:Data, 
+					s:"\c[TOSMenuLightGold]", d:Health * 100 / SpawnHealth, s:"%"
+					);
+		}
+
+		//HudMessageOnActor(TID, ScanRange, Data, Height / 2, Radius, "CONFONT");
+/*
+		int HUDX = 640 * 8;
+		int HUDY = 400 * 8;
+*/
+		int HUDX = 640;
+		int HUDY = 400;
+
+		SetHudSize(HUDX, HUDY, 1);
+		SetFont("SMALLFNT");
+//		SetFont("ARI48");
+		//HudMessage(s:Data; HUDMSG_TYPEON, 1000, CR_UNTRANSLATED, (HUDX / 2 - HUDX / 6) * 1.0 + 0.1, (HUDY - (HUDY / 4)) * 1.0 + 0.1, 1.0, 0.02, 1.5);
+		HudMessage(s:Titles; HUDMSG_FADEINOUT, 1000, CR_UNTRANSLATED, (HUDX / 2 - HUDX / 7) * 1.0 + 0.1, (HUDY - (HUDY * 3 / 11)) * 1.0 + 0.1, 0.1, 0, 0.5);
+		HudMessage(s:Data; HUDMSG_FADEINOUT, 998, CR_UNTRANSLATED, (HUDX / 2) * 1.0 + 0.2, (HUDY - (HUDY * 3 / 11)) * 1.0 + 0.1, 0.1, 0, 0.5);
+	}
+}
+
+Script "PrintScan" (int filter)
+{
+	int TID = ACS_NamedExecuteWithResult("GetTargetTID", 0);
+
+	If (TID != 0)
+	{
+		If (GetCVar("debug") > 0)
+		{
+			HudMessageOnActor(TID, ScanRange, GetActorClass(TID), 0, 0, "SUPBOLAA", 3);
+		}
+
+		int Height = GetActorProperty(TID, APROP_Height);
+		int Radius = GetActorProperty(TID, APROP_Radius);
+/*
+		If (!CheckFlag(TID, "SOLID"))
+		{
+			Height = Height / 1.0 * GetActorProperty(TID, APROP_ScaleY);
+			Radius = Radius / 1.0 * GetActorProperty(TID, APROP_ScaleX);
+		}
+		Else
+		{
+*/
+			If (GetUserVariable(TID, "user_height") > 0) Height = GetUserVariable(TID, "user_height") * 1.0;
+			If (GetUserVariable(TID, "user_width") > 0) Radius = (GetUserVariable(TID, "user_width") / 2) * 1.0;
+//		}
+
+		If (CheckFlag(TID, "USESPECIAL") && GetUserVariable(TID, "user_uses") > 0)
+		{
+			int SpawnHealth = GetActorProperty(TID, APROP_SpawnHealth);
+			int Friend = GetActorProperty(TID, APROP_Friendly);
+			int Class = GetActorProperty(TID, APROP_NameTag);
+
+			If (Friend)
+				Class = StrParam(s:"\c[TOSBrightGreen]", s:Class);
+			Else If (SpawnHealth != 1000)
+				Class = StrParam(s:"\c[TOSBrightRed]", s:Class);
+			Else
+				Class = StrParam(s:"\c[TOSBrightGold]", s:Class);
+
+			HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "ScanA", 1);
+			HudMessageOnActor(TID, ScanRange, Class, Height, Radius, "SUPBOLAA", 2);
+//			HudMessageOnActor(TID, ScanRange, Class, Height, Radius, "CENTG_X", 2);
+		}
+		Else If (filter == 0)
+			HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "Scan", 1);
+	}
+}
+
+Function void HudMessageOnActor(int tid, int Range, str text, int Height, int Radius, str Font, int scale)
+{
+	int dist, ang, vang, pitch, x, y, multiplierX, multiplierY;
+	int HUDX = 1024;
+	int HUDY = 768;
+	int ratio = 1.0;
+
+	x = GetActorX(tid) - GetActorX(0);
+	y = GetActorY(tid) - GetActorY(0); 
+
+	vang = VectorAngle(x,y);
+	ang = (vang - GetActorAngle(0) + 1.0) % 1.0;
+
+	if(((vang+0.125)%0.5) > 0.25) dist = FixedDiv(y, sin(vang));
+	else dist = FixedDiv(x, cos(vang));
+
+	If (scale > 0)
+	{
+		HUDX = HUDX * scale;
+		HUDY = HUDY * scale;
+
+//		multiplierX = FixedMul(dist / Range, Radius);
+//		multiplierY = FixedMul(dist / Range, Height / 2);
+//		multiplierX = (dist - (Radius * 2 * 3)) / 1.0 + 32.0;
+//		multiplierY = FixedMul(1.0 - (dist / Range), Height);
+//		multiplierX = (dist - (Radius * 2 * 3)) / 1.0;
+//		multiplierY = (dist - (Height * 2)) / 1.0;
+//		multiplierX = Range * 1.0 / dist * Radius / 8;
+//		multiplierY = Range * 1.0 / dist * (Height / 2) / 8;
+//		multiplierX = 1.0 - (Range * Radius 	/ dist * 1.0);
+//		multiplierY = 1.0 - (Range * Height 	/ dist * 0.5);
+//		multiplierX = (Range * 1.0 / (dist - (Radius * 2 / 2))) * 1.0;
+//		multiplierY = (Range * 1.0 / (dist - Height / 2)) * 1.0;
+
+		If (dist / 1.0 < Range)
+		{
+			ratio = scale * (Range * 1.0 - dist) / Range;
+//			multiplierX = ((Range * 1.0 - dist) / Range * 32) / 1.0;
+			multiplierX = ratio * (((Range - dist / 1.0) + ((Radius / 1.0) * 512)) / (dist / 1.0));
+			multiplierY = ratio * (((Range - dist / 1.0) + ((Height / 1.0) * 256)) / (dist / 1.0));
+//			multiplierY = ratio * (((Range * 1.0 - dist) + Height * 256) / dist);
+		}
+		If (multiplierX < 24.0) multiplierX = 24.0;
+		If (multiplierY < 24.0) multiplierY = 24.0;
+	}
+//	HUDX = HUDX + multiplierX;
+//	HUDY = HUDY + multiplierY;
+
+	SetHudSize(HUDX, HUDY, 1);
+
+	if ((ang < 0.2 || ang > 0.8) && (dist >> 16 < Range/* && dist >> 16 > 64*/))
+	{
+		int Zdist = (GetActorZ(tid) + Height / 2) - (GetActorZ(0) + GetActorProperty(0, APROP_Height)); 
+ /*
+		If (!CheckFlag(TID, "SOLID"))
+		{
+			Zdist = Zdist - Height;
+		}
+*/
+		pitch = VectorAngle(dist, Zdist);
+		pitch = (pitch + GetActorPitch(0) + 1.0) % 1.0;
+
+		if(getactorpitch(0) >= -16200 && getactorpitch(0) <= 16200)
+		{
+			x = HUDX/2 - ((HUDX/2) * sin(ang) / cos(ang));
+			y = HUDY/2 - ((HUDX/2) * sin(pitch) / cos(pitch));
+		}
+
+		If (scale == 1)
+		{
+			SetFont(StrParam(s:Font,s:"_TL"));
+			HudMessage(s:text; HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP, 1005, CR_UNTRANSLATED, (x << 16) - multiplierX, (y << 16) - multiplierY, 0.1);
+
+			SetFont(StrParam(s:Font,s:"_TR"));
+			HudMessage(s:text; HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP, 1006, CR_UNTRANSLATED, (x << 16) + multiplierX, (y << 16) - multiplierY, 0.1);
+
+			SetFont(StrParam(s:Font,s:"_BL"));
+			HudMessage(s:text; HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP, 1007, CR_UNTRANSLATED, (x << 16) - multiplierX, (y << 16) + multiplierY, 0.1);
+
+			SetFont(StrParam(s:Font,s:"_BR"));
+			HudMessage(s:text; HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP, 1008, CR_UNTRANSLATED, (x << 16) + multiplierX, (y << 16) + multiplierY, 0.1);
+		}
+		Else
+		{
+			SetFont(Font);
+			HudMessage(s:text; HUDMSG_LAYER_UNDERHUD | HUDMSG_NOTWITHFULLMAP, 1007 + scale, CR_UNTRANSLATED, (x << 16), (y << 16) - multiplierY - 96.0, 0.1);
+		}
+	}
+}
+
+Script "OverheadCam" (void)
+{
+	int CamTID = 30000 + PlayerNumber();
+
+	int x, y, z, oldZ, angle, fov;
+	int offset = 32.0;
+	int minZ = 90.0 + offset;
+	int maxZ = 512.0;
+
+	int maxFOV= 120;
+
+	While (TRUE)
+	{
+		x = GetActorX(0);
+		y = GetActorY(0);
+		z = GetActorCeilingZ(0) - offset;
+		angle = GetActorAngle(0);
+
+		If (abs(oldZ - z) < offset) z = oldZ;
+
+		If (z > GetActorZ(0) + maxZ) z = GetActorZ(0) + maxZ;
+		If (z < GetActorZ(0) + minZ) z = GetActorZ(0) + minZ;
+
+		fov = maxFOV - (maxFOV * Exp(2, mapZoom - 1) / 1.0); //(120 * FixedDiv(z, GetActorZ(0) + maxZ)) / 1.0;
+
+		If (!ThingCountName ("ChaseCam", CamTID))
+		{
+			Spawn ("ChaseCam", x, y, 100.0, CamTID, angle >> 8);
+
+			If (ThingCountName ("ChaseCam", CamTID))
+			{
+				int PlayerTID = 1001 + PlayerNumber();
+				SetActorPitch (CamTID, 64 << 8);
+				SetActivator (CamTID);
+				SetPointer (AAPTR_MASTER, PlayerTID);
+			}
+		}
+		Else
+		{
+			SetCameraToTexture(CamTID, "TRICHUDS", fov);
+			SetActorAngle (CamTID, angle);
+		}
+
+		oldZ = z;
+
+		Delay(1);
+	}	
+}
+
+Script "Open3DPolyDoors" (int Num, int zMax, int Angle)
+{
+	If (GetActorZ(0) <= zMax)
+		PolyObj_DoorSlide(Num, 16, Angle, 34, 105);	
+}
+
+Script "Open3DPolyDoor" (int Num, int zMax, int Angle)
+{
+	If (GetActorZ(0) <= zMax)
+		PolyObj_DoorSlide(Num, 16, Angle, 49, 105);	
+}
+
+
+Script "RedAlert" (int OnOff)
+{
+	RedAlert = OnOff;
+	If (RedAlert > 0)
+	{
+		ReplaceTextures ("WALLALER", "WALLALE3");
+		ReplaceTextures ("WALLALE2", "WALLALE4");
+		ReplaceTextures ("ARCHALER", "ARCHALE2");
+		ReplaceTextures ("TRANSALE", "TRANSAL2");
+		ReplaceTextures ("BR_WALLP", "BR_WALLQ");
+		ReplaceTextures ("BR_WALLL", "BR_WALLM");
+		ReplaceTextures ("BR_WALLR", "BR_WALLU");
+	}
+	Else
+	{
+		ReplaceTextures ("WALLALE3", "WALLALER");
+		ReplaceTextures ("WALLALE4", "WALLALE2");
+		ReplaceTextures ("ARCHALE2", "ARCHALER");
+		ReplaceTextures ("TRANSAL2", "TRANSALE");
+		ReplaceTextures ("BR_WALLQ", "BR_WALLP");
+		ReplaceTextures ("BR_WALLM", "BR_WALLL");
+		ReplaceTextures ("BR_WALLU", "BR_WALLR");
+	}
+
+	While (RedAlert > 0)
+	{
+		AmbientSound("ambient/redalert", 127);
+		Delay(6 * 35 + 15);
+	}
+}
+
+Script "CancelRedAlert" (void)
+{
+	ACS_NamedExecuteAlways("RedAlert", 0, 0);
+}
+
+int moves[5];
+
+Script "A_CheckNavDir" (void)
+{
+	int intSpawnDist = 32.0;
+	int intMaxMove = 16;
+	int retValue = 0;
+
+	int ActorX = GetActorX(0);
+	int ActorY = GetActorY(0);
+	int ActorZ = GetActorZ(0);
+	int ActorA = GetActorAngle(0) >> 8;
+
+	int ID = ActivatorTID();
+
+	int originX, originY, destX, destY, moveX, moveY, intMoveDist, dir, dist;
+
+	moveX = 0;
+	moveY = 0;
+
+	For (int a = 0; a < 256; a += 64)
+	{
+		intMoveDist = 0;
+		moveX = 0;
+		moveY = 0;
+
+		Switch (a)
+		{
+			Case 0:
+				moveX = 1;
+			break;
+			Case 64:
+				moveY = 1;
+			break;
+			Case 128:
+				moveX = -1;
+			break;
+			Case 192:
+				moveY = -1;
+			break;
+		}
+
+		originX = ActorX + 12.0 + (32.0 * moveX);
+		originY = ActorY + 12.0 + (32.0 * moveY); 
+
+		Spawn("Nav_Check", originX, originY, ActorZ, 1900 + ID, 0);
+
+		For (int i=1; i<=intMaxMove; i=i+1)
+		{
+			destX = originX + (moveX * 32.0 * i) - (16.0 * moveX);
+			destY = originY + (moveY * 32.0 * i) - (16.0 * moveY);
+
+			If (Spawn("Nav_Block", destX, destY, ActorZ, 2000 + ID, 0)) //Check if no object is in the way
+			{
+				If(CheckSight (2000 + ID, 1900 + ID, CSF_NOBLOCKALL)) //Check if destination is inside map
+					intMoveDist += 32.0;
+				Thing_Remove(2000 + ID);
+
+				moves[(a / 64) + 1] = intMoveDist;
+
+/*
+				If (intMoveDist > dist)
+				{
+					dir = a;
+					dist = intMoveDist;
+				}
+*/
+			}
+			Else
+			{
+				moves[(a / 64) + 1] = 0;
+				i = intMaxMove;
+			}
+		}
+		Thing_Remove(1900 + ID);
+/*
+		Switch (dir)
+		{
+			Case 0:
+				printbold(d:ActorA / 1.0,s:" -> East ",d:dir * 360 / 256);
+			break;
+			Case 64:
+				printbold(d:ActorA / 1.0,s:" -> North ",d:dir * 360 / 256);
+			break;
+			Case 128:
+				printbold(d:ActorA / 1.0,s:" -> West ",d:dir * 360 / 256);
+			break;
+			Case 192:
+				printbold(d:ActorA / 1.0,s:" -> South ",d:dir * 360 / 256);
+			break;
+		}
+*/
+		int current = ActorA / 64 + 1;
+
+		int index, preferred = current;
+
+		For (int l = -1; l <= 2; l++)
+		{
+			index = current + l;
+
+			If (index > 4) index -= 4;
+			If (index < 1) index += 4;
+
+printbold(d:index,s:"\n",d:moves[index],s:" ? ",d:moves[preferred],s:"\n\nPreferred: ",d:preferred);
+
+			If (moves[index] < moves[preferred])
+			{
+				preferred = index;
+				If (l >= 1) l = 2;
+			}
+		}
+		retValue = (preferred - 1) * 64 * 360 / 256;
+		printbold(s:"Move Options:\n\nN: ",d:moves[2]/1.0,s:"\nS: ",d:moves[4]/1.0,s:"\nW: ",d:moves[3]/1.0,s:"\nE: ",d:moves[1]/1.0,s:"\n\nCurrent: ",d:ActorA,s:"\nProposed: ",d:retValue);
+//		log(d:(preferred - 1) * 64,s:": ",d:moves[preferred] / 1.0);
+	}
+
+//	SetResultValue(dir * 360 / 256);
+
+	Thing_Remove(2000 + ID);
+	SetResultValue(retValue);
+}
+
+Script "A_CheckAlert" (void)
+{
+	SetResultValue(RedAlert);
+}
+
+// MAP06 Scripts
+int DoorStatus = 0;
+int PadStatus = 0;
+int PadMoving = False;
+int Moved = 0;
+
+Function void OpenDoor (void)
+{
+	SetActorState(2, "Opening");
+	DoorStatus = 1;
+}
+
+Function void CloseDoor (void)
+{
+	SetActorState(2, "Closing");
+	DoorStatus = 0;
+}
+
+Script "MoveShuttle" (int Out)
+{
+	If (GetActorZ(0) <= 118) terminate;
+	If (PadStatus) terminate;
+	
+	If (Moved == Out) terminate;
+
+	int ShuttleX, ShuttleY, ShuttleZ, StartY;
+	int i = 0;
+	
+	StartY = 80;
+	
+	ShuttleX = GetActorX(551);
+	ShuttleY = GetActorY(551);
+	ShuttleZ = GetActorZ(551);
+
+	PlaySound(0, "computer/button2");
+
+	ReplaceTextures ("WALL_BEA", "WALL_BEB");
+
+	PolyObj_Move(12, 32, 0, 120);
+	Ceiling_LowerToFloor(36, 32);
+
+	If (Out)
+	{ //Rotate from East-facing to South
+		For (int j = 1.0; j >= 0.75; j -= 0.001)
+		{
+			SetActorAngle(551, j);
+			Delay(3);
+		}
+	}
+	Else
+		SetActorAngle(551, 0.25);
+	OpenDoor();
+
+	Delay(35 * 3);
+	
+	For (i = 0; i <= 1024; i = i + 3)
+	{
+		If (Out)
+			SetActorPosition(551, ShuttleX, ShuttleY - (i * 1.0), ShuttleZ + (i * 0.15), 0); 
+		Else
+			SetActorPosition(551, ShuttleX, ShuttleY + (i * 1.0), ShuttleZ - (i * 0.15), 0);
+		   
+		Delay(1);
+	}
+	
+	CloseDoor();  
+	DoorStatus = 1;
+	
+	For (i = 1024; i <= 2048; i = i + 3)
+	{
+		If (Out)
+			SetActorPosition(551, ShuttleX, ShuttleY - (i * 1.0), ShuttleZ + (i * 0.15), 0);
+		Else
+			SetActorPosition(551, ShuttleX, ShuttleY + (i * 1.0), ShuttleZ - (i * 0.15), 0);
+		
+		Delay(1);
+	}
+	DoorStatus = 0;
+	
+	PolyObj_Move(12, 32, 128, 120);
+	Ceiling_RaiseToNearest(36, 32);
+
+	ReplaceTextures ("WALL_BEB", "WALL_BEA");
+	
+	Moved = Out;
+}
+
+Script "MovePad" (void)
+{
+	If (GetActorZ(0) <= 118 && GetActorZ(0) >= 0) terminate;
+	If (PadMoving) terminate;
+	If (DoorStatus) terminate;
+
+	PadMoving = True;	
+	PadStatus = !PadStatus;
+
+	PlaySound(0, "computer/button2");
+
+	If (!PadStatus)
+	{
+		FloorAndCeiling_RaiseByValue(42, 16, 116);
+		Floor_RaiseByValue(43, 16, 116);
+	}
+	Else
+	{
+		FloorAndCeiling_LowerByValue(42, 16, 116);
+		Floor_LowerByValue(43, 16, 116);
+	}
+	
+	Delay(70);
+	PadMoving = False;
+}
+
+Script "OpenDoor" (void)
+{
+	If (DoorStatus == 0 && (GetActorZ(0) <= 92))
+			PolyObj_DoorSlide(7, 16, 0, 32, 105);
+}
+
+Script "CheckInVacuum" ENTER
+{
+	int loop = 0;
+	int bAutoHealStatus = bAutoHeal;
+	
+	While (DoorStatus)
+	{
+		bAutoHeal = 0;
+
+		If (CheckActorFloorTexture(0, "SHU_FLR") ||
+		CheckActorFloorTexture(0, "SHU_FLR2") ||
+		CheckActorFloorTexture(0, "SHU_FLR3") ||
+		CheckActorFloorTexture(0, "F_SKY1")
+		)
+		{
+			If (loop > 1)
+			{  
+				DamageThing(loop * 19 / 20);
+				FadeTo (0, 0, 0, 0.2 * (100 / GetActorProperty(0, APROP_Health)), 0.5);
+				PlaySound(0, "actor/heartbeat", CHAN_AUTO);
+			}
+		}
+		Delay(35 * 2);
+		FadeTo (0, 0, 0, 0.0, 1.5);
+		loop++;
+		If (!DoorStatus)
+		{
+			PlaySound(0, "*gasp", CHAN_VOICE);
+			/*
+			int healthloop = 0;
+			While (healthloop < 50)
+			{
+				GiveActorInventory(0, "Health", 1);
+				Delay(5);
+				healthloop++;
+			}
+			*/
+		}
+	}
+	FadeTo (0, 0, 0, 0.0, 1.5);
+	bAutoHeal = bAutoHealStatus;
+	Delay(35);
+	Restart;
+}
+
+Script "A_CheckOutdoors" (void)
+{
+	SetResultValue(CheckActorCeilingTexture(0, "F_SKY1"));
+}
+
+int FieldStates[16];
+
+Script "ToggleField" (int FieldID, int WallIndex)
+{
+	int FieldIndex = FieldID % 16;
+	int State = FieldStates[FieldIndex];
+
+	State = !State;
+
+	SetLineTexture(FieldID - 100, SIDE_FRONT, TEXTURE_MIDDLE, StrParam(s:"WALL",d:WallIndex,s:"SW",d:State));
+
+	FieldStates[FieldIndex] = State;
+
+	If (State)
+	{
+		Line_SetBlocking(FieldID, BLOCKF_EVERYTHING, 0);
+		Light_ChangeToValue(FieldID, GetSectorLightLevel(FieldID) + 32);
+	}
+	Else
+	{
+		Line_SetBlocking(FieldID, 0, BLOCKF_EVERYTHING);
+		Light_ChangeToValue(FieldID, GetSectorLightLevel(FieldID) - 32);
+	}
+
+	ACS_NamedExecuteAlways("BumpField", 0, FieldID, 1);
+}
+
+Script "BumpField" (int FieldID, int Toggle)
+{
+	int FieldIndex = FieldID % 16;
+	int State = FieldStates[FieldIndex];
+
+	If (Toggle || State)
+	{
+		SetLineTexture(FieldID, SIDE_FRONT, TEXTURE_MIDDLE, "FIELD_W");
+		SetLineTexture(FieldID, SIDE_BACK, TEXTURE_MIDDLE, "FIELD_W");
+	}
+
+	If (!Toggle)
+	{
+		PlaySound(0, "world/spark1");
+		Thing_Damage(ActivatorTID(), 1, MOD_ELECTRIC);
+		ThrustThing((GetActorAngle(ActivatorTID()) >> 8) + 128, 5, 0, ActivatorTID());
+	}
+
+	Delay(5);
+
+	SetLineTexture(FieldID, SIDE_FRONT, TEXTURE_MIDDLE, "-");
+	SetLineTexture(FieldID, SIDE_BACK, TEXTURE_MIDDLE, "-");
+}
+
+Script "GrantAccess" (int intLevel)
+{
+	str strKey = StrParam(s:"AccessLevel",d:intLevel);
+
+	PlaySound(0, "computer/button2");
+
+	log(l:strParam(s:"LOCK_", d:intLevel, s:"_G"));
+	GiveActorInventory(ActivatorTID(), strKey, 1);
+}
+
+Script "OpenGarageDoor" (int sector, int speed, int lock)
+{
+	PlaySound(0, "computer/button2");
+	log(d:Generic_Door(sector, speed, 1, 0, lock));
+}
+
+Script "Flight" (void)
+{
+	Flight = !Flight;
+
+	int intSpeed = 1;
+	int intMoveDelay = 0;
+
+	SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+	SetPlayerProperty(0, ON, PROP_FLY);
+
+	While (Flight)
+	{
+		int intInput = GetPlayerInput(-1, INPUT_BUTTONS);
+		int intPitch = GetPlayerInput(-1, INPUT_PITCH);
+		int intYaw = GetPlayerInput(-1, INPUT_YAW);
+
+//		int intPitch = GetActorPitch(0);
+/*
+		If (intInput & BT_FORWARD)
+		{
+			intPitch += 0.01;
+		}
+		Else If (intInput & BT_BACK)
+		{
+			intPitch -= 0.01;
+		}
+*/
+		int intRoll = GetActorRoll(0);
+
+		If (intYaw < 0)
+		{
+			intRoll += 0.0025;
+		}
+		Else If (intYaw > 0)
+		{
+			intRoll -= 0.0025;
+		}
+		Else If (intInput & (BT_LEFT | BT_MOVELEFT))
+		{
+			intRoll -= 0.0025;
+		}
+		Else If (intInput & (BT_RIGHT | BT_MOVERIGHT))
+		{
+			intRoll += 0.0025;
+		}
+
+		If (intInput & BT_FORWARD)
+		{
+			intSpeed += 10;
+		}
+		If (intInput & BT_BACK)
+		{
+			intSpeed -= 10;
+		}
+
+		If (intSpeed > 5) intSpeed = 5;
+
+		If (intSpeed < -1) intSpeed = -1;
+
+		If (intRoll > 0.001 && intRoll < 0.5)
+			intRoll -= 0.001;
+		Else If (introll < 0.999 && intRoll > 0.5)
+			intRoll += 0.001;
+
+/*
+		SetActorPitch(0, GetActorPitch(0) + (Sin(GetActorRoll(0) + 0.25) * -intPitch / 1.0) + (Sin(GetActorRoll(0) + 0.25) * -intYaw / 1.0));
+		SetActorAngle(0, GetActorAngle(0) + (Cos(GetActorRoll(0) + 0.25) * intYaw / 1.0) + (Cos(GetActorRoll(0) + 0.25) * intPitch / 1.0));
+*/
+/*
+		SetActorPitch(0, GetActorPitch(0) + (Sin(GetActorRoll(0) + 0.25) * intPitch / 1.0) + (Cos(GetActorRoll(0) + 0.25) * -intYaw / 1.0));
+		SetActorAngle(0, GetActorAngle(0) + (Sin(GetActorRoll(0) + 0.25) * intYaw / 1.0) + (Cos(GetActorRoll(0) + 0.25) * -intPitch / 1.0));
+*/
+		int intNewPitch = GetActorPitch(0) + (Sin(GetActorRoll(0) + 0.25) * -intPitch / 1.0) + (Cos(GetActorRoll(0) + 0.25) * intYaw / 1.0);
+		int intNewAngle = GetActorAngle(0) + (Sin(GetActorRoll(0) + 0.25) * intYaw / 1.0) + (Cos(GetActorRoll(0) + 0.25) * intPitch / 1.0);
+
+		If (Abs(intNewPitch) > 0.24999 && intPitch)
+		{
+			intRoll += 0.5;
+			intNewAngle += 0.5;
+		}
+
+		ChangeActorRoll(0, intRoll, TRUE);
+		SetActorPitch(0, intNewPitch);
+		SetActorAngle(0, intNewAngle);
+
+		If (Abs(intMoveDelay) >= 5 - intSpeed)
+		{
+			ThrustThing(GetActorAngle(0) >> 8, 1, 0, 0);
+			
+			int intMoveZ = Sin(GetActorPitch(0)) >> 8;
+
+			If (intMoveZ < 5)
+				ThrustThingZ(0, 1, 0, 0);
+			Else If (intMoveZ > 5)
+				ThrustThingZ(0, 1, 1, 0);
+			intMoveDelay = 0;
+		}
+		Else
+		{
+			intMoveDelay++;
+		}
+
+		Delay(1);
+	}
+
+	SetPlayerProperty(0, OFF, PROP_TOTALLYFROZEN);
+	SetPlayerProperty(0, OFF, PROP_FLY);
+}
+
+Script "A_SetupThing" (void)
+{
+	str strLookup = strParam(s:GetActorClass(0),s:"_",n:PRINTNAME_LEVEL,s:"_",d:ActivatorTID());
+	str strData = strParam(l:strLookup);
+
+	If (StrCmp(strData, strLookup) != 0)
+		SetActorProperty(0, APROP_NameTag, strData);
+	Else
+		If (GetCVar("debug") > 0) SetActorProperty(0, APROP_NameTag, strLookup);
+}

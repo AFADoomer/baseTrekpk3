@@ -1,0 +1,408 @@
+////////////////////////////////////////////////////////////////////////////////
+// Elevator Panel Scripts
+////////////////////////////////////////////////////////////////////////////////
+// 
+// This file contains the following scripts and functions:
+//
+//   W_ElevatorPanel		Draw background and initiates input loop
+//	OnOff		1 - Draws, 0 - Clears Panel
+//   W_ElevatorInputLoop	Player input loop for number selections
+//   ClearPanel			Clears Panel
+//   SetPanelNumber		Sets the active panel number texture
+//	Row		0-4
+//
+////////////////////////////////////////////////////////////////////////////////
+
+int ElevMsgCountStart = 5000;
+int ElevMsgCount;
+int Selected = 2;
+int GetInput;
+int PanelWidth = 960;
+int PanelHeight = 720;
+int MapsMax = 23; //0-23, so 24...
+int RowMax = 12;
+int RowHeight = 45;
+int SelectionX = 500; 
+int SelectionWidth = 500;
+int SelectionY = 200;
+
+//LevelNum, Title, Index, Access Level
+str Decks[48][4] = {
+	{"", "Deck 1", "", "2"},				//Start of items on turbolift menu
+	{"BRIDGE13", "Bridge", "1", "2"},
+	{"", "", "", "2"},
+	{"", "Deck 6", "", ""},
+	{"MAP07", "Security and Brig", "15", ""},
+	{"MAP07", "Sickbay, Transporter Rooms", "16", ""},
+	{"MAP07", "Crew Quarters, Cargo Bays", "17", ""},
+	{"MAP07", "Impulse Engineering", "21", ""},
+	{"", "", "", ""},
+	{"", "Deck 7", "", ""},
+	{"MAP07", "Arboretum", "18", ""},
+	{"MAP07", "Recreation Area", "19", ""},
+	{"", "", "", ""},
+	{"", "Deck 18", "", ""},
+	{"MAP06", "Engineering", "3", ""},
+	{"MAP06", "Auxiliary Control", "4", ""},
+	{"MAP06", "Observation Gallery", "2", ""},
+	{"", "", "", ""},
+	{"", "Deck 19", "", ""},
+	{"MAP06", "Hangar Deck", "1", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},				//End of items on turbolift menu
+	{"", "Transporter Destinations", "", ""},	//Start of items on transporter menu
+	{"MAP01", "Filming Set", "1", ""},
+	{"TEST", "Planet Surface", "0", ""},
+	{"DEMO", "Test Map", "0", ""},
+	{"MAP02", "Klingon D-7 Cruiser", "0", ""},
+	{"MAP07", "Transporter Room 1", "3-8", ""},
+	{"MAP07", "Transporter Room 2", "9-14", ""},
+	{"MAP07", "Emergency Transporter 1", "20", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""}				//End of items on transporter menu
+};
+
+Script 255 (void)
+{
+	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 0);
+}
+
+Script 254 (void)
+{
+	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 24);
+}
+
+//Draw or Clear Elevator Panel Background Images
+Script "W_ElevatorPanel" (int OnOff, int Offset)
+{
+//	PanelWidth = 1280;
+//	PanelHeight = 720;
+	PanelWidth = 800;
+	PanelHeight = 600;
+//	PanelWidth = 960;
+//	PanelHeight = 720;
+
+	If (OnOff)
+	{
+		SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+
+		GetInput = True;
+
+		ElevMsgCount = ElevMsgCountStart;
+		Selected = 2;
+/*
+		int intSizeRatio = PanelHeight * 100 / GetScreenHeight();
+
+		PanelWidth = PanelWidth * intSizeRatio / 100;
+*/
+		SetHudSize(PanelWidth, PanelHeight, 1);
+
+		If (Offset == 24)
+			SetFont("Tr_Panel");
+		Else
+			SetFont("Tu_Panel");
+		HudMessage (s:"A"; 0, ElevMsgCount--, -1, PanelWidth / 2 * 1.0, PanelHeight / 2 * 1.0, 0);
+
+		DrawPanelEntries(Offset);
+
+		SetHudSize(PanelWidth, PanelHeight, 1);
+
+//		SetFont("CentG_L");
+//		SetFont("ARI48");
+		SetFont("SUPBOLAA");
+		HudMessage (s:"\c[TOSGold]", s:"Select your destination:"; 0, ElevMsgCount--, -1, (PanelWidth * 60 / 1000 / 2) * 1.0 + 0.1, (PanelHeight * 300 / 1000 / 2) * 1.0 + 0.2, 0);
+
+		SetHudSize(PanelWidth * 3, PanelHeight * 3, 1);
+
+//		SetFont("CentG_T");
+//		SetFont("hmn14");
+		SetFont("SUPBOLAA");
+		HudMessage (s:"\c[White]Movement keys\c[TOSGold] highlight destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[TOSGold] selects destination\n"; 0, ElevMsgCount--, -1, (PanelWidth * 60 / 1000 * 3 / 2) * 1.0 + 0.1, (PanelHeight * 1475 / 1000 * 3 / 2) * 1.0 + 0.2, 0);
+		HudMessage (s:"\c[White]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[TOSGold] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 1300 / 1000 * 3 / 2) * 1.0 + 0.2, (PanelHeight * 1475 / 1000 * 3 / 2) * 1.0 + 0.2, 0);
+
+/*
+//		SetHudSize(PanelWidth * 2, PanelHeight * 2, 1);
+//		SetFont("Ari48");
+//		HudMessage (s:"\c[TOSMenuGold]", s:"Select your destination:"; 0, ElevMsgCount--, -1, (PanelWidth / 8) * 1.0 + 0.1, (PanelHeight / 3) * 1.0 + 0.2, 0);
+
+//		SetHudSize(PanelWidth * 3 / 4, PanelHeight * 3 / 4, 1);
+//		SetFont("BIGFONT");
+//		HudMessage (s:"\c[TOSMenuGold]", s:"Select your destination:"; 0, ElevMsgCount--, -1, (PanelWidth / 18) * 1.0 + 0.1, (PanelHeight / 9) * 1.0 + 0.2, 0);
+
+//		SetHudSize(PanelWidth * 2, PanelHeight * 2, 1);
+//		HudMessage (s:"\c[White]Movement keys\c[TOSMenuGold] highlight destination - ", s:"\c[White]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[TOSMenuGold] selects destination - ", s:"\c[White]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[TOSMenuGold] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 1225 / 1000) * 1.0 + 0.2, (PanelHeight * 1450 / 1000) * 1.0 + 0.1, 0);
+
+//		SetHudSize(PanelWidth / 2, PanelHeight / 2, 1);
+//		SetFont("TINYFNT");
+//		HudMessage (s:"\c[White]Movement keys\c[TOSMenuGold] highlight destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[TOSMenuGold] selects destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[TOSMenuGold] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 170 / 1000) * 1.0 + 0.4, (PanelHeight * 340 / 1000) * 1.0 + 0.1, 0);
+
+		SetHudSize(PanelWidth * 2, PanelHeight * 2, 1);
+//		SetFont("CenturyG");
+//		HudMessage (s:"\c[White]Movement keys\c[TOSGold] highlight destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[TOSGold] selects destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[TOSGold] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 170 / 1000) * 1.0 + 0.4, (PanelHeight * 340 / 1000) * 1.0 + 0.1, 0);
+//		HudMessage (s:"\c[White]Movement keys\c[TOSMenuGold] highlight destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[TOSMenuGold] selects destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[TOSMenuGold] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 680 / 1000) * 1.0 + 0.4, (PanelHeight * 1360 / 1000) * 1.0 + 0.1, 0);
+*/
+
+		ACS_NamedExecute("W_ElevatorInputLoop", 0, Offset);
+		TakeActorInventory(0, "ElevatorPanel", 999);
+	}
+	Else If (ElevMsgCount > 0)
+	{
+		TakeInventory("ElevatorPanel", 1);
+
+		For (int e = ElevMsgCount; e <= ElevMsgCountStart; e++)
+		{
+			HudMessage (s:""; 0, e, 0, 0, 0, 0);
+		}
+		HudMessage (s:""; 0, 500, 0, 0, 0, 0);
+		HudMessage (s:""; 0, 501, 0, 0, 0, 0);
+		HudMessage (s:""; 0, 502, 0, 0, 0, 0);
+		HudMessage (s:""; 0, 503, 0, 0, 0, 0);
+
+		ElevMsgCount = ElevMsgCountStart;
+
+		GetInput= False;
+
+		SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+	}
+}
+
+Function int IsValidLevel(int index)
+{
+	int result = 1;
+
+	If (StrCmp(Decks[index][0], "") == 0)
+		result = 0;
+
+	return result;
+}
+
+Function str LevelString(int index) {return Decks[index][1];}
+Function str Map(int index) {return Decks[index][0];}
+Function int Turbolift(int index) {return ParseIntString(Decks[index][2]);}
+
+Function int ParseIntString(str Input)
+{
+	int result = 0;
+	int length = strLen(Input) - 1;
+	int hyphen = InStr(Input, "-");
+
+	If (hyphen > -1)
+	{
+		If (hyphen == 0) //Negative
+			result = -1 * ParseIntString(Right(Input, length - hyphen));
+		Else //Range
+		{
+			int start = ParseIntString(Left(Input, hyphen));
+			int end = ParseIntString(Right(Input, length - hyphen));
+
+			result = Random(start, end);
+		}
+	}
+	Else //Just a number
+	{
+		For (int i = 0; i <= length; i++)
+			result += (GetChar(Input, i) - 48) * Exp(10, (length - i));
+	}
+
+	return result;
+}
+
+//Active loop for input and drawing selection
+Script "W_ElevatorInputLoop" (int Offset)
+{
+	int Col = Selected / RowMax;
+	int Row = (Selected - 1) % RowMax;
+
+	SetPanelNumber(Row, Col, Offset);
+
+	While (GetInput == True)
+	{
+		SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+
+		int Buttons = GetPlayerInput(-1, INPUT_BUTTONS);
+		int OldButtons = GetPlayerInput(-1, INPUT_OLDBUTTONS);
+
+		If (OldButtons != Buttons)
+		{
+			int tryCount = 0;
+			int index = (Row + Offset) + Col * RowMax;
+
+			If (Buttons == BT_FORWARD)
+			{
+				Row = Row - 1;
+				If (Row < 0) Row = RowMax - 1;
+				If (Row * (Col + 1) >= MapsMax) Row = MapsMax % RowMax;
+				index = (Row + Offset) + Col * RowMax;
+				While (!IsValidLevel(index))
+				{
+					Row = Row - 1;
+					If (Row < 0) Row = RowMax;
+					index = (Row + Offset) + Col * RowMax;
+					Delay(1);
+				}
+			}
+			Else If (Buttons == BT_BACK)
+			{
+				Row = Row + 1;
+				If (Row >= RowMax) Row = 0;
+				If (Row * (Col + 1) >= MapsMax) Row = 0;
+				index = (Row + Offset) + Col * RowMax;
+				While (!IsValidLevel(index))
+				{
+					Row = Row + 1;
+					If (Row >= RowMax) Row = 0;
+					index = (Row + Offset) + Col * RowMax;
+					Delay(1);
+				}
+			}
+			Else If (Buttons == BT_LEFT | Buttons == BT_MOVELEFT)
+			{
+				Col = Col - 1;
+				If (Col < 0) Col = 1;
+				index = (Row + Offset) + Col * RowMax;
+				While (!IsValidLevel(index))
+				{
+					Row = Row - 1;
+					If (Row < 0) Row = RowMax;
+					tryCount++;
+					If (tryCount > MapsMax) {Row++; Col--; tryCount = 0;}
+					index = (Row + Offset) + Col * RowMax;
+					Delay(1);
+				}
+			}
+			Else If (Buttons == BT_RIGHT | Buttons == BT_MOVERIGHT)
+			{
+				Col = Col + 1;
+				If (Col > 1) Col = 0;
+				index = (Row + Offset) + Col * RowMax;
+				While (!IsValidLevel(index))
+				{
+					Row = Row - 1;
+					If (Row < 0) Row = RowMax;
+					tryCount++;
+					If (tryCount > MapsMax) {Row++; Col--; tryCount = 0;}
+					index = (Row + Offset) + Col * RowMax;
+					Delay(1);
+				}
+			}
+			Else If (Buttons == BT_ATTACK)
+			{
+				//ACS_NamedExecuteAlways("W_StorePosition", 0, GetActorX(0), GetActorY(0), PlayerNumber());
+				If (StrCmp(Decks[(Row + Offset) + Col * RowMax][3], "") != 0)
+				{
+					If (CheckInventory(StrParam(s:"AccessLevel", s:Decks[index][3])) == 0)
+					{
+						Print(s:StrParam(s:"Level ", s:Decks[index][3]), s:" access required.");
+					}
+					Else
+					{
+						Delay(35);
+						SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+						ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+						ClearPanel();
+					}
+				}
+				Else
+				{
+					Delay(35);
+					SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+					ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+					ClearPanel();
+				}
+			}
+			Else If (Buttons == BT_USE)
+			{
+				ClearPanel();
+			}
+	
+			SetPanelNumber(Row, Col, Offset);
+		}
+		Delay(1);
+	}
+	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+}
+
+Function void ClearPanel(void)
+{
+	GetInput = False;
+	ACS_NamedTerminate("W_ElevatorPanel", 0);
+	ACS_NamedExecuteAlways("W_ElevatorPanel", 0, 0);
+}
+
+Function void DrawPanelEntries (int Offset)
+{
+	int x = SelectionX;
+	int y = SelectionY;
+	int c = 0;
+
+//	SetHudSize(PanelWidth, PanelHeight, 1);
+	SetHudSize(PanelWidth * 2, PanelHeight * 2, 1);
+
+	For (int r = Offset; r <= MapsMax + Offset; r++)
+	{
+		c = (r - Offset) / RowMax;		
+
+		x = SelectionX + (c * SelectionWidth);
+		y = SelectionY + (((r - Offset) - (RowMax * c)) * RowHeight);
+
+		str strDeck = StrParam(s:"DECK_",d:r);
+		str strPanelEntry = LevelString(r); //StrParam(l:strDeck);
+
+		If (IsValidLevel(r))
+			strPanelEntry = StrParam(s:"\c[TOSGold]", s:strPanelEntry);
+		Else
+			strPanelEntry = StrParam(s:"\c[Gray]", s:strPanelEntry);
+
+//		SetFont("BIGFONT");
+//		SetFont("CentG_S");
+		SetFont("SUPBOLAA");
+		HudMessage (s:strPanelEntry; 0, ElevMsgCount--, -1, x * 1.0 + 0.2, y * 1.0 + 0.1, 0);
+	}
+}
+
+Function void SetPanelNumber(int Row, int Col, int Offset)
+{
+	int x = SelectionX + (Col * SelectionWidth);
+	int y = SelectionY + (Row * RowHeight);
+
+	int Value = (Row + Offset) + (Col * RowMax);
+
+	If (Value > MapsMax + Offset)
+	{
+		Row = (MapsMax + Offset) % RowMax;
+		y = SelectionY + (Row * RowHeight);
+		Value = (Row + Offset) + (Col * RowMax);
+	}
+
+	Selected = Value;
+
+//	SetHudSize(PanelWidth, PanelHeight, 1);
+	SetHudSize(PanelWidth * 2, PanelHeight * 2, 1);
+
+	str strDeck = LevelString(Value); //StrParam(s:"DECK_",d:Value);
+//	SetFont("BIGFONT");
+//	SetFont("CentG_S");
+	SetFont("SUPBOLAA");
+//	SetFont("TRE14");
+	HudMessage (s:"\c[TOSMenuBrightLightGold]", l:strDeck; 0, 500, -1, x * 1.0 + 0.2, y * 1.0 + 0.1, 0);
+	If (Offset == 24)
+		HudMessage (s:"\c[Orange]<"; 0, 501, -1, x * 1.0 + 40.2, y * 1.0 + 0.1, 0);
+	Else
+		HudMessage (s:"\c[White]<"; 0, 501, -1, x * 1.0 + 40.2, y * 1.0 + 0.1, 0);
+}

@@ -1,0 +1,281 @@
+// Footsteps V4
+// ACS Source
+#library "foot"
+
+// Includes
+#include "zcommon.acs"
+
+// Defines
+
+// If you are adding a new texture to the list
+// of textures that have custom sounds, add the texture's
+// name to this list, as well as defining its sound
+// in the LANGUAGE lump.
+
+#define FLOOR_TEXTURES 165
+str floorTexture[FLOOR_TEXTURES] =
+{
+	"FWATER1", "FWATER2", "FWATER3", "FWATER4",
+	"FLOOR0_1", "FLOOR0_3", "FLOOR1_7", "FLOOR4_1",
+	"FLOOR4_5", "FLOOR4_6", "TLITE6_1", "TLITE6_5",
+	"CEIL3_1", "CEIL3_2", "CEIL4_2", "CEIL4_3",
+	"CEIL5_1", "FLAT2", "FLAT5", "FLAT18",
+	"FLOOR0_2", "FLOOR0_5", "FLOOR0_7", "FLAT5_3",
+	"CRATOP1", "CRATOP2", "FLAT9", "FLAT17",
+	"FLAT19", "COMP01", "GRNLITE1", "FLOOR1_1",
+	"FLAT14", "FLAT5_5", "FLOOR1_6", "CEIL4_1",
+	"GRASS1", "GRASS2", "RROCK16", "RROCK19",
+	"FLOOR6_1", "FLOOR6_2", "FLAT10", "MFLR8_3",
+	"MFLR8_4", "RROCK17", "RROCK18", "FLOOR0_6",
+	"FLOOR4_8", "FLOOR5_1", "FLOOR5_2", "FLOOR5_3",
+	"FLOOR5_4", "TLITE6_4", "TLITE6_6", "FLOOR7_1",
+	"MFLR8_1", "CEIL3_5", "CEIL5_2", "CEIL3_6",
+	"FLAT8", "SLIME13", "STEP1", "STEP2",
+	"GATE1", "GATE2", "GATE3", "CEIL1_2",
+	"CEIL1_3", "SLIME14", "SLIME15", "SLIME16",
+	"FLAT22", "FLAT23", "CONS1_1", "CONS1_5",
+	"CONS1_7", "GATE4", "FLAT4", "FLAT1",
+	"FLAT5_4", "MFLR8_2", "FLAT1_1", "FLAT1_2",
+	"FLAT1_3", "FLAT5_7", "FLAT5_8", "GRNROCK",
+	"RROCK01", "RROCK02", "RROCK03", "RROCK04",
+	"RROCK05", "RROCK06", "RROCK07", "RROCK08",
+	"RROCK09", "RROCK10", "RROCK11", "RROCK12",
+	"RROCK13", "RROCK14", "RROCK15", "RROCK20",
+	"SLIME09", "SLIME10", "SLIME11", "SLIME12",
+	"FLAT5_6", "FLOOR3_3", "FLAT20", "CEIL3_3",
+	"CEIL3_4", "FLAT3", "FLOOR7_2", "DEM1_1",
+	"DEM1_2", "DEM1_3", "DEM1_4", "DEM1_5",
+	"DEM1_6", "CEIL1_1", "FLAT5_1", "FLAT5_2",
+	"NUKAGE1", "NUKAGE2", "NUKAGE3", "BLOOD1",
+	"BLOOD2", "BLOOD3", "SLIME01", "SLIME02",
+	"SLIME03", "SLIME04", "SLIME05", "SLIME06",
+	"SLIME07", "SLIME08", "SFLR6_1", "SFLR6_4",
+	"SFLR7_1", "SFLR7_4", "LAVA1", "LAVA2",
+	"LAVA3", "LAVA4", "F_SKY1",
+	"Br_Flr", "Br_Flr2", "Brf_Flr", "Tu_Floor",
+	"Gray_Flr", 
+	"Strip_Bl", "Strip_Br", "Strip_Or", "Strip_Re",	
+	"Shu_Flr", "Shu_Flr2", "Shu_Flr3",
+	"dirt", "grass", "gravel", "tile", "water"
+};
+
+// Scripts
+Script "Footsteps" ENTER 
+{
+	str volumeMultiplierCVar = StrParam(l:"VOLUMEMULTIPLIER_CVAR");
+	str delayMultiplierCVar = StrParam(l:"DELAYMULTIPLIER_CVAR");
+	int volumeMultiplier, delayMultiplier, controlWithCVars;
+	if (!stricmpz("TRUE", StrParam(l:"CONTROLWITHCVARS")))
+	{
+		controlWithCVars = true;
+		volumeMultiplier = GetCVar(volumeMultiplierCVar);
+		delayMultiplier = GetCVar(delayMultiplierCVar);
+	}
+	else
+	{
+		volumeMultiplier = atof(StrParam(l:"VOLUMEMULTIPLIER"));
+		delayMultiplier = atof(StrParam(l:"DELAYMULTIPLIER"));
+	}
+	int delayTime, stepVolume, i;
+	str stepSound, langDef;
+	str defStepSound = StrParam(l:"STEP_DEFAULT");
+	while (true)
+	{
+		if (controlWithCVars)
+		{
+			volumeMultiplier = GetCVar(volumeMultiplierCVar);
+			delayMultiplier = GetCVar(delayMultiplierCVar);
+		}
+		delayTime = FixedMul(16 - GetVelocity() / 2, delayMultiplier);
+		stepVolume = FixedMul(volumeMultiplier, GetVelocity());
+		if (GetActorZ(0) - GetActorFloorZ(0) == 0)
+		{
+			for (i = 0; i < FLOOR_TEXTURES; i++)
+			{
+				if (CheckActorFloorTexture(0, floorTexture[i]))
+				{
+					langDef = StrParam(s:"STEP_", s:floorTexture[i]);
+					stepSound = StrParam(l:langDef);
+					if (stricmpz(langDef, stepSound))
+					{
+						stepSound = defStepSound;
+					}
+				}
+			}
+			ActivatorSound(stepSound, stepVolume);
+			stepSound = defStepSound;
+		}
+		if (delayTime < 1)
+			Delay(1);
+		else
+			Delay(delayTime);
+	}
+}
+
+// Functions
+Function int GetVelocity (void)
+{
+	int vel;
+	int x = GetActorVelX(0);
+	int y = GetActorVelY(0);
+	int angle = VectorAngle(x, y);
+	if (((angle + 0.125) % 0.5) > 0.25)
+		vel = FixedDiv(y, Sin(angle));
+	else
+		vel = FixedDiv(x, Cos(angle));
+	return vel >> 16;
+}
+
+Function int atof (str s)
+{
+	bool d;
+	str a = "", s2 = "";
+	int i, i2, n, n1, n2, dl = 0;
+	int l = StrLen(s);
+	for (i = 0; i < l; i++)
+	{
+		if (!strcmpz(StrParam(c:GetChar(s, i)), "."))
+		{
+			d = true;
+			dl = i;
+			break;
+		}
+	}
+	if (!d)
+		return atoi(s) * 1.0;
+	for (i = 0; i < dl; i++)
+	{
+		for (i2 = 0; i2 < 10; i2++)
+		{
+			a = StrParam(i:i2);
+			if (!strcmpz(StrParam(c:GetChar(s, i)), a))
+				n1 += i2 * pow(10, l - i - 1 - (l - dl));
+		}
+	}
+	if (d)
+	{
+		for (i = dl; i < l; i++)
+		{
+			s2 = StrParam(s:s2, c:GetChar(s, i));
+		}
+		n2 = atoi(s2);
+	}
+	return (n1 * 1.0) + FixedMul(n2 * 1.0, fixedpow(0.1, l - dl - 1));
+}
+
+Function int atoi (str s)
+{
+	str a = "";
+	int i, i2, n;
+	int l = StrLen(s);
+	for (i = 0; i < l; i++)
+	{
+		for (i2 = 0; i2 < 10; i2++)
+		{
+			a = StrParam(i:i2);
+			if (!strcmpz(StrParam(c:GetChar(s, i)), a))
+				n += i2 * pow(10, l - i - 1);
+		}
+	}
+	return n;
+}
+
+Function str tolower (str s)
+{
+	int l = StrLen(s);
+	int aChar = GetChar("A", 0);
+	int zChar = GetChar("Z", 0);
+	int sChar;
+	str rs = "";
+	for (int i = 0; i < l; i++)
+	{
+		sChar = GetChar(s, i);
+		if (sChar <= zChar && sChar >= aChar)
+			sChar += 32;
+		rs = StrParam(s:rs, c:sChar);
+	}
+	return rs;
+}
+
+Function str toupper (str s)
+{
+	int l = StrLen(s);
+	int aChar = GetChar("a", 0);
+	int zChar = GetChar("z", 0);
+	int sChar;
+	str rs = "";
+	for (int i = 0; i < l; i++)
+	{
+		sChar = GetChar(s, i);
+		if (sChar <= zChar && sChar >= aChar)
+			sChar -= 32;
+		rs = StrParam(s:rs, c:sChar);
+	}
+	return rs;
+}
+
+Function bool strcmpz (str s1, str s2)
+{
+	int c1 = GetChar(s1, 0);
+	int c2 = GetChar(s2, 0);
+	if (c1 == c2)
+		return false;
+	return true;
+}
+
+Function bool stricmpz (str s1, str s2)
+{
+	s1 = tolower(s1);
+	s2 = tolower(s2);
+	int c1 = GetChar(s1, 0);
+	int c2 = GetChar(s2, 0);
+	if (c1 == c2)
+		return false;
+	return true;
+}
+
+Function int pow (int n, int e)
+{
+	int t = 1;
+	for (int i = 0; i < abs(e); i++)
+		t *= n;
+	if (e < 0)
+		t = 1 / t;
+	return t;
+}
+
+Function int fixedpow (int n, int e)
+{
+	int t = 1.0;
+	for (int i = 0; i < abs(e); i++)
+		t = FixedMul(t, n);
+	if (e < 0)
+		t = FixedDiv(1.0, t);
+	return t;
+}
+
+Function int abs (int n)
+{
+	if (n < 0)
+		return -n;
+	return n;
+}
+
+Function bool isdigit (str c)
+{
+	if (StrLen(c) > 1)
+		c = StrParam(c:GetChar(c, 0));
+	str compare = "";
+	for (int i = 0; i < 10; i++)
+	{
+		compare = StrParam(i:i);
+		if (!stricmpz(c, compare))
+			return true;
+	}
+	return false;
+}
+
+Function bool isalpha (str c)
+{
+	return !isdigit(c);
+}
