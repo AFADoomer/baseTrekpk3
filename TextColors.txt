@@ -1,0 +1,135 @@
+TOSBrightBrick
+{
+	#CC3333	#CC3333
+}
+
+TOSBrightTan
+{
+	#D2B48C	#D2B48C
+}
+
+TOSBrightGray TOSBrightGrey
+{
+	#CCCCCC	#CCCCCC
+}
+
+TOSBrightGreen
+{
+	#00CC00	#00CC00
+}
+
+TOSBrightBrown
+{
+	#996633	#996633
+}
+
+TOSBrightWhite
+{
+	#DFDFDF	#DFDFDF
+}
+
+TOSBrightYellow
+{
+	#EEEE33	#EEEE33
+}
+
+TrueBlack
+{
+	#000000	#000000
+}
+
+TOSBrightLightBlue
+{
+	#33EEFF	#33EEFF
+}
+
+	TOSBrightCream
+{
+	#FFCC99	#FFCC99
+}
+
+TOSBrightPurple
+{
+	#9966CC	#9966CC
+}
+
+White
+{
+	#AAAAAA	#FFFFFF
+Console:
+	#AAAAAA	#FFFFFF
+Flat:
+	#DFDFDF
+}
+
+Gray Grey
+{
+	#AAAAAA	#DDDDDD
+Console:
+	#AAAAAA	#DDDDDD
+Flat:
+	#CCCCCC
+}
+
+DarkGray DarkGrey "Dark Gray" "Dark Grey"
+{
+	#BBBBBB  #DDDDDD
+Console:
+	#BBBBBB  #DDDDDD
+Flat:
+	#D0D0D0
+}
+
+TOSGold TOSMenuGold
+{
+	#947d21 #ffea4f
+Console:
+	#947d21 #ffea4f
+Flat:
+	#fad336
+}
+
+/*
+TOSMenuGold
+{
+	#fad336	#fad336
+}
+*/
+
+TOSMenuLightGold
+{
+	#947d21 #ffea4f
+Console:
+	#947d21 #ffea4f //#fad336	
+Flat:
+	#ffea4f
+}
+
+TOSMenuBrightLightGold
+{
+	#ffea4f #fff187
+Console:
+	#ffea4f #fff187
+Flat:
+	#fff187
+}
+
+TOSBrightGold
+{
+	#fad336	#fad336
+}
+
+TOSBrightRed
+{
+	#DD0000	#DD0000
+}
+
+TOSBrightBlue
+{
+	#0000DD	#0000DD
+}
+
+TOSBrightOrange
+{
+	#FFAA00	#FFAA00
+}

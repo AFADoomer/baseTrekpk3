@@ -1,0 +1,77 @@
+//Added to let the radar work with legacy Doom actors
+ACTOR ZombieManRadar : Zombieman Replaces Zombieman {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR DoomImpRadar : DoomImp replaces DoomImp {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR ShotgunGuyRadar : Shotgunguy Replaces Shotgunguy {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR ChaingunGuyRadar : ChaingunGuy replaces ChaingunGuy {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR WolfensteinSSRadar : WolfensteinSS replaces WolfensteinSS {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR DemonRadar : Demon replaces Demon {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR SpectreRadar : Spectre Replaces Spectre {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR CacodemonRadar : Cacodemon replaces Cacodemon {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR BaronOfHellRadar : BaronOfHell replaces BaronOfHell {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR HellKnightRadar : HellKnight replaces HellKnight {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR PainElementalRadar : PainElemental replaces PainElemental {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR ArachnotronRadar : Arachnotron replaces Arachnotron {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR RevenantRadar : Revenant replaces Revenant {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR LostSoulRadar : LostSoul replaces LostSoul {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR FatsoRadar : Fatso replaces Fatso {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR CyberdemonRadar : Cyberdemon replaces Cyberdemon {-NORADIUSDMG States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR ArchvileRadar : Archvile replaces Archvile {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR SpiderMastermindRadar : SpiderMastermind replaces SpiderMastermind {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+ACTOR CommanderKeenRadar : CommanderKeen replaces CommanderKeen {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor DoomImpBallRadar : DoomImpBall replaces DoomImpBall {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor CacodemonBallRadar : CacodemonBall replaces CacodemonBall {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor BaronBallRadar : BaronBall replaces BaronBall {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RocketRadar : Rocket replaces Rocket {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor FatShotRadar : FatShot replaces FatShot {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RevenantTracerRadar : RevenantTracer replaces RevenantTracer {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor ArachnotronPlasmaRadar : ArachnotronPlasma replaces ArachnotronPlasma {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor PlasmaBallRadar : PlasmaBall replaces PlasmaBall {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor BFGBallRadar : BFGBall replaces BFGBall {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor SpawnShotRadar : SpawnShot replaces SpawnShot {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor ClipRadar : Clip replaces Clip {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor ClipBoxRadar : ClipBox replaces ClipBox {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RocketAmmoRadar : RocketAmmo replaces RocketAmmo {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RocketBoxRadar : RocketBox replaces RocketBox {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor CellRadar : Cell replaces Cell {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor CellPackRadar : CellPack replaces CellPack {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor ShellRadar : Shell replaces Shell {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor ShellBoxRadar : ShellBox replaces ShellBox {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor BackpackRadar : Backpack replaces Backpack {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor ArmorBonusRadar : ArmorBonus replaces ArmorBonus {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor GreenArmorRadar : GreenArmor replaces GreenArmor {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor BlueArmorRadar : BlueArmor replaces BlueArmor {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor InvulnerabilitySphereRadar : InvulnerabilitySphere replaces InvulnerabilitySphere {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor SoulsphereRadar : Soulsphere replaces Soulsphere {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor MegasphereRadar : Megasphere replaces Megasphere {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor BlurSphereRadar : BlurSphere replaces BlurSphere {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RadSuitRadar : RadSuit replaces RadSuit {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor InfraredRadar : Infrared replaces Infrared {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor AllmapRadar : Allmap replaces Allmap {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor BerserkRadar : Berserk replaces Berserk {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor HealthBonusRadar : HealthBonus replaces HealthBonus {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor StimpackRadar : Stimpack replaces Stimpack {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor MedikitRadar : Medikit replaces Medikit {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor BlueCardRadar : BlueCard replaces BlueCard {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor YellowCardRadar : YellowCard replaces YellowCard {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RedCardRadar : RedCard replaces RedCard {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor BlueSkullRadar : BlueSkull replaces BlueSkull {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor YellowSkullRadar : YellowSkull replaces YellowSkull {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RedSkullRadar : RedSkull replaces RedSkull {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor ExplosiveBarrelRadar : ExplosiveBarrel replaces ExplosiveBarrel {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+
+Actor PistolRadar : Pistol Replaces Pistol {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor ChainsawRadar : Chainsaw replaces Chainsaw {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor ShotgunRadar : Shotgun replaces Shotgun {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor SuperShotgunRadar : SuperShotgun replaces SuperShotgun {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor ChaingunRadar : Chaingun replaces Chaingun {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor RocketLauncherRadar : RocketLauncher replaces RocketLauncher {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor PlasmaRifleRadar : PlasmaRifle replaces PlasmaRifle {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+Actor BFG9000Radar : BFG9000 replaces BFG9000 {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}

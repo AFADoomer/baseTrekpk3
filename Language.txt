@@ -1,0 +1,28 @@
+[enu default]
+
+LOCK_2 = "Level 2 Access Required";
+LOCK_2_G = "Level 2 Access Granted";
+LOCK_3 = "Level 3 Access Required";
+LOCK_3_G = "Level 3 Access Granted";
+LOCK_4 = "Level 4 Access Required";
+LOCK_4_G = "Level 4 Access Granted";
+
+// Map-specific thing tags
+//
+//   Automatically applied to anything that inherits from TOSDecoration or TOSEnemy
+//
+//   Format:
+//		ThingClass_MapName_ThingTID = "New Tag Information";
+//
+//   Example: A soldier on map 12 with a TID of 37 would follow this convention:
+//		ZombieMan_map12_37 = "Zombie with red key";
+//		
+TOSComputer2C_map06_1 = "Weapons Locker Access";
+TOSSecurityConsole_map06_4 = "Hangar Deck Launch Controls";
+TOSEngineeringConsole_map06_3 = "Hangar Deck Lift Controls";
+TOSComputerC_map07_1 = "Security Access Control";
+TOSTransporterConsole_map07_2 = "Transporter Room 1 Console";
+TOSTransporterConsole_map07_3 = "Transporter Room 2 Console";
+TOSTransporterConsole_map07_4 = "Emergency Transporter 1 Console";
+TOSTransporterConsole_map07_5 = "Emergency Transporter 2 Console";
+TOSTransporterConsole_map07_6 = "Emergency Transporter 3 Console";

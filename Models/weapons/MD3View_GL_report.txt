@@ -1,0 +1,846 @@
+Total PFDs: 82
+
+PFD 1/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 2/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 3/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 4/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 5/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 6/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 7/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 8/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_SWAP_COPY)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 9/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_SWAP_COPY)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 10/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_SWAP_COPY)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 11/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 12/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 13/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 14/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 15/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 16/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 17/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 18/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 19/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 20/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 21/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 22/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 23/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 24/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 25/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 26/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 27/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 28/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 29/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 30/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 31/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 32/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 33/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 34/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 35/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 36/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 37/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 38/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 39/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 40/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 41/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 42/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 0
+
+PFD 43/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 44/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 45/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 46/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SWAP_EXCHANGE)
+Colour bits: 32
+Depth  bits: 24
+
+PFD 47/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 32
+Depth  bits: 32
+
+PFD 48/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 49/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+(flag: PFD_SWAP_COPY)
+Colour bits: 32
+Depth  bits: 32
+
+PFD 50/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+(flag: PFD_SWAP_COPY)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 51/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 32
+Depth  bits: 32
+
+PFD 52/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 53/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+(flag: PFD_SWAP_COPY)
+Colour bits: 32
+Depth  bits: 32
+
+PFD 54/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+(flag: PFD_SWAP_COPY)
+Colour bits: 32
+Depth  bits: 16
+
+PFD 55/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 32
+Depth  bits: 32
+
+PFD 56/82
+=========
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 32
+Depth  bits: 16
+
+PFD 57/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+(flag: PFD_SWAP_COPY)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 32
+Depth  bits: 32
+
+PFD 58/82
+=========
+(flag: PFD_DOUBLEBUFFER)
+(flag: PFD_DRAW_TO_WINDOW)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+(flag: PFD_SWAP_COPY)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 32
+Depth  bits: 16
+
+PFD 59/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 24
+Depth  bits: 32
+
+PFD 60/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 24
+Depth  bits: 16
+
+PFD 61/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 24
+Depth  bits: 32
+
+PFD 62/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 24
+Depth  bits: 16
+
+PFD 63/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 24
+Depth  bits: 32
+
+PFD 64/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 24
+Depth  bits: 16
+
+PFD 65/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 16
+Depth  bits: 32
+
+PFD 66/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 16
+Depth  bits: 16
+
+PFD 67/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 16
+Depth  bits: 32
+
+PFD 68/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 16
+Depth  bits: 16
+
+PFD 69/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 16
+Depth  bits: 32
+
+PFD 70/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 16
+Depth  bits: 16
+
+PFD 71/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 8
+Depth  bits: 32
+
+PFD 72/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 8
+Depth  bits: 16
+
+PFD 73/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 8
+Depth  bits: 32
+
+PFD 74/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 8
+Depth  bits: 16
+
+PFD 75/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 8
+Depth  bits: 32
+
+PFD 76/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 8
+Depth  bits: 16
+
+PFD 77/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 4
+Depth  bits: 32
+
+PFD 78/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 4
+Depth  bits: 16
+
+PFD 79/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 4
+Depth  bits: 32
+
+PFD 80/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+Colour bits: 4
+Depth  bits: 16
+
+PFD 81/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 4
+Depth  bits: 32
+
+PFD 82/82
+=========
+(flag: PFD_DRAW_TO_BITMAP)
+(flag: PFD_SUPPORT_GDI)
+(flag: PFD_SUPPORT_OPENGL)
+(flag: PFD_GENERIC_FORMAT)
+NOT RGBA mode!!!!!!!!!!!!
+Colour bits: 4
+Depth  bits: 16
+
+(bestMatch: 0)
+...PFD 1 rejected, improper flags (0x8024 instead of 0x25)
+(bestMatch: 0)
+...PFD 2 rejected, depth bits only 0 (<15)
+(bestMatch: 0)
+...PFD 3 rejected, improper flags (0x8024 instead of 0x25)
+(bestMatch: 0)
+...PFD 4 rejected, improper flags (0x8024 instead of 0x25)
+(bestMatch: 0)
+(bestMatch: 5)
+...PFD 6 rejected, improper flags (0x8024 instead of 0x25)
+(bestMatch: 5)
+(bestMatch: 5)
+...PFD 8 rejected, depth bits only 0 (<15)
+(bestMatch: 5)
+(bestMatch: 5)
+(bestMatch: 5)
+...PFD 11 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 12 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 13 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 14 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 15 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 16 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 17 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 18 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 19 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 20 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 21 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 22 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 23 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 24 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 25 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 26 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 27 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 28 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 29 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 30 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 31 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 32 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 33 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 34 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 35 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 36 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 37 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 38 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 39 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 40 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 41 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 42 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 43 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 44 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 45 rejected, improper flags (0x8004 instead of 0x25)
+(bestMatch: 5)
+...PFD 46 rejected, improper flags (0x8205 instead of 0x25)
+(bestMatch: 5)
+...PFD 47 rejected, software acceleration
+(bestMatch: 5)
+...PFD 48 rejected, software acceleration
+(bestMatch: 5)
+...PFD 49 rejected, software acceleration
+(bestMatch: 5)
+...PFD 50 rejected, software acceleration
+(bestMatch: 5)
+...PFD 51 rejected, software acceleration
+(bestMatch: 5)
+...PFD 52 rejected, software acceleration
+(bestMatch: 5)
+...PFD 53 rejected, software acceleration
+(bestMatch: 5)
+...PFD 54 rejected, software acceleration
+(bestMatch: 5)
+...PFD 55 rejected, software acceleration
+(bestMatch: 5)
+...PFD 56 rejected, software acceleration
+(bestMatch: 5)
+...PFD 57 rejected, software acceleration
+(bestMatch: 5)
+...PFD 58 rejected, software acceleration
+(bestMatch: 5)
+...PFD 59 rejected, software acceleration
+(bestMatch: 5)
+...PFD 60 rejected, software acceleration
+(bestMatch: 5)
+...PFD 61 rejected, software acceleration
+(bestMatch: 5)
+...PFD 62 rejected, software acceleration
+(bestMatch: 5)
+...PFD 63 rejected, software acceleration
+(bestMatch: 5)
+...PFD 64 rejected, software acceleration
+(bestMatch: 5)
+...PFD 65 rejected, software acceleration
+(bestMatch: 5)
+...PFD 66 rejected, software acceleration
+(bestMatch: 5)
+...PFD 67 rejected, software acceleration
+(bestMatch: 5)
+...PFD 68 rejected, software acceleration
+(bestMatch: 5)
+...PFD 69 rejected, software acceleration
+(bestMatch: 5)
+...PFD 70 rejected, software acceleration
+(bestMatch: 5)
+...PFD 71 rejected, software acceleration
+(bestMatch: 5)
+...PFD 72 rejected, software acceleration
+(bestMatch: 5)
+...PFD 73 rejected, software acceleration
+(bestMatch: 5)
+...PFD 74 rejected, software acceleration
+(bestMatch: 5)
+...PFD 75 rejected, software acceleration
+(bestMatch: 5)
+...PFD 76 rejected, software acceleration
+(bestMatch: 5)
+...PFD 77 rejected, software acceleration
+(bestMatch: 5)
+...PFD 78 rejected, software acceleration
+(bestMatch: 5)
+...PFD 79 rejected, software acceleration
+(bestMatch: 5)
+...PFD 80 rejected, software acceleration
+(bestMatch: 5)
+...PFD 81 rejected, software acceleration
+(bestMatch: 5)
+...PFD 82 rejected, software acceleration
+Bestmode: 5
+...hardware acceleration found

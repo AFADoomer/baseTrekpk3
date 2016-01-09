@@ -1,0 +1,73 @@
+GameInfo
+{
+	PlayerClasses = "TrekPlayer", "Shuttle"//, "TrekPlayerF", "OldTrekPlayer"
+	dimcolor = "0 0 0"
+	dimamount = 0.7
+	menufontcolor_title = "TOSMenuGold"
+	menufontcolor_label = "TOSMenuGold"
+	menufontcolor_value = "TOSMenuGold"
+	menufontcolor_action = "TOSMenuGold"
+	menufontcolor_header = "TOSMenuGold"
+	menufontcolor_highlight = "TOSMenuLightGold"
+	menufontcolor_selection = "TOSMenuLightGold"
+}
+
+clearepisodes
+
+episode MAP01
+{
+	name = TOS
+}
+
+DefaultMap
+{
+	Sky1 = "StarFld"
+	Music = ""
+	PixelRatio = 1.2
+	Cluster = 1
+
+	CheckSwitchRange
+	UsePlayerStartZ
+	StrifeFallingDamage
+	EvenLighting
+	NoInfighting
+	MonsterFallingDamage
+	BorderTexture = "Matte"
+}
+
+Map TitleMap "Star Trek"
+{
+	Cluster = 2
+}
+
+Map Bridge13 "Deck 1 - Bridge"
+{}
+
+Map MAP01 "Filming Set"
+{}
+
+Map MAP02 "D-7 Cruiser"
+{}
+
+Map MAP03 "Shuttlebay"
+{}
+
+Map MAP05 "Test Map 2"
+{}
+
+Map MAP06 "Secondary Hull"
+{}
+
+Map MAP07 "Primary Hull"
+{}
+
+Map MAP08 "Planet Surface"
+{}
+
+Map Test "Test Map"
+{}
+
+Cluster 1
+{
+	hub
+}

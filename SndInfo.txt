@@ -1,0 +1,71 @@
+$ambient 1 ambient/bridge point continuous 0.5
+$ambient 2 ambient/redalert point continuous 0.7
+$ambient 3 ambient/corr1 point continuous 1.0
+$ambient 4 ambient/corr2 point continuous 0.5
+$ambient 5 ambient/trans point continuous 1.0
+$ambient 6 ambient/eng point continuous 1.0
+$ambient 7 ambient/wind point continuous 1.0
+$ambient 8 ambient/planet1 world continuous 1.0
+$ambient 9 ambient/planet2 world continuous 1.0
+$ambient 10 ambient/planet3 world continuous 0.1
+$ambient 11 ambient/lab point 2.0 continuous 0.25
+$ambient 12 ambient/brief point continuous 0.05
+$ambient 13 ambient/hangar point continuous 1.0
+
+ambient/bridge			bridge
+ambient/redalert		redalert
+ambient/planet1			planet_1
+ambient/planet2			planet_2
+ambient/planet3			planet_3
+ambient/wind			wind
+ambient/trans			trans
+ambient/eng			eng
+ambient/corr1			corr_1
+ambient/corr2			corr_2
+ambient/lab			lab
+ambient/brief			brief
+ambient/hangar			hangar
+
+door/starfleet			door
+
+weapons/phaser			phaser_f
+weapons/phaser_stun		stun_f
+weapons/phaser_alt		phaser_a
+weapons/phaser_empty		phaser_e
+weapons/rifle			rifle_f
+weapons/disruptor		disrupt
+weapons/photon			photon_f
+weapons/photon_active		fire
+$limit weapons/photon_active 	1
+weapons/photon_hit		photon_x
+weapons/alien			shoot
+weapons/torpedo			photorp
+weapons/electric		electric
+weapons/explode			explode
+
+computer/button1		button1
+computer/button2		button2
+computer/button3		button3
+computer/button4		button4
+computer/button5		button5
+computer/button6		button6
+computer/button7		button7
+computer/working		working
+
+actor/communicator		comm
+actor/medscanner		medscan
+actor/tricorder			tri_scan
+actor/intercom			intercom
+actor/replicator		replicat
+
+actor/appear			appear
+
+actor/heartbeat			heart
+actor/gasp			gasp
+
+actor/powerup			powerup
+actor/burnout			burnout
+
+transporter/energize		tran_con
+transporter/in			tran_in
+transporter/out			tran_out

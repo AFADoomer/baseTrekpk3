@@ -1,0 +1,141 @@
+Lock 1
+{
+	AccessLevel2
+	Message "$LOCK_2"
+	RemoteMessage "$LOCK_2"
+	Mapcolor 255 0 0
+}
+
+
+Lock 2
+{
+	AccessLevel3
+	Message "$LOCK_3"
+	RemoteMessage "$LOCK_3"
+	Mapcolor 0 0 255
+}
+
+
+Lock 3
+{
+	AccessLevel4
+	Message "$LOCK_4"
+	RemoteMessage "$LOCK_4"
+	Mapcolor 255 255 0
+}
+
+
+Lock 4
+{
+	RedSkull
+	Message "$PD_REDS"
+	RemoteMessage "$PD_REDSO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 5
+{
+	BlueSkull
+	Message "$PD_BLUES"
+	RemoteMessage "$PD_BLUESO"
+	Mapcolor 0 0 255
+}
+
+
+Lock 6
+{
+	YellowSkull
+	Message "$PD_YELLOWS"
+	RemoteMessage "$PD_YELLOWSO"
+	Mapcolor 255 255 0
+}
+
+
+Lock 129
+{
+	Any { RedCard RedSkull }
+	Message "$PD_REDK"
+	RemoteMessage "$PD_REDO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 130
+{
+	Any { BlueCard BlueSkull }
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEO"
+	Mapcolor 0 0 255
+}
+
+
+Lock 131
+{
+	Any { YellowCard YellowSkull }
+	Message "$PD_YELLOWK"
+	RemoteMessage "$PD_YELLOWO"
+	Mapcolor 255 255 0
+}
+
+
+Lock 132
+{
+	Any { RedCard RedSkull }
+	Message "$PD_REDK"
+	RemoteMessage "$PD_REDO"
+	Mapcolor 255 0 0
+}
+
+
+Lock 133
+{
+	Any { BlueCard BlueSkull }
+	Message "$PD_BLUEK"
+	RemoteMessage "$PD_BLUEO"
+	Mapcolor 0 0 255
+}
+
+
+Lock 134
+{
+	Any { YellowCard YellowSkull }
+	Message "$PD_YELLOWK"
+	RemoteMessage "$PD_YELLOWO"
+	Mapcolor 255 255 0
+}
+
+Lock 100
+{
+	Message "$PD_ANY"
+	RemoteMessage "$PD_ANYOBJ"
+	Mapcolor 128 128 255
+}
+
+Lock 228
+{
+	Message "$PD_ANY"
+	RemoteMessage "$PD_ANYOBJ"
+	Mapcolor 128 128 255
+}
+
+Lock 229
+{
+	Any { BlueCard BlueSkull }
+	Any { YellowCard YellowSkull }
+	Any { RedCard RedSkull }
+	Message "$PD_ALL3"
+	RemoteMessage "$PD_ALL3O"
+}
+
+Lock 101
+{
+	BlueCard 
+	BlueSkull
+	YellowCard 
+	YellowSkull
+	RedCard 
+	RedSkull
+	Message "$PD_ALL6"
+	RemoteMessage "$PD_ALL6O"
+}

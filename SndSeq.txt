@@ -1,0 +1,17 @@
+:StarfleetDoorOpen
+	Play door/starfleet
+	NoStopCutoff
+End
+
+:StarfleetDoorClose
+	Play door/starfleet
+	NoStopCutoff
+End
+
+[StarfleetDoor
+	Door 1
+	0 StarfleetDoorOpen
+	1 StarfleetDoorClose
+	2 StarfleetDoorOpen
+	3 StarfleetDoorClose
+]

@@ -1,0 +1,57 @@
+texture Br_ScrnA
+    allowdecals
+    pic Br_ScrnC tics 12
+    pic Br_ScrnB tics 12
+    pic Br_ScrnA tics 12
+
+cameratexture TRICHUDS 250 200
+cameratexture SHU_CAM 604 338 fit 159 89 worldpanning
+
+texture WALLALE3
+    allowdecals
+    pic WALLALER tics 35
+    pic WALLALE3 tics 35
+
+texture WALLALE4
+    allowdecals
+    pic WALLALE2 tics 35
+    pic WALLALE4 tics 35
+
+texture ARCHALE2
+    allowdecals
+    pic ARCHALER tics 35
+    pic ARCHALE2 tics 35
+
+texture TRANSAL2
+    allowdecals
+    pic TRANSALE tics 35
+    pic TRANSAL2 tics 35
+
+texture BR_WALLQ
+    allowdecals
+    pic BR_WALLP tics 35
+    pic BR_WALLQ tics 35
+
+texture BR_WALLM
+    allowdecals
+    pic BR_WALLL tics 35
+    pic BR_WALLM tics 35
+
+texture BR_WALLU
+    allowdecals
+    pic BR_WALLR tics 35
+    pic BR_WALLU tics 35
+
+texture WALL_BEB
+    allowdecals
+    pic WALL_BEA tics 35
+    pic WALL_BEB tics 35
+
+/*
+switch WALLSW0 on sound Switch1 pic WALLSW1 tics 0
+switch WALLSW1 on sound Switch1 pic WALLSW0 tics 0
+switch WALL2SW0 on sound Switch1 pic WALL2SW1 tics 0
+switch WALL2SW1 on sound Switch1 pic WALL2SW0 tics 0
+switch WALL3SW0 on sound Switch1 pic WALL3SW1 tics 0
+switch WALL3SW1 on sound Switch1 pic WALL3SW0 tics 0
+*/

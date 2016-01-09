@@ -1,0 +1,432 @@
+Model Charge
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_ammo.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex CHAR A 0 0
+}
+
+Model ChargePack
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_ammo2.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex CHAR A 0 0
+}
+
+Model Tricorder
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tricorder.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+}
+
+Model PhaserType1
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_1.md3"
+	Skin 0 "tosphaser_new.jpg"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+
+	Rotation-Speed 0.0
+
+	Model 1 "phaser_1_hand.md3"
+	Skin 1 "hand.jpg"
+
+	PitchOffset 0.0
+	Scale -0.7 0.7 0.7
+
+	AngleOffset 6.0
+	Offset 6.0 -3.0 -6.5
+	FrameIndex PHAS A 0 0
+
+	AngleOffset 4.0
+	Offset 4.0 -3.0 -6.5
+	FrameIndex PHAS B 0 0
+
+	AngleOffset 2.0
+	Offset 2.0 -3.0 -6.5
+	FrameIndex PHAS C 0 0
+
+	AngleOffset 0.0
+	Offset 0.0 -3.0 -6.5
+	FrameIndex PHAS D 0 0
+
+	Offset 0.0 -2.75 -6.5
+	FrameIndex PHAS E 0 0
+}
+
+Model PhaserType2
+{
+	Path "Models/weapons/"
+	Model 0 "phaser.md3"
+	Skin 0 "tosphaser_new.jpg"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+
+	Rotation-Speed 0.0
+
+	Model 1 "phaser_hand.md3"
+	Skin 1 "hand.jpg"
+
+	PitchOffset 0.0
+	Scale -0.7 0.7 0.7
+
+	AngleOffset 6.0
+	Offset 6.0 -3.0 -6.5
+	FrameIndex PHAS A 0 0
+
+	AngleOffset 4.0
+	Offset 4.0 -3.0 -6.5
+	FrameIndex PHAS B 0 0
+
+	AngleOffset 2.0
+	Offset 2.0 -3.0 -6.5
+	FrameIndex PHAS C 0 0
+
+	AngleOffset 0.0
+	Offset 0.0 -3.0 -6.5
+	FrameIndex PHAS D 0 0
+
+	Offset 0.0 -2.75 -6.5
+	FrameIndex PHAS E 0 0
+}
+
+Model PhaserRifle
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_rifle.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+
+	Scale -1 1 1
+
+	AngleOffset 6.0
+	Offset 6.0 -3.0 -6.5
+	FrameIndex PHAS A 0 0
+
+	AngleOffset 4.0
+	Offset 4.0 -3.0 -6.5
+	FrameIndex PHAS B 0 0
+
+	AngleOffset 2.0
+	Offset 2.0 -3.0 -6.5
+	FrameIndex PHAS C 0 0
+
+	AngleOffset 0.0
+	Offset 0.0 -3.0 -6.5
+	FrameIndex PHAS D 0 0
+
+	Offset 0.0 -2.75 -6.5
+	FrameIndex PHAS E 0 0
+
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+}
+
+Model Disruptor
+{
+	Path "Models/weapons/"
+	Model 0 "disruptor.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+
+	Rotation-Speed 0.0
+
+	Model 1 "phaser_1_hand.md3"
+	Skin 1 "hand.jpg"
+
+	PitchOffset 0.0
+	Scale -0.7 0.7 0.7
+
+	AngleOffset 6.0
+	Offset 6.0 -3.0 -6.5
+	FrameIndex PHAS A 0 0
+
+	AngleOffset 4.0
+	Offset 4.0 -3.0 -6.5
+	FrameIndex PHAS B 0 0
+
+	AngleOffset 2.0
+	Offset 2.0 -3.0 -6.5
+	FrameIndex PHAS C 0 0
+
+	AngleOffset 0.0
+	Offset 0.0 -3.0 -6.5
+	FrameIndex PHAS D 0 0
+
+	Offset 0.0 -2.75 -6.5
+	FrameIndex PHAS E 0 0
+
+	ROTATING
+	Rotation-Speed 0.25
+	Rotation-Vector 0.0 1.0 1.0
+
+}
+
+Model PhotonGrenadeLauncher
+{
+	Path "Models/weapons/"
+	Model 0 "mortar.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+
+	Scale -1 1 1
+
+	AngleOffset 6.0
+	Offset 6.0 -3.0 -6.5
+	FrameIndex PHAS A 0 0
+
+	AngleOffset 4.0
+	Offset 4.0 -3.0 -6.7
+	FrameIndex PHAS B 0 0
+
+	AngleOffset 2.0
+	Offset 2.0 -3.0 -6.9
+	FrameIndex PHAS C 0 0
+
+	AngleOffset 0.0
+	Offset 0.0 -3.0 -7
+	FrameIndex PHAS D 0 0
+
+	Offset 0.0 -2.75 -7
+	FrameIndex PHAS E 0 0
+
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+}
+
+Model Punch
+{
+	Path "Models/weapons2/stasis/"
+	Model 0 "fists.md3"
+
+	Scale -1 1 1
+
+	Offset 0.0 -6.0 -6.5
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 B 0 2
+	FrameIndex TOS1 C 0 4
+	FrameIndex TOS1 D 0 6
+	FrameIndex TOS1 E 0 8
+	FrameIndex TOS1 F 0 10
+	FrameIndex TOS1 G 0 12
+	FrameIndex TOS1 H 0 14
+	FrameIndex TOS1 I 0 16
+	FrameIndex TOS1 J 0 18
+	FrameIndex TOS1 K 0 20
+	FrameIndex TOS1 L 0 22
+	FrameIndex TOS1 M 0 24
+	FrameIndex TOS1 N 0 26
+	FrameIndex TOS1 O 0 28
+	FrameIndex TOS1 P 0 30
+	FrameIndex TOS1 Q 0 32
+}
+
+Model DisruptorStation
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "disruptorstation.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 B 0 0
+	FrameIndex TOS1 C 0 0
+	FrameIndex TOS1 D 0 0
+	FrameIndex TOS1 E 0 0
+
+	Model 1 "disruptorstationscreen.md3"
+
+	Skin 1 "DisruptorStationScreen_E.jpg"
+	FrameIndex TOS1 E 1 0
+
+	Skin 1 "DisruptorStationScreen_A.jpg"
+	FrameIndex TOS1 A 1 0
+
+	Skin 1 "DisruptorStationScreen_B.jpg"
+	FrameIndex TOS1 B 1 0
+
+	Skin 1 "DisruptorStationScreen_C.jpg"
+	FrameIndex TOS1 C 1 0
+
+	Skin 1 "DisruptorStationScreen_D.jpg"
+	FrameIndex TOS1 D 1 0
+}
+
+
+Model DisruptorStation
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "disruptorstation2.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS2 A 0 0
+	FrameIndex TOS2 B 0 0
+	FrameIndex TOS2 C 0 0
+	FrameIndex TOS2 D 0 0
+	FrameIndex TOS2 E 0 0
+
+	Model 1 "disruptorstationscreen.md3"
+
+	Skin 1 "DisruptorStationScreen_E.jpg"
+	FrameIndex TOS2 E 1 0
+
+	Skin 1 "DisruptorStationScreen_A.jpg"
+	FrameIndex TOS2 A 1 0
+
+	Skin 1 "DisruptorStationScreen_B.jpg"
+	FrameIndex TOS2 B 1 0
+
+	Skin 1 "DisruptorStationScreen_C.jpg"
+	FrameIndex TOS2 C 1 0
+
+	Skin 1 "DisruptorStationScreen_D.jpg"
+	FrameIndex TOS2 D 1 0
+}
+
+Model PhaserRifleStation
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "phaserriflestation.md3"
+
+	Scale 1.75 1.75 1.75
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 B 0 0
+	FrameIndex TOS1 C 0 0
+	FrameIndex TOS1 D 0 0
+	FrameIndex TOS1 E 0 0
+
+	Model 1 "phaserriflestationscreen.md3"
+
+	Skin 1 "PhaserRifleStationScreen_E.jpg"
+	FrameIndex TOS1 E 1 0
+
+	Skin 1 "PhaserRifleStationScreen_A.jpg"
+	FrameIndex TOS1 A 1 0
+
+	Skin 1 "PhaserRifleStationScreen_B.jpg"
+	FrameIndex TOS1 B 1 0
+
+	Skin 1 "PhaserRifleStationScreen_C.jpg"
+	FrameIndex TOS1 C 1 0
+
+	Skin 1 "PhaserRifleStationScreen_D.jpg"
+	FrameIndex TOS1 D 1 0
+}
+
+Model PhaserRifleStation
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "phaserriflestation2.md3"
+
+	Scale 1.75 1.75 1.75
+
+	ZOffset 32.0
+	AngleOffset 180.0
+
+	FrameIndex TOS2 A 0 0
+	FrameIndex TOS2 B 0 0
+	FrameIndex TOS2 C 0 0
+	FrameIndex TOS2 D 0 0
+	FrameIndex TOS2 E 0 0
+
+	Model 1 "phaserriflestationscreen.md3"
+
+	Skin 1 "PhaserRifleStationScreen_E.jpg"
+	FrameIndex TOS2 E 1 0
+
+	Skin 1 "PhaserRifleStationScreen_A.jpg"
+	FrameIndex TOS2 A 1 0
+
+	Skin 1 "PhaserRifleStationScreen_B.jpg"
+	FrameIndex TOS2 B 1 0
+
+	Skin 1 "PhaserRifleStationScreen_C.jpg"
+	FrameIndex TOS2 C 1 0
+
+	Skin 1 "PhaserRifleStationScreen_D.jpg"
+	FrameIndex TOS2 D 1 0
+}

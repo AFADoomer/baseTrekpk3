@@ -1,0 +1,312 @@
+Model Skybox1
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Skin 0 "vasquez.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Skybox2
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Skin 0 "vasquez2.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model DisruptorBolt
+{
+	Path "Models/weapons/"
+	Model 0 "disruptor_projectile.md3"
+	Skin 0 "bolt.jpg"
+
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 0.0 0.0
+
+	Scale 2.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model PhotonGrenade
+{
+	Path "Models/weapons/"
+	Model 0 "grenade_projectile.md3"
+	Skin 0 "grenade_ammo.jpg"
+
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 1.0 1.0
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+
+	Path "Textures/Solid/"
+	Skin 0 "Yellow.jpg"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model PhotonGrenadeHoming
+{
+	Path "Models/weapons/"
+	Model 0 "grenade_projectile.md3"
+	Skin 0 "grenade_ammo.jpg"
+
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 1.0 1.0
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+
+	Path "Textures/Solid/"
+	Skin 0 "Yellow.jpg"
+
+	FrameIndex TOS1 B 0 0
+}
+
+
+Model PhotonGrenadeShadow
+{
+	Path "Models/weapons/"
+	Model 0 "grenade_projectile.md3"
+
+	Scale 1.0 1.0 1.0
+
+	Path "Textures/Solid/"
+	Skin 0 "Blue.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model PhotonGrenadeShadow2
+{
+	Path "Models/weapons/"
+	Model 0 "grenade_projectile.md3"
+
+	Scale 1.0 1.0 1.0
+
+	Path "Textures/Solid/"
+	Skin 0 "Yellow.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model DisruptorGrenade
+{
+	Path "Models/weapons/"
+	Model 0 "grenade_projectile.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Green.jpg"
+
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 1.0 1.0
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+
+	Path "Textures/Solid/"
+	Skin 0 "Yellow.jpg"
+
+	FrameIndex TOS1 B 0 0
+}
+
+/*
+Model GreenPhaserParticle
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Skin 0 "bolt.jpg"
+
+	FrameIndex BLAS A 0 0
+}
+
+Model RedPhaserParticle
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Skin 0 "bolt_r.jpg"
+
+	FrameIndex BLAS A 0 0
+}
+
+Model OrangePhaserParticle
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Skin 0 "bolt_o.jpg"
+
+	FrameIndex BLAS A 0 0
+}
+
+Model BluePhaserParticle
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Skin 0 "bolt_b.jpg"
+
+	FrameIndex BLAS A 0 0
+}
+
+Model WhitePhaserParticle
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Skin 0 "bolt_w.jpg"
+
+	FrameIndex BLAS A 0 0
+}
+
+Model LaserTrail
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Skin 0 "bolt_p.jpg"
+
+	FrameIndex BLAS A 0 0
+}
+*/
+
+Model ExplosionSphereBlue
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Blue.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.05 0.05 0.05
+	FrameIndex TOS1 A 0 0
+}
+
+Model ExplosionSphereGreen
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Green.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.05 0.05 0.05
+	FrameIndex TOS1 A 0 0
+}
+
+Model PulseSphere
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+	Scale 0.05 0.05 0.05
+	FrameIndex TOS1 A 0 0
+}
+
+Model PulseSphereGreen
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Green.jpg"
+
+	Scale 0.05 0.05 0.05
+	FrameIndex TOS1 A 0 0
+}
+
+Model ExplosionSphereYellow
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Yellow.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.02 0.02 0.02
+	FrameIndex TOS1 A 0 0
+}
+
+Model ExplosionSphereWhite
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.1 0.1 0.1
+	FrameIndex TOS1 A 0 0
+}
+
+Model ExplosionSphereWhite2
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.1 0.1 0.1
+	FrameIndex TOS1 A 0 0
+}
+
+Model Trail
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.03 0.03 0.03
+	FrameIndex TOS1 A 0 0
+}
+
+Model TrailShell
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Purple.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.1 0.1 0.1
+	FrameIndex TOS1 A 0 0
+}

@@ -1,0 +1,94 @@
+DEFAULTLISTMENU
+{
+	Font "BigFont", "TOSMenuGold", "TOSMenuLightGold"
+	Selector "Icon", -32, -2
+	Linespacing 24
+}
+
+LISTMENU "MainMenu"
+{
+	StaticPatch 75, 10, "LOGO_T"
+	StaticPatch 125, 55, "LOGO_S"
+	Position 100, 80
+
+	TextItem "New Game", "n", "PlayerclassMenu"
+	TextItem "Configuration","c", "OptionsMenu"
+	TextItem "Load Game", "l", "LoadGameMenu"
+	TextItem "Save Game", "s", "SaveGameMenu"
+	TextItem "Exit", "e", "QuitMenu"
+}
+
+
+ListMenu "PlayerclassMenu"
+{
+	NetgameMessage "$NEWGAME"
+
+	StaticTextCentered 160, 15, "$MNU_CHOOSECLASS"
+	Position 48, 63
+//	PlayerDisplay 220, 63, "20 00 00", "80 00 40"
+	MouseWindow 0, 220
+}
+
+ListMenu "EpisodeMenu"
+{
+	NetgameMessage "$NEWGAME"
+
+	Position 48, 63
+	StaticPatch 54, 38, "M_EPISOD"
+}
+
+ListMenu "SkillMenu"
+{
+	StaticPatch 96, 14, "M_NEWG"
+	StaticPatch 54, 38, "M_SKILL"
+	Position 48, 63
+	CenterMenu
+}
+
+ListMenu "LoadGameMenu"
+{
+	NetgameMessage "$LOADNET"
+	StaticPatchCentered 160, -20, "M_LOADG"
+	Position 80,54
+	Class "LoadMenu"
+}
+
+ListMenu "SaveGameMenu"
+{
+	StaticPatchCentered 160, -20, "M_SAVEG"
+	Position 80,54
+	Class "SaveMenu"
+}
+
+//OptionMenuSettings
+//{
+//	Linespacing 24
+//}
+
+ListMenu "PlayerMenu"
+{
+	StaticTextCentered 160, 6, "$MNU_PLAYERSETUP"
+	Font "SmallFont"
+	Linespacing 14
+	Position 48, 36
+
+	PlayerNameBox "Name", 0, "Playerbox"
+	Selector "-", -16, -1
+	MouseWindow 0, 220
+//	PlayerDisplay 220, 80, "20 00 00", "80 00 40", 1, "PlayerDisplay"
+	
+	ValueText "Team", "Team"
+	ValueText "Color", "Color"
+	Linespacing 10
+	Slider "Red", "Red", 0, 255, 16
+	Slider "Green", "Green", 0, 255, 16
+	Linespacing 14
+	Slider "Blue", "Blue", 0, 255, 16
+	ValueText "Class", "Class"
+	ValueText "Skin", "Skin"
+	ValueText "Gender", "Gender", "Gender"
+	ValueText "Autoaim", "Autoaim", "Autoaim"
+	ValueText "Switch on pickup", "Switch", "OffOn"
+	ValueText "Always Run", "AlwaysRun", "OnOff"
+	Class "PlayerMenu"
+}

@@ -1,0 +1,259 @@
+Actor HideHUD : Inventory {}
+Actor ElevatorPanel : Inventory {}
+
+Actor Transport : CustomInventory Replaces TeleportFog
+{
+	+AUTOACTIVATE
+	States
+	{
+		Spawn:
+			TNT1 A -1
+			Loop
+		Pickup:
+			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 0, 1)
+			Stop
+	}
+
+}
+
+Actor Disintegration : CustomInventory
+{
+	+AUTOACTIVATE
+	States
+	{
+		Spawn:
+			TNT1 A -1
+			Loop
+		Pickup:
+			TNT1 A 0 ACS_NamedExecuteAlways("A_Disintegrate")
+			Stop
+	}
+}
+
+Actor Stunner : CustomInventory
+{
+	+AUTOACTIVATE
+	States
+	{
+		Spawn:
+			TNT1 A -1
+			Loop
+		Pickup:
+			TNT1 A 0 ACS_NamedExecuteAlways("A_Stun")
+			Stop
+	}
+}
+
+Actor NavGoal 26000
+{
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+SHOOTABLE
+	+INVISIBLE
+	+ISMONSTER //So I can set Master pointer
+	States
+	{
+		Spawn:
+			UNKN A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+		Static:
+			UNKN A 35
+			Loop
+	}
+}
+
+Actor TurboLiftMarker : NavGoal 26500 {}
+Actor TransporterMarker : NavGoal 26501 {}
+
+Actor ChaseCam
+{
+	Height 1
+	Radius 8
+	+NOGRAVITY
+	+NOBLOCKMAP
+	+ISMONSTER //Because SetActorProperty/APROP_MasterTID's DoSetMaster function requires it for some reason...
+	States
+	{
+		Spawn:
+			TNT1 A 1
+			TNT1 A 0 A_Warp(AAPTR_Master, 0, 0, 128.0, 0, WARPF_NOCHECKPOSITION | WARPF_COPYINTERPOLATION)
+			Loop
+	}
+}
+
+Actor LeanCam
+{
+	var int user_ZHeight;
+
+	Height 1
+	Radius 1
+	+NOGRAVITY
+	+FLOAT
+	+NOBLOCKMAP
+	+ISMONSTER
+	States
+	{
+		Spawn:
+			TNT1 A 1
+			TNT1 A 1 A_SetUserVar("user_ZHeight", 55)
+			TNT1 A 0 A_Warp(AAPTR_Master, 0, 0, user_ZHeight * 1.0, 0, WARPF_INTERPOLATE | WARPF_NOCHECKPOSITION | WARPF_COPYINTERPOLATION)
+			Loop
+		Left:
+			TNT1 A 1 A_Warp(AAPTR_Master, 8.0, -7.0, user_ZHeight * 1.0, 0, WARPF_INTERPOLATE | WARPF_COPYINTERPOLATION)
+			Loop
+		Right:
+			TNT1 A 1 A_Warp(AAPTR_Master, 8.0, 7.0, user_ZHeight * 1.0, 0, WARPF_INTERPOLATE | WARPF_COPYINTERPOLATION)
+			Loop
+	}
+}
+
+Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
+{
+	var int user_level;
+	var int user_uses;
+	var int user_used;
+
+	Height 25
+	Radius 16
+	Mass 999999
+	+SOLID
+	+SHOOTABLE
+	+INVULNERABLE
+	+USESPECIAL
+	+NOGRAVITY
+	Activation THINGSPEC_Switch | THINGSPEC_ThingTargets | THINGSPEC_ThingActs
+
+	Tag "Disruptor Charging Station"
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 D 1
+			TOS1 D 0 A_SetUserVar("user_level", 100)
+			TOS1 D 0 A_SetUserVar("user_uses", args[0])
+			TOS1 D 0 A_JumpIf(user_uses > 0, "Static")
+			TOS1 D 0 A_SetUserVar("user_uses", 300)
+		Static:
+			"####" # 21
+			"####" # 0 A_JumpIf(user_level >= 100, "Full")
+		Quarter:
+			"####" A 0 A_JumpIf(user_level <= 25, "Charge")
+		Half:
+			"####" B 0 A_JumpIf(user_level <= 50, "Charge")
+		ThreeQuarter:
+			"####" C 0 A_JumpIf(user_level <= 75, "Charge")
+		Full:
+			"####" D 0 A_SetUserVar("user_level", 100)
+			Goto Static
+		Charge:
+			"####" # 0 A_SetUserVar("user_level", user_level + 1)
+			Goto Static
+		Inactive:
+		Active:
+			"####" # 0 A_SetUserVar("user_used", ACS_NamedExecuteWithResult("A_AmmoStation", 0, user_level))
+		Return:
+			"####" # 0 A_JumpIf(user_used < 0, "DispensedWeapon")
+			"####" # 0 A_SetUserVar("user_uses", user_uses - user_used)
+			"####" # 0 A_SetUserVar("user_level", user_level - user_used)
+			"####" # 0 A_JumpIf(user_uses <= 0, "Done")
+			"####" # 0 A_PlaySound("actor/powerup", CHAN_AUTO, 1.0)
+			Goto Static
+		Done:
+			"####" # 0 A_PlaySound("actor/burnout", CHAN_AUTO, 1.0)
+			"####" E -1
+			Stop
+		DispensedWeapon:
+			"####" # 0 A_SetUserVar("user_used", 100)
+			TOS2 A 0 A_Jump(256, "Return")
+	}
+}
+
+Actor PhaserRifleStation : DisruptorStation Replaces PlasmaRifle 25104
+{
+	Height 32
+
+	Tag "Phaser Rifle Charging Station"
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 D 1
+			TOS1 D 0 A_SetUserVar("user_level", 100)
+			TOS1 D 0 A_SetUserVar("user_uses", args[0])
+			TOS1 D 0 A_JumpIf(user_uses > 0, "Static")
+			TOS1 D 0 A_SetUserVar("user_uses", 400)
+			Goto Static
+		Inactive:
+		Active:
+			"####" # 0 A_PlaySound("computer/button2")
+			"####" # 0 A_SetUserVar("user_used", ACS_NamedExecuteWithResult("A_AmmoStation", 1, user_level))
+			Goto Return
+	}
+}
+
+ACTOR Nav_Block
+{
+	Radius 10
+	States
+	{
+	Spawn:
+		UNKN A -1
+	}
+}
+
+ACTOR Nav_Check
+{
+	Radius 0
+	Height 64
+	States
+	{
+	Spawn:
+		UNKN A -1
+	}
+}
+
+Actor AccessLevel2 : Key
+{
+	Radius 20
+	Height 16
+	+NOTDMATCH
+
+	States
+	{
+		Spawn:
+			RKEY A 10
+			RKEY B 10 Bright
+			Loop
+	}
+}
+
+Actor AccessLevel3 : Key
+{
+	Radius 20
+	Height 16
+	+NOTDMATCH
+
+	States
+	{
+		Spawn:
+			BKEY A 10
+			BKEY B 10 Bright
+			Loop
+	}
+}
+
+Actor AccessLevel4 : Key
+{
+	Radius 20
+	Height 16
+	+NOTDMATCH
+
+	States
+	{
+		Spawn:
+			YKEY A 10
+			YKEY B 10 Bright
+			Loop
+	}
+}

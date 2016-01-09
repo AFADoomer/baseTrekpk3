@@ -1,0 +1,445 @@
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player.md3"
+	Skin 0 "Starfleet_E_ENS.jpg"
+
+	Model 1 "head_kirk.md3"
+	Skin 1 "head.jpg"
+
+	Path "Models/weapons/"
+	Model 2 "phaser_w.md3"
+	Skin 2 "tosphaser.jpg"
+
+	AngleOffset 180.0
+	Scale 1.0 1.0 0.95
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS1 E 0 49
+	FrameIndex TOS1 E 1 49
+	FrameIndex TOS1 E 2 49
+
+	Path "Models/actors/player/"
+	Skin 0 "Starfleet_C_ENS.jpg"
+
+	FrameIndex TOS2 A 0 1
+	FrameIndex TOS2 A 1 1
+	FrameIndex TOS2 A 2 1
+	FrameIndex TOS2 B 0 4
+	FrameIndex TOS2 B 1 4
+	FrameIndex TOS2 B 2 4
+	FrameIndex TOS2 C 0 7
+	FrameIndex TOS2 C 1 7
+	FrameIndex TOS2 C 2 7
+	FrameIndex TOS2 D 0 10
+	FrameIndex TOS2 D 1 10
+	FrameIndex TOS2 D 2 10
+	FrameIndex TOS2 E 0 49
+	FrameIndex TOS2 E 1 49
+	FrameIndex TOS2 E 2 49
+
+	Skin 0 "Starfleet_S_ENS.jpg"
+
+	FrameIndex TOS3 A 0 1
+	FrameIndex TOS3 A 1 1
+	FrameIndex TOS3 A 2 1
+	FrameIndex TOS3 B 0 4
+	FrameIndex TOS3 B 1 4
+	FrameIndex TOS3 B 2 4
+	FrameIndex TOS3 C 0 7
+	FrameIndex TOS3 C 1 7
+	FrameIndex TOS3 C 2 7
+	FrameIndex TOS3 D 0 10
+	FrameIndex TOS3 D 1 10
+	FrameIndex TOS3 D 2 10
+	FrameIndex TOS3 E 0 49
+	FrameIndex TOS3 E 1 49
+	FrameIndex TOS3 E 2 49
+
+	Skin 0 "Starfleet_E_LTJG.jpg"
+
+	FrameIndex TOS4 A 0 1
+	FrameIndex TOS4 A 1 1
+	FrameIndex TOS4 A 2 1
+	FrameIndex TOS4 B 0 4
+	FrameIndex TOS4 B 1 4
+	FrameIndex TOS4 B 2 4
+	FrameIndex TOS4 C 0 7
+	FrameIndex TOS4 C 1 7
+	FrameIndex TOS4 C 2 7
+	FrameIndex TOS4 D 0 10
+	FrameIndex TOS4 D 1 10
+	FrameIndex TOS4 D 2 10
+	FrameIndex TOS4 E 0 49
+	FrameIndex TOS4 E 1 49
+	FrameIndex TOS4 E 2 49
+
+	Skin 0 "Starfleet_C_LTJG.jpg"
+
+	FrameIndex TOS5 A 0 1
+	FrameIndex TOS5 A 1 1
+	FrameIndex TOS5 A 2 1
+	FrameIndex TOS5 B 0 4
+	FrameIndex TOS5 B 1 4
+	FrameIndex TOS5 B 2 4
+	FrameIndex TOS5 C 0 7
+	FrameIndex TOS5 C 1 7
+	FrameIndex TOS5 C 2 7
+	FrameIndex TOS5 D 0 10
+	FrameIndex TOS5 D 1 10
+	FrameIndex TOS5 D 2 10
+	FrameIndex TOS5 E 0 49
+	FrameIndex TOS5 E 1 49
+	FrameIndex TOS5 E 2 49
+
+	Skin 0 "Starfleet_S_LTJG.jpg"
+
+	FrameIndex TOS6 A 0 1
+	FrameIndex TOS6 A 1 1
+	FrameIndex TOS6 A 2 1
+	FrameIndex TOS6 B 0 4
+	FrameIndex TOS6 B 1 4
+	FrameIndex TOS6 B 2 4
+	FrameIndex TOS6 C 0 7
+	FrameIndex TOS6 C 1 7
+	FrameIndex TOS6 C 2 7
+	FrameIndex TOS6 D 0 10
+	FrameIndex TOS6 D 1 10
+	FrameIndex TOS6 D 2 10
+	FrameIndex TOS6 E 0 49
+	FrameIndex TOS6 E 1 49
+	FrameIndex TOS6 E 2 49
+
+	Skin 0 "Starfleet_E_LT.jpg"
+
+	FrameIndex TOS7 A 0 1
+	FrameIndex TOS7 A 1 1
+	FrameIndex TOS7 A 2 1
+	FrameIndex TOS7 B 0 4
+	FrameIndex TOS7 B 1 4
+	FrameIndex TOS7 B 2 4
+	FrameIndex TOS7 C 0 7
+	FrameIndex TOS7 C 1 7
+	FrameIndex TOS7 C 2 7
+	FrameIndex TOS7 D 0 10
+	FrameIndex TOS7 D 1 10
+	FrameIndex TOS7 D 2 10
+	FrameIndex TOS7 E 0 49
+	FrameIndex TOS7 E 1 49
+	FrameIndex TOS7 E 2 49
+
+	Skin 0 "Starfleet_C_LT.jpg"
+
+	FrameIndex TOS8 A 0 1
+	FrameIndex TOS8 A 1 1
+	FrameIndex TOS8 A 2 1
+	FrameIndex TOS8 B 0 4
+	FrameIndex TOS8 B 1 4
+	FrameIndex TOS8 B 2 4
+	FrameIndex TOS8 C 0 7
+	FrameIndex TOS8 C 1 7
+	FrameIndex TOS8 C 2 7
+	FrameIndex TOS8 D 0 10
+	FrameIndex TOS8 D 1 10
+	FrameIndex TOS8 D 2 10
+	FrameIndex TOS8 E 0 49
+	FrameIndex TOS8 E 1 49
+	FrameIndex TOS8 E 2 49
+
+	Skin 0 "Starfleet_S_LT.jpg"
+
+	FrameIndex TOS9 A 0 1
+	FrameIndex TOS9 A 1 1
+	FrameIndex TOS9 A 2 1
+	FrameIndex TOS9 B 0 4
+	FrameIndex TOS9 B 1 4
+	FrameIndex TOS9 B 2 4
+	FrameIndex TOS9 C 0 7
+	FrameIndex TOS9 C 1 7
+	FrameIndex TOS9 C 2 7
+	FrameIndex TOS9 D 0 10
+	FrameIndex TOS9 D 1 10
+	FrameIndex TOS9 D 2 10
+	FrameIndex TOS9 E 0 49
+	FrameIndex TOS9 E 1 49
+	FrameIndex TOS9 E 2 49
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player.md3"
+	Skin 0 "Starfleet_E_ENS.jpg"
+
+	Model 1 "head_kirk.md3"
+	Skin 1 "head.jpg"
+
+	AngleOffset 180.0
+	Scale 1.0 1.0 0.95
+
+	FrameIndex TOS1 F 0 174
+	FrameIndex TOS1 F 1 174
+	FrameIndex TOS1 G 0 176
+	FrameIndex TOS1 G 1 176
+	FrameIndex TOS1 H 0 178
+	FrameIndex TOS1 H 1 178
+	FrameIndex TOS1 I 0 180
+	FrameIndex TOS1 I 1 180
+
+	Skin 0 "Starfleet_C_ENS.jpg"
+
+	FrameIndex TOS2 F 0 174
+	FrameIndex TOS2 F 1 174
+	FrameIndex TOS2 G 0 176
+	FrameIndex TOS2 G 1 176
+	FrameIndex TOS2 H 0 178
+	FrameIndex TOS2 H 1 178
+	FrameIndex TOS2 I 0 180
+	FrameIndex TOS2 I 1 180
+
+	Skin 0 "Starfleet_S_ENS.jpg"
+
+	FrameIndex TOS3 F 0 174
+	FrameIndex TOS3 F 1 174
+	FrameIndex TOS3 G 0 176
+	FrameIndex TOS3 G 1 176
+	FrameIndex TOS3 H 0 178
+	FrameIndex TOS3 H 1 178
+	FrameIndex TOS3 I 0 180
+	FrameIndex TOS3 I 1 180
+
+	Skin 0 "Starfleet_E_LTJG.jpg"
+
+	FrameIndex TOS4 F 0 174
+	FrameIndex TOS4 F 1 174
+	FrameIndex TOS4 G 0 176
+	FrameIndex TOS4 G 1 176
+	FrameIndex TOS4 H 0 178
+	FrameIndex TOS4 H 1 178
+	FrameIndex TOS4 I 0 180
+	FrameIndex TOS4 I 1 180
+
+	Skin 0 "Starfleet_C_LTJG.jpg"
+
+	FrameIndex TOS5 F 0 174
+	FrameIndex TOS5 F 1 174
+	FrameIndex TOS5 G 0 176
+	FrameIndex TOS5 G 1 176
+	FrameIndex TOS5 H 0 178
+	FrameIndex TOS5 H 1 178
+	FrameIndex TOS5 I 0 180
+	FrameIndex TOS5 I 1 180
+
+	Skin 0 "Starfleet_S_LTJG.jpg"
+
+	FrameIndex TOS6 F 0 174
+	FrameIndex TOS6 F 1 174
+	FrameIndex TOS6 G 0 176
+	FrameIndex TOS6 G 1 176
+	FrameIndex TOS6 H 0 178
+	FrameIndex TOS6 H 1 178
+	FrameIndex TOS6 I 0 180
+	FrameIndex TOS6 I 1 180
+
+	Skin 0 "Starfleet_E_LT.jpg"
+
+	FrameIndex TOS7 F 0 174
+	FrameIndex TOS7 F 1 174
+	FrameIndex TOS7 G 0 176
+	FrameIndex TOS7 G 1 176
+	FrameIndex TOS7 H 0 178
+	FrameIndex TOS7 H 1 178
+	FrameIndex TOS7 I 0 180
+	FrameIndex TOS7 I 1 180
+
+	Skin 0 "Starfleet_C_LT.jpg"
+
+	FrameIndex TOS8 F 0 174
+	FrameIndex TOS8 F 1 174
+	FrameIndex TOS8 G 0 176
+	FrameIndex TOS8 G 1 176
+	FrameIndex TOS8 H 0 178
+	FrameIndex TOS8 H 1 178
+	FrameIndex TOS8 I 0 180
+	FrameIndex TOS8 I 1 180
+
+	Skin 0 "Starfleet_S_LT.jpg"
+
+	FrameIndex TOS9 F 0 174
+	FrameIndex TOS9 F 1 174
+	FrameIndex TOS9 G 0 176
+	FrameIndex TOS9 G 1 176
+	FrameIndex TOS9 H 0 178
+	FrameIndex TOS9 H 1 178
+	FrameIndex TOS9 I 0 180
+	FrameIndex TOS9 I 1 180
+}
+
+Model TOSKlingon
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+	Path "Models/weapons/"
+	Model 2 "disruptor_w.md3"
+	Skin 2 "tos_klingon_disruptor.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS1 E 0 63
+	FrameIndex TOS1 E 1 63
+	FrameIndex TOS1 E 2 63
+	FrameIndex TOS1 F 0 63
+	FrameIndex TOS1 F 1 63
+	FrameIndex TOS1 F 2 63
+	FrameIndex TOS1 G 0 65
+	FrameIndex TOS1 G 1 65
+	FrameIndex TOS1 G 2 65
+}
+
+Model TOSKlingon
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+	Path "Models/weapons/"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 H 0 174
+	FrameIndex TOS1 H 1 174
+	FrameIndex TOS1 I 0 175
+	FrameIndex TOS1 I 1 175
+	FrameIndex TOS1 J 0 177
+	FrameIndex TOS1 J 1 177
+	FrameIndex TOS1 K 0 179
+	FrameIndex TOS1 K 1 179
+	FrameIndex TOS1 L 0 180
+	FrameIndex TOS1 L 1 180
+	FrameIndex TOS1 M 0 166
+	FrameIndex TOS1 M 1 166
+	FrameIndex TOS1 N 0 167
+	FrameIndex TOS1 N 1 167
+	FrameIndex TOS1 O 0 168
+	FrameIndex TOS1 O 1 168
+	FrameIndex TOS1 P 0 169
+	FrameIndex TOS1 P 1 169
+	FrameIndex TOS1 Q 0 170
+	FrameIndex TOS1 Q 1 170
+	FrameIndex TOS1 R 0 171
+	FrameIndex TOS1 R 1 171
+	FrameIndex TOS1 S 0 171
+	FrameIndex TOS1 S 1 171
+	FrameIndex TOS1 T 0 171
+	FrameIndex TOS1 T 1 171
+	FrameIndex TOS1 U 0 171
+	FrameIndex TOS1 U 1 171
+}
+
+Model TOSKlingonGrenade
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "klingon2.jpg"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	Path "Models/weapons/"
+	Model 2 "disruptor_w.md3"
+	Skin 2 "tos_klingon_disruptor.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS1 E 0 63
+	FrameIndex TOS1 E 1 63
+	FrameIndex TOS1 E 2 63
+	FrameIndex TOS1 F 0 63
+	FrameIndex TOS1 F 1 63
+	FrameIndex TOS1 F 2 63
+	FrameIndex TOS1 G 0 65
+	FrameIndex TOS1 G 1 65
+	FrameIndex TOS1 G 2 65
+}
+
+Model TOSKlingonGrenade
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "klingon2.jpg"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 H 0 174
+	FrameIndex TOS1 H 1 174
+	FrameIndex TOS1 I 0 175
+	FrameIndex TOS1 I 1 175
+	FrameIndex TOS1 J 0 177
+	FrameIndex TOS1 J 1 177
+	FrameIndex TOS1 K 0 179
+	FrameIndex TOS1 K 1 179
+	FrameIndex TOS1 L 0 180
+	FrameIndex TOS1 L 1 180
+	FrameIndex TOS1 M 0 166
+	FrameIndex TOS1 M 1 166
+	FrameIndex TOS1 N 0 167
+	FrameIndex TOS1 N 1 167
+	FrameIndex TOS1 O 0 168
+	FrameIndex TOS1 O 1 168
+	FrameIndex TOS1 P 0 169
+	FrameIndex TOS1 P 1 169
+	FrameIndex TOS1 Q 0 170
+	FrameIndex TOS1 Q 1 170
+	FrameIndex TOS1 R 0 171
+	FrameIndex TOS1 R 1 171
+	FrameIndex TOS1 S 0 171
+	FrameIndex TOS1 S 1 171
+	FrameIndex TOS1 T 0 171
+	FrameIndex TOS1 T 1 171
+	FrameIndex TOS1 U 0 171
+	FrameIndex TOS1 U 1 171
+}

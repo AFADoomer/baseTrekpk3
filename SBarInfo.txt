@@ -1,0 +1,113 @@
+Height 0;
+MonospaceFonts False, "0";
+
+statusbar fullscreen, fullscreenoffsets // ZDoom HUD
+{
+	InInventory Not "HideHUD"
+	{
+		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -31;
+
+		GameMode deathmatch, teamgame
+		{
+			DrawNumber 3, BIGFONT, RED, Frags, alignment(right), -5, 2;
+		}
+		GameMode singleplayer, cooperative, teamgame
+		{
+			DrawKeyBar 6, vertical, reverserows, auto, -10, 2, 0, 6, auto;
+		}
+
+		DrawImage AmmoIcon1, 52, -38, centerbottom;
+		DrawNumber 3, BIGFONT, TOSMenuGold, Ammo1, alignment(right), 35, -60;
+
+		UsesSecondaryAmmo
+		{
+			DrawImage AmmoIcon2, 112, -38, centerbottom;
+			DrawNumber 3, BIGFONT, TOSMenuGold, Ammo2, alignment(right), 95, -60;
+		}
+
+		DrawSelectedInventory CONFONT, 5, 5, 35, 29, TOSMenuGold;
+	}
+}
+
+statusbar normal, fullscreenoffsets // Standard status bar
+{
+	InInventory Not "HideHUD"
+	{
+/*
+//		drawimage "STBAR", 0, 168;
+
+		drawnumber 3, BIGFONT, orange, ammo1, 44, 171, 0, red, 25, gold, 75;
+		drawnumber 3, BIGFONT, untranslated, health, 90, 171;
+		drawnumber 3, BIGFONT, untranslated, armor, 221, 171;
+
+		//keys
+		drawswitchableimage keyslot 2 && 5, "nullimage", "STKEYS0", "STKEYS3", "STKEYS6", 239, 171;
+		drawswitchableimage keyslot 3 && 6, "nullimage", "STKEYS1", "STKEYS4", "STKEYS7", 239, 181;
+		drawswitchableimage keyslot 1 && 4, "nullimage", "STKEYS2", "STKEYS5", "STKEYS8", 239, 191;
+
+		drawnumber 3, SMALLFONT, gold, ammo Charge, 288, 173;
+		drawnumber 3, SMALLFONT, gold, ammo Shell, 288, 179;
+		drawnumber 3, SMALLFONT, gold, ammo RocketAmmo, 288, 185;
+		drawnumber 3, SMALLFONT, gold, ammo Cell, 288, 191;
+
+		drawnumber 3, SMALLFONT, gold, ammocapacity Charge, 314, 173;
+		drawnumber 3, SMALLFONT, gold, ammocapacity Shell, 314, 179;
+		drawnumber 3, SMALLFONT, gold, ammocapacity RocketAmmo, 314, 185;
+		drawnumber 3, SMALLFONT, gold, ammocapacity Cell, 314, 191;
+		gamemode deathmatch, teamgame
+		{
+			drawnumber 2, BIGFONT, untranslated, frags, 138, 171;
+		}
+		gamemode cooperative, singleplayer
+		{
+			drawimage "STARMS", 104, 168;
+			drawswitchableimage weaponslot 2, "STGNUM2", "STYSNUM2", 111, 172; 
+			drawswitchableimage weaponslot 3, "STGNUM3", "STYSNUM3", 123, 172;
+			drawswitchableimage weaponslot 4, "STGNUM4", "STYSNUM4", 135, 172;
+			drawswitchableimage weaponslot 5, "STGNUM5", "STYSNUM5", 111, 182;
+			drawswitchableimage weaponslot 6, "STGNUM6", "STYSNUM6", 123, 182;
+			drawswitchableimage weaponslot 7, "STGNUM7", "STYSNUM7", 135, 182;
+		}
+		gamemode cooperative, deathmatch, teamgame
+		{
+			drawimage translatable "STFBANY", 144, 169;
+		}
+		drawselectedinventory alternateonempty, SMALLFONT, 143, 168
+		{
+			drawmugshot 5, disablerampage, 143, 168;
+		}
+*/
+		DrawBar "Health_F", "Health_B", Health, horizontal, interpolate(5), 5, -35;
+		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -31;
+
+		GameMode deathmatch, teamgame
+		{
+			DrawNumber 3, BIGFONT, RED, Frags, alignment(right), -5, 2;
+		}
+		GameMode singleplayer, cooperative, teamgame
+		{
+			DrawKeyBar 6, vertical, reverserows, auto, -10, 2, 0, 6, auto;
+		}
+
+		DrawImage AmmoIcon1, 52, -38, centerbottom;
+		DrawNumber 3, BIGFONT, TOSMenuGold, Ammo1, alignment(right), 35, -60;
+
+		UsesSecondaryAmmo
+		{
+			DrawImage AmmoIcon2, 112, -38, centerbottom;
+			DrawNumber 3, BIGFONT, TOSMenuGold, Ammo2, alignment(right), 95, -60;
+		}
+
+		DrawSelectedInventory CONFONT, 5, 5, 35, 29, TOSMenuGold;
+	}
+}
+
+statusbar inventory // Standard bar overlay (ZDoom Addition)
+{
+	drawinventorybar Doom, 7, SMALLFONT, 50, 170;
+}
+
+statusbar inventoryfullscreen // ZDoom HUD overlay.
+{
+	drawinventorybar Doom, translucent, 7, SMALLFONT, 50, 170;
+}

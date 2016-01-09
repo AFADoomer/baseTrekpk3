@@ -1,0 +1,2124 @@
+Model TOSChair
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "chair.md3"
+	Model 1 "chair_headrest.md3"
+//	Scale 1.1 1.1 1.1
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSChair2
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "chair.md3"
+	Skin 0 "chair2_new.jpg"
+	Model 1 "chair_headrest.md3"
+	Skin 1 "chair2_new.jpg"
+//	Scale 1.1 1.1 1.1
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+
+Model TOSChair3
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "chair.md3"
+	Model 1 "chair_headrest.md3"
+	Model 2 "chair_arms.md3"
+//	Scale 1.1 1.1 1.1
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+}
+
+Model TOSBurkeChair
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "chair.md3"
+	Skin 0 "burke_new.jpg"
+//	Scale 1.1 1.1 1.1
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSHelmConsole
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "helm.md3"
+	Skin 0 "helm.jpg"
+	Model 1 "helm_scanner.md3"
+	Skin 1 "helm_scanner.jpg"
+
+	AngleOffset 180.0
+	Scale 1.45 1.45 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCaptainChair
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cptchair.md3"
+	Skin 0 "capt_chair.png"
+	AngleOffset 180.0
+	Scale 1.45 1.45 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBridgeRailing
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "railing.md3"
+	Skin 0 "Br_rail.png"
+	Scale 1.45 1.45 1.1
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSRailingAlt
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "railing.md3"
+	Skin 0 "Br_rail2.png"
+	Scale 1.45 1.45 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSteps
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "steps.md3"
+	Skin 0 "steps.jpg"
+	AngleOffset 180.0
+	Scale 0.7 0.7 0.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSteps2
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "steps2.md3"
+	Skin 0 "steps.jpg"
+	AngleOffset 180.0
+	Scale 0.7 0.7 0.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBridgeConsole1
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Skin 0 "br_low_r.jpg"
+	Model 1 "cons_mid.md3"
+	Skin 1 "console1.jpg"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_l1.jpg"
+	Model 3 "console_objs_eng.md3"
+	Skin 3 "cons_obj.png"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+	FrameIndex TOS1 A 3 0
+}
+
+Model TOSBridgeConsole2
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Skin 0 "br_low_g.jpg"
+	Model 1 "cons_mid.md3"
+	Skin 1 "console2.jpg"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_l2.jpg"
+	Model 3 "console_objs_env.md3"
+	Skin 3 "cons_obj.png"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+	FrameIndex TOS1 A 3 0
+}
+
+Model TOSBridgeConsole3
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Skin 0 "br_low_y.jpg"
+	Model 1 "cons_mid.md3"
+	Skin 1 "console3.jpg"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_r1.jpg"
+	Model 3 "console_objs.md3"
+	Skin 3 "cons_obj.png"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+	FrameIndex TOS1 A 3 0
+}
+
+Model TOSBridgeConsole4
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Skin 0 "br_low_r.jpg"
+	Model 1 "cons_mid.md3"
+	Skin 1 "console4.jpg"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_r2.jpg"
+	Model 3 "console_objs_sci.md3"
+	Skin 3 "cons_obj.png"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+	FrameIndex TOS1 A 3 0
+}
+
+Model TOSBridgeConsole5
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Skin 0 "br_low_b.jpg"
+	Model 1 "cons_mid.md3"
+	Skin 1 "console5.jpg"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_r3.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+}
+
+Model TOSBridgeConsole6
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Skin 0 "br_low_y.jpg"
+	Model 1 "cons_mid.md3"
+	Skin 1 "console6.jpg"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_r4.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+}
+
+Model TOSBridgeConsole7
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "console.md3"
+	Skin 0 "console7.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBridgeConsole7
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "console.md3"
+	Skin 0 "console9.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSBridgeConsole8
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "console.md3"
+	Skin 0 "console8.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+/*
+Model TOSBridgeDome
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "bridge_top.md3"
+	Skin 0 "bridge_dome.png"
+
+	Scale 20.95 20.95 20.95
+
+	FrameIndex TOS1 A 0 0
+}
+*/
+
+Model TOSCeilingPipes
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipes.md3"
+	Skin 0 "pipes.png"
+
+	Scale 1.9 1.9 1.9
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCeilingPipes2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipes.md3"
+	Skin 0 "pipes1.jpg"
+
+	Scale 1.9 1.9 1.9
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCeilingPipes3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipes.md3"
+	Skin 0 "pipes2.jpg"
+
+	Scale 1.9 1.9 1.9
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing1
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing1.md3"
+	Skin 0 "wallthing.png"
+
+	ZOffset 48.0
+	Scale 1.25 1.25 1.25
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing2.md3"
+	Skin 0 "wallthing.png"
+
+	ZOffset 0.0
+	Scale 2.0 2.0 2.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planton1.md3"
+	Skin 0 "planton3.jpg"
+//	Model 0 "wallthing3.md3"
+//	Skin 0 "wallthing1.png"
+
+//	ZOffset 64.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing4
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planton1.md3"
+	Skin 0 "planton2.jpg"
+//	Model 0 "wallthing4.md3"
+//	Skin 0 "wallthing1a.png"
+
+//	ZOffset 64.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing5
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing5.md3"
+	Skin 0 "wallthing4b.jpg"
+
+	ZOffset 10.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing6
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing6.md3"
+	Skin 0 "wallthing5.jpg"
+
+	ZOffset 10.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing7
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "toswallthing7.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing8
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing8.md3"
+	Skin 0 "wallthing3.jpg"
+
+	ZOffset 24.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThingAtmospheric
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing_atmospheric.md3"
+	Skin 0 "wallthing_atmospheric.jpg"
+
+	ZOffset 64.0
+	Scale 2.0 2.0 2.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThingHangar
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing_hangar.md3"
+	Skin 0 "wallthing_hangar.jpg"
+
+	ZOffset 64.0
+	Scale 2.0 2.0 2.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThingamajig
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing_amajig.md3"
+	Skin 0 "tripleGNDN.jpg"
+
+	ZOffset 40.0
+	AngleOffset 90.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThingWarning
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallthing_warning.md3"
+	Skin 0 "wallthing_warning.jpg"
+
+	ZOffset 16.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGNDN
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "gndn.md3"
+	Skin 0 "tripleGNDN.jpg"
+
+	ZOffset 54.0
+	AngleOffset 90.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTransporterScanner
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "transcan.md3"
+
+	ZOffset 54.0
+	AngleOffset 180.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTransporterConsole
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "tos_transporter_console.md3"
+	Skin 0 "transporter_console.jpg"
+
+	ZOffset 24.0
+	AngleOffset 180.0
+	Scale 1.3 1.3 1.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThingEngineering
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_wall_box.md3"
+
+	ZOffset 64.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThingEngineering2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_wall_box.md3"
+	Model 1 "eng_wall_box_add.md3"
+
+	ZOffset 64.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSLBDN
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "lbdn.md3"
+	Skin 0 "lbdn.jpg"
+
+	ZOffset 32.0
+	AngleOffset 90.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLamp
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tos_lamp.md3"
+//	Skin 0 "tos_lamp.jpg"
+
+//	Offset 20.0 21.0 48.0
+//	AngleOffset 270.0
+//	Scale 1.3 1.3 1.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMonitor
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor.md3"
+//	Model 0 "tos_monitor_flash.md3"
+//	Skin 0 "tos_monitor.jpg"
+	Model 1 "monitor_base.md3"
+
+	AngleOffset 180.0
+//	Scale 0.75 0.75 0.75
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSMonitorSwivel
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSMonitorBase
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor_base.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMonitorBase1
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor_base.md3"
+	Model 1 "monitor_cards1.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSMonitorBase2
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor_base.md3"
+	Model 1 "monitor_cards2.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSMonitorBase3
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor_base.md3"
+	Model 1 "monitor_cards3.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSMonitorBase4
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor_base.md3"
+	Model 1 "monitor_cards4.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSPadd
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tos_padd.md3"
+	Skin 0 "tospadd.jpg"
+
+	ZOffset 1.0
+	AngleOffset 180.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBarrel1
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "barrel1.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBarrel2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "barrel2.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBarrel3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "barrel3.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTurboliftHandle
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "turbolift_handle.md3"
+	Skin 0 "turbolift_handle.jpg"
+
+//	ZOffset 48.0
+	AngleOffset 180.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing9
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wall_decor.md3"
+	Skin 0 "metal.png"
+
+	ZOffset 48.0
+	Scale 0.85 0.85 0.85
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing10
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wall_decor2.md3"
+	Skin 0 "metal.png"
+
+	ZOffset 64.0
+	Scale 2.0 2.0 2.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBriefRib
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "brief_rib.md3"
+	Path "Textures/Solid/"
+	Skin 0 "blue.jpg"
+
+//	Scale 1.1 1.1 1.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBriefTable
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "conf_tab.md3"
+	Skin 0 "bri_tab.png"
+
+	Scale 1.4 1.4 1.2
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBriefComputer
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "conf_com.md3"
+
+	Scale 1.4 1.4 1.2
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngRib
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_rib.md3"
+	Path "Textures/Enterprise/Walls"
+	Skin 0 "br_up.jpg"
+
+	Scale 0.7 1.11 1.1
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngCenter
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_cent.md3"
+
+	Scale 1.1 1.1 1.1
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngChamber
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_cham.md3"
+	Skin 0 "eng_cham.jpg"
+
+	Scale 2.7 2.7 3.2
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngConsoleL
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_cons.md3"
+	Skin 0 "eng_conl.jpg"
+
+	Scale 3.6 3.6 3.6
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngConsoleR
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_cons.md3"
+	Skin 0 "eng_conr.jpg"
+
+	Scale 3.6 3.6 3.6
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngConsoleA
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_cons.md3"
+	Skin 0 "eng_cona.jpg"
+
+	Scale 3.6 3.6 3.6
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngConsoleBlock
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_cons_block.md3"
+
+	Scale 3.6 3.6 3.6
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSEngSteps
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_step.md3"
+	Skin 0 "eng_step.png"
+
+	Scale 2.5 2.5 2.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGangway
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "gangway.md3"
+
+	Scale 2.5 2.5 2.5
+	ZOffset -4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngineerConsole
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_con1.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngineeringConsole
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "engineering_console2.md3"
+	Skin 0 "eng_console1.jpg"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSEngineeringConsole
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "engineering_console2.md3"
+	Skin 0 "eng_console2.jpg"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 B 0 0
+}
+
+
+Model TOSEngineeringConsole
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "engineering_console2.md3"
+	Skin 0 "eng_console3.jpg"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 C 0 0
+}
+
+/*
+Model TOSEngineeringPanel
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "square_panel.md3"
+	Skin 0 "square_panel.jpg"
+
+	ZOffset 48.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+*/
+
+Model TOSSecurityConsole
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_con2.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTransformer
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "eng_tran.md3"
+	Skin 0 "eng_tran.jpg"
+
+	Scale 2.3 2.3 2.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSQuartersRib
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "room_rib.md3"
+	Path "Textures/Solid/"
+	Skin 0 "white.jpg"
+
+	ZOffset 46.0
+	Scale 1.1 0.9 0.9
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCrate
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "tricrate.md3"
+	Skin 0 "tricrate.jpg"
+
+	ZOffset 18.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTapeRack
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tape_rack.md3"
+	Skin 0 "tapes.jpg"
+
+	ZOffset 2.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallPipe
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallpipe.md3"
+//	Model 0 "wallpipe.md3"
+//	Skin 0 "wallpipe.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallthing1
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing1.md3"
+	Skin 0 "engwallthing1.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe1
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe1.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe2.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe3.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe4
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe4.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe5
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe5.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe6
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe6.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe8
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Scale 2.0 2.0 1.0
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe8.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGrate
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "grate.md3"
+	Skin 0 "grate.png"
+	Model 1 "grateframe.md3"
+	Path "textures/enterprise/floors/"
+	Skin 1 "br_flr.jpg"
+
+	Scale 0.8 0.8 0.8
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSEngWallThing2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing2.md3"
+
+	Scale 0.75 0.75 0.75
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing3.md3"
+	Skin 0 "engpanel.jpg"
+
+	Scale 0.6 0.6 0.6
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing4
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing4a.md3"
+	Skin 0 "engpanel.jpg"
+	Model 1 "engwallthing4b.md3"
+	Skin 1 "engpanel2.jpg"
+
+	Scale 0.6 0.6 0.6
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSEngWallThing5
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing5.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing6
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing6.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing7
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing7.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing8
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing8.md3"
+
+	Scale 0.7 0.7 0.7
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing9
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing9.md3"
+	Skin 0 "engwallthing9.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing10
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing9.md3"
+	Skin 0 "engwallthing10.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing11
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing11.md3"
+
+	Scale 0.7 0.7 0.7
+
+	FrameIndex TOS1 A 0 0
+}
+
+/*
+Model Cactus { Path "models/mapobjects/plants/" Model 0 "cactus.md3" FrameIndex TOS1 A 0 0 }
+Model Cactus2 { Path "models/mapobjects/plants/" Model 0 "cactus2.md3" FrameIndex TOS1 A 0 0 }
+Model Cactus3 { Path "models/mapobjects/plants/" Model 0 "cactus3.md3" FrameIndex TOS1 A 0 0 }
+Model Cactus4 { Path "models/mapobjects/plants/" Model 0 "cactus4.md3" FrameIndex TOS1 A 0 0 }
+Model Garden1 { Path "models/mapobjects/plants/" Model 0 "garden1.md3" FrameIndex TOS1 A 0 0 }
+Model Garden2 { Path "models/mapobjects/plants/" Model 0 "garden2.md3" FrameIndex TOS1 A 0 0 }
+Model Garden3 { Path "models/mapobjects/plants/" Model 0 "garden3.md3" FrameIndex TOS1 A 0 0 }
+Model Garden4 { Path "models/mapobjects/plants/" Model 0 "garden4.md3" FrameIndex TOS1 A 0 0 }
+Model Garden5 { Path "models/mapobjects/plants/" Model 0 "garden5.md3" FrameIndex TOS1 A 0 0 }
+Model Garden6 { Path "models/mapobjects/plants/" Model 0 "garden6.md3" FrameIndex TOS1 A 0 0 }
+Model Garden7 { Path "models/mapobjects/plants/" Model 0 "garden7.md3" FrameIndex TOS1 A 0 0 }
+Model Garden8 { Path "models/mapobjects/plants/" Model 0 "garden8.md3" FrameIndex TOS1 A 0 0 }
+*/
+Model TOSTree1 { Path "models/mapobjects/plants/" Model 0 "joshua.md3" FrameIndex TOS1 A 0 0 }
+/*
+Model Palmtree { Path "models/mapobjects/plants/" Model 0 "palmtree.md3" FrameIndex TOS1 A 0 0 }
+Model Plant03 { Path "models/mapobjects/plants/" Model 0 "plant03.md3" FrameIndex TOS1 A 0 0 }
+Model Plant09 { Path "models/mapobjects/plants/" Model 0 "plant09.md3" FrameIndex TOS1 A 0 0 }
+Model Plant1 { Path "models/mapobjects/plants/" Model 0 "plant1.md3" FrameIndex TOS1 A 0 0 }
+Model Plant10 { Path "models/mapobjects/plants/" Model 0 "plant10.md3" FrameIndex TOS1 A 0 0 }
+Model Plant11 { Path "models/mapobjects/plants/" Model 0 "plant11.md3" FrameIndex TOS1 A 0 0 }
+Model Plant11New { Path "models/mapobjects/plants/" Model 0 "plant11new.md3" FrameIndex TOS1 A 0 0 }
+Model Plant12 { Path "models/mapobjects/plants/" Model 0 "plant12.md3" FrameIndex TOS1 A 0 0 }
+Model Plant13 { Path "models/mapobjects/plants/" Model 0 "plant13.md3" FrameIndex TOS1 A 0 0 }
+Model Plant1New { Path "models/mapobjects/plants/" Model 0 "plant1new.md3" FrameIndex TOS1 A 0 0 }
+Model Plant2 { Path "models/mapobjects/plants/" Model 0 "plant2.md3" FrameIndex TOS1 A 0 0 }
+Model Plant20New { Path "models/mapobjects/plants/" Model 0 "plant20new.md3" FrameIndex TOS1 A 0 0 }
+Model Plant25New { Path "models/mapobjects/plants/" Model 0 "plant25new.md3" FrameIndex TOS1 A 0 0 }
+Model Plant2New { Path "models/mapobjects/plants/" Model 0 "plant2new.md3" FrameIndex TOS1 A 0 0 }
+Model Plant3 { Path "models/mapobjects/plants/" Model 0 "plant3.md3" FrameIndex TOS1 A 0 0 }
+Model Plant30 { Path "models/mapobjects/plants/" Model 0 "plant30.md3" FrameIndex TOS1 A 0 0 }
+Model Plant31 { Path "models/mapobjects/plants/" Model 0 "plant31.md3" FrameIndex TOS1 A 0 0 }
+*/
+Model TOSPlant1 { Path "models/mapobjects/plants/" Model 0 "plant34.md3" FrameIndex TOS1 A 0 0 }
+/*
+Model Plant35 { Path "models/mapobjects/plants/" Model 0 "plant35.md3" FrameIndex TOS1 A 0 0 }
+Model Plant8 { Path "models/mapobjects/plants/" Model 0 "plant8.md3" FrameIndex TOS1 A 0 0 }
+Model Plant9 { Path "models/mapobjects/plants/" Model 0 "plant9.md3" FrameIndex TOS1 A 0 0 }
+Model Shrub { Path "models/mapobjects/plants/" Model 0 "shrub.md3" FrameIndex TOS1 A 0 0 }
+*/
+Model TOSTree2 { Path "models/mapobjects/plants/" Model 0 "tree05.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree3 { Path "models/mapobjects/plants/" Model 0 "tree1.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree4 { Path "models/mapobjects/plants/" Model 0 "tree6.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree5 { Path "models/mapobjects/plants/" Model 0 "tree8.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree6 { Path "models/mapobjects/plants/" Model 0 "tree9.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree7 { Path "models/mapobjects/trees/" Model 0 "oak1.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree8 { Path "models/mapobjects/trees/" Model 0 "tree5.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree9 { Path "models/mapobjects/trees/" Model 0 "tree6.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree10 { Path "models/mapobjects/trees/" Model 0 "tree14.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree11 { Path "models/mapobjects/trees/" Model 0 "tree15.md3" FrameIndex TOS1 A 0 0 }
+/*
+Model Yucca { Path "models/mapobjects/plants/" Model 0 "yucca.md3" FrameIndex TOS1 A 0 0 }
+*/
+Model TOSColumn
+{
+	Path "Models/mapobjects/tos"
+	Model 0 "column.md3"
+
+	Scale 6.0 6.0 6.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSConfSupport
+{
+	Path "models/mapobjects/tos"
+	Model 0 "support.md3"
+
+	Scale 1.5 1.5 1.5
+	Offset -30.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTerrain
+{
+	Path "Models/mapobjects/"
+	Model 0 "terrain.md3"
+
+	Scale 10.0 10.0 10.0
+
+	FrameIndex BLAS A 0 0
+}
+
+Model TOSDeskIntercom
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "deskcom.md3"
+	Skin 0 "deskcom.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonWeaponStation
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Scale 1.2 1.2 1.2
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wpn_station.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonWeaponControls
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wpn_control.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanelScreen1
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 2 "kl_con_s.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 2 "kl_int1.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanelScreen2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int4.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 2 "kl_con_s.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 2 "kl_int1.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanelScreen3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int5.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 2 "kl_con_s.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 2 "kl_int1.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanelScreen4
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 2 "kl_con_s.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 2 "kl_int2.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanelScreen5
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int4.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 2 "kl_con_s.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 2 "kl_int2.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanelScreen6
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int5.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 2 "kl_con_s.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 2 "kl_int2.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanel1
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con2.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int3.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonControlPanel2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con2.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int4.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSKlingonControlPanel3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_con2.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Walltop3.jpg"
+
+	Path "Models/mapobjects/tos/"
+	Model 1 "kl_con_p.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 1 "kl_int5.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSKlingonCaptChair
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "kl_cpt_c.md3"
+
+	Scale 1.4 1.4 1.4
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTable
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTable2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table2.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSTable3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table3.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTable4
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table4.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTable5
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table4.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Matte3.jpg"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBench
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "bench.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSHangarDoors
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "hangar_doors.md3"
+
+	Scale 3.2 3.2 3.2
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 B 0 10
+	FrameIndex TOS1 C 0 20
+	FrameIndex TOS1 D 0 30
+}
+
+Model Pane
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pane.md3"
+
+	Scale 1.0 1.0 1.0
+	FrameIndex TOS1 A 0 0
+}
+
+Model Pane2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pane2.md3"
+
+	Scale 1.0 1.0 1.0
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSComputer
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "computer.md3"
+	Model 1 "computer_panel.md3"
+
+	Scale 1.3 1.3 1.3
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSComputerB
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "computer.md3"
+	Model 1 "computer_panel.md3"
+	Skin 1 "comp_4AB.jpg"
+
+	Scale 1.3 1.3 1.3
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSComputerC
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "computer.md3"
+	Model 1 "computer_panel.md3"
+	Skin 1 "comp_4AC.jpg"
+
+	Scale 1.3 1.3 1.3
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSComputerD
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "computer.md3"
+	Model 1 "computer_panel.md3"
+	Skin 1 "comp_4AD.jpg"
+
+	Scale 1.3 1.3 1.3
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSComputer2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "compute2.md3"
+
+	Scale 1.5 1.5 1.5
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSComputer2B
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "compute2.md3"
+	Skin 0 "comp_4AB.jpg"
+
+	Scale 1.5 1.5 1.5
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSComputer2C
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "compute2.md3"
+	Skin 0 "comp_4AC.jpg"
+
+	Scale 1.5 1.5 1.5
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSComputer3
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "compute3.md3"
+
+	Scale 1.5 1.5 1.5
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSComputer3B
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "compute3.md3"
+	Skin 0 "comp_4bb.jpg"
+
+	Scale 1.5 1.5 1.5
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSAuxRib
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "aux_rib.md3"
+
+	Scale 0.9 0.9 0.9
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing11
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planton1.md3"
+	Skin 0 "planton1.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSWallThing12
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planton4.md3"
+	Skin 0 "planton4.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing13
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planton4.md3"
+	Skin 0 "planton5.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEngWallThing12
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "engwallthing12.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallThing14
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planton6.md3"
+
+	Scale 0.6 0.6 0.6
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSWallBoard
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "wallboard.md3"
+
+	Scale 3.1 3.1 3.1
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSRockerButtons
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "rockers.md3"
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTableLeg 
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table_leg.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGymApparatus
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "gym1.md3"
+	Skin 0 "gym_aparatus.jpg"
+
+	Scale 1.0 2.0 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGymBar
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "gym_bar1.md3"
+
+	Scale 1.0 2.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGymBar2
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "gym_bar2.md3"
+
+	Scale 1.0 2.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGymBar3
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "gym_bar3.md3"
+
+	Scale 1.0 2.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSDiningRib
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "rib_dining.md3"
+
+	Scale 1.8 1.8 1.8
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCloset
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "closet.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayBed
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_bed.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSSickbayCounter
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_counter.md3"
+
+	Scale 1.0 1.5 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayCounter2R
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_counter2.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayCounter2L
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_counter2.md3"
+
+	Scale -1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayMonitor
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_monitor.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayProbe
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_probe.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayTable
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_table.md3"
+
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe9
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Scale 2.0 2.0 1.0
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe9.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPipe10
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Scale 1.0 1.0 1.0
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pipe.md3"
+	Skin 0 "pipe10.jpg"
+
+	FrameIndex TOS1 A 0 0
+}

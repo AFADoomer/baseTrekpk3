@@ -1,0 +1,894 @@
+Model TrekPlayer
+{
+	Path "Models/actors/player/"
+	Model 0 "player_new.md3"
+	Skin 0 "Starfleet_C_CAPT.jpg"
+
+	Model 1 "head_kirk.md3"
+/*
+	Path "Models/weapons/"
+	Model 2 "phaser_w.md3"
+	Skin 2 "tosphaser.jpg"
+*/
+	FrameIndex TOSA A 0 1
+	FrameIndex TOSA A 1 1
+	FrameIndex TOSA B 0 2
+	FrameIndex TOSA B 1 2
+	FrameIndex TOSA C 0 3
+	FrameIndex TOSA C 1 3
+	FrameIndex TOSA D 0 4
+	FrameIndex TOSA D 1 4
+	FrameIndex TOSA E 0 5
+	FrameIndex TOSA E 1 5
+	FrameIndex TOSA F 0 6
+	FrameIndex TOSA F 1 6
+	FrameIndex TOSB A 0 7
+	FrameIndex TOSB A 1 7
+	FrameIndex TOSB B 0 8
+	FrameIndex TOSB B 1 8
+	FrameIndex TOSB C 0 9
+	FrameIndex TOSB C 1 9
+	FrameIndex TOSB D 0 10
+	FrameIndex TOSB D 1 10
+	FrameIndex TOSB E 0 11
+	FrameIndex TOSB E 1 11
+	FrameIndex TOSB F 0 12
+	FrameIndex TOSB F 1 12
+	FrameIndex TOSC A 0 13
+	FrameIndex TOSC A 1 13
+	FrameIndex TOSC B 0 14
+	FrameIndex TOSC B 1 14
+	FrameIndex TOSC C 0 15
+	FrameIndex TOSC C 1 15
+	FrameIndex TOSC D 0 16
+	FrameIndex TOSC D 1 16
+	FrameIndex TOSC E 0 17
+	FrameIndex TOSC E 1 17
+	FrameIndex TOSC F 0 18
+	FrameIndex TOSC F 1 18
+	FrameIndex TOSD A 0 19
+	FrameIndex TOSD A 1 19
+	FrameIndex TOSD A 0 20
+	FrameIndex TOSD A 1 20
+	FrameIndex TOSD A 0 21
+	FrameIndex TOSD A 1 21
+	FrameIndex TOSD A 0 22
+	FrameIndex TOSD A 1 22
+	FrameIndex TOSD A 0 23
+	FrameIndex TOSD A 1 23
+	FrameIndex TOSD B 0 24
+	FrameIndex TOSD B 1 24
+	FrameIndex TOSD C 0 25
+	FrameIndex TOSD C 1 25
+	FrameIndex TOSD D 0 26
+	FrameIndex TOSD D 1 26
+	FrameIndex TOSD E 0 27
+	FrameIndex TOSD E 1 27
+	FrameIndex TOSD F 0 28
+	FrameIndex TOSD F 1 28
+	FrameIndex TOSD G 0 29
+	FrameIndex TOSD G 1 29
+	FrameIndex TOSD H 0 30
+	FrameIndex TOSD H 1 30
+	FrameIndex TOSD I 0 31
+	FrameIndex TOSD I 1 31
+	FrameIndex TOSD J 0 32
+	FrameIndex TOSD J 1 32
+	FrameIndex TOSD K 0 33
+	FrameIndex TOSD K 1 33
+	FrameIndex TOSD L 0 34
+	FrameIndex TOSD L 1 34
+	FrameIndex TOSD M 0 35
+	FrameIndex TOSD M 1 35
+	FrameIndex TOSD N 0 36
+	FrameIndex TOSD N 1 36
+	FrameIndex TOSD O 0 37
+	FrameIndex TOSD O 1 37
+	FrameIndex TOSD P 0 38
+	FrameIndex TOSD P 1 38
+	FrameIndex TOSE A 0 39
+	FrameIndex TOSE A 1 39
+	FrameIndex TOSE B 0 40
+	FrameIndex TOSE B 1 40
+	FrameIndex TOSE C 0 41
+	FrameIndex TOSE C 1 41
+	FrameIndex TOSE D 0 42
+	FrameIndex TOSE D 1 42
+	FrameIndex TOSE E 0 43
+	FrameIndex TOSE E 1 43
+	FrameIndex TOSE F 0 44
+	FrameIndex TOSE F 1 44
+	FrameIndex TOSE G 0 45
+	FrameIndex TOSE G 1 45
+	FrameIndex TOSE H 0 46
+	FrameIndex TOSE H 1 46
+	FrameIndex TOSE I 0 47
+	FrameIndex TOSE I 1 47
+	FrameIndex TOSE J 0 48
+	FrameIndex TOSE J 1 48
+	FrameIndex TOSF A 0 49
+	FrameIndex TOSF A 1 49
+	FrameIndex TOSF B 0 55
+	FrameIndex TOSF B 1 55
+	FrameIndex TOSF C 0 57
+	FrameIndex TOSF C 1 57
+	FrameIndex TOSF D 0 60
+	FrameIndex TOSF D 1 60
+	FrameIndex TOSG A 0 63
+	FrameIndex TOSG A 1 63
+	FrameIndex TOSG B 0 64
+	FrameIndex TOSG B 1 64
+	FrameIndex TOSG C 0 65
+	FrameIndex TOSG C 1 65
+	FrameIndex TOSG D 0 66
+	FrameIndex TOSG D 1 66
+	FrameIndex TOSG E 0 67
+	FrameIndex TOSG E 1 67
+	FrameIndex TOSG F 0 68
+	FrameIndex TOSG F 1 68
+	FrameIndex TOSH A 0 69
+	FrameIndex TOSH A 1 69
+	FrameIndex TOSH B 0 70
+	FrameIndex TOSH B 1 70
+	FrameIndex TOSH C 0 71
+	FrameIndex TOSH C 1 71
+	FrameIndex TOSH D 0 72
+	FrameIndex TOSH D 1 72
+	FrameIndex TOSH E 0 73
+	FrameIndex TOSH E 1 73
+	FrameIndex TOSH F 0 74
+	FrameIndex TOSH F 1 74
+	FrameIndex TOSI A 0 75
+	FrameIndex TOSI A 1 75
+	FrameIndex TOSI B 0 77
+	FrameIndex TOSI B 1 77
+	FrameIndex TOSI C 0 78
+	FrameIndex TOSI C 1 78
+	FrameIndex TOSI D 0 79
+	FrameIndex TOSI D 1 79
+	FrameIndex TOSJ A 0 81
+	FrameIndex TOSJ A 1 81
+	FrameIndex TOSJ B 0 83
+	FrameIndex TOSJ B 1 83
+	FrameIndex TOSJ C 0 84
+	FrameIndex TOSJ C 1 84
+	FrameIndex TOSJ D 0 85
+	FrameIndex TOSJ D 1 85
+	FrameIndex TOSK A 0 87
+	FrameIndex TOSK A 1 87
+	FrameIndex TOSK B 0 89
+	FrameIndex TOSK B 1 89
+	FrameIndex TOSK C 0 90
+	FrameIndex TOSK C 1 90
+	FrameIndex TOSK D 0 92
+	FrameIndex TOSK D 1 92
+	FrameIndex TOSL A 0 93
+	FrameIndex TOSL A 1 93
+	FrameIndex TOSL B 0 99
+	FrameIndex TOSL B 1 99
+	FrameIndex TOSL C 0 101
+	FrameIndex TOSL C 1 101
+	FrameIndex TOSL D 0 104
+	FrameIndex TOSL D 1 104
+	FrameIndex TOSO A 0 185
+	FrameIndex TOSO A 1 185
+	FrameIndex TOSO B 0 188
+	FrameIndex TOSO B 1 188
+	FrameIndex TOSO C 0 189
+	FrameIndex TOSO C 1 189
+	FrameIndex TOSO D 0 190
+	FrameIndex TOSO D 1 190
+/*
+	FrameIndex TOSP A 0 291
+	FrameIndex TOSP A 1 291
+	FrameIndex TOSP B 0 299
+	FrameIndex TOSP B 1 299
+	FrameIndex TOSP C 0 303
+	FrameIndex TOSP C 1 303
+	FrameIndex TOSP D 0 307
+	FrameIndex TOSP D 1 307
+	FrameIndex TOSQ A 0 311
+	FrameIndex TOSQ A 1 311
+	FrameIndex TOSQ B 0 320
+	FrameIndex TOSQ B 1 320
+	FrameIndex TOSQ C 0 324
+	FrameIndex TOSQ C 1 324
+	FrameIndex TOSQ D 0 328
+	FrameIndex TOSQ D 1 328
+	FrameIndex TOSR A 0 311
+	FrameIndex TOSR A 1 311
+	FrameIndex TOSR B 0 313
+	FrameIndex TOSR B 1 313
+	FrameIndex TOSR C 0 314
+	FrameIndex TOSR C 1 314
+	FrameIndex TOSR D 0 315
+	FrameIndex TOSR D 1 315
+*/
+	FrameIndex TOSS A 0 333
+	FrameIndex TOSS A 1 333
+	FrameIndex TOSS B 0 341
+	FrameIndex TOSS B 1 341
+	FrameIndex TOSS C 0 345
+	FrameIndex TOSS C 1 345
+	FrameIndex TOSS D 0 349
+	FrameIndex TOSS D 1 349
+	FrameIndex TOSS E 0 352
+	FrameIndex TOSS E 1 352
+	FrameIndex TOSS F 0 356
+	FrameIndex TOSS F 1 356
+	FrameIndex TOSS G 0 360
+	FrameIndex TOSS G 1 360
+	FrameIndex TOSS H 0 364
+	FrameIndex TOSS H 1 364
+	FrameIndex TOST A 0 368
+	FrameIndex TOST A 1 368
+	FrameIndex TOST B 0 371
+	FrameIndex TOST B 1 371
+	FrameIndex TOST C 0 373
+	FrameIndex TOST C 1 373
+	FrameIndex TOST D 0 374
+	FrameIndex TOST D 1 374
+	FrameIndex TOSU A 0 376
+	FrameIndex TOSU A 1 376
+	FrameIndex TOSU B 0 379
+	FrameIndex TOSU B 1 379
+	FrameIndex TOSU C 0 381
+	FrameIndex TOSU C 1 381
+	FrameIndex TOSU D 0 382
+	FrameIndex TOSU D 1 382
+}
+
+Model TrekPlayer
+{
+	Path "Models/actors/player/"
+	Model 0 "player_new.md3"
+	Skin 0 "Starfleet_C_CAPT.jpg"
+
+	Model 1 "head_kirk.md3"
+
+	FrameIndex TOSM A 0 107
+	FrameIndex TOSM A 1 107
+	FrameIndex TOSM B 0 118
+	FrameIndex TOSM B 1 118
+	FrameIndex TOSM C 0 123
+	FrameIndex TOSM C 1 123
+	FrameIndex TOSM D 0 128
+	FrameIndex TOSM D 1 128
+	FrameIndex TOSM E 0 133
+	FrameIndex TOSM E 1 133
+	FrameIndex TOSM F 0 138
+	FrameIndex TOSM F 1 138
+	FrameIndex TOSM G 0 143
+	FrameIndex TOSM G 1 143
+	FrameIndex TOSM H 0 148
+	FrameIndex TOSM H 1 148
+	FrameIndex TOSN A 0 154
+	FrameIndex TOSN A 1 154
+	FrameIndex TOSN B 0 161
+	FrameIndex TOSN B 1 161
+	FrameIndex TOSN C 0 164
+	FrameIndex TOSN C 1 164
+	FrameIndex TOSN D 0 168
+	FrameIndex TOSN D 1 168
+	FrameIndex TOSN E 0 171
+	FrameIndex TOSN E 1 171
+	FrameIndex TOSN F 0 174
+	FrameIndex TOSN F 1 174
+	FrameIndex TOSN G 0 178
+	FrameIndex TOSN G 1 178
+	FrameIndex TOSN H 0 181
+	FrameIndex TOSN H 1 181
+}
+
+Model OldTrekPlayer2
+{
+	Path "Models/actors/player/"
+	Model 0 "player.md3"
+	Skin 0 "Starfleet_C_CAPT.jpg"
+
+	Model 1 "head_kirk.md3"
+	Skin 1 "head.jpg"
+
+	Path "Models/weapons/"
+	Model 2 "phaser_w.md3"
+	Skin 2 "tosphaser.jpg"
+
+	AngleOffset 180.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS2 A 0 15
+	FrameIndex TOS2 A 1 15
+	FrameIndex TOS2 A 2 15
+	FrameIndex TOS2 B 0 19
+	FrameIndex TOS2 B 1 19
+	FrameIndex TOS2 B 2 19
+	FrameIndex TOS2 C 0 23
+	FrameIndex TOS2 C 1 23
+	FrameIndex TOS2 C 2 23
+	FrameIndex TOS2 D 0 27
+	FrameIndex TOS2 D 1 27
+	FrameIndex TOS2 D 2 27
+	FrameIndex TOS3 A 0 32
+	FrameIndex TOS3 A 1 32
+	FrameIndex TOS3 A 2 32
+	FrameIndex TOS3 B 0 33
+	FrameIndex TOS3 B 1 33
+	FrameIndex TOS3 B 2 33
+	FrameIndex TOS3 C 0 34
+	FrameIndex TOS3 C 1 34
+	FrameIndex TOS3 C 2 34
+	FrameIndex TOS3 D 0 35
+	FrameIndex TOS3 D 1 35
+	FrameIndex TOS3 D 2 35
+	FrameIndex TOS4 A 0 49
+	FrameIndex TOS4 A 1 49
+	FrameIndex TOS4 A 2 49
+	FrameIndex TOS7 A 0 73
+	FrameIndex TOS7 A 1 73
+	FrameIndex TOS7 A 2 73
+	FrameIndex TOS7 B 0 76
+	FrameIndex TOS7 B 1 76
+	FrameIndex TOS7 B 2 76
+	FrameIndex TOS7 C 0 78
+	FrameIndex TOS7 C 1 78
+	FrameIndex TOS7 C 2 78
+	FrameIndex TOS7 D 0 81
+	FrameIndex TOS7 D 1 81
+	FrameIndex TOS7 D 2 81
+	FrameIndex TOS8 A 0 84
+	FrameIndex TOS8 A 1 84
+	FrameIndex TOS8 A 2 84
+	FrameIndex TOS8 B 0 85
+	FrameIndex TOS8 B 1 85
+	FrameIndex TOS8 B 2 85
+	FrameIndex TOS8 C 0 86
+	FrameIndex TOS8 C 1 86
+	FrameIndex TOS8 C 2 86
+	FrameIndex TOS8 D 0 87
+	FrameIndex TOS8 D 1 87
+	FrameIndex TOS8 D 2 87
+	FrameIndex TOSA A 0 103
+	FrameIndex TOSA A 1 103
+	FrameIndex TOSA A 2 103
+	FrameIndex TOSA B 0 105
+	FrameIndex TOSA B 1 105
+	FrameIndex TOSA B 2 105
+	FrameIndex TOSA C 0 107
+	FrameIndex TOSA C 1 107
+	FrameIndex TOSA C 2 107
+	FrameIndex TOSA D 0 109
+	FrameIndex TOSA D 1 109
+	FrameIndex TOSA D 2 109
+	FrameIndex TOSF A 0 159
+	FrameIndex TOSF A 1 159
+	FrameIndex TOSF A 2 159
+	FrameIndex TOSF B 0 161
+	FrameIndex TOSF B 1 161
+	FrameIndex TOSF B 2 161
+	FrameIndex TOSF C 0 162
+	FrameIndex TOSF C 1 162
+	FrameIndex TOSF C 2 162
+	FrameIndex TOSF D 0 164
+	FrameIndex TOSF D 1 164
+	FrameIndex TOSF D 2 164
+	FrameIndex TOSJ A 0 206
+	FrameIndex TOSJ A 1 206
+	FrameIndex TOSJ A 2 206
+	FrameIndex TOSJ B 0 217
+	FrameIndex TOSJ B 1 217
+	FrameIndex TOSJ B 2 217
+	FrameIndex TOSJ C 0 228
+	FrameIndex TOSJ C 1 228
+	FrameIndex TOSJ C 2 228
+	FrameIndex TOSJ D 0 239
+	FrameIndex TOSJ D 1 239
+	FrameIndex TOSJ D 2 239
+}
+
+Model OldTrekPlayer2
+{
+	Path "Models/actors/player/"
+	Model 0 "player.md3"
+
+	Model 1 "head_kirk.md3"
+	Skin 1 "head.jpg"
+
+	AngleOffset 180.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex TOSG A 0 166
+	FrameIndex TOSG A 1 166
+	FrameIndex TOSG B 0 168
+	FrameIndex TOSG B 1 168
+	FrameIndex TOSG C 0 170
+	FrameIndex TOSG C 1 170
+	FrameIndex TOSG D 0 172
+	FrameIndex TOSG D 1 172
+	FrameIndex TOSH A 0 174
+	FrameIndex TOSH A 1 174
+	FrameIndex TOSH B 0 176
+	FrameIndex TOSH B 1 176
+	FrameIndex TOSH C 0 178
+	FrameIndex TOSH C 1 178
+	FrameIndex TOSH D 0 180
+	FrameIndex TOSH D 1 180
+}
+
+
+Model OldTrekPlayer
+{
+	Path "Models/actors/player/"
+	Model 0 "player.md3"
+	Model 1 "head_kirk.md3"
+	Skin 1 "head.jpg"
+	Path "Models/weapons/"
+	Model 2 "phaser_w.md3"
+	Skin 2 "tosphaser.jpg"
+
+	AngleOffset 180.0
+	Scale 1.0 1.0 1.0
+
+	FrameIndex PLAY A 0 1
+	FrameIndex PLAY A 1 1
+	FrameIndex PLAY A 2 1
+	FrameIndex PLAY B 0 4
+	FrameIndex PLAY B 1 4
+	FrameIndex PLAY B 2 4
+	FrameIndex PLAY C 0 7
+	FrameIndex PLAY C 1 7
+	FrameIndex PLAY C 2 7
+	FrameIndex PLAY D 0 10
+	FrameIndex PLAY D 1 10
+	FrameIndex PLAY D 2 10
+	FrameIndex PLAY E 0 63
+	FrameIndex PLAY E 1 63
+	FrameIndex PLAY E 2 63
+	FrameIndex PLAY F 0 49
+	FrameIndex PLAY F 1 49
+	FrameIndex PLAY F 2 49
+	FrameIndex PLAY G 0 65
+	FrameIndex PLAY G 1 65
+	FrameIndex PLAY G 2 65
+	FrameIndex PLAY H 0 174
+	FrameIndex PLAY H 1 174
+	FrameIndex PLAY H 2 174
+	FrameIndex PLAY I 0 175
+	FrameIndex PLAY I 1 175
+	FrameIndex PLAY I 2 175
+	FrameIndex PLAY J 0 176
+	FrameIndex PLAY J 1 176
+	FrameIndex PLAY J 2 176
+	FrameIndex PLAY K 0 177
+	FrameIndex PLAY K 1 177
+	FrameIndex PLAY K 2 177
+	FrameIndex PLAY L 0 178
+	FrameIndex PLAY L 1 178
+	FrameIndex PLAY L 2 178
+	FrameIndex PLAY M 0 180
+	FrameIndex PLAY M 1 180
+	FrameIndex PLAY M 2 180
+	FrameIndex PLAY N 0 180
+	FrameIndex PLAY N 1 180
+	FrameIndex PLAY N 2 180
+	FrameIndex PLAY O 0 166
+	FrameIndex PLAY O 1 166
+	FrameIndex PLAY O 2 166
+	FrameIndex PLAY P 0 167
+	FrameIndex PLAY P 1 167
+	FrameIndex PLAY P 2 167
+	FrameIndex PLAY Q 0 168
+	FrameIndex PLAY Q 1 168
+	FrameIndex PLAY Q 2 168
+	FrameIndex PLAY R 0 169
+	FrameIndex PLAY R 1 169
+	FrameIndex PLAY R 2 169
+	FrameIndex PLAY S 0 170
+	FrameIndex PLAY S 1 170
+	FrameIndex PLAY S 2 170
+	FrameIndex PLAY T 0 171
+	FrameIndex PLAY T 1 171
+	FrameIndex PLAY T 2 171
+	FrameIndex PLAY U 0 171
+	FrameIndex PLAY U 1 171
+	FrameIndex PLAY U 2 171
+	FrameIndex PLAY V 0 171
+	FrameIndex PLAY V 1 171
+	FrameIndex PLAY V 2 171
+	FrameIndex PLAY W 0 171
+	FrameIndex PLAY W 1 171
+	FrameIndex PLAY W 2 171
+
+	FrameIndex PLAY Y 0 206
+	FrameIndex PLAY Y 1 206
+	FrameIndex PLAY Y 2 206
+	FrameIndex PLAY X 0 250
+	FrameIndex PLAY X 1 250
+	FrameIndex PLAY X 2 250
+
+	FrameIndex PLYC A 0 105
+	FrameIndex PLYC A 1 105
+	FrameIndex PLYC A 2 105
+	FrameIndex PLYC B 0 105
+	FrameIndex PLYC B 1 105
+	FrameIndex PLYC B 2 105
+	FrameIndex PLYC C 0 105
+	FrameIndex PLYC C 1 105
+	FrameIndex PLYC C 2 105
+	FrameIndex PLYC D 0 105
+	FrameIndex PLYC D 1 105
+	FrameIndex PLYC D 2 105
+	FrameIndex PLYC E 0 86
+	FrameIndex PLYC E 1 86
+	FrameIndex PLYC E 2 86
+	FrameIndex PLYC F 0 86
+	FrameIndex PLYC F 1 86
+	FrameIndex PLYC F 2 86
+	FrameIndex PLYC G 0 89
+	FrameIndex PLYC G 1 89
+	FrameIndex PLYC G 2 89
+	FrameIndex PLYC H 0 174
+	FrameIndex PLYC H 1 174
+	FrameIndex PLYC H 2 174
+	FrameIndex PLYC I 0 175
+	FrameIndex PLYC I 1 175
+	FrameIndex PLYC I 2 175
+	FrameIndex PLYC J 0 176
+	FrameIndex PLYC J 1 176
+	FrameIndex PLYC J 2 176
+	FrameIndex PLYC K 0 177
+	FrameIndex PLYC K 1 177
+	FrameIndex PLYC K 2 177
+	FrameIndex PLYC L 0 178
+	FrameIndex PLYC L 1 178
+	FrameIndex PLYC L 2 178
+	FrameIndex PLYC M 0 180
+	FrameIndex PLYC M 1 180
+	FrameIndex PLYC M 2 180
+	FrameIndex PLYC N 0 180
+	FrameIndex PLYC N 1 180
+	FrameIndex PLYC N 2 180
+	FrameIndex PLYC O 0 166
+	FrameIndex PLYC O 1 166
+	FrameIndex PLYC O 2 166
+	FrameIndex PLYC P 0 167
+	FrameIndex PLYC P 1 167
+	FrameIndex PLYC P 2 167
+	FrameIndex PLYC Q 0 168
+	FrameIndex PLYC Q 1 168
+	FrameIndex PLYC Q 2 168
+	FrameIndex PLYC R 0 169
+	FrameIndex PLYC R 1 169
+	FrameIndex PLYC R 2 169
+	FrameIndex PLYC S 0 170
+	FrameIndex PLYC S 1 170
+	FrameIndex PLYC S 2 170
+	FrameIndex PLYC T 0 171
+	FrameIndex PLYC T 1 171
+	FrameIndex PLYC T 2 171
+	FrameIndex PLYC U 0 171
+	FrameIndex PLYC U 1 171
+	FrameIndex PLYC U 2 171
+	FrameIndex PLYC V 0 171
+	FrameIndex PLYC V 1 171
+	FrameIndex PLYC V 2 171
+	FrameIndex PLYC W 0 171
+	FrameIndex PLYC W 1 171
+	FrameIndex PLYC W 2 171
+}
+
+Model TrekPlayerF
+{
+	Path "Models/actors/player/"
+	Model 0 "player_f.md3"
+	Model 1 "player_f_head.md3"
+	Path "Models/weapons/"
+	Model 2 "phaser_w.md3"
+	Skin 2 "tosphaser.jpg"
+
+	AngleOffset 180.0
+	Scale 1.0 1.0 0.95
+/*
+	FrameIndex PLAY A 0 1
+	FrameIndex PLAY A 1 1
+	FrameIndex PLAY A 2 1
+	FrameIndex PLAY B 0 4
+	FrameIndex PLAY B 1 4
+	FrameIndex PLAY B 2 4
+	FrameIndex PLAY C 0 7
+	FrameIndex PLAY C 1 7
+	FrameIndex PLAY C 2 7
+	FrameIndex PLAY D 0 10
+	FrameIndex PLAY D 1 10
+	FrameIndex PLAY D 2 10
+	FrameIndex PLAY E 0 63
+	FrameIndex PLAY E 1 63
+	FrameIndex PLAY E 2 63
+	FrameIndex PLAY F 0 49
+	FrameIndex PLAY F 1 49
+	FrameIndex PLAY F 2 49
+	FrameIndex PLAY G 0 65
+	FrameIndex PLAY G 1 65
+	FrameIndex PLAY G 2 65
+	FrameIndex PLAY H 0 174
+	FrameIndex PLAY H 1 174
+	FrameIndex PLAY H 2 174
+	FrameIndex PLAY I 0 175
+	FrameIndex PLAY I 1 175
+	FrameIndex PLAY I 2 175
+	FrameIndex PLAY J 0 176
+	FrameIndex PLAY J 1 176
+	FrameIndex PLAY J 2 176
+	FrameIndex PLAY K 0 177
+	FrameIndex PLAY K 1 177
+	FrameIndex PLAY K 2 177
+	FrameIndex PLAY L 0 178
+	FrameIndex PLAY L 1 178
+	FrameIndex PLAY L 2 178
+	FrameIndex PLAY M 0 180
+	FrameIndex PLAY M 1 180
+	FrameIndex PLAY M 2 180
+	FrameIndex PLAY N 0 180
+	FrameIndex PLAY N 1 180
+	FrameIndex PLAY N 2 180
+	FrameIndex PLAY O 0 166
+	FrameIndex PLAY O 1 166
+	FrameIndex PLAY O 2 166
+	FrameIndex PLAY P 0 167
+	FrameIndex PLAY P 1 167
+	FrameIndex PLAY P 2 167
+	FrameIndex PLAY Q 0 168
+	FrameIndex PLAY Q 1 168
+	FrameIndex PLAY Q 2 168
+	FrameIndex PLAY R 0 169
+	FrameIndex PLAY R 1 169
+	FrameIndex PLAY R 2 169
+	FrameIndex PLAY S 0 170
+	FrameIndex PLAY S 1 170
+	FrameIndex PLAY S 2 170
+	FrameIndex PLAY T 0 171
+	FrameIndex PLAY T 1 171
+	FrameIndex PLAY T 2 171
+	FrameIndex PLAY U 0 171
+	FrameIndex PLAY U 1 171
+	FrameIndex PLAY U 2 171
+	FrameIndex PLAY V 0 171
+	FrameIndex PLAY V 1 171
+	FrameIndex PLAY V 2 171
+	FrameIndex PLAY W 0 171
+	FrameIndex PLAY W 1 171
+	FrameIndex PLAY W 2 171
+
+	FrameIndex PLAY Y 0 206
+	FrameIndex PLAY Y 1 206
+	FrameIndex PLAY Y 2 206
+	FrameIndex PLAY X 0 250
+	FrameIndex PLAY X 1 250
+	FrameIndex PLAY X 2 250
+
+	FrameIndex PLYC A 0 105
+	FrameIndex PLYC A 1 105
+	FrameIndex PLYC A 2 105
+	FrameIndex PLYC B 0 105
+	FrameIndex PLYC B 1 105
+	FrameIndex PLYC B 2 105
+	FrameIndex PLYC C 0 105
+	FrameIndex PLYC C 1 105
+	FrameIndex PLYC C 2 105
+	FrameIndex PLYC D 0 105
+	FrameIndex PLYC D 1 105
+	FrameIndex PLYC D 2 105
+	FrameIndex PLYC E 0 86
+	FrameIndex PLYC E 1 86
+	FrameIndex PLYC E 2 86
+	FrameIndex PLYC F 0 86
+	FrameIndex PLYC F 1 86
+	FrameIndex PLYC F 2 86
+	FrameIndex PLYC G 0 89
+	FrameIndex PLYC G 1 89
+	FrameIndex PLYC G 2 89
+	FrameIndex PLYC H 0 174
+	FrameIndex PLYC H 1 174
+	FrameIndex PLYC H 2 174
+	FrameIndex PLYC I 0 175
+	FrameIndex PLYC I 1 175
+	FrameIndex PLYC I 2 175
+	FrameIndex PLYC J 0 176
+	FrameIndex PLYC J 1 176
+	FrameIndex PLYC J 2 176
+	FrameIndex PLYC K 0 177
+	FrameIndex PLYC K 1 177
+	FrameIndex PLYC K 2 177
+	FrameIndex PLYC L 0 178
+	FrameIndex PLYC L 1 178
+	FrameIndex PLYC L 2 178
+	FrameIndex PLYC M 0 180
+	FrameIndex PLYC M 1 180
+	FrameIndex PLYC M 2 180
+	FrameIndex PLYC N 0 180
+	FrameIndex PLYC N 1 180
+	FrameIndex PLYC N 2 180
+	FrameIndex PLYC O 0 166
+	FrameIndex PLYC O 1 166
+	FrameIndex PLYC O 2 166
+	FrameIndex PLYC P 0 167
+	FrameIndex PLYC P 1 167
+	FrameIndex PLYC P 2 167
+	FrameIndex PLYC Q 0 168
+	FrameIndex PLYC Q 1 168
+	FrameIndex PLYC Q 2 168
+	FrameIndex PLYC R 0 169
+	FrameIndex PLYC R 1 169
+	FrameIndex PLYC R 2 169
+	FrameIndex PLYC S 0 170
+	FrameIndex PLYC S 1 170
+	FrameIndex PLYC S 2 170
+	FrameIndex PLYC T 0 171
+	FrameIndex PLYC T 1 171
+	FrameIndex PLYC T 2 171
+	FrameIndex PLYC U 0 171
+	FrameIndex PLYC U 1 171
+	FrameIndex PLYC U 2 171
+	FrameIndex PLYC V 0 171
+	FrameIndex PLYC V 1 171
+	FrameIndex PLYC V 2 171
+	FrameIndex PLYC W 0 171
+	FrameIndex PLYC W 1 171
+	FrameIndex PLYC W 2 171
+*/
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS2 A 0 15
+	FrameIndex TOS2 A 1 15
+	FrameIndex TOS2 A 2 15
+	FrameIndex TOS2 B 0 19
+	FrameIndex TOS2 B 1 19
+	FrameIndex TOS2 B 2 19
+	FrameIndex TOS2 C 0 23
+	FrameIndex TOS2 C 1 23
+	FrameIndex TOS2 C 2 23
+	FrameIndex TOS2 D 0 27
+	FrameIndex TOS2 D 1 27
+	FrameIndex TOS2 D 2 27
+	FrameIndex TOS3 A 0 32
+	FrameIndex TOS3 A 1 32
+	FrameIndex TOS3 A 2 32
+	FrameIndex TOS3 B 0 33
+	FrameIndex TOS3 B 1 33
+	FrameIndex TOS3 B 2 33
+	FrameIndex TOS3 C 0 34
+	FrameIndex TOS3 C 1 34
+	FrameIndex TOS3 C 2 34
+	FrameIndex TOS3 D 0 35
+	FrameIndex TOS3 D 1 35
+	FrameIndex TOS3 D 2 35
+	FrameIndex TOS4 A 0 49
+	FrameIndex TOS4 A 1 49
+	FrameIndex TOS4 A 2 49
+	FrameIndex TOS7 A 0 73
+	FrameIndex TOS7 A 1 73
+	FrameIndex TOS7 A 2 73
+	FrameIndex TOS7 B 0 76
+	FrameIndex TOS7 B 1 76
+	FrameIndex TOS7 B 2 76
+	FrameIndex TOS7 C 0 78
+	FrameIndex TOS7 C 1 78
+	FrameIndex TOS7 C 2 78
+	FrameIndex TOS7 D 0 81
+	FrameIndex TOS7 D 1 81
+	FrameIndex TOS7 D 2 81
+	FrameIndex TOS8 A 0 84
+	FrameIndex TOS8 A 1 84
+	FrameIndex TOS8 A 2 84
+	FrameIndex TOS8 B 0 85
+	FrameIndex TOS8 B 1 85
+	FrameIndex TOS8 B 2 85
+	FrameIndex TOS8 C 0 86
+	FrameIndex TOS8 C 1 86
+	FrameIndex TOS8 C 2 86
+	FrameIndex TOS8 D 0 87
+	FrameIndex TOS8 D 1 87
+	FrameIndex TOS8 D 2 87
+	FrameIndex TOSA A 0 103
+	FrameIndex TOSA A 1 103
+	FrameIndex TOSA A 2 103
+	FrameIndex TOSA B 0 105
+	FrameIndex TOSA B 1 105
+	FrameIndex TOSA B 2 105
+	FrameIndex TOSA C 0 107
+	FrameIndex TOSA C 1 107
+	FrameIndex TOSA C 2 107
+	FrameIndex TOSA D 0 109
+	FrameIndex TOSA D 1 109
+	FrameIndex TOSA D 2 109
+	FrameIndex TOSF A 0 159
+	FrameIndex TOSF A 1 159
+	FrameIndex TOSF A 2 159
+	FrameIndex TOSF B 0 161
+	FrameIndex TOSF B 1 161
+	FrameIndex TOSF B 2 161
+	FrameIndex TOSF C 0 162
+	FrameIndex TOSF C 1 162
+	FrameIndex TOSF C 2 162
+	FrameIndex TOSF D 0 164
+	FrameIndex TOSF D 1 164
+	FrameIndex TOSF D 2 164
+	FrameIndex TOSJ A 0 206
+	FrameIndex TOSJ A 1 206
+	FrameIndex TOSJ A 2 206
+	FrameIndex TOSJ B 0 217
+	FrameIndex TOSJ B 1 217
+	FrameIndex TOSJ B 2 217
+	FrameIndex TOSJ C 0 228
+	FrameIndex TOSJ C 1 228
+	FrameIndex TOSJ C 2 228
+	FrameIndex TOSJ D 0 239
+	FrameIndex TOSJ D 1 239
+	FrameIndex TOSJ D 2 239
+}
+
+Model TrekPlayerF
+{
+	Path "Models/actors/player/"
+	Model 0 "player_f.md3"
+	Model 1 "player_f_head.md3"
+
+	AngleOffset 180.0
+	Scale 1.0 1.0 0.95
+
+	FrameIndex TOSG A 0 166
+	FrameIndex TOSG A 1 166
+	FrameIndex TOSG B 0 168
+	FrameIndex TOSG B 1 168
+	FrameIndex TOSG C 0 170
+	FrameIndex TOSG C 1 170
+	FrameIndex TOSG D 0 172
+	FrameIndex TOSG D 1 172
+	FrameIndex TOSH A 0 174
+	FrameIndex TOSH A 1 174
+	FrameIndex TOSH B 0 176
+	FrameIndex TOSH B 1 176
+	FrameIndex TOSH C 0 178
+	FrameIndex TOSH C 1 178
+	FrameIndex TOSH D 0 180
+	FrameIndex TOSH D 1 180
+}
+
+Model Shuttle
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "galileo_landed.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+
+	Model 0 "galileo.md3"
+
+	FrameIndex TOS1 B 0 0
+}

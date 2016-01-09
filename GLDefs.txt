@@ -1,0 +1,273 @@
+pulselight TransporterBeam
+{
+	color 0.97 0.91 0.57
+	size 0
+	secondarySize 30
+	interval 2.75
+}
+
+object TransporterLight
+{
+	frame UNKN
+	{
+		light TransporterBeam
+	}
+}
+
+PointLight DisruptorLight
+{
+	color 0.1 0.9 0.1
+	size 16
+}
+
+PointLight WhiteLight
+{
+	color 1.0 1.0 1.0
+	size 48
+}
+
+PointLight GoldLight
+{
+	color 0.3 0.2 0.0
+	size 8
+}
+
+PointLight WhiteLightS
+{
+	color 1.0 1.0 1.0
+	size 16
+}
+
+PointLight PurpleLight
+{
+	color 0.8 0.2 0.8
+	size 48
+}
+
+PulseLight DisruptorPulseLight
+{
+	color 0.1 0.9 0.1
+	size 2
+	secondarysize 16
+	interval 2.856
+}
+
+PointLight GrenadeLight
+{
+	color 0.3 0.3 0.9
+	size 16
+}
+
+PulseLight GrenadeExplodeLightB
+{
+	color 0.3 0.3 0.9
+	size 48
+	secondarysize 16
+	interval 3
+}
+
+PulseLight GrenadeExplodeLightG
+{
+	color 0.5 0.9 0.3
+	size 48
+	secondarysize 16
+	interval 3
+}
+
+PulseLight GrenadeExplodeLightY
+{
+	color 0.9 0.9 0.3
+	size 32
+	secondarysize 8
+	interval 3
+}
+
+PulseLight GrenadeExplodeLightW
+{
+	color 1.0 1.0 1.0
+	size 256
+	secondarysize 8
+	interval 3
+}
+
+object DisruptorBolt
+{
+	frame TOS1
+	{
+		light DisruptorLight
+	}
+}
+
+object DisruptorGrenade
+{
+	frame TOS1
+	{
+		light DisruptorLight
+	}
+}
+
+object PulseSphereGreen
+{
+	frame TOS1
+	{
+		light DisruptorPulseLight
+	}
+}
+
+object PhotonGrenade
+{
+	frame TOS1
+	{
+		light GrenadeLight
+	}
+}
+
+object PhotonGrenadeHoming
+{
+	frame TOS1
+	{
+		light GrenadeLight
+	}
+}
+
+object ExplosionSphereYellow
+{
+	frame TOS1
+	{
+		light GrenadeExplodeLightY
+	}
+}
+
+object ExplosionSphereBlue
+{
+	frame TOS1
+	{
+		light GrenadeExplodeLightB
+	}
+}
+
+object ExplosionSphereGreen
+{
+	frame TOS1
+	{
+		light GrenadeExplodeLightG
+	}
+}
+
+object ExplosionSphereWhite2
+{
+	frame TOS1
+	{
+		light GrenadeExplodeLightW
+	}
+}
+
+object Hint
+{
+	frame FLAR
+	{
+		light GoldLight
+	}
+}
+
+object TrailShell
+{
+	frame TOS1
+	{
+		light PurpleLight
+	}
+}
+
+brightmap texture "models/mapobjects/tos/enterprise/enterprise.jpg"
+{
+	map "models/mapobjects/tos/enterprise/enterprise_l.jpg"
+}
+
+brightmap texture "models/mapobjects/tos/enterprise/bus1.jpg" {map "models/mapobjects/tos/enterprise/bus1.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus2.jpg" {map "models/mapobjects/tos/enterprise/bus2.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus3.jpg" {map "models/mapobjects/tos/enterprise/bus3.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus4.jpg" {map "models/mapobjects/tos/enterprise/bus4.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus5.jpg" {map "models/mapobjects/tos/enterprise/bus5.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus6.jpg" {map "models/mapobjects/tos/enterprise/bus6.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus7.jpg" {map "models/mapobjects/tos/enterprise/bus7.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus8.jpg" {map "models/mapobjects/tos/enterprise/bus8.jpg"}
+
+brightmap texture "models/mapobjects/tos/DisruptorStationScreen_A.jpg" {map "models/mapobjects/tos/DisruptorStationScreen_M.jpg"}
+brightmap texture "models/mapobjects/tos/DisruptorStationScreen_B.jpg" {map "models/mapobjects/tos/DisruptorStationScreen_M.jpg"}
+brightmap texture "models/mapobjects/tos/DisruptorStationScreen_C.jpg" {map "models/mapobjects/tos/DisruptorStationScreen_M.jpg"}
+brightmap texture "models/mapobjects/tos/DisruptorStationScreen_D.jpg" {map "models/mapobjects/tos/DisruptorStationScreen_M.jpg"}
+
+brightmap texture "models/mapobjects/tos/PhaserRifleStationScreen_A.jpg" {map "models/mapobjects/tos/PhaserRifleStationScreen_M.jpg"}
+brightmap texture "models/mapobjects/tos/PhaserRifleStationScreen_B.jpg" {map "models/mapobjects/tos/PhaserRifleStationScreen_M.jpg"}
+brightmap texture "models/mapobjects/tos/PhaserRifleStationScreen_C.jpg" {map "models/mapobjects/tos/PhaserRifleStationScreen_M.jpg"}
+brightmap texture "models/mapobjects/tos/PhaserRifleStationScreen_D.jpg" {map "models/mapobjects/tos/PhaserRifleStationScreen_M.jpg"}
+
+brightmap texture "textures/enterprise/walls/kl_int1.jpg" {map "textures/enterprise/walls/kl_int1.jpg"}
+brightmap texture "textures/enterprise/walls/kl_int2.jpg" {map "textures/enterprise/walls/kl_int2.jpg"}
+brightmap texture "textures/enterprise/walls/kl_int3.jpg" {map "textures/enterprise/walls/kl_int_m.jpg"}
+brightmap texture "textures/enterprise/walls/kl_int4.jpg" {map "textures/enterprise/walls/kl_int_m.jpg"}
+brightmap texture "textures/enterprise/walls/kl_int5.jpg" {map "textures/enterprise/walls/kl_int_m.jpg"}
+
+brightmap texture "Shu_Boo" {map "textures/enterprise/walls/Shu_B_m.jpg"}
+brightmap texture "Shu_Win" {map "textures/enterprise/walls/Shu_W_m.jpg"}
+brightmap texture "Shu_Boo2" {map "textures/enterprise/walls/Shu_B2_m.jpg"}
+brightmap texture "textures/enterprise/walls/Shu_Wi_O.png" {map "textures/enterprise/walls/Shu_Wi_O.png"}
+brightmap texture "alert2" {map "textures/enterprise/walls/overlays/alert2_m.jpg"}
+
+brightmap texture "WALLALE3" {map "WALLALE5"}
+brightmap texture "WALLALE4" {map "WALLALE6"}
+brightmap texture "ARCHALE2" {map "ARCHALE3"}
+brightmap texture "TRANSAL2" {map "TRANSAL3"}
+brightmap texture "BR_WALLM" {map "BR_WALLN"}
+brightmap texture "BR_WALLU" {map "BR_WALLW"}
+brightmap texture "BR_WALLQ" {map "BR_WALLX"}
+brightmap texture "WALL_BEB" {map "SHU_LI_M"}
+
+brightmap texture "WALL0SW0" {map "WALLMSW0"}
+brightmap texture "WALL0SW1" {map "WALLMSW1"}
+brightmap texture "WALL2SW0" {map "WALLMSW0"}
+brightmap texture "WALL2SW1" {map "WALLMSW1"}
+brightmap texture "WALL3SW0" {map "WALLMSW0"}
+brightmap texture "WALL3SW1" {map "WALLMSW1"}
+
+HardwareShader Texture Water
+{
+	Shader "shaders/glsl/func_warp1.fp"
+	Speed 1.0
+}
+
+HardwareShader Texture Water2
+{
+	Shader "shaders/glsl/func_warp1.fp"
+	Speed 1.0
+}
+
+HardwareShader Texture Field_R
+{
+	Shader "shaders/func_forcefield.fp"
+	Speed 10.0
+}
+
+HardwareShader Texture Field_O
+{
+	Shader "shaders/func_forcefield.fp"
+	Speed 10.0
+}
+
+HardwareShader Texture Field_Y
+{
+	Shader "shaders/func_forcefield.fp"
+	Speed 10.0
+}
+
+HardwareShader Texture Field_G
+{
+	Shader "shaders/func_forcefield.fp"
+	Speed 10.0
+}
+
+HardwareShader Texture Field_W
+{
+	Shader "shaders/func_forcefield.fp"
+	Speed 10.0
+}

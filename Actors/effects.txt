@@ -1,0 +1,489 @@
+Actor WeaponHit
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+ALWAYSPUFF
+	+PUFFONACTORS
+	States
+	{
+		Spawn:
+			TNT1 A 1
+			Stop
+	}
+}
+
+Actor PhaserHit : WeaponHit
+{
+	DamageType Phaser
+}
+
+Actor PhaserDisintegrateHit : WeaponHit
+{
+	DamageType Phaser
+	+HITTARGET
+	States
+	{
+		Spawn:
+			TNT1 A 0
+		XDeath:
+			TNT1 A 5 A_GiveInventory("Disintegration", 1, AAPTR_TARGET)
+			Stop
+	}
+}
+
+Actor DisruptorHit : WeaponHit
+{
+	DamageType Disruptor
+}
+
+Actor PhaserStunHit : WeaponHit
+{
+	DamageType Stun
+	+HITTARGET
+	States
+	{
+		Spawn:
+			TNT1 A 0
+		XDeath:
+			TNT1 A 5 A_GiveInventory("Stunner", 1, AAPTR_TARGET)
+			Stop
+	}
+}
+
+Actor ElectricalHit : WeaponHit
+{
+	DamageType Electrical
+}
+
+Actor PhaserParticle
+{
+	Radius 4
+	Height 4
+	RenderStyle Add
+	Alpha 0.15
+	Scale 0.75
+	States
+	{
+		Spawn:
+			BLAS A 0
+			BLAS A 0 A_SetTranslucent(frandom(0.05, 0.15), 1)
+			BLAS A 0 A_SetScale(FRandom(0.75, 1.10))
+			BLAS A 1 Bright
+			Stop
+	}
+}
+
+Actor RedPhaserParticle : PhaserParticle
+{
+	Translation "215:215=[200, 0, 0]:[200, 0, 0]", "249:249=[200, 0, 0]:[200, 0, 0]"
+}
+
+Actor GreenPhaserParticle : PhaserParticle
+{
+	Translation "215:215=[0, 200, 0]:[0, 200, 0]", "249:249=[0, 200, 0]:[0, 200, 0]"
+}
+
+Actor BluePhaserParticle : PhaserParticle
+{
+	Translation "215:215=[0, 0, 200]:[0, 0, 200]", "249:249=[0, 0, 200]:[0, 0, 200]"
+}
+
+Actor OrangePhaserParticle : PhaserParticle
+{
+	Translation "215:215=[200, 120, 0]:[200, 120, 0]", "249:249=[200, 120, 0]:[200, 120, 0]"
+}
+
+Actor WhitePhaserParticle : PhaserParticle
+{
+	Translation "215:215=[200, 200, 200]:[200, 200, 200]", "249:249=[200, 200, 200]:[200, 200, 200]"
+}
+
+Actor LaserTrail
+{
+	+NOBLOCKMAP
+	+DROPOFF
+	+NOGRAVITY
+	- SOLID
+	RenderStyle Add
+	Alpha 0.75
+	Height 5
+	Radius 5
+	Speed 0
+	Translation "215:215=[235, 100, 215]:[235, 100, 215]", "249:249=[235, 100, 215]:[235, 100, 215]"
+	States
+	{
+		Spawn:
+			BLAS A 0 NoDelay A_SetScale(FRandom(0.25, 0.5))
+			BLAS A 2
+/*
+			BLAS A 0 A_SetTranslucent(0.60, 1)
+			BLAS A 2
+			BLAS A 0 A_SetTranslucent(0.45, 1)
+			BLAS A 2
+			BLAS A 0 A_SetTranslucent(0.30, 1)
+			BLAS A 2
+			BLAS A 0 A_SetTranslucent(0.15, 1)
+*/
+		Death:
+			BLAS A 0 //2
+			Stop
+	}
+}
+
+Actor Flare
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	- SOLID
+	RenderStyle Add
+	Alpha 0.7
+	States
+	{
+		Spawn:
+			FLAR W 6
+			Stop
+	}
+}
+
+Actor Flare_G : Flare
+{
+	States
+	{
+		Spawn:
+			FLAR G 6
+			Stop
+	}
+}
+
+Actor Flare_B : Flare
+{
+	States
+	{
+		Spawn:
+			FLAR B 6
+			Stop
+	}
+}
+
+Actor Flare_Y : Flare
+{
+	States
+	{
+		Spawn:
+			FLAR Y 6
+			Stop
+	}
+}
+
+Actor PhotonGrenadeShadow
+{
+	var int user_scale;
+
+	+NOGRAVITY
+	RenderStyle Add
+	Alpha 0.75
+	States
+	{
+		Spawn:
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale + 1)
+			TOS1 A 0 A_SetScale(1.0 - user_scale * 0.1)
+			FLAR B 1 Bright A_FadeOut(0.1)
+			Loop
+	}
+}
+
+Actor PhotonGrenadeShadow2 : PhotonGrenadeShadow
+{
+	States
+	{
+		Spawn:
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale + 1)
+			TOS1 A 0 A_SetScale(1.0 - user_scale * 0.1)
+			FLAR Y 1 Bright A_FadeOut(0.1)
+			Loop
+	}
+}
+
+Actor ExplosionSphereYellow
+{
+	var int user_scale;
+
+	+NOGRAVITY
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+		Spawn:
+			TOS1 A 1 Bright A_FadeOut(0.02)
+			TOS1 A 0 A_SetScale(1.0 + user_scale * 0.3)
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale + 1)
+			Loop
+	}
+}
+
+Actor ExplosionSphereBlue
+{
+	var int user_scale;
+
+	+NOGRAVITY
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+		Spawn:
+			TOS1 A 1 Bright A_FadeOut(0.02)
+			TOS1 A 0 A_SetScale(1.0 + user_scale * 0.3)
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale + 1)
+			Loop
+	}
+}
+
+Actor ExplosionSphereGreen
+{
+	var int user_scale;
+
+	+NOGRAVITY
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+		Spawn:
+			TOS1 A 0 A_SetScale(0.7 + user_scale * 0.3)
+			TOS1 A 1 Bright A_FadeOut(0.02)
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale + 1)
+			Loop
+	}
+}
+
+Actor ExplosionSphereWhite
+{
+	var int user_scale;
+
+	+NOGRAVITY
+	RenderStyle Add
+	Alpha 0.2
+	States
+	{
+		Spawn:
+			TOS1 A 1 Bright A_FadeOut(0.01)
+			Loop
+	}
+}
+
+Actor ExplosionSphereWhite2
+{
+	var int user_scale;
+
+	+NOGRAVITY
+	RenderStyle Add
+	Alpha 0.7
+	States
+	{
+		Spawn:
+			TOS1 A 0 A_SetScale(1.5 + user_scale * 0.8)
+			TOS1 A 1 Bright A_FadeOut(0.03)
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale + 1)
+			Loop
+	}
+}
+
+Actor PulseSphere
+{
+	var int user_scale;
+	var int user_scale_min;
+	var int user_scale_max;
+	var int user_scaledir;
+
+	+NOGRAVITY
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+		Spawn:
+			TOS1 A 0 NoDelay A_SetUserVar("user_scaledir", 1)
+			TOS1 A 0 A_SetUserVar("user_scale_min", 25)
+			TOS1 A 0 A_SetUserVar("user_scale_max", 75)
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale_min)
+			Goto Static
+		Static:
+			TOS1 A 1 A_SetScale(user_scale * 0.01)
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale + user_scaledir)
+			TOS1 A 0 A_JumpIf(user_scale > user_scale_max, "Reverse")
+			TOS1 A 0 A_JumpIf(user_scale < user_scale_min, "Reverse")
+			Loop
+		Reverse:
+			TOS1 A 0 A_SetUserVar("user_scaledir", user_scaledir * -1)
+			Goto Static
+	}
+}
+
+Actor PulseSphereGreen : PulseSphere
+{
+	States
+	{
+		Spawn:
+			TOS1 A 0 NoDelay A_SetUserVar("user_scaledir", 1)
+			TOS1 A 0 A_SetUserVar("user_scale_min", 25)
+			TOS1 A 0 A_SetUserVar("user_scale_max", 75)
+			TOS1 A 0 A_SetUserVar("user_scale", user_scale_min)
+			Goto Static
+	}
+}
+
+ACTOR TransporterParticle
+{
+	RenderStyle "Add"
+	+BRIGHT
+	+NOINTERACTION
+
+	States
+	{
+		Spawn:
+			TNT1 A 1 NoDelay A_Jump(256, "A", "B", "C", "D")
+		A:
+			TRAN A 1
+			Goto Static
+		B:
+			TRAN B 1
+			Goto Static
+		C:
+			TRAN C 1
+			Goto Static
+		D:
+			TRAN D 1
+			Goto Static
+		Static:
+			"####" # 0 A_SetScale(frandom(0.85, 1.2))
+		Draw:
+			"####" # 1 A_FadeOut(0.01)
+			"####" # 0 A_JumpIf(z - floorz > 84, "Done")
+			Loop
+		Done:
+			TNT1 A 1
+			Stop
+	}
+}
+
+ACTOR TransporterLight
+{
+	+INVISIBLE
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			UNKN A 96
+			Stop
+	}
+}
+
+ACTOR TransporterEffect
+{
+	var int user_count;
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay A_CheckSight("Done")
+			TNT1 A 0 A_PlaySound("transporter/out")
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterLight",
+				0, 0, 0,
+				0, 0, 0.7,
+				0,
+				0)
+		DrawParticles:
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterParticle",
+				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0, 32.0),
+				0, 0, frandom(1.0, 2.0),
+				0,
+				0)
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterParticle",
+				frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(0, 32.0),
+				0, 0, frandom(0.5, 2.0),
+				0,
+				0)
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterParticle",
+				frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(45.0, 65.0),
+				0, 0, frandom(0.25, 1.0),
+				0,
+				0)
+			TNT1 A 0 A_JumpIf(user_count > 16, "Done")
+			TNT1 A 0 A_SetUserVar("user_count", user_count + 1)
+			Loop
+		Done:
+			TNT1 A 1
+			Stop
+	}
+}
+
+ACTOR TransporterEffect2
+{
+	var int user_count;
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay A_CheckSight("Done")
+			TNT1 A 0 A_PlaySound("transporter/in")
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterLight",
+				0, 0, 84.0,
+				0, 0, -0.6,
+				0,
+				0)
+		DrawParticles:
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterParticle",
+				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(52.0, 84.0),
+				0, 0, frandom(-1.0, -2.0),
+				0,
+				0)
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterParticle",
+				frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(52.0, 84.0),
+				0, 0, frandom(-0.5, -2.0),
+				0,
+				0)
+			TNT1 A 0 A_SpawnItemEx(
+				"TransporterParticle",
+				frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(45.0, 65.0),
+				0, 0, frandom(-0.25, -1.0),
+				0,
+				0)
+			TNT1 A 0 A_JumpIf(user_count > 16, "Done")
+			TNT1 A 0 A_SetUserVar("user_count", user_count + 1)
+			Loop
+		Done:
+			TNT1 A 1
+			Stop
+	}
+}
+
+Actor TrailShell : Flare
+{
+	States
+	{
+		Spawn:
+			TOS1 A 2 Bright
+			Stop
+	}
+}
+
+Actor HINT
+{
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+FLOATBOB
+	-SOLID
+	RenderStyle Add
+	Alpha 0.7
+	States
+	{
+		Spawn:
+			FLAR Y -1
+			Stop
+	}
+}

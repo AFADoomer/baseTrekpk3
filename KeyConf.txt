@@ -1,0 +1,14 @@
+addkeysection "Star Trek TC" "Trek"
+
+addmenukey "Lean Left" +user1
+addmenukey "Lean Right" +user2
+addmenukey "Zoom Radar In" radarzoomin
+addmenukey "Zoom Radar Out" radarzoomout
+
+defaultbind q +user1
+defaultbind e +user2
+defaultbind , radarzoomout
+defaultbind . radarzoomin
+
+alias radarzoomin "pukename w_radarzoomin"
+alias radarzoomout "pukename w_radarzoomout"

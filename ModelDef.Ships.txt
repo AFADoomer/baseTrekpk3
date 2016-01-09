@@ -1,0 +1,254 @@
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus1.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus2.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 B 0 0
+	FrameIndex TOS1 B 1 0
+}
+
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus3.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 C 0 0
+	FrameIndex TOS1 C 1 0
+}
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus4.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 D 0 0
+	FrameIndex TOS1 D 1 0
+}
+
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus5.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 E 0 0
+	FrameIndex TOS1 E 1 0
+}
+
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus6.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 F 0 0
+	FrameIndex TOS1 F 1 0
+}
+
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus7.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 G 0 0
+	FrameIndex TOS1 G 1 0
+}
+
+Model TOSEnterprise
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	Skin 0 "enterprise.jpg"
+	Model 1 "bussards.md3"
+	Skin 1 "bus8.jpg"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 H 0 0
+	FrameIndex TOS1 H 1 0
+}
+
+
+Model TOSPlanet
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "planet.jpg"
+
+	Rotating
+	Rotation-Speed -0.1
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlanet
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "k7.md3"
+	Skin 0 "k7.jpg"
+
+	Rotating
+	Rotation-Speed 0.1
+
+	Scale 0.6 0.6 0.6
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSPlanet
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "galileo.md3"
+
+	PitchOffset -15.0
+	RollOffset 5.0
+	ZOffset 64.0
+
+	Rotating
+	Rotation-Speed 0.1 
+	Rotation-Center -32.0 0.0 0.0
+	Rotation-Vector 0.0 1.0 0.2
+
+	Scale 0.01 0.01 0.01
+
+	FrameIndex TOS1 C 0 0
+}
+
+Model TOSShuttleGalileo
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "galileo_landed.md3"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+
+	Model 0 "galileo.md3"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSShuttleAstrostein
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "galileo_landed.md3"
+	Skin 0 "astrostein.jpg"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+
+	Model 0 "galileo.md3"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSShuttleColumbus
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "columbus.md3"
+
+	ZOffset 24.0
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSShuttleCopernicus
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "copernicus.md3"
+
+	ZOffset 24.0
+	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+}

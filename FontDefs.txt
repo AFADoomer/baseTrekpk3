@@ -1,0 +1,17 @@
+TINYFONT
+{
+	SpaceWidth 5
+	Template BST%02d
+}
+
+BIGFONT
+{
+	SpaceWidth 10
+	Template TOS%03d
+}
+
+SMALLFONT
+{
+	SpaceWidth 5
+	Template STCFN%03d
+}
