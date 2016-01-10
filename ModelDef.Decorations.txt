@@ -64,7 +64,8 @@ Model TOSCaptainChair
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "cptchair.md3"
-	Skin 0 "capt_chair.png"
+	Skin 0 "cptchair.png"
+
 	AngleOffset 180.0
 	Scale 1.45 1.45 1.45
 
@@ -237,7 +238,7 @@ Model TOSBridgeConsole7
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "console.md3"
-	Skin 0 "console7.jpg"
+	Skin 0 "cons_7.jpg"
 
 	AngleOffset 180.0
 	Scale 1.235 1.235 1.45
@@ -249,7 +250,7 @@ Model TOSBridgeConsole7
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "console.md3"
-	Skin 0 "console9.jpg"
+	Skin 0 "cons_7a.jpg"
 
 	AngleOffset 180.0
 	Scale 1.235 1.235 1.45
@@ -261,7 +262,7 @@ Model TOSBridgeConsole8
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "console.md3"
-	Skin 0 "console8.jpg"
+	Skin 0 "cons_8.jpg"
 
 	AngleOffset 180.0
 	Scale 1.235 1.235 1.45
