@@ -1,6 +1,6 @@
 GameInfo
 {
-	PlayerClasses = "TrekPlayer", "Shuttle"//, "TrekPlayerF", "OldTrekPlayer"
+	PlayerClasses = "TrekPlayer"//, "Shuttle"//, "TrekPlayerF", "OldTrekPlayer"
 	dimcolor = "0 0 0"
 	dimamount = 0.7
 	menufontcolor_title = "TOSMenuGold"
