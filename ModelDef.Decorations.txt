@@ -124,7 +124,7 @@ Model TOSBridgeConsole1
 	Model 2 "cons_top.md3"
 	Skin 2 "br_up_l1.jpg"
 	Model 3 "cons_oeg.md3"
-	Skin 3 "cons_objs.png"
+	Skin 3 "cons_obj.png"
 
 	AngleOffset 180.0
 	Scale 1.235 1.235 1.45
@@ -145,7 +145,7 @@ Model TOSBridgeConsole2
 	Model 2 "cons_top.md3"
 	Skin 2 "br_up_l2.jpg"
 	Model 3 "cons_oev.md3"
-	Skin 3 "cons_objs.png"
+	Skin 3 "cons_obj.png"
 
 	AngleOffset 180.0
 	Scale 1.235 1.235 1.45
@@ -166,7 +166,7 @@ Model TOSBridgeConsole3
 	Model 2 "cons_top.md3"
 	Skin 2 "br_up_r1.jpg"
 	Model 3 "cons_o.md3"
-	Skin 3 "cons_objs.png"
+	Skin 3 "cons_obj.png"
 
 	AngleOffset 180.0
 	Scale 1.235 1.235 1.45
@@ -187,7 +187,7 @@ Model TOSBridgeConsole4
 	Model 2 "cons_top.md3"
 	Skin 2 "br_up_r2.jpg"
 	Model 3 "cons_osc.md3"
-	Skin 3 "cons_objs.png"
+	Skin 3 "cons_obj.png"
 
 	AngleOffset 180.0
 	Scale 1.235 1.235 1.45
