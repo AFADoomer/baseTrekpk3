@@ -4,8 +4,8 @@ Model TOSCrewman
 	Model 0 "player.md3"
 	Skin 0 "Starfleet_E_ENS.jpg"
 
-	Model 1 "head_kirk.md3"
-	Skin 1 "head.jpg"
+	Model 1 "head_kirk_old.md3"
+	Skin 1 "head_kirk.jpg"
 
 	Path "Models/weapons/"
 	Model 2 "phaser_w.md3"
