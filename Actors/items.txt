@@ -194,11 +194,13 @@ Actor PhaserRifleStation : DisruptorStation Replaces PlasmaRifle 25104
 
 ACTOR Nav_Block
 {
-	Radius 10
+	Radius 0
+	Height 0
 	States
 	{
 	Spawn:
-		UNKN A -1
+		TNT1 A -1
+		Loop
 	}
 }
 
@@ -209,7 +211,8 @@ ACTOR Nav_Check
 	States
 	{
 	Spawn:
-		UNKN A -1
+		TNT1 A -1
+		Loop
 	}
 }
 

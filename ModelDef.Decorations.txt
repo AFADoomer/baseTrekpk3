@@ -60,6 +60,20 @@ Model TOSHelmConsole
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSHelmConsole
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "helm.md3"
+	Skin 0 "helm_a.jpg"
+	Model 1 "helm_scanner.md3"
+	Skin 1 "helm_scanner.jpg"
+
+	AngleOffset 180.0
+	Scale 1.45 1.45 1.45
+
+	FrameIndex TOS1 B 0 0
+}
+
 Model TOSCaptainChair
 {
 	Path "Models/mapobjects/tos/"
@@ -794,7 +808,6 @@ Model TOSBriefTable
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "conf_tab.md3"
-	Skin 0 "bri_tab.png"
 
 	Scale 1.4 1.4 1.2
 
@@ -1382,9 +1395,10 @@ Model TOSDeskIntercom
 	INHERITACTORPITCH
 	INHERITACTORROLL
 
+	Scale 1.4 1.4 1.2
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "deskcom.md3"
-	Skin 0 "deskcom.jpg"
 
 	FrameIndex TOS1 A 0 0
 }
@@ -2120,6 +2134,32 @@ Model TOSPipe10
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
 	Skin 0 "pipe10.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSConferenceViewer
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Scale 1.4 1.4 1.2
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "conf_vwr.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSIntercomAndRockers
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Scale 1.4 1.4 1.2
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "conf_int.md3"
 
 	FrameIndex TOS1 A 0 0
 }

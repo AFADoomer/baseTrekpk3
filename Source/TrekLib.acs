@@ -1271,7 +1271,7 @@ int moves[5];
 Script "A_CheckNavDir" (void)
 {
 	int intSpawnDist = 32.0;
-	int intMaxMove = 16;
+	int intMaxMove = 64;
 	int retValue = 0;
 
 	int ActorX = GetActorX(0);
@@ -1311,21 +1311,22 @@ Script "A_CheckNavDir" (void)
 		originX = ActorX + 12.0 + (32.0 * moveX);
 		originY = ActorY + 12.0 + (32.0 * moveY); 
 
-		Spawn("Nav_Check", originX, originY, ActorZ, 1900 + ID, 0);
+		Spawn("Nav_Check", originX, originY, ActorZ + 32.0, 1900 + ID, 0);
 
-		For (int i=1; i<=intMaxMove; i=i+1)
+		moves[(a / 64) + 1] = 0;
+
+		For (int i = 1; i <= intMaxMove; i = i + 1)
 		{
 			destX = originX + (moveX * 32.0 * i) - (16.0 * moveX);
 			destY = originY + (moveY * 32.0 * i) - (16.0 * moveY);
 
-			If (Spawn("Nav_Block", destX, destY, ActorZ, 2000 + ID, 0)) //Check if no object is in the way
+			If (Spawn("Nav_Block", destX, destY, ActorZ + 32.0, 2000 + ID, 0)) //Check if no object is in the way
 			{
 				If(CheckSight (2000 + ID, 1900 + ID, CSF_NOBLOCKALL)) //Check if destination is inside map
 					intMoveDist += 32.0;
 				Thing_Remove(2000 + ID);
 
 				moves[(a / 64) + 1] = intMoveDist;
-
 /*
 				If (intMoveDist > dist)
 				{
@@ -1334,11 +1335,13 @@ Script "A_CheckNavDir" (void)
 				}
 */
 			}
+/*
 			Else
 			{
 				moves[(a / 64) + 1] = 0;
 				i = intMaxMove;
 			}
+*/
 		}
 		Thing_Remove(1900 + ID);
 /*
@@ -1360,31 +1363,49 @@ Script "A_CheckNavDir" (void)
 */
 		int current = ActorA / 64 + 1;
 
-		int index, preferred = current;
+		int index, preferred, nextpreferred; // = current;
 
 		For (int l = -1; l <= 2; l++)
+//		For (index = 1; index <= 4; index++)
 		{
 			index = current + l;
 
 			If (index > 4) index -= 4;
 			If (index < 1) index += 4;
 
-printbold(d:index,s:"\n",d:moves[index],s:" ? ",d:moves[preferred],s:"\n\nPreferred: ",d:preferred);
-
-			If (moves[index] < moves[preferred])
+			If (moves[index] > moves[preferred])
 			{
+				nextpreferred = preferred;
 				preferred = index;
 				If (l >= 1) l = 2;
 			}
+
+//printbold(d:index,s:"\n",d:moves[index] / 1.0,s:" ? ",d:moves[preferred] / 1.0,s:"\n\nPreferred: ",d:preferred);
 		}
 		retValue = (preferred - 1) * 64 * 360 / 256;
-		printbold(s:"Move Options:\n\nN: ",d:moves[2]/1.0,s:"\nS: ",d:moves[4]/1.0,s:"\nW: ",d:moves[3]/1.0,s:"\nE: ",d:moves[1]/1.0,s:"\n\nCurrent: ",d:ActorA,s:"\nProposed: ",d:retValue);
+//		printbold(s:"Move Options:\n\nN: ",d:moves[2]/1.0,s:"\nS: ",d:moves[4]/1.0,s:"\nW: ",d:moves[3]/1.0,s:"\nE: ",d:moves[1]/1.0,s:"\n\nCurrent: ",d:ActorA,s:"\nProposed: ",d:(preferred - 1) * 64);
 //		log(d:(preferred - 1) * 64,s:": ",d:moves[preferred] / 1.0);
 	}
 
 //	SetResultValue(dir * 360 / 256);
 
 	Thing_Remove(2000 + ID);
+//Log(d:GetUserVariable(0, "user_angle"), s: " ? ", d:(retValue + 180) % 360);
+
+	current = GetUserVariable(0, "user_angle");
+
+/*
+	If (Random(0, 1))
+	{
+		preferred = nextpreferred;
+		retvalue = (nextpreferred - 1) * 64 * 360 / 256;
+	}
+*/
+
+	If (current != ((retValue + 180) % 360))
+		retValue = (nextpreferred - 1) * 64 * 360 / 256;
+
+	SetUserVariable(0, "user_angle", retValue);
 	SetResultValue(retValue);
 }
 

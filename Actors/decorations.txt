@@ -97,8 +97,27 @@ Actor TOSChair : TOSDecoration 20001
 
 	Tag "Chair"
 }
+
 Actor TOSBridgeRailing : TOSDecoration 20002 {Height 32 Radius 16 Tag "Railing"}
-Actor TOSHelmConsole : TOSDecoration 20004 {Height 20 Radius 32 Tag "Helm Console"}
+
+Actor TOSHelmConsole : TOSDecoration 20004
+{
+	Height 20
+	Radius 32
+	Tag "Helm Console"
+	States
+	{
+		Static:
+			TOS1 A 30 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
+			Loop
+		Alert:
+			TOS1 B 30 A_JumpIf(CallACS("A_CheckAlert") < 1, "Static")
+			TOS1 A 30 A_JumpIf(CallACS("A_CheckAlert") < 1, "Static")
+			Loop
+	}
+
+}
+
 Actor TOSCaptainChair : TOSDecoration 20005 {Height 20 Radius 16 Tag "Captain's Chair"}
 
 /*
@@ -833,9 +852,9 @@ Actor TOSSickbayTable : TOSDecoration 20203
 
 Actor TOSPipe9 : TOSDecoration 20204 {}
 Actor TOSPipe10 : TOSDecoration 20205 {}
-
 Actor TOSTable5 : TOSTable4 20206 {}
 Actor TOSWallThingEngineering2 : TOSDecoration 20207 {}
 Actor TOSChair3 : TOSChair 20208 {}
-
 Actor TOSShuttleAstrostein : TOSShuttleGalileo 20209 {}
+Actor TOSConferenceViewer : TOSDecoration 20210 {}
+Actor TOSIntercomAndRockers : TOSDecoration 20211 {Height 1 Radius 2 +SOLID +USESPECIAL}
