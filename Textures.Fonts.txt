@@ -1,0 +1,12600 @@
+Graphic STCFN032, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN032, 0, 0
+    {
+    }
+}
+
+Graphic STCFN033, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN033, 0, 0
+    {
+    }
+}
+
+Graphic STCFN034, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN034, 0, 0
+    {
+    }
+}
+
+Graphic STCFN035, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN035, 0, 0
+    {
+    }
+}
+
+Graphic STCFN036, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN036, 0, 0
+    {
+    }
+}
+
+Graphic STCFN037, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN037, 0, 0
+    {
+    }
+}
+
+Graphic STCFN038, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN038, 0, 0
+    {
+    }
+}
+
+Graphic STCFN039, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN039, 0, 0
+    {
+    }
+}
+
+Graphic STCFN040, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN040, 0, 0
+    {
+    }
+}
+
+Graphic STCFN041, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN041, 0, 0
+    {
+    }
+}
+
+Graphic STCFN042, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN042, 0, 0
+    {
+    }
+}
+
+Graphic STCFN043, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN043, 0, 0
+    {
+    }
+}
+
+Graphic STCFN044, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN044, 0, 0
+    {
+    }
+}
+
+Graphic STCFN045, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN045, 0, 0
+    {
+    }
+}
+
+Graphic STCFN046, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN046, 0, 0
+    {
+    }
+}
+
+Graphic STCFN047, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN047, 0, 0
+    {
+    }
+}
+
+Graphic STCFN048, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN048, 0, 0
+    {
+    }
+}
+
+Graphic STCFN049, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN049, 0, 0
+    {
+    }
+}
+
+Graphic STCFN050, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN050, 0, 0
+    {
+    }
+}
+
+Graphic STCFN051, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN051, 0, 0
+    {
+    }
+}
+
+Graphic STCFN052, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN052, 0, 0
+    {
+    }
+}
+
+Graphic STCFN053, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN053, 0, 0
+    {
+    }
+}
+
+Graphic STCFN054, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN054, 0, 0
+    {
+    }
+}
+
+Graphic STCFN055, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN055, 0, 0
+    {
+    }
+}
+
+Graphic STCFN056, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN056, 0, 0
+    {
+    }
+}
+
+Graphic STCFN057, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN057, 0, 0
+    {
+    }
+}
+
+Graphic STCFN058, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN058, 0, 0
+    {
+    }
+}
+
+Graphic STCFN059, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN059, 0, 0
+    {
+    }
+}
+
+Graphic STCFN060, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN060, 0, 0
+    {
+    }
+}
+
+Graphic STCFN061, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN061, 0, 0
+    {
+    }
+}
+
+Graphic STCFN062, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN062, 0, 0
+    {
+    }
+}
+
+Graphic STCFN063, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN063, 0, 0
+    {
+    }
+}
+
+Graphic STCFN064, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN064, 0, 0
+    {
+    }
+}
+
+Graphic STCFN065, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN065, 0, 0
+    {
+    }
+}
+
+Graphic STCFN066, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN066, 0, 0
+    {
+    }
+}
+
+Graphic STCFN067, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN067, 0, 0
+    {
+    }
+}
+
+Graphic STCFN068, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN068, 0, 0
+    {
+    }
+}
+
+Graphic STCFN069, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN069, 0, 0
+    {
+    }
+}
+
+Graphic STCFN070, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN070, 0, 0
+    {
+    }
+}
+
+Graphic STCFN071, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN071, 0, 0
+    {
+    }
+}
+
+Graphic STCFN072, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN072, 0, 0
+    {
+    }
+}
+
+Graphic STCFN073, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN073, 0, 0
+    {
+    }
+}
+
+Graphic STCFN074, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN074, 0, 0
+    {
+    }
+}
+
+Graphic STCFN075, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN075, 0, 0
+    {
+    }
+}
+
+Graphic STCFN076, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN076, 0, 0
+    {
+    }
+}
+
+Graphic STCFN077, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN077, 0, 0
+    {
+    }
+}
+
+Graphic STCFN078, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN078, 0, 0
+    {
+    }
+}
+
+Graphic STCFN079, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN079, 0, 0
+    {
+    }
+}
+
+Graphic STCFN080, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN080, 0, 0
+    {
+    }
+}
+
+Graphic STCFN081, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN081, 0, 0
+    {
+    }
+}
+
+Graphic STCFN082, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN082, 0, 0
+    {
+    }
+}
+
+Graphic STCFN083, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN083, 0, 0
+    {
+    }
+}
+
+Graphic STCFN084, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN084, 0, 0
+    {
+    }
+}
+
+Graphic STCFN085, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN085, 0, 0
+    {
+    }
+}
+
+Graphic STCFN086, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN086, 0, 0
+    {
+    }
+}
+
+Graphic STCFN087, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN087, 0, 0
+    {
+    }
+}
+
+Graphic STCFN088, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN088, 0, 0
+    {
+    }
+}
+
+Graphic STCFN089, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN089, 0, 0
+    {
+    }
+}
+
+Graphic STCFN090, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN090, 0, 0
+    {
+    }
+}
+
+Graphic STCFN091, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN091, 0, 0
+    {
+    }
+}
+
+Graphic STCFN092, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN092, 0, 0
+    {
+    }
+}
+
+Graphic STCFN093, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN093, 0, 0
+    {
+    }
+}
+
+Graphic STCFN094, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN094, 0, 0
+    {
+    }
+}
+
+Graphic STCFN095, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN095, 0, 0
+    {
+    }
+}
+
+Graphic STCFN096, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN096, 0, 0
+    {
+    }
+}
+
+Graphic STCFN097, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN097, 0, 0
+    {
+    }
+}
+
+Graphic STCFN098, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN098, 0, 0
+    {
+    }
+}
+
+Graphic STCFN099, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN099, 0, 0
+    {
+    }
+}
+
+Graphic STCFN100, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN100, 0, 0
+    {
+    }
+}
+
+Graphic STCFN101, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN101, 0, 0
+    {
+    }
+}
+
+Graphic STCFN102, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN102, 0, 0
+    {
+    }
+}
+
+Graphic STCFN103, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN103, 0, 0
+    {
+    }
+}
+
+Graphic STCFN104, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN104, 0, 0
+    {
+    }
+}
+
+Graphic STCFN105, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN105, 0, 0
+    {
+    }
+}
+
+Graphic STCFN106, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN106, 0, 0
+    {
+    }
+}
+
+Graphic STCFN107, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN107, 0, 0
+    {
+    }
+}
+
+Graphic STCFN108, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN108, 0, 0
+    {
+    }
+}
+
+Graphic STCFN109, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN109, 0, 0
+    {
+    }
+}
+
+Graphic STCFN110, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN110, 0, 0
+    {
+    }
+}
+
+Graphic STCFN111, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN111, 0, 0
+    {
+    }
+}
+
+Graphic STCFN112, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN112, 0, 0
+    {
+    }
+}
+
+Graphic STCFN113, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN113, 0, 0
+    {
+    }
+}
+
+Graphic STCFN114, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN114, 0, 0
+    {
+    }
+}
+
+Graphic STCFN115, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN115, 0, 0
+    {
+    }
+}
+
+Graphic STCFN116, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN116, 0, 0
+    {
+    }
+}
+
+Graphic STCFN117, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN117, 0, 0
+    {
+    }
+}
+
+Graphic STCFN118, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN118, 0, 0
+    {
+    }
+}
+
+Graphic STCFN119, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN119, 0, 0
+    {
+    }
+}
+
+Graphic STCFN120, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN120, 0, 0
+    {
+    }
+}
+
+Graphic STCFN121, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN121, 0, 0
+    {
+    }
+}
+
+Graphic STCFN122, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN122, 0, 0
+    {
+    }
+}
+
+Graphic STCFN123, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN123, 0, 0
+    {
+    }
+}
+
+Graphic STCFN124, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN124, 0, 0
+    {
+    }
+}
+
+Graphic STCFN125, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN125, 0, 0
+    {
+    }
+}
+
+Graphic STCFN126, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN126, 0, 0
+    {
+    }
+}
+
+Graphic STCFN128, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN128, 0, 0
+    {
+    }
+}
+
+Graphic STCFN130, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN130, 0, 0
+    {
+    }
+}
+
+Graphic STCFN131, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN131, 0, 0
+    {
+    }
+}
+
+Graphic STCFN132, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN132, 0, 0
+    {
+    }
+}
+
+Graphic STCFN133, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN133, 0, 0
+    {
+    }
+}
+
+Graphic STCFN134, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN134, 0, 0
+    {
+    }
+}
+
+Graphic STCFN135, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN135, 0, 0
+    {
+    }
+}
+
+Graphic STCFN136, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN136, 0, 0
+    {
+    }
+}
+
+Graphic STCFN137, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN137, 0, 0
+    {
+    }
+}
+
+Graphic STCFN138, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN138, 0, 0
+    {
+    }
+}
+
+Graphic STCFN139, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN139, 0, 0
+    {
+    }
+}
+
+Graphic STCFN140, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN140, 0, 0
+    {
+    }
+}
+
+Graphic STCFN145, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN145, 0, 0
+    {
+    }
+}
+
+Graphic STCFN146, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN146, 0, 0
+    {
+    }
+}
+
+Graphic STCFN147, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN147, 0, 0
+    {
+    }
+}
+
+Graphic STCFN148, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN148, 0, 0
+    {
+    }
+}
+
+Graphic STCFN149, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN149, 0, 0
+    {
+    }
+}
+
+Graphic STCFN151, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN151, 0, 0
+    {
+    }
+}
+
+Graphic STCFN153, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN153, 0, 0
+    {
+    }
+}
+
+Graphic STCFN154, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN154, 0, 0
+    {
+    }
+}
+
+Graphic STCFN155, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN155, 0, 0
+    {
+    }
+}
+
+Graphic STCFN156, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN156, 0, 0
+    {
+    }
+}
+
+Graphic STCFN159, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN159, 0, 0
+    {
+    }
+}
+
+Graphic STCFN161, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN161, 0, 0
+    {
+    }
+}
+
+Graphic STCFN162, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN162, 0, 0
+    {
+    }
+}
+
+Graphic STCFN163, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN163, 0, 0
+    {
+    }
+}
+
+Graphic STCFN164, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN164, 0, 0
+    {
+    }
+}
+
+Graphic STCFN165, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN165, 0, 0
+    {
+    }
+}
+
+Graphic STCFN166, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN166, 0, 0
+    {
+    }
+}
+
+Graphic STCFN167, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN167, 0, 0
+    {
+    }
+}
+
+Graphic STCFN168, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN168, 0, 0
+    {
+    }
+}
+
+Graphic STCFN169, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN169, 0, 0
+    {
+    }
+}
+
+Graphic STCFN171, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN171, 0, 0
+    {
+    }
+}
+
+Graphic STCFN172, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN172, 0, 0
+    {
+    }
+}
+
+Graphic STCFN174, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN174, 0, 0
+    {
+    }
+}
+
+Graphic STCFN175, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN175, 0, 0
+    {
+    }
+}
+
+Graphic STCFN176, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN176, 0, 0
+    {
+    }
+}
+
+Graphic STCFN177, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN177, 0, 0
+    {
+    }
+}
+
+Graphic STCFN178, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN178, 0, 0
+    {
+    }
+}
+
+Graphic STCFN179, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN179, 0, 0
+    {
+    }
+}
+
+Graphic STCFN180, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN180, 0, 0
+    {
+    }
+}
+
+Graphic STCFN181, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN181, 0, 0
+    {
+    }
+}
+
+Graphic STCFN182, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN182, 0, 0
+    {
+    }
+}
+
+Graphic STCFN183, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN183, 0, 0
+    {
+    }
+}
+
+Graphic STCFN184, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN184, 0, 0
+    {
+    }
+}
+
+Graphic STCFN185, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN185, 0, 0
+    {
+    }
+}
+
+Graphic STCFN187, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN187, 0, 0
+    {
+    }
+}
+
+Graphic STCFN188, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN188, 0, 0
+    {
+    }
+}
+
+Graphic STCFN189, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN189, 0, 0
+    {
+    }
+}
+
+Graphic STCFN190, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN190, 0, 0
+    {
+    }
+}
+
+Graphic STCFN191, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN191, 0, 0
+    {
+    }
+}
+
+Graphic STCFN192, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN192, 0, 0
+    {
+    }
+}
+
+Graphic STCFN193, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN193, 0, 0
+    {
+    }
+}
+
+Graphic STCFN194, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN194, 0, 0
+    {
+    }
+}
+
+Graphic STCFN195, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN195, 0, 0
+    {
+    }
+}
+
+Graphic STCFN196, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN196, 0, 0
+    {
+    }
+}
+
+Graphic STCFN197, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN197, 0, 0
+    {
+    }
+}
+
+Graphic STCFN198, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN198, 0, 0
+    {
+    }
+}
+
+Graphic STCFN199, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN199, 0, 0
+    {
+    }
+}
+
+Graphic STCFN200, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN200, 0, 0
+    {
+    }
+}
+
+Graphic STCFN201, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN201, 0, 0
+    {
+    }
+}
+
+Graphic STCFN202, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN202, 0, 0
+    {
+    }
+}
+
+Graphic STCFN203, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN203, 0, 0
+    {
+    }
+}
+
+Graphic STCFN204, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN204, 0, 0
+    {
+    }
+}
+
+Graphic STCFN205, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN205, 0, 0
+    {
+    }
+}
+
+Graphic STCFN206, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN206, 0, 0
+    {
+    }
+}
+
+Graphic STCFN207, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN207, 0, 0
+    {
+    }
+}
+
+Graphic STCFN208, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN208, 0, 0
+    {
+    }
+}
+
+Graphic STCFN209, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN209, 0, 0
+    {
+    }
+}
+
+Graphic STCFN210, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN210, 0, 0
+    {
+    }
+}
+
+Graphic STCFN211, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN211, 0, 0
+    {
+    }
+}
+
+Graphic STCFN212, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN212, 0, 0
+    {
+    }
+}
+
+Graphic STCFN213, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN213, 0, 0
+    {
+    }
+}
+
+Graphic STCFN214, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN214, 0, 0
+    {
+    }
+}
+
+Graphic STCFN215, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN215, 0, 0
+    {
+    }
+}
+
+Graphic STCFN216, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN216, 0, 0
+    {
+    }
+}
+
+Graphic STCFN217, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN217, 0, 0
+    {
+    }
+}
+
+Graphic STCFN218, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN218, 0, 0
+    {
+    }
+}
+
+Graphic STCFN219, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN219, 0, 0
+    {
+    }
+}
+
+Graphic STCFN220, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN220, 0, 0
+    {
+    }
+}
+
+Graphic STCFN221, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN221, 0, 0
+    {
+    }
+}
+
+Graphic STCFN222, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN222, 0, 0
+    {
+    }
+}
+
+Graphic STCFN223, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN223, 0, 0
+    {
+    }
+}
+
+Graphic STCFN224, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN224, 0, 0
+    {
+    }
+}
+
+Graphic STCFN225, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN225, 0, 0
+    {
+    }
+}
+
+Graphic STCFN226, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN226, 0, 0
+    {
+    }
+}
+
+Graphic STCFN227, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN227, 0, 0
+    {
+    }
+}
+
+Graphic STCFN228, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN228, 0, 0
+    {
+    }
+}
+
+Graphic STCFN229, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN229, 0, 0
+    {
+    }
+}
+
+Graphic STCFN230, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN230, 0, 0
+    {
+    }
+}
+
+Graphic STCFN231, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN231, 0, 0
+    {
+    }
+}
+
+Graphic STCFN232, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN232, 0, 0
+    {
+    }
+}
+
+Graphic STCFN233, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN233, 0, 0
+    {
+    }
+}
+
+Graphic STCFN234, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN234, 0, 0
+    {
+    }
+}
+
+Graphic STCFN235, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN235, 0, 0
+    {
+    }
+}
+
+Graphic STCFN236, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN236, 0, 0
+    {
+    }
+}
+
+Graphic STCFN237, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN237, 0, 0
+    {
+    }
+}
+
+Graphic STCFN238, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN238, 0, 0
+    {
+    }
+}
+
+Graphic STCFN239, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN239, 0, 0
+    {
+    }
+}
+
+Graphic STCFN240, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN240, 0, 0
+    {
+    }
+}
+
+Graphic STCFN241, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN241, 0, 0
+    {
+    }
+}
+
+Graphic STCFN242, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN242, 0, 0
+    {
+    }
+}
+
+Graphic STCFN243, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN243, 0, 0
+    {
+    }
+}
+
+Graphic STCFN244, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN244, 0, 0
+    {
+    }
+}
+
+Graphic STCFN245, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN245, 0, 0
+    {
+    }
+}
+
+Graphic STCFN246, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN246, 0, 0
+    {
+    }
+}
+
+Graphic STCFN247, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN247, 0, 0
+    {
+    }
+}
+
+Graphic STCFN248, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN248, 0, 0
+    {
+    }
+}
+
+Graphic STCFN249, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN249, 0, 0
+    {
+    }
+}
+
+Graphic STCFN250, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN250, 0, 0
+    {
+    }
+}
+
+Graphic STCFN251, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN251, 0, 0
+    {
+    }
+}
+
+Graphic STCFN252, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN252, 0, 0
+    {
+    }
+}
+
+Graphic STCFN253, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN253, 0, 0
+    {
+    }
+}
+
+Graphic STCFN254, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN254, 0, 0
+    {
+    }
+}
+
+Graphic STCFN255, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch STCFN255, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K032, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K032, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K033, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K033, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K034, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K034, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K035, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K035, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K036, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K036, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K037, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K037, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K038, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K038, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K039, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K039, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K040, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K040, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K041, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K041, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K042, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K042, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K043, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K043, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K044, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K044, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K045, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K045, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K046, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K046, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K047, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K047, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K048, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K048, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K049, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K049, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K050, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K050, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K051, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K051, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K052, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K052, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K053, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K053, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K054, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K054, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K055, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K055, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K056, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K056, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K057, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K057, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K058, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K058, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K059, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K059, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K060, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K060, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K061, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K061, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K062, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K062, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K063, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K063, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K064, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K064, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K065, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K065, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K066, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K066, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K067, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K067, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K068, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K068, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K069, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K069, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K070, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K070, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K071, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K071, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K072, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K072, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K073, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K073, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K074, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K074, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K075, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K075, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K076, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K076, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K077, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K077, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K078, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K078, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K079, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K079, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K080, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K080, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K081, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K081, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K082, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K082, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K083, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K083, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K084, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K084, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K085, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K085, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K086, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K086, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K087, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K087, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K088, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K088, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K089, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K089, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K090, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K090, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K091, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K091, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K092, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K092, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K093, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K093, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K094, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K094, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K095, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K095, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K096, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K096, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K097, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K097, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K098, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K098, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K099, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K099, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K100, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K100, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K101, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K101, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K102, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K102, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K103, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K103, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K104, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K104, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K105, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K105, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K106, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K106, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K107, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K107, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K108, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K108, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K109, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K109, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K110, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K110, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K111, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K111, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K112, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K112, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K113, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K113, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K114, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K114, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K115, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K115, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K116, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K116, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K117, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K117, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K118, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K118, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K119, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K119, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K120, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K120, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K121, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K121, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K122, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K122, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K123, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K123, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K124, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K124, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K125, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K125, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K126, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K126, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K128, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K128, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K130, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K130, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K131, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K131, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K132, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K132, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K133, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K133, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K134, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K134, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K135, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K135, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K136, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K136, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K137, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K137, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K138, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K138, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K139, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K139, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K140, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K140, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K145, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K145, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K146, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K146, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K147, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K147, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K148, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K148, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K149, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K149, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K151, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K151, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K153, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K153, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K154, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K154, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K155, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K155, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K156, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K156, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K159, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K159, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K161, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K161, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K162, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K162, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K163, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K163, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K164, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K164, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K165, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K165, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K166, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K166, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K167, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K167, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K168, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K168, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K169, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K169, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K171, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K171, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K172, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K172, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K174, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K174, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K175, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K175, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K176, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K176, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K177, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K177, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K178, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K178, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K179, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K179, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K180, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K180, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K181, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K181, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K182, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K182, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K183, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K183, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K184, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K184, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K185, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K185, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K187, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K187, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K188, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K188, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K189, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K189, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K190, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K190, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K191, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K191, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K192, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K192, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K193, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K193, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K194, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K194, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K195, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K195, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K196, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K196, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K197, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K197, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K198, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K198, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K199, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K199, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K200, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K200, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K201, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K201, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K202, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K202, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K203, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K203, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K204, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K204, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K205, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K205, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K206, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K206, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K207, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K207, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K208, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K208, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K209, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K209, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K210, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K210, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K211, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K211, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K212, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K212, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K213, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K213, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K214, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K214, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K215, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K215, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K216, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K216, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K217, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K217, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K218, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K218, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K219, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K219, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K220, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K220, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K221, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K221, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K222, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K222, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K223, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K223, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K224, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K224, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K225, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K225, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K226, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K226, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K227, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K227, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K228, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K228, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K229, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K229, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K230, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K230, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K231, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K231, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K232, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K232, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K233, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K233, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K234, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K234, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K235, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K235, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K236, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K236, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K237, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K237, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K238, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K238, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K239, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K239, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K240, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K240, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K241, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K241, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K242, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K242, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K243, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K243, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K244, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K244, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K245, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K245, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K246, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K246, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K247, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K247, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K248, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K248, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K249, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K249, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K250, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K250, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K251, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K251, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K252, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K252, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K253, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K253, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K254, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K254, 0, 0
+    {
+    }
+}
+
+Graphic FNT_K255, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_K255, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B032, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B032, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B033, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B033, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B034, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B034, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B035, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B035, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B036, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B036, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B037, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B037, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B038, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B038, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B039, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B039, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B040, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B040, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B041, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B041, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B042, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B042, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B043, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B043, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B044, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B044, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B045, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B045, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B046, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B046, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B047, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B047, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B048, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B048, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B049, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B049, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B050, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B050, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B051, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B051, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B052, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B052, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B053, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B053, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B054, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B054, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B055, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B055, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B056, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B056, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B057, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B057, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B058, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B058, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B059, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B059, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B060, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B060, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B061, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B061, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B062, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B062, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B063, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B063, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B064, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B064, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B065, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B065, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B066, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B066, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B067, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B067, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B068, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B068, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B069, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B069, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B070, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B070, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B071, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B071, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B072, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B072, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B073, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B073, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B074, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B074, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B075, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B075, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B076, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B076, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B077, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B077, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B078, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B078, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B079, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B079, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B080, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B080, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B081, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B081, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B082, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B082, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B083, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B083, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B084, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B084, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B085, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B085, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B086, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B086, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B087, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B087, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B088, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B088, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B089, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B089, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B090, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B090, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B091, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B091, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B092, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B092, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B093, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B093, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B094, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B094, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B095, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B095, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B096, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B096, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B097, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B097, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B098, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B098, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B099, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B099, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B100, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B100, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B101, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B101, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B102, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B102, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B103, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B103, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B104, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B104, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B105, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B105, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B106, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B106, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B107, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B107, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B108, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B108, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B109, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B109, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B110, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B110, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B111, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B111, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B112, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B112, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B113, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B113, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B114, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B114, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B115, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B115, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B116, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B116, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B117, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B117, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B118, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B118, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B119, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B119, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B120, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B120, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B121, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B121, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B122, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B122, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B123, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B123, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B124, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B124, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B125, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B125, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B126, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B126, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B128, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B128, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B130, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B130, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B131, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B131, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B132, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B132, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B133, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B133, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B134, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B134, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B135, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B135, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B136, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B136, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B137, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B137, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B138, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B138, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B139, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B139, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B140, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B140, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B145, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B145, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B146, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B146, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B147, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B147, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B148, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B148, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B149, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B149, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B151, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B151, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B153, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B153, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B154, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B154, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B155, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B155, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B156, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B156, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B159, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B159, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B161, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B161, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B162, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B162, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B163, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B163, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B164, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B164, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B165, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B165, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B166, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B166, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B167, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B167, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B168, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B168, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B169, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B169, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B171, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B171, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B172, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B172, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B174, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B174, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B175, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B175, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B176, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B176, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B177, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B177, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B178, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B178, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B179, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B179, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B180, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B180, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B181, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B181, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B182, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B182, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B183, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B183, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B184, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B184, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B185, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B185, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B187, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B187, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B188, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B188, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B189, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B189, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B190, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B190, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B191, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B191, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B192, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B192, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B193, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B193, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B194, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B194, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B195, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B195, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B196, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B196, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B197, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B197, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B198, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B198, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B199, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B199, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B200, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B200, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B201, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B201, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B202, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B202, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B203, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B203, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B204, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B204, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B205, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B205, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B206, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B206, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B207, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B207, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B208, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B208, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B209, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B209, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B210, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B210, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B211, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B211, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B212, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B212, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B213, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B213, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B214, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B214, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B215, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B215, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B216, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B216, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B217, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B217, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B218, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B218, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B219, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B219, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B220, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B220, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B221, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B221, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B222, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B222, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B223, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B223, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B224, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B224, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B225, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B225, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B226, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B226, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B227, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B227, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B228, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B228, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B229, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B229, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B230, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B230, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B231, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B231, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B232, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B232, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B233, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B233, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B234, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B234, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B235, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B235, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B236, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B236, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B237, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B237, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B238, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B238, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B239, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B239, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B240, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B240, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B241, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B241, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B242, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B242, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B243, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B243, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B244, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B244, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B245, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B245, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B246, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B246, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B247, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B247, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B248, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B248, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B249, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B249, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B250, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B250, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B251, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B251, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B252, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B252, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B253, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B253, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B254, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B254, 0, 0
+    {
+    }
+}
+
+Graphic FNT_B255, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_B255, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G032, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G032, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G033, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G033, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G034, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G034, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G035, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G035, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G036, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G036, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G037, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G037, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G038, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G038, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G039, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G039, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G040, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G040, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G041, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G041, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G042, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G042, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G043, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G043, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G044, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G044, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G045, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G045, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G046, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G046, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G047, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G047, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G048, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G048, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G049, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G049, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G050, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G050, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G051, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G051, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G052, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G052, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G053, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G053, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G054, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G054, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G055, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G055, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G056, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G056, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G057, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G057, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G058, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G058, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G059, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G059, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G060, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G060, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G061, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G061, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G062, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G062, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G063, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G063, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G064, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G064, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G065, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G065, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G066, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G066, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G067, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G067, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G068, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G068, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G069, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G069, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G070, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G070, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G071, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G071, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G072, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G072, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G073, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G073, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G074, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G074, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G075, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G075, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G076, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G076, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G077, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G077, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G078, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G078, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G079, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G079, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G080, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G080, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G081, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G081, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G082, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G082, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G083, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G083, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G084, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G084, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G085, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G085, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G086, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G086, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G087, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G087, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G088, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G088, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G089, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G089, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G090, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G090, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G091, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G091, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G092, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G092, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G093, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G093, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G094, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G094, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G095, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G095, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G096, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G096, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G097, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G097, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G098, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G098, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G099, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G099, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G100, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G100, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G101, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G101, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G102, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G102, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G103, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G103, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G104, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G104, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G105, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G105, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G106, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G106, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G107, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G107, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G108, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G108, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G109, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G109, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G110, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G110, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G111, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G111, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G112, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G112, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G113, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G113, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G114, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G114, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G115, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G115, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G116, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G116, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G117, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G117, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G118, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G118, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G119, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G119, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G120, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G120, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G121, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G121, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G122, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G122, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G123, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G123, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G124, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G124, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G125, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G125, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G126, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G126, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G128, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G128, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G130, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G130, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G131, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G131, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G132, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G132, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G133, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G133, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G134, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G134, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G135, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G135, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G136, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G136, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G137, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G137, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G138, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G138, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G139, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G139, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G140, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G140, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G145, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G145, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G146, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G146, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G147, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G147, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G148, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G148, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G149, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G149, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G151, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G151, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G153, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G153, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G154, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G154, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G155, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G155, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G156, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G156, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G159, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G159, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G161, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G161, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G162, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G162, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G163, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G163, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G164, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G164, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G165, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G165, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G166, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G166, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G167, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G167, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G168, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G168, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G169, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G169, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G171, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G171, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G172, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G172, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G174, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G174, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G175, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G175, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G176, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G176, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G177, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G177, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G178, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G178, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G179, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G179, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G180, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G180, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G181, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G181, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G182, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G182, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G183, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G183, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G184, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G184, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G185, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G185, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G187, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G187, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G188, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G188, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G189, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G189, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G190, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G190, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G191, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G191, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G192, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G192, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G193, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G193, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G194, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G194, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G195, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G195, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G196, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G196, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G197, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G197, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G198, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G198, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G199, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G199, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G200, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G200, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G201, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G201, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G202, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G202, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G203, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G203, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G204, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G204, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G205, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G205, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G206, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G206, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G207, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G207, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G208, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G208, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G209, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G209, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G210, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G210, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G211, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G211, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G212, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G212, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G213, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G213, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G214, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G214, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G215, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G215, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G216, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G216, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G217, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G217, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G218, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G218, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G219, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G219, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G220, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G220, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G221, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G221, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G222, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G222, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G223, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G223, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G224, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G224, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G225, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G225, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G226, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G226, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G227, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G227, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G228, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G228, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G229, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G229, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G230, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G230, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G231, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G231, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G232, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G232, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G233, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G233, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G234, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G234, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G235, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G235, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G236, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G236, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G237, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G237, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G238, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G238, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G239, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G239, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G240, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G240, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G241, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G241, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G242, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G242, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G243, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G243, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G244, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G244, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G245, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G245, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G246, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G246, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G247, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G247, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G248, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G248, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G249, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G249, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G250, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G250, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G251, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G251, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G252, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G252, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G253, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G253, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G254, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G254, 0, 0
+    {
+    }
+}
+
+Graphic FNT_G255, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_G255, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R032, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R032, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R033, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R033, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R034, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R034, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R035, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R035, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R036, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R036, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R037, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R037, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R038, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R038, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R039, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R039, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R040, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R040, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R041, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R041, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R042, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R042, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R043, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R043, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R044, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R044, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R045, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R045, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R046, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R046, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R047, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R047, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R048, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R048, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R049, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R049, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R050, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R050, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R051, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R051, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R052, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R052, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R053, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R053, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R054, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R054, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R055, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R055, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R056, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R056, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R057, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R057, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R058, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R058, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R059, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R059, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R060, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R060, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R061, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R061, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R062, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R062, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R063, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R063, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R064, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R064, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R065, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R065, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R066, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R066, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R067, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R067, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R068, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R068, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R069, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R069, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R070, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R070, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R071, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R071, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R072, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R072, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R073, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R073, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R074, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R074, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R075, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R075, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R076, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R076, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R077, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R077, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R078, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R078, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R079, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R079, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R080, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R080, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R081, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R081, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R082, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R082, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R083, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R083, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R084, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R084, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R085, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R085, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R086, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R086, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R087, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R087, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R088, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R088, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R089, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R089, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R090, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R090, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R091, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R091, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R092, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R092, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R093, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R093, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R094, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R094, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R095, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R095, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R096, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R096, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R097, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R097, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R098, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R098, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R099, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R099, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R100, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R100, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R101, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R101, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R102, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R102, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R103, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R103, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R104, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R104, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R105, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R105, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R106, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R106, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R107, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R107, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R108, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R108, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R109, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R109, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R110, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R110, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R111, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R111, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R112, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R112, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R113, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R113, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R114, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R114, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R115, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R115, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R116, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R116, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R117, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R117, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R118, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R118, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R119, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R119, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R120, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R120, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R121, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R121, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R122, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R122, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R123, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R123, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R124, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R124, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R125, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R125, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R126, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R126, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R128, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R128, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R130, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R130, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R131, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R131, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R132, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R132, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R133, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R133, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R134, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R134, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R135, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R135, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R136, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R136, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R137, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R137, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R138, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R138, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R139, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R139, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R140, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R140, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R145, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R145, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R146, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R146, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R147, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R147, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R148, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R148, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R149, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R149, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R151, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R151, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R153, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R153, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R154, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R154, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R155, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R155, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R156, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R156, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R159, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R159, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R161, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R161, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R162, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R162, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R163, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R163, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R164, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R164, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R165, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R165, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R166, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R166, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R167, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R167, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R168, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R168, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R169, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R169, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R171, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R171, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R172, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R172, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R174, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R174, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R175, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R175, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R176, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R176, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R177, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R177, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R178, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R178, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R179, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R179, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R180, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R180, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R181, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R181, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R182, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R182, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R183, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R183, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R184, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R184, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R185, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R185, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R187, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R187, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R188, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R188, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R189, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R189, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R190, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R190, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R191, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R191, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R192, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R192, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R193, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R193, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R194, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R194, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R195, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R195, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R196, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R196, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R197, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R197, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R198, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R198, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R199, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R199, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R200, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R200, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R201, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R201, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R202, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R202, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R203, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R203, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R204, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R204, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R205, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R205, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R206, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R206, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R207, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R207, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R208, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R208, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R209, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R209, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R210, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R210, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R211, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R211, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R212, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R212, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R213, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R213, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R214, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R214, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R215, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R215, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R216, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R216, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R217, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R217, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R218, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R218, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R219, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R219, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R220, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R220, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R221, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R221, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R222, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R222, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R223, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R223, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R224, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R224, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R225, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R225, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R226, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R226, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R227, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R227, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R228, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R228, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R229, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R229, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R230, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R230, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R231, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R231, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R232, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R232, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R233, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R233, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R234, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R234, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R235, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R235, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R236, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R236, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R237, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R237, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R238, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R238, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R239, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R239, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R240, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R240, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R241, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R241, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R242, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R242, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R243, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R243, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R244, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R244, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R245, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R245, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R246, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R246, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R247, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R247, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R248, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R248, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R249, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R249, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R250, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R250, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R251, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R251, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R252, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R252, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R253, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R253, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R254, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R254, 0, 0
+    {
+    }
+}
+
+Graphic FNT_R255, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_R255, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y032, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y032, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y033, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y033, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y034, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y034, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y035, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y035, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y036, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y036, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y037, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y037, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y038, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y038, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y039, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y039, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y040, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y040, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y041, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y041, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y042, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y042, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y043, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y043, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y044, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y044, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y045, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y045, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y046, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y046, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y047, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y047, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y048, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y048, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y049, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y049, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y050, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y050, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y051, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y051, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y052, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y052, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y053, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y053, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y054, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y054, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y055, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y055, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y056, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y056, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y057, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y057, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y058, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y058, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y059, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y059, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y060, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y060, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y061, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y061, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y062, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y062, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y063, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y063, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y064, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y064, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y065, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y065, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y066, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y066, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y067, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y067, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y068, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y068, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y069, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y069, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y070, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y070, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y071, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y071, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y072, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y072, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y073, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y073, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y074, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y074, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y075, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y075, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y076, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y076, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y077, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y077, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y078, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y078, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y079, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y079, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y080, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y080, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y081, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y081, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y082, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y082, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y083, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y083, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y084, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y084, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y085, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y085, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y086, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y086, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y087, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y087, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y088, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y088, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y089, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y089, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y090, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y090, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y091, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y091, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y092, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y092, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y093, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y093, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y094, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y094, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y095, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y095, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y096, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y096, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y097, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y097, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y098, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y098, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y099, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y099, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y100, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y100, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y101, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y101, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y102, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y102, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y103, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y103, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y104, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y104, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y105, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y105, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y106, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y106, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y107, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y107, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y108, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y108, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y109, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y109, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y110, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y110, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y111, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y111, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y112, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y112, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y113, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y113, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y114, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y114, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y115, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y115, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y116, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y116, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y117, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y117, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y118, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y118, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y119, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y119, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y120, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y120, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y121, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y121, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y122, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y122, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y123, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y123, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y124, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y124, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y125, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y125, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y126, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y126, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y128, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y128, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y130, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y130, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y131, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y131, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y132, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y132, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y133, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y133, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y134, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y134, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y135, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y135, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y136, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y136, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y137, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y137, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y138, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y138, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y139, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y139, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y140, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y140, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y145, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y145, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y146, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y146, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y147, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y147, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y148, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y148, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y149, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y149, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y151, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y151, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y153, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y153, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y154, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y154, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y155, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y155, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y156, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y156, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y159, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y159, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y161, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y161, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y162, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y162, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y163, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y163, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y164, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y164, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y165, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y165, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y166, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y166, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y167, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y167, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y168, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y168, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y169, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y169, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y171, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y171, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y172, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y172, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y174, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y174, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y175, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y175, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y176, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y176, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y177, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y177, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y178, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y178, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y179, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y179, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y180, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y180, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y181, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y181, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y182, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y182, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y183, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y183, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y184, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y184, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y185, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y185, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y187, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y187, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y188, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y188, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y189, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y189, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y190, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y190, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y191, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y191, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y192, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y192, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y193, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y193, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y194, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y194, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y195, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y195, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y196, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y196, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y197, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y197, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y198, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y198, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y199, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y199, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y200, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y200, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y201, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y201, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y202, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y202, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y203, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y203, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y204, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y204, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y205, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y205, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y206, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y206, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y207, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y207, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y208, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y208, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y209, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y209, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y210, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y210, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y211, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y211, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y212, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y212, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y213, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y213, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y214, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y214, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y215, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y215, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y216, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y216, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y217, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y217, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y218, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y218, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y219, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y219, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y220, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y220, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y221, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y221, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y222, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y222, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y223, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y223, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y224, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y224, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y225, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y225, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y226, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y226, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y227, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y227, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y228, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y228, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y229, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y229, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y230, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y230, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y231, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y231, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y232, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y232, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y233, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y233, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y234, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y234, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y235, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y235, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y236, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y236, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y237, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y237, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y238, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y238, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y239, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y239, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y240, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y240, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y241, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y241, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y242, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y242, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y243, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y243, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y244, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y244, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y245, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y245, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y246, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y246, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y247, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y247, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y248, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y248, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y249, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y249, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y250, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y250, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y251, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y251, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y252, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y252, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y253, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y253, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y254, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y254, 0, 0
+    {
+    }
+}
+
+Graphic FNT_Y255, 60, 114
+{
+    XScale 12.0
+    YScale 12.0
+    Offset 0, 0
+    Patch FNT_Y255, 0, 0
+    {
+    }
+}
+

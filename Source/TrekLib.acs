@@ -57,7 +57,7 @@ Script "W_LevelStart" ENTER
 {
 	Thing_ChangeTID(0, 1001+PlayerNumber());
 
-	If (GameType() == GAME_TITLE_MAP)
+	If (GameType() == GAME_TITLE_MAP || StrICmp(StrParam(n:PRINTNAME_LEVEL), "TitleMap") == 0)
 	{
 
 		SetHudSize(1024, 768, 0);
@@ -92,7 +92,7 @@ Script "W_LevelStart" ENTER
 			Delay(35 * 3);
 
 			ChangeCamera(6, 1, 1);
-			Delay(35* 6);
+			Delay(35* 6 + 17);
 
 			ChangeCamera(7, 1, 1);
 			Delay(35 * 4);
@@ -154,7 +154,7 @@ Script "W_LevelStart" ENTER
 				Delay(1);
 			}
 			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
-			Delay(35 * 9);
+			Delay(35 * 8);
 
 			//Shatner
 			If (showplanet == 0)
@@ -171,7 +171,7 @@ Script "W_LevelStart" ENTER
 				Delay(1);
 			}
 			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
-			Delay(35 * 5);
+			Delay(35 * 4 + 17);
 
 			//Nimoy
 			If (showplanet == 0)
@@ -216,7 +216,6 @@ Script "W_LevelStart" ENTER
 					SetActorState(20, "Station");
 				break;
 			}
-
 			showplanet++;
 		}
 	}
@@ -579,7 +578,7 @@ Function void DoMovement (void)
 
 Script "Lean" (int intDir)
 {
-	If (GameType() == GAME_TITLE_MAP) Terminate;
+	If (GameType() == GAME_TITLE_MAP || StrICmp(StrParam(n:PRINTNAME_LEVEL), "TitleMap") == 0) Terminate;
 
 	int camTID = 90000 + PlayerNumber();
 	int PlayerTID = 1001 + PlayerNumber();
