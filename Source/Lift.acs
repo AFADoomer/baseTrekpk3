@@ -312,6 +312,11 @@ Script "W_ElevatorInputLoop" (int Offset)
 					}
 					Else
 					{
+						If (index >= 24)
+							ActivatorSound("transporter/energize", 128);
+						Else
+							ActivatorSound("turbolift/start", 128);
+
 						Delay(35);
 						SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 						ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
@@ -320,6 +325,11 @@ Script "W_ElevatorInputLoop" (int Offset)
 				}
 				Else
 				{
+					If (index >= 24)
+						ActivatorSound("transporter/energize", 128);
+					Else
+						ActivatorSound("turbolift/start", 128);
+
 					Delay(35);
 					SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 					ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);

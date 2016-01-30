@@ -69,3 +69,17 @@ actor/burnout			burnout
 transporter/energize		tran_con
 transporter/in			tran_in
 transporter/out			tran_out
+
+turbolift/start			tu_start
+
+/* Menu Sounds */
+$pitchshiftrange 7
+menu/activate			b_sel
+menu/backup			b_back
+menu/change			button2
+menu/choose			b_sel
+menu/clear			b_back
+menu/cursor			m_move
+menu/dismiss			b_back
+menu/invalid			NULL
+menu/prompt			b_move
