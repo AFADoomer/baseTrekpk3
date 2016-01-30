@@ -2350,12 +2350,34 @@ Texture WALLMSW1, 492, 492
 	Patch SWI_BRM1, 0, 250 {Style Overlay}
 }
 
+Graphic Back, 512, 512
+{
+	XScale 32.0
+	YScale 32.0
+	Graphic Back, 0, 0 {Style Overlay}
+}
+
 Graphic Icon, 512, 512
 {
-	XScale 16.0
-	YScale 16.0
+	XScale 32.0
+	YScale 32.0
 	Graphic Icon, 0, 0 {Style Overlay}
 }
+
+Graphic IconB, 512, 512 {XScale 32.0 YScale 32.0 Graphic IconB, 0, 0 {Style Overlay}}
+Graphic IconC, 512, 512 {XScale 32.0 YScale 32.0 Graphic IconC, 0, 0 {Style Overlay}}
+Graphic IconD, 512, 512 {XScale 32.0 YScale 32.0 Graphic IconD, 0, 0 {Style Overlay}}
+
+Graphic Icon2, 512, 512
+{
+	XScale 22.0
+	YScale 22.0
+	Graphic Icon, 0, 0 {Style Overlay}
+}
+
+Graphic Icon2B, 512, 512 {XScale 22.0 YScale 22.0 Graphic IconB, 0, 0 {Style Overlay}}
+Graphic Icon2C, 512, 512 {XScale 22.0 YScale 22.0 Graphic IconC, 0, 0 {Style Overlay}}
+Graphic Icon2D, 512, 512 {XScale 22.0 YScale 22.0 Graphic IconD, 0, 0 {Style Overlay}}
 
 Texture MATTE, 512, 512
 {
@@ -2383,6 +2405,13 @@ Texture Stone2a, 512, 512
 	XScale 1.76
 	YScale 1.76
 	Patch Stone2a, 0, 0
+}
+
+Texture GRAY_FLR, 64, 64
+{
+	XScale 10.0
+	YScale 10.0
+	Patch GRAY_FLR, 0, 0
 }
 
 // End of texture definitions

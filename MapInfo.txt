@@ -3,6 +3,8 @@ GameInfo
 	PlayerClasses = "TrekPlayer"//, "Shuttle"//, "TrekPlayerF", "OldTrekPlayer"
 	dimcolor = "0 0 0"
 	dimamount = 0.7
+	cursorpic = "delta"
+	menubackbutton = "back"
 	menufontcolor_title = "TOSMenuGold"
 	menufontcolor_label = "TOSMenuGold"
 	menufontcolor_value = "TOSMenuGold"
@@ -10,6 +12,54 @@ GameInfo
 	menufontcolor_header = "TOSMenuGold"
 	menufontcolor_highlight = "TOSMenuLightGold"
 	menufontcolor_selection = "TOSMenuLightGold"
+}
+
+clearskills
+skill baby
+{
+	DamageFactor = 0.5
+	SpawnFilter = "Easy"
+	Name = "$SK_1"
+	TextColor = "TOSBrightWhite"
+	Key = "1"
+}
+
+skill easy
+{
+	SpawnFilter = "Easy"
+	Name = "$SK_2"
+	TextColor = "TOSBrightWhite"
+	Key = "2"
+}
+
+skill normal
+{
+	SpawnFilter = "Normal"
+	Name = "$SK_3"
+	TextColor = "TOSBrightWhite"
+	Key = "3"
+	defaultskill
+}
+
+skill hard
+{
+	SpawnFilter = "Hard"
+	Name = "$SK_4"
+	TextColor = "TOSBrightWhite"
+	Key = "4"
+}
+
+skill nightmare
+{
+	SpawnFilter = "Nightmare"
+	Name = "$SK_5"
+	TextColor = "TOSBrightGold"
+	Key = "5"
+	AmmoFactor = 2
+	FastMonsters
+	DisableCheats
+	RespawnTime = 12
+	MustConfirm = "$BARRIER"
 }
 
 clearepisodes

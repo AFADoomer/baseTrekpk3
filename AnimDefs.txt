@@ -55,3 +55,15 @@ switch WALL2SW1 on sound Switch1 pic WALL2SW0 tics 0
 switch WALL3SW0 on sound Switch1 pic WALL3SW1 tics 0
 switch WALL3SW1 on sound Switch1 pic WALL3SW0 tics 0
 */
+
+Texture Icon
+	pic Icon rand 200 600
+	pic IconB tics 2
+	pic IconC tics 2
+	pic IconD tics 2
+
+Texture Icon2
+	pic Icon2 rand 200 600
+	pic Icon2B tics 2
+	pic Icon2C tics 2
+	pic Icon2D tics 2
