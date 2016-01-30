@@ -1,3 +1,154 @@
+#define CanvasWidth 3072
+#define CanvasHeight 2304
+
+Script "Test" (int R, int G, int B, int A)
+{
+	R = R * 1.0 / 256;
+	G = G * 1.0 / 256;
+	B = B * 1.0 / 256;
+	A = A * 1.0 / 256;
+
+	DrawString("This is a message\r.\n\caWoohoo!\n\n\cbL\cco\cdt\ces \cfo\cgf \chc\cio\cjl\cko\clr\cms \cna\cor\cpe \cqa\crv\csa\cti\cul\cva\clble!", 0, 0, CanvasWidth * 1.0 / 3 + 0.1, CanvasHeight * 1.0 / 3, 4, "FNT_Y", 3, 0.85, 1.0, 0.0, 1.0, 1.0, 4);
+}
+
+//  Draws a string using the graphics directly; allows for alpha blending.
+//    Simplified support - cannot be translated, and is all fixed-width
+//
+//  Example:
+//    For a centered, standard message:
+//      DrawNotification(strParam(l:"LOCK_2"), "FNT_Y", 4, 4);
+//
+//    For a more customized message:
+//      DrawString("This is a message.", 0, 0, CanvasWidth * 1.0 / 2, CanvasHeight * 1.0 / 3, 4, "FNT_Y", 3, 0.85, 1.0, 4);
+//
+Function void DrawNotification(str strString, str strFont, int intSize, int intSpacing)
+{
+	DrawString(strString, 0, 0, CanvasWidth * 1.0 / 2, CanvasHeight * 1.0 / 3, intSize, strFont, 0, 0.85, 1.0, 0.0, 0.0, 1.0, intSpacing);
+}
+
+Function int DrawString(str strString, int flags, int msgID, int x, int y, int size, str strFontName, int intFontNamePadding, int intAlpha, int R, int G, int B, int intHoldTime, int intSpacing)
+{
+	int l = 0, col = 0, row = 0;
+	int RInitial = R, GInitial = G, BInitial = B;
+	str strLetter, strLetterGraphic;
+
+	//Set Default Values
+	flags = flags | HUDMSG_FADEINOUT | HUDMSG_NOTWITHFULLMAP | HUDMSG_ALPHA;
+	If (!strFontName || strFontName == "") {strFontName = "STCFN";}
+	If (!intFontNamePadding) {intFontNamePadding = 3;}
+
+	If (size < 0) size = 0;
+	If (size > 8) size = 8;
+
+	int scaledWidth = CanvasWidth / Exp(2, size);
+	int scaledHeight = CanvasHeight / Exp(2, size);
+
+	If (scaledWidth <= 0) scaledWidth = 10;
+	If (scaledHeight <= 0) scaledHeight = 8;
+
+	SetHudSize(scaledWidth, scaledHeight, 0);
+
+	int xOffset = x - ((x / 1.0) * 1.0);
+	int yOffset = y - ((y / 1.0) * 1.0);
+
+	x = Floor(x);
+	y = Floor(y);
+
+	x = x / CanvasWidth * scaledWidth;
+	y = y / CanvasHeight * scaledHeight;
+
+	x = Floor(x);
+	y = Floor(y);
+
+	if (xOffset == 0)
+		x = Floor(x - (strLen(strString) * intSpacing * 1.0 / 2));
+	else if (xOffset == 0.2)
+		x = Floor(x - (strLen(strString) * intSpacing * 1.0));
+
+	While (l < strLen(strString))
+	{
+		strLetter = GetChar(strString, l);
+
+		If (strLetter >= 32)
+		{
+			strLetterGraphic = StrParam(s:strFontName, s:Pad(strLetter, intFontNamePadding));
+/*
+			SetFont(strLetterGraphic);
+			HudMessage(s:"A"; flags, msgID * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, intAlpha);
+*/
+			strLetterGraphic = StrParam(s:"FNT_R", s:Pad(strLetter, intFontNamePadding));
+			SetFont(strLetterGraphic);
+			HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, msgID * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, R);
+
+			strLetterGraphic = StrParam(s:"FNT_G", s:Pad(strLetter, intFontNamePadding));
+			SetFont(strLetterGraphic);
+			HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, (msgID + 1) * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, G);
+
+			strLetterGraphic = StrParam(s:"FNT_B", s:Pad(strLetter, intFontNamePadding));
+			SetFont(strLetterGraphic);
+			HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, (msgID + 2) * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, B);
+
+			strLetterGraphic = StrParam(s:"FNT_K", s:Pad(strLetter, intFontNamePadding));
+			SetFont(strLetterGraphic);
+			HudMessage(s:"A"; flags, (msgID + 3) * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, intAlpha);
+		}
+		Else
+		{
+			Switch (strLetter)
+			{
+				Case 10: //Line Feed
+				Case 13: //Carriage Return
+					row++;
+					col = -1;
+				break;
+				Case 28: //Color Change
+					int strColor = GetChar(strString, l + 1);
+					Switch (strColor)
+					{
+						Case 	97	: R = 	204	; G = 	51	; B = 	51	; break;		
+						Case 	98	: R = 	210	; G = 	180	; B = 	140	; break;		
+						Case 	99	: R = 	204	; G = 	204	; B = 	204	; break;		
+						Case 	100	: R = 	0	; G = 	204	; B = 	0	; break;		
+						Case 	101	: R = 	153	; G = 	102	; B = 	21	; break;		
+						Case 	102	: R = 	255	; G = 	204	; B = 	0	; break;		
+						Case 	103	: R = 	255	; G = 	85	; B = 	120	; break;		
+						Case 	104	: R = 	153	; G = 	153	; B = 	255	; break;		
+						Case 	105	: R = 	255	; G = 	170	; B = 	0	; break;		
+						Case 	106	: R = 	223	; G = 	223	; B = 	223	; break;		
+						Case 	107	: R = 	238	; G = 	238	; B = 	51	; break;		
+						Case 	108	: R = 	256	; G = 	256	; B = 	256	; break;		
+						Case 	109	: R = 	0	; G = 	0	; B = 	0	; break;		
+						Case 	110	: R = 	51	; G = 	238	; B = 	255	; break;		
+						Case 	111	: R = 	255	; G = 	204	; B = 	153	; break;		
+						Case 	112	: R = 	209	; G = 	216	; B = 	168	; break;		
+						Case 	113	: R = 	0	; G = 	140	; B = 	0	; break;		
+						Case 	114	: R = 	128	; G = 	0	; B = 	0	; break;		
+						Case 	115	: R = 	102	; G = 	51	; B = 	51	; break;		
+						Case 	116	: R = 	153	; G = 	102	; B = 	204	; break;		
+						Case 	117	: R = 	128	; G = 	128	; B = 	128	; break;		
+						Case 	118	: R = 	0	; G = 	221	; B = 	221	; break;		
+						Default		: R = RInitial	; G = GInitial	; B = BInitial	; break;
+					}
+
+					R = R * 1.0 / 256;
+					G = G * 1.0 / 256;
+					B = B * 1.0 / 256;
+
+					l++;
+					col--;
+				break;
+				Default:
+					log(s:"\cgUnhandled escape character code: \cl", d:strLetter);
+				break;
+			}
+		}
+
+		l++;
+		col++;
+	}
+	return msgID;
+}
+
 Function int IsLetter(str Character)
 {
 	int Temp = ((Character >= 65 && Character <= 90) || (Character >= 97 && Character <= 122));
@@ -94,6 +245,11 @@ Function int Exp (int x, int n)
 	While (n-- > 0) y *= x;
 
 	Return y;
+}
+
+Function int Floor(int Number)
+{
+	return Number & 0xFFFF0000;
 }
 
 Function int ActorCos(int angle)
