@@ -404,7 +404,6 @@ Model PhaserRifleStation
 
 	Scale 1.75 1.75 1.75
 
-	ZOffset 32.0
 	AngleOffset 180.0
 
 	FrameIndex TOS2 A 0 0
