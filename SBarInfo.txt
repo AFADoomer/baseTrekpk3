@@ -5,7 +5,7 @@ statusbar fullscreen, fullscreenoffsets // ZDoom HUD
 {
 	InInventory Not "HideHUD"
 	{
-		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -31;
+		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -29;
 
 		GameMode deathmatch, teamgame
 		{
@@ -17,12 +17,12 @@ statusbar fullscreen, fullscreenoffsets // ZDoom HUD
 		}
 
 		DrawImage AmmoIcon1, 52, -38, centerbottom;
-		DrawNumber 3, BIGFONT, TOSMenuGold, Ammo1, alignment(right), 35, -60;
+		DrawNumber 3, BIGFONT, TOSMenuGold, Ammo1, alignment(right), 35, -58;
 
 		UsesSecondaryAmmo
 		{
 			DrawImage AmmoIcon2, 112, -38, centerbottom;
-			DrawNumber 3, BIGFONT, TOSMenuGold, Ammo2, alignment(right), 95, -60;
+			DrawNumber 3, BIGFONT, TOSMenuGold, Ammo2, alignment(right), 95, -58;
 		}
 
 		DrawSelectedInventory CONFONT, 5, 5, 35, 29, TOSMenuGold;
@@ -78,7 +78,7 @@ statusbar normal, fullscreenoffsets // Standard status bar
 		}
 */
 		DrawBar "Health_F", "Health_B", Health, horizontal, interpolate(5), 5, -35;
-		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -31;
+		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -29;
 
 		GameMode deathmatch, teamgame
 		{
@@ -90,7 +90,7 @@ statusbar normal, fullscreenoffsets // Standard status bar
 		}
 
 		DrawImage AmmoIcon1, 52, -38, centerbottom;
-		DrawNumber 3, BIGFONT, TOSMenuGold, Ammo1, alignment(right), 35, -60;
+		DrawNumber 3, BIGFONT, TOSMenuGold, Ammo1, alignment(right), 35, -58;
 
 		UsesSecondaryAmmo
 		{

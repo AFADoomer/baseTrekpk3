@@ -7,6 +7,19 @@ LOCK_3_G = "Level 3 Access Granted";
 LOCK_4 = "Level 4 Access Required";
 LOCK_4_G = "Level 4 Access Granted";
 
+NEWGAME = "NEW GAME";
+SAVEGAME = "SAVE GAME";
+LOADGAME = "LOAD GAME";
+SKILL = "Select a difficulty level";
+
+SK_1 = "I wear a red shirt";
+SK_2 = "Just tell me what to do, Sir";
+SK_3 = "This isn't my first landing party";
+SK_4 = "I give the orders around here";
+SK_5 = "I've been beyond the galactic barrier";
+
+BARRIER = "Are you sure?\n\nEveryone who survived that experience is dead...";
+
 // Map-specific thing tags
 //
 //   Automatically applied to anything that inherits from TOSDecoration or TOSEnemy

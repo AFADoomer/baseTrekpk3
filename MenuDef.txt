@@ -1,8 +1,8 @@
 DEFAULTLISTMENU
 {
 	Font "BigFont", "TOSMenuGold", "TOSMenuLightGold"
-	Selector "Icon", -32, -2
-	Linespacing 24
+	Selector "Icon", -16, -2
+	Linespacing 20
 }
 
 LISTMENU "MainMenu"
@@ -10,6 +10,8 @@ LISTMENU "MainMenu"
 	StaticPatch 75, 10, "LOGO_T"
 	StaticPatch 125, 55, "LOGO_S"
 	Position 100, 80
+
+	Selector "Icon2", -24, -2
 
 	TextItem "New Game", "n", "PlayerclassMenu"
 	TextItem "Configuration","c", "OptionsMenu"
@@ -27,6 +29,7 @@ ListMenu "PlayerclassMenu"
 	Position 48, 63
 //	PlayerDisplay 220, 63, "20 00 00", "80 00 40"
 	MouseWindow 0, 220
+	Font "SmallFont", "TOSMenuGold", "TOSMenuLightGold"
 }
 
 ListMenu "EpisodeMenu"
@@ -34,13 +37,17 @@ ListMenu "EpisodeMenu"
 	NetgameMessage "$NEWGAME"
 
 	Position 48, 63
-	StaticPatch 54, 38, "M_EPISOD"
+	StaticTextCentered 160, 38, "Select an episode"
+	Font "SmallFont", "TOSMenuGold", "TOSMenuLightGold"
+	Linespacing 10
 }
 
 ListMenu "SkillMenu"
 {
-	StaticPatch 96, 14, "M_NEWG"
-	StaticPatch 54, 38, "M_SKILL"
+	Linespacing 10
+	StaticTextCentered 160, 14, "$NEWGAME"
+	Font "SmallFont", "TOSMenuGold", "TOSMenuLightGold"
+	StaticTextCentered 160, 38, "$SKILL"
 	Position 48, 63
 	CenterMenu
 }
@@ -48,25 +55,26 @@ ListMenu "SkillMenu"
 ListMenu "LoadGameMenu"
 {
 	NetgameMessage "$LOADNET"
-	StaticPatchCentered 160, -20, "M_LOADG"
+	StaticTextCentered 160, -20, "$LOADGAME"
 	Position 80,54
 	Class "LoadMenu"
 }
 
 ListMenu "SaveGameMenu"
 {
-	StaticPatchCentered 160, -20, "M_SAVEG"
+	StaticTextCentered 160, -20, "$SAVEGAME"
 	Position 80,54
 	Class "SaveMenu"
 }
 
-//OptionMenuSettings
-//{
-//	Linespacing 24
-//}
+OptionMenuSettings
+{
+	Linespacing 8
+}
 
 ListMenu "PlayerMenu"
 {
+	Font "BigFont", "TOSMenuGold", "TOSMenuLightGold"
 	StaticTextCentered 160, 6, "$MNU_PLAYERSETUP"
 	Font "SmallFont"
 	Linespacing 14
