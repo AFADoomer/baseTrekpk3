@@ -84,6 +84,7 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 
 Actor Skybox1 : TOSDecoration 21000 {}
 Actor Skybox2 : TOSDecoration 21001 {}
+Actor Skybox3 : TOSDecoration 21002 {}
 
 Actor TOSChair : TOSDecoration 20001
 {
@@ -91,7 +92,7 @@ Actor TOSChair : TOSDecoration 20001
 	Radius 12
 
 //	+PUSHABLE
-	+SLIDESONWALLS
+//	+SLIDESONWALLS
 	+SOLID
 	-NOGRAVITY
 
@@ -367,7 +368,7 @@ Actor TOSPlanet : TOSDecoration 20062
 {
 	States
 	{
-		Static:
+		Spawn:
 			TOS1 A 35
 			Loop
 		Station:
@@ -681,7 +682,7 @@ Actor TOSGangway : TOSDecoration 20150
 Actor TOSAuxRib : TOSDecoration 20151 {}
 Actor TOSEngConsoleA : TOSDecoration 20152 {Tag "Console"}
 
-Actor TOSComputer2 : TOSDecoration 20153 {Height 16 Radius 8 +SOLID +USESPECIAL}
+Actor TOSComputer2 : TOSDecoration 20153 {Height 16 Radius 8 +SOLID +USESPECIAL Tag "Computer"}
 Actor TOSEngWallThing8 : TOSDecoration 20154 {}
 Actor TOSEngWallThing9 : TOSDecoration 20155 {}
 Actor TOSEngWallThing10 : TOSDecoration 20156 {}
@@ -701,10 +702,10 @@ Actor TOSMonitorBase4 : TOSMonitorBase 20169 {}
 Actor TOSComputerB : TOSComputer 20170 {}
 Actor TOSComputerC : TOSComputer 20171 {}
 Actor TOSComputerD : TOSComputer 20172 {}
-Actor TOSComputer2B : TOSDecoration 20173 {Height 16 Radius 8 +SOLID +USESPECIAL}
-Actor TOSComputer2C : TOSDecoration 20059 {Height 16 Radius 8 +SOLID +USESPECIAL}
-Actor TOSComputer3 : TOSDecoration 20175 {Height 16 Radius 8 +SOLID +USESPECIAL}
-Actor TOSComputer3B : TOSDecoration 20176 {Height 16 Radius 8 +SOLID +USESPECIAL}
+Actor TOSComputer2B : TOSComputer2 20173 {}
+Actor TOSComputer2C : TOSComputer2 20059 {}
+Actor TOSComputer3 : TOSComputer2 20175 {}
+Actor TOSComputer3B : TOSComputer2 20176 {}
 
 Actor Pane2 : Pane 20177 {}
 

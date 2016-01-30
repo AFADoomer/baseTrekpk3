@@ -1,4 +1,4 @@
-Model Skybox1
+Model Skybox1 //Day
 {
 	Path "Models/mapobjects/skybox"
 	Model 0 "skybox.md3"
@@ -7,7 +7,7 @@ Model Skybox1
 	FrameIndex TOS1 A 0 0
 }
 
-Model Skybox2
+Model Skybox2 //Night
 {
 	Path "Models/mapobjects/skybox"
 	Model 0 "skybox.md3"
@@ -16,10 +16,19 @@ Model Skybox2
 	FrameIndex TOS1 A 0 0
 }
 
+Model Skybox3 //Horizon only, transparent sky
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Skin 0 "vasquezM.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model DisruptorBolt
 {
 	Path "Models/weapons/"
-	Model 0 "disruptor_projectile.md3"
+	Model 0 "projectile.md3"
 	Skin 0 "bolt.jpg"
 
 	INHERITACTORPITCH
