@@ -700,9 +700,8 @@ Model TOSPadd
 	INHERITACTORROLL
 
 	Path "Models/mapobjects/tos/"
-	Model 0 "tos_padd.md3"
-	Skin 0 "tospadd.jpg"
-
+	Model 0 "padd.md3"
+//
 	ZOffset 1.0
 	AngleOffset 180.0
 	Scale 1.0 1.0 1.0
