@@ -30,7 +30,8 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 {
 	int l = 0, col = 0, row = 0;
 	int RInitial = R, GInitial = G, BInitial = B;
-	str strLetter, strLetterGraphic;
+	int strLetter;
+	str strLetterGraphic;
 
 	//Set Default Values
 	flags = flags | HUDMSG_FADEINOUT | HUDMSG_NOTWITHFULLMAP | HUDMSG_ALPHA;
@@ -102,8 +103,7 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 					col = -1;
 				break;
 				Case 28: //Color Change
-					int strColor = GetChar(strString, l + 1);
-					Switch (strColor)
+					Switch (GetChar(strString, l + 1))
 					{
 						Case 	97	: R = 	204	; G = 	51	; B = 	51	; break;		
 						Case 	98	: R = 	210	; G = 	180	; B = 	140	; break;		
@@ -149,7 +149,7 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 	return msgID;
 }
 
-Function int IsLetter(str Character)
+Function int IsLetter(int Character)
 {
 	int Temp = ((Character >= 65 && Character <= 90) || (Character >= 97 && Character <= 122));
 
@@ -160,7 +160,7 @@ Function str ChangeCase(str String, int Type)
 {
 	int l = 0;
 
-	str strLetter = GetChar(String, l);
+	int strLetter = GetChar(String, l);
 	str Temp = "";
 
 	While (l <= strLen(String))

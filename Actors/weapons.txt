@@ -469,7 +469,6 @@ Actor Tricorder : Weapon Replaces AllMap 25010
 			Loop
 		Fire:
 			"####" # 0 A_PlaySound("actor/tricorder", CHAN_WEAPON, 0.7, True)
-			"####" # 1 ACS_NamedExecuteAlways("PrintInfo", 0)
 		Hold:
 			"####" # 1 ACS_NamedExecuteAlways("PrintInfo", 0)
 			"####" # 0 A_Refire
