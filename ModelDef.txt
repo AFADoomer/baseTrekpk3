@@ -884,8 +884,6 @@ Model Shuttle
 	Path "Models/mapobjects/tos/shuttles"
 	Model 0 "galileo_landed.md3"
 
-	AngleOffset 180.0
-
 	FrameIndex TOS1 A 0 0
 
 	Model 0 "galileo.md3"
