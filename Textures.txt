@@ -2414,4 +2414,11 @@ Texture GRAY_FLR, 64, 64
 	Patch GRAY_FLR, 0, 0
 }
 
+Texture TRANSTOP, 512, 512
+{
+	XScale 2.6
+	YScale 2.6
+	Patch TRANSTOP, 0, 0
+}
+
 // End of texture definitions

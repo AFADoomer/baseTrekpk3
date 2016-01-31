@@ -541,10 +541,8 @@ Model TOSTransporterScanner
 Model TOSTransporterConsole
 {
 	Path "Models/mapobjects/tos/"
-	Model 0 "tos_transporter_console.md3"
-	Skin 0 "transporter_console.jpg"
+	Model 0 "transcons.md3"
 
-	ZOffset 24.0
 	AngleOffset 180.0
 	Scale 1.3 1.3 1.3
 
