@@ -3,12 +3,16 @@ Actor ElevatorPanel : Inventory {}
 
 Actor Transport : CustomInventory Replaces TeleportFog
 {
+	Radius 48
 	+AUTOACTIVATE
 	States
 	{
 		Spawn:
-			TNT1 A -1
-			Loop
+			TNT1 A 1
+			TNT1 A 1 A_Recoil(5)
+		Static:
+			TNT1 A 70
+			Stop
 		Pickup:
 			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 0, 1)
 			Stop

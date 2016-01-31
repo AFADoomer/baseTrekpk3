@@ -392,6 +392,38 @@ ACTOR TransporterEffect
 				0,
 				0)
 		DrawParticles:
+			TNT1 A 0 A_SpawnParticle(
+				FAEA92,
+				SPF_FULLBRIGHT | SPF_RELATIVE,
+				256,
+				1,
+				0,
+				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0, 16.0),
+				0, 0, frandom(0.2, 0.25),
+				0, 0, 0,
+				0.8, 0.004)
+			TNT1 A 0 A_SpawnParticle(
+				E0CF63,
+				SPF_FULLBRIGHT | SPF_RELATIVE,
+				256,
+				2,
+				0,
+				frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(0, 32.0),
+				0, 0, frandom(0.25, 0.5),
+				0, 0, 0,
+				0.9, 0.008)
+			TNT1 A 0 A_SpawnParticle(
+				BDAF4C,
+				SPF_FULLBRIGHT | SPF_RELATIVE,
+				256,
+				2,
+				0,
+				frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(5.0, 35.0),
+				0, 0, frandom(0.1, 0.2),
+				0, 0, 0,
+				1.0, 0.004)
+				
+/*
 			TNT1 A 0 A_SpawnItemEx(
 				"TransporterParticle",
 				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0, 32.0),
@@ -410,7 +442,8 @@ ACTOR TransporterEffect
 				0, 0, frandom(0.25, 1.0),
 				0,
 				0)
-			TNT1 A 0 A_JumpIf(user_count > 16, "Done")
+*/
+			TNT1 A 0 A_JumpIf(user_count > 512, "Done")
 			TNT1 A 0 A_SetUserVar("user_count", user_count + 1)
 			Loop
 		Done:
@@ -435,6 +468,37 @@ ACTOR TransporterEffect2
 				0,
 				0)
 		DrawParticles:
+			TNT1 A 0 A_SpawnParticle(
+				FAEA92,
+				SPF_FULLBRIGHT | SPF_RELATIVE,
+				256,
+				1,
+				0,
+				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(68.0, 84.0),
+				0, 0, frandom(-0.2, -0.25),
+				0, 0, 0,
+				0.8, 0.004)
+			TNT1 A 0 A_SpawnParticle(
+				E0CF63,
+				SPF_FULLBRIGHT | SPF_RELATIVE,
+				256,
+				2,
+				0,
+				frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(52.0, 84.0),
+				0, 0, frandom(-0.25, -0.5),
+				0, 0, 0,
+				0.9, 0.008)
+			TNT1 A 0 A_SpawnParticle(
+				BDAF4C,
+				SPF_FULLBRIGHT | SPF_RELATIVE,
+				256,
+				2,
+				0,
+				frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(49.0, 79.0),
+				0, 0, frandom(-0.1, -0.2),
+				0, 0, 0,
+				1.0, 0.004)
+/*
 			TNT1 A 0 A_SpawnItemEx(
 				"TransporterParticle",
 				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(52.0, 84.0),
@@ -453,7 +517,8 @@ ACTOR TransporterEffect2
 				0, 0, frandom(-0.25, -1.0),
 				0,
 				0)
-			TNT1 A 0 A_JumpIf(user_count > 16, "Done")
+*/
+			TNT1 A 0 A_JumpIf(user_count > 512, "Done")
 			TNT1 A 0 A_SetUserVar("user_count", user_count + 1)
 			Loop
 		Done:
