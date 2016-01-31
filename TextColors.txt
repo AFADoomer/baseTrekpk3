@@ -82,11 +82,11 @@ Flat:
 
 TOSGold TOSMenuGold
 {
-	#947d21 #ffea4f
+	#947d21 #f6ce39
 Console:
-	#947d21 #ffea4f
+	#947d21 #f6ce39
 Flat:
-	#fad336
+	#f6ce39
 }
 
 /*
