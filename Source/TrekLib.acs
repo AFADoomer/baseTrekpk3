@@ -53,26 +53,82 @@ int MapDiffArray[2048][2048]; //Width, Height
 int MapMoversArray[2048][2048][2]; //Width, Height, Color/Time
 */
 
+int numTitles = 11;
+int TitleSequence[11][7] = {
+	//Camera, 		Angle, 		Graphic, 		Graphic Hold Time, Delay Before Action, Activation TID, DelayAfterAction
+	{	1	, 	0	, 	""		, 	0.0	, 	0	, 	0	, 	245	},
+	{	1	, 	0	, 	""		, 	0.0	, 	0	, 	3	, 	70	},
+	{	1	, 	0.2	, 	""		, 	0.0	, 	0	, 	4	, 	70	},
+	{	8	, 	0	, 	""		, 	0.0	, 	0	, 	5	, 	105	},
+	{	6	, 	0	, 	""		, 	0.0	, 	0	, 	0	, 	227	},
+	{	7	, 	0	, 	""		, 	0.0	, 	0	, 	0	, 	140	},
+	{	1	, 	0.25	, 	"Credits1"	, 	5.0	, 	0	, 	3	, 	245	},
+	{	1	, 	0.25	, 	"Credits2"	, 	7.0	, 	68	, 	9	, 	280	},
+	{	1	, 	0.25	, 	"Credits3"	, 	3.0	, 	0	, 	3	, 	157	},
+	{	1	, 	0.25	, 	"Credits4"	, 	2.0	, 	0	, 	9	, 	140	},
+	{	1	, 	0.25	, 	"Credits5"	, 	2.0	, 	0	, 	0	, 	350	}
+};
+
 Script "W_LevelStart" ENTER
 {
 	Thing_ChangeTID(0, 1001+PlayerNumber());
 
 	If (GameType() == GAME_TITLE_MAP || StrICmp(StrParam(n:PRINTNAME_LEVEL), "TitleMap") == 0)
 	{
-
 		SetHudSize(1024, 768, 0);
 
 		GiveInventory("HideHUD", 1);
 
 		SetMusic("music/opening.ogg", 0);
 
-		ChangeCamera(1, 1, 1);
-		Delay(35 * 7);
+//		ChangeCamera(1, 1, 1);
+//		Delay(35 * 7);
 
 		int showplanet = 0;
+		bool shuttle = 0;
 
 		While (TRUE)
 		{
+			For (int t = 0; t < numTitles; t++)
+			{
+				int oldCamera;
+				int Camera = TitleSequence[t][0];
+				int Angle = TitleSequence[t][1];
+				str strGraphic = StrParam(s:TitleSequence[t][2]);
+				int HoldTime = TitleSequence[t][3];
+				int delayInitial = TitleSequence[t][4];
+				int TID = TitleSequence[t][5];
+				int delayFinal = TitleSequence[t][6];
+
+				ChangeCamera(Camera, 1, 1);
+				If (Angle != 0) SetActorAngle(Camera, Angle);
+				If (strGraphic != "" && showPlanet == 0)
+				{
+					SetFont(strGraphic);
+					HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, HoldTime, 0.5, 0.5);
+				}
+
+				Delay(delayInitial);
+				If (t == numTitles - 1) SetMusic("*", 0);
+				If (TID > 0)
+				{
+					Thing_Activate(TID);
+
+					If (Camera == oldCamera || oldCamera == 0)
+					{
+						SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
+						For (int i = 0.0; i <= 1.0; i += 0.1)
+						{
+							SetActorProperty(2, APROP_Alpha, i);	
+							Delay(1);
+						}
+						SetActorProperty(2, APROP_RenderStyle, Style_Normal);
+					}
+				}
+				Delay(delayFinal);
+				oldCamera = Camera;
+			}
+/*
 			Thing_Activate(3);
 			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
 			For (int i = 0.0; i <= 1.0; i += 0.1)
@@ -117,25 +173,6 @@ Script "W_LevelStart" ENTER
 			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
 
 			Delay(35 * 7);
-			If (showplanet == 0)
-			{
-//				SetFont("CreditsA");
-//				HudMessage(s:"A"; 0, 1000, 0, 512.0, 384.0, 0.0);
-			}
-
-			Delay(1);
-			If (showplanet == 0)
-			{
-//				SetFont("CreditsB");
-//				HudMessage(s:"A"; 0, 1000, 0, 512.0, 384.0, 0.0);
-			}
-
-			Delay(1);
-			If (showplanet == 0)
-			{
-//				SetFont("CreditsC");
-//				HudMessage(s:"A"; 0, 1000, 0, 512.0, 384.0, 0.0);
-			}
 
 			//Roddenberry
 			If (showplanet == 0)
@@ -200,6 +237,7 @@ Script "W_LevelStart" ENTER
 			SetMusic("*", 0);
 
 			Delay(35 * 10);
+*/
 
 			Switch (showplanet % 4)
 			{
@@ -216,6 +254,18 @@ Script "W_LevelStart" ENTER
 					SetActorState(20, "Station");
 				break;
 			}
+
+			shuttle = !shuttle;
+
+			If (shuttle)
+			{
+				SetActorState(2, "Shuttle");
+			}
+			Else
+			{
+				SetActorState(2, "Spawn");
+			}
+
 			showplanet++;
 		}
 	}
@@ -352,20 +402,20 @@ Function int SetSideLean(void)
 
 	intCurRoll = GetActorRoll(0);
 
-	If (intCurRoll > 0)
+	If (intCurRoll < 0.5)
 		intCurDir = 1;
-	Else If (intCurRoll < 0)
+	Else If (intCurRoll > 0.5)
 		intCurDir = -1;
 
 	If (GetPlayerInput(-1, INPUT_SIDEMOVE))
-		If (intLeanCount < intMaxLean) intLeanCount = intLeanCount + 20;
+		If (intLeanCount < intMaxLean) intLeanCount += 20;
 
-	If ((GetPlayerInput(-1, INPUT_SIDEMOVE) > 0) && intCurDir >= 0)
+	If ((GetPlayerInput(-1, INPUT_SIDEMOVE) > 0))
 		intDir = 1;
-	Else If ((GetPlayerInput(-1, INPUT_SIDEMOVE) < 0) && intCurDir <= 0)
+	Else If ((GetPlayerInput(-1, INPUT_SIDEMOVE) < 0))
 		intDir = -1;
 
-	If (intDir == 0 || Abs(intCurRoll) > intMaxLean)
+	If (intDir == 0 || intLeanCount > intMaxLean)
 	{
 		If (intLeanCount > 0)
 			intLeanCount = intLeanCount - 40;
@@ -373,7 +423,7 @@ Function int SetSideLean(void)
 			intLeanCount = 0;
 	}
 
-	If (intDir != 0 && Abs(intCurRoll) <= intMaxLean)
+	If (intDir != 0 && intLeanCount <= intMaxLean)
 		intAmt = intDir * intLeanCount;
 	Else
 	{
@@ -391,11 +441,11 @@ Function int SetSideLean(void)
 str strState = "";
 int Active = 0;
 
-Function void DoMovement (void)
+Function int DoMovement (void)
 {
-	If (GetActorProperty(0, APROP_Health) <= 0)
+	If (GetActorProperty(0, APROP_Health) > 0)
 	{
-		return;
+		return 0;
 	}
 
 	int intX, intY, intZ, intSpeed, intVelZ, intForward, intTurn, intCrouch;
@@ -574,6 +624,8 @@ Function void DoMovement (void)
 	}
 	Else
 		SetActorProperty(0, APROP_Speed, 1.0);
+
+	return 1;
 }
 
 Script "Lean" (int intDir)
@@ -584,6 +636,13 @@ Script "Lean" (int intDir)
 	int PlayerTID = 1001 + PlayerNumber();
 
 	int intHeightOffset;
+
+	If (intDir == 0)
+	{
+		ChangeCamera(0, 0, 1);
+		Thing_Remove(camTID);
+		Terminate;
+	}
 
 /*
 	If (GetActorProperty(PlayerTID, APROP_Height) < GetActorProperty(PlayerTID, APROP_ViewHeight))
@@ -597,8 +656,6 @@ Script "Lean" (int intDir)
 	Spawn("LeanCam", 0, 0, 0, camTID, GetActorAngle(0) >> 8);
 	SetUserVariable(camTID, "user_ZHeight", intHeightOffset / 1.0);
 
-	ChangeActorRoll(camTID, intDir, TRUE);
-
 	SetActivator (camTID);
 	SetPointer (AAPTR_MASTER, PlayerTID);
 
@@ -609,11 +666,8 @@ Script "Lean" (int intDir)
 		SetActorState(camTID, "Right");
 	Else If (intDir < 0)
 		SetActorState(camTID, "Left");
-	Else
-	{
-		ChangeCamera(0, 0, 1);
-		Thing_Remove(camTID);
-	}
+
+	ChangeActorRoll(camTID, intDir, TRUE);
 }
 
 Script "A_Disintegrate" (void)
@@ -667,9 +721,10 @@ Script "A_Stun" (int time)
 
 Script "A_Transport" (int Fade, int BeamDir)
 {
-	SetActivatorToTarget(0);
+//	SetActivatorToTarget(0);
 
-//	SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+	SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+	SetActorProperty(0, APROP_INVULNERABLE, 1);
 	SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
 
 	If (BeamDir != 1)
@@ -698,9 +753,11 @@ Script "A_Transport" (int Fade, int BeamDir)
 			SetActorProperty(0, APROP_Alpha, in * 0.01);
 			Delay (1);
 		}
-		SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
-//		SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 	}
+
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
+	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+	SetActorProperty(0, APROP_INVULNERABLE, 0);
 }
 
 Script "A_AmmoStation" (int intType, int intAmt)
@@ -974,15 +1031,13 @@ Script "PrintInfo" (void)
 		Else
 			Class = StrParam(s:"\c[TOSBrightBlue]", s:Class);
 
-		str Titles = StrParam(	s:Class, s:"\n",
-					s:"\n",
+		str Titles = StrParam(	s:"\n",
 					s:"\c[TOSBrightWhite]", s:"Height:\n",
 					s:"\c[TOSBrightWhite]", s:"Width:\n",
 					s:"\c[TOSBrightWhite]", s:"Distance:\n"
 					);
 
 		str Data = StrParam(	s:"\n",
-					s:"\n",
 					s:"\c[TOSMenuLightGold]", s:Metric(Height, 3), s:"m\n",
 					s:"\c[TOSMenuLightGold]", s:Metric(Radius * 2, 3), s:"m\n",
 					s:"\c[TOSMenuLightGold]", s:Metric(dist / 3, 3), s:"m\n"
@@ -1023,9 +1078,11 @@ Script "PrintInfo" (void)
 		SetHudSize(HUDX, HUDY, 1);
 		SetFont("SMALLFNT");
 //		SetFont("ARI48");
+		SetHudWrapWidth(HUDX / 5);
 		//HudMessage(s:Data; HUDMSG_TYPEON, 1000, CR_UNTRANSLATED, (HUDX / 2 - HUDX / 6) * 1.0 + 0.1, (HUDY - (HUDY / 4)) * 1.0 + 0.1, 1.0, 0.02, 1.5);
-		HudMessage(s:Titles; HUDMSG_FADEINOUT, 1000, CR_UNTRANSLATED, (HUDX / 2 - HUDX / 7) * 1.0 + 0.1, (HUDY - (HUDY * 3 / 11)) * 1.0 + 0.1, 0.1, 0, 0.5);
-		HudMessage(s:Data; HUDMSG_FADEINOUT, 998, CR_UNTRANSLATED, (HUDX / 2) * 1.0 + 0.2, (HUDY - (HUDY * 3 / 11)) * 1.0 + 0.1, 0.1, 0, 0.5);
+		HudMessage(s:Class; HUDMSG_FADEINOUT, 1000, CR_UNTRANSLATED, (HUDX / 2 - HUDX / 7) * 1.0 + 0.1, (HUDY - (HUDY * 15 / 54)) * 1.0 + 0.1, 0.1, 0, 0.1);
+		HudMessage(s:Titles; HUDMSG_FADEINOUT, 999, CR_UNTRANSLATED, (HUDX / 2 - HUDX / 7) * 1.0 + 0.1, (HUDY - (HUDY * 7 / 27)) * 1.0 + 0.1, 0.1, 0, 0.1);
+		HudMessage(s:Data; HUDMSG_FADEINOUT, 998, CR_UNTRANSLATED, (HUDX / 2) * 1.0 + 0.2, (HUDY - (HUDY * 7 / 27)) * 1.0 + 0.1, 0.1, 0, 0.1);
 	}
 }
 
@@ -1055,12 +1112,12 @@ Script "PrintScan" (int filter)
 			If (GetUserVariable(TID, "user_width") > 0) Radius = (GetUserVariable(TID, "user_width") / 2) * 1.0;
 //		}
 
+		int SpawnHealth = GetActorProperty(TID, APROP_SpawnHealth);
+		int Friend = GetActorProperty(TID, APROP_Friendly);
+		int Class = GetActorProperty(TID, APROP_NameTag);
+
 		If (CheckFlag(TID, "USESPECIAL") && GetUserVariable(TID, "user_uses") > 0)
 		{
-			int SpawnHealth = GetActorProperty(TID, APROP_SpawnHealth);
-			int Friend = GetActorProperty(TID, APROP_Friendly);
-			int Class = GetActorProperty(TID, APROP_NameTag);
-
 			If (Friend)
 				Class = StrParam(s:"\c[TOSBrightGreen]", s:Class);
 			Else If (SpawnHealth != 1000)
@@ -1068,12 +1125,19 @@ Script "PrintScan" (int filter)
 			Else
 				Class = StrParam(s:"\c[TOSBrightGold]", s:Class);
 
-			HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "ScanA", 1);
+			HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "ScanB", 1);
+
 			HudMessageOnActor(TID, ScanRange, Class, Height, Radius, "SUPBOLAA", 2);
-//			HudMessageOnActor(TID, ScanRange, Class, Height, Radius, "CENTG_X", 2);
 		}
 		Else If (filter == 0)
-			HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "Scan", 1);
+		{
+			If (Friend)
+				HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "Scan", 1);
+			Else If (SpawnHealth != 1000)
+				HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "ScanA", 1);
+			Else
+				HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "Scan", 1);
+		}
 	}
 }
 
@@ -1663,19 +1727,20 @@ Script "Flight" (void)
 	{
 		int intInput = GetPlayerInput(-1, INPUT_BUTTONS);
 		int intPitch = GetPlayerInput(-1, INPUT_PITCH);
+//		int intPitch = 0;
 		int intYaw = GetPlayerInput(-1, INPUT_YAW);
 
 //		int intPitch = GetActorPitch(0);
-/*
+
 		If (intInput & BT_FORWARD)
-		{
-			intPitch += 0.01;
-		}
-		Else If (intInput & BT_BACK)
 		{
 			intPitch -= 0.01;
 		}
-*/
+		Else If (intInput & BT_BACK)
+		{
+			intPitch += 0.01;
+		}
+
 		int intRoll = GetActorRoll(0);
 
 		If (intYaw < 0)
@@ -1695,11 +1760,13 @@ Script "Flight" (void)
 			intRoll += 0.0025;
 		}
 
-		If (intInput & BT_FORWARD)
+		//If (intInput & BT_FORWARD)
+		If (intInput & BT_JUMP)
 		{
 			intSpeed += 10;
 		}
-		If (intInput & BT_BACK)
+		//If (intInput & BT_BACK)
+		If (intInput & BT_CROUCH)
 		{
 			intSpeed -= 10;
 		}

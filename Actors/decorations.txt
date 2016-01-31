@@ -358,8 +358,11 @@ Actor TOSEnterprise : TOSDecoration 20061
 {
 	States
 	{
-		Static:
+		Spawn: //Not Static; override defaults
 			TOS1 ABCDEFGH 4
+			Loop
+		Shuttle:
+			TOS1 Z 5
 			Loop
 	}
 }
@@ -368,7 +371,7 @@ Actor TOSPlanet : TOSDecoration 20062
 {
 	States
 	{
-		Spawn:
+		Spawn: //Not Static; override defaults
 			TOS1 A 35
 			Loop
 		Station:
