@@ -313,9 +313,18 @@ Script "W_ElevatorInputLoop" (int Offset)
 					Else
 					{
 						If (index >= 24)
+						{
 							ActivatorSound("transporter/energize", 128);
+							SetUserVariable(0, "user_travel", 1);
+							ClearPanel();
+							GiveInventory("TransportOut", 1);
+							Delay(35 * 3);
+						}
 						Else
+						{
 							ActivatorSound("turbolift/start", 128);
+							SetUserVariable(0, "user_travel", 2);
+						}
 
 						Delay(35);
 						SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
@@ -325,10 +334,19 @@ Script "W_ElevatorInputLoop" (int Offset)
 				}
 				Else
 				{
-					If (index >= 24)
-						ActivatorSound("transporter/energize", 128);
-					Else
-						ActivatorSound("turbolift/start", 128);
+						If (index >= 24)
+						{
+							ActivatorSound("transporter/energize", 128);
+							SetUserVariable(0, "user_travel", 1);
+							ClearPanel();
+							GiveInventory("TransportOut", 1);
+							Delay(35 * 3);
+						}
+						Else
+						{
+							ActivatorSound("turbolift/start", 128);
+							SetUserVariable(0, "user_travel", 2);
+						}
 
 					Delay(35);
 					SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);

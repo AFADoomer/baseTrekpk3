@@ -71,6 +71,7 @@ transporter/in			tran_in
 transporter/out			tran_out
 
 turbolift/start			tu_start
+turbolift/end			tu_end
 
 /* Menu Sounds */
 $pitchshiftrange 7

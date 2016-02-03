@@ -231,6 +231,7 @@ ACTOR TrekPlayer : PlayerPawn
 	var int user_weaponclass;
 	var int user_forcestatechange;
 	var int user_idletime;
+	var int user_travel;
 
 	Speed 0.85
 	Health 100
@@ -253,6 +254,7 @@ ACTOR TrekPlayer : PlayerPawn
 	Player.WeaponSlot 7, "PhotonTorpedo"
 	Player.WeaponSlot 0, "Tricorder"
 	Player.ViewHeight 64
+	Player.Portrait "Icon"
 	MaxStepHeight 22
 	Tag "Human Male"
 

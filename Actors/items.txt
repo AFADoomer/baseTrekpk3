@@ -14,10 +14,20 @@ Actor Transport : CustomInventory Replaces TeleportFog
 			TNT1 A 70
 			Stop
 		Pickup:
-			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 0, 1)
+			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 1, 1)
 			Stop
 	}
 
+}
+
+Actor TransportOut : Transport
+{
+	States
+	{
+		Pickup:
+			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 1, 0)
+			Stop
+	}
 }
 
 Actor Disintegration : CustomInventory
@@ -50,6 +60,7 @@ Actor Stunner : CustomInventory
 
 Actor NavGoal 26000
 {
+	Height 64
 	+NOGRAVITY
 	+NOBLOCKMAP
 	+SHOOTABLE
