@@ -25,9 +25,10 @@ ListMenu "PlayerclassMenu"
 {
 	NetgameMessage "$NEWGAME"
 
+	Font "BigFont", "TOSMenuGold"
 	StaticTextCentered 160, 15, "$MNU_CHOOSECLASS"
 	Position 48, 63
-//	PlayerDisplay 220, 63, "20 00 00", "80 00 40"
+	PlayerDisplay 220, 63, "20 00 00", "80 00 40"
 	MouseWindow 0, 220
 	Font "SmallFont", "TOSMenuGold", "TOSMenuLightGold"
 }
@@ -37,6 +38,7 @@ ListMenu "EpisodeMenu"
 	NetgameMessage "$NEWGAME"
 
 	Position 48, 63
+	Font "BigFont", "TOSMenuGold"
 	StaticTextCentered 160, 38, "Select an episode"
 	Font "SmallFont", "TOSMenuGold", "TOSMenuLightGold"
 	Linespacing 10
@@ -45,8 +47,9 @@ ListMenu "EpisodeMenu"
 ListMenu "SkillMenu"
 {
 	Linespacing 10
+	Font "BigFont", "TOSMenuGold"
 	StaticTextCentered 160, 14, "$NEWGAME"
-	Font "SmallFont", "TOSMenuGold", "TOSMenuLightGold"
+	Font "SmallFont", "TOSBrightWhite"
 	StaticTextCentered 160, 38, "$SKILL"
 	Position 48, 63
 	CenterMenu
@@ -55,6 +58,7 @@ ListMenu "SkillMenu"
 ListMenu "LoadGameMenu"
 {
 	NetgameMessage "$LOADNET"
+	Font "BigFont", "TOSMenuGold"
 	StaticTextCentered 160, -20, "$LOADGAME"
 	Position 80,54
 	Class "LoadMenu"
@@ -62,6 +66,7 @@ ListMenu "LoadGameMenu"
 
 ListMenu "SaveGameMenu"
 {
+	Font "BigFont", "TOSMenuGold"
 	StaticTextCentered 160, -20, "$SAVEGAME"
 	Position 80,54
 	Class "SaveMenu"
