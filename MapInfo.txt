@@ -7,28 +7,30 @@ GameInfo
 	menubackbutton = "back"
 	menufontcolor_title = "TOSMenuGold"
 	menufontcolor_label = "TOSMenuGold"
-	menufontcolor_value = "TOSMenuGold"
+	menufontcolor_value = "Grey"
 	menufontcolor_action = "TOSMenuGold"
-	menufontcolor_header = "TOSMenuGold"
+	menufontcolor_header = "TOSBrightWhite"
 	menufontcolor_highlight = "TOSMenuLightGold"
-	menufontcolor_selection = "TOSMenuLightGold"
+	menufontcolor_selection = "TOSMenuBrightRed"
+	quitmessages = "Are you sure you want to exit?"
 }
 
 clearskills
 skill baby
 {
 	DamageFactor = 0.5
-	SpawnFilter = "Easy"
+	SpawnFilter = "Baby"
 	Name = "$SK_1"
-	TextColor = "TOSBrightWhite"
+	TextColor = "TOSMenuGold"
 	Key = "1"
+	EasyKey
 }
 
 skill easy
 {
 	SpawnFilter = "Easy"
 	Name = "$SK_2"
-	TextColor = "TOSBrightWhite"
+	TextColor = "TOSMenuGold"
 	Key = "2"
 }
 
@@ -36,7 +38,7 @@ skill normal
 {
 	SpawnFilter = "Normal"
 	Name = "$SK_3"
-	TextColor = "TOSBrightWhite"
+	TextColor = "TOSMenuGold"
 	Key = "3"
 	defaultskill
 }
@@ -45,7 +47,7 @@ skill hard
 {
 	SpawnFilter = "Hard"
 	Name = "$SK_4"
-	TextColor = "TOSBrightWhite"
+	TextColor = "TOSMenuGold"
 	Key = "4"
 }
 
@@ -53,7 +55,7 @@ skill nightmare
 {
 	SpawnFilter = "Nightmare"
 	Name = "$SK_5"
-	TextColor = "TOSBrightGold"
+	TextColor = "TOSBrightPurple"
 	Key = "5"
 	AmmoFactor = 2
 	FastMonsters
@@ -64,7 +66,7 @@ skill nightmare
 
 clearepisodes
 
-episode MAP01
+episode MAP06
 {
 	name = TOS
 }
@@ -82,7 +84,7 @@ DefaultMap
 	EvenLighting
 	NoInfighting
 	MonsterFallingDamage
-	BorderTexture = "Matte"
+	BorderTexture = "Blk_Flr"
 }
 
 Map TitleMap "Star Trek"
