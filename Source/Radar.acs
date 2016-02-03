@@ -38,6 +38,9 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 
 	SetHudSize(1024, 768, 0);
 
+	int screenRatio = GetScreenWidth() * 1.0 / GetScreenHeight();
+	x1 += (1024 - (768 * screenRatio / 1.0)) / 2; //Offset for widescreen resolutions
+
 	SetFont("RadarBkg");
 	If (hud > 0)
 		HudMessage(s:"A"; HUDMSG_PLAIN, 30000, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);

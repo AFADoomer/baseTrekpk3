@@ -268,7 +268,7 @@ Model Punch
 
 	Scale -1 1 1
 
-	Offset 0.0 -6.0 -6.5
+	Offset 0.0 -5.0 -6.5
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 B 0 2

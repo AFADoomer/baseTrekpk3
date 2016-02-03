@@ -194,6 +194,7 @@ Model TOSPlanet
 	PitchOffset -15.0
 	RollOffset 5.0
 	ZOffset 64.0
+	AngleOffset 180.0
 
 	Rotating
 	Rotation-Speed 0.1 
