@@ -6,6 +6,8 @@ texture Br_ScrnA
 
 cameratexture TRICHUDS 250 200
 cameratexture SHU_CAM 604 338 fit 159 89 worldpanning
+cameratexture TITLECAM 1280 800 fit 640 400
+cameratexture TITLEALT 1280 800 fit 640 400
 
 texture WALLALE3
     allowdecals

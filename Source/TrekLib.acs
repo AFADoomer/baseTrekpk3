@@ -53,20 +53,25 @@ int MapDiffArray[2048][2048]; //Width, Height
 int MapMoversArray[2048][2048][2]; //Width, Height, Color/Time
 */
 
-int numTitles = 11;
-int TitleSequence[11][7] = {
-	//Camera, 		Angle, 		Graphic, 		Graphic Hold Time, Delay Before Action, Activation TID, DelayAfterAction
-	{	1	, 	0	, 	""		, 	0.0	, 	0	, 	0	, 	245	},
-	{	1	, 	0	, 	""		, 	0.0	, 	0	, 	3	, 	70	},
-	{	1	, 	0.2	, 	""		, 	0.0	, 	0	, 	4	, 	70	},
-	{	8	, 	0	, 	""		, 	0.0	, 	0	, 	5	, 	105	},
-	{	6	, 	0	, 	""		, 	0.0	, 	0	, 	0	, 	227	},
-	{	7	, 	0	, 	""		, 	0.0	, 	0	, 	0	, 	140	},
-	{	1	, 	0.25	, 	"Credits1"	, 	5.0	, 	0	, 	3	, 	245	},
-	{	1	, 	0.25	, 	"Credits2"	, 	7.0	, 	68	, 	9	, 	280	},
-	{	1	, 	0.25	, 	"Credits3"	, 	3.0	, 	0	, 	3	, 	157	},
-	{	1	, 	0.25	, 	"Credits4"	, 	2.0	, 	0	, 	9	, 	140	},
-	{	1	, 	0.25	, 	"Credits5"	, 	2.0	, 	0	, 	0	, 	350	}
+int numTitles = 16;
+str TitleSequence[16][6] = {
+	//Camera, 		Angle, 		Graphic, 		Graphic Hold Time, Delay, Activation TID, 
+	{	1	, 	0	, 	""		, 	0.0	, 	35 * 9 + 17	, 	3	}, // First Pass - S 8s - 8 "frontier"
+	{	1	, 	0.2	, 	""		, 	0.0	, 	35 * 2	, 	4	}, // Reverse Angle - S 11s - 3
+	{	8	, 	0	, 	""		, 	0.0	, 	35 * 1	, 	5	}, // Toward Planet - S 13s - 2
+	{	6	, 	0	, 	""		, 	0.0	, 	35 * 3	, 	0	}, // In front of Planet - S 16s - 3 "Enterprise"
+	{	7	, 	0	, 	""		, 	0.0	, 	35 * 7 + 16	, 	0	}, // Reverse on Planet - S 24s - 8
+	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 3	, 	0	}, // Title - C 27s - 3
+	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 2	, 	3	}, // Title - S 29s - 2
+	{	1	, 	0.25	, 	"Credits1"	, 	4.0	, 	35 * 1	, 	0	}, // Title - G 30s, shift at 33s - 1
+	{	1	, 	0.25	, 	"Credits2"	, 	4.0	, 	35 * 5	, 	0	}, // Rodenberry - G 35s - 5
+	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 4	, 	9	}, // Shatner - S 37s - 2
+	{	1	, 	0.25	, 	"Credits3"	, 	4.0	, 	35 * 3	, 	0	}, // Shatner - G 40s - 3
+	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 4	, 	3	}, // Nimoy - S 45s - 5
+	{	1	, 	0.25	, 	"Credits4"	, 	4.0	, 	35 * 3	, 	0	}, // Nimoy - G 47s - 2
+	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 3	, 	9	}, // Kelley - S 51s - 4
+	{	1	, 	0.25	, 	"Credits5"	, 	4.0	, 	35 * 3	, 	0	}, // Kelley - G 54s - 3
+	{	1	, 	0	, 	""		, 	0.0	, 	35 * 2 + 15	, 	0	}  // Delay before loop
 };
 
 Script "W_LevelStart" ENTER
@@ -75,14 +80,20 @@ Script "W_LevelStart" ENTER
 
 	If (GameType() == GAME_TITLE_MAP || StrICmp(StrParam(n:PRINTNAME_LEVEL), "TitleMap") == 0)
 	{
-		SetHudSize(1024, 768, 0);
-
 		GiveInventory("HideHUD", 1);
 
 		SetMusic("music/opening.ogg", 0);
 
-//		ChangeCamera(1, 1, 1);
-//		Delay(35 * 7);
+		SetHudSize(320, 200, 1);
+		SetFont("WSMASK");
+		HudMessage (s:"A"; 0, 0, -1, 160.0, 100.0, 0);
+
+		ChangeCamera(1, 1, 1);
+		SetCameraToTexture(1, "TITLECAM", 90);
+
+		SetHudSize(640, 400, 1);
+		SetFont("TITLECAM");
+		HudMessage (s:"A"; 0, 2, -1, 320.0, 200.0, 0);
 
 		int showplanet = 0;
 		bool shuttle = 0;
@@ -96,20 +107,35 @@ Script "W_LevelStart" ENTER
 				int Angle = TitleSequence[t][1];
 				str strGraphic = StrParam(s:TitleSequence[t][2]);
 				int HoldTime = TitleSequence[t][3];
-				int delayInitial = TitleSequence[t][4];
+				int actionDelay = TitleSequence[t][4];
 				int TID = TitleSequence[t][5];
-				int delayFinal = TitleSequence[t][6];
 
-				ChangeCamera(Camera, 1, 1);
-				If (Angle != 0) SetActorAngle(Camera, Angle);
-				If (strGraphic != "" && showPlanet == 0)
+				If (oldCamera && Camera != oldCamera && actionDelay >= 35)
 				{
-					SetFont(strGraphic);
-					HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, HoldTime, 0.5, 0.5);
+					Delay(actionDelay - 17);
+					SetCameraToTexture(oldCamera, "TITLEALT", 90);
+					FadeToGraphic ("TITLEALT", 0.0, 0.4, 0.8);
+					Delay(17);
+				}
+				Else
+				{
+					Delay(actionDelay);
 				}
 
-				Delay(delayInitial);
+				ChangeCamera(Camera, 1, 1);
+				SetCameraToTexture(Camera, "TITLECAM", 90);
+
 				If (t == numTitles - 1) SetMusic("*", 0);
+
+				If (Angle != 0) SetActorAngle(Camera, Angle);
+
+				If (strGraphic != "" && showPlanet == 0)
+				{
+					SetHudSize(1024, 768, 0);
+					SetFont(strGraphic);
+					HudMessage(s:"A"; HUDMSG_FADEINOUT, 0, 0, 512.0, 384.0, HoldTime, 0.5, 0.5);
+				}
+
 				If (TID > 0)
 				{
 					Thing_Activate(TID);
@@ -125,7 +151,7 @@ Script "W_LevelStart" ENTER
 						SetActorProperty(2, APROP_RenderStyle, Style_Normal);
 					}
 				}
-				Delay(delayFinal);
+
 				oldCamera = Camera;
 			}
 /*
@@ -271,6 +297,8 @@ Script "W_LevelStart" ENTER
 	}
 	Else
 	{
+		CheckEnterSound();
+
 		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Test") == 0)
 		{
 			Thing_Activate(5);
@@ -281,8 +309,28 @@ Script "W_LevelStart" ENTER
 	SetCameraToTexture(553, "SHU_CAM", 85);
 }
 
+Function void CheckEnterSound (void)
+{
+	If (GetUserVariable(0, "user_travel") > 0)
+	{
+		If (GetUserVariable(0, "user_travel") == 1)
+		{
+			FadeToGraphic("Gold", 1.0, 0, 0); //Cover up the level transition
+			GiveInventory("Transport", 1);
+		}
+		Else If (GetUserVariable(0, "user_travel") == 2)
+		{
+			ActivatorSound("turbolift/end", 128);
+		}
+
+		SetUserVariable(0, "user_travel", 0);
+	}
+}
+
 Script "W_LevelReturn" RETURN
 {
+	CheckEnterSound();
+
 	Delay(35);
 	ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);
 }
@@ -443,10 +491,7 @@ int Active = 0;
 
 Function int DoMovement (void)
 {
-	If (GetActorProperty(0, APROP_Health) > 0)
-	{
-		return 0;
-	}
+	If (GetActorProperty(0, APROP_Health) <= 0) return 0;
 
 	int intX, intY, intZ, intSpeed, intVelZ, intForward, intTurn, intCrouch;
 		
@@ -719,6 +764,13 @@ Script "A_Stun" (int time)
 	}
 }
 
+Function void FadeToGraphic (str strImage, int holdTime, int inTime, int outTime)
+{
+	SetHudSize(640, 400, 1);
+	SetFont(strImage);
+	HudMessage (s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_OVERHUD, 1, -1, 320.0, 200.0, holdTime, inTime, outTime);
+}
+
 Script "A_Transport" (int Fade, int BeamDir)
 {
 //	SetActivatorToTarget(0);
@@ -730,13 +782,17 @@ Script "A_Transport" (int Fade, int BeamDir)
 	If (BeamDir != 1)
 	{
 		SpawnForced("TransporterEffect", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
-		If (Fade) FadeRange (0, 0, 0, 0, 250, 234, 149, 1.0, 3.0);
+		If (Fade)
+		{
+			//FadeRange (250, 234, 149, 0.0, 250, 234, 149, 1.0, 6.0);
+			FadeToGraphic ("Gold", 5.0, 4.0, 0);
+		}
 		SetActorProperty(0, APROP_Alpha, 1.0);
 
 		For (int out = 100; out >= 0; out = out - 1)
 		{
 			SetActorProperty(0, APROP_Alpha, out * 0.01);
-			Delay (1);
+			Delay (2);
 		}
 	}
 
@@ -745,7 +801,11 @@ Script "A_Transport" (int Fade, int BeamDir)
 	If (BeamDir > 0)
 	{
 		SpawnForced("TransporterEffect2", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
-		If (Fade) FadeRange (250, 234, 149, 1.0, 0, 0, 0, 0, 3.0);
+		If (Fade)
+		{
+			//FadeRange (250, 234, 149, 1.0, 250, 234, 149, 0.0, 6.0);
+			FadeToGraphic ("Gold", 1.0, 0, 3.0);
+		}
 		SetActorProperty(0, APROP_Alpha, 0);
 
 		For (int in = 0; in <= 100; in = in + 1)
@@ -1834,4 +1894,22 @@ Script "A_SetupThing" (void)
 		SetActorProperty(0, APROP_NameTag, strData);
 	Else
 		If (GetCVar("debug") > 0) SetActorProperty(0, APROP_NameTag, strLookup);
+}
+
+Script "RollActor" (int TID, int angle, int tics)
+{
+	int oldRoll = GetActorRoll(TID);
+
+	SetActorRoll(TID, angle);
+	Delay(tics);
+	SetActorRoll(TID, oldRoll);
+}
+
+Script "TurnActor" (int TID, int angle, int tics)
+{
+	int oldAngle = GetActorAngle(TID);
+
+	SetActorAngle(TID, angle);
+	Delay(tics);
+	SetActorAngle(TID, oldAngle);
 }
