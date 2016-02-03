@@ -1998,11 +1998,12 @@ Graphic Logo_S, 729, 66
 	Graphic Logo_S, 0, 0 {Style Overlay}
 }
 
-Graphic StarFld, 1024, 770
+Graphic StarFld, 2880, 1080
 {
-	XScale 6.0
-	YScale 6.0
-	Graphic StarFld, 0, 0
+	XScale 4.5
+	YScale 4.5
+	Graphic StarFld, -720, 0
+	Graphic StarFld, 720, 0
 }
 
 Texture Grass, 512, 512
@@ -2414,11 +2415,50 @@ Texture GRAY_FLR, 64, 64
 	Patch GRAY_FLR, 0, 0
 }
 
+Texture BLK_FLR, 64, 64
+{
+	XScale 10.0
+	YScale 10.0
+	Patch BLK_FLR, 0, 0
+}
+
+
 Texture TRANSTOP, 512, 512
 {
 	XScale 2.6
 	YScale 2.6
 	Patch TRANSTOP, 0, 0
+}
+
+Texture GOLD, 320, 200
+{
+	XScale 0.25
+	YScale 0.5
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[250,234,149]:[250,234,149]"
+	}
+}
+
+Texture BLACK_W, 320, 200
+{
+	XScale 0.25
+	YScale 0.5
+	Graphic BLACK, 0, 0
+}
+
+Texture TITLECAM, 320, 200
+{
+	XScale 0.25
+	YScale 0.5
+	Graphic BLACK, 0, 0
+}
+
+Texture TITLEALT, 320, 200
+{
+	XScale 0.25
+	YScale 0.5
+	Graphic BLACK, 0, 0
 }
 
 // End of texture definitions
