@@ -85,6 +85,7 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 Actor Skybox1 : TOSDecoration 21000 {}
 Actor Skybox2 : TOSDecoration 21001 {}
 Actor Skybox3 : TOSDecoration 21002 {}
+Actor Skybox4 : TOSDecoration 21003 {}
 
 Actor TOSChair : TOSDecoration 20001
 {

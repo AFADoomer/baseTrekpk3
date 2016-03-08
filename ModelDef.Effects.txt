@@ -25,6 +25,16 @@ Model Skybox3 //Horizon only, transparent sky
 	FrameIndex TOS1 A 0 0
 }
 
+Model Skybox4 //Stars
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Path "Textures/"
+	Skin 0 "StarFld.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model DisruptorBolt
 {
 	Path "Models/weapons/"
