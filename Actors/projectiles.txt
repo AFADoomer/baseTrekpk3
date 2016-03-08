@@ -19,8 +19,9 @@ Actor DisruptorBolt
 			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
 		Static:
 			TOS1 A 0 A_SetTranslucent(frandom(0.85, 1.0), 1)
-			TOS1 A 5 Bright
-			TOS1 A 0 A_SpawnItemEx("Flare_G", -32.0 * cos(angle), -32.0 * sin(angle), -32.0 * sin(pitch), velx, vely, velz, angle)
+			TOS1 A 1 Bright
+//			TOS1 A 0 A_SpawnItemEx("Flare_G", -32.0 * cos(angle), -32.0 * sin(angle), -32.0 * sin(pitch), velx, vely, velz, angle)
+			TOS1 A 0 A_SpawnItemEx("Flare_G", 0, 0, 0, 0, 0, 0, angle)
 			Loop
 		Death:
 			TNT1 A 0 A_SetTranslucent(frandom(0.7, 1.0), 1)
@@ -53,14 +54,15 @@ Actor DisruptorGrenade
 		Spawn:
 			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
 		Static:
-			TOS1 A 5 Bright
-			"####" # 0 A_SpawnItemEx("Flare_G", -20.0 * cos(angle), -20.0 * sin(angle), -20.0 * sin(pitch), velx, vely, velz, angle)
+			"####" # 1 Bright
+//			"####" # 0 A_SpawnItemEx("Flare_G", -20.0 * cos(angle), -20.0 * sin(angle), -20.0 * sin(pitch), velx, vely, velz, angle)
+			"####" # 0 A_SpawnItemEx("WpnFlare_G", 0, 0, 0, 0, 0, 0, angle)
 			Loop
 		Death:
 			"####" # 0 A_SpawnItemEx("ExplosionSphereWhite", 0, 0, 0, 0, 0, 0, 0)
 			"####" # 0 A_SpawnItemEx("ExplosionSphereGreen", 0, 0, 0, 0, 0, 0, 0)
 			"####" # 0 A_Quake(5, 35, 128, 256)
-			TOS1 B 15 Bright A_Explode
+			"####" B 15 Bright A_Explode
 			Stop
 	}
 }
@@ -89,7 +91,8 @@ Actor PhotonGrenade
 			TOS1 A 0 A_Jump(256, "Static")
 		Static:
 			TOS1 A 1 Bright
-			"####" # 0 A_SpawnItemEx("Flare_B", -20.0 * cos(angle), -20.0 * sin(angle), -20.0 * sin(pitch), velx, vely, velz, angle)
+//			"####" # 0 A_SpawnItemEx("Flare_B", -20.0 * cos(angle), -20.0 * sin(angle), -20.0 * sin(pitch), velx, vely, velz, angle)
+			"####" # 0 A_SpawnItemEx("Flare_B", 0, 0, 0, 0, 0, 0, angle)
 			"####" # 0 A_SpawnItemEx("PhotonGrenadeShadow", 0, 0, 0, 0, 0, 0, 0)
 			Loop
 		Death:
@@ -109,7 +112,8 @@ Actor PhotonGrenadeHoming : PhotonGrenade
 	{
 		Static:
 			TOS1 A 1 Bright A_SeekerMissile(0, 4, SMF_LOOK | SMF_PRECISE, 256, 10)
-			"####" # 0 A_SpawnItemEx("Flare_B", -20.0 * cos(angle), -20.0 * sin(angle), -20.0 * sin(pitch), velx, vely, velz, angle)
+//			"####" # 0 A_SpawnItemEx("Flare_B", -20.0 * cos(angle), -20.0 * sin(angle), -20.0 * sin(pitch), velx, vely, velz, angle)
+			"####" # 0 A_SpawnItemEx("Flare_B", 0, 0, 0, 0, 0, 0, angle)
 			"####" # 0 A_SpawnItemEx("PhotonGrenadeShadow2", 0, 0, 0, 0, 0, 0, 0)
 			TOS1 A 0 A_JumpIf(user_timer > 115, "Death")
 			TOS1 A 0 A_SetUserVar("user_timer", user_timer + 1)
