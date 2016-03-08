@@ -1,3 +1,4 @@
+/*
 Sprite TOS1A0, 32, 32 {Graphic BLACK, 0, 0}
 Sprite TOS1B0, 32, 32 {Graphic BLACK, 0, 0}
 Sprite TOS1C0, 32, 32 {Graphic BLACK, 0, 0}
@@ -6,6 +7,33 @@ Sprite TOS1E0, 32, 32 {Graphic BLACK, 0, 0}
 Sprite TOS1F0, 32, 32 {Graphic BLACK, 0, 0}
 Sprite TOS1G0, 32, 32 {Graphic BLACK, 0, 0}
 Sprite TOS1H0, 32, 32 {Graphic BLACK, 0, 0}
+*/
+Sprite TOS1A0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1B0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1C0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1D0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1E0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1F0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1G0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1H0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1I0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1J0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1K0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1L0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1M0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1N0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1O0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1P0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1Q0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1R0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1S0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1T0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1U0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1V0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1W0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1X0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1Y0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1Z0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
 
 Sprite BLASA0, 6, 6
 {
@@ -1775,17 +1803,17 @@ Texture GRATE_G2, 128, 128
 	Patch GRATE_G2, 0, 0
 }
 
-Texture LADDER_R, 32, 32
+Texture LADDER_R, 128, 128
 {
-	XScale 1.6
-	YScale 2.0
+	XScale 6.2
+	YScale 8.0
 	Patch LADDER_R, 0, 0
 }
 
-Texture LADDER_Y, 32, 32
+Texture LADDER_Y, 128, 128
 {
-	XScale 1.6
-	YScale 2.0
+	XScale 6.4
+	YScale 8.0
 	Patch LADDER_Y, 0, 0
 }
 
@@ -1998,12 +2026,11 @@ Graphic Logo_S, 729, 66
 	Graphic Logo_S, 0, 0 {Style Overlay}
 }
 
-Graphic StarFld, 2880, 1080
+Texture StarFld, 1440, 1080
 {
-	XScale 4.5
-	YScale 4.5
-	Graphic StarFld, -720, 0
-	Graphic StarFld, 720, 0
+	XScale 10
+	YScale 10
+	Graphic StarFld, 0, 0
 }
 
 Texture Grass, 512, 512
@@ -2011,6 +2038,13 @@ Texture Grass, 512, 512
 	XScale 8.0
 	YScale 8.0
 	Patch Grass, 0, 0
+}
+
+Texture Grass2, 512, 512
+{
+	XScale 8.0
+	YScale 8.0
+	Patch Grass2, 0, 0
 }
 
 Texture Gravel, 512, 512
@@ -2048,6 +2082,13 @@ Texture Water2, 250, 250
 	Patch Water2, 0, 0
 }
 
+Texture Water_P, 250, 250
+{
+	XScale 3.9
+	YScale 3.9
+	Patch Water_P, 0, 0
+}
+
 Texture Field_G, 32, 32 { Patch Green_T, 0, 0 { Style Add } }
 Texture Field_Y, 32, 32 { Patch Yellow_T, 0, 0 { Style Add } }
 Texture Field_O, 32, 32 { Patch Orange_T, 0, 0 { Style Add } }
@@ -2056,15 +2097,15 @@ Texture Field_W, 32, 32 { Patch White_T, 0, 0 { Style Add } }
 
 Texture Pl_Door, 448, 384
 {
-	XScale 4.0
-	YScale 4.0
+	XScale 4.98
+	YScale 5.0
 	Patch Pl_Door, 0, 0
 }
 
 Texture Pl_DoorG, 448, 384
 {
-	XScale 4.0
-	YScale 4.0
+	XScale 4.98
+	YScale 5.0
 	Patch Pl_DoorG, 0, 0
 }
 
@@ -2109,12 +2150,20 @@ Graphic Marker_5, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 180}}
 Graphic Marker_6, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 270}}
 Graphic Marker_7, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 270}}
 
-Sprite WHITG0, 128, 128
+Sprite WHITG0, 256, 256
 {
-	Offset 64, 64
-	XScale 2.0
-	YScale 2.0
+	Offset 128, 128
+	XScale 4.0
+	YScale 4.0
 	Graphic WpnHit_G, 0, 0
+}
+
+Sprite WFLAG0, 256, 256
+{
+	Offset 128, 128
+	XScale 3.5
+	YScale 3.5
+	Graphic WpnFla_G, 0, 0
 }
 
 Graphic Scan_TL, 32, 32 {Graphic Scan, 0, 0}
@@ -2256,6 +2305,28 @@ Graphic CHARA0, 64, 78
 	YScale 3.75
 	Graphic CHARA0, 0, 0 {Style Overlay}
 }
+
+Graphic CHARB0, 64, 78
+{
+	XScale 3.75
+	YScale 3.75
+	Graphic CHARB0, 0, 0 {Style Overlay}
+}
+
+Graphic CHARG0, 64, 78
+{
+	XScale 3.75
+	YScale 3.75
+	Graphic CHARG0, 0, 0 {Style Overlay}
+}
+
+Graphic CHARP0, 64, 78
+{
+	XScale 3.75
+	YScale 3.75
+	Graphic CHARP0, 0, 0 {Style Overlay}
+}
+
 
 Texture WALL0SW0, 492, 984
 {
@@ -2432,8 +2503,8 @@ Texture TRANSTOP, 512, 512
 
 Texture GOLD, 320, 200
 {
-	XScale 0.25
-	YScale 0.5
+	XScale 0.125
+	YScale 0.20833333333333333333333333333333
 	Graphic BLACK, 0, 0
 	{
 		Translation "0:255=[250,234,149]:[250,234,149]"
@@ -2442,23 +2513,74 @@ Texture GOLD, 320, 200
 
 Texture BLACK_W, 320, 200
 {
-	XScale 0.25
-	YScale 0.5
+	XScale 0.125
+	YScale 0.20833333333333333333333333333333
+
 	Graphic BLACK, 0, 0
 }
 
 Texture TITLECAM, 320, 200
 {
-	XScale 0.25
-	YScale 0.5
+	XScale 0.125
+	YScale 0.20833333333333333333333333333333
+
 	Graphic BLACK, 0, 0
 }
 
 Texture TITLEALT, 320, 200
 {
-	XScale 0.25
-	YScale 0.5
+	XScale 0.125
+	YScale 0.20833333333333333333333333333333
+
 	Graphic BLACK, 0, 0
+}
+
+Sprite SPARB0, 256, 256
+{
+	XScale 4.0
+	YScale 4.0
+	Offset 128, 128
+	Graphic Spark_B, 0, 0
+}
+
+Sprite SPARR0, 256, 256
+{
+	XScale 4.0
+	YScale 4.0
+	Offset 128, 128
+	Graphic Spark_R, 0, 0
+}
+
+Sprite SPARW0, 256, 256
+{
+	XScale 4.0
+	YScale 4.0
+	Offset 128, 128
+	Graphic Sparkle, 0, 0
+}
+
+Texture Cliff, 894, 894
+{
+	XScale 3.5
+	YScale 3.5
+	Patch Cliff, 0, 0
+}
+
+Texture Cliff_P, 894, 894
+{
+	XScale 3.5
+	YScale 3.5
+	Patch Cliff_P, 0, 0
+}
+
+Texture LogBkg, 300, 40
+{
+	Graphic Black, 0, 0
+}
+
+Graphic MSGBOX, 250, 30
+{
+	Graphic Black, 0, 0
 }
 
 // End of texture definitions
