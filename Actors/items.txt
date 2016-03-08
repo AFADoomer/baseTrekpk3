@@ -165,7 +165,7 @@ Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
 			Goto Static
 		Inactive:
 		Active:
-			"####" # 0 A_SetUserVar("user_used", ACS_NamedExecuteWithResult("A_AmmoStation", 0, user_level))
+			"####" # 0 A_SetUserVar("user_used", CallACS("A_AmmoStation", 0, user_level))
 		Return:
 			"####" # 0 A_JumpIf(user_used < 0, "DispensedWeapon")
 			"####" # 0 A_SetUserVar("user_uses", user_uses - user_used)
@@ -202,7 +202,7 @@ Actor PhaserRifleStation : DisruptorStation Replaces PlasmaRifle 25104
 		Inactive:
 		Active:
 			"####" # 0 A_PlaySound("computer/button2")
-			"####" # 0 A_SetUserVar("user_used", ACS_NamedExecuteWithResult("A_AmmoStation", 1, user_level))
+			"####" # 0 A_SetUserVar("user_used", CallACS("A_AmmoStation", 1, user_level))
 			Goto Return
 	}
 }
