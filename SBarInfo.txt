@@ -33,50 +33,8 @@ statusbar normal, fullscreenoffsets // Standard status bar
 {
 	InInventory Not "HideHUD"
 	{
-/*
-//		drawimage "STBAR", 0, 168;
+//		DrawShader 640, 65, horizontal, 0, -65;
 
-		drawnumber 3, BIGFONT, orange, ammo1, 44, 171, 0, red, 25, gold, 75;
-		drawnumber 3, BIGFONT, untranslated, health, 90, 171;
-		drawnumber 3, BIGFONT, untranslated, armor, 221, 171;
-
-		//keys
-		drawswitchableimage keyslot 2 && 5, "nullimage", "STKEYS0", "STKEYS3", "STKEYS6", 239, 171;
-		drawswitchableimage keyslot 3 && 6, "nullimage", "STKEYS1", "STKEYS4", "STKEYS7", 239, 181;
-		drawswitchableimage keyslot 1 && 4, "nullimage", "STKEYS2", "STKEYS5", "STKEYS8", 239, 191;
-
-		drawnumber 3, SMALLFONT, gold, ammo Charge, 288, 173;
-		drawnumber 3, SMALLFONT, gold, ammo Shell, 288, 179;
-		drawnumber 3, SMALLFONT, gold, ammo RocketAmmo, 288, 185;
-		drawnumber 3, SMALLFONT, gold, ammo Cell, 288, 191;
-
-		drawnumber 3, SMALLFONT, gold, ammocapacity Charge, 314, 173;
-		drawnumber 3, SMALLFONT, gold, ammocapacity Shell, 314, 179;
-		drawnumber 3, SMALLFONT, gold, ammocapacity RocketAmmo, 314, 185;
-		drawnumber 3, SMALLFONT, gold, ammocapacity Cell, 314, 191;
-		gamemode deathmatch, teamgame
-		{
-			drawnumber 2, BIGFONT, untranslated, frags, 138, 171;
-		}
-		gamemode cooperative, singleplayer
-		{
-			drawimage "STARMS", 104, 168;
-			drawswitchableimage weaponslot 2, "STGNUM2", "STYSNUM2", 111, 172; 
-			drawswitchableimage weaponslot 3, "STGNUM3", "STYSNUM3", 123, 172;
-			drawswitchableimage weaponslot 4, "STGNUM4", "STYSNUM4", 135, 172;
-			drawswitchableimage weaponslot 5, "STGNUM5", "STYSNUM5", 111, 182;
-			drawswitchableimage weaponslot 6, "STGNUM6", "STYSNUM6", 123, 182;
-			drawswitchableimage weaponslot 7, "STGNUM7", "STYSNUM7", 135, 182;
-		}
-		gamemode cooperative, deathmatch, teamgame
-		{
-			drawimage translatable "STFBANY", 144, 169;
-		}
-		drawselectedinventory alternateonempty, SMALLFONT, 143, 168
-		{
-			drawmugshot 5, disablerampage, 143, 168;
-		}
-*/
 		DrawBar "Health_F", "Health_B", Health, horizontal, interpolate(5), 5, -35;
 		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -29;
 
@@ -110,4 +68,24 @@ statusbar inventory // Standard bar overlay (ZDoom Addition)
 statusbar inventoryfullscreen // ZDoom HUD overlay.
 {
 	drawinventorybar Doom, translucent, 7, SMALLFONT, 50, 170;
+}
+
+CreatePopup Log, 0, 0, Fade, 0.5, 0.5;
+StatusBar PopupLog, /*forcescaled, */fullscreenoffsets
+{
+/*
+	DrawShader 310, 68, horizontal, reverse, -315, 5;
+	DrawString "SmallFont", TOSBrightWhite, levelname, -210, 10, 0, alignment(left), drawshadow(1, 1), linebreaks(180);
+	DrawString "SmallFont", TOSGold, time, -50, 10, 0, alignment(right), drawshadow(1, 1);
+	DrawString "SmallFont", TOSGold, globalarray 5, -200, 20, 0, alignment(left), drawshadow(1, 1), linebreaks(280);
+*/
+/*
+	DrawShader 320, 20, vertical, reverse, 0, 0;
+	DrawString "SmallFont", TOSBrightWhite, levelname, -210, 2, 0, alignment(left), drawshadow(1, 1), linebreaks(180);
+	DrawString "SmallFont", TOSGold, time, -42, 2, 0, alignment(right), drawshadow(1, 1);
+	DrawString "SmallFont", TOSBrightGold, globalarray 5, -200, 10, 0, alignment(left), drawshadow(1, 1), linebreaks(280);
+*/
+	DrawString "BigFont", TOSBrightWhite, levelname, 2, 2, 0, alignment(left), drawshadow(1, 1), linebreaks(180);
+	DrawString "BigFont", TOSGold, time, -76, 2, 0, alignment(left), drawshadow(1, 1);
+	DrawString "BigFont", TOSBrightGold, globalarray 5, -282, 20, 0, alignment(left), drawshadow(1, 1), linebreaks(280);
 }

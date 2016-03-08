@@ -56,7 +56,7 @@ str Decks[48][4] = {
 	{"MAP01", "Filming Set", "1", ""},
 	{"TEST", "Planet Surface", "0", ""},
 	{"DEMO", "Test Map", "0", ""},
-	{"MAP02", "Klingon D-7 Cruiser", "0", ""},
+	{"", "", "", ""},
 	{"MAP07", "Transporter Room 1", "3-8", ""},
 	{"MAP07", "Transporter Room 2", "9-14", ""},
 	{"MAP07", "Emergency Transporter 1", "20", ""},
@@ -74,22 +74,27 @@ str Decks[48][4] = {
 	{"", "", "", ""},
 	{"", "", "", ""},
 	{"", "", "", ""},
-	{"", "", "", ""},
+	{"MAP02", "Klingon D-7 Cruiser", "0", ""},
 	{"", "", "", ""}				//End of items on transporter menu
+};
+
+str Colorsets[2][5] = {
+	{"TOSGold", "TOSGold", "White", "TOSMenuBrightLightGold", "Orange"},
+	{"TOSBrightGold", "TOSBrightGold", "TOSBrightWhite", "TOSMenuBrightLightGold", "Red"}
 };
 
 Script 255 (void)
 {
-	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 0);
+	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 0, 1);
 }
 
 Script 254 (void)
 {
-	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 24);
+	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 24, 0);
 }
 
 //Draw or Clear Elevator Panel Background Images
-Script "W_ElevatorPanel" (int OnOff, int Offset)
+Script "W_ElevatorPanel" (int OnOff, int Offset, int Colorset)
 {
 //	PanelWidth = 1280;
 //	PanelHeight = 720;
@@ -101,6 +106,7 @@ Script "W_ElevatorPanel" (int OnOff, int Offset)
 	If (OnOff)
 	{
 		SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+		SetActorProperty(0, APROP_INVULNERABLE, 1);
 
 		GetInput = True;
 
@@ -119,22 +125,22 @@ Script "W_ElevatorPanel" (int OnOff, int Offset)
 			SetFont("Tu_Panel");
 		HudMessage (s:"A"; 0, ElevMsgCount--, -1, PanelWidth / 2 * 1.0, PanelHeight / 2 * 1.0, 0);
 
-		DrawPanelEntries(Offset);
+		DrawPanelEntries(Offset, Colorset);
 
 		SetHudSize(PanelWidth, PanelHeight, 1);
 
 //		SetFont("CentG_L");
 //		SetFont("ARI48");
 		SetFont("SUPBOLAA");
-		HudMessage (s:"\c[TOSGold]", s:"Select your destination:"; 0, ElevMsgCount--, -1, (PanelWidth * 60 / 1000 / 2) * 1.0 + 0.1, (PanelHeight * 300 / 1000 / 2) * 1.0 + 0.2, 0);
+		HudMessage (s:"\c[", s:Colorsets[Colorset][0], s:"]", s:"Select your destination:"; 0, ElevMsgCount--, -1, (PanelWidth * 60 / 1000 / 2) * 1.0 + 0.1, (PanelHeight * 300 / 1000 / 2) * 1.0 + 0.2, 0);
 
 		SetHudSize(PanelWidth * 3, PanelHeight * 3, 1);
 
 //		SetFont("CentG_T");
 //		SetFont("hmn14");
 		SetFont("SUPBOLAA");
-		HudMessage (s:"\c[White]Movement keys\c[TOSGold] highlight destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[TOSGold] selects destination\n"; 0, ElevMsgCount--, -1, (PanelWidth * 60 / 1000 * 3 / 2) * 1.0 + 0.1, (PanelHeight * 1475 / 1000 * 3 / 2) * 1.0 + 0.2, 0);
-		HudMessage (s:"\c[White]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[TOSGold] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 1300 / 1000 * 3 / 2) * 1.0 + 0.2, (PanelHeight * 1475 / 1000 * 3 / 2) * 1.0 + 0.2, 0);
+		HudMessage (s:"\c[", s:Colorsets[Colorset][2], s:"]", s:"Movement keys", s:"\c[", s:Colorsets[Colorset][1], s:"]", s:" highlight destination\n", s:"\c[", s:Colorsets[Colorset][2], s:"]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[", s:Colorsets[Colorset][1], s:"]", s:" selects destination\n"; 0, ElevMsgCount--, -1, (PanelWidth * 60 / 1000 * 3 / 2) * 1.0 + 0.1, (PanelHeight * 1475 / 1000 * 3 / 2) * 1.0 + 0.2, 0);
+		HudMessage (s:"\c[", s:Colorsets[Colorset][2], s:"]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[", s:Colorsets[Colorset][1], s:"] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 1300 / 1000 * 3 / 2) * 1.0 + 0.2, (PanelHeight * 1475 / 1000 * 3 / 2) * 1.0 + 0.2, 0);
 
 /*
 //		SetHudSize(PanelWidth * 2, PanelHeight * 2, 1);
@@ -158,7 +164,7 @@ Script "W_ElevatorPanel" (int OnOff, int Offset)
 //		HudMessage (s:"\c[White]Movement keys\c[TOSMenuGold] highlight destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+attack"), 2), s:"\c[TOSMenuGold] selects destination\n", s:"\c[White]", s:ChangeCase(StrParam(k:"+use"), 2), s:"\c[TOSMenuGold] cancels"; 0, ElevMsgCount--, -1, (PanelWidth * 680 / 1000) * 1.0 + 0.4, (PanelHeight * 1360 / 1000) * 1.0 + 0.1, 0);
 */
 
-		ACS_NamedExecute("W_ElevatorInputLoop", 0, Offset);
+		ACS_NamedExecute("W_ElevatorInputLoop", 0, Offset, Colorset);
 		TakeActorInventory(0, "ElevatorPanel", 999);
 	}
 	Else If (ElevMsgCount > 0)
@@ -178,6 +184,7 @@ Script "W_ElevatorPanel" (int OnOff, int Offset)
 
 		GetInput= False;
 
+		SetActorProperty(0, APROP_INVULNERABLE, 0);
 		SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 	}
 }
@@ -224,17 +231,15 @@ Function int ParseIntString(str Input)
 }
 
 //Active loop for input and drawing selection
-Script "W_ElevatorInputLoop" (int Offset)
+Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 {
 	int Col = Selected / RowMax;
 	int Row = (Selected - 1) % RowMax;
 
-	SetPanelNumber(Row, Col, Offset);
+	SetPanelNumber(Row, Col, Offset, Colorset);
 
 	While (GetInput == True)
 	{
-		SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
-
 		int Buttons = GetPlayerInput(-1, INPUT_BUTTONS);
 		int OldButtons = GetPlayerInput(-1, INPUT_OLDBUTTONS);
 
@@ -308,7 +313,9 @@ Script "W_ElevatorInputLoop" (int Offset)
 				{
 					If (CheckInventory(StrParam(s:"AccessLevel", s:Decks[index][3])) == 0)
 					{
-						Print(s:StrParam(s:"Level ", s:Decks[index][3]), s:" access required.");
+//						Print(s:StrParam(s:"Level ", s:Decks[index][3]), s:" access required.");
+						str strTemp = ExpandLanguageString(StrParam(l:"Lock"), Decks[index][3], 0, 0, 0, 0, 0);
+						Notification(StrParam(s:"\cr", l:"Locked"), strTemp, "", 1);
 					}
 					Else
 					{
@@ -327,7 +334,9 @@ Script "W_ElevatorInputLoop" (int Offset)
 						}
 
 						Delay(35);
+						SetActorProperty(0, APROP_INVULNERABLE, 0);
 						SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+
 						ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 						ClearPanel();
 					}
@@ -349,7 +358,9 @@ Script "W_ElevatorInputLoop" (int Offset)
 						}
 
 					Delay(35);
+					SetActorProperty(0, APROP_INVULNERABLE, 0);
 					SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+
 					ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 					ClearPanel();
 				}
@@ -359,11 +370,10 @@ Script "W_ElevatorInputLoop" (int Offset)
 				ClearPanel();
 			}
 	
-			SetPanelNumber(Row, Col, Offset);
+			SetPanelNumber(Row, Col, Offset, Colorset);
 		}
 		Delay(1);
 	}
-	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 }
 
 Function void ClearPanel(void)
@@ -373,7 +383,7 @@ Function void ClearPanel(void)
 	ACS_NamedExecuteAlways("W_ElevatorPanel", 0, 0);
 }
 
-Function void DrawPanelEntries (int Offset)
+Function void DrawPanelEntries (int Offset, int Colorset)
 {
 	int x = SelectionX;
 	int y = SelectionY;
@@ -393,9 +403,9 @@ Function void DrawPanelEntries (int Offset)
 		str strPanelEntry = LevelString(r); //StrParam(l:strDeck);
 
 		If (IsValidLevel(r))
-			strPanelEntry = StrParam(s:"\c[TOSGold]", s:strPanelEntry);
+			strPanelEntry = StrParam(s:"\c[", s:Colorsets[Colorset][1], s:"]", s:strPanelEntry);
 		Else
-			strPanelEntry = StrParam(s:"\c[Gray]", s:strPanelEntry);
+			strPanelEntry = StrParam(s:"\c[", s:Colorsets[Colorset][2], s:"]", s:strPanelEntry);
 
 //		SetFont("BIGFONT");
 //		SetFont("CentG_S");
@@ -404,7 +414,7 @@ Function void DrawPanelEntries (int Offset)
 	}
 }
 
-Function void SetPanelNumber(int Row, int Col, int Offset)
+Function void SetPanelNumber(int Row, int Col, int Offset, int Colorset)
 {
 	int x = SelectionX + (Col * SelectionWidth);
 	int y = SelectionY + (Row * RowHeight);
@@ -428,9 +438,6 @@ Function void SetPanelNumber(int Row, int Col, int Offset)
 //	SetFont("CentG_S");
 	SetFont("SUPBOLAA");
 //	SetFont("TRE14");
-	HudMessage (s:"\c[TOSMenuBrightLightGold]", l:strDeck; 0, 500, -1, x * 1.0 + 0.2, y * 1.0 + 0.1, 0);
-	If (Offset == 24)
-		HudMessage (s:"\c[Orange]<"; 0, 501, -1, x * 1.0 + 40.2, y * 1.0 + 0.1, 0);
-	Else
-		HudMessage (s:"\c[White]<"; 0, 501, -1, x * 1.0 + 40.2, y * 1.0 + 0.1, 0);
+	HudMessage (s:"\c[", s:Colorsets[Colorset][3], s:"]", l:strDeck; 0, 500, -1, x * 1.0 + 0.2, y * 1.0 + 0.1, 0);
+	HudMessage (s:"\c[", s:Colorsets[Colorset][4], s:"]<"; 0, 501, -1, x * 1.0 + 40.2, y * 1.0 + 0.1, 0);
 }

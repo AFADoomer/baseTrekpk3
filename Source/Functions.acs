@@ -1,18 +1,8 @@
 #define CanvasWidth 3072
 #define CanvasHeight 2304
 
-Script "Test" (int R, int G, int B, int A)
-{
-	R = R * 1.0 / 256;
-	G = G * 1.0 / 256;
-	B = B * 1.0 / 256;
-	A = A * 1.0 / 256;
-
-	DrawString("This is a message\r.\n\caWoohoo!\n\n\cbL\cco\cdt\ces \cfo\cgf \chc\cio\cjl\cko\clr\cms \cna\cor\cpe \cqa\crv\csa\cti\cul\cva\clble!", 0, 0, CanvasWidth * 1.0 / 3 + 0.1, CanvasHeight * 1.0 / 3, 4, "FNT_Y", 3, 0.85, 1.0, 0.0, 1.0, 1.0, 4);
-}
-
 //  Draws a string using the graphics directly; allows for alpha blending.
-//    Simplified support - cannot be translated, and is all fixed-width
+//    Simplified support - is all fixed-width
 //
 //  Example:
 //    For a centered, standard message:
@@ -23,20 +13,22 @@ Script "Test" (int R, int G, int B, int A)
 //
 Function void DrawNotification(str strString, str strFont, int intSize, int intSpacing)
 {
-	DrawString(strString, 0, 0, CanvasWidth * 1.0 / 2, CanvasHeight * 1.0 / 3, intSize, strFont, 0, 0.85, 1.0, 0.0, 0.0, 1.0, intSpacing);
+	DrawString(strString, 0, 0, CanvasWidth * 1.0 / 2, CanvasHeight * 1.0 / 3, intSize/*, strFont, 0*/, 0.85, 1.0, 0.0, 0.0, 1.0, intSpacing);
 }
 
-Function int DrawString(str strString, int flags, int msgID, int x, int y, int size, str strFontName, int intFontNamePadding, int intAlpha, int R, int G, int B, int intHoldTime, int intSpacing)
+Function int DrawString(str strString, int flags, int msgID, int x, int y, int size/*, str strFontName, int intFontNamePadding*/, int intAlpha, int R, int G, int B, int intHoldTime, int intSpacing)
 {
 	int l = 0, col = 0, row = 0;
 	int RInitial = R, GInitial = G, BInitial = B;
 	int strLetter;
 	str strLetterGraphic;
+	str strColor = "";
 
 	//Set Default Values
 	flags = flags | HUDMSG_FADEINOUT | HUDMSG_NOTWITHFULLMAP | HUDMSG_ALPHA;
-	If (!strFontName || strFontName == "") {strFontName = "STCFN";}
-	If (!intFontNamePadding) {intFontNamePadding = 3;}
+//	If (!strFontName || strFontName == "") {strFontName = "STCFN";}
+//	If (!intFontNamePadding) {intFontNamePadding = 3;}
+	int intFontNamePadding = 3;
 
 	If (size < 0) size = 0;
 	If (size > 8) size = 8;
@@ -72,26 +64,36 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 
 		If (strLetter >= 32)
 		{
-			strLetterGraphic = StrParam(s:strFontName, s:Pad(strLetter, intFontNamePadding));
+//			strLetterGraphic = StrParam(s:strFontName, s:Pad(strLetter, intFontNamePadding));
 /*
 			SetFont(strLetterGraphic);
 			HudMessage(s:"A"; flags, msgID * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, intAlpha);
 */
-			strLetterGraphic = StrParam(s:"FNT_R", s:Pad(strLetter, intFontNamePadding));
-			SetFont(strLetterGraphic);
-			HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, msgID * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, R);
 
-			strLetterGraphic = StrParam(s:"FNT_G", s:Pad(strLetter, intFontNamePadding));
-			SetFont(strLetterGraphic);
-			HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, (msgID + 1) * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, G);
+			If (R == G && G == B)
+			{
+				strLetterGraphic = StrParam(s:"STCFN", s:Pad(strLetter, intFontNamePadding));
+				SetFont(strLetterGraphic);
+				HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, msgID * 256 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, R);
+			}
+			Else
+			{
+				strLetterGraphic = StrParam(s:"FNT_R", s:Pad(strLetter, intFontNamePadding));
+				SetFont(strLetterGraphic);
+				HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, msgID * 256 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, R);
 
-			strLetterGraphic = StrParam(s:"FNT_B", s:Pad(strLetter, intFontNamePadding));
-			SetFont(strLetterGraphic);
-			HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, (msgID + 2) * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, B);
+				strLetterGraphic = StrParam(s:"FNT_G", s:Pad(strLetter, intFontNamePadding));
+				SetFont(strLetterGraphic);
+				HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, (msgID + 1) * 256 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, G);
+
+				strLetterGraphic = StrParam(s:"FNT_B", s:Pad(strLetter, intFontNamePadding));
+				SetFont(strLetterGraphic);
+				HudMessage(s:"A"; flags | HUDMSG_ADDBLEND, (msgID + 2) * 256 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, B);
+			}
 
 			strLetterGraphic = StrParam(s:"FNT_K", s:Pad(strLetter, intFontNamePadding));
 			SetFont(strLetterGraphic);
-			HudMessage(s:"A"; flags, (msgID + 3) * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, intAlpha);
+			HudMessage(s:"A"; flags, (msgID + 3) * 256 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, intAlpha);
 		}
 		Else
 		{
@@ -105,29 +107,39 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 				Case 28: //Color Change
 					Switch (GetChar(strString, l + 1))
 					{
-						Case 	97	: R = 	204	; G = 	51	; B = 	51	; break;		
-						Case 	98	: R = 	210	; G = 	180	; B = 	140	; break;		
-						Case 	99	: R = 	204	; G = 	204	; B = 	204	; break;		
-						Case 	100	: R = 	0	; G = 	204	; B = 	0	; break;		
-						Case 	101	: R = 	153	; G = 	102	; B = 	21	; break;		
-						Case 	102	: R = 	255	; G = 	204	; B = 	0	; break;		
-						Case 	103	: R = 	255	; G = 	85	; B = 	120	; break;		
-						Case 	104	: R = 	153	; G = 	153	; B = 	255	; break;		
-						Case 	105	: R = 	255	; G = 	170	; B = 	0	; break;		
-						Case 	106	: R = 	223	; G = 	223	; B = 	223	; break;		
-						Case 	107	: R = 	238	; G = 	238	; B = 	51	; break;		
-						Case 	108	: R = 	256	; G = 	256	; B = 	256	; break;		
-						Case 	109	: R = 	0	; G = 	0	; B = 	0	; break;		
-						Case 	110	: R = 	51	; G = 	238	; B = 	255	; break;		
-						Case 	111	: R = 	255	; G = 	204	; B = 	153	; break;		
-						Case 	112	: R = 	209	; G = 	216	; B = 	168	; break;		
-						Case 	113	: R = 	0	; G = 	140	; B = 	0	; break;		
-						Case 	114	: R = 	128	; G = 	0	; B = 	0	; break;		
-						Case 	115	: R = 	102	; G = 	51	; B = 	51	; break;		
-						Case 	116	: R = 	153	; G = 	102	; B = 	204	; break;		
-						Case 	117	: R = 	128	; G = 	128	; B = 	128	; break;		
-						Case 	118	: R = 	0	; G = 	221	; B = 	221	; break;		
-						Default		: R = RInitial	; G = GInitial	; B = BInitial	; break;
+						Case 91: //Left Bracket
+							log(s:"\crSorry, custom color names aren't supported (yet?).");
+							While (GetChar(strString, l + 1) != 93)
+							{
+								l++;
+							}
+							R = 256; G = 256; B = 256;
+						break;
+						Case 	97	: R = 	204	; G = 	51	; B = 	51	; break; //reddish brick
+						Case 	98	: R = 	210	; G = 	180	; B = 	140	; break; //tan
+						Case 	99	: R = 	204	; G = 	204	; B = 	204	; break; //gray
+						Case 	100	: R = 	0	; G = 	204	; B = 	0	; break; //green
+						Case 	101	: R = 	153	; G = 	102	; B = 	21	; break; //brown
+						Case 	102	: R = 	255	; G = 	204	; B = 	0	; break; //gold
+						Case 	103	: R = 	255	; G = 	85	; B = 	120	; break; //red
+						Case 	104	: R = 	153	; G = 	153	; B = 	255	; break; //blue
+						Case 	105	: R = 	255	; G = 	170	; B = 	0	; break; //orange
+						Case 	106	: R = 	223	; G = 	223	; B = 	223	; break; //white -> light gray
+						Case 	107	: R = 	246	; G = 	206	; B = 	57	; break; //k - yellow -> TOSGold
+						Case 	108	: R = 	256	; G = 	256	; B = 	256	; break; //original colors -> bright white
+						Case 	109	: R = 	0	; G = 	0	; B = 	0	; break; //black
+						Case 	110	: R = 	13	; G = 	154	; B = 	236	; break; //light blue -> TOSBlue
+						Case 	111	: R = 	255	; G = 	204	; B = 	153	; break; //cream
+						Case 	112	: R = 	209	; G = 	216	; B = 	168	; break; //olive
+						Case 	113	: R = 	0	; G = 	140	; B = 	0	; break; //dark green
+						Case 	114	: R = 	128	; G = 	0	; B = 	0	; break; //dark red
+						Case 	115	: R = 	102	; G = 	51	; B = 	51	; break; //dark brown
+						Case 	116	: R = 	153	; G = 	102	; B = 	204	; break; //purple
+						Case 	117	: R = 	128	; G = 	128	; B = 	128	; break; //dark gray
+						Case 	118	: R = 	0	; G = 	221	; B = 	221	; break; //cyan
+						Default		: R = RInitial	; G = GInitial	; B = BInitial	;
+							log(s:"\crUnhandled escape character color code: \cl", c:GetChar(strString, l + 1));
+						break;
 					}
 
 					R = R * 1.0 / 256;
@@ -138,7 +150,7 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 					col--;
 				break;
 				Default:
-					log(s:"\cgUnhandled escape character code: \cl", d:strLetter);
+					log(s:"\crUnhandled escape character code: \cl", d:strLetter);
 				break;
 			}
 		}
@@ -337,4 +349,68 @@ Function void Freeze(int Set)
 {
 	SetPlayerProperty(0, Set, PROP_NOTARGET);
 	SetPlayerProperty (0, Set, PROP_TOTALLYFROZEN);
+}
+
+Function str ExpandLanguageString(str strString, str input1, str input2, str input3, str input4, str input5, str input6)
+{
+	int l = 2;
+	str strTemp = "";
+
+	For (int t = 0; t <= StrLen(strString); t++)
+	{
+		If (GetChar(strString, t) == '^')
+		{
+			str strType = GetChar(strString, t + 1);
+			str strContent = "";
+
+			Switch (strType)
+			{
+				Case '1': strContent = input1; break; //Inputs ^1-^6
+				Case '2': strContent = input2; break;
+				Case '3': strContent = input3; break;
+				Case '4': strContent = input4; break;
+				Case '5': strContent = input5; break;
+				Case '6': strContent = input6; break;
+				Case 'k': //Print a key binding.  e.g., ^k+use
+					l = 2;
+					str strLetter = GetChar(strString, t + l);
+
+					While ((IsLetter(strLetter) || strLetter == '+') && t + l <= strLen(strString))
+					{
+						strLetter = GetChar(strString, t + l);
+
+						If (IsLetter(strLetter) || strLetter == '+')
+						{
+							strContent = strParam(s:strContent, c:strLetter);
+							l++;
+						}
+					}
+					strContent = strParam(k:strContent);
+				break;
+				Case 'l': //Print the level's name.  e.g., ^l
+					strContent = StrParam(n:PRINTNAME_LEVELNAME);
+				break;
+				Case 'm': //Print the level's lump name.  e.g., ^m
+					strContent = StrParam(n:PRINTNAME_LEVEL);
+				break;
+				Case 'n': //Print the player's name.  e.g., ^n
+					strContent = StrParam(n:0);
+				break;
+				Case 's': //Print the skill level name.  e.g., ^s
+					strContent = StrParam(n:PRINTNAME_SKILL);
+				break;
+				default: //Invalid case
+					strContent = "________";
+				break;
+			}
+
+			strTemp = strParam(s:strTemp, s:strContent);
+
+			t = t + l - 1;
+		}
+		Else
+			strTemp = strParam(s:strTemp, c:GetChar(strString, t));
+
+	}
+	Return strTemp;
 }

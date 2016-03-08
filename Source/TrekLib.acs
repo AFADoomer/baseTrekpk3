@@ -5,7 +5,8 @@
 #include "radar.acs"
 #include "lift.acs"
 
-global int 1:RedAlert;
+global int 4:RedAlert;
+global str 5:LogEntry[];
 
 int ReloadCount;
 int MapViewDelay;
@@ -56,10 +57,10 @@ int MapMoversArray[2048][2048][2]; //Width, Height, Color/Time
 int numTitles = 16;
 str TitleSequence[16][6] = {
 	//Camera, 		Angle, 		Graphic, 		Graphic Hold Time, Delay, Activation TID, 
-	{	1	, 	0	, 	""		, 	0.0	, 	35 * 9 + 17	, 	3	}, // First Pass - S 8s - 8 "frontier"
+	{	1	, 	0	, 	""		, 	0.0	, 	35 * 9 + 17	, 	3	}, // First Pass - S 8s - 8 "...frontier"
 	{	1	, 	0.2	, 	""		, 	0.0	, 	35 * 2	, 	4	}, // Reverse Angle - S 11s - 3
 	{	8	, 	0	, 	""		, 	0.0	, 	35 * 1	, 	5	}, // Toward Planet - S 13s - 2
-	{	6	, 	0	, 	""		, 	0.0	, 	35 * 3	, 	0	}, // In front of Planet - S 16s - 3 "Enterprise"
+	{	6	, 	0	, 	""		, 	0.0	, 	35 * 3	, 	0	}, // In front of Planet - S 16s - 3 "Enterprise..."
 	{	7	, 	0	, 	""		, 	0.0	, 	35 * 7 + 16	, 	0	}, // Reverse on Planet - S 24s - 8
 	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 3	, 	0	}, // Title - C 27s - 3
 	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 2	, 	3	}, // Title - S 29s - 2
@@ -68,10 +69,10 @@ str TitleSequence[16][6] = {
 	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 4	, 	9	}, // Shatner - S 37s - 2
 	{	1	, 	0.25	, 	"Credits3"	, 	4.0	, 	35 * 3	, 	0	}, // Shatner - G 40s - 3
 	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 4	, 	3	}, // Nimoy - S 45s - 5
-	{	1	, 	0.25	, 	"Credits4"	, 	4.0	, 	35 * 3	, 	0	}, // Nimoy - G 47s - 2
-	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 3	, 	9	}, // Kelley - S 51s - 4
-	{	1	, 	0.25	, 	"Credits5"	, 	4.0	, 	35 * 3	, 	0	}, // Kelley - G 54s - 3
-	{	1	, 	0	, 	""		, 	0.0	, 	35 * 2 + 15	, 	0	}  // Delay before loop
+	{	1	, 	0.25	, 	"Credits4"	, 	4.0	, 	35 * 2	, 	0	}, // Nimoy - G 47s - 2
+	{	1	, 	0.25	, 	""		, 	0.0	, 	35 * 4	, 	9	}, // Kelley - S 51s - 4
+	{	1	, 	0.25	, 	"Credits5"	, 	4.0	, 	35 * 2	, 	0	}, // Kelley - G 54s - 3
+	{	1	, 	0	, 	""		, 	0.0	, 	35 * 3 + 15	, 	0	}  // Delay before loop (and time delay until music is killed on first pass)
 };
 
 Script "W_LevelStart" ENTER
@@ -82,7 +83,7 @@ Script "W_LevelStart" ENTER
 	{
 		GiveInventory("HideHUD", 1);
 
-		SetMusic("music/opening.ogg", 0);
+		//SetMusic("music/opening.ogg", 0);
 
 		SetHudSize(320, 200, 1);
 		SetFont("WSMASK");
@@ -91,9 +92,9 @@ Script "W_LevelStart" ENTER
 		ChangeCamera(1, 1, 1);
 		SetCameraToTexture(1, "TITLECAM", 90);
 
-		SetHudSize(640, 400, 1);
+		SetHudSize(1280, 960, 1);
 		SetFont("TITLECAM");
-		HudMessage (s:"A"; 0, 2, -1, 320.0, 200.0, 0);
+		HudMessage (s:"A"; 0, 2, -1, 640.0, 480.0, 0);
 
 		int showplanet = 0;
 		bool shuttle = 0;
@@ -119,7 +120,10 @@ Script "W_LevelStart" ENTER
 				}
 				Else
 				{
-					Delay(actionDelay);
+					If (HoldTime > 0)
+						Delay(actionDelay - (0.5 * 35 / 1.0)); //Graphic transitions have built-in delays, so account for those in wait time
+					Else
+						Delay(actionDelay);
 				}
 
 				ChangeCamera(Camera, 1, 1);
@@ -131,9 +135,62 @@ Script "W_LevelStart" ENTER
 
 				If (strGraphic != "" && showPlanet == 0)
 				{
-					SetHudSize(1024, 768, 0);
+					int intTimeIn, intTimeHold, intTimeOut;
+					int intEndHeight, intStartScale, intSteps, intStartHeight, intSizeStep, intAlpha, intHeight, intWidth;
+					int s;
+
+					intTimeIn = 0.5;
+
+					If (t == 8)
+					{ //Scale the old graphic and move it up
+						intEndHeight = 1227;
+						intStartScale = 0.626; //Height of 768 relative to the final size 
+
+						intSteps = intTimeIn * 35 / 1.0;
+						intStartHeight = intEndHeight * intStartScale / 1.0;
+						intSizeStep = (intStartHeight - intEndHeight) / intSteps;
+
+						For (s = 0; s <= intSteps; s++)
+						{
+							intHeight = intStartHeight - (s * intSizeStep);
+							intWidth = intHeight * (4.0 / 3) / 1.0;
+							SetHudSize(intWidth, intHeight, 1);
+							HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, 1, -1, (intWidth / 2 + (-74 * s / intSteps)) * 1.0, (intHeight / 2 + (-171 * s / intSteps)) * 1.0, 0);
+							Delay(1);
+						}
+						HudMessage (s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_OVERHUD, 0, -1, (intWidth / 2 - 74) * 1.0, (intHeight / 2 - 171) * 1.0, 1.0, 0.0, 0.5); //Draw as layer 0 so there's no fade in/out of the main logo
+
+						SetHudSize(1024, 768, 0);
+						intHeight = 768;
+						intWidth = 1024;
+					}
+
 					SetFont(strGraphic);
-					HudMessage(s:"A"; HUDMSG_FADEINOUT, 0, 0, 512.0, 384.0, HoldTime, 0.5, 0.5);
+
+					if (t != 8)
+					{
+						intEndHeight = 768;
+						intStartScale = 0;
+
+						intSteps = intTimeIn * 35 / 1.0;
+						intStartHeight = intEndHeight * intStartScale / 1.0;
+						intSizeStep = (intStartHeight - intEndHeight) / intSteps;
+
+						For (s = 0; s <= intSteps; s++)
+						{
+							intHeight = intStartHeight - (s * intSizeStep);
+							intWidth = intHeight * (4.0 / 3) / 1.0;
+							intAlpha = s * 1.0 / intSteps;
+							SetHudSize(intWidth, intHeight, 1);
+							HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD | HUDMSG_ALPHA, 1, -1, intWidth / 2 * 1.0, intHeight / 2 * 1.0, 0, intAlpha);
+							Delay(1);
+						}
+						intTimeIn = 0;
+					}
+
+					if (t == 7) HoldTime = 10.0;
+
+					HudMessage (s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_OVERHUD, 1, -1, intWidth / 2 * 1.0, intHeight / 2 * 1.0, HoldTime, intTimeIn, 0.5);
 				}
 
 				If (TID > 0)
@@ -154,124 +211,11 @@ Script "W_LevelStart" ENTER
 
 				oldCamera = Camera;
 			}
-/*
-			Thing_Activate(3);
-			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
-			For (int i = 0.0; i <= 1.0; i += 0.1)
+
+			Switch (showplanet % 3)
 			{
-				SetActorProperty(2, APROP_Alpha, i);	
-				Delay(1);
-			}
-			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
-			Delay(35 * 2);
-
-			SetActorAngle(1, 0.2);
-			Thing_Activate(4);
-			Delay(35 * 2);
-
-			ChangeCamera(8, 1, 1);
-			Thing_Activate(5);
-			Delay(35 * 3);
-
-			ChangeCamera(6, 1, 1);
-			Delay(35* 6 + 17);
-
-			ChangeCamera(7, 1, 1);
-			Delay(35 * 4);
-
-			SetActorAngle(1, 0.25);
-			ChangeCamera(1, 1, 1);
-
-			//Title
-			If (showplanet == 0)
-			{
-				SetFont("Credits1");
-				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 5.0, 2.286, 0.0);
-			}
-
-			Thing_Activate(3);
-			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
-			For (i = 0.0; i <= 1.0; i += 0.1)
-			{
-				SetActorProperty(2, APROP_Alpha, i);	
-				Delay(1);
-			}
-			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
-
-			Delay(35 * 7);
-
-			//Roddenberry
-			If (showplanet == 0)
-			{
-				SetFont("Credits2");
-				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 7.0, 2.0, 0.0);
-			}
-
-			Delay(33 + 35);
-
-			Thing_Activate(9);
-			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
-			For (i = 0.0; i <= 1.0; i += 0.1)
-			{
-				SetActorProperty(2, APROP_Alpha, i);	
-				Delay(1);
-			}
-			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
-			Delay(35 * 8);
-
-			//Shatner
-			If (showplanet == 0)
-			{
-				SetFont("Credits3");
-				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 3.0, 2.0, 0.0);
-			}
-
-			Thing_Activate(3);
-			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
-			For (i = 0.0; i <= 1.0; i += 0.1)
-			{
-				SetActorProperty(2, APROP_Alpha, i);	
-				Delay(1);
-			}
-			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
-			Delay(35 * 4 + 17);
-
-			//Nimoy
-			If (showplanet == 0)
-			{
-				SetFont("Credits4");
-				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 2.0, 2.0, 0.0);
-			}
-
-			Thing_Activate(9);
-			SetActorProperty(2, APROP_RenderStyle, Style_Translucent);
-			For (i = 0.0; i <= 1.0; i += 0.1)
-			{
-				SetActorProperty(2, APROP_Alpha, i);	
-				Delay(1);
-			}
-			SetActorProperty(2, APROP_RenderStyle, Style_Normal);
-			Delay(35 * 4);
-
-			//Kelley
-			If (showplanet == 0)
-			{
-				SetFont("Credits5");
-				HudMessage(s:"A"; HUDMSG_FADEINOUT, 1000, 0, 512.0, 384.0, 2.0, 2.0, 0.0);
-			}
-
-			SetMusic("*", 0);
-
-			Delay(35 * 10);
-*/
-
-			Switch (showplanet % 4)
-			{
-				Case 3:
-					SetActorState(20, "Spawn");
-				break;
 				Case 2:
-					SetActorState(20, "Hidden");
+					SetActorState(20, "Spawn");
 				break;
 				Case 1:
 					SetActorState(20, "Shuttle");
@@ -297,16 +241,20 @@ Script "W_LevelStart" ENTER
 	}
 	Else
 	{
-		CheckEnterSound();
+		If (!GetCVar("gl_precache"))
+			Notification("\crWarning!", "This mod contains textures that cause game lag when not pre-cached.\nPlease enable \cl'Precache GL Textures'\cc in the OpenGL Texture Options Menu.", "Alternatively, you can set the \cl'gl_precache'\cc CVAR to \cltrue\cc in the console.", 1);
 
-		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Test") == 0)
+		CheckEnterSound();
+		LogEntry[PlayerNumber()] = ""; //No objective is set at this time.
+
+		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Planet") == 0)
 		{
 			Thing_Activate(5);
 		}
-	}
 
-	ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);
-	SetCameraToTexture(553, "SHU_CAM", 85);
+		SetCameraToTexture(553, "SHU_CAM", 85);
+		ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);
+	}
 }
 
 Function void CheckEnterSound (void)
@@ -766,9 +714,9 @@ Script "A_Stun" (int time)
 
 Function void FadeToGraphic (str strImage, int holdTime, int inTime, int outTime)
 {
-	SetHudSize(640, 400, 1);
+	SetHudSize(1280, 960, 1);
 	SetFont(strImage);
-	HudMessage (s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_OVERHUD, 1, -1, 320.0, 200.0, holdTime, inTime, outTime);
+	HudMessage (s:"A"; HUDMSG_FADEINOUT | HUDMSG_LAYER_OVERHUD, 1, -1, 640.0, 480.0, holdTime, inTime, outTime);
 }
 
 Script "A_Transport" (int Fade, int BeamDir)
@@ -864,7 +812,7 @@ Script "A_AmmoStation" (int intType, int intAmt)
 	}
 }
 
-Script "ToggleFly" (int EnterExit, int Angle)
+Script "ToggleFly" (int EnterExit, int minHeight, int maxHeight)
 {
 	If (PlayerNumber() < 0) Terminate;
 
@@ -873,8 +821,22 @@ Script "ToggleFly" (int EnterExit, int Angle)
 		SetPlayerProperty (0, 1, PROP_FLY);
 		SetUserVariable(0, "user_climb", 1);
 /*
-		If (Angle)
-			SetActorAngle(0, Angle * 1.0 / 360);
+		If (minHeight != 0 && maxHeight != 0)
+		{
+			While (TRUE)
+			{
+				If (GetActorZ(ActivatorTID()) > maxHeight << 16)
+				{
+					ThrustThingZ(0, -16, 0, 0);
+				}
+				Else If (GetActorZ(ActivatorTID()) < minHeight << 16)
+				{
+					SetPlayerProperty (0, 0, PROP_FLY);
+					Terminate;
+				}
+				Delay(1);
+			}
+		}
 */
 	}
 	Else
@@ -1034,13 +996,13 @@ Script "GetTargetTID" (void)
 	SetActivator(0, AAPTR_PLAYER_GETTARGET);
 	int TID = ActivatorTID();
 
-	If (TID == 0) 
+	If (TID == 0 && StrICmp(GetActorClass(0), "None") != 0) 
 	{
 		TID = UniqueTID(20000);
 		Thing_ChangeTID(0, TID);
 	}
 
-	SetResultValue (ActivatorTID());
+	SetResultValue (TID);
 }
 
 Script "PrintInfo" (void)
@@ -1171,7 +1133,6 @@ Script "PrintScan" (int filter)
 			If (GetUserVariable(TID, "user_height") > 0) Height = GetUserVariable(TID, "user_height") * 1.0;
 			If (GetUserVariable(TID, "user_width") > 0) Radius = (GetUserVariable(TID, "user_width") / 2) * 1.0;
 //		}
-
 		int SpawnHealth = GetActorProperty(TID, APROP_SpawnHealth);
 		int Friend = GetActorProperty(TID, APROP_Friendly);
 		int Class = GetActorProperty(TID, APROP_NameTag);
@@ -1435,7 +1396,7 @@ Script "A_CheckNavDir" (void)
 		originY = ActorY + 12.0 + (32.0 * moveY); 
 
 		Spawn("Nav_Check", originX, originY, ActorZ + 32.0, 1900 + ID, 0);
-
+	
 		moves[(a / 64) + 1] = 0;
 
 		For (int i = 1; i <= intMaxMove; i = i + 1)
@@ -1763,14 +1724,15 @@ Script "GrantAccess" (int intLevel)
 
 	PlaySound(0, "computer/button2");
 
-	log(l:strParam(s:"LOCK_", d:intLevel, s:"_G"));
+//	log(l:strParam(s:"LOCK_", d:intLevel, s:"_G"));
+	Notification("Access Granted!", StrParam(l:strParam(s:"LOCK_", d:intLevel, s:"_G")), "", 1);
 	GiveActorInventory(ActivatorTID(), strKey, 1);
 }
 
 Script "OpenGarageDoor" (int sector, int speed, int lock)
 {
 	PlaySound(0, "computer/button2");
-	log(d:Generic_Door(sector, speed, 1, 0, lock));
+	Generic_Door(sector, speed, 1, 0, lock);
 }
 
 Script "Flight" (void)
@@ -1912,4 +1874,43 @@ Script "TurnActor" (int TID, int angle, int tics)
 	SetActorAngle(TID, angle);
 	Delay(tics);
 	SetActorAngle(TID, oldAngle);
+}
+
+Script "Test" (void)
+{
+	LogEntry[PlayerNumber()] = "This is a test";
+}
+
+Function void Notification(str strTitle, str strContent, str strLogOnlyContent, bool bLog)
+{
+	str strString = StrParam(s:"\ck", s:strTitle, s:"\n\n\cc", s:strContent);
+
+	If (GetInput)
+		DrawString(StrParam(s:"\ck", s:strTitle, s:"\n\cc", s:strContent), 0, 0, 20.1, 40.1, 3, 1.0, 1.0, 1.0, 1.0, 5.0, 4);
+	Else
+	{
+		DrawString(strString, 0, 0, 740.1, 140.1, 3, 1.0, 1.0, 1.0, 1.0, 5.0, 4);
+		SetFont("MSGBOX");
+		SetHudSize(320, 200, 0);
+		HudMessage (s:"A"; HUDMSG_FADEINOUT | HUDMSG_ALPHA, 14000, -1, 70.1, 5.1, 4.0, 1.0, 1.0, 0.6);
+	}
+
+	If (bLog)
+	{
+		If (StrLen(strLogOnlyContent) > 0)
+			HudMessage (s:strString, s:"\n\n", s:strLogOnlyContent; HUDMSG_LOG | HUDMSG_ALPHA, 4000, 0, 0, 0, 0, 0);
+		Else
+			HudMessage (s:strString; HUDMSG_LOG | HUDMSG_ALPHA, 4000, 0, 0, 0, 0, 0);
+	}
+}
+
+Script "TestMessage" (int R, int G, int B, int A)
+{
+	R = R * 1.0 / 256;
+	G = G * 1.0 / 256;
+	B = B * 1.0 / 256;
+	A = A * 1.0 / 256;
+
+	Notification("Hello!", "This is a message", "This is only in the console!", 1);
+//	DrawString("This is a message\r.\n\caWoohoo!\n\n\cbL\cco\cdt\ces \cfo\cgf \chc\cio\cjl\cko\clr\cms \cna\cor\cpe \cqa\crv\csa\cti\cul\cva\clble!", 0, 0, CanvasWidth * 1.0 / 3 + 0.1, CanvasHeight * 1.0 / 3, 4/*, "FNT_Y", 3*/, 0.85, 1.0, 0.0, 1.0, 1.0, 4);
 }
