@@ -25,6 +25,8 @@ ambient/corr2			corr_2
 ambient/lab			lab
 ambient/brief			brief
 ambient/hangar			hangar
+ambient/shuttle			shuttle
+ambient/forcefield		forcefield
 
 door/starfleet			door
 
@@ -42,6 +44,8 @@ weapons/alien			shoot
 weapons/torpedo			photorp
 weapons/electric		electric
 weapons/explode			explode
+
+weapons/railgf			phaser_f	//For non-player railgun/phasers
 
 computer/button1		button1
 computer/button2		button2
