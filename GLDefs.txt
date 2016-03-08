@@ -238,44 +238,14 @@ brightmap texture "WALL2SW1" {map "WALLMSW1"}
 brightmap texture "WALL3SW0" {map "WALLMSW0"}
 brightmap texture "WALL3SW1" {map "WALLMSW1"}
 
-HardwareShader Texture Water
-{
-	Shader "shaders/glsl/func_warp1.fp"
-	Speed 1.0
-}
+HardwareShader Texture Water { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
+HardwareShader Texture Water2 { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
+HardwareShader Texture Water_P { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 
-HardwareShader Texture Water2
-{
-	Shader "shaders/glsl/func_warp1.fp"
-	Speed 1.0
-}
+HardwareShader Texture Field_R { Shader "shaders/func_forcefield.fp" Speed 10.0 }
+HardwareShader Texture Field_O { Shader "shaders/func_forcefield.fp" Speed 10.0 }
+HardwareShader Texture Field_Y { Shader "shaders/func_forcefield.fp" Speed 10.0 }
+HardwareShader Texture Field_G { Shader "shaders/func_forcefield.fp" Speed 10.0 }
+HardwareShader Texture Field_W { Shader "shaders/func_forcefield.fp" Speed 10.0 }
 
-HardwareShader Texture Field_R
-{
-	Shader "shaders/func_forcefield.fp"
-	Speed 10.0
-}
-
-HardwareShader Texture Field_O
-{
-	Shader "shaders/func_forcefield.fp"
-	Speed 10.0
-}
-
-HardwareShader Texture Field_Y
-{
-	Shader "shaders/func_forcefield.fp"
-	Speed 10.0
-}
-
-HardwareShader Texture Field_G
-{
-	Shader "shaders/func_forcefield.fp"
-	Speed 10.0
-}
-
-HardwareShader Texture Field_W
-{
-	Shader "shaders/func_forcefield.fp"
-	Speed 10.0
-}
+HardwareShader Sprite WFLAG0 { Shader "shaders/rotate_cw.fp" Speed 10.0 }
