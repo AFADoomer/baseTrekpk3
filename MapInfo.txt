@@ -55,7 +55,7 @@ skill nightmare
 {
 	SpawnFilter = "Nightmare"
 	Name = "$SK_5"
-	TextColor = "TOSBrightPurple"
+	TextColor = "TOSBlue"
 	Key = "5"
 	AmmoFactor = 2
 	FastMonsters
@@ -75,7 +75,6 @@ DefaultMap
 {
 	Sky1 = "StarFld"
 	Music = ""
-	PixelRatio = 1.2
 	Cluster = 1
 
 	CheckSwitchRange

@@ -43,7 +43,7 @@ TOSBrightLightBlue
 	#33EEFF	#33EEFF
 }
 
-	TOSBrightCream
+TOSBrightCream
 {
 	#FFCC99	#FFCC99
 }
@@ -53,6 +53,7 @@ TOSBrightPurple
 	#9966CC	#9966CC
 }
 
+/*
 White
 {
 	#AAAAAA	#FFFFFF
@@ -70,8 +71,9 @@ Console:
 Flat:
 	#CCCCCC
 }
+*/
 
-DarkGray DarkGrey "Dark Gray" "Dark Grey"
+DarkGray DarkGrey "Dark Gray" "Dark Grey" TOSDarkGrey
 {
 	#BBBBBB  #DDDDDD
 Console:
@@ -132,4 +134,13 @@ TOSBrightBlue
 TOSBrightOrange
 {
 	#FFAA00	#FFAA00
+}
+
+TOSBlue
+{
+	#0a69a1 #0d9aec
+Console:
+	#0a69a1 #0d9aec
+Flat:
+	#0d9aec
 }

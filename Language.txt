@@ -1,5 +1,7 @@
 [enu default]
 
+LOCKED = "Access Denied";
+LOCK = "Level ^1 Access Required";
 LOCK_2 = "Level 2 Access Required";
 LOCK_2_G = "Level 2 Access Granted";
 LOCK_3 = "Level 3 Access Required";
@@ -18,7 +20,24 @@ SK_3 = "This isn't my first landing party";
 SK_4 = "I give the orders around here";
 SK_5 = "I've been beyond the galactic barrier";
 
-BARRIER = "Are you sure?\n\nEveryone who survived that experience is dead...";
+BARRIER = "Are you sure?";
+
+//Pickups and items
+CHARGE = "A partial charge for a Type-II Phaser";
+CHARGES = "A pack of charges for a Type-II Phaser";
+RIFLECHARGE = "A partial charge for a Phaser Rifle";
+RIFLECHARGE = "A pack of charges for a Phaser Rifle";
+PHOTONGRENADE = "A Photon Grenade";
+PHOTONGRENADES = "A pack of Photon Grenades";
+DISRUPTORCHARGE = "A partial charge for a Klingon Disruptor";
+DISRUPTORCHARGES = "A pack of charges for a Klingon Disruptor";
+PHASER1 = "Type I Phaser";
+PHASER2 = "Type II Phaser";
+PHASERRIFLE = "Phaser Rifle";
+DISRUPTOR = "Klingon Disruptor";
+PHOTONGRENADELAUNCHER = "Photon Grenade Launcher";
+TRICORDER = "Tricorder";
+PHOTONTORPEDO = "Photon Torpedo Targeting System";
 
 // Map-specific thing tags
 //
