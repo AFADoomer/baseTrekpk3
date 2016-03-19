@@ -11,6 +11,7 @@ ACTOR OldTrekPlayer : PlayerPawn
 	Player.CrouchSprite "PLYC"
 	Player.StartItem "PhaserType2"
 	Player.StartItem "Tricorder"
+	Player.StartItem "Communicator"
 	Player.StartItem "Charge", 100
 	Player.WeaponSlot 1, "Punch", "PhaserType1"
 	Player.WeaponSlot 2, "PhaserType2"
@@ -20,7 +21,7 @@ ACTOR OldTrekPlayer : PlayerPawn
 	Player.WeaponSlot 6, ""
 	Player.WeaponSlot 7, ""
 	Player.WeaponSlot 8, ""
-	Player.WeaponSlot 9, "PhotonTorpedo"
+	Player.WeaponSlot 9, "Communicator"
 	Player.WeaponSlot 0, "Tricorder"
 	Player.ViewHeight 64
 	Tag "Human Male"
@@ -246,6 +247,7 @@ ACTOR TrekPlayer : PlayerPawn
 	Player.CrouchSprite "TOSO"
 	Player.StartItem "PhaserType2"
 	Player.StartItem "Tricorder"
+	Player.StartItem "Communicator"
 	Player.StartItem "Charge", 100
 	Player.WeaponSlot 1, "Punch", "PhaserType1"
 	Player.WeaponSlot 2, "PhaserType2"
@@ -255,7 +257,7 @@ ACTOR TrekPlayer : PlayerPawn
 	Player.WeaponSlot 6, ""
 	Player.WeaponSlot 7, ""
 	Player.WeaponSlot 8, ""
-	Player.WeaponSlot 9, "PhotonTorpedo"
+	Player.WeaponSlot 9, "Communicator"
 	Player.WeaponSlot 0, "Tricorder"
 	Player.ViewHeight 64
 	Player.Portrait "Icon"

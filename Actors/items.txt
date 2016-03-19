@@ -20,6 +20,20 @@ Actor Transport : CustomInventory Replaces TeleportFog
 
 }
 
+Actor TransportK : CustomInventory
+{
+	+AUTOACTIVATE
+	States
+	{
+		Spawn:
+			TNT1 A -1
+			Loop
+		Pickup:
+			TNT1 A 0 ACS_NamedExecuteAlways("A_TransportK", 0)
+			Stop
+	}
+}
+
 Actor TransportOut : Transport
 {
 	States

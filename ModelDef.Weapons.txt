@@ -429,3 +429,40 @@ Model PhaserRifleStation
 	Skin 1 "PhaserRifleStationScreen_D.jpg"
 	FrameIndex TOS2 D 1 0
 }
+
+Model Communicator
+{
+	Path "models/weapons/"
+	Model 0 "communicator.md3"
+
+	Scale -1.0 1.0 1.0
+
+	AngleOffset -18.0
+	Offset 0.0 5.0 -4.5
+
+	//Static, Closed
+	FrameIndex PHAS A 0 0
+
+	//Opening	
+	FrameIndex PHAS B 0 1
+	FrameIndex PHAS C 0 3
+	FrameIndex PHAS D 0 6
+	FrameIndex PHAS E 0 9
+
+	//Open
+	FrameIndex PHAS F 0 10
+
+	NOINTERPOLATION //Because it decides to shrink and expand the shape instead of just rotating it
+
+	//Static, Open
+	FrameIndex PHAS G 0 11
+	FrameIndex PHAS H 0 12
+	FrameIndex PHAS I 0 13
+	FrameIndex PHAS J 0 14
+	FrameIndex PHAS K 0 15
+	FrameIndex PHAS L 0 16
+	FrameIndex PHAS M 0 17
+	FrameIndex PHAS N 0 18
+	FrameIndex PHAS O 0 19
+	FrameIndex PHAS P 0 20
+}

@@ -1,3 +1,92 @@
+Model Skybox1 //Day
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Skin 0 "vasquez.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Skybox2 //Night
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Skin 0 "vasquez2.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Skybox3 //Horizon only, transparent sky
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Skin 0 "vasquezM.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Skybox4 //Stars
+{
+	Path "Models/mapobjects/skybox"
+	Model 0 "skybox.md3"
+	Path "Textures/"
+	Skin 0 "StarFld.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Skybox5 //Clouds (Red)
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet2.md3"
+	Skin 0 "clouds_r.png"
+
+	Rotating
+	Rotation-Speed -0.011
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Skybox6 //Clouds
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet2.md3"
+	Skin 0 "clouds.png"
+
+	Rotating
+	Rotation-Speed -0.011
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Skybox7 //Clouds for Sky
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/skybox/"
+	Model 0 "skybox.md3"
+	Skin 0 "cloud_ov.png"
+
+	Rotating
+	Rotation-Speed 0.01
+	Rotation-Vector 0.0 0.0 1.0
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model TOSChair
 {
 	Path "Models/mapobjects/tos/"

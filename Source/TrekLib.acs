@@ -83,7 +83,7 @@ Script "W_LevelStart" ENTER
 	{
 		GiveInventory("HideHUD", 1);
 
-		//SetMusic("music/opening.ogg", 0);
+		SetMusic("music/opening.ogg", 0);
 
 		SetHudSize(320, 200, 1);
 		SetFont("WSMASK");
@@ -249,7 +249,8 @@ Script "W_LevelStart" ENTER
 
 		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Planet") == 0)
 		{
-			Thing_Activate(5);
+			//Thing_Activate(5);
+			Scroll_Floor(17, 2, 2, 0); //Scrolling fog/clouds effect
 		}
 
 		SetCameraToTexture(553, "SHU_CAM", 85);
@@ -767,6 +768,26 @@ Script "A_Transport" (int Fade, int BeamDir)
 	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 	SetActorProperty(0, APROP_INVULNERABLE, 0);
 }
+
+Script "A_TransportK" (void)
+{
+	SetActorProperty(0, APROP_INVULNERABLE, 1);
+	SetActorProperty(0, APROP_RenderStyle, STYLE_TranslucentStencil);
+
+	SetActorProperty(0, APROP_Alpha, 0);
+	SetActorProperty(0, APROP_StencilColor, "#bf0000");
+
+	For (int in = 0; in <= 100; in = in + 1)
+	{
+		If (in >= 25) SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
+		SetActorProperty(0, APROP_Alpha, in * 0.01);
+		Delay (1);
+	}
+
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
+	SetActorProperty(0, APROP_INVULNERABLE, 0);
+}
+
 
 Script "A_AmmoStation" (int intType, int intAmt)
 {

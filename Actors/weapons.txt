@@ -547,7 +547,7 @@ ACTOR PhotonTorpedoShot : Ammo
 	Inventory.Icon "TNT1A0"
 }
 
-Actor PhotonTorpedo : Weapon Replaces BFG9000
+Actor Communicator : Weapon Replaces BFG9000
 {
 	+SHOOTABLE
 	+NODAMAGE
@@ -570,18 +570,18 @@ Actor PhotonTorpedo : Weapon Replaces BFG9000
 			PHAS P -1
 			Stop
 		Ready:
-			PHAS A 1 A_WeaponReady
+			PHAS GGGHHHIIIJJJKKKLLLMMMNNNOOO 2 A_WeaponReady
 			Loop
 		Deselect:
-			PHAS A 1 A_Lower
-			Loop
+			PHAS FEDCBAAAAAAAAAAAAAA 1 A_Lower
+			Goto Ready
 		Select:
-			PHAS A 1 A_Raise
-			Loop
+			PHAS AAAAAAAAAAAAAABBCCDDEEFFF 1 A_Raise
+			Goto Ready
 		Fire:
-			PHAS A 1 A_JumpIf(CallACS("A_CheckOutdoors") == 0, "Ready")
-			PHAS B 1 A_FireCustomMissile("Trail", Random(-1, 1), 1, 0, ceilingz - z - height - 32, 1, 0)
-			PHAS A 24
+			PHAS F 1 A_JumpIf(CallACS("A_CheckOutdoors") == 0, "Ready")
+			PHAS F 1 A_FireCustomMissile("Trail", Random(-1, 1), 1, 0, ceilingz - z - height - 32, 1, 0)
+			PHAS F 24
 			Goto Ready
 	}
 }

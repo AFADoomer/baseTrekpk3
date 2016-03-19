@@ -2141,6 +2141,14 @@ Sprite FLARW0, 64, 64
 	Graphic Burst, 0, 0
 }
 
+Sprite FLARE0, 320, 320
+{
+	Offset 160, 160
+	XScale 2.5
+	YScale 2.5
+	Graphic Flare, 0, 0
+}
+
 Graphic Marker_0, 32, 32 {Graphic Marker_A, 0, 0}
 Graphic Marker_1, 32, 32 {Graphic Marker_1, 0, 0}
 Graphic Marker_2, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 90}}
@@ -2581,6 +2589,13 @@ Texture LogBkg, 300, 40
 Graphic MSGBOX, 250, 30
 {
 	Graphic Black, 0, 0
+}
+
+Texture Cloud_Ov, 1024, 1024
+{
+	XScale 12.0
+	YScale 12.0
+	Graphic Cloud_Ov, 0, 0
 }
 
 // End of texture definitions

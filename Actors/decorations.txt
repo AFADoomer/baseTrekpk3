@@ -85,7 +85,18 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 Actor Skybox1 : TOSDecoration 21000 {}
 Actor Skybox2 : TOSDecoration 21001 {}
 Actor Skybox3 : TOSDecoration 21002 {}
-Actor Skybox4 : TOSDecoration 21003 {}
+Actor Skybox4 : TOSDecoration 21003
+{
+	States
+	{
+		Static:
+			TOS1 A -1 Bright
+			Stop
+	}
+}
+Actor Skybox5 : TOSDecoration 21004 {}
+Actor Skybox6 : TOSDecoration 21005 {}
+Actor Skybox7 : TOSDecoration 21006 { RenderStyle Translucent Alpha 0.7 }
 
 Actor TOSChair : TOSDecoration 20001
 {

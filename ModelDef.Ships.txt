@@ -159,12 +159,20 @@ Model TOSPlanet
 	Skin 0 "planet.jpg"
 
 	Rotating
-	Rotation-Speed -0.1
+	Rotation-Speed -0.01
 
 	Scale 0.3 0.3 0.3
 
 	FrameIndex TOS1 A 0 0
+
+	Model 1 "planet2.md3"
+	Skin 1 "clouds_r.png"
+
+	Rotation-Speed -0.011
+
+	FrameIndex TOS1 A 1 0
 }
+
 
 Model TOSPlanet
 {
@@ -188,20 +196,20 @@ Model TOSPlanet
 	INHERITACTORPITCH
 	INHERITACTORROLL
 
-	Path "Models/mapobjects/tos/shuttles"
-	Model 0 "galileo.md3"
+	Path "Models/mapobjects/tos/dy-100"
+	Model 0 "dy-100.md3"
 
 	PitchOffset -15.0
 	RollOffset 5.0
 	ZOffset 64.0
-	AngleOffset 180.0
+	AngleOffset -90.0
 
 	Rotating
-	Rotation-Speed 0.1 
-	Rotation-Center -32.0 0.0 0.0
-	Rotation-Vector 0.0 1.0 0.2
+	Rotation-Speed 0.05 
+	Rotation-Center -32.0 -32.0 -32.0
+	Rotation-Vector 0.3 0.5 0.2
 
-	Scale 0.01 0.01 0.01
+	Scale 0.1 0.1 0.1
 
 	FrameIndex TOS1 C 0 0
 }

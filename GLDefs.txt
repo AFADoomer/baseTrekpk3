@@ -6,11 +6,27 @@ pulselight TransporterBeam
 	interval 2.75
 }
 
+pulselight TransporterBeamK
+{
+	color 1.0 0.5 0.5
+	size 0
+	secondarySize 20
+	interval 2.75
+}
+
 object TransporterLight
 {
 	frame UNKN
 	{
 		light TransporterBeam
+	}
+}
+
+object TransporterLightK
+{
+	frame UNKN
+	{
+		light TransporterBeamK
 	}
 }
 
@@ -241,6 +257,10 @@ brightmap texture "WALL3SW1" {map "WALLMSW1"}
 HardwareShader Texture Water { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 HardwareShader Texture Water2 { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 HardwareShader Texture Water_P { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
+
+HardwareShader Texture "models/mapobjects/tos/clouds_r.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.01 }
+HardwareShader Texture "models/mapobjects/skybox/cloud_ov.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.02 }
+HardwareShader Texture cloud_ov { Shader "shaders/glsl/func_warp2.fp" Speed 0.02 }
 
 HardwareShader Texture Field_R { Shader "shaders/func_forcefield.fp" Speed 10.0 }
 HardwareShader Texture Field_O { Shader "shaders/func_forcefield.fp" Speed 10.0 }
