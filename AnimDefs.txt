@@ -8,7 +8,7 @@ cameratexture TRICHUDS 250 200
 cameratexture SHU_CAM 604 338 fit 159 89 worldpanning
 cameratexture TITLECAM 1280 960 fit 1280 960
 cameratexture TITLEALT 1280 960 fit 1280 960
-
+/*
 texture WALLALE3
     allowdecals
     pic WALLALER tics 35
@@ -43,7 +43,7 @@ texture BR_WALLU
     allowdecals
     pic BR_WALLR tics 35
     pic BR_WALLU tics 35
-
+*/
 texture WALL_BEB
     allowdecals
     pic WALL_BEA tics 35
@@ -69,3 +69,16 @@ Texture Icon2
 	pic Icon2B tics 2
 	pic Icon2C tics 2
 	pic Icon2D tics 2
+
+Texture Hypo
+	pic Hypo1 tics 2
+	pic Hypo2 tics 2
+	pic Hypo3 tics 2
+	pic Hypo4 tics 3
+	pic Hypo5 tics 3
+	pic Hypo6 tics 3
+	pic Hypo7 tics 4
+	pic Hypo8 tics 4
+	pic Hypo9 tics 4
+	pic Hypo tics 8
+	Oscillate

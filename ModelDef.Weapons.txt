@@ -166,6 +166,22 @@ Model PhaserRifle
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
 
+/*
+	AngleOffset 4.0
+	Offset 4.0 -3.0 -7.0
+	FrameIndex PHAS B 0 0
+
+	AngleOffset 2.0
+	Offset 2.0 -3.0 -7.5
+	FrameIndex PHAS C 0 0
+
+	AngleOffset 0.0
+	Offset 0.0 -3.0 -8.0
+	FrameIndex PHAS D 0 0
+
+	Offset 0.0 -2.75 -8.0
+	FrameIndex PHAS E 0 0
+*/
 	Rotation-Speed 0.5
 
 	AngleOffset 180.0
@@ -430,15 +446,15 @@ Model PhaserRifleStation
 	FrameIndex TOS2 D 1 0
 }
 
-Model Communicator
+Model TOSCommunicator
 {
 	Path "models/weapons/"
 	Model 0 "communicator.md3"
 
 	Scale -1.0 1.0 1.0
 
-	AngleOffset -18.0
-	Offset 0.0 5.0 -4.5
+	AngleOffset -20.0
+	Offset -1.0 5.0 -4.5
 
 	//Static, Closed
 	FrameIndex PHAS A 0 0
@@ -454,15 +470,15 @@ Model Communicator
 
 	NOINTERPOLATION //Because it decides to shrink and expand the shape instead of just rotating it
 
-	//Static, Open
-	FrameIndex PHAS G 0 11
-	FrameIndex PHAS H 0 12
-	FrameIndex PHAS I 0 13
-	FrameIndex PHAS J 0 14
-	FrameIndex PHAS K 0 15
-	FrameIndex PHAS L 0 16
-	FrameIndex PHAS M 0 17
-	FrameIndex PHAS N 0 18
-	FrameIndex PHAS O 0 19
-	FrameIndex PHAS P 0 20
+	//Static, Open (Used to be through 20 - changed the moire anim to be via shader instead)
+	FrameIndex PHAS G 0 10
+	FrameIndex PHAS H 0 10
+	FrameIndex PHAS I 0 10
+	FrameIndex PHAS J 0 10
+	FrameIndex PHAS K 0 10
+	FrameIndex PHAS L 0 10
+	FrameIndex PHAS M 0 10
+	FrameIndex PHAS N 0 10
+	FrameIndex PHAS O 0 10
+	FrameIndex PHAS P 0 10
 }

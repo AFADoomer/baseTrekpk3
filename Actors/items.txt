@@ -1,5 +1,17 @@
 Actor HideHUD : Inventory {}
 Actor ElevatorPanel : Inventory {}
+Actor MedKit : Inventory { Inventory.MaxAmount 1 }
+
+Actor OrbitCenter
+{
+	+NOGRAVITY
+	States
+	{
+		Spawn:
+			TNT1 A -1
+			Stop
+	}
+}
 
 Actor Transport : CustomInventory Replaces TeleportFog
 {
@@ -53,7 +65,7 @@ Actor Disintegration : CustomInventory
 			TNT1 A -1
 			Loop
 		Pickup:
-			TNT1 A 0 ACS_NamedExecuteAlways("A_Disintegrate")
+			TNT1 A 0 ACS_NamedExecuteAlways("A_Disintegrate", 0, 2620994)
 			Stop
 	}
 }
@@ -140,6 +152,7 @@ Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
 	var int user_level;
 	var int user_uses;
 	var int user_used;
+	var int user_given;
 
 	Height 25
 	Radius 16
@@ -156,7 +169,7 @@ Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 D 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
 			TOS1 D 1
 			TOS1 D 0 A_SetUserVar("user_level", 100)
 			TOS1 D 0 A_SetUserVar("user_uses", args[0])
@@ -185,13 +198,17 @@ Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
 			"####" # 0 A_SetUserVar("user_uses", user_uses - user_used)
 			"####" # 0 A_SetUserVar("user_level", user_level - user_used)
 			"####" # 0 A_JumpIf(user_uses <= 0, "Done")
-			"####" # 0 A_PlaySound("actor/powerup", CHAN_AUTO, 1.0)
+			"####" E 0 A_PlaySound("actor/powerup", CHAN_AUTO, 1.0)
+			"####" # 0 A_JumpIf(user_given > 0, "Static")
+			TOS1 # 10
+			TOS2 # 20
 			Goto Static
 		Done:
 			"####" # 0 A_PlaySound("actor/burnout", CHAN_AUTO, 1.0)
 			"####" E -1
 			Stop
 		DispensedWeapon:
+			"####" # 0 A_SetUserVar("user_given", 1)
 			"####" # 0 A_SetUserVar("user_used", 100)
 			TOS2 A 0 A_Jump(256, "Return")
 	}
@@ -206,7 +223,7 @@ Actor PhaserRifleStation : DisruptorStation Replaces PlasmaRifle 25104
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 D 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
 			TOS1 D 1
 			TOS1 D 0 A_SetUserVar("user_level", 100)
 			TOS1 D 0 A_SetUserVar("user_uses", args[0])

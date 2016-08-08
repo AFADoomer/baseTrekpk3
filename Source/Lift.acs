@@ -54,7 +54,7 @@ str Decks[48][4] = {
 	{"", "", "", ""},				//End of items on turbolift menu
 	{"", "Transporter Destinations", "", ""},	//Start of items on transporter menu
 	{"MAP01", "Filming Set", "1", ""},
-	{"TEST", "Planet Surface", "0", ""},
+	{"Planet", "Planet Surface", "0", ""},
 	{"DEMO", "Test Map", "0", ""},
 	{"", "", "", ""},
 	{"MAP07", "Transporter Room 1", "3-8", ""},

@@ -1,10 +1,11 @@
-Actor Block 
+Actor Block
 {
 	+SOLID
-	Radius 8
+	Radius 4
 	Height 8
 	+NOGRAVITY
 	+USESPECIAL
+	+ACTLIKEBRIDGE
 	States
 	{
 		Spawn:
@@ -14,9 +15,10 @@ Actor Block
 
 }
 
-Actor Block8 : Block {Radius 8}
+Actor Block8 : Block {Radius 4}
 Actor Block16 : Block {Radius 16 Height 16}
 Actor Block24 : Block {Radius 24 Height 24}
+Actor Block25 : Block {Radius 25  Height 25}
 Actor Block32 : Block {Radius 32 Height 32}
 Actor Block48 : Block {Radius 48 Height 48}
 Actor Block64 : Block {Radius 64 Height 64}
@@ -29,40 +31,113 @@ Actor TOSDecoration
 	var int user_uses;
 	var int user_width;
 	var int user_height;
+	var int user_disintegrationcolor;
 
 	+NOGRAVITY
 	-SOLID
 	+SHOOTABLE
+	+NOBLOOD
 	+INVULNERABLE
-	Height 0
-	Radius 0
+	+NODAMAGE
+	+DONTTHRUST
+	+NOTAUTOAIMED
+	Height 16
+	Radius 8
+	Health 99999
 	Mass 999999
+	Species "Decoration"
+	DeathSound "effects/explosion/debris"
 	States
 	{
 		Spawn:
-			TNT1 A 1 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
-			TNT1 A 0 ACS_NamedExecuteAlways("A_SetupThing",0)
-			TNT1 A 0 A_SetUserVar("user_uses", args[0] || args[2])
-			TNT1 A 0 A_Jump(256, "Static")
+			TOS1 A 1 
+			"####" # 1 {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				ACS_NamedExecuteAlways("A_SetupThing",0);
+				A_SetUserVar("user_uses", args[0] || args[2]);
+			}
+			"####" # 0 A_Jump(256, "Static")
+		Pain.Stun:
 		Static:
-			TOS1 A -1
-			Stop
+			"####" # 1 A_JumpIf(velx != 0 || vely != 0 || velz != 0, "Moved")
+			Loop
+		Pain:
+			"####" # 1 {
+				A_Quake(Radius / 16, Radius / 3, Radius, Radius * 3);
+				A_Explode(Radius / 16, Radius / 2, 0, 1);
+				A_SetScale(Radius / 32.0);
+				if (GetSpawnHealth() >= 300) {
+					A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				} else if (GetSpawnHealth() >= 100) {
+					A_SpawnItemEx("FlareUp", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				}
+				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SetScale(1.0);
+			}
+			Goto Static
+		Moved:
+			"####" # 5 A_Gravity
+			Goto Static
 		Death:
-			TNT1 A 1
+			"####" # 0 {
+				A_SetUserVar("user_disintegrationcolor", 16711590);
+				A_KillChildren;
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		Death.Phaser:
+			"####" # 0 {
+				A_SetUserVar("user_disintegrationcolor", 10803452);
+				A_KillChildren("Phaser");
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		Death.PhaserRifle:
+			"####" # 0 {
+				A_SetUserVar("user_disintegrationcolor", 16557295);
+				A_KillChildren("PhaserRifle");
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		Death.Disruptor:
+			"####" #  0 {
+				A_SetUserVar("user_disintegrationcolor", 2620994);
+				A_KillChildren("Disruptor");
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		DeathResume:
+			"####" # 45 {
+				if (Radius >= 16) {
+					A_Scream;
+				}
+				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor, 1);
+				A_ChangeFlag("NOGRAVITY", FALSE);
+				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetRoll(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+			}
 			Stop
 	}
 }
 
+Actor TOSDestroyableDecoration : TOSDecoration
+{
+	//$Sprite TOS1A0
+	Health 10
+	Mass 50 
+	-INVULNERABLE
+	-NODAMAGE
+	-DONTTHRUST 
+}
 Actor TOSSwitchableDecoration : SwitchableDecoration
 {
 	var int user_uses;
 	var int user_width;
 	var int user_height;
+	var int user_disintegrationcolor;
 
 	+NOGRAVITY
 	+SOLID
 	+SHOOTABLE
 	+INVULNERABLE
+	+NOBLOOD
+
 	Height 0
 	Radius 0
 	Mass 999999
@@ -74,12 +149,66 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 			TNT1 A 0 A_SetUserVar("user_uses", args[0] || args[2])
 			TNT1 A 0 A_Jump(256, "Static")
 		Static:
-			TOS1 A -1
+			"####" # -1
 			Stop
+		Pain:
+			"####" # 1 {
+				A_Quake(Radius / 16, Radius / 3, Radius, Radius * 3);
+				A_Explode(Radius / 16, Radius / 2, 0, 1);
+				A_SetScale(Radius / 32.0);
+				if (GetSpawnHealth() >= 300) {
+					A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				} else if (GetSpawnHealth() >= 100) {
+					A_SpawnItemEx("FlareUp", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				}
+				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SetScale(1.0);
+			}
+			Goto Static
+		Moved:
+			"####" # 5 A_Gravity
+			Goto Static
 		Death:
-			TNT1 A 1
+			"####" # 0 {
+				A_SetUserVar("user_disintegrationcolor", 16711590);
+				A_KillChildren;
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		Death.Phaser:
+			"####" # 0 {
+				A_SetUserVar("user_disintegrationcolor", 10803452);
+				A_KillChildren("Phaser");
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		Death.PhaserRifle:
+			"####" # 0 {
+				A_SetUserVar("user_disintegrationcolor", 16557295);
+				A_KillChildren("PhaserRifle");
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		Death.Disruptor:
+			"####" #  0 {
+				A_SetUserVar("user_disintegrationcolor", 2620994);
+				A_KillChildren("Disruptor");
+			}
+			"####" # 0 A_Jump(256, "DeathResume")
+		DeathResume:
+			"####" # 45 {
+				A_Scream;
+				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor, 1);
+				A_ChangeFlag("NOGRAVITY", FALSE);
+				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetRoll(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+			}
 			Stop
 	}
+}
+
+Actor TOSUsableDecoration : TOSSwitchableDecoration
+{
+	//$Sprite TOS1A0
+	-NOTAUTOAIMED 
+	+USESPECIAL
 }
 
 Actor Skybox1 : TOSDecoration 21000 {}
@@ -98,13 +227,14 @@ Actor Skybox5 : TOSDecoration 21004 {}
 Actor Skybox6 : TOSDecoration 21005 {}
 Actor Skybox7 : TOSDecoration 21006 { RenderStyle Translucent Alpha 0.7 }
 
-Actor TOSChair : TOSDecoration 20001
+Actor TOSChair : TOSDestroyableDecoration 20001
 {
-	Height 42
-	Radius 12
-
-//	+PUSHABLE
-//	+SLIDESONWALLS
+	Height 22
+	Radius 16
+	Health 99
+	Mass 50
+	+PUSHABLE
+	+SLIDESONWALLS
 	+SOLID
 	-NOGRAVITY
 
@@ -133,28 +263,12 @@ Actor TOSHelmConsole : TOSDecoration 20004
 
 Actor TOSCaptainChair : TOSDecoration 20005 {Height 20 Radius 16 Tag "Captain's Chair"}
 
-/*
-Actor TOSConsole : TOSDecoration 20006
-{
-	Height 32
-	Radius 28
-	+SOLID
-	States
-	{
-		Spawn:
-			CONS A -1
-			Stop
-	}
-}
-*/
-
-Actor TOSTurboliftHandle : TOSDecoration 20009
+Actor TOSTurboliftHandle : TOSUsableDecoration 20009
 {
 	Height 20
 	Radius 8
 	Tag "Turbolift Controls"
 	+SOLID
-	+USESPECIAL
 	States
 	{
 		Static:
@@ -165,23 +279,26 @@ Actor TOSTurboliftHandle : TOSDecoration 20009
 	}
 }
 
-Actor TOSMonitor : TOSDecoration 20010 {Height 16 Radius 8 Tag "Monitor"}
-Actor TOSWallThing1 : TOSDecoration 20011 {}
-Actor TOSWallThing2 : TOSDecoration 20012 {}
-Actor TOSWallThing3 : TOSDecoration 20013 {}
-Actor TOSWallThing4 : TOSDecoration 20014 {}
-Actor TOSWallThing5 : TOSDecoration 20015 {}
-Actor TOSWallThing6 : TOSDecoration 20016 {}
-Actor TOSWallThing7 : TOSDecoration 20017 {}
-Actor TOSWallThing8 : TOSDecoration 20034 {}
-Actor TOSWallThingAtmospheric : TOSDecoration 20018 {}
-Actor TOSWallThingHangar : TOSDecoration 20019 {}
-Actor TOSWallThingamajig : TOSDecoration 20020 {}
-Actor TOSWallThingWarning : TOSDecoration 20021 {}
+Actor TOSMonitor : TOSDestroyableDecoration 20010 {Height 16 Radius 3 Tag "Monitor" +SOLID +CANPASS -NOGRAVITY}
+Actor TOSWallThing1 : TOSDestroyableDecoration 20011 {Health 100}
+Actor TOSWallThing2 : TOSDestroyableDecoration 20012 {Health 100}
+Actor TOSWallThing3 : TOSDestroyableDecoration 20013 {Health 100}
+Actor TOSWallThing4 : TOSDestroyableDecoration 20014 {Health 100}
+Actor TOSWallThing5 : TOSDestroyableDecoration 20015 {Health 100}
+Actor TOSWallThing6 : TOSDestroyableDecoration 20016 {Health 100}
+Actor TOSWallThing7 : TOSDestroyableDecoration 20017 {Health 100}
+Actor TOSWallThing8 : TOSDestroyableDecoration 20034 {Health 100}
+Actor TOSWallThingAtmospheric : TOSDestroyableDecoration 20018 {Health 100}
+Actor TOSWallThingHangar : TOSDestroyableDecoration 20019 {Health 100}
+Actor TOSWallThingamajig : TOSDestroyableDecoration 20020 {Health 100}
+Actor TOSWallThingWarning : TOSDestroyableDecoration 20021 {Health 100}
 
-Actor TOSCeilingPipes : TOSDecoration 20022
+Actor TOSCeilingPipes : TOSDestroyableDecoration 20022
 {
+	Height 0
+	Radius 32
 	+SPAWNCEILING
+	DeathSound "effects/explosion/debris/large"
 }
 
 Actor TOSSteps : TOSDecoration 20023
@@ -212,7 +329,7 @@ Actor TOSWallThing : RandomSpawner 20025
 	DropItem "TOSWallThing10", 255, 1
 }
 
-Actor TOSGNDN : TOSDecoration 20026 {}
+Actor TOSGNDN : TOSDestroyableDecoration 20026 {Health 100}
 
 Actor TOSBridgeConsole1 : TOSDecoration 20027 { Tag "Console"}
 Actor TOSBridgeConsole2 : TOSDecoration 20028 { Tag "Console"}
@@ -243,14 +360,13 @@ Actor TOSBridgeDome : TOSDecoration 20033
 	+SPAWNCEILING
 }
 
-Actor TOSTransporterScanner : TOSDecoration 20035 {}
-Actor TOSTransporterConsole : TOSDecoration 20036
+Actor TOSTransporterScanner : TOSDestroyableDecoration 20035 {Health 100}
+Actor TOSTransporterConsole : TOSUsableDecoration 20036
 {
 	Height 56
 	Radius 32
 	Tag "Transporter Console"
 	-SOLID
-	+USESPECIAL
 	States
 	{
 		Static:
@@ -263,36 +379,58 @@ Actor TOSTransporterConsole : TOSDecoration 20036
 	}
 }
 
-Actor TOSWallThingEngineering : TOSDecoration 20037 {}
-Actor TOSLBDN : TOSDecoration 20038 {}
-Actor TOSLamp : TOSDecoration 20039 {+NOBLOCKMAP}
-Actor TOSPadd : TOSDecoration 20040 {}
+Actor TOSWallThingEngineering : TOSDestroyableDecoration 20037 {Health 100}
+Actor TOSLBDN : TOSDestroyableDecoration 20038 {Health 100}
+Actor TOSLamp : TOSDestroyableDecoration 20039 {+NOBLOCKMAP}
+Actor TOSPadd : TOSDestroyableDecoration 20040 {+SOLID +CANPASS -NOGRAVITY Height 2 Radius 4}
 
-Actor TOSBarrel1 : TOSDecoration 20041
+Actor TOSBarrel1 : TOSDestroyableDecoration 20041
 {
-	+Solid
-	Height 42
-	Radius 4
+	+SOLID
+	+CANPASS
+	-NOGRAVITY
+	-NOTAUTOAIMED
+	Height 44
+	Radius 8
+	Health 99
+	Mass 150
 	Tag "Cargo (Barrel)"
 }
 
-Actor TOSBarrel2 : TOSDecoration 20042
+Actor TOSBarrel2 : TOSBarrel1 20042
 {
-	+Solid
-	Height 26
-	Radius 4
-	Tag "Cargo (Barrel)"
+	Height 28
+	Radius 5
 }
 
-Actor TOSWallThing9 : TOSDecoration 20043 {}
-Actor TOSWallThing10 : TOSDecoration 20044 {}
-Actor TOSBriefRib : TOSDecoration 20045 {}
+Actor TOSWallThing9 : TOSDestroyableDecoration 20043 {Health 100}
+Actor TOSWallThing10 : TOSDestroyableDecoration 20044 {Health 100}
+Actor TOSBriefRib : TOSDecoration 20045 { Height 0 }
 Actor TOSBriefTable : TOSDecoration 20046 {}
-Actor TOSEngRib : TOSDecoration 20047 {}
+Actor TOSEngRib : TOSDecoration 20047 { Height 0 }
 Actor TOSEngCenter : TOSDecoration 20048 {}
 Actor TOSEngChamber : TOSDecoration 20049 {}
-Actor TOSEngConsoleR : TOSDecoration 20050 {Tag "Console"}
-Actor TOSEngConsoleL : TOSDecoration 20051 {Tag "Console"}
+Actor TOSEngConsoleR : TOSDecoration 20050 {
+	Tag "Console"
+	States
+	{
+		Static:
+			TNT1 A 1 
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 40.0, 40.0)
+//			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 20.0, 40.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 0.0, 40.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -20.0, 40.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -40.0, 40.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 40.0, 80.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 20.0, 80.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 0.0, 80.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -20.0, 80.0)
+			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -40.0, 80.0)
+			TOS1 A -1
+			Stop
+	}
+}
+Actor TOSEngConsoleL : TOSEngConsoleR 20051 {}
 
 Actor TOSEngSteps : TOSDecoration 20052
 {
@@ -315,13 +453,11 @@ Actor TOSEngSteps : TOSDecoration 20052
 	}
 }
 
-Actor TOSEngineerConsole : TOSDecoration 20053
+Actor TOSEngineerConsole : TOSUsableDecoration 20053
 {
 	Radius 8
 	Height 32
-	+USESPECIAL
 	Tag "Console"
-
 	States
 	{
 		Static:
@@ -334,23 +470,47 @@ Actor TOSEngineerConsole : TOSDecoration 20053
 	}
 }
 Actor TOSTransformer : TOSDecoration 20054 {}
-Actor TOSQuartersRib : TOSDecoration 20055 {}
+Actor TOSQuartersRib : TOSDecoration 20055 { Height 0 }
 
-Actor TOSCrate : TOSDecoration 20056
+Actor TOSCrate : TOSUsableDecoration 20056
 {
-	+Solid
 	Radius 12
-	Height 32
+	Height 28
+	Health 99
+	+USESPECIAL
+	-NOGRAVITY
+	Activation THINGSPEC_Switch
 	Tag "Cargo (Crate)"
+	States
+	{
+		Static:
+			TOS1 # 5
+			TOS1 # 0 {
+				if (user_uses <= 0) {
+					A_UnSetInvulnerable;
+				}
+			}
+			Loop
+		Active:
+			TOS1 BCDEF 2
+			TOS1 F 0 A_JumpIf(user_uses <= 0, "Static")
+			TOS1 F 0 {
+				A_SetUserVar("user_uses", 0);
+				ACS_NamedExecuteAlways("A_Drop", 0, args[0]);
+			}
+			Goto Static
+		Inactive:
+			TOS1 EDCBA 1
+			Goto Static
+	}
 }
 
 Actor TOSSecurityConsole : TOSEngineerConsole 20057 {}
-Actor TOSEngineeringConsole : TOSDecoration 20058
+Actor TOSEngineeringConsole : TOSUsableDecoration 20058
 {
 	Radius 16
 	Height 32
 	+SOLID
-	+USESPECIAL
 	Tag "Console"
 	States
 	{
@@ -365,13 +525,13 @@ Actor TOSEngineeringConsole : TOSDecoration 20058
 	}
 }
 
-Actor TOSTapeRack : TOSDecoration 20060 {}
+Actor TOSTapeRack : TOSDestroyableDecoration 20060 {+SOLID +CANPASS -NOGRAVITY Height 3 Radius 4}
 Actor TOSEnterprise : TOSDecoration 20061
 {
 	States
 	{
 		Spawn: //Not Static; override defaults
-			TOS1 ABCDEFGH 4
+			TOS1 ABCDEFGH 6
 			Loop
 		Shuttle:
 			TOS1 Z 5
@@ -384,35 +544,52 @@ Actor TOSPlanet : TOSDecoration 20062
 	States
 	{
 		Spawn: //Not Static; override defaults
-			TOS1 A 35
+			TOS1 A 0 NoDelay {
+				A_SpawnItemEx ("TOSPlanetShadow", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERPITCH | SXF_SETMASTER);
+//				A_SpawnItemEx ("TOSPlanetClouds", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERPITCH | SXF_SETMASTER);
+				if (args[0] == 1) {
+					return State("Station");
+				} else if (args[0] == 2) {
+					return State("DY100");
+				} else if (args[0] == 3) {
+					return State("Sun");
+				} else {
+					return State("SpawnLoop");
+				}
+			}
+		SpawnLoop:
+			TOS1 A 35 Light("LargeOrangeLight")
 			Loop
 		Station:
-			TOS1 B 35
+			TOS1 B 35 A_RemoveChildren(TRUE, RMVF_EVERYTHING)
 			Loop
-		Shuttle:
-			TOS1 C 35
+		DY100:
+			TOS1 C 35 A_RemoveChildren(TRUE, RMVF_EVERYTHING)
+			Loop
+		Sun:
+			TOS1 D 35 BRIGHT A_RemoveChildren(TRUE, RMVF_EVERYTHING)
 			Loop
 		Hidden:
-			TNT1 A 35
+			TNT1 A 35 A_RemoveChildren(TRUE, RMVF_EVERYTHING)
 			Loop
 	}
 }
 
 Actor TOSWallPipe : TOSDecoration 20063 {}
-Actor TOSEngWallThing1 : TOSDecoration 20064 {}
-Actor TOSPipe1 : TOSDecoration 20065 {}
-Actor TOSPipe2 : TOSDecoration 20066 {}
-Actor TOSGrate : TOSDecoration 20067 {}
-Actor TOSEngWallThing2 : TOSDecoration 20068 {}
-Actor TOSEngWallThing3 : TOSDecoration 20069 {}
-Actor TOSEngWallThing4 : TOSDecoration 20070 {}
-Actor TOSEngWallThing5 : TOSDecoration 20071 {}
-Actor TOSEngWallThing6 : TOSDecoration 20072 {}
-Actor TOSEngWallThing7 : TOSDecoration 20073 {}
-Actor TOSPipe3 : TOSDecoration 20074 {}
-Actor TOSPipe4 : TOSDecoration 20075 {}
-Actor TOSPipe5 : TOSDecoration 20076 {}
-Actor TOSPipe6 : TOSDecoration 20077 {}
+Actor TOSEngWallThing1 : TOSDestroyableDecoration 20064 {Health 100}
+Actor TOSPipe1 : TOSDestroyableDecoration 20065 {Health 100 DeathSound "effects/explosion/debris/large"}
+Actor TOSPipe2 : TOSPipe1 20066 {Health 100}
+Actor TOSGrate : TOSDestroyableDecoration 20067 {}
+Actor TOSEngWallThing2 : TOSDestroyableDecoration 20068 {Health 100}
+Actor TOSEngWallThing3 : TOSDestroyableDecoration 20069 {Health 100}
+Actor TOSEngWallThing4 : TOSDestroyableDecoration 20070 {Health 100}
+Actor TOSEngWallThing5 : TOSDestroyableDecoration 20071 {Health 100}
+Actor TOSEngWallThing6 : TOSDestroyableDecoration 20072 {Health 100}
+Actor TOSEngWallThing7 : TOSDestroyableDecoration 20073 {Health 100}
+Actor TOSPipe3 : TOSPipe1 20074 {Health 100}
+Actor TOSPipe4 : TOSPipe1 20075 {Health 100}
+Actor TOSPipe5 : TOSPipe1 20076 {Health 100}
+Actor TOSPipe6 : TOSPipe1 20077 {Health 100}
 Actor TOSChair2 : TOSChair 20078 {}
 /*
 Actor Cactus : TOSDecoration 20079 {}
@@ -497,16 +674,16 @@ Actor TOSTerrain : TOSDecoration 20123
 {}
 
 Actor TOSRailingAlt : TOSDecoration 20124 {}
-Actor TOSDeskIntercom : TOSDecoration 20125 {}
+Actor TOSDeskIntercom : TOSDestroyableDecoration 20125 {+SOLID +CANPASS -NOGRAVITY Height 2 Radius 2}
 
-Actor ShuttleBlock1 : Block {Radius 50 Height 75}
-Actor ShuttleBlock2 : Block {Radius 50 Height 65}
-Actor ShuttleBlock3 : Block {Radius 50 Height 55}
-Actor ShuttleBlock4 : Block {Radius 50 Height 45}
-Actor ShuttleBlock5 : Block {Radius 50 Height 35}
-Actor ShuttleBlock6 : Block {Radius 50 Height 25}
-Actor ShuttleBlock7 : Block {Radius 70 Height 42}
-Actor ShuttleBlock8 : Block {Radius 16 Height 24}
+Actor ShuttleBlock1 : Block { -ACTLIKEBRIDGE Radius 50 Height 75}
+Actor ShuttleBlock2 : ShuttleBlock1 {Radius 50 Height 65}
+Actor ShuttleBlock3 : ShuttleBlock1 {Radius 50 Height 55}
+Actor ShuttleBlock4 : ShuttleBlock1 {Radius 50 Height 45}
+Actor ShuttleBlock5 : ShuttleBlock1 {Radius 50 Height 35}
+Actor ShuttleBlock6 : ShuttleBlock1 {Radius 50 Height 25}
+Actor ShuttleBlock7 : ShuttleBlock1 {Radius 70 Height 42}
+Actor ShuttleBlock8 : ShuttleBlock1 {Radius 16 Height 24}
 
 Actor TOSShuttleGalileo : TOSDecoration 20126
 {
@@ -524,7 +701,6 @@ Actor TOSShuttleGalileo : TOSDecoration 20126
 			Goto Land
 		Land:
 			TOS1 A 70 A_UnSetFloat
-//			TOS1 A 1 A_SetSolid
 		Blocking:
 			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock1", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
 			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock1", 25.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
@@ -557,7 +733,6 @@ Actor TOSShuttleGalileo : TOSDecoration 20126
 		TakeOff:
 			TOS1 B 1 A_RemoveChildren(TRUE, RMVF_EVERYTHING)
 			TOS1 B 70 A_SetFloat
-//			TOS1 B 1 A_UnSetSolid
 		Flight:
 			TOS1 B 3
 //			TOS1 B 0 A_JumpIf(z - floorz <= 8.0, "Land")
@@ -570,6 +745,8 @@ Actor TOSConfSupport : TOSDecoration 20128 {Height 96 Radius 16 +SOLID Tag "Supp
 Actor TOSKlingonWeaponStation : TOSDecoration 20129 {Height 64 Radius 32 +SOLID Tag "Klingon Weapon Station"}
 Actor TOSKlingonWeaponControls  : TOSDecoration 20130
 {
+	Height 0
+
 	+SPAWNCEILING
 	+SOLID
 
@@ -587,14 +764,19 @@ Actor TOSKlingonControlPanel2 : TOSKlingonControlPanel1 20139 {}
 Actor TOSKlingonControlPanel3 : TOSKlingonControlPanel1 20140 {}
 
 Actor TOSKlingonCaptChair : TOSDecoration 20133 {Height 32 Radius 16 +SOLID Tag "Klingon Captain's Chair"}
-Actor TOSTable : TOSDecoration 20141 {Height 24	Radius 24 +SOLID Tag "Table"}
+Actor TOSTable : TOSDecoration 20141 {
+	+SOLID 
+	Height 25 
+	Radius 24 
+	Tag "Table"
+}
 Actor TOSTable2 : TOSTable 20142
 {
 	States
 	{
 		Static:
-			TNT1 A 1 A_SpawnItemEx ("Block24", 8.0, 12.0, 0.0)
-			TNT1 A 1 A_SpawnItemEx ("Block24", 8.0, -12.0, 0.0)
+			TNT1 A 1 A_SpawnItemEx ("Block25", 8.0, 12.0, 0.0)
+			TNT1 A 1 A_SpawnItemEx ("Block25", 8.0, -12.0, 0.0)
 			TOS1 A -1
 			Stop
 	}
@@ -642,7 +824,7 @@ Actor Pane : TOSDecoration 20146
 {
 	+SOLID
 	Height 16
-	Radius 16
+	Radius 8
 
 	Tag "Observation Window"
 
@@ -650,11 +832,10 @@ Actor Pane : TOSDecoration 20146
 	Alpha 0.4
 }
 
-Actor TOSComputer : TOSDecoration 20147
+Actor TOSComputer : TOSUsableDecoration 20147
 {
 	Height 64
 	Radius 16
-	+USESPECIAL
 	Tag "Computer Processing Module"
 	States
 	{
@@ -666,8 +847,8 @@ Actor TOSComputer : TOSDecoration 20147
 	}
 }
 
-Actor TOSPipe8 : TOSDecoration 20148 {}
-Actor TOSBriefComputer : TOSDecoration 20149 {+USESPECIAL}
+Actor TOSPipe8 : TOSPipe1 20148 {}
+Actor TOSBriefComputer : TOSUsableDecoration 20149 {}
 
 Actor TOSGangway : TOSDecoration 20150
 {
@@ -694,22 +875,31 @@ Actor TOSGangway : TOSDecoration 20150
 	}
 }
 
-Actor TOSAuxRib : TOSDecoration 20151 {}
+Actor TOSAuxRib : TOSDecoration 20151 { Height 0 }
 Actor TOSEngConsoleA : TOSDecoration 20152 {Tag "Console"}
 
-Actor TOSComputer2 : TOSDecoration 20153 {Height 16 Radius 8 +SOLID +USESPECIAL Tag "Computer"}
-Actor TOSEngWallThing8 : TOSDecoration 20154 {}
-Actor TOSEngWallThing9 : TOSDecoration 20155 {}
-Actor TOSEngWallThing10 : TOSDecoration 20156 {}
-Actor TOSEngWallThing11 : TOSDecoration 20157 {}
-Actor TOSWallThing11 : TOSDecoration 20158 {}
-Actor TOSWallThing12 : TOSDecoration 20159 {}
-Actor TOSWallThing13 : TOSDecoration 20160 {}
-Actor TOSEngWallThing12 : TOSDecoration 20161 {}
-Actor TOSWallThing14 : TOSDecoration 20162 {}
-Actor TOSEngConsoleBlock  : TOSDecoration 20163 {}
-Actor TOSMonitorSwivel : TOSDecoration 20164 {Tag "Monitor"}
-Actor TOSMonitorBase : TOSDecoration 20165 {}
+Actor TOSComputer2 : TOSUsableDecoration 20153 {Height 16 Radius 8 +SOLID Tag "Computer"}
+Actor TOSEngWallThing8 : TOSDestroyableDecoration 20154 {Health 100}
+Actor TOSEngWallThing9 : TOSDestroyableDecoration 20155 {Health 100}
+Actor TOSEngWallThing10 : TOSDestroyableDecoration 20156 {Health 100}
+Actor TOSEngWallThing11 : TOSDestroyableDecoration 20157 {Health 100}
+Actor TOSWallThing11 : TOSDestroyableDecoration 20158 {Health 100}
+Actor TOSWallThing12 : TOSDestroyableDecoration 20159 {Health 100}
+Actor TOSWallThing13 : TOSDestroyableDecoration 20160 {Health 100}
+Actor TOSEngWallThing12 : TOSDestroyableDecoration 20161 {Health 100}
+Actor TOSWallThing14 : TOSDestroyableDecoration 20162 {Health 100}
+Actor TOSEngConsoleBlock  : Block 20163
+{
+	Height 16
+	States
+	{
+		Spawn:
+			TOS1 A -1
+			Stop
+	}
+}
+Actor TOSMonitorSwivel : TOSDestroyableDecoration 20164 {Tag "Monitor" +SOLID +CANPASS -NOGRAVITY Height 16 Radius 3}
+Actor TOSMonitorBase : TOSDestroyableDecoration 20165 {+SOLID +CANPASS -NOGRAVITY Height 0 Radius 2}
 Actor TOSMonitorBase1 : TOSMonitorBase 20166 {}
 Actor TOSMonitorBase2 : TOSMonitorBase 20167 {}
 Actor TOSMonitorBase3 : TOSMonitorBase 20168 {}
@@ -738,13 +928,13 @@ Actor TOSTable4 : TOSDecoration 20180
 	}
 }
 
-Actor TOSWallBoard : TOSDecoration 20181 {}
-Actor TOSRockerButtons : TOSDecoration 20182 {Height 1 Radius 2 +SOLID +USESPECIAL}
+Actor TOSWallBoard : TOSDestroyableDecoration  20181 {}
+Actor TOSRockerButtons : TOSUsableDecoration 20182 {Height 1 Radius 2 +SOLID}
 Actor TOSTableLeg : TOSDecoration 20183 {}
-Actor TOSGymApparatus : TOSDecoration 20184 {}
-Actor TOSGymBar : TOSDecoration 20185 {}
-Actor TOSGymBar2 : TOSDecoration 20186 {}
-Actor TOSGymBar3 : TOSDecoration 20187 {}
+Actor TOSGymApparatus : TOSDestroyableDecoration 20184 {}
+Actor TOSGymBar : TOSDestroyableDecoration 20185 {}
+Actor TOSGymBar2 : TOSDestroyableDecoration 20186 {}
+Actor TOSGymBar3 : TOSDestroyableDecoration 20187 {}
 Actor TOSTree7 : TOSTree1 20188 {}
 Actor TOSTree8 : TOSTree1 20189 {}
 Actor TOSTree9 : TOSTree1 20190 {}
@@ -766,7 +956,7 @@ Actor Fountain : TOSDecoration 20193
 	}
 }
 
-Actor TOSDiningRib : TOSDecoration 20194 {}
+Actor TOSDiningRib : TOSDecoration 20194 { Height 0 }
 
 Actor TOSCloset : TOSSwitchableDecoration 20195
 {
@@ -796,12 +986,31 @@ Actor TOSCloset : TOSSwitchableDecoration 20195
 	}
 }
 
-Actor TOSBarrel3 : TOSDecoration 20196
+Actor TOSBarrel3 : TOSBarrel1 20196
 {
-	+Solid
-	Height 26
-	Radius 6
-	Tag "Cargo (Barrel)"
+	Height 28
+	Radius 10
+	Health 150
+	Tag "Cargo (Volatile Material Container)"
+	DeathSound "effects/explosion"
+	States
+	{
+		DeathResume:
+			"####" # 15 {
+				A_PlaySound("effects/explosion/distance", CHAN_AUTO, 1.0, 0, ATTN_NONE);
+				A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0);
+				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor);
+				A_Scream;
+				A_Quake(4, 15, 48, 256);
+				A_Explode;
+				A_ChangeFlag("NOGRAVITY", FALSE);
+				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetRoll(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SpawnItemEx("ExplosionSphereYellow", 0, 0, 0, 0, 0, 0, 0);
+				A_SpawnItemEx("ExplosionSphereBlue", 0, 0, 0, 0, 0, 0, 0);
+			}
+			Stop
+	}
 }
 
 Actor TOSSickbayBed : TOSDecoration 20197
@@ -866,11 +1075,386 @@ Actor TOSSickbayTable : TOSDecoration 20203
 	Tag "Table"
 }
 
-Actor TOSPipe9 : TOSDecoration 20204 {}
-Actor TOSPipe10 : TOSDecoration 20205 {}
+Actor TOSPipe9 : TOSPipe1 20204 {}
+Actor TOSPipe10 : TOSPipe1 20205 {}
 Actor TOSTable5 : TOSTable4 20206 {}
-Actor TOSWallThingEngineering2 : TOSDecoration 20207 {}
+Actor TOSWallThingEngineering2 : TOSDestroyableDecoration 20207 {Health 100}
 Actor TOSChair3 : TOSChair 20208 {}
 Actor TOSShuttleAstrostein : TOSShuttleGalileo 20209 {}
-Actor TOSConferenceViewer : TOSDecoration 20210 {}
-Actor TOSIntercomAndRockers : TOSDecoration 20211 {Height 1 Radius 2 +SOLID +USESPECIAL}
+Actor TOSConferenceViewer : TOSDestroyableDecoration 20210 {+SOLID +CANPASS -NOGRAVITY Height 8 Radius 4}
+Actor TOSIntercomAndRockers : TOSUsableDecoration 20211 {Height 1 Radius 2 +SOLID}
+
+Actor TOSPlanetClouds : TOSDecoration 20212
+{
+	RenderStyle Shaded
+	StencilColor White
+
+	States
+	{
+		Spawn: //Not Static; override defaults
+			TOS1 A 35
+			Loop
+	}
+}
+
+Actor TOSPlanetShadow : TOSDecoration 20213
+{
+	RenderStyle Shaded
+	StencilColor Black
+
+	States
+	{
+		Spawn: //Not Static; override defaults
+			TOS1 A 35
+			Loop
+	}
+}
+
+Actor TOSFoodTray : TOSDestroyableDecoration 20214
+{
+	Height 0
+	Radius 8
+	Mass 20
+	+SOLID
+	+CANPASS
+	-NOGRAVITY
+	States
+	{
+		Static: 
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSFoodCup", -1.0, RandomPick(Random(0.0, -5.0), Random(-11.0, -16.0)), 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSFoodFood", 0.0, 0.0, 0.0, 0, 0, 0, Random(0.0, 359.0), SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSFoodNapkin", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSFoodUtensils", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Static
+	}
+}
+
+Actor TOSFoodCup : TOSDestroyableDecoration
+{
+	Height 0
+	Radius 2
+	Mass 10
+	+SOLID
+	+CANPASS
+	-NOGRAVITY
+	States
+	{
+		Static: 
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSFoodDrink", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Static
+	}
+}
+
+Actor TOSFoodDrink : TOSDestroyableDecoration
+{
+	Height 0
+	Radius 4
+	Mass 10
+	+SOLID
+	+CANPASS
+	-NOGRAVITY
+	States
+	{
+		Spawn: 
+			TOS1 A 0 NoDelay A_Jump(233, "Spawn1", "Spawn2", "Spawn3", "Spawn4")
+			TNT1 A 1
+			Goto Super::Static
+		Spawn1:
+			TOS1 A 1
+			Goto Super::Static
+		Spawn2:
+			TOS1 B 1
+			Goto Super::Static
+		Spawn3:
+			TOS1 C 1
+			Goto Super::Static
+		Spawn4:
+			TOS1 D 1
+			Goto Super::Static
+	}
+}
+
+Actor TOSFoodNapkin : TOSFoodDrink {}
+Actor TOSFoodUtensils : TOSFoodDrink {}
+Actor TOSFoodFood : TOSFoodDrink
+{
+	States
+	{
+		Spawn: 
+			TOS1 A 0 NoDelay A_Jump(256, "Spawn1", "Spawn2", "Spawn3", "Spawn4")
+			Goto Super::Static
+	}
+}
+
+Actor TOSChessSmall : TOSDestroyableDecoration
+{
+	+SOLID
+	RenderStyle Translucent
+	Alpha 0.8
+	Height 4
+	Radius 2
+	States
+	{
+		Static: 
+			TOS1 A 1 {
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", -0.75, 0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) < 33) {
+					A_SpawnItemEx ("TOSChessPiece", 0.75, -0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+			}
+			Goto Super::Static
+	}
+}
+
+Actor TOSChessLarge : TOSDestroyableDecoration 
+{
+	+SOLID
+	RenderStyle Translucent
+	Alpha 0.8
+	Height 0
+	Radius 8
+	States
+	{
+		Static: 
+			TOS1 A 1 {
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessSmall", RandomPick(1, -1) * 3.6, RandomPick(1, -1) * 3.6, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) < 33) {
+					A_SpawnItemEx ("TOSChessSmall", RandomPick(1, -1) * 3.6, RandomPick(1, -1) * 3.6, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+
+			}
+			Goto Super::Static
+	}
+}
+
+Actor TOSChessLargeSingle : TOSDestroyableDecoration
+{
+	var int user_piececount;
+
+	+SOLID
+	RenderStyle Translucent
+	Alpha 0.8
+	Height 0
+	Radius 8
+	States
+	{
+		Static: 
+			TOS1 A 1 {
+				for (A_SetUserVar("user_piececount", 0); user_piececount < 8; A_SetUserVar("user_piececount", user_piececount + 1)) {
+					if (Random(0, 100) > 33) {
+						A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+					}
+				}
+			}
+			Goto Super::Static
+	}
+}
+
+Actor TOSChess : TOSDestroyableDecoration 20215
+{
+	+SOLID
+	+CANPASS
+	+SOLID
+	-NOGRAVITY
+	Height 0
+	Mass 99999
+	States
+	{
+		Static: 
+			TOS1 A 10
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSChessLarge", 6.05, 0.0, 4.3, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSChessLarge", -0.4, 0.0, 11.8, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSChessLargeSingle", -6.85, 0.0, 19.3, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Static
+	}
+}
+
+Actor TOSCheckersSmall : TOSDestroyableDecoration
+{
+	+SOLID
+	RenderStyle Translucent
+	Alpha 0.8
+	Height 4
+	Radius 2
+	States
+	{
+		Static: 
+			TOS1 A 1 {
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSCheckersPiece", -0.75, 0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) < 33) {
+					A_SpawnItemEx ("TOSCheckersPiece", 0.75, -0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+		}
+		Goto Super::Static
+	}
+}
+
+Actor TOSCheckers : TOSDestroyableDecoration 20216
+{
+	+SOLID
+	+CANPASS
+	-NOGRAVITY
+	Height 0
+	Mass 99999
+	States
+	{
+		Static: 
+			TOS1 A 10
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, 3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, 3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, 3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, -3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, -3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, -3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, 3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, 3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, 3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, -3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, -3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, -3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Static
+	}
+}
+
+Actor TOSChessPiece : TOSDestroyableDecoration
+{
+	Height 2
+	States
+	{
+		Static:
+			TOS1 A 0 A_SetScale(FRandom(0.5, 1.0), FRandom(0.5, 2.0))
+			TOS1 A 0 A_Jump(256, "WhiteA", "BlackA", "WhiteB", "BlackB", "WhiteC", "BlackC")
+		WhiteA:
+			TOS1 B 1
+			Goto Super::Static
+		BlackA:
+			TOS1 A 1
+			Goto Super::Static
+		WhiteB:
+			TOS1 D 1
+			Goto Super::Static
+		BlackB:
+			TOS1 C 1
+			Goto Super::Static
+		WhiteC:
+			TOS1 F 1
+			Goto Super::Static
+		BlackC:
+			TOS1 E 1
+			Goto Super::Static
+	}
+}
+
+Actor TOSCheckersPiece : TOSDestroyableDecoration
+{
+	Height 1
+	States
+	{
+		Static:
+			TOS1 A 0 A_Jump(256, "Red", "Black")
+		Red:
+			TOS1 B 1
+			Goto Super::Static
+		Black:
+			TOS1 A 1
+			Goto Super::Static
+	}
+}
+
+Actor TOSShipOrbit : TOSEnterprise 20277
+{
+	//$Sprite UNKNA0
+	var int user_Radius;
+	var int user_Pitch;
+	var int user_Roll;
+	var float user_Speed;
+
+	States
+	{
+		Spawn:
+			UNKN A 0 NoDelay {
+				A_SetUserVar("user_Radius", args[0] * 1.0);
+				if (pitch + args[1] < 180) {
+					A_SetUserVar("user_Pitch", pitch + args[1]);
+				} else {
+					A_SetUserVar("user_Pitch", 360 - pitch + args[1]);
+				}
+				A_SetUserVar("user_Speed", args[2]);
+				A_SetUserVar("user_Roll", Roll);
+				if (Roll < 180) {
+					A_SetRoll(user_Roll * user_Radius / 128);
+				} else {
+					A_SetRoll(-((360 - user_Roll) * user_Radius / 128));
+				}
+				A_SpawnItemEx("OrbitCenter", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISMASTER);
+				if (args[3] == 1) {
+					return State("Static.Shuttle");
+				} else if (args[3] == 2) {
+					return State("Static.DY100");
+				} else {
+					return State("Static");
+				}
+			}
+		Static:
+			TOS1 AAAAAABBBBBBCDDDDDDEEEEEEFFFFFFGGGGGGHHHHHH 1 {
+				A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, -user_Pitch * 4 * sin(angle), user_Speed * 0.01, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0, -sin(angle) * user_Pitch / 600 / user_Speed);
+			}
+			Loop
+		Static.Shuttle:
+			TOS1 Z 1
+			Goto Static.Resume
+		Static.DY100:
+			TOS1 Y 1
+			Goto Static.Resume
+		Static.Resume:
+			"####" # 1 {
+				A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, -user_Pitch * 4 * sin(angle), user_Speed * 0.01, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0, -sin(angle) * user_Pitch / 600 / user_Speed);
+			}
+			Loop
+	}
+}
+
+Actor WindowPane : Pane 20278
+{
+	Radius 1
+	Tag "Window Glass"
+	Alpha 0.1
+}

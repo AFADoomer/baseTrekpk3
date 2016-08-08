@@ -112,10 +112,13 @@ Map MAP06 "Secondary Hull"
 Map MAP07 "Primary Hull"
 {}
 
-Map MAP08 "Planet Surface"
-{}
+Map Planet "Planet Surface"
+{
+	OutsideFog = "000022"
+	OutsideFogDensity = 16
+}
 
-Map Test "Test Map"
+Map Demo "Test Map"
 {}
 
 Cluster 1

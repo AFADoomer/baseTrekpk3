@@ -1,0 +1,302 @@
+/*
+Texture DOT_LGRY, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[88,88,88]:[88,88,88]"
+	}
+}
+
+Texture DOT_GREY, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[52,52,52]:[52,52,52]"
+	}
+}
+
+Texture DOT_DGRY, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[44,44,44]:[44,44,44]"
+	}
+}
+
+Texture DOT_LGRN, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[0,200,0]:[0,200,0]"
+	}
+}
+
+Texture DOT_GRN, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[0,140,0]:[0,140,0]"
+	}
+}
+
+Texture DOT_DGRN, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[0,80,0]:[0,80,0]"
+	}
+}
+
+Texture DOT_RED, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[255,0,0]:[255,0,0]"
+	}
+}
+
+Texture DOT_BLUE, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[0,0,255]:[0,0,255]"
+	}
+}
+
+Texture DOT_YELL, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[255,255,0]:[255,255,0]"
+	}
+}
+
+Texture DOT_WHT1, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[255,255,255]:[255,255,255]"
+	}
+}
+
+Texture DOT_WHT2, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[255,255,255]:[255,255,255]"
+	}
+}
+
+Texture DOT_BLAK, 1, 1
+{
+	Graphic BLACK, 0, 0
+}
+
+Texture DOT_GR00, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[0,0,0]:[0,0,0]"
+	}
+}
+
+Texture DOT_GR01, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[5,5,5]:[5,5,5]"
+	}
+}
+
+Texture DOT_GR02, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[10,10,10]:[10,10,10]"
+	}
+}
+
+Texture DOT_GR03, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[15,15,15]:[15,15,15]"
+	}
+}
+
+Texture DOT_GR04, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[20,20,20]:[20,20,20]"
+	}
+}
+
+Texture DOT_GR05, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[25,25,25]:[25,25,25]"
+	}
+}
+
+Texture DOT_GR06, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[30,30,30]:[30,30,30]"
+	}
+}
+
+Texture DOT_GR07, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[35,35,35]:[35,35,35]"
+	}
+}
+
+Texture DOT_GR08, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[40,40,40]:[40,40,40]"
+	}
+}
+
+Texture DOT_GR09, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[45,45,45]:[45,45,45]"
+	}
+}
+
+Texture DOT_GR10, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[50,50,50]:[50,50,50]"
+	}
+}
+
+Texture DOT_GR11, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[55,55,55]:[55,55,55]"
+	}
+}
+
+Texture DOT_GR12, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[60,60,60]:[60,60,60]"
+	}
+}
+
+Texture DOT_GR13, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[65,65,65]:[65,65,65]"
+	}
+}
+
+Texture DOT_GR14, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[70,70,70]:[70,70,70]"
+	}
+}
+
+Texture DOT_GR15, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[75,75,75]:[75,75,75]"
+	}
+}
+
+Texture DOT_GR16, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[80,80,80]:[80,80,80]"
+	}
+}
+
+Texture DOT_GR17, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[85,85,85]:[85,85,85]"
+	}
+}
+
+Texture DOT_GR18, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[90,90,90]:[90,90,90]"
+	}
+}
+
+Texture DOT_GR19, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[95,95,95]:[95,95,95]"
+	}
+}
+
+Texture DOT_GR20, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[100,100,100]:[100,100,100]"
+	}
+}
+
+Texture DOT_GR21, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[105,105,105]:[105,105,105]"
+	}
+}
+
+Texture DOT_GR22, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[110,110,110]:[110,110,110]"
+	}
+}
+
+Texture DOT_GR23, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[115,115,115]:[115,115,115]"
+	}
+}
+
+Texture DOT_GR24, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[120,120,120]:[120,120,120]"
+	}
+}
+
+Texture DOT_GR25, 1, 1
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[125,125,125]:[125,125,125]"
+	}
+}
+*/

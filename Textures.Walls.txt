@@ -1,0 +1,998 @@
+Texture WALL_K, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_K, 0, 0
+}
+
+Texture WALL_GAR, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch GARAGE, 0, 0
+	Patch WALL_SHA, 0, -391 {Style Overlay}
+	Patch WALLTOP, 0, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 376, 0
+	Patch WALLTOP, 396, 0
+}
+
+Texture TRANSDEC, 42, 600
+{
+	XScale 10.0
+	YScale 10.0
+	Patch DOORTOP, 0, 0 {Rotate 90}
+}
+
+Texture TRANSPAN, 1024, 644
+{
+	XScale 6.5
+	YScale 6.92
+	Patch TRANSPAN, 0, 0
+}
+
+Texture TRANSPA3, 256, 644
+{
+	XScale 6.52
+	YScale 6.0
+	Patch TRANSPA3, 0, 0
+}
+
+Texture DOORTOP, 600, 42
+{
+	XScale 10.0
+	YScale 10.0
+	Patch DOORTOP, 0, 0
+}
+
+Texture WALL, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALLTOP, 3, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 376, 0
+	Patch WALLTOP, 393, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+}
+
+Texture WALL2, 984, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_G, 492, 0
+	Patch WALL_SHA, 492, 0 {Style Overlay}
+	Patch WALL_G, 492, 492
+	Patch WALL_SHA, 492, 492 {Style Overlay Rotate 180}
+	Patch WALLTOP, 0, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 376, 0
+	Patch WALLTOP, 396, 0
+	Patch WALLTOP, 492, 0
+	Patch WALLTOP, 588, 0
+	Patch WALLTOP, 684, 0
+	Patch WALLTOP, 780, 0
+	Patch WALLTOP, 876, 0
+	Patch WALLTOP, 972, 0
+}
+
+Texture WALL6, 738, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_BE, 376, 0
+	Patch WALL_STR, 205, 0 {Style Overlay}
+	Patch WALL_G, -116, 0
+//	Patch SHU_LIG, 430, 0
+	Patch WALL_STR, 430, 0 {Style Overlay}
+	Patch WALLTOP, 0, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 0, 246
+	Patch WALLTOP, 96, 246
+	Patch WALLTOP, 192, 246
+	Patch WALLTOP, 280, 246
+	Patch DOORTOP2, 0, 144
+	Patch DOORTOP2, 300, 144
+	Patch DOORTOP2, 600, 144
+	Patch WALL_STR, -304, 246 {Style Translucent Alpha 0.75}
+	Patch WALL_STR, 188, 246 {Style Translucent Alpha 0.5}
+	Patch DOORTOP2, 0, 390
+	Patch DOORTOP2, 300, 390
+	Patch DOORTOP2, 600, 390
+}
+
+Texture WALL_B, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_B, 0, 0
+}
+
+Texture WALL_BE, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_BE, 0, 0
+}
+
+Texture WALL_BEA, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_BE, 0, 0
+	Patch SHU_LIGH, 0, 0
+}
+
+Texture WALL_BEB, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_BE, 0, 0
+	Patch SHU_LIGH, 0, 0
+}
+
+Texture WALL_E, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_E, 0, 0
+}
+
+Texture WALL_G, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_G, 0, 0
+}
+
+Texture WALL_GR, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_GR, 0, 0
+}
+
+Texture WALL_P, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_P, 0, 0
+}
+
+Texture WALL_REB, 492, 492
+{
+	XScale 2.55
+	YScale 2.55
+	Patch WALL_REB, 0, 0
+}
+
+Texture WALL_W, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_W, 0, 0
+}
+
+Texture WALLGREY, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch WALL_STR, 0, 0 {Style Overlay}
+}
+
+Texture WALLGRE2, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+}
+
+Texture WALLGREB, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_BRD, 10, 85 {Style Overlay}
+}
+
+Texture WALLGREC, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch WALL_BR2, 50, 185 {Style Overlay}
+}
+
+/*
+Texture FOODSLO2, 984, 492
+{
+	XScale 11.2
+	YScale 11.2
+	Patch WALL_BR, 0, 0
+	Patch WALL_BR, 492, 0
+	Patch FOODSLO2, 400, 20
+}
+*/
+
+Texture FOODSLOT, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch FOODSLTS, 0, 0 {Style Overlay}
+}
+
+
+Texture WALLGRE5, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_STR, 0, 492 {Style Overlay}
+}
+
+Texture WALLGRE7, 984, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_G, 492, 0
+	Patch SHU_TECH, 328, 128
+}
+
+Texture WALLGRE8, 984, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_G, 492, 0
+	Patch VIEWER, 328, 128
+}
+
+Texture WALLGRE9, 984, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_G, 492, 0
+	Patch PANEL, 32, 128 {Style Overlay}
+}
+
+Texture WALLBRIE, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_B, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_B, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+}
+
+Texture WALLMED, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_GR, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_GR, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+}
+
+Texture WALLTURB, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch TU_RAIL, 0, 276
+	Patch WALL_STR, -491, 0 {Style Overlay}
+	Patch WALL_STR, 491, 0 {Style Overlay}
+	Patch WALL_STR, -491, 492 {Style Overlay}
+	Patch WALL_STR, 491, 492 {Style Overlay}
+
+}
+
+Texture WALLTURL, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_B, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_B, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch TU_LIGHT, 15, 135
+}
+
+Texture WALLTURI, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_B, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_B, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch TU_IND, 15, 135
+}
+
+Texture WALLTURC, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch TU_RAIL, 0, 276
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch WALL_ICM, 430, 195 {Style Overlay}
+	Patch TU_BUTNS, 430, 222 {Style Overlay}
+	Patch BUTTON, 439, 210 {Style Overlay}
+}
+
+Texture ARCHWALL, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALLTOP, 0, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 376, 0
+	Patch WALLTOP, 396, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch ARCH, 0, 0 {Style Overlay}
+}
+
+Texture ARCHWAL2, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_G, 0, 492
+	Patch ARCH, 0, 0 {Style Overlay}
+}
+
+Texture WALLTRAN, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_P, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_P, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALLTOP3, 3, -15
+	Patch WALLTOP3, 96, -15
+	Patch WALLTOP3, 192, -15
+	Patch WALLTOP3, 280, -15
+	Patch WALLTOP3, 376, -15
+	Patch WALLTOP3, 393, -15
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+}
+
+Texture WALLTRA2, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_P, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_P, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALLTOP3, 3, -15
+	Patch WALLTOP3, 96, -15
+	Patch WALLTOP3, 192, -15
+	Patch WALLTOP3, 280, -15
+	Patch WALLTOP3, 376, -15
+	Patch WALLTOP3, 393, -15
+	Patch TRAN_STA, 46, 100 {Style Overlay}
+}
+
+Texture RK, 492, 525
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 67
+	Patch WALLTOP3, 0, 0
+	Patch WALLTOP3, 96, 0
+	Patch WALLTOP3, 192, 0
+	Patch WALLTOP3, 280, 0
+	Patch WALLTOP3, 376, 0
+	Patch WALLTOP3, 396, 0
+	Patch WALLTOP3, 0, 49
+	Patch WALLTOP3, 96, 49
+	Patch WALLTOP3, 192, 49
+	Patch WALLTOP3, 280, 49
+	Patch WALLTOP3, 376, 49
+	Patch WALLTOP3, 396, 49
+	Patch WALL_STK, 0, 0 {Style Overlay}
+	Patch WALL_STK, 0, 491 {Style Overlay}
+}
+
+Texture RK_FILL, 492, 525
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 67
+	Patch WALLTOP3, 0, 0
+	Patch WALLTOP3, 96, 0
+	Patch WALLTOP3, 192, 0
+	Patch WALLTOP3, 280, 0
+	Patch WALLTOP3, 376, 0
+	Patch WALLTOP3, 396, 0
+	Patch WALLTOP3, 0, 49
+	Patch WALLTOP3, 96, 49
+	Patch WALLTOP3, 192, 49
+	Patch WALLTOP3, 280, 49
+	Patch WALLTOP3, 376, 49
+	Patch WALLTOP3, 396, 49
+}
+
+Texture RK_Y_K, 492, 525
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 67
+	Patch WALLTOP3, 0, 0
+	Patch WALLTOP3, 96, 0
+	Patch WALLTOP3, 192, 0
+	Patch WALLTOP3, 280, 0
+	Patch WALLTOP3, 376, 0
+	Patch WALLTOP3, 396, 0
+	Patch WALLTOP3, 0, 49
+	Patch WALLTOP3, 96, 49
+	Patch WALLTOP3, 192, 49
+	Patch WALLTOP3, 280, 49
+	Patch WALLTOP3, 376, 49
+	Patch WALLTOP3, 396, 49
+	Patch WALL_STK, 0, 0 {Style Overlay}
+	Patch WALL_STK, 0, 491 {Style Overlay}
+	Patch RK_PO_Y, 0, 80 {Style Overlay}
+	Patch LOGO_K, 0, 80 {Style Overlay}
+}
+
+Texture RK_YB_K, 492, 525
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 67
+	Patch WALLTOP3, 0, 0
+	Patch WALLTOP3, 96, 0
+	Patch WALLTOP3, 192, 0
+	Patch WALLTOP3, 280, 0
+	Patch WALLTOP3, 376, 0
+	Patch WALLTOP3, 396, 0
+	Patch WALLTOP3, 0, 49
+	Patch WALLTOP3, 96, 49
+	Patch WALLTOP3, 192, 49
+	Patch WALLTOP3, 280, 49
+	Patch WALLTOP3, 376, 49
+	Patch WALLTOP3, 396, 49
+	Patch WALL_STK, 0, 0 {Style Overlay}
+	Patch WALL_STK, 0, 491 {Style Overlay}
+	Patch RK_PO_YB, 0, 80 {Style Overlay}
+	Patch LOGO_K, 0, 80 {Style Overlay}
+}
+
+Texture RK_Bl_K, 492, 525
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 67
+	Patch WALLTOP3, 0, 0
+	Patch WALLTOP3, 96, 0
+	Patch WALLTOP3, 192, 0
+	Patch WALLTOP3, 280, 0
+	Patch WALLTOP3, 376, 0
+	Patch WALLTOP3, 396, 0
+	Patch WALLTOP3, 0, 49
+	Patch WALLTOP3, 96, 49
+	Patch WALLTOP3, 192, 49
+	Patch WALLTOP3, 280, 49
+	Patch WALLTOP3, 376, 49
+	Patch WALLTOP3, 396, 49
+	Patch WALL_STK, 0, 0 {Style Overlay}
+	Patch WALL_STK, 0, 491 {Style Overlay}
+	Patch RK_PO_Bl, 0, 80 {Style Overlay}
+	Patch LOGO_K, 0, 80 {Style Overlay}
+}
+
+Texture RK_G_K, 492, 525
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 67
+	Patch WALLTOP3, 0, 0
+	Patch WALLTOP3, 96, 0
+	Patch WALLTOP3, 192, 0
+	Patch WALLTOP3, 280, 0
+	Patch WALLTOP3, 376, 0
+	Patch WALLTOP3, 396, 0
+	Patch WALLTOP3, 0, 49
+	Patch WALLTOP3, 96, 49
+	Patch WALLTOP3, 192, 49
+	Patch WALLTOP3, 280, 49
+	Patch WALLTOP3, 376, 49
+	Patch WALLTOP3, 396, 49
+	Patch WALL_STK, 0, 0 {Style Overlay}
+	Patch WALL_STK, 0, 491 {Style Overlay}
+	Patch RK_PO_G, 0, 80 {Style Overlay}
+	Patch LOGO_K, 0, 80 {Style Overlay}
+}
+
+Texture RK_R_K, 492, 525
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 67
+	Patch WALLTOP3, 0, 0
+	Patch WALLTOP3, 96, 0
+	Patch WALLTOP3, 192, 0
+	Patch WALLTOP3, 280, 0
+	Patch WALLTOP3, 376, 0
+	Patch WALLTOP3, 396, 0
+	Patch WALLTOP3, 0, 49
+	Patch WALLTOP3, 96, 49
+	Patch WALLTOP3, 192, 49
+	Patch WALLTOP3, 280, 49
+	Patch WALLTOP3, 376, 49
+	Patch WALLTOP3, 396, 49
+	Patch WALL_STK, 0, 0 {Style Overlay}
+	Patch WALL_STK, 0, 491 {Style Overlay}
+	Patch RK_PO_R, 0, 80 {Style Overlay}
+	Patch LOGO_K, 0, 80 {Style Overlay}
+}
+
+
+Texture BEAM, 492, 114
+{
+	XScale 3.8
+	YScale 3.8
+	Patch BEAM, 0, 0
+}
+
+Texture BEAM2, 492, 114
+{
+	XScale 3.8
+	YScale 3.8
+	Patch BEAM2, 0, 0
+}
+
+Texture BEAM3, 492, 114
+{
+	XScale 3.9047619047619047619047619047619
+	YScale 9
+	WorldPanning
+	Patch BEAM3, 0, 0
+}
+
+Texture BRDG_FLS, 64, 64
+{
+	XScale 2.7
+	YScale 2.7
+	Patch FLOORSID, 0, 0
+}
+
+Texture BRDG_PLS, 64, 64
+{
+	XScale 2.7
+	YScale 2.7
+	Patch PLATSID, 0, 0
+}
+
+Texture BR_WALLT, 119, 128
+{
+	XScale 1.9
+	YScale 2.0
+	Patch BR_WALLT, 0, 0
+}
+
+Texture BR_WALL, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+}
+
+Texture BR_WALL2, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+}
+
+Texture BR_WALLL, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+//	Patch BR_WALLL, 0, 0
+//	Patch WALL_G, 0, 0
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+//	Patch ALERT, 268, 46
+	Patch BR_LEFT, 328, 46 {Style Overlay}
+}
+
+Texture BR_WALLM, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+//	Patch BR_WALLL, 0, 0
+//	Patch WALL_G, 0, 0
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+//	Patch ALERT2, 268, 46
+	Patch BR_LEFT, 328, 46 {Style Overlay}
+}
+
+Texture BR_WALLN, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+//	Patch ALERT2_M, 268, 46
+}
+
+Texture BR_WALLR, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+//	Patch BR_WALLR, 0, 0
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+//	Patch ALERT, 194, 46
+	Patch BR_RIGHT, 27, 46 {Style Overlay}
+}
+
+Texture BR_WALLU, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+//	Patch ALERT2, 194, 46
+	Patch BR_RIGHT, 27, 46 {Style Overlay}
+}
+
+Texture BR_WALLW, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+//	Patch ALERT2_M, 194, 46
+}
+
+Texture BR_WALLV, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+	Patch BR_V_R, 30, 120 {Style Overlay}
+	Patch BR_V_L, 410, 120 {Style Overlay}
+}
+
+Texture BR_WALLP, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+//	Patch ALERT, 60, 120
+	Patch PLAQUE, 35, 210 {Style Overlay}
+}
+
+Texture BR_WALLQ, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+// 	Patch ALERT2, 60, 120
+	Patch PLAQUE, 35, 210 {Style Overlay}
+}
+
+Texture BR_WALLX, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+//	Patch ALERT2_M, 60, 120
+}
+
+Texture BR_WALLS, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch DIAGRAM, 12, 130
+}
+
+Texture BR_VSCRN, 492, 492
+{
+	XScale 4.8
+	YScale 5.75
+	Patch WALL_G3, 0, 0
+	Patch ViewScrn, 24, 40
+}
+
+Texture BR_SCRNA, 1024, 128
+{
+	XScale 8.0
+	YScale 8.0
+	Patch WALL_G3, 0, 0
+	Patch WALL_G3, 492, 0
+	Patch WALL_G3, 984, 0
+	Patch BR_V_SA, 0, 0
+}
+
+Texture BR_SCRNB, 1024, 128
+{
+	XScale 8.0
+	YScale 8.0
+	Patch WALL_G3, 0, 0
+	Patch WALL_G3, 492, 0
+	Patch WALL_G3, 984, 0
+	Patch BR_V_SB, 0, 0
+}
+
+Texture BR_SCRNC, 1024, 128
+{
+	XScale 8.0
+	YScale 8.0
+	Patch WALL_G3, 0, 0
+	Patch WALL_G3, 492, 0
+	Patch WALL_G3, 984, 0
+	Patch BR_V_SC, 0, 0
+}
+
+Texture Panel_Gr, 192, 512
+{
+	XScale 3.8
+	YScale 3.8
+	Patch Panel_Gr, 0, 0
+	Patch Panel_Gr, 0, 128
+	Patch Panel_Gr, 0, 256
+	Patch Wall_G, 0, 382
+	Patch Panel_Gr, 120, 0
+	Patch Panel_Gr, 120, 128
+	Patch Panel_Gr, 120, 256
+	Patch Wall_G, 120, 382
+}
+
+Texture Panel_G2, 192, 512
+{
+	XScale 3.8
+	YScale 3.8
+	Patch Panel_Gr, 0, 0
+	Patch Panel_Gr, 0, 128
+	Patch Panel_Gr, 0, 256
+	Patch WALL_G, 0, 382
+	Patch Panel_Gr, 120, 0
+	Patch Panel_Gr, 120, 128
+	Patch Panel_Gr, 120, 256
+	Patch WALL_G, 120, 382
+	Patch Sign_HB1, 36, 176
+	Patch Sign_Aut, 12, 170
+}
+
+Texture Drawers, 128, 128
+{
+	XScale 2.725
+	YScale 2.9
+	Patch Drawers, 0, 0
+}
+
+Texture Drawers2, 128, 128
+{
+	XScale 2.725
+	YScale 2.9
+	Patch Drawers2, 0, 0
+}
+
+Texture SHU_CAM, 159, 89
+{
+	Patch VIEWER, -8, -5
+}
+
+Texture WALLOBSD, 2460, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_G, 492, 0
+	Patch WALL_G, 984, 0
+	Patch WALL_G, 1476, 0
+	Patch WALL_G, 1968, 0
+	Patch OBS_WIN, 1968, 0 {Style Overlay}
+}
+
+Texture WALL0SW0, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALLTOP, 3, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 376, 0
+	Patch WALLTOP, 393, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch SWI_BR_0, 0, 250 {Style Overlay}
+}
+
+Texture WALL0SW1, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALLTOP, 3, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 376, 0
+	Patch WALLTOP, 393, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch SWI_BR_1, 0, 250 {Style Overlay}
+}
+
+Texture WALL2SW0, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch SWI_BR_0, 0, 250 {Style Overlay}
+}
+
+Texture WALL2SW1, 492, 984
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch WALL_G, 0, 492
+	Patch WALL_SHA, 0, 492 {Style Overlay Rotate 180}
+	Patch WALL_STR, 0, 492 {Style Overlay}
+	Patch SWI_BR_1, 0, 250 {Style Overlay}
+}
+
+Texture WALL3SW0, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch SWI_BR_0, 0, 250 {Style Overlay}
+}
+
+Texture WALL3SW1, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G, 0, 0
+	Patch SWI_BR_1, 0, 250 {Style Overlay}
+}
+
+Texture WALLMSW0, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch SWI_BRM0, 0, 250 {Style Overlay}
+}
+
+Texture WALLMSW1, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch SWI_BRM1, 0, 250 {Style Overlay}
+}
+
+Texture Wall_Bl, 360, 448
+{
+	XScale 3.8
+	YScale 3.8
+	Patch Wall_Bl, 0, 0
+}
+
+Texture Stone2, 512, 512
+{
+	XScale 1.76
+	YScale 1.76
+	Patch Stone2, 0, 0
+}
+
+Texture Stone2a, 512, 512
+{
+	XScale 1.76
+	YScale 1.76
+	Patch Stone2a, 0, 0
+}
+
+Texture Cliff, 894, 894
+{
+	XScale 3.5
+	YScale 3.5
+	Patch Cliff, 0, 0
+}
+
+Texture Cliff_P, 894, 894
+{
+	XScale 3.5
+	YScale 3.5
+	Patch Cliff_P, 0, 0
+}
+
+Texture GREEN, 255, 256
+{
+	XScale 4.0
+	YScale 4.0
+	Patch GREEN, 0, 0
+}
+
+Texture STEPGRIL, 512, 512
+{
+	XScale 6.0
+	YScale 6.0
+	Patch STEPGRIL, 0, 0
+}
+
+Texture ENG_WALL, 360, 244
+{
+	XScale 4.5
+	YScale 5.0
+	Patch ENG_WALL, 0, 0
+}

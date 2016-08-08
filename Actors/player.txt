@@ -1,3 +1,224 @@
+ACTOR Shuttle : PlayerPawn
+{
+	Speed 0.85
+	Health 100
+	Radius 8
+	Height 16
+	XScale 0.2
+	YScale 0.2
+	Mass 100
+	PainChance 255
+	Player.DisplayName "Shuttlecraft"
+	Player.StartItem "PhaserType2"
+	Player.WeaponSlot 2, "PhaserType2"
+	Player.WeaponSlot 5, "PhotonGrenadeLauncher"
+	Player.ViewHeight 8
+	MaxStepHeight 0
+	Tag "Human Male"
+
+	+NOGRAVITY
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 A_SetUserVar("user_spawn", 1)
+		Idle:
+			TOS1 A 20
+			TOS1 A 0 A_JumpIf(z - floorz > 8.0, "Flight")
+			Loop
+		Flight:
+			TOS1 B 20
+			TOS1 B 0 A_JumpIf(z - floorz <= 8.0, "Idle")
+			Loop
+
+	}
+}
+
+ACTOR TrekPlayer : PlayerPawn
+{
+
+	var int user_spawn;
+	var int user_active;
+	var int user_crouch;
+	var int user_climb;
+	var int user_back;
+	var int user_weaponclass;
+	var int user_forcestatechange;
+	var int user_idletime;
+	var int user_travel;
+	var float user_zoomlevel;
+
+	Speed 0.85
+	Health 100
+	Radius 12
+	Height 70
+	YScale 1.33
+	Mass 100
+	PainChance 255
+	Player.DisplayName "Starfleet"
+	Player.CrouchSprite "TOSO"
+	Player.StartItem "PhaserType2"
+	Player.StartItem "Tricorder"
+	Player.StartItem "TOSCommunicator"
+	Player.StartItem "MedKit"
+	Player.StartItem "Charge", 100
+	Player.StartItem "NoWeapon"
+	Player.WeaponSlot 1, "Punch", "PhaserType1"
+	Player.WeaponSlot 2, "PhaserType2"
+	Player.WeaponSlot 3, "PhaserRifle"
+	Player.WeaponSlot 4, "Distruptor"
+	Player.WeaponSlot 5, "PhotonGrenadeLauncher"
+	Player.WeaponSlot 6, ""
+	Player.WeaponSlot 7, ""
+	Player.WeaponSlot 8, ""
+	Player.WeaponSlot 9, "TOSCommunicator"
+	Player.WeaponSlot 0, "Tricorder"
+	Player.ViewHeight 64
+	MaxStepHeight 22
+	Tag "Human Male"
+
+	States
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {
+			A_SetUserVar("user_spawn", 1);
+			A_SetUserVar("user_active", 0);
+			A_SetUserVar("user_back", 0);
+			A_SetUserVar("user_crouch", 0);
+			A_SetUserVar("user_weaponclass", 0);
+		}
+		TNT1 A 0 A_JumpIf(user_weaponclass >= 2, "Stand2")
+		Goto Stand
+	Idle:
+		TNT1 A 0 A_SetUserVar("user_idletime", 0)
+		TOSS ABCDEFGH 20
+		Loop
+	Stand:
+		TNT1 A 0 {
+			A_SetUserVar("user_active", 0);
+			A_SetUserVar("user_forcestatechange", 0);
+		}
+		TOSS A 6
+		TNT1 A 0 A_JumpIf(user_idletime > 15, "Idle")
+		TNT1 A 0 A_SetUserVar("user_idletime", user_idletime + 1)
+		Loop
+	Stand2:
+		TOSE A 6 {	
+			A_SetUserVar("user_active", 0);
+			A_SetUserVar("user_forcestatechange", 0);
+		}
+		Loop
+	See:
+	Walk:
+		TOSD ACEGIKMO 2
+		Loop
+	Walk2:
+		TOSE ACEGI 3
+		Loop
+	Run:
+		TOSG ABCDE 3
+		Loop
+	Run2:
+		TOSH ABCDE 3
+		Loop
+	Walk.Back:
+		TOSF ABCD 4
+		Loop
+	Turn:
+		TOSI ABCD 4
+		Loop
+	Turn2:
+		TOSJ ABCD 4
+		Loop
+	Crouch:
+//		TOSO ABCD 2
+	Crouch.Stand:
+	Crouch.Turn:
+	Crouch.Turn2:
+		TOSL A 1 A_JumpIf(user_crouch == 0, "Stand")
+		Loop
+	Crouch.Walk:
+	Crouch.Walk2:
+		TOSL ABCD 4 A_JumpIf(user_crouch == 0, "Stand")
+		Loop
+	Crouch.Walk.Back:
+		TOSL DCBA 4 A_JumpIf(user_crouch == 0, "Stand")
+		Loop
+	Crouch.Rise:
+		TOSO DCBA 4
+		Goto Stand
+	Crouch.Fire:
+		TOSK CD 6
+		Goto Crouch.Stand
+	Melee:
+	Missile:
+		TNT1 A 0 A_SetUserVar("user_active", 1)
+		TNT1 A 0 A_JumpIf(user_crouch == 1, "Crouch.Fire")
+		TNT1 A 0 A_JumpIf(user_weaponclass == 1, "Fire1")
+		TNT1 A 0 A_JumpIf(user_weaponclass == 2, "Fire2")
+		TNT1 A 0 A_JumpIf(user_weaponclass == 3, "Fire3")
+		TOSQ ABCD 2
+		TOSR ABCD 2
+		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
+		Goto Stand
+	Fire1:
+		TOSA ABCDEF 2
+		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
+		Goto Stand
+	Fire2:
+		TOSB ABCDEF 2
+		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
+		Goto Stand2
+	Fire3:
+		TOSC ABCDE 2
+		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
+		Goto Stand2
+	Death:
+		TNT1 A 0 A_SetUserVar("user_active", 1)
+		TOSM ABCD 1
+		TOSM E 4 A_PlayerScream
+		TOSM FG 4 A_NoBlocking
+		TOSM H -1
+		Stop
+	XDeath:
+		TNT1 A 0 A_SetUserVar("user_active", 1)
+		TOSN ABCD 4
+		TOSN E 4 A_PlayerScream
+		TOSN FG 4 A_NoBlocking
+		TOSN H -1
+		Stop
+	Jump:
+	Jump.Back:
+		TNT1 A 0 A_JumpIf(velz < 0, "Jump.Loop")
+		TOSD AB 4
+	Jump.Loop:
+		TOSD C 8
+		TNT1 A 0 A_CheckFloor("Land")
+		TNT1 A 0 A_JumpIf(velz == 0, "Land")
+		Loop
+	Land:
+		TNT1 A 0 A_PlaySound("Player/Land")
+		TOSD D 8
+		Goto Stand
+	Climb.Down:
+		TOST ABCD 4 A_CheckFloor("Land")
+		Loop
+	Climb.Up:
+		TOSU ABCD 4 A_CheckFloor("Land")
+		Loop
+	Swim:
+		TOSH ABCD 8 A_JumpIf(waterlevel <= 1, "Jump.Loop")
+      		Loop
+	}
+}
+
+ACTOR TrekPlayerF : TrekPlayer
+{
+	Player.DisplayName "Starfleet Alternate"
+	Tag "Human Female"
+}
+
+/*
 ACTOR OldTrekPlayer : PlayerPawn
 {
 	Speed 0.85
@@ -11,7 +232,8 @@ ACTOR OldTrekPlayer : PlayerPawn
 	Player.CrouchSprite "PLYC"
 	Player.StartItem "PhaserType2"
 	Player.StartItem "Tricorder"
-	Player.StartItem "Communicator"
+	Player.StartItem "TOSCommunicator"
+	Player.StartItem "MedKit"
 	Player.StartItem "Charge", 100
 	Player.WeaponSlot 1, "Punch", "PhaserType1"
 	Player.WeaponSlot 2, "PhaserType2"
@@ -21,7 +243,7 @@ ACTOR OldTrekPlayer : PlayerPawn
 	Player.WeaponSlot 6, ""
 	Player.WeaponSlot 7, ""
 	Player.WeaponSlot 8, ""
-	Player.WeaponSlot 9, "Communicator"
+	Player.WeaponSlot 9, "TOSCommunicator"
 	Player.WeaponSlot 0, "Tricorder"
 	Player.ViewHeight 64
 	Tag "Human Male"
@@ -100,6 +322,7 @@ ACTOR OldTrekPlayer2 : PlayerPawn
 	Player.CrouchSprite "TOS8"
 	Player.StartItem "PhaserType2"
 	Player.StartItem "Tricorder"
+	Player.StartItem "MedKit"
 	Player.StartItem "Charge", 100
 	Player.WeaponSlot 1, "Punch", "PhaserType1"
 	Player.WeaponSlot 2, "PhaserType2"
@@ -192,209 +415,4 @@ ACTOR OldTrekPlayer2 : PlayerPawn
       		Loop
 	}
 }
-
-ACTOR Shuttle : PlayerPawn
-{
-	Speed 0.85
-	Health 100
-	Radius 8
-	Height 16
-	XScale 0.2
-	YScale 0.2
-	Mass 100
-	PainChance 255
-	Player.DisplayName "Shuttlecraft"
-	Player.StartItem "PhaserType2"
-	Player.WeaponSlot 2, "PhaserType2"
-	Player.WeaponSlot 5, "PhotonGrenadeLauncher"
-	Player.ViewHeight 8
-	MaxStepHeight 0
-	Tag "Human Male"
-
-	+NOGRAVITY
-
-	States
-	{
-		Spawn:
-			TNT1 A 0 A_SetUserVar("user_spawn", 1)
-		Idle:
-			TOS1 A 20
-			Loop
-	}
-}
-
-ACTOR TrekPlayer : PlayerPawn
-{
-
-	var int user_spawn;
-	var int user_active;
-	var int user_crouch;
-	var int user_climb;
-	var int user_back;
-	var int user_weaponclass;
-	var int user_forcestatechange;
-	var int user_idletime;
-	var int user_travel;
-
-	Speed 0.85
-	Health 100
-	Radius 12
-	Height 70
-	YScale 1.33
-	Mass 100
-	PainChance 255
-	Player.DisplayName "Starfleet"
-	Player.CrouchSprite "TOSO"
-	Player.StartItem "PhaserType2"
-	Player.StartItem "Tricorder"
-	Player.StartItem "Communicator"
-	Player.StartItem "Charge", 100
-	Player.WeaponSlot 1, "Punch", "PhaserType1"
-	Player.WeaponSlot 2, "PhaserType2"
-	Player.WeaponSlot 3, "PhaserRifle"
-	Player.WeaponSlot 4, "Distruptor"
-	Player.WeaponSlot 5, "PhotonGrenadeLauncher"
-	Player.WeaponSlot 6, ""
-	Player.WeaponSlot 7, ""
-	Player.WeaponSlot 8, ""
-	Player.WeaponSlot 9, "Communicator"
-	Player.WeaponSlot 0, "Tricorder"
-	Player.ViewHeight 64
-	Player.Portrait "Icon"
-	MaxStepHeight 22
-	Tag "Human Male"
-
-	States
-	{
-	Spawn:
-		TNT1 A 0 A_SetUserVar("user_spawn", 1)
-		TNT1 A 0 A_SetUserVar("user_active", 0)
-		TNT1 A 0 A_SetUserVar("user_back", 0)
-		TNT1 A 0 A_SetUserVar("user_crouch", 0)
-		TNT1 A 0 A_SetUserVar("user_weaponclass", 0)
-		TNT1 A 0 A_JumpIf(user_weaponclass >= 2, "Stand2")
-		Goto Stand
-	Idle:
-		TNT1 A 0 A_SetUserVar("user_idletime", 0)
-		TOSS ABCDEFGH 20
-		Loop
-	Stand:
-		TNT1 A 0 A_SetUserVar("user_active", 0)
-		TNT1 A 0 A_SetUserVar("user_forcestatechange", 0)
-		TOSS A 6
-		TNT1 A 0 A_JumpIf(user_idletime > 15, "Idle")
-		TNT1 A 0 A_SetUserVar("user_idletime", user_idletime + 1)
-		Loop
-	Stand2:
-		TNT1 A 0 A_SetUserVar("user_active", 0)
-		TNT1 A 0 A_SetUserVar("user_forcestatechange", 0)
-		TOSE A 6
-		Loop
-	See:
-	Walk:
-		TOSD ACEGIKMO 2
-		Loop
-	Walk2:
-		TOSE ACEGI 3
-		Loop
-	Run:
-		TOSG ABCDE 3
-		Loop
-	Run2:
-		TOSH ABCDE 3
-		Loop
-	Walk.Back:
-		TOSF ABCD 4
-		Loop
-	Turn:
-		TOSI ABCD 4
-		Loop
-	Turn2:
-		TOSJ ABCD 4
-		Loop
-	Crouch:
-//		TOSO ABCD 2
-	Crouch.Stand:
-	Crouch.Turn:
-	Crouch.Turn2:
-		TOSL A 1 A_JumpIf(user_crouch == 0, "Stand")
-		Loop
-	Crouch.Walk:
-	Crouch.Walk2:
-		TOSL ABCD 4 A_JumpIf(user_crouch == 0, "Stand")
-		Loop
-	Crouch.Walk.Back:
-		TOSL DCBA 4 A_JumpIf(user_crouch == 0, "Stand")
-		Loop
-	Crouch.Rise:
-		TOSO DCBA 4
-		Goto Stand
-	Crouch.Fire:
-		TOSK CD 6
-		Goto Crouch.Stand
-	Missile:
-		TNT1 A 0 A_SetUserVar("user_active", 1)
-		TNT1 A 0 A_JumpIf(user_crouch == 1, "Crouch.Fire")
-		TNT1 A 0 A_JumpIf(user_weaponclass == 2, "Fire2")
-		TNT1 A 0 A_JumpIf(user_weaponclass == 3, "Fire3")
-		TOSA ABCDEF 2
-		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
-		Goto Stand
-	Fire2:
-		TOSB ABCDEF 2
-		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
-		Goto Stand2
-	Fire3:
-		TOSC ABCDE 2
-		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
-		Goto Stand2
-	Melee:
-		TNT1 A 0 A_SetUserVar("user_active", 1)
-		TNT1 A 0 A_JumpIf(user_crouch == 1, "Crouch.Fire")
-		TOSM ABCD 2
-		TNT1 A 0 A_SetUserVar("user_forcestatechange", 1)
-		Goto Stand
-	Death:
-		TNT1 A 0 A_SetUserVar("user_active", 1)
-		TOSM ABCD 1
-		TOSM E 4 A_PlayerScream
-		TOSM FG 4 A_NoBlocking
-		TOSM H -1
-		Stop
-	XDeath:
-		TNT1 A 0 A_SetUserVar("user_active", 1)
-		TOSN ABCD 4
-		TOSN E 4 A_PlayerScream
-		TOSN FG 4 A_NoBlocking
-		TOSN H -1
-		Stop
-	Jump:
-	Jump.Back:
-		TNT1 A 0 A_JumpIf(velz < 0, "Jump.Loop")
-		TOSD AB 4
-	Jump.Loop:
-		TOSD C 8
-		TNT1 A 0 A_CheckFloor("Land")
-		TNT1 A 0 A_JumpIf(velz == 0, "Land")
-		Loop
-	Land:
-		TNT1 A 0 A_PlaySound("Player/Land")
-		TOSD D 8
-		Goto Stand
-	Climb.Down:
-		TOST ABCD 4 A_CheckFloor("Land")
-		Loop
-	Climb.Up:
-		TOSU ABCD 4 A_CheckFloor("Land")
-		Loop
-	Swim:
-		TOSH ABCD 8 A_JumpIf(waterlevel <= 1, "Jump.Loop")
-      		Loop
-	}
-}
-
-ACTOR TrekPlayerF : TrekPlayer
-{
-	Player.DisplayName "Starfleet Alternate"
-	Tag "Human Female"
-}
+*/

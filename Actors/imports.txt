@@ -1,0 +1,3 @@
+//From BoA, originally - altered significantly...
+#include "actors/imports/smoke.txt"
+#include "actors/imports/fire.txt"

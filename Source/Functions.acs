@@ -414,3 +414,8 @@ Function str ExpandLanguageString(str strString, str input1, str input2, str inp
 	}
 	Return strTemp;
 }
+
+Script "GetActorViewHeight" (void)
+{
+	SetResultValue(GetActorViewHeight(0) >> 16);
+}

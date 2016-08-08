@@ -292,3 +292,96 @@ Model TrailShell
 	Scale 0.1 0.1 0.1
 	FrameIndex TOS1 A 0 0
 }
+
+Model Impact
+{
+	Path "Models/"
+	Model 0 "sprite.md3"
+
+	Path "Sprites/"
+	Skin 0 "bigboom.jpg"
+
+	ZOffset -7
+	PitchOffset 90
+
+	Scale 10.0 10.0 10.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model LaserBeam
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_w.png"
+
+	INHERITACTORPITCH
+
+	Scale 0.5 0.5 1.0
+
+	FrameIndex LAZR A 0 0
+}
+
+Model LaserBeam_R
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+
+	INHERITACTORPITCH
+
+	Scale 0.5 0.5 1.0
+
+	FrameIndex LAZR A 0 0
+}
+
+Model LaserBeam_O
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_o.png"
+
+	INHERITACTORPITCH
+
+	Scale 0.5 0.5 1.0
+
+	FrameIndex LAZR A 0 0
+}
+
+Model LaserBeam_G
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_g.png"
+
+	INHERITACTORPITCH
+
+	Scale 0.5 0.5 1.0
+
+	FrameIndex LAZR A 0 0
+}
+
+Model LaserBeam_B
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_b.png"
+
+	INHERITACTORPITCH
+
+	Scale 0.5 0.5 1.0
+
+	FrameIndex LAZR A 0 0
+}
+
+Model LaserBeam_P
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_p.png"
+
+	INHERITACTORPITCH
+
+	Scale 0.5 0.5 1.0
+
+	FrameIndex LAZR A 0 0
+}

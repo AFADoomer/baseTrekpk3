@@ -1,7 +1,7 @@
 //Added to let the radar work with legacy Doom actors
-ACTOR ZombieManRadar : Zombieman Replaces Zombieman {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+//ACTOR ZombieManRadar : Zombieman Replaces Zombieman {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
 ACTOR DoomImpRadar : DoomImp replaces DoomImp {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
-ACTOR ShotgunGuyRadar : Shotgunguy Replaces Shotgunguy {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
+//ACTOR ShotgunGuyRadar : Shotgunguy Replaces Shotgunguy {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
 ACTOR ChaingunGuyRadar : ChaingunGuy replaces ChaingunGuy {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
 ACTOR WolfensteinSSRadar : WolfensteinSS replaces WolfensteinSS {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}
 ACTOR DemonRadar : Demon replaces Demon {States {Spawn: TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0) Goto Super::Spawn}}

@@ -187,6 +187,7 @@ Model TrekPlayer
 	FrameIndex TOSP C 1 303
 	FrameIndex TOSP D 0 307
 	FrameIndex TOSP D 1 307
+*/
 	FrameIndex TOSQ A 0 311
 	FrameIndex TOSQ A 1 311
 	FrameIndex TOSQ B 0 320
@@ -203,7 +204,6 @@ Model TrekPlayer
 	FrameIndex TOSR C 1 314
 	FrameIndex TOSR D 0 315
 	FrameIndex TOSR D 1 315
-*/
 	FrameIndex TOSS A 0 333
 	FrameIndex TOSS A 1 333
 	FrameIndex TOSS B 0 341
@@ -279,7 +279,7 @@ Model TrekPlayer
 	FrameIndex TOSN H 0 181
 	FrameIndex TOSN H 1 181
 }
-
+/*
 Model OldTrekPlayer2
 {
 	Path "Models/actors/player/"
@@ -587,6 +587,7 @@ Model OldTrekPlayer
 	FrameIndex PLYC W 1 171
 	FrameIndex PLYC W 2 171
 }
+*/
 
 Model TrekPlayerF
 {
@@ -878,13 +879,15 @@ Model TrekPlayerF
 
 Model Shuttle
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	INTERPOLATEDOUBLEDFRAMES
 
 	Path "Models/mapobjects/tos/shuttles"
 	Model 0 "galileo_landed.md3"
 
 	FrameIndex TOS1 A 0 0
+
+	INHERITACTORROLL
+	USEACTORPITCH
 
 	Model 0 "galileo.md3"
 

@@ -5,8 +5,8 @@
 #include "radar.acs"
 #include "lift.acs"
 
-global int 4:RedAlert;
-global str 5:LogEntry[];
+global int 4:RedAlert, 7:FlightSpeed[];
+global str 5:LogEntry[], 6:Weapon[], 8:HealRate[];
 
 int ReloadCount;
 int MapViewDelay;
@@ -244,13 +244,14 @@ Script "W_LevelStart" ENTER
 		If (!GetCVar("gl_precache"))
 			Notification("\crWarning!", "This mod contains textures that cause game lag when not pre-cached.\nPlease enable \cl'Precache GL Textures'\cc in the OpenGL Texture Options Menu.", "Alternatively, you can set the \cl'gl_precache'\cc CVAR to \cltrue\cc in the console.", 1);
 
-		CheckEnterSound();
+		CheckEnterEffect();
+
 		LogEntry[PlayerNumber()] = ""; //No objective is set at this time.
 
 		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Planet") == 0)
 		{
 			//Thing_Activate(5);
-			Scroll_Floor(17, 2, 2, 0); //Scrolling fog/clouds effect
+			Scroll_Floor(14, 1, 1, 0); //Scrolling fog/clouds effect
 		}
 
 		SetCameraToTexture(553, "SHU_CAM", 85);
@@ -258,7 +259,7 @@ Script "W_LevelStart" ENTER
 	}
 }
 
-Function void CheckEnterSound (void)
+Function void CheckEnterEffect (void)
 {
 	If (GetUserVariable(0, "user_travel") > 0)
 	{
@@ -278,7 +279,7 @@ Function void CheckEnterSound (void)
 
 Script "W_LevelReturn" RETURN
 {
-	CheckEnterSound();
+	CheckEnterEffect();
 
 	Delay(35);
 	ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);
@@ -365,6 +366,7 @@ Script "W_PlayerLoop" ENTER
 		If (intHealTimer <= 0)
 		{		
 			int intHealRate = intMaxStress - intStress;
+			HealRate[PlayerNumber()] = intHealRate;
 			int intHealModRate = 35;
 
 			If(intHealth > 0)
@@ -375,6 +377,21 @@ Script "W_PlayerLoop" ENTER
 			intHealTimer = intHealModRate + (14 * intStress);
 
 			If (intHealTimer > 350) intHealTimer = 350;
+		}
+	}
+
+	If (GetUserVariable(0, "user_travel") == 1)
+	{
+		SetWeapon("NoWeapon");
+	}
+	Else
+	{
+		If (StrICmp(GetWeapon(), "NoWeapon"))
+			Weapon[PlayerNumber()] = GetWeapon();
+		Else
+		{
+			Delay(70);
+			SetWeapon(Weapon[PlayerNumber()]);
 		}
 	}
 
@@ -664,15 +681,25 @@ Script "Lean" (int intDir)
 	ChangeActorRoll(camTID, intDir, TRUE);
 }
 
-Script "A_Disintegrate" (void)
+Script "A_Disintegrate" (int intColor, int bNoDeathJump)
 {
 	If (ActivatorTID() == 0) Thing_ChangeTID(0, UniqueTID());
 
 	If (CheckInventory("Health") <= 0 && !GetActorProperty(0, APROP_Invulnerable))
 	{
+		If (CheckFlag(0, "ISMONSTER"))
+			PlaySound(0, "effects/disintegrate/alive", CHAN_AUTO, 0.35);
+		Else
+		{
+			If (GetActorProperty(ActivatorTID(), APROP_Radius) >= 16)
+				PlaySound(0, "effects/disintegrate/object", CHAN_AUTO, 0.35);
+			Else
+				PlaySound(0, "effects/disintegrate/object_small", CHAN_AUTO, 0.35);
+		}
+
 		SetActorProperty(0, APROP_Invulnerable, 1);
 		SetActorProperty(0, APROP_NoTarget, 1);
-		SetActorProperty(0, APROP_StencilColor, 2620994);
+		SetActorProperty(0, APROP_StencilColor, intColor);
 		SetActorProperty(0, APROP_Alpha, 1.0);
 		SetActorProperty(0, APROP_RenderStyle, STYLE_TranslucentStencil);
 
@@ -683,9 +710,7 @@ Script "A_Disintegrate" (void)
 			Delay (1);
 		}
 
-//		SetActorProperty(0, APROP_Invulnerable, 0);
-
-		SetActorState(0, "Death");
+		If (!bNoDeathJump) SetActorState(0, "Death");
 		Thing_Destroy(ActivatorTID());
 	}
 }
@@ -696,20 +721,26 @@ Script "A_Stun" (int time)
 
 	If (ActivatorTID() == 0) Thing_ChangeTID(0, UniqueTID());
 
+	If (!CheckFlag(ActivatorTID(), "ISMONSTER")) Terminate;
+
 	actor_health = CheckInventory("Health");
 
 	If (actor_health <= 50 && actor_health > 0)
 	{
 		If (time == 0) time = 10;
 
-		Thing_Destroy(ActivatorTID());
+//		Thing_Destroy(ActivatorTID());
+		SetActorState(0, "Death.Stun");
 
 		Delay(35 * time);
 
 		Thing_Raise(ActivatorTID());
 		Thing_ChangeTID(0, 0);
 		SetActorProperty(0, APROP_Health, actor_health);
-		SetActorState(0, "Spawn");
+		If (!SetActorState(0, "Raise"))
+		{
+			SetActorState(0, "Spawn");
+		}
 	}
 }
 
@@ -809,6 +840,8 @@ Script "A_AmmoStation" (int intType, int intAmt)
 		break;
 	}
 
+	SetWeapon("NoWeapon");
+
 	If (CheckInventory(strWeapon))
 	{
 		int intNeededToMax = GetAmmoCapacity(strType) - CheckInventory(strType);
@@ -824,13 +857,15 @@ Script "A_AmmoStation" (int intType, int intAmt)
 		}
 		Else
 			SetResultValue(0);
+		Delay(35);
 	}
 	Else
 	{
 		GiveInventory(strWeapon, 1);
-		SetWeapon(strWeapon);
 		SetResultValue(-1);
 	}
+
+	SetWeapon(strWeapon);
 }
 
 Script "ToggleFly" (int EnterExit, int minHeight, int maxHeight)
@@ -1069,7 +1104,7 @@ Script "PrintInfo" (void)
 
 		If (Friend)
 			Class = StrParam(s:"\c[TOSBrightGreen]", s:Class);
-		Else If (SpawnHealth != 1000)
+		Else If (CheckFlag(TID, "ISMONSTER"))
 			Class = StrParam(s:"\c[TOSBrightRed]", s:Class);
 		Else
 			Class = StrParam(s:"\c[TOSBrightBlue]", s:Class);
@@ -1162,7 +1197,7 @@ Script "PrintScan" (int filter)
 		{
 			If (Friend)
 				Class = StrParam(s:"\c[TOSBrightGreen]", s:Class);
-			Else If (SpawnHealth != 1000)
+			Else If (CheckFlag(TID, "ISMONSTER"))
 				Class = StrParam(s:"\c[TOSBrightRed]", s:Class);
 			Else
 				Class = StrParam(s:"\c[TOSBrightGold]", s:Class);
@@ -1175,7 +1210,7 @@ Script "PrintScan" (int filter)
 		{
 			If (Friend)
 				HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "Scan", 1);
-			Else If (SpawnHealth != 1000)
+			Else If (CheckFlag(TID, "ISMONSTER"))
 				HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "ScanA", 1);
 			Else
 				HudMessageOnActor(TID, ScanRange, "A", Height, Radius, "Scan", 1);
@@ -1338,6 +1373,7 @@ Script "Open3DPolyDoor" (int Num, int zMax, int Angle)
 Script "RedAlert" (int OnOff)
 {
 	RedAlert = OnOff;
+/*
 	If (RedAlert > 0)
 	{
 		ReplaceTextures ("WALLALER", "WALLALE3");
@@ -1358,10 +1394,10 @@ Script "RedAlert" (int OnOff)
 		ReplaceTextures ("BR_WALLM", "BR_WALLL");
 		ReplaceTextures ("BR_WALLU", "BR_WALLR");
 	}
-
+*/
 	While (RedAlert > 0)
 	{
-		AmbientSound("ambient/redalert", 127);
+		AmbientSound("ambient/redalert", 31);
 		Delay(6 * 35 + 15);
 	}
 }
@@ -1527,12 +1563,14 @@ int Moved = 0;
 
 Function void OpenDoor (void)
 {
+	PlaySound(0, "hangar/doors", CHAN_AUTO, 0.35);
 	SetActorState(2, "Opening");
 	DoorStatus = 1;
 }
 
 Function void CloseDoor (void)
 {
+	PlaySound(0, "hangar/doors", CHAN_AUTO, 0.35);
 	SetActorState(2, "Closing");
 	DoorStatus = 0;
 }
@@ -1560,6 +1598,8 @@ Script "MoveShuttle" (int Out)
 	PolyObj_Move(12, 32, 0, 120);
 	Ceiling_LowerToFloor(36, 32);
 
+	DoorStatus = 1;
+
 	If (Out)
 	{ //Rotate from East-facing to South
 		For (int j = 1.0; j >= 0.75; j -= 0.001)
@@ -1585,7 +1625,6 @@ Script "MoveShuttle" (int Out)
 	}
 	
 	CloseDoor();  
-	DoorStatus = 1;
 	
 	For (i = 1024; i <= 2048; i = i + 3)
 	{
@@ -1608,28 +1647,29 @@ Script "MoveShuttle" (int Out)
 
 Script "MovePad" (void)
 {
-	If (GetActorZ(0) <= 118 && GetActorZ(0) >= 0) terminate;
-	If (PadMoving) terminate;
-	If (DoorStatus) terminate;
+	If (GetActorZ(0) > -10.0 && GetActorZ(0) < 118.0) Terminate;
 
-	PadMoving = True;	
-	PadStatus = !PadStatus;
-
-	PlaySound(0, "computer/button2");
-
-	If (!PadStatus)
+	If (!PadMoving && !DoorStatus)
 	{
-		FloorAndCeiling_RaiseByValue(42, 16, 116);
-		Floor_RaiseByValue(43, 16, 116);
+		PadMoving = True;	
+
+		PlaySound(0, "computer/button2");
+
+		If (PadStatus)
+		{
+			FloorAndCeiling_RaiseByValue(42, 5, 116);
+			Floor_RaiseByValue(43, 5, 116);
+		}
+		Else
+		{
+			FloorAndCeiling_LowerByValue(42, 5, 116);
+			Floor_LowerByValue(43, 5, 116);
+		}
+
+		Delay(70);
+		PadStatus = !PadStatus;
+		PadMoving = False;
 	}
-	Else
-	{
-		FloorAndCeiling_LowerByValue(42, 16, 116);
-		Floor_LowerByValue(43, 16, 116);
-	}
-	
-	Delay(70);
-	PadMoving = False;
 }
 
 Script "OpenDoor" (void)
@@ -1690,7 +1730,7 @@ Script "A_CheckOutdoors" (void)
 
 int FieldStates[16];
 
-Script "ToggleField" (int FieldID, int WallIndex)
+Script "ToggleField" (int FieldID, int WallIndex, int LineAngle)
 {
 	int FieldIndex = FieldID % 16;
 	int State = FieldStates[FieldIndex];
@@ -1712,10 +1752,10 @@ Script "ToggleField" (int FieldID, int WallIndex)
 		Light_ChangeToValue(FieldID, GetSectorLightLevel(FieldID) - 32);
 	}
 
-	ACS_NamedExecuteAlways("BumpField", 0, FieldID, 1);
+	ACS_NamedExecuteAlways("BumpField", 0, FieldID, 1, LineAngle);
 }
 
-Script "BumpField" (int FieldID, int Toggle)
+Script "BumpField" (int FieldID, int Toggle, int LineAngle)
 {
 	int FieldIndex = FieldID % 16;
 	int State = FieldStates[FieldIndex];
@@ -1726,11 +1766,14 @@ Script "BumpField" (int FieldID, int Toggle)
 		SetLineTexture(FieldID, SIDE_BACK, TEXTURE_MIDDLE, "FIELD_W");
 	}
 
-	If (!Toggle)
+	If (!Toggle && State)
 	{
 		PlaySound(0, "world/spark1");
 		Thing_Damage(ActivatorTID(), 1, MOD_ELECTRIC);
-		ThrustThing((GetActorAngle(ActivatorTID()) >> 8) + 128, 5, 0, ActivatorTID());
+
+		LineAngle = LineAngle * 256 / 360;
+		if (LineSide() != LINE_BACK) LineAngle += 128;
+		ThrustThing(LineAngle, 5, 0, ActivatorTID());
 	}
 
 	Delay(5);
@@ -1760,79 +1803,112 @@ Script "Flight" (void)
 {
 	Flight = !Flight;
 
-	int intSpeed = 1;
+	FlightSpeed[PlayerNumber()] = 10;
 	int intMoveDelay = 0;
+	int intCrouchHold = 0;
+	int intJumpHold = 0;
+//	int intRise = 0;
+//	int intLand = 0;
 
-	SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
-	SetPlayerProperty(0, ON, PROP_FLY);
+	int intOldActualSpeed = 0;
 
-	While (Flight)
+	While (Flight && CheckInventory("Health") > 0)
 	{
-		int intInput = GetPlayerInput(-1, INPUT_BUTTONS);
-		int intPitch = GetPlayerInput(-1, INPUT_PITCH);
-//		int intPitch = 0;
-		int intYaw = GetPlayerInput(-1, INPUT_YAW);
+		MorphActor(0, "Shuttle", "", 0x7FFFFFFF, MRF_NEWTIDBEHAVIOUR | MRF_FULLHEALTH, "None", "None");
 
-//		int intPitch = GetActorPitch(0);
+		SetPlayerProperty(0, ON, PROP_FLY);
+		SetPlayerProperty(0, ON, PROP_TOTALLYFROZEN);
+
+		int intInput = GetPlayerInput(-1, INPUT_BUTTONS);
+		int intOldInput = GetPlayerInput(-1, INPUT_OLDBUTTONS);
+		int intPitch = GetPlayerInput(-1, INPUT_PITCH);
+		int intYaw = GetPlayerInput(-1, INPUT_YAW);
+		int intRoll = GetActorRoll(0);
+
+		int intCurrentPitch = GetActorPitch(0);
+		int intActualSpeed = GetSpeed(0);
 
 		If (intInput & BT_FORWARD)
 		{
-			intPitch -= 0.01;
+			intPitch += 0.004;
 		}
 		Else If (intInput & BT_BACK)
 		{
-			intPitch += 0.01;
+			intPitch -= 0.004;
 		}
 
-		int intRoll = GetActorRoll(0);
+		If (intInput & BT_MOVELEFT) intRoll -= 0.004;
+		Else If (intInput & BT_MOVERIGHT) intRoll += 0.004;
 
-		If (intYaw < 0)
-		{
-			intRoll += 0.0025;
-		}
-		Else If (intYaw > 0)
-		{
-			intRoll -= 0.0025;
-		}
-		Else If (intInput & (BT_LEFT | BT_MOVELEFT))
-		{
-			intRoll -= 0.0025;
-		}
-		Else If (intInput & (BT_RIGHT | BT_MOVERIGHT))
-		{
-			intRoll += 0.0025;
-		}
-
-		//If (intInput & BT_FORWARD)
-		If (intInput & BT_JUMP)
-		{
-			intSpeed += 10;
-		}
-		//If (intInput & BT_BACK)
-		If (intInput & BT_CROUCH)
-		{
-			intSpeed -= 10;
-		}
-
-		If (intSpeed > 5) intSpeed = 5;
-
-		If (intSpeed < -1) intSpeed = -1;
-
-		If (intRoll > 0.001 && intRoll < 0.5)
-			intRoll -= 0.001;
-		Else If (introll < 0.999 && intRoll > 0.5)
-			intRoll += 0.001;
+		If (intInput & BT_LEFT || intYaw > 0) intRoll -= 0.001;
+		Else If (intInput & BT_RIGHT || intYaw < 0) intRoll += 0.001;
 
 /*
-		SetActorPitch(0, GetActorPitch(0) + (Sin(GetActorRoll(0) + 0.25) * -intPitch / 1.0) + (Sin(GetActorRoll(0) + 0.25) * -intYaw / 1.0));
-		SetActorAngle(0, GetActorAngle(0) + (Cos(GetActorRoll(0) + 0.25) * intYaw / 1.0) + (Cos(GetActorRoll(0) + 0.25) * intPitch / 1.0));
+		If (intInput & BT_JUMP && !(intOldInput & BT_JUMP))
+		{
+			FlightSpeed[PlayerNumber()] += 10;
+		}
+
+		If (intInput & BT_CROUCH && !(intOldInput & BT_CROUCH))
+		{
+			FlightSpeed[PlayerNumber()] -= 10;
+		}
+
+		If (intInput & BT_JUMP && !(intOldInput & BT_JUMP))
+		{
+			FlightSpeed[PlayerNumber()] += 10;
+		}
+
+		If (intInput & BT_CROUCH && !(intOldInput & BT_CROUCH))
+		{
+			FlightSpeed[PlayerNumber()] -= 10;
+		}
+
+		If (FlightSpeed[PlayerNumber()] > 100) FlightSpeed[PlayerNumber()] = 100;
+		If (FlightSpeed[PlayerNumber()] < -10) FlightSpeed[PlayerNumber()] = -10;
+
+		If (intInput & BT_CROUCH) && intOldInput & BT_CROUCH)
+		{
+			If (intCrouchHold > 15)
+			{
+				intLand = 1;
+				FlightSpeed[PlayerNumber()] = 0;
+			}
+			Else
+				intCrouchHold++;
+		}
+		Else
+		{
+			intCrouchHold = 0;
+			intLand = 0;
+		}
+
+		If (intInput & BT_Jump) && intOldInput & BT_Jump)
+		{
+			If (intJumpHold > 15)
+			{
+				intRise = 1;
+				FlightSpeed[PlayerNumber()] = 0;
+			}
+			Else
+				intJumpHold++;
+		}
+		Else
+		{
+			intJumpHold = 0;
+			intRise = 0;
+		}
 */
-/*
-		SetActorPitch(0, GetActorPitch(0) + (Sin(GetActorRoll(0) + 0.25) * intPitch / 1.0) + (Cos(GetActorRoll(0) + 0.25) * -intYaw / 1.0));
-		SetActorAngle(0, GetActorAngle(0) + (Sin(GetActorRoll(0) + 0.25) * intYaw / 1.0) + (Cos(GetActorRoll(0) + 0.25) * -intPitch / 1.0));
-*/
-		int intNewPitch = GetActorPitch(0) + (Sin(GetActorRoll(0) + 0.25) * -intPitch / 1.0) + (Cos(GetActorRoll(0) + 0.25) * intYaw / 1.0);
-		int intNewAngle = GetActorAngle(0) + (Sin(GetActorRoll(0) + 0.25) * intYaw / 1.0) + (Cos(GetActorRoll(0) + 0.25) * intPitch / 1.0);
+		int intMoveZ = 0;
+
+		If (intInput & BT_CROUCH && intOldInput & BT_CROUCH)
+			intMoveZ--;
+
+		If (intInput & BT_Jump && intOldInput & BT_Jump)
+			intMoveZ++;
+
+		int intNewPitch = GetActorPitch(0) + (Sin(GetActorRoll(0) + 0.25) * intPitch / 1.0) + (Cos(GetActorRoll(0) + 0.25) * intYaw / 1.0);
+		int intNewAngle = GetActorAngle(0) + (Sin(GetActorRoll(0) + 0.25) * intYaw / 1.0) + (Cos(GetActorRoll(0) + 0.25) * -intPitch / 1.0);
 
 		If (Abs(intNewPitch) > 0.24999 && intPitch)
 		{
@@ -1841,31 +1917,90 @@ Script "Flight" (void)
 		}
 
 		ChangeActorRoll(0, intRoll, TRUE);
-		SetActorPitch(0, intNewPitch);
 		SetActorAngle(0, intNewAngle);
+		SetActorPitch(0, intNewPitch);
 
-		If (Abs(intMoveDelay) >= 5 - intSpeed)
+		If (Abs(intMoveDelay) >= 5 - FlightSpeed[PlayerNumber()])
 		{
-			ThrustThing(GetActorAngle(0) >> 8, 1, 0, 0);
-			
-			int intMoveZ = Sin(GetActorPitch(0)) >> 8;
+/*
+			int intMoveZ = 0;
 
-			If (intMoveZ < 5)
-				ThrustThingZ(0, 1, 0, 0);
-			Else If (intMoveZ > 5)
-				ThrustThingZ(0, 1, 1, 0);
-			intMoveDelay = 0;
+			If (intRise == 1)
+			{
+				SetActorState(0, "Landed");
+				ThrustThingZ(0, 10, 0, 0);
+				intMoveDelay = 0;
+				FlightSpeed[PlayerNumber()] = 0;
+			}
+			Else If (intLand == 1)
+			{
+				SetActorState(0, "Landed");
+				ThrustThingZ(0, -10, 0, 0);
+				intMoveDelay = 0;
+				FlightSpeed[PlayerNumber()] = 0;
+			}
+*/
+			If (FlightSpeed[PlayerNumber()] > 0)
+			{
+				SetActorState(0, "Flight");
+
+				SetActorVelocity(0, 0, 0, 0, 0, 1);
+				ThrustThing(GetActorAngle(0) >> 8, FlightSpeed[PlayerNumber()] / 10, 0, 0);
+			
+				intMoveZ = Sin(GetActorPitch(0)) >> 8;
+
+				ThrustThingZ(0, -intMoveZ / 10, 0, 0);
+
+				intMoveDelay = 0;
+			}
+			Else If (FlightSpeed[PlayerNumber()] == -10)
+			{
+				SetActorState(0, "Flight");
+
+				SetActorVelocity(0, 0, 0, 0, 0, 1);
+				ThrustThing((GetActorAngle(0) >> 8) + 128, 1, 0, 0);
+
+				intMoveZ = Sin(GetActorPitch(0)) >> 8;
+
+				ThrustThingZ(0, intMoveZ / 10, 0, 0);
+
+				intMoveDelay = 0;
+
+			}
+
+//			If (intInput & BT_ATTACK) SetActorState(0, "Fire");
 		}
 		Else
 		{
 			intMoveDelay++;
 		}
+/*
+		int intSpeedDelta = Abs(intOldActualSpeed - intActualSpeed);
+		If (intSpeedDelta > 20)
+		{
+			DamageThing(intSpeedDelta / 2);
+		}
+*/
+		int intWeaponNum = GetUserVariable(0, "user_weapon");
+
+		If (intWeaponNum > 1)
+		{
+			SetHudSize(640, 480, 1);
+			SetFont(StrParam(s:"WPN", d:intWeaponNum, s:"A0"));
+			HudMessage(s:"A"; HUDMSG_LAYER_OVERHUD, 1, -1, 32.1, 32.1, 1);
+		}
+		Else
+			HudMessage(s:""; 0, 1, 0, 0, 0, 0);
+
+		intOldActualSpeed = intActualSpeed;
 
 		Delay(1);
 	}
 
-	SetPlayerProperty(0, OFF, PROP_TOTALLYFROZEN);
+	UnMorphActor(0);
+
 	SetPlayerProperty(0, OFF, PROP_FLY);
+	SetPlayerProperty(0, OFF, PROP_TOTALLYFROZEN);
 }
 
 Script "A_SetupThing" (void)
@@ -1934,4 +2069,44 @@ Script "TestMessage" (int R, int G, int B, int A)
 
 	Notification("Hello!", "This is a message", "This is only in the console!", 1);
 //	DrawString("This is a message\r.\n\caWoohoo!\n\n\cbL\cco\cdt\ces \cfo\cgf \chc\cio\cjl\cko\clr\cms \cna\cor\cpe \cqa\crv\csa\cti\cul\cva\clble!", 0, 0, CanvasWidth * 1.0 / 3 + 0.1, CanvasHeight * 1.0 / 3, 4/*, "FNT_Y", 3*/, 0.85, 1.0, 0.0, 1.0, 1.0, 4);
+}
+
+Script "A_CheckBeamUp" (void)
+{
+	ActivatorSound("transporter/energize", 128);
+	SetUserVariable(0, "user_travel", 1);
+	GiveInventory("TransportOut", 1);
+
+	Delay(35 * 4);
+
+	SetActorProperty(0, APROP_INVULNERABLE, 0);
+	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+
+	ChangeLevel ("MAP07", 3, CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+}
+
+#define DropClassCount 12
+
+str DropClasses[DropClassCount] = {
+	"", 			//0
+	"ChargePack", 
+	"PhaserType1", 
+	"PhaserType2", 
+	"RifleChargePack", 
+	"PhaserRifle", 		//5
+	"PhotonGrenadeAmmoBox", 
+	"PhotonGrenadeLauncher", 
+	"AccessLevel2", 
+	"AccessLevel3", 
+	"AccessLevel4", 	//10
+	"MedKit" 
+};
+
+Script "A_Drop" (int DropIndex)
+{
+	str strDropItem = "";
+
+	strDropItem = strParam(s:DropClasses[DropIndex]);
+
+	Spawn (strDropItem, GetActorX(0), GetActorY(0), GetActorZ(0));
 }

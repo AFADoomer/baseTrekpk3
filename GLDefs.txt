@@ -38,9 +38,64 @@ object NavGoal
 	}
 }
 
-PointLight DisruptorLight
+PointLight SmallRedLight
 {
-	color 0.1 0.9 0.1
+	color 0.4 0.1 0.1
+	size 16
+}
+
+PointLight RedAlertLight
+{
+	color 1.0 0.0 0.0
+	size 8
+	Offset 0 8 0
+}
+
+PointLight RedAlertLightLarge
+{
+	color 1.0 0.0 0.0
+	size 64
+}
+
+PointLight SmallOrangeLight
+{
+	color 0.4 0.2 0.1
+	size 16
+}
+
+PointLight LargeOrangeLight
+{
+	color 0.8 0.4 0.2
+	size 64
+}
+
+PointLight SmallYellowLight
+{
+	color 0.4 0.4 0.1
+	size 16
+}
+
+PointLight SmallGreenLight
+{
+	color 0.1 0.4 0.1
+	size 16
+}
+
+PointLight SmallBlueLight
+{
+	color 0.1 0.1 0.4
+	size 16
+}
+
+PointLight SmallPurpleLight
+{
+	color 0.4 0.1 0.4
+	size 16
+}
+
+PointLight SmallWhiteLight
+{
+	color 0.4 0.4 0.4
 	size 16
 }
 
@@ -66,6 +121,12 @@ PointLight PurpleLight
 {
 	color 0.8 0.2 0.8
 	size 48
+}
+
+PointLight DisruptorLight
+{
+	color 0.1 0.9 0.1
+	size 16
 }
 
 PulseLight DisruptorPulseLight
@@ -114,11 +175,100 @@ PulseLight GrenadeExplodeLightW
 	interval 3
 }
 
+Object SmallWhiteLight
+{
+	Frame TOS1
+	{
+		light SmallWhiteLight
+	}
+}
+
+Object SmallRedLight
+{
+	Frame TOS1
+	{
+		light SmallRedLight
+	}
+}
+
+Object SmallOrangeLight
+{
+	Frame TOS1
+	{
+		light SmallOrangeLight
+	}
+}
+
+Object SmallYellowLight
+{
+	Frame TOS1
+	{
+		light SmallYellowLight
+	}
+}
+
+Object SmallGreenLight
+{
+	Frame TOS1
+	{
+		light SmallGreenLight
+	}
+}
+
+Object SmallBlueLight
+{
+	Frame TOS1
+	{
+		light SmallBlueLight
+	}
+}
+
+Object SmallPurpleLight
+{
+	Frame TOS1
+	{
+		light SmallPurpleLight
+	}
+}
+
+Object WhitePhaserParticle
+{
+	Frame TOS1
+	{
+		light SmallWhiteLight
+	}
+}
+
+Object RedPhaserParticle
+{
+	Frame TOS1
+	{
+		light SmallRedLight
+	}
+}
+
+Object OrangePhaserParticle
+{
+	Frame TOS1
+	{
+		light SmallOrangeLight
+	}
+}
+
+Object BluePhaserParticle
+{
+	Frame TOS1
+	{
+		light SmallBlueLight
+	}
+}
+
+/*
 object DisruptorBolt
 {
 	frame TOS1
 	{
-		light DisruptorLight
+		light SmallGreenLight
 	}
 }
 
@@ -126,9 +276,10 @@ object DisruptorGrenade
 {
 	frame TOS1
 	{
-		light DisruptorLight
+		light SmallGreenLight
 	}
 }
+*/
 
 object PulseSphereGreen
 {
@@ -202,19 +353,19 @@ object TrailShell
 	}
 }
 
-brightmap texture "models/mapobjects/tos/enterprise/enterprise.jpg"
+brightmap texture "models/mapobjects/tos/enterprise/enterprise.png"
 {
-	map "models/mapobjects/tos/enterprise/enterprise_l.jpg"
+	map "models/mapobjects/tos/enterprise/enterprise_l.png"
 }
 
-brightmap texture "models/mapobjects/tos/enterprise/bus1.jpg" {map "models/mapobjects/tos/enterprise/bus1.jpg"}
-brightmap texture "models/mapobjects/tos/enterprise/bus2.jpg" {map "models/mapobjects/tos/enterprise/bus2.jpg"}
-brightmap texture "models/mapobjects/tos/enterprise/bus3.jpg" {map "models/mapobjects/tos/enterprise/bus3.jpg"}
-brightmap texture "models/mapobjects/tos/enterprise/bus4.jpg" {map "models/mapobjects/tos/enterprise/bus4.jpg"}
-brightmap texture "models/mapobjects/tos/enterprise/bus5.jpg" {map "models/mapobjects/tos/enterprise/bus5.jpg"}
-brightmap texture "models/mapobjects/tos/enterprise/bus6.jpg" {map "models/mapobjects/tos/enterprise/bus6.jpg"}
-brightmap texture "models/mapobjects/tos/enterprise/bus7.jpg" {map "models/mapobjects/tos/enterprise/bus7.jpg"}
-brightmap texture "models/mapobjects/tos/enterprise/bus8.jpg" {map "models/mapobjects/tos/enterprise/bus8.jpg"}
+brightmap texture "models/mapobjects/tos/enterprise/bus1.png" {map "models/mapobjects/tos/enterprise/bus1_l.png"}
+brightmap texture "models/mapobjects/tos/enterprise/bus2.png" {map "models/mapobjects/tos/enterprise/bus2_l.png"}
+brightmap texture "models/mapobjects/tos/enterprise/bus3.png" {map "models/mapobjects/tos/enterprise/bus3_l.png"}
+brightmap texture "models/mapobjects/tos/enterprise/bus4.png" {map "models/mapobjects/tos/enterprise/bus4_l.png"}
+brightmap texture "models/mapobjects/tos/enterprise/bus5.png" {map "models/mapobjects/tos/enterprise/bus5_l.png"}
+brightmap texture "models/mapobjects/tos/enterprise/bus6.png" {map "models/mapobjects/tos/enterprise/bus6_l.png"}
+brightmap texture "models/mapobjects/tos/enterprise/bus7.png" {map "models/mapobjects/tos/enterprise/bus7_l.png"}
+brightmap texture "models/mapobjects/tos/enterprise/bus8.png" {map "models/mapobjects/tos/enterprise/bus8_l.png"}
 
 brightmap texture "models/mapobjects/tos/DisruptorStationScreen_A.jpg" {map "models/mapobjects/tos/DisruptorStationScreen_M.jpg"}
 brightmap texture "models/mapobjects/tos/DisruptorStationScreen_B.jpg" {map "models/mapobjects/tos/DisruptorStationScreen_M.jpg"}
@@ -236,12 +387,16 @@ brightmap texture "Shu_Boo" {map "textures/enterprise/walls/Shu_B_m.jpg"}
 brightmap texture "Shu_Win" {map "textures/enterprise/walls/Shu_W_m.jpg"}
 brightmap texture "Shu_Boo2" {map "textures/enterprise/walls/Shu_B2_m.jpg"}
 brightmap texture "textures/enterprise/walls/Shu_Wi_O.png" {map "textures/enterprise/walls/Shu_Wi_O.png"}
-brightmap texture "alert2" {map "textures/enterprise/walls/overlays/alert2_m.jpg"}
+brightmap texture "alert2" {map "textures/enterprise/walls/overlays/alert2_m.png"}
+brightmap texture "PO01B0" {map "textures/enterprise/walls/overlays/alert2_m.png"}
+brightmap texture "PO08B0" {map "textures/enterprise/walls/overlays/IC2_M.png"}
 
+/*
 brightmap texture "WALLALE3" {map "WALLALE5"}
 brightmap texture "WALLALE4" {map "WALLALE6"}
 brightmap texture "ARCHALE2" {map "ARCHALE3"}
 brightmap texture "TRANSAL2" {map "TRANSAL3"}
+*/
 brightmap texture "BR_WALLM" {map "BR_WALLN"}
 brightmap texture "BR_WALLU" {map "BR_WALLW"}
 brightmap texture "BR_WALLQ" {map "BR_WALLX"}
@@ -259,8 +414,8 @@ HardwareShader Texture Water2 { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 HardwareShader Texture Water_P { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 
 HardwareShader Texture "models/mapobjects/tos/clouds_r.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.01 }
-HardwareShader Texture "models/mapobjects/skybox/cloud_ov.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.02 }
-HardwareShader Texture cloud_ov { Shader "shaders/glsl/func_warp2.fp" Speed 0.02 }
+HardwareShader Texture "models/mapobjects/tos/clouds.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.01 }
+HardwareShader Texture cloud_ov { Shader "shaders/glsl/func_warp2.fp" Speed 0.01 }
 
 HardwareShader Texture Field_R { Shader "shaders/func_forcefield.fp" Speed 10.0 }
 HardwareShader Texture Field_O { Shader "shaders/func_forcefield.fp" Speed 10.0 }
@@ -269,3 +424,40 @@ HardwareShader Texture Field_G { Shader "shaders/func_forcefield.fp" Speed 10.0 
 HardwareShader Texture Field_W { Shader "shaders/func_forcefield.fp" Speed 10.0 }
 
 HardwareShader Sprite WFLAG0 { Shader "shaders/rotate_cw.fp" Speed 10.0 }
+
+HardwareShader Texture "models/weapons/communicator_moire.png" { Shader "shaders/rotate_cw.fp" Speed 0.25 }
+
+//Start of BoA Assets
+/////////////////////////////////////////////////////
+// FIRE SPAWNER LIGHTS //////////////////////////////
+/////////////////////////////////////////////////////
+
+FlickerLight FireSpawnerSmall
+{
+	Color 1.0 0.6 0.0
+	Size 32
+	SecondarySize 48
+	Chance 0.6
+}
+
+FlickerLight FireSpawnerMedium
+{
+	Color 1.0 0.6 0.0
+	Size 56
+	SecondarySize 72
+	Chance 0.6
+}
+
+FlickerLight FireSpawnerLarge
+{
+	Color 1.0 0.6 0.0
+	Size 96
+	SecondarySize 160
+	Chance 0.6
+}
+
+Object SmallFlame { frame TNT1 { light FireSpawnerSmall } }
+
+//End of BoA Assets
+
+brightmap texture "models/mapobjects/tos/K7.jpg" { map "models/mapobjects/tos/K7_L.png" }

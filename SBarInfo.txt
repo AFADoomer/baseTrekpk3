@@ -7,6 +7,18 @@ statusbar fullscreen, fullscreenoffsets // ZDoom HUD
 	{
 		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -29;
 
+		InInventory MedKit, 1
+		{
+			IfHealth Not 100
+			{
+				IfHealth 1
+				{
+					DrawImage "HYPO", 45, -32;
+//					DrawNumber 1, BIGFONT, TOSBrightLightBlue, GlobalArray 8, 85, -29;
+				}
+			}
+		}
+
 		GameMode deathmatch, teamgame
 		{
 			DrawNumber 3, BIGFONT, RED, Frags, alignment(right), -5, 2;
@@ -33,10 +45,20 @@ statusbar normal, fullscreenoffsets // Standard status bar
 {
 	InInventory Not "HideHUD"
 	{
-//		DrawShader 640, 65, horizontal, 0, -65;
-
 		DrawBar "Health_F", "Health_B", Health, horizontal, interpolate(5), 5, -35;
 		DrawNumber 3, BIGFONT, TOSMenuGold, Health, alignment(right), 35, -29;
+
+		InInventory MedKit, 1
+		{
+			IfHealth Not 100
+			{
+				IfHealth 1
+				{
+					DrawImage "HYPO", 45, -32;
+//					DrawNumber 1, BIGFONT, TOSBrightLightBlue, GlobalArray 8, 85, -29;
+				}
+			}
+		}
 
 		GameMode deathmatch, teamgame
 		{

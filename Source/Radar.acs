@@ -134,7 +134,7 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 				textcolor = "TOSBrightOrange";
 				color = "Marker_D";
 			}
-			else if (GetActorProperty(i, APROP_Speed) == 0  && GetActorProperty(i, APROP_Invulnerable))
+			else if ((GetActorProperty(i, APROP_Speed) == 0  && GetActorProperty(i, APROP_Invulnerable)) || GetActorProperty(i, APROP_Species) == "Decoration")
 			{ //Decorations
 				//color = "Marker_E";
 			}

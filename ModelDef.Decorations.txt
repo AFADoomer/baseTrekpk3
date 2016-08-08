@@ -89,6 +89,9 @@ Model Skybox7 //Clouds for Sky
 
 Model TOSChair
 {
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
 	Model 1 "chair_headrest.md3"
@@ -100,6 +103,9 @@ Model TOSChair
 
 Model TOSChair2
 {
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
 	Skin 0 "chair2_new.jpg"
@@ -114,6 +120,9 @@ Model TOSChair2
 
 Model TOSChair3
 {
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
 	Model 1 "chair_headrest.md3"
@@ -127,6 +136,9 @@ Model TOSChair3
 
 Model TOSBurkeChair
 {
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
 	Skin 0 "burke_new.jpg"
@@ -939,7 +951,6 @@ Model TOSEngChamber
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_cham.md3"
-	Skin 0 "eng_cham.jpg"
 
 	Scale 2.7 2.7 3.2
 
@@ -1110,14 +1121,19 @@ Model TOSQuartersRib
 
 Model TOSCrate
 {
-	Path "Models/mapobjects/tos/"
-	Model 0 "tricrate.md3"
-	Skin 0 "tricrate.jpg"
+	NOINTERPOLATION
 
-	ZOffset 18.0
+	Path "Models/mapobjects/tos/"
+	Model 0 "crate.md3"
+
 	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 B 0 2
+	FrameIndex TOS1 C 0 4
+	FrameIndex TOS1 D 0 6
+	FrameIndex TOS1 E 0 8
+	FrameIndex TOS1 F 0 10
 }
 
 Model TOSTapeRack
@@ -2247,5 +2263,348 @@ Model TOSIntercomAndRockers
 	Path "Models/mapobjects/tos/"
 	Model 0 "conf_int.md3"
 
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFoodTray
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_base.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFoodCup
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_cup.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFoodDrink
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_drink.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFoodDrink
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_drink_2.md3"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSFoodDrink
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_drink_3.md3"
+
+	FrameIndex TOS1 C 0 0
+}
+
+Model TOSFoodDrink
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_drink_4.md3"
+
+	FrameIndex TOS1 D 0 0
+}
+
+Model TOSFoodFood
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_food.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFoodFood
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_food_2.md3"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSFoodFood
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_food_3.md3"
+
+	FrameIndex TOS1 C 0 0
+}
+
+Model TOSFoodFood
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_food_4.md3"
+
+	FrameIndex TOS1 D 0 0
+}
+
+Model TOSFoodNapkin
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_napkin.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFoodNapkin
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_napkin_2.md3"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSFoodNapkin
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_napkin.md3"
+
+	Scale 1.0 -1.0 1.0
+
+	FrameIndex TOS1 C 0 0
+}
+
+Model TOSFoodNapkin
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_napkin_2.md3"
+
+	Scale 1.0 -1.0 1.0
+
+	FrameIndex TOS1 D 0 0
+}
+
+Model TOSFoodUtensils
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_utensils.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFoodUtensils
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_utensils_2.md3"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSFoodUtensils
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_utensils.md3"
+
+	Scale 1.0 -1.0 1.0
+
+	FrameIndex TOS1 C 0 0
+}
+
+Model TOSFoodUtensils
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_utensils_2.md3"
+
+	Scale 1.0 -1.0 1.0
+
+	FrameIndex TOS1 D 0 0
+}
+
+Model TOSChess
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "chess_base.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCheckers
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "checkers_base.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSChessSmall
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "chess_small.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSCheckersSmall
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "chess_small.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSChessLarge
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "chess_large.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSChessLargeSingle
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "chess_large.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSChessPiece
+{
+	Path "Models/mapobjects/tos"
+	Model 0 "column.md3"
+	Path "Textures/Solid"
+	Skin 0 "Black.jpg"
+
+	Scale 0.2 0.2 0.05
+
+	FrameIndex TOS1 A 0 0
+
+	Skin 0 "White.jpg"
+
+	FrameIndex TOS1 B 0 0
+
+	Path "Models/mapobjects/tos"
+	Model 0 "barrel2.md3"
+	Path "Textures/Solid"
+	Skin 0 "Black.jpg"
+
+	Scale 0.05 0.05 0.05
+
+	FrameIndex TOS1 C 0 0
+
+	Skin 0 "White.jpg"
+
+	FrameIndex TOS1 D 0 0
+
+	Path "Models/mapobjects/tos"
+	Model 0 "barrel3.md3"
+	Path "Textures/Solid"
+	Skin 0 "Black.jpg"
+
+	Scale 0.05 0.05 0.05
+
+	FrameIndex TOS1 E 0 0
+
+	Skin 0 "White.jpg"
+
+	FrameIndex TOS1 F 0 0
+}
+
+Model TOSCheckersPiece
+{
+	Path "Models/mapobjects/tos"
+	Model 0 "barrel1.md3"
+	Path "Textures/Solid"
+	Skin 0 "Black.jpg"
+
+	Scale 0.075 0.075 0.005
+
+	FrameIndex TOS1 A 0 0
+
+	Skin 0 "Red.jpg"
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model WindowPane
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pane.md3"
+
+	Scale 1.0 1.0 1.0
 	FrameIndex TOS1 A 0 0
 }

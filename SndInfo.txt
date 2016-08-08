@@ -11,80 +11,118 @@ $ambient 10 ambient/planet3 world continuous 0.1
 $ambient 11 ambient/lab point 2.0 continuous 0.25
 $ambient 12 ambient/brief point continuous 0.05
 $ambient 13 ambient/hangar point continuous 1.0
+$ambient 14 ambient/klingon/alert point continuous 0.7
+$ambient 15 ambient/klingon/bridge point continuous 0.5
+$ambient 16 ambient/klingon/interior1 point continuous 0.5
+$ambient 17 ambient/klingon/interior2 point continuous 0.5
+$ambient 18 ambient/klingon/interior3 point continuous 0.5
 
-ambient/bridge			bridge
-ambient/redalert		redalert
-ambient/planet1			planet_1
-ambient/planet2			planet_2
-ambient/planet3			planet_3
-ambient/wind			wind
-ambient/trans			trans
-ambient/eng			eng
-ambient/corr1			corr_1
-ambient/corr2			corr_2
-ambient/lab			lab
-ambient/brief			brief
-ambient/hangar			hangar
-ambient/shuttle			shuttle
-ambient/forcefield		forcefield
+ambient/bridge				bridge
+ambient/redalert			redalert
+ambient/klingon/alert			klaxon
+ambient/planet1				planet_1
+ambient/planet2				planet_2
+ambient/planet3				planet_3
+ambient/wind				wind
+ambient/trans				trans
+ambient/eng				eng
+ambient/corr1				corr_1
+ambient/corr2				corr_2
+ambient/lab				lab
+ambient/brief				brief
+ambient/hangar				hangar
+ambient/shuttle				shuttle
+ambient/forcefield			forcefield
+ambient/klingon/bridge			rom_bri
+ambient/klingon/interior1		rom_int1
+ambient/klingon/interior2		rom_int3
+ambient/klingon/interior3		rom_int3
 
-door/starfleet			door
+door/starfleet				door
+door/locked				door_l
 
-weapons/phaser			phaser_f
-weapons/phaser_stun		stun_f
-weapons/phaser_alt		phaser_a
-weapons/phaser_empty		phaser_e
-weapons/rifle			rifle_f
-weapons/disruptor		disrupt
-weapons/photon			photon_f
-weapons/photon_active		fire
-$limit weapons/photon_active 	1
-weapons/photon_hit		photon_x
-weapons/alien			shoot
-weapons/torpedo			photorp
-weapons/electric		electric
-weapons/explode			explode
+weapons/phaser				phaser_f
+weapons/phaser_stun			stun_f
+weapons/phaser_stun_hit			stun_h
+weapons/phaser_alt			phaser_a
+weapons/phaser_empty			phaser_e
+weapons/rifle				rifle_f
+weapons/disruptor			disrupt
+weapons/disruptor/alt			dis_a_f
+weapons/disruptor/explosion		dis_a_ex
+weapons/photon				photon_f
+weapons/photon_active			fire
+$limit weapons/photon_active 		1
+weapons/photon_hit			photon_x
+weapons/railgf				phaser_f	//For non-player railgun/phasers
+weapons/change				change
 
-weapons/railgf			phaser_f	//For non-player railgun/phasers
+computer/button1			button1
+computer/button2			button2
+computer/button3			button3
+computer/button4			button4
+computer/button5			button5
+computer/button6			button6
+computer/button7			button7
+computer/working			working
 
-computer/button1		button1
-computer/button2		button2
-computer/button3		button3
-computer/button4		button4
-computer/button5		button5
-computer/button6		button6
-computer/button7		button7
-computer/working		working
+actor/communicator			comm
+actor/medscanner			medscan
+actor/tricorder				tri_scan
+actor/intercom				intercom
+actor/replicator			replicat
 
-actor/communicator		comm
-actor/medscanner		medscan
-actor/tricorder			tri_scan
-actor/intercom			intercom
-actor/replicator		replicat
+effects/explosion			explode
+effects/explosion/distance		exp_fade
+effects/explosion/small			exp_sm
+effects/explosion/debris1		exp_deb1
+effects/explosion/debris2		exp_deb2
+effects/explosion/debris3		exp_deb3
+effects/explosion/debris4		exp_met
+$pitchshift effects/explosion/debris1 3
+$pitchshift effects/explosion/debris2 3
+$pitchshift effects/explosion/debris3 3
+$pitchshift effects/explosion/debris4 3
+$random effects/explosion/debris	{ effects/explosion/debris1 effects/explosion/debris2 }
+$random effects/explosion/debris/large	{ effects/explosion/debris3 effects/explosion/debris4 }
+effects/fire				fire
+effects/electric			electric
+effects/disintegrate/alive		disint
+effects/disintegrate/object		disint2
+effects/disintegrate/object_small	disint3
 
-actor/appear			appear
+actor/appear				appear
 
-actor/heartbeat			heart
-actor/gasp			gasp
+actor/heartbeat				heart
+actor/gasp				gasp
 
-actor/powerup			powerup
-actor/burnout			burnout
+actor/powerup				powerup
+actor/burnout				burnout
 
-transporter/energize		tran_con
-transporter/in			tran_in
-transporter/out			tran_out
+transporter/energize			tran_con
+transporter/in				tran_in
+transporter/out				tran_out
+transporter/klingon			tran_kl2
 
-turbolift/start			tu_start
-turbolift/end			tu_end
+turbolift/start				tu_start
+turbolift/end				tu_end
+
+hangar/doors				hb_doors
+
+hangar/lift/start			hb_lifts
+hangar/lift/loop			hb_liftl
+hangar/lift/end				hb_lifte
+
+intercom				whistle
 
 /* Menu Sounds */
 $pitchshiftrange 7
-menu/activate			b_sel
-menu/backup			b_back
-menu/change			button2
-menu/choose			b_sel
-menu/clear			b_back
-menu/cursor			m_move
-menu/dismiss			b_back
-menu/invalid			NULL
-menu/prompt			b_move
+menu/activate				b_sel
+menu/backup				b_back
+menu/change				button2
+menu/choose				b_sel
+menu/clear				b_back
+menu/cursor				m_move
+menu/dismiss				b_back
+menu/invalid				NULL
+menu/prompt				b_move

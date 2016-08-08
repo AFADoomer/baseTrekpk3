@@ -121,7 +121,7 @@ ACTOR DisruptorCharge : Ammo replaces Shell 26004
 	}
 }
 
-ACTOR DisruptorChargeBox : Ammo replaces ShellBox 26005
+ACTOR DisruptorChargeBox : DisruptorCharge replaces ShellBox 26005
 {
 	Inventory.Amount 25
 	Inventory.PickupMessage "$DisruptorCharges"
@@ -133,6 +133,7 @@ Actor PhaserType1 : Weapon 25000
 	+SHOOTABLE
 	+NODAMAGE
 	+NOBLOOD
+	+NOTAUTOAIMED
 	Radius 10
 	Height 20
 	Obituary "%o got phasered by %k."
@@ -147,8 +148,8 @@ Actor PhaserType1 : Weapon 25000
 	+Weapon.Ammo_Optional
 	+Weapon.Alt_Ammo_Optional
 	Tag "$Phaser1"
-	Decal "RailScorchLower1"
 	Inventory.PickupMessage "$Phaser1"
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -167,26 +168,36 @@ Actor PhaserType1 : Weapon 25000
 			Loop
 		Fire:
 			PHAS BCD 1
+		FireInitial:
 			PHAS A 0 A_PlaySound("weapons/phaser", CHAN_WEAPON, 1.0, True)
 		Hold:
+			//TNT1 A 0 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH) //Enable bobbing while firing...
 			PHAS A 0 A_JumpIfInventory ("Charge", 2, 1)
 			Goto Sputter
-			PHAS E 1 Bright
-			PHAS A 0 A_RailAttack(0, 0, 0, "None", "AA AA DD", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, 1.0, 0, "None", 16)
-			PHAS A 0 A_RailAttack(3, 0, 1, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserHit", 0, 0, 2048, 0, 3.0, 0, "BluePhaserParticle", 16)
-			TNT1 A 0 A_ReFire
+			PHAS E 1 {
+				A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
+				A_SpawnItemEx("LaserBeam_B", 0, 0, CallACS("GetActorViewHeight") / 2 + 12.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
+				A_SetScale(FRandom(0.95, 1.05), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallBlueLight", 16);
+				A_FireBullets(0, 0, 1, 3, "PhaserHit", FBF_USEAMMO | FBF_NORANDOMPUFFZ, 999999);
+			}
+			TNT1 A 0 A_ReFire("FireInitial")
 			"####" # 0 A_StopSound(CHAN_WEAPON)
-			PHAS E 8 Bright
+			PHAS E 8
 			PHAS DCB 1
 			Goto Ready
 		Sputter:
 			PHAS A 0 A_PlaySound("weapons/phaser_empty", CHAN_WEAPON, 1.0, True)
-			PHAS E 1 Bright
-			PHAS A 0 A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 512, 0, frandom(2.0, 3.0), 0, "BluePhaserParticle", 16)
-			PHAS A 0 A_RailAttack(1, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserHit", 0, 0, 512, 0, frandom(3.0, 4.0), 0, "WhitePhaserParticle", 16)
+			PHAS E 1 {
+				A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
+				A_SpawnItemEx("LaserBeam_B", 0, 0, CallACS("GetActorViewHeight") / 2 + 12.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER | SXF_TRANSFERALPHA);
+				A_SetScale(FRandom(0.95, 1.15), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallBlueLight", 16);
+				A_RailAttack(1, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserHit", 0, 0, 512, 0, 3.0, 0, "WhitePhaserParticle", 12);
+			}
 			TNT1 A 0 A_ReFire ("Hold")
 			"####" # 0 A_StopSound(CHAN_WEAPON)
-			PHAS E 8 Bright
+			PHAS E 8
 			PHAS DCB 1
 			Goto Ready
 		AltFire:
@@ -194,22 +205,30 @@ Actor PhaserType1 : Weapon 25000
 		AltHold:
 			PHAS A 0 A_JumpIfInventory ("Charge", 6, 1)
 			Goto AltSputter
-			PHAS E 1 Bright
-			PHAS A 0 A_RailAttack(0, 0, 0, "None", "FF AA AA", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, 1.0, 0, "None", 16)
-			PHAS A 0 A_RailAttack(0, 0, 1, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserStunHit", 0, 0, 0, 2048, 2.5, 0, "OrangePhaserParticle", 16)
-			TNT1 A 0 A_ReFire
+			PHAS E 1 {
+				A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
+				A_SpawnItemEx("LaserBeam_O", 0, 0, CallACS("GetActorViewHeight") / 2 + 12.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
+				A_SetScale(FRandom(0.95, 1.05), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallOrangeLight", 16);
+				A_FireBullets(0, 0, 1, 0, "PhaserStunHit", FBF_USEAMMO | FBF_NORANDOMPUFFZ, 999999);
+			}
+			TNT1 A 0 A_ReFire("AltFire")
 			"####" # 0 A_StopSound(CHAN_WEAPON)
-			PHAS E 8 Bright
+			PHAS E 8
 			PHAS DCB 1
 			Goto Ready
 		AltSputter:
 			PHAS A 0 A_PlaySound("weapons/phaser_empty", CHAN_WEAPON, 1.0, True)
-			PHAS E 1 Bright
-			PHAS A 0 A_RailAttack(1, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 512, 0, frandom(2.0, 3.0), 0, "RedPhaserParticle", 16)
-			PHAS A 0 A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserStunHit", 0, 0, 512, 0, frandom(3.0, 4.0), 0, "OrangePhaserParticle", 16)
+			PHAS E 1 {
+				A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
+				A_SpawnItemEx("LaserBeam_O", 0, 0, CallACS("GetActorViewHeight") / 2 + 12.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER | SXF_TRANSFERALPHA);
+				A_SetScale(FRandom(0.95, 1.15), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallOrangeLight", 16);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserStunHit", 0, 0, 512, 0, 3.0, 0, "OrangePhaserParticle", 12);
+			}
 			TNT1 A 0 A_ReFire("AltHold")
 			"####" # 0 A_StopSound(CHAN_WEAPON)
-			PHAS E 8 Bright
+			PHAS E 8
 			PHAS DCB 1
 			Goto Ready
 	}
@@ -220,6 +239,7 @@ Actor PhaserType2 : Weapon 25001
 	+SHOOTABLE
 	+NODAMAGE
 	+NOBLOOD
+	+NOTAUTOAIMED
 	Radius 10
 	Height 20
 	Obituary "%o got phasered by %k."
@@ -231,10 +251,11 @@ Actor PhaserType2 : Weapon 25001
 	Weapon.AmmoUse2 2
 	Weapon.AmmoGive 100
 	Weapon.BobStyle Alpha
+	Weapon.BobSpeed 0.95
 	Weapon.SisterWeapon "PhaserType1"
 	Tag "$Phaser2"
-	Decal "RailScorchLower1"
 	Inventory.PickupMessage "$Phaser2"
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -255,24 +276,32 @@ Actor PhaserType2 : Weapon 25001
 			PHAS BCD 1
 			PHAS A 0 A_PlaySound("weapons/phaser", CHAN_WEAPON, 1.0, True)
 		Hold:
-			PHAS E 1 Bright
-			PHAS A 0 A_RailAttack(0, 0, 0, "None", "AA AA DD", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, 1.0, 0, "None", 16)
-			PHAS A 0 A_RailAttack(4, 0, 1, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserHit", 0, 0, 2048, 0, 3.0, 0, "BluePhaserParticle", 16)
+			PHAS E 1 {
+				A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
+				A_SpawnItemEx("LaserBeam_B", 0, 0, CallACS("GetActorViewHeight") / 2 + 12.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
+				A_SetScale(FRandom(0.95, 1.05), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallBlueLight", 16);
+				A_FireBullets(0, 0, 1, 4, "PhaserHit", FBF_USEAMMO | FBF_NORANDOMPUFFZ, 999999);
+			}
 			TNT1 A 0 A_ReFire
 			"####" # 0 A_StopSound(CHAN_WEAPON)
-			PHAS E 8 Bright
+			PHAS E 8
 			PHAS DCB 1
 			Goto Ready
 		AltFire:
 			PHAS BCD 1
 			PHAS A 0 A_PlaySound("weapons/phaser_alt", CHAN_WEAPON, 1.0, True)
 		AltHold:
-			PHAS E 1 Bright
-			PHAS A 0 A_RailAttack(0, 0, 0, "None", "FF AA AA", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, 1.0, 0, "None", 16)
-			PHAS A 0 A_RailAttack(10, 0, 1, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserDisintegrateHit", 0, 0, 2048, 0, 2.5, 0, "RedPhaserParticle", 16)
+			PHAS E 1 {
+				A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
+				A_SpawnItemEx("LaserBeam_R", 0, 0, CallACS("GetActorViewHeight") / 2 + 12.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
+				A_SetScale(FRandom(0.95, 1.05), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallRedLight", 16);
+				A_FireBullets(0, 0, 1, 10, "PhaserDisintegrateHit", FBF_USEAMMO | FBF_NORANDOMPUFFZ, 999999);
+			}
 			TNT1 A 0 A_ReFire
 			"####" # 0 A_StopSound(CHAN_WEAPON)
-			PHAS E 8 Bright
+			PHAS E 8
 			PHAS DCB 1
 			Goto Ready
 	}
@@ -283,6 +312,7 @@ Actor Disruptor : Weapon Replaces Shotgun 25002
 	+SHOOTABLE
 	+NODAMAGE
 	+NOBLOOD
+	+NOTAUTOAIMED
 	Radius 10
 	Height 20
 	Obituary "%o got disrupted by %k."
@@ -294,8 +324,10 @@ Actor Disruptor : Weapon Replaces Shotgun 25002
 	Weapon.AmmoUse2 10
 	Weapon.AmmoGive 100
 	Weapon.BobStyle Alpha
+	Weapon.BobSpeed 0.92
 	Tag "$Disruptor"
 	Inventory.PickupMessage "$Disruptor"
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -314,7 +346,7 @@ Actor Disruptor : Weapon Replaces Shotgun 25002
 		Fire:
 			PHAS BCD 1
 			"####" # 0 A_SetArg(1, 1)
-			PHAS E 1 Bright A_FireCustomMissile("DisruptorBolt", 0, 1, 0, 16, FPF_AIMATANGLE/* | FPF_TRANSFERPITCH*/, 0)
+			PHAS E 1 A_FireCustomMissile("DisruptorBolt", 0, 1, 0, 16, FPF_AIMATANGLE, 0)
 			PHAS D 6
 			TNT1 A 0 A_ReFire
 			PHAS CB 1
@@ -322,10 +354,10 @@ Actor Disruptor : Weapon Replaces Shotgun 25002
 		Hold:
 			"####" # 0 A_SetArg(1, Args[1] + 1)
 			"####" # 0 A_Jump(64, "Hold.Wild")
-			PHAS E 1 Bright A_FireCustomMissile("DisruptorBolt", FRandom(-1.0, 1.0), 1, 0, 16, FPF_AIMATANGLE/* | FPF_TRANSFERPITCH*/, FRandom(-1.0, 1.0))
+			PHAS E 1 A_FireCustomMissile("DisruptorBolt", FRandom(-1.0, 1.0), 1, 0, 16, FPF_AIMATANGLE, FRandom(-1.0, 1.0))
 			Goto Hold.Resume
 		Hold.Wild:
-			PHAS E 1 Bright A_FireCustomMissile("DisruptorBolt", FRandom(-3.0, 3.0), 1, 0, 16, FPF_AIMATANGLE, FRandom(-2.0, 2.0))
+			PHAS E 1 A_FireCustomMissile("DisruptorBolt", FRandom(-3.0, 3.0), 1, 0, 16, FPF_AIMATANGLE, FRandom(-2.0, 2.0))
 		Hold.Resume:
 			"####" # 0 A_JumpIf(Args[1] >= 3, "Resume")
 			PHAS D 6
@@ -345,7 +377,7 @@ Actor Disruptor : Weapon Replaces Shotgun 25002
 			"####" # 0 A_JumpIf(Args[0] > 30, "AltFireActual")
 			TNT1 A 0 A_ReFire
 		AltFireActual:
-			PHAS E 1 Bright A_FireCustomMissile("DisruptorGrenade", Random(-1.0, 1.0), 1, 0, 16, 1, Args[0])
+			PHAS E 1 A_FireCustomMissile("DisruptorGrenade", Random(-1.0, 1.0), 1, 0, 16, FPF_NOAUTOAIM, Args[0])
 			PHAS D 16
 			"####" # 0 A_SetArg(0, 0)
 			Goto Resume
@@ -357,6 +389,7 @@ Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003
 	+SHOOTABLE
 	+NODAMAGE
 	+NOBLOOD
+	+NOTAUTOAIMED
 	Radius 10
 	Height 20
 	Obituary "%o got grenaded by %k."
@@ -368,8 +401,10 @@ Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003
 	Weapon.AmmoType2 "PhotonGrenadeAmmo"
 	Weapon.AmmoUse2 1
 	Weapon.BobStyle Alpha
+	Weapon.BobSpeed 0.7
 	Tag "$PhotonGrenadeLauncher"
 	Inventory.PickupMessage "$PhotonGrenadeLauncher"
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -389,7 +424,7 @@ Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003
 			PHAS BCD 1
 		Hold:
 			PHAS D 24
-			PHAS E 1 Bright A_FireCustomMissile("PhotonGrenade", Random(-1.0, 1.0), 1, 0, 16, 1, FRandom(-1.0, 1.0))
+			PHAS E 1 A_FireCustomMissile("PhotonGrenade", Random(-1.0, 1.0), 1, 0, 16, FPF_NOAUTOAIM, FRandom(-1.0, 1.0))
 			PHAS E 0 A_PlaySound("weapons/photon", CHAN_WEAPON)
 			PHAS D 0 A_Refire
 			PHAS DCB 1
@@ -399,7 +434,7 @@ Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003
 		AltHold:
 			PHAS D 24
 			PHAS E 24 A_PlaySound("computer/button2", CHAN_WEAPON)
-			PHAS E 1 Bright A_FireCustomMissile("PhotonGrenadeHoming", Random(-1.0, 1.0), 1, 0, 16, 1, Random(-1.0, 1.0))
+			PHAS E 1 A_FireCustomMissile("PhotonGrenadeHoming", Random(-1.0, 1.0), 1, 0, 16, FPF_NOAUTOAIM, Random(-1.0, 1.0))
 			PHAS E 0 A_PlaySound("weapons/photon", CHAN_WEAPON)
 			PHAS D 0 A_Refire
 			PHAS DCB 1
@@ -409,9 +444,12 @@ Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003
 
 Actor PhaserRifle : Weapon Replaces Chaingun 25004
 {
+	var float user_zoomlevel;
+
 	+SHOOTABLE
 	+NODAMAGE
 	+NOBLOOD
+	+NOTAUTOAIMED
 	Radius 10
 	Height 20
 	Obituary "%o got phasered by %k."
@@ -421,9 +459,10 @@ Actor PhaserRifle : Weapon Replaces Chaingun 25004
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 100
 	Weapon.BobStyle Alpha
+	Weapon.BobSpeed 0.75
 	Tag "$PhaserRifle"
-	Decal "RailScorchLower1"
 	Inventory.PickupMessage "$PhaserRifle"
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -444,12 +483,16 @@ Actor PhaserRifle : Weapon Replaces Chaingun 25004
 			PHAS BCD 1
 			PHAS A 0 A_PlaySound("weapons/rifle", CHAN_WEAPON, 1.0, True)
 		Hold:
-			PHAS E 2 Bright
-			PHAS A 0 A_RailAttack(0, 0, 0, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, 1.0, 0, "None", 16)
-			PHAS A 0 A_RailAttack(20, 0, 1, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "PhaserHitW", 0, 0, 2048, 1, 3.0, 0, "LaserTrail", 16)
+			PHAS E 1 {
+				A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
+				A_SpawnItemEx("LaserBeam_P", 0, 0, CallACS("GetActorViewHeight") / 2 + 12.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
+				A_SetScale(FRandom(0.95, 1.05), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+				A_RailAttack(0, 0, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "None", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallPurpleLight", 16);
+				A_FireBullets(0, 0, 1, 12, "PhaserHitW", FBF_USEAMMO | FBF_NORANDOMPUFFZ, 999999);
+			}
 			TNT1 A 0 A_ReFire
 			"####" # 0 A_StopSound(CHAN_WEAPON)
-			PHAS E 8 Bright
+			PHAS E 8
 			PHAS DCB 1
 			Goto Ready
 	}
@@ -460,6 +503,7 @@ Actor Tricorder : Weapon Replaces AllMap 25010
 	+SHOOTABLE
 	+NODAMAGE
 	+NOBLOOD
+	+NOTAUTOAIMED
 	Radius 10
 	Height 20
 	Obituary "How did %o get killed by %k's tricorder?"
@@ -468,6 +512,7 @@ Actor Tricorder : Weapon Replaces AllMap 25010
 	Weapon.BobStyle Alpha
 	Tag "$Tricorder"
 	Inventory.PickupMessage "$Tricorder"
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -501,10 +546,12 @@ Actor Punch : Weapon
 {
 	Radius 10
 	Height 20
-	Obituary "%o was pummelled to death by %k's fists."
+	Obituary "%o was taken down by %k's hands."
 	Weapon.SelectionOrder 9000
 	Weapon.SlotNumber 1
 	Weapon.BobStyle Alpha
+	+WEAPON.NOALERT
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -524,6 +571,11 @@ Actor Punch : Weapon
 			TOS1 BCDEF 4
 			TOS1 G 8 A_CustomPunch(4 * random(1, 10), TRUE)
 			TOS1 HIJK 3
+			Goto Ready
+		PinchFire:
+			TOS1 BC 8
+			TOS1 G 16 A_CustomPunch(64, TRUE, CPF_PULLIN, "None")
+			TOS1 CDEFHIJK 6
 			Goto Ready
 		Fire:
 			TOS1 LM 3
@@ -547,22 +599,27 @@ ACTOR PhotonTorpedoShot : Ammo
 	Inventory.Icon "TNT1A0"
 }
 
-Actor Communicator : Weapon Replaces BFG9000
+Actor TOSCommunicator : Weapon Replaces BFG9000
 {
 	+SHOOTABLE
 	+NODAMAGE
+	+NOBLOOD
+	+NOTAUTOAIMED
 
 	Radius 10
 	Height 20
 	Obituary "%o got torpedoed by %k."
-	Weapon.SelectionOrder 500
+	Weapon.SelectionOrder 10000
 	Weapon.SlotNumber 7
 	Weapon.AmmoType "PhotonTorpedoShot"
-	Weapon.AmmoUse 1
-	Weapon.AmmoGive 2
+	Weapon.AmmoUse2 1
+	Weapon.AmmoGive2 4
+	Weapon.MinSelectionAmmo1 999
+	+Weapon.Ammo_Optional
 	Weapon.BobStyle Alpha
 	Tag "$PhotonTorpedo"
 	Inventory.PickupMessage "$PhotonTorpedo"
+	Weapon.UpSound "weapons/change"
 	States
 	{
 		Spawn:
@@ -576,12 +633,37 @@ Actor Communicator : Weapon Replaces BFG9000
 			PHAS FEDCBAAAAAAAAAAAAAA 1 A_Lower
 			Goto Ready
 		Select:
+			PHAS A 0 A_PlaySound("actor/communicator", CHAN_WEAPON, 1.0)
 			PHAS AAAAAAAAAAAAAABBCCDDEEFFF 1 A_Raise
 			Goto Ready
 		Fire:
+			PHAS F 1 ACS_NamedExecuteAlways("A_CheckBeamUp")
+			Goto Ready
+/*
+		AltFire:
 			PHAS F 1 A_JumpIf(CallACS("A_CheckOutdoors") == 0, "Ready")
 			PHAS F 1 A_FireCustomMissile("Trail", Random(-1, 1), 1, 0, ceilingz - z - height - 32, 1, 0)
 			PHAS F 24
 			Goto Ready
+*/
+	}
+}
+
+Actor NoWeapon : Weapon
+{
+	Weapon.SelectionOrder 100000
+	Weapon.UpSound "weapons/change"
+	States
+	{
+		Fire:
+		Ready:
+			TNT1 A 1 A_WeaponReady
+			Loop
+		Deselect:
+			TNT1 A 1 A_Lower
+			Loop
+		Select:
+			TNT1 A 1 A_Raise
+			Loop
 	}
 }

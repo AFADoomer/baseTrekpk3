@@ -1,0 +1,249 @@
+Actor TOSSpriteDecoration : TOSDecoration
+{
+	//All but usable sprites are destroyable...
+	-INVULNERABLE
+	-NODAMAGE
+	-DONTTHRUST 
+	+FLATSPRITE
+	+ROLLSPRITE
+	-SOLID
+
+	Health 50
+}
+
+Actor TOSUsableSpriteDecoration : TOSSwitchableDecoration
+{
+	+NOTAUTOAIMED
+	+USESPECIAL
+	+FLATSPRITE
+	+ROLLSPRITE
+	-SOLID
+
+	Radius 0
+}
+
+Actor TOSPlantonRedAlert : TOSUsableSpriteDecoration 20217
+{
+	//$Title "Wall Planton: RedAlert" 
+	Height 16
+	States
+	{
+		Spawn:
+			PO01 A 1 NoDelay A_SpawnItemEx("TOSRedAlertLight", 120.0, 0.0, 0.0)
+		Static:
+			PO01 A 1 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
+			Loop
+		Alert:
+			PO01 B 35 A_JumpIf(CallACS("A_CheckAlert") < 1, "Static")
+			PO01 A 35 A_JumpIf(CallACS("A_CheckAlert") < 1, "Static")
+			Loop
+	}
+}
+
+Actor TOSPlantonIntercom : TOSUsableSpriteDecoration 20224
+{
+	//$Title "Wall Planton: Intercom (Large)"
+	Height 18
+	Radius 8
+	Activation "THINGSPEC_Switch"
+	States
+	{
+		Spawn:
+			PO08 A 1 NoDelay A_SpawnItemEx("TOSRedAlertLightSmall", 32.0, 0.0, 18.0)
+			Goto Static
+		Static:
+			PO08 # 0 A_StopSound(CHAN_AUTO)
+			Goto StaticLoop
+		StaticLoop:
+			PO08 # 1 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
+			Loop
+		Alert:
+			PO08 # 0 A_PlaySound("ambient/redalert", CHAN_AUTO, 1.0, 1)
+			PO08 B 35
+			PO08 A 35 A_JumpIf(CallACS("A_CheckAlert") < 1, "Static")
+			Loop
+		Active:
+		Inactive:
+			PO01 # 0 A_PlaySound("intercom", CHAN_AUTO, 1.0)
+			Goto StaticLoop
+	}
+}
+
+Actor TOSPlantonButton : TOSUsableSpriteDecoration 20218 { //$Title "Wall Planton: Button" 
+	Height 8 
+	States { Spawn: PO02 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonButton2 : TOSUsableSpriteDecoration 20219 { //$Title "Wall Planton: Button2" 
+	Height 4  
+	States { Spawn: PO03 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonButton3 : TOSUsableSpriteDecoration 20220 { //$Title "Wall Planton: Button3" 
+	Height 4  
+	States { Spawn: PO04 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonButton4 : TOSUsableSpriteDecoration 20221 { //$Title "Wall Planton: Button4" 
+	Height 4  
+	States { Spawn: PO05 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonButton5 : TOSUsableSpriteDecoration 20222 { //$Title "Wall Planton: Button5" 
+	Height 20  
+	States { Spawn: PO06 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonFoodSlot : TOSUsableSpriteDecoration 20223 { //$Title "Wall Planton: Food Slot" 
+	Height 20  
+	States { Spawn: PO07 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonPanelGreyLarge : TOSSpriteDecoration 20225 { //$Title "Wall Planton: Panel (Grey, Large)" 
+	Height 34  
+	States { Spawn: PO09 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonPanelGreySmall : TOSSpriteDecoration 20226 { //$Title "Wall Planton: Panel (Grey, Small)" 
+	Height 7  
+	States { Spawn: PO10 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonPanelYellow : TOSSpriteDecoration 20227 { //$Title "Wall Planton: Panel (Yellow)" 
+	Height 20  
+	States { Spawn: PO11 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonPanelEnvEng : TOSSpriteDecoration 20228 { //$Title "Wall Planton: Panel (Environmental Engineering Personnel Only)" 
+	Height 14  
+	States { Spawn: PO12 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonPlugs : TOSSpriteDecoration 20229 { //$Title "Wall Planton: Plugs" 
+	Height 14  
+	States { Spawn: PO13 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Aut : TOSSpriteDecoration 20230 { //$Title "Wall Planton: Sign (Authorized Personnel Only)" 
+	Height 9  
+	States { Spawn: PO14 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Aux : TOSSpriteDecoration 20231 { //$Title "Wall Planton: Sign (Auxilliary Control)" 
+	Height 7  
+	States { Spawn: PO15 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Br2 : TOSSpriteDecoration 20232 { //$Title "Wall Planton: Sign (Briefing Room 2)" 
+	Height 7  
+	States { Spawn: PO16 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Br5 : TOSSpriteDecoration 20233 { //$Title "Wall Planton: Sign (Briefing Room 5)" 
+	Height 7  
+	States { Spawn: PO17 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Br6 : TOSSpriteDecoration 20234 { //$Title "Wall Planton: Sign (Briefing Room 6)" 
+	Height 7  
+	States { Spawn: PO18 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_BrA : TOSSpriteDecoration 20235 { //$Title "Wall Planton: Sign (Arrow - Briefing Room)" 
+	Height 9  
+	States { Spawn: PO19 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_BRG : TOSSpriteDecoration 20236 { //$Title "Wall Planton: Sign (Brig)" 
+	Height 6  
+	States { Spawn: PO20 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_CC : TOSSpriteDecoration 20237 { //$Title "Wall Planton: Sign (Computer Core)" 
+	Height 9  
+	States { Spawn: PO21 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_CH : TOSSpriteDecoration 20238 { //$Title "Wall Planton: Sign (Cargo Hold)" 
+	Height 9  
+	States { Spawn: PO22 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_EMM : TOSSpriteDecoration 20239 { //$Title "Wall Planton: Sign (Emergency Manual Monitor)" 
+	Height 19  
+	States { Spawn: PO23 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_EnA : TOSSpriteDecoration 20240 { //$Title "Wall Planton: Sign (Arrow - Engineering)" 
+	Height 9  
+	States { Spawn: PO24 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_EnE : TOSSpriteDecoration 20241 { //$Title "Wall Planton: Sign (Environmental Engineering)" 
+	Height 9  
+	States { Spawn: PO25 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Eng : TOSSpriteDecoration 20242 { //$Title "Wall Planton: Sign (Engineering Section)" 
+	Height 7  
+	States { Spawn: PO26 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_HB1 : TOSSpriteDecoration 20243 { //$Title "Wall Planton: Sign (Hangar Deck)" 
+	Height 7  
+	States { Spawn: PO27 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_HB2 : TOSSpriteDecoration 20244 { //$Title "Wall Planton: Sign (Observation Deck)" 
+	Height 7  
+	States { Spawn: PO28 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Qr1 : TOSSpriteDecoration 20245 { //$Title "Wall Planton: Sign (Arrow - L - Officer Quarters)" 
+	Height 9  
+	States { Spawn: PO29 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Qr2 : TOSSpriteDecoration 20246 { //$Title "Wall Planton: Sign (Arrow - R - Officer Quarters)" 
+	Height 9  
+	States { Spawn: PO30 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_QrG : TOSSpriteDecoration 20247 { //$Title "Wall Planton: Sign (Quarters - Generic)" 
+	Height 13  
+	States { Spawn: PO31 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_RR1 : TOSSpriteDecoration 20248 { //$Title "Wall Planton: Sign (Rec Room 11)" 
+	Height 7  
+	States { Spawn: PO32 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_RR6 : TOSSpriteDecoration 20249 { //$Title "Wall Planton: Sign (Rec Room 6)" 
+	Height 7  
+	States { Spawn: PO33 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_SC : TOSSpriteDecoration 20250 { //$Title "Wall Planton: Sign (Security Chief)" 
+	Height 6  
+	States { Spawn: PO34 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_ScL : TOSSpriteDecoration 20251 { //$Title "Wall Planton: Sign (Science Library)" 
+	Height 9  
+	States { Spawn: PO35 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu1 : TOSSpriteDecoration 20252 { //$Title "Wall Planton: Sign (Turbolift 1)" 
+	Height 6  
+	States { Spawn: PO36 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu2 : TOSSpriteDecoration 20253 { //$Title "Wall Planton: Sign (Turbolift 2)" 
+	Height 6  
+	States { Spawn: PO37 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu3 : TOSSpriteDecoration 20254 { //$Title "Wall Planton: Sign (Turbolift 3)" 
+	Height 6  
+	States { Spawn: PO38 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu4 : TOSSpriteDecoration 20255 { //$Title "Wall Planton: Sign (Turbolift 4)" 
+	Height 6  
+	States { Spawn: PO39 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu5 : TOSSpriteDecoration 20256 { //$Title "Wall Planton: Sign (Turbolift 5)" 
+	Height 6  
+	States { Spawn: PO40 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu6 : TOSSpriteDecoration 20257 { //$Title "Wall Planton: Sign (Turbolift 6)" 
+	Height 6  
+	States { Spawn: PO41 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu7 : TOSSpriteDecoration 20258 { //$Title "Wall Planton: Sign (Turbolift 7)" 
+	Height 6  
+	States { Spawn: PO42 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonSign_Tu8 : TOSSpriteDecoration 20259 { //$Title "Wall Planton: Sign (Turbolift 8)" 
+	Height 6  
+	States { Spawn: PO43 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonTu_Btns : TOSUsableSpriteDecoration 20260 { //$Title "Wall Planton: Buttons (Turbolift)" 
+	Height 17  
+	States { Spawn: PO44 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonViewer : TOSUsableSpriteDecoration 20261 { //$Title "Wall Planton: Viewer" 
+	Height 27  
+	States { Spawn: PO45 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWall_Br2 : TOSSpriteDecoration 20262 { //$Title "Wall Planton: Wall Board (Rectangle)" 
+	Height 32  
+	States { Spawn: PO46 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWall_Icm : TOSUsableSpriteDecoration 20263 { //$Title "Wall Planton: Intercom (Small)" 
+	Height 8  
+	States { Spawn: PO47 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWallSafe : TOSUsableSpriteDecoration 20264 { //$Title "Wall Planton: Wall Safe" 
+	Height 17  
+	States { Spawn: PO48 A 1 A_Jump(256, "Super::Static") } }
+
+Actor TOSPlantonPanelGreyLarge2 : TOSSpriteDecoration 20265 { //$Title "Wall Planton: Panel (Grey, Large - Rotated)" 
+	Height 0 
+	States { Spawn: PO49 A 1 A_Jump(256, "Super::Static") } }
+
+Actor TOSPlantonWB_1 : TOSSpriteDecoration 20266 { //$Title "Wall Planton: Wall Board (Rectangle)" 
+	Height 32  
+	States { Spawn: PO50 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB_2 : TOSSpriteDecoration 20267 { //$Title "Wall Planton: Wall Board (Rectangle - Green)" 
+	Height 32  
+	States { Spawn: PO51 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB_3 : TOSSpriteDecoration 20268 { //$Title "Wall Planton: Wall Board (Rectangle - Blue)" 
+	Height 32 
+	States { Spawn: PO52 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB_4 : TOSSpriteDecoration 20269 { //$Title "Wall Planton: Wall Board (Rectangle - Purple)" 
+	Height 32 
+	States { Spawn: PO53 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB_5 : TOSSpriteDecoration 20270 { //$Title "Wall Planton: Wall Board (Rectangle - Wood)" 
+	Height 32 
+	States { Spawn: PO54 A 1 A_Jump(256, "Super::Static") } }
+
+Actor TOSPlantonWB2_1 : TOSSpriteDecoration 20271 { //$Title "Wall Planton: Wall Board (Trapezoid)" 
+	Height 48 
+	States { Spawn: PO55 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB2_2 : TOSSpriteDecoration 20272 { //$Title "Wall Planton: Wall Board (Trapezoid - Green)" 
+	Height 48 
+	States { Spawn: PO56 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB2_3 : TOSSpriteDecoration 20273 { //$Title "Wall Planton: Wall Board (Trapezoid - Blue)" 
+	Height 48 
+	States { Spawn: PO57 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB2_4 : TOSSpriteDecoration 20274 { //$Title "Wall Planton: Wall Board (Trapezoid - Purple)" 
+	Height 48 
+	States { Spawn: PO58 A 1 A_Jump(256, "Super::Static") } }
+Actor TOSPlantonWB2_5 : TOSSpriteDecoration 20275 { //$Title "Wall Planton: Wall Board (Trapezoid - Wood)" 
+	Height 48 
+	States { Spawn: PO59 A 1 A_Jump(256, "Super::Static") } }
+
+Actor TOSPlantonPainting : TOSSpriteDecoration 20276 { //$Title "Wall Planton: Painting" 
+	Height 48 
+	States { Spawn: PO60 A 1 A_Jump(256, "Super::Static") } }

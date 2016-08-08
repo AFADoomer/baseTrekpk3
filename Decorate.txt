@@ -5,7 +5,9 @@
 #include "actors/enemies.txt"
 #include "actors/items.txt"
 #include "actors/decorations.txt"
+#include "actors/decorations_flat.txt"
 #include "actors/effects.txt"
+#include "actors/imports.txt"
 
 Actor MapView
 {

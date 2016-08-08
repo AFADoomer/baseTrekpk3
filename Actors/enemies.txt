@@ -62,7 +62,6 @@ ACTOR TrekEnemy
 			"####" # 0 A_Jump(256, "Chase")
 		Death:
 			"####" M 9 A_Scream
-			"####" I 10
 			"####" J 11
 			"####" K 10
 			"####" L 9 A_NoBlocking
@@ -78,7 +77,7 @@ ACTOR TrekEnemy
 	}
 }
 
-ACTOR TOSKlingon : TrekEnemy //replaces ZombieMan
+ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 {
 	var int user_FireCount;
 	var int user_Angle;
@@ -89,7 +88,7 @@ ACTOR TOSKlingon : TrekEnemy //replaces ZombieMan
 	RenderStyle Translucent
 	Alpha 0
 	Speed 6
-	Health 20
+	Health 75
 	Tag "Klingon Male"
 	Obituary "%o was killed by a Klingon."
 
@@ -163,6 +162,13 @@ ACTOR TOSKlingon : TrekEnemy //replaces ZombieMan
 			"####" K 5
 			"####" L -1
 			Stop
+		Death.Stun:
+			"####" H 5
+			"####" I 5 A_Scream
+			"####" J 5 A_UnSetSolid
+			"####" K 5
+			"####" L -1
+			Stop
 		XDeath:
 			"####" M 5
 			"####" N 5 A_XScream
@@ -171,7 +177,7 @@ ACTOR TOSKlingon : TrekEnemy //replaces ZombieMan
 			"####" U -1
 			Stop
 		Raise:
-			"####" K 5
+			"####" K 5 A_SetSolid
 			"####" JIH 5
 			Goto Chase
 		Disintegrate:
@@ -181,7 +187,7 @@ ACTOR TOSKlingon : TrekEnemy //replaces ZombieMan
 	}
 }
 
-Actor TOSKlingonGrenade : TOSKlingon //Replaces ShotgunGuy
+Actor TOSKlingonGrenade : TOSKlingon Replaces ShotgunGuy
 {
 	States
 	{
@@ -304,21 +310,24 @@ Actor PhaserChaingunGuy : ChaingunGuy //Replaces ChaingunGuy
 			CPOS E 0 A_CheckLOF("Fire", CLOFF_JUMP_ON_MISS)
 			Goto Return
 		Fire:
-			CPOS F 0 A_JumpIf(user_FireCount > 10, "Return")
+			CPOS F 0 A_JumpIf(user_FireCount > 40, "Return")
 //			"####" # 0 ACS_NamedExecuteAlways("A_MarkMapMover", 0, 9, 2)
-			CPOS F 0 Bright A_CustomRailgun(0, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 0, 0, "None", 12)
-			CPOS F 1 Bright A_CustomRailgun(1, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 1.0, 0, "LaserTrail", 12)
-			CPOS F 3 Bright 
-			CPOS E 0 Bright A_CustomRailgun(0, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 0, 0, "None", 12)
-			CPOS E 1 Bright A_CustomRailgun(1, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 1.0, 0, "LaserTrail", 12)
-			CPOS E 3 Bright
-			CPOS F 0 A_SetUserVar ("user_FireCount", user_FireCount + 1)
-			CPOS F 0 A_FaceTarget(0.1)
+			CPOS F 1 Bright {
+				A_SpawnItemEx("LaserBeam_P", 14, 0, CallACS("GetActorViewHeight") / 2, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
+				A_SetScale(FRandom(0.7, 0.9), GetDistance(1, AAPTR_TARGET) / 33.25, AAPTR_TRACER);
+				A_CustomRailgun(2, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "PhaserHitW", 0, 0, 2048, 4, 0, 0, "SmallPurpleLight", CallACS("GetActorViewHeight") / 2);
+				A_SetUserVar ("user_FireCount", user_FireCount + 1);
+				A_FaceTarget(0.1);
+			}
+//			CPOS F 0 Bright A_CustomRailgun(0, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 0, 0, "None", 12)
+//			CPOS F 1 Bright A_CustomRailgun(1, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 1.0, 0, "LaserTrail", 12)
+//			CPOS F 3 Bright 
+//			CPOS E 0 Bright A_CustomRailgun(0, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 0, 0, "None", 12)
+//			CPOS E 1 Bright A_CustomRailgun(1, 14, "None", "EB 64 D7", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 4, 1.0, 0, "LaserTrail", 12)
+//			CPOS E 3 Bright
+//			CPOS F 0 A_SetUserVar ("user_FireCount", user_FireCount + 1)
+//			CPOS F 0 A_FaceTarget(0.1)
 			CPOS E 0 A_CheckLOF("Fire", CLOFF_JUMP_ON_MISS)
-		Return:
-			SPOS F 0 A_SetUserVar ("user_FireCount", 0)
-			Goto See
-
 		Return:
 			SPOS F 0 A_SetUserVar ("user_FireCount", 0)
 			Goto See

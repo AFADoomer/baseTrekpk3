@@ -1,0 +1,223 @@
+ACTOR FireSpawner : SwitchableDecoration
+{
+	Height 40
+	Radius 30
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	
+	States
+	{
+		Active:
+		Spawn:
+			TNT1 A 35
+		Initialize:
+			TNT1 A 2 {
+				A_PlaySound("effects/fire",6,1,1);
+				A_SpawnItemEx("SmallFlame");
+				A_SpawnItemEx("FlameScorch");
+				A_SpawnItemEx("Ember");
+				A_SpawnItemEx("Smoke");
+			}
+		BurnLoop:
+			TNT1 A 2 {
+				A_SpawnItemEx("SmallFlame");
+				A_SpawnItemEx("Flame");
+				A_SpawnItemEx("Flame");
+				A_SpawnItemEx("Flame");
+				A_SpawnItemEx("Ember");
+				A_SpawnItemEx("Smoke");
+				A_Explode(RandomPick(1, 2), 8, 0);
+			}
+			Loop
+		Inactive:
+			TNT1 A -1 A_StopSound(6)
+			Stop
+		EndSpawn:
+			TNT1 A 1
+			Stop
+	}
+}
+
+//Dynamic Light actors
+ACTOR SmallFlame
+{
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NOBLOCKMAP
+	+NOCLIP
+	+NOGRAVITY
+	+NOINTERACTION
+	States
+	{
+		Spawn:
+			TNT1 A 1
+			Stop
+	}
+}
+
+//Flames and particles
+ACTOR Smoke
+{
+	Height 2
+	Radius 1
+	+CLIENTSIDEONLY
+	+FORCEXYBILLBOARD
+	+MISSILE
+	+NOGRAVITY
+	+ROLLSPRITE
+	+WINDTHRUST
+	RenderStyle "Translucent"
+	Alpha 0.8
+	States
+	{
+		Spawn:
+			SMOC A 0
+			"####" # 3 {
+				A_SetRoll(RandomPick(0, 180));
+				A_SetScale(FRandomPick(0.5, 0.75, 1.0));
+				ThrustThingZ(0, Random(2,6), 0, 0);
+				ThrustThing(Random(0,255), Random(0,1), 0, 0);
+			}
+		FadeLoop:
+			"####" # 3 {
+				A_SetScale(ScaleX + 0.0125, ScaleY + 0.0125);
+				A_FadeOut(.05);
+			}
+			Goto FadeLoop
+	}
+}
+
+ACTOR Flame
+{
+	Height 2
+	Radius 1
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+FORCEXYBILLBOARD
+	+MISSILE
+	+NOGRAVITY
+	+ROLLSPRITE
+	RenderStyle "Add"
+	Alpha 0.8
+	States
+	{
+		Spawn:
+			FLAM A 0
+			"####" # 2 BRIGHT {
+				A_SetRoll(RandomPick(0, 180));
+				A_SetScale(FRandomPick(0.2, 0.13, 0.07));
+				ThrustThingZ(0, Random(2,6), 0, 0);
+				ThrustThing(Random(0,255), Random(0,1), 0, 0);
+			}
+			FadeLoop:
+			"####" # 2 BRIGHT {
+				A_SetScale(ScaleX - 0.0125, ScaleY - 0.0125);
+				A_FadeOut(.05);
+			}
+			Goto FadeLoop
+	}
+}
+
+ACTOR FlameScorch : Flame
+{
+	Decal "BigScorch"
+}
+
+ACTOR Ember : Flame
+{
+	Scale .05
+	States
+	{
+		Spawn:
+			EMBR A 16 NoDelay BRIGHT {
+				ThrustThingZ(0, Random(1, 4), 0, 0);
+				ThrustThing(Random(0, 255), Random(0, 1), 0, 0);
+				A_SetTics(Random(16, 48));
+			}
+		Death:
+			EMBR A 2 BRIGHT {
+				A_FadeOut(0.05);
+			}
+			Loop
+	}
+}
+
+ACTOR BarrelFireSpawner
+{
+	Height 40
+	Radius 30
+	Projectile
+	DamageType Fire
+	-NOGRAVITY
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NODAMAGETHRUST
+	+NOEXPLODEFLOOR
+	Gravity 0.125
+	States
+	{
+		Spawn:
+			TNT1 A 1 NoDelay {
+				A_PlaySound("effects/fire",6,frandom(0.2,0.4),1);
+			}
+		BurnLoop:
+			TNT1 A 1 {
+				A_SpawnItemEx("FlameScorch");
+				A_SpawnItemEx("Ember");
+				A_SpawnItemEx("Ember");
+				A_SpawnItemEx("Ember");
+				A_Explode(RandomPick(1, 2), 8, 0);
+			}
+			TNT1 A 0 A_Jump(128, "BurnLoop")
+			TNT1 A 1 A_SpawnItemEx("Flame")
+			TNT1 A 1 A_SpawnItemEx("Flame")
+			TNT1 A 1 A_SpawnItemEx("Flame")
+			TNT1 A 1 A_SpawnItemEx("Flame")
+			TNT1 A 1 A_SpawnItemEx("Flame")
+			Goto BurnLoop
+		Death:
+			TNT1 A -1 A_StopSound(6)
+			Stop
+	}
+}
+
+ACTOR FlareUp
+{
+	Height 40
+	Radius 30
+	Projectile
+	DamageType Fire
+	-NOGRAVITY
+	+CLIENTSIDEONLY
+	+DONTSPLASH
+	+NODAMAGETHRUST
+	+NOEXPLODEFLOOR
+	+THRUGHOST
+	Gravity 0.125
+	States
+	{
+		Spawn:
+			TNT1 A 1 NoDelay {
+				A_PlaySound("effects/fire",6,frandom(0.2,0.4),1);
+				A_SpawnItemEx("SmallFlame");
+				A_Explode(2, 8, 0);
+				A_SpawnItemEx ("Ember", FRandom(-10.0, 10.0), FRandom(-10.0, 10.0), 0);
+				A_SpawnItemEx ("Ember", FRandom(-10.0, 10.0), FRandom(-10.0, 10.0), 0);
+				A_SpawnItemEx ("Ember", FRandom(-10.0, 10.0), FRandom(-10.0, 10.0), 0);
+				A_SpawnItemEx ("FlameScorch", FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("Flame", FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("Flame", FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("Flame", FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("Flame", FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("Flame", FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("Smoke", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("Smoke", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+			}
+		Death:
+			TNT1 A -1 A_StopSound(6)
+			Stop
+	}
+}

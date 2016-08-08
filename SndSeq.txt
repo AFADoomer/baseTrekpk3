@@ -8,6 +8,15 @@ End
 	NoStopCutoff
 End
 
+:HangarLift
+	Play hangar/lift/start
+	PlayRepeat hangar/lift/loop
+	StopSound hangar/lift/end
+End
+
+:Silent
+End
+
 [StarfleetDoor
 	Door 1
 	0 StarfleetDoorOpen

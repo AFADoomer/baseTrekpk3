@@ -5,9 +5,7 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus1.jpg"
+	SurfaceSkin 0 0 "bus1.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -22,9 +20,7 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus2.jpg"
+	SurfaceSkin 0  0 "bus2.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -39,9 +35,7 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus3.jpg"
+	SurfaceSkin 0  0 "bus3.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -55,9 +49,7 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus4.jpg"
+	SurfaceSkin 0  0 "bus4.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -72,9 +64,8 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus5.jpg"
+	SurfaceSkin 0  0 "bus5.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -89,9 +80,8 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus6.jpg"
+	SurfaceSkin 0  0 "bus6.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -106,9 +96,8 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus7.jpg"
+	SurfaceSkin 0  0 "bus7.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -123,9 +112,8 @@ Model TOSEnterprise
 
 	Path "Models/mapobjects/tos/enterprise/"
 	Model 0 "enterprise.md3"
-	Skin 0 "enterprise.jpg"
-	Model 1 "bussards.md3"
-	Skin 1 "bus8.jpg"
+	SurfaceSkin 0 0 "bus8.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
 
 	Scale 0.1 0.1 0.1
 
@@ -148,6 +136,156 @@ Model TOSEnterprise
 	FrameIndex TOS1 Z 0 0
 }
 
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0 0 "bus1.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0  0 "bus2.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 B 0 0
+	FrameIndex TOS1 B 1 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0  0 "bus3.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 C 0 0
+	FrameIndex TOS1 C 1 0
+}
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0  0 "bus4.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 D 0 0
+	FrameIndex TOS1 D 1 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0  0 "bus5.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 E 0 0
+	FrameIndex TOS1 E 1 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0  0 "bus6.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 F 0 0
+	FrameIndex TOS1 F 1 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0  0 "bus7.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 G 0 0
+	FrameIndex TOS1 G 1 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0 0 "bus8.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 H 0 0
+	FrameIndex TOS1 H 1 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "galileo.md3"
+
+	ZOffset 8.0
+
+	Scale 0.05 0.05 0.05
+
+	FrameIndex TOS1 Z 0 0
+}
+
+Model TOSShipOrbit
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/dy-100"
+	Model 0 "dy-100.md3"
+
+	Scale 0.05 0.05 0.05
+
+	FrameIndex TOS1 Y 0 0
+}
 
 Model TOSPlanet
 {
@@ -159,7 +297,7 @@ Model TOSPlanet
 	Skin 0 "planet.jpg"
 
 	Rotating
-	Rotation-Speed -0.01
+	Rotation-Speed -0.02
 
 	Scale 0.3 0.3 0.3
 
@@ -171,8 +309,43 @@ Model TOSPlanet
 	Rotation-Speed -0.011
 
 	FrameIndex TOS1 A 1 0
+
 }
 
+Model TOSPlanetClouds
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "clouds.png"
+
+	Rotating
+	Rotation-Speed -0.02
+
+	Scale 0.305 0.305 0.305
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSPlanetShadow
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planetshadow.md3"
+	Skin 0 "shadow.png"
+
+	Rotating
+	Rotation-Speed -0.015
+
+	Scale 0.315 0.315 0.315
+
+	FrameIndex TOS1 A 0 0
+}
 
 Model TOSPlanet
 {
@@ -212,6 +385,30 @@ Model TOSPlanet
 	Scale 0.1 0.1 0.1
 
 	FrameIndex TOS1 C 0 0
+}
+
+
+Model TOSPlanet
+{
+	INHERITACTORPITCH
+	INHERITACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Model 1 "planet2.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Yellow.jpg"
+
+	Rotating
+	Rotation-Speed -0.01
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 D 0 0
+
+	Skin 1 "White_T.png"
+
+	FrameIndex TOS1 D 1 0
 }
 
 Model TOSShuttleGalileo
