@@ -1397,7 +1397,8 @@ Script "RedAlert" (int OnOff)
 */
 	While (RedAlert > 0)
 	{
-		AmbientSound("ambient/redalert", 31);
+//		AmbientSound("ambient/redalert", 63);
+		PlaySound(0, "ambient/redalert", CHAN_7, 0.3);
 		Delay(6 * 35 + 15);
 	}
 }
@@ -2109,4 +2110,32 @@ Script "A_Drop" (int DropIndex)
 	strDropItem = strParam(s:DropClasses[DropIndex]);
 
 	Spawn (strDropItem, GetActorX(0), GetActorY(0), GetActorZ(0));
+}
+
+Script "ChangeCamera" (int CameraTID, int timeDelay)
+{
+	int timeElapsed = 0;
+
+	SetCameraToTexture(cameraTID, "TITLECAM", 90);
+
+	SetHudSize(1280, 960, 1);
+	SetFont("TITLECAM");
+	HudMessage (s:"A"; 0, 2, -1, 640.0, 480.0, 0);
+
+	SetHudSize(800, 600, 1);
+	SetFont("VIEWBORD");
+	HudMessage (s:"A"; 0, 1, -1, 400.0, 300.0, 0);
+
+	int loop = 1;
+
+	While(loop)
+	{
+		If (GetPlayerInput(-1, INPUT_FORWARDMOVE) + GetPlayerInput(-1, INPUT_SIDEMOVE)) loop = 0;
+		If (timeDelay > 0 && timeElapsed >= timeDelay) loop = 0;
+		timeElapsed++;
+		Delay(1);
+	}
+
+	HudMessage (s:""; 0, 2, 0, 0, 0, 0);
+	HudMessage (s:""; 0, 1, 0, 0, 0, 0);
 }
