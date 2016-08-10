@@ -409,10 +409,10 @@ Graphic Logo_S, 729, 66
 	Graphic Logo_S, 0, 0 {Style Overlay}
 }
 
-Texture StarFld, 1440, 1080
+Texture StarFld, 2880, 2160
 {
-	XScale 10
-	YScale 10
+	XScale 20
+	YScale 20
 	Graphic StarFld, 0, 0
 }
 
