@@ -147,8 +147,9 @@ Actor LeanCam
 	}
 }
 
-Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
+Actor DisruptorStation : SwitchableDecoration 25102
 {
+	//$Sprite TOS1A0
 	var int user_level;
 	var int user_uses;
 	var int user_used;
@@ -169,8 +170,8 @@ Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
 	States
 	{
 		Spawn:
-			TOS1 D 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
 			TOS1 D 1
+			TOS1 D 1 ACS_NamedExecuteAlways("SetRadarTID",0)
 			TOS1 D 0 A_SetUserVar("user_level", 100)
 			TOS1 D 0 A_SetUserVar("user_uses", args[0])
 			TOS1 D 0 A_JumpIf(user_uses > 0, "Static")
@@ -214,7 +215,7 @@ Actor DisruptorStation : SwitchableDecoration Replaces SuperShotgun 25102
 	}
 }
 
-Actor PhaserRifleStation : DisruptorStation Replaces PlasmaRifle 25104
+Actor PhaserRifleStation : DisruptorStation 25104
 {
 	Height 32
 

@@ -1,4 +1,4 @@
-ACTOR Charge : Ammo replaces Clip 26001
+ACTOR Charge : Ammo 26001
 {
 	Radius 10
 	Height 20
@@ -21,7 +21,7 @@ ACTOR Charge : Ammo replaces Clip 26001
 	}
 }
 
-ACTOR ChargePack : Charge replaces ClipBox 26007
+ACTOR ChargePack : Charge 26007
 {
 	Inventory.Amount 30
 	Tag "Phaser Ammunition Pack"
@@ -35,7 +35,7 @@ ACTOR ChargePack : Charge replaces ClipBox 26007
 	}
 }
 
-ACTOR RifleCharge : Ammo replaces Cell 26006
+ACTOR RifleCharge : Ammo 26006
 {
 	Radius 10
 	Height 20
@@ -58,7 +58,7 @@ ACTOR RifleCharge : Ammo replaces Cell 26006
 	}
 }
 
-ACTOR RifleChargePack : Ammo replaces CellPack
+ACTOR RifleChargePack : Ammo
 {
 	Radius 10
 	Height 20
@@ -66,7 +66,7 @@ ACTOR RifleChargePack : Ammo replaces CellPack
 	Inventory.PickupMessage "$RifleCharges"
 }
 
-ACTOR PhotonGrenadeAmmo : Ammo replaces RocketAmmo 26002
+ACTOR PhotonGrenadeAmmo : Ammo 26002
 {
 	Radius 10
 	Height 20
@@ -89,7 +89,7 @@ ACTOR PhotonGrenadeAmmo : Ammo replaces RocketAmmo 26002
 	}
 }
 
-ACTOR PhotonGrenadeAmmoBox : PhotonGrenadeAmmo replaces RocketBox 26003
+ACTOR PhotonGrenadeAmmoBox : PhotonGrenadeAmmo 26003
 {
 	Radius 10
 	Height 20
@@ -98,7 +98,7 @@ ACTOR PhotonGrenadeAmmoBox : PhotonGrenadeAmmo replaces RocketBox 26003
 	Tag "Photon Grenades"
 }
 
-ACTOR DisruptorCharge : Ammo replaces Shell 26004
+ACTOR DisruptorCharge : Ammo 26004
 {
 	Radius 10
 	Height 20
@@ -121,7 +121,7 @@ ACTOR DisruptorCharge : Ammo replaces Shell 26004
 	}
 }
 
-ACTOR DisruptorChargeBox : DisruptorCharge replaces ShellBox 26005
+ACTOR DisruptorChargeBox : DisruptorCharge 26005
 {
 	Inventory.Amount 25
 	Inventory.PickupMessage "$DisruptorCharges"
@@ -153,7 +153,17 @@ Actor PhaserType1 : Weapon 25000
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TNT1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				if (A_CheckFlag("DROPPED", "Spawn.Dropped")) {
+					return State("Spawn.Dropped");
+				} else {
+					return State("");
+				}
+			}
+			PHAS S -1
+			Stop
+		Spawn.Dropped:
 			PHAS P -1
 			Stop
 		Ready:
@@ -259,7 +269,17 @@ Actor PhaserType2 : Weapon 25001
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TNT1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				if (A_CheckFlag("DROPPED", "Spawn.Dropped")) {
+					return State("Spawn.Dropped");
+				} else {
+					return State("");
+				}
+			}
+			PHAS S -1
+			Stop
+		Spawn.Dropped:
 			PHAS P -1
 			Stop
 		Ready:
@@ -307,7 +327,7 @@ Actor PhaserType2 : Weapon 25001
 	}
 }
 
-Actor Disruptor : Weapon Replaces Shotgun 25002
+Actor Disruptor : Weapon 25002
 {
 	+SHOOTABLE
 	+NODAMAGE
@@ -331,7 +351,17 @@ Actor Disruptor : Weapon Replaces Shotgun 25002
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TNT1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				if (A_CheckFlag("DROPPED", "Spawn.Dropped")) {
+					return State("Spawn.Dropped");
+				} else {
+					return State("");
+				}
+			}
+			PHAS S -1
+			Stop
+		Spawn.Dropped:
 			PHAS P -1
 			Stop
 		Ready:
@@ -384,7 +414,7 @@ Actor Disruptor : Weapon Replaces Shotgun 25002
 	}
 }
 
-Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003 
+Actor PhotonGrenadeLauncher : Weapon 25003 
 {
 	+SHOOTABLE
 	+NODAMAGE
@@ -408,7 +438,17 @@ Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TNT1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				if (A_CheckFlag("DROPPED", "Spawn.Dropped")) {
+					return State("Spawn.Dropped");
+				} else {
+					return State("");
+				}
+			}
+			PHAS S -1
+			Stop
+		Spawn.Dropped:
 			PHAS P -1
 			Stop
 		Ready:
@@ -442,7 +482,7 @@ Actor PhotonGrenadeLauncher : Weapon Replaces RocketLauncher 25003
 	}
 }
 
-Actor PhaserRifle : Weapon Replaces Chaingun 25004
+Actor PhaserRifle : Weapon 25004
 {
 	var float user_zoomlevel;
 
@@ -466,7 +506,17 @@ Actor PhaserRifle : Weapon Replaces Chaingun 25004
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TNT1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				if (A_CheckFlag("DROPPED", "Spawn.Dropped")) {
+					return State("Spawn.Dropped");
+				} else {
+					return State("");
+				}
+			}
+			PHAS S -1
+			Stop
+		Spawn.Dropped:
 			PHAS P -1
 			Stop
 		Ready:
@@ -498,7 +548,7 @@ Actor PhaserRifle : Weapon Replaces Chaingun 25004
 	}
 }
 
-Actor Tricorder : Weapon Replaces AllMap 25010
+Actor Tricorder : Weapon 25010
 {
 	+SHOOTABLE
 	+NODAMAGE
@@ -516,7 +566,17 @@ Actor Tricorder : Weapon Replaces AllMap 25010
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID", 0)
+			TNT1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				if (A_CheckFlag("DROPPED", "Spawn.Dropped")) {
+					return State("Spawn.Dropped");
+				} else {
+					return State("");
+				}
+			}
+			PHAS S -1
+			Stop
+		Spawn.Dropped:
 			PHAS P -1
 			Stop
 		Ready:
@@ -599,7 +659,7 @@ ACTOR PhotonTorpedoShot : Ammo
 	Inventory.Icon "TNT1A0"
 }
 
-Actor TOSCommunicator : Weapon Replaces BFG9000
+Actor TOSCommunicator : Weapon
 {
 	+SHOOTABLE
 	+NODAMAGE

@@ -15,7 +15,7 @@ Actor Block
 
 }
 
-Actor Block8 : Block {Radius 4}
+Actor Block8 : Block {Radius 8}
 Actor Block16 : Block {Radius 16 Height 16}
 Actor Block24 : Block {Radius 24 Height 24}
 Actor Block25 : Block {Radius 25  Height 25}
@@ -50,13 +50,13 @@ Actor TOSDecoration
 	States
 	{
 		Spawn:
-			TOS1 A 1 
-			"####" # 1 {
+			TOS1 A 1
+			"####" # 0 {
 				ACS_NamedExecuteAlways("SetRadarTID",0);
 				ACS_NamedExecuteAlways("A_SetupThing",0);
 				A_SetUserVar("user_uses", args[0] || args[2]);
+				return State("Static");
 			}
-			"####" # 0 A_Jump(256, "Static")
 		Pain.Stun:
 		Static:
 			"####" # 1 A_JumpIf(velx != 0 || vely != 0 || velz != 0, "Moved")
@@ -144,13 +144,16 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 	States
 	{
 		Spawn:
-			TNT1 A 1 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
-			TNT1 A 0 ACS_NamedExecuteAlways("A_SetupThing",0)
-			TNT1 A 0 A_SetUserVar("user_uses", args[0] || args[2])
-			TNT1 A 0 A_Jump(256, "Static")
+			TOS1 A 1
+			"####" # 0 {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				ACS_NamedExecuteAlways("A_SetupThing",0);
+				A_SetUserVar("user_uses", args[0] || args[2]);
+				return State("Static");
+			}
 		Static:
-			"####" # -1
-			Stop
+			"####" # 1 //A_JumpIf((velx != 0 || vely != 0 || velz != 0) && special == 0, "Moved")
+			Loop
 		Pain:
 			"####" # 1 {
 				A_Quake(Radius / 16, Radius / 3, Radius, Radius * 3);
@@ -272,9 +275,10 @@ Actor TOSTurboliftHandle : TOSUsableDecoration 20009
 	States
 	{
 		Static:
-			TNT1 A 1 A_SetSpecial(226, 255, 0, 0, 0, 0)
-			TNT1 A 0 A_SetUserVar("user_uses", 1)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SetSpecial(226, 255, 0, 0, 0, 0);
+				A_SetUserVar("user_uses", 1);
+			}
 			Stop
 	}
 }
@@ -370,11 +374,12 @@ Actor TOSTransporterConsole : TOSUsableDecoration 20036
 	States
 	{
 		Static:
-			TNT1 A 1 A_SetSpecial(226, 254, 0, 0, 0, 0)
-			TNT1 A 0 A_SetUserVar("user_uses", 1)
-			TNT1 A 1 A_SpawnItemEx ("Block16x56", 0.0, 16.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL)
-			TNT1 A 1 A_SpawnItemEx ("Block16x56", 0.0, -16.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SetSpecial(226, 254, 0, 0, 0, 0);
+				A_SetUserVar("user_uses", 1);
+				A_SpawnItemEx ("Block16x56", 0.0, 16.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block16x56", 0.0, -16.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+			}
 			Stop
 	}
 }
@@ -415,18 +420,17 @@ Actor TOSEngConsoleR : TOSDecoration 20050 {
 	States
 	{
 		Static:
-			TNT1 A 1 
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 40.0, 40.0)
-//			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 20.0, 40.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 0.0, 40.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -20.0, 40.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -40.0, 40.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 40.0, 80.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 20.0, 80.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, 0.0, 80.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -20.0, 80.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 0.0, -40.0, 80.0)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block16", 0.0, 40.0, 40.0);
+				A_SpawnItemEx ("Block16", 0.0, 0.0, 40.0);
+				A_SpawnItemEx ("Block16", 0.0, -20.0, 40.0);
+				A_SpawnItemEx ("Block16", 0.0, -40.0, 40.0);
+				A_SpawnItemEx ("Block16", 0.0, 40.0, 80.0);
+				A_SpawnItemEx ("Block16", 0.0, 20.0, 80.0);
+				A_SpawnItemEx ("Block16", 0.0, 0.0, 80.0);
+				A_SpawnItemEx ("Block16", 0.0, -20.0, 80.0);
+				A_SpawnItemEx ("Block16", 0.0, -40.0, 80.0);
+			}
 			Stop
 	}
 }
@@ -437,18 +441,18 @@ Actor TOSEngSteps : TOSDecoration 20052
 	States
 	{
 		Static:
-			TNT1 A 1 
-			TNT1 A 1 A_SpawnItemEx ("Block8", 24.0, -12.0, -134.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 24.0, 12.0, -134.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 20.0, -12.0, -118.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 20.0, 12.0, -118.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 16.0, -12.0, -102.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 16.0, 12.0, -102.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 12.0, -12.0, -86.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 12.0, 12.0, -86.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 8.0, -12.0, -70.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 8.0, 12.0, -70.0)
-			TOS1 A -1
+			TOS1 A -1 { 
+				A_SpawnItemEx ("Block8", 24.0, -12.0, -134.0);
+				A_SpawnItemEx ("Block8", 24.0, 12.0, -134.0);
+				A_SpawnItemEx ("Block8", 20.0, -12.0, -118.0);
+				A_SpawnItemEx ("Block8", 20.0, 12.0, -118.0);
+				A_SpawnItemEx ("Block8", 16.0, -12.0, -102.0);
+				A_SpawnItemEx ("Block8", 16.0, 12.0, -102.0);
+				A_SpawnItemEx ("Block8", 12.0, -12.0, -86.0);
+				A_SpawnItemEx ("Block8", 12.0, 12.0, -86.0);
+				A_SpawnItemEx ("Block8", 8.0, -12.0, -70.0);
+				A_SpawnItemEx ("Block8", 8.0, 12.0, -70.0);
+			}
 			Stop
 	}
 }
@@ -461,11 +465,12 @@ Actor TOSEngineerConsole : TOSUsableDecoration 20053
 	States
 	{
 		Static:
-			TNT1 A 0 A_SetUserVar("user_width", 64)
-			TNT1 A 0 A_SetUserVar("user_uses", args[0] || args[2])
-			TNT1 A 1 A_SpawnItemEx ("Block10x32", 0.0, -20.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL)
-			TNT1 A 1 A_SpawnItemEx ("Block10x32", 0.0, 20.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SetUserVar("user_width", 64);
+				A_SetUserVar("user_uses", args[0] || args[2]);
+				A_SpawnItemEx ("Block10x32", 0.0, -20.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block10x32", 0.0, 20.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+			}
 			Stop
 	}
 }
@@ -493,10 +498,14 @@ Actor TOSCrate : TOSUsableDecoration 20056
 			Loop
 		Active:
 			TOS1 BCDEF 2
-			TOS1 F 0 A_JumpIf(user_uses <= 0, "Static")
 			TOS1 F 0 {
-				A_SetUserVar("user_uses", 0);
-				ACS_NamedExecuteAlways("A_Drop", 0, args[0]);
+				if (user_uses <= 0) {
+					return State("Static");
+				} else {
+					A_SetUserVar("user_uses", 0);
+					ACS_NamedExecuteAlways("A_Drop", 0, args[0]);
+					return State("Static");
+				}
 			}
 			Goto Static
 		Inactive:
@@ -695,37 +704,40 @@ Actor TOSShuttleGalileo : TOSDecoration 20126
 	{
 
 		Spawn:
-			TNT1 A 0
-			TNT1 A 0 A_SetUserVar("user_width", 250)
-			TNT1 A 0 A_SetUserVar("user_height", 90)
+			TNT1 A 0 NoDelay {
+				A_SetUserVar("user_width", 250);
+				A_SetUserVar("user_height", 90);
+			}
 			Goto Land
 		Land:
 			TOS1 A 70 A_UnSetFloat
 		Blocking:
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock1", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock1", 25.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock1", -60.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock2", 40.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock3", 55.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock4", 70.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock5", 85.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock6", 100.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock7", -50.0, 20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock7", -50.0, -20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", 64.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", 64.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", 32.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", 32.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", 0.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", 0.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -32.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -32.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -64.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -64.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -96.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -96.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -128.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
-			TNT1 A 1 A_SpawnItemEx ("ShuttleBlock8", -128.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER)
+			TNT1 A 1 {
+				A_SpawnItemEx ("ShuttleBlock1", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock1", 25.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock1", -60.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock2", 40.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock3", 55.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock4", 70.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock5", 85.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock6", 100.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock7", -50.0, 20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock7", -50.0, -20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", 64.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", 64.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", 32.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", 32.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", 0.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", 0.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -32.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -32.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -64.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -64.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -96.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -96.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -128.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("ShuttleBlock8", -128.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+			}
 		Landed:
 			TOS1 A 35
 			TOS1 A 0 A_JumpIf(z - floorz > 8.0, "TakeOff")
@@ -775,9 +787,10 @@ Actor TOSTable2 : TOSTable 20142
 	States
 	{
 		Static:
-			TNT1 A 1 A_SpawnItemEx ("Block25", 8.0, 12.0, 0.0)
-			TNT1 A 1 A_SpawnItemEx ("Block25", 8.0, -12.0, 0.0)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block25", 8.0, 12.0, 0.0);
+				A_SpawnItemEx ("Block25", 8.0, -12.0, 0.0);
+			}
 			Stop
 	}
 }
@@ -792,9 +805,10 @@ Actor TOSBench : TOSDecoration 20144
 	States
 	{
 		Static:
-			TNT1 A 1 A_SpawnItemEx ("Block16", 8.0, 12.0, 0.0)
-			TNT1 A 1 A_SpawnItemEx ("Block16", 8.0, -12.0, 0.0)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block16", 8.0, 12.0, 0.0);
+				A_SpawnItemEx ("Block16", 8.0, -12.0, 0.0);
+			}
 			Stop
 	}
 }
@@ -840,9 +854,10 @@ Actor TOSComputer : TOSUsableDecoration 20147
 	States
 	{
 		Static:
-			TNT1 A 1 A_SpawnItemEx ("Block12x54", 12.0, 8.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL)
-			TNT1 A 1 A_SpawnItemEx ("Block12x54", 12.0, -8.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block12x54", 12.0, 8.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block12x54", 12.0, -8.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+			}
 			Stop
 	}
 }
@@ -855,22 +870,22 @@ Actor TOSGangway : TOSDecoration 20150
 	States
 	{
 		Static:
-			TNT1 A 1
-			TNT1 A 1 A_SpawnItemEx ("Block8", 26.0, -12.0, 96.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 26.0, 12.0, 96.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 22.0, -12.0, 80.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 22.0, 12.0, 80.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 16.0, -12.0, 64.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 16.0, 12.0, 64.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 12.0, -12.0, 48.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 12.0, 12.0, 48.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 8.0, -12.0, 32.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 8.0, 12.0, 32.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 4.0, -12.0, 16.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 4.0, 12.0, 16.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 0.0, -12.0, 0.0)
-			TNT1 A 1 A_SpawnItemEx ("Block8", 0.0, 12.0, 0.0)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block8", 26.0, -12.0, 96.0);
+				A_SpawnItemEx ("Block8", 26.0, 12.0, 96.0);
+				A_SpawnItemEx ("Block8", 22.0, -12.0, 80.0);
+				A_SpawnItemEx ("Block8", 22.0, 12.0, 80.0);
+				A_SpawnItemEx ("Block8", 16.0, -12.0, 64.0);
+				A_SpawnItemEx ("Block8", 16.0, 12.0, 64.0);
+				A_SpawnItemEx ("Block8", 12.0, -12.0, 48.0);
+				A_SpawnItemEx ("Block8", 12.0, 12.0, 48.0);
+				A_SpawnItemEx ("Block8", 8.0, -12.0, 32.0);
+				A_SpawnItemEx ("Block8", 8.0, 12.0, 32.0);
+				A_SpawnItemEx ("Block8", 4.0, -12.0, 16.0);
+				A_SpawnItemEx ("Block8", 4.0, 12.0, 16.0);
+				A_SpawnItemEx ("Block8", 0.0, -12.0, 0.0);
+				A_SpawnItemEx ("Block8", 0.0, 12.0, 0.0);
+			}
 			Stop
 	}
 }
@@ -921,9 +936,10 @@ Actor TOSTable4 : TOSDecoration 20180
 	States
 	{
 		Static:
-			TNT1 A 1 A_SpawnItemEx ("Block24", 16.0, 6.0, 0.0)
-			TNT1 A 1 A_SpawnItemEx ("Block24", 16.0, -6.0, 0.0)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block24", 16.0, 6.0, 0.0);
+				A_SpawnItemEx ("Block24", 16.0, -6.0, 0.0);
+			}
 			Stop
 	}
 }
@@ -958,7 +974,7 @@ Actor Fountain : TOSDecoration 20193
 
 Actor TOSDiningRib : TOSDecoration 20194 { Height 0 }
 
-Actor TOSCloset : TOSSwitchableDecoration 20195
+Actor TOSCloset : TOSUsableDecoration 20195
 {
 	Radius 16
 	Height 24
@@ -972,10 +988,11 @@ Actor TOSCloset : TOSSwitchableDecoration 20195
 	States
 	{
 		Static:
-			TNT1 A 0 A_SetUserVar("user_uses", 1)
-			TNT1 A 0 A_SetUserVar("user_angle", angle)
-			TNT1 A 0 A_SetUserVar("user_destangle", angle - 120)
-			TOS1 A 5
+			TOS1 A 5 {
+				A_SetUserVar("user_uses", 1);
+				A_SetUserVar("user_angle", angle);
+				A_SetUserVar("user_destangle", angle - 120);
+			}
 			Loop
 		Active:
 		Inactive:
@@ -1022,9 +1039,10 @@ Actor TOSSickbayBed : TOSDecoration 20197
 	States
 	{
 		Static:
-			TNT1 A 1 A_SpawnItemEx ("Block32", -32.0, 0.0, 0.0)
-			TNT1 A 1 A_SpawnItemEx ("Block24", 32.0, 0.0, 0.0)
-			TOS1 A -1
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block32", -32.0, 0.0, 0.0);
+				A_SpawnItemEx ("Block24", 32.0, 0.0, 0.0);
+			}
 			Stop
 	}
 }
@@ -1410,7 +1428,8 @@ Actor TOSShipOrbit : TOSEnterprise 20277
 	States
 	{
 		Spawn:
-			UNKN A 0 NoDelay {
+			TNT1 A 35 
+			TNT1 A 0 {
 				A_SetUserVar("user_Radius", args[0] * 1.0);
 				if (pitch + args[1] < 180) {
 					A_SetUserVar("user_Pitch", pitch + args[1]);
@@ -1425,6 +1444,8 @@ Actor TOSShipOrbit : TOSEnterprise 20277
 					A_SetRoll(-((360 - user_Roll) * user_Radius / 128));
 				}
 				A_SpawnItemEx("OrbitCenter", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISMASTER);
+				A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, -user_Pitch * 4 * sin(angle), user_Speed * 0.01, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE, "", 0, 0, -sin(angle) * user_Pitch / 600 / user_Speed);
+
 				if (args[3] == 1) {
 					return State("Static.Shuttle");
 				} else if (args[3] == 2) {

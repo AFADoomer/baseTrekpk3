@@ -40,6 +40,13 @@ Model Tricorder
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
+
+	Rotation-Speed 0.0
+
+	Scale 1.5 1.5 1.5
+	Offset -4.0 0.0 0.0
+	FrameIndex PHAS S 0 0
+
 	Rotation-Speed 0.5
 
 	AngleOffset 180.0
@@ -57,14 +64,6 @@ Model PhaserType1
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
-	Rotation-Speed 0.5
-
-	AngleOffset 180.0
-	PitchOffset 42.0
-	Scale 1.5 1.5 1.5
-	Offset 0.0 0.0 15.0
-	FrameIndex PHAS P 0 0
-
 	Rotation-Speed 0.0
 
 	Model 1 "phaser_1_hand.md3"
@@ -91,6 +90,20 @@ Model PhaserType1
 
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
+
+	Model 1 ""
+
+	Scale 1.5 1.5 1.5
+	Offset -4.0 0.0 0.0
+	FrameIndex PHAS S 0 0
+
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 2.0 0.0 15.0
+	FrameIndex PHAS P 0 0
 }
 
 Model PhaserType2
@@ -101,13 +114,6 @@ Model PhaserType2
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
-	Rotation-Speed 0.5
-
-	AngleOffset 180.0
-	PitchOffset 42.0
-	Scale 1.5 1.5 1.5
-	Offset 0.0 0.0 15.0
-	FrameIndex PHAS P 0 0
 
 	Rotation-Speed 0.0
 
@@ -135,6 +141,22 @@ Model PhaserType2
 
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
+
+	Model 1 ""
+
+	RollOffset 90.0
+	Scale 1.5 1.5 1.5
+	Offset -10.0 0.0 3.0
+	FrameIndex PHAS S 0 0
+
+	Rotation-Speed 0.5
+	
+	RollOffset 0.0
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 5.0 0.0 15.0
+	FrameIndex PHAS P 0 0
 }
 
 Model PhaserRifle
@@ -144,6 +166,8 @@ Model PhaserRifle
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
+
+	Rotation-Speed 0.0
 
 	Scale -1 1 1
 
@@ -182,8 +206,14 @@ Model PhaserRifle
 	Offset 0.0 -2.75 -8.0
 	FrameIndex PHAS E 0 0
 */
+	RollOffset 90.0
+	Scale 1.5 1.5 1.5
+	Offset -10.0 0.0 3.0
+	FrameIndex PHAS S 0 0
+
 	Rotation-Speed 0.5
 
+	RollOffset 0.0
 	AngleOffset 180.0
 	PitchOffset 42.0
 	Scale 1.5 1.5 1.5
@@ -198,13 +228,6 @@ Model Disruptor
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
-	Rotation-Speed 0.5
-
-	AngleOffset 180.0
-	PitchOffset 42.0
-	Scale 1.5 1.5 1.5
-	Offset 0.0 0.0 15.0
-	FrameIndex PHAS P 0 0
 
 	Rotation-Speed 0.0
 
@@ -233,10 +256,21 @@ Model Disruptor
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
 
-	ROTATING
-	Rotation-Speed 0.25
-	Rotation-Vector 0.0 1.0 1.0
+	Model 1 ""
 
+	RollOffset 90.0
+	Scale 1.5 1.5 1.5
+	Offset -10.0 0.0 3.0
+	FrameIndex PHAS S 0 0
+
+	Rotation-Speed 0.5
+	RollOffset 0.0
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 5.0 0.0 15.0
+	FrameIndex PHAS P 0 0
 }
 
 Model PhotonGrenadeLauncher
@@ -246,6 +280,8 @@ Model PhotonGrenadeLauncher
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
+
+	Rotation-Speed 0.0
 
 	Scale -1 1 1
 
@@ -267,6 +303,11 @@ Model PhotonGrenadeLauncher
 
 	Offset 0.0 -2.75 -7
 	FrameIndex PHAS E 0 0
+
+	PitchOffset 35.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 8.0
+	FrameIndex PHAS S 0 0
 
 	Rotation-Speed 0.5
 
