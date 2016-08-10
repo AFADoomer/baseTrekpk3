@@ -1,16 +1,47 @@
 Actor Block
 {
+	+NOGRAVITY
 	+SOLID
+	+SHOOTABLE
+	+NOBLOOD
+	+NODAMAGE
+	+DONTTHRUST
+	+NOTAUTOAIMED
+	+ACTLIKEBRIDGE
+	+ALLOWPAIN
+	Painchance 255
 	Radius 4
 	Height 8
-	+NOGRAVITY
-	+USESPECIAL
-	+ACTLIKEBRIDGE
+	Species "Block"
 	States
 	{
 		Spawn:
-			TNT1 A -1
+			TNT1 A -1 NoDelay {
+				if (GetCVar("g_debug") > 0) {
+					return State("Spawn.Debug");
+				} else {
+					return State("");
+				}
+			}
 			Stop
+		Spawn.Debug:
+			BAL1 A -1
+			Stop
+		Pain:
+			TNT1 A 0 A_DamageMaster(1)
+			Goto Spawn	
+		Pain.Stun:
+			TNT1 A 0
+			Goto Spawn
+		Pain.Phaser:
+			TNT1 A 0 A_DamageMaster(1, "Phaser")
+			Goto Spawn
+		Pain.PhaserRifle:
+			TNT1 A 0 A_DamageMaster(3, "PhaserRifle")
+			Goto Spawn
+		Pain.Disruptor:
+			TNT1 A 0 A_DamageMaster(5, "Disruptor")
+			Goto Spawn
 	}
 
 }
@@ -25,6 +56,8 @@ Actor Block64 : Block {Radius 64 Height 64}
 Actor Block12x54 : Block {Radius 12 Height 54 -NOGRAVITY}
 Actor Block10x32 : Block {Radius 10 Height 32 -NOGRAVITY}
 Actor Block16x56 : Block {Radius 16 Height 56 -NOGRAVITY}
+Actor Block22x1 : Block {Radius 22 Height 1}
+Actor Block27x1 : Block {Radius 27 Height 1}
 
 Actor TOSDecoration
 {
@@ -107,6 +140,7 @@ Actor TOSDecoration
 				if (Radius >= 16) {
 					A_Scream;
 				}
+				A_RemoveChildren(TRUE, RMVF_MISC, "None", "Block");
 				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor, 1);
 				A_ChangeFlag("NOGRAVITY", FALSE);
 				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
@@ -152,7 +186,7 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 				return State("Static");
 			}
 		Static:
-			"####" # 1 //A_JumpIf((velx != 0 || vely != 0 || velz != 0) && special == 0, "Moved")
+			"####" # 1 //A_JumpIf((velx != 0 || vely != 0 || velz != 0) && special == 0 && health > 0, "Moved")
 			Loop
 		Pain:
 			"####" # 1 {
@@ -198,6 +232,7 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 		DeathResume:
 			"####" # 45 {
 				A_Scream;
+				A_RemoveChildren(TRUE, 0, "None", "Block");
 				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor, 1);
 				A_ChangeFlag("NOGRAVITY", FALSE);
 				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
@@ -232,8 +267,8 @@ Actor Skybox7 : TOSDecoration 21006 { RenderStyle Translucent Alpha 0.7 }
 
 Actor TOSChair : TOSDestroyableDecoration 20001
 {
-	Height 22
-	Radius 16
+	Height 18
+	Radius 14
 	Health 99
 	Mass 50
 	+PUSHABLE
@@ -242,6 +277,27 @@ Actor TOSChair : TOSDestroyableDecoration 20001
 	-NOGRAVITY
 
 	Tag "Chair"
+
+	States
+	{
+		Static:
+			TOS1 A 1 {
+				A_SpawnItemEx ("Block", -16.0, 0.0, 33.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block", -16.0, 0.0, 26.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block", -16.0, 0.0, 18.0, 0, 0, 0, 0, SXF_SETMASTER);
+			}
+			Goto Super::Static
+		Moved:
+			TOS1 A 1 {
+				A_RemoveChildren(TRUE, RMVF_EVERYTHING);
+				if (health > 0) {
+					A_SpawnItemEx ("Block", -16.0, 0.0, 33.0, 0, 0, 0, 0, SXF_SETMASTER);
+					A_SpawnItemEx ("Block", -16.0, 0.0, 26.0, 0, 0, 0, 0, SXF_SETMASTER);
+					A_SpawnItemEx ("Block", -16.0, 0.0, 18.0, 0, 0, 0, 0, SXF_SETMASTER);
+				}
+			}
+			Goto Super::Static
+	}
 }
 
 Actor TOSBridgeRailing : TOSDecoration 20002 {Height 32 Radius 16 Tag "Railing"}
@@ -367,7 +423,7 @@ Actor TOSBridgeDome : TOSDecoration 20033
 Actor TOSTransporterScanner : TOSDestroyableDecoration 20035 {Health 100}
 Actor TOSTransporterConsole : TOSUsableDecoration 20036
 {
-	Height 56
+	Height 36
 	Radius 32
 	Tag "Transporter Console"
 	-SOLID
@@ -377,8 +433,19 @@ Actor TOSTransporterConsole : TOSUsableDecoration 20036
 			TOS1 A -1 {
 				A_SetSpecial(226, 254, 0, 0, 0, 0);
 				A_SetUserVar("user_uses", 1);
-				A_SpawnItemEx ("Block16x56", 0.0, 16.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
-				A_SpawnItemEx ("Block16x56", 0.0, -16.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, 32.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, -32.0, 0.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, 32.0, 8.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, -32.0, 8.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, 32.0, 16.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, -32.0, 16.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, 32.0, 24.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, -32.0, 24.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, 32.0, 32.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, -32.0, 32.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, 0.0, 32.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, -16.0, 32.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
+				A_SpawnItemEx ("Block8", 0.0, 16.0, 32.0, 0, 0, 0, 0, SXF_TRANSFERSPECIAL);
 			}
 			Stop
 	}
@@ -479,6 +546,10 @@ Actor TOSQuartersRib : TOSDecoration 20055 { Height 0 }
 
 Actor TOSCrate : TOSUsableDecoration 20056
 {
+	//$Arg0 "Crate Contents"
+	//$Arg0ToolTip "Item to spawn when this crate is opened"
+	//$Arg0Type 11
+	//$Arg0Enum { 0 = "Nothing"; 1 = "Phaser Charge"; 2 = "Type I Phaser"; 3 = "Type II Phaser"; 4 = "Phaser Rifle Charge Pack"; 5 = "Tricorder"; 6 = "Photon Grenade"; 7 = "Photon Grenade Launcher"; 8 = "Access Level 2"; 9 = "Access Level 3"; 10 = "Access Level 4"; 11 = "Medical Kit (Regeneration)"; }
 	Radius 12
 	Height 28
 	Health 99
@@ -776,25 +847,58 @@ Actor TOSKlingonControlPanel2 : TOSKlingonControlPanel1 20139 {}
 Actor TOSKlingonControlPanel3 : TOSKlingonControlPanel1 20140 {}
 
 Actor TOSKlingonCaptChair : TOSDecoration 20133 {Height 32 Radius 16 +SOLID Tag "Klingon Captain's Chair"}
-Actor TOSTable : TOSDecoration 20141 {
-	+SOLID 
+Actor TOSTable : TOSDecoration 20141
+{
 	Height 25 
-	Radius 24 
 	Tag "Table"
+	States
+	{
+		Static:
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block22x1", 0.0, 0.0, 24.0);
+				A_SpawnItemEx ("Block", 0.0, 0.0, 0.0);
+				A_SpawnItemEx ("Block", 0.0, 0.0, 8.0);
+				A_SpawnItemEx ("Block", 0.0, 0.0, 16.0);
+			}
+			Stop
+	}
+
 }
 Actor TOSTable2 : TOSTable 20142
+{
+	Radius 0
+	States
+	{
+		Static:
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block22x1", 0.0, 22.0, 24.0);
+				A_SpawnItemEx ("Block22x1", 0.0, -22.0, 24.0);
+				A_SpawnItemEx ("Block", 0.0, 0.0, 0.0);
+				A_SpawnItemEx ("Block", 0.0, 0.0, 8.0);
+				A_SpawnItemEx ("Block", 0.0, 0.0, 16.0);
+			}
+			Stop
+	}
+}
+Actor TOSTable3 : TOSTable2 20143
 {
 	States
 	{
 		Static:
 			TOS1 A -1 {
-				A_SpawnItemEx ("Block25", 8.0, 12.0, 0.0);
-				A_SpawnItemEx ("Block25", 8.0, -12.0, 0.0);
+				A_SpawnItemEx ("Block27x1", 12.0, 22.0, 24.0);
+				A_SpawnItemEx ("Block27x1", 12.0, -22.0, 24.0);
+				A_SpawnItemEx ("Block", 12.0, 40.0, 0.0);
+				A_SpawnItemEx ("Block", 12.0, 40.0, 8.0);
+				A_SpawnItemEx ("Block", 12.0, 40.0, 16.0);
+				A_SpawnItemEx ("Block", 12.0, -40.0, 0.0);
+				A_SpawnItemEx ("Block", 12.0, -40.0, 8.0);
+				A_SpawnItemEx ("Block", 12.0, -40.0, 16.0);
+
 			}
 			Stop
 	}
 }
-Actor TOSTable3 : TOSTable2 20143 {}
 Actor TOSBench : TOSDecoration 20144
 {
 	Height 16
@@ -1420,6 +1524,10 @@ Actor TOSCheckersPiece : TOSDestroyableDecoration
 Actor TOSShipOrbit : TOSEnterprise 20277
 {
 	//$Sprite UNKNA0
+	//$Arg0 "Orbiting Vessel Type"
+	//$Arg0ToolTip "Type of vessel that will orbit this spot"
+	//$Arg0Type 11
+	//$Arg0Enum { 0 = "Enterprise"; 1 = "Shuttlecraft"; 2 = "DY100"; }
 	var int user_Radius;
 	var int user_Pitch;
 	var int user_Roll;

@@ -1,4 +1,4 @@
-#include "actors/doom.txt"
+//#include "actors/doom.txt"
 #include "actors/player.txt"
 #include "actors/weapons.txt"
 #include "actors/projectiles.txt"

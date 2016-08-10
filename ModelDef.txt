@@ -886,7 +886,7 @@ Model Shuttle
 
 	FrameIndex TOS1 A 0 0
 
-	INHERITACTORROLL
+	USEACTORROLL
 	USEACTORPITCH
 
 	Model 0 "galileo.md3"

@@ -2094,7 +2094,7 @@ str DropClasses[DropClassCount] = {
 	"PhaserType1", 
 	"PhaserType2", 
 	"RifleChargePack", 
-	"PhaserRifle", 		//5
+	"Tricorder", 		//5
 	"PhotonGrenadeAmmoBox", 
 	"PhotonGrenadeLauncher", 
 	"AccessLevel2", 
@@ -2109,7 +2109,10 @@ Script "A_Drop" (int DropIndex)
 
 	strDropItem = strParam(s:DropClasses[DropIndex]);
 
-	Spawn (strDropItem, GetActorX(0), GetActorY(0), GetActorZ(0));
+	int itemTID = UniqueTID();
+
+	Spawn (strDropItem, GetActorX(0), GetActorY(0), GetActorZ(0), itemTID);
+	SetActorProperty(itemTID, APROP_Dropped, 0);
 }
 
 Script "ChangeCamera" (int CameraTID, int timeDelay)

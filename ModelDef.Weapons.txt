@@ -32,8 +32,8 @@ Model ChargePack
 
 Model Tricorder
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tricorder.md3"
@@ -61,11 +61,6 @@ Model PhaserType1
 	Path "Models/weapons/"
 	Model 0 "phaser_1.md3"
 	Skin 0 "tosphaser_new.jpg"
-
-	ROTATING
-	Rotation-Vector 0.0 1.0 0.0
-	Rotation-Speed 0.0
-
 	Model 1 "phaser_1_hand.md3"
 	Skin 1 "hand.jpg"
 
@@ -90,13 +85,29 @@ Model PhaserType1
 
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
+}
 
-	Model 1 ""
+Model PhaserType1
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_1.md3"
+	Skin 0 "tosphaser_new.jpg"
+
+	AngleOffset 0.0
 
 	Scale 1.5 1.5 1.5
-	Offset -4.0 0.0 0.0
+	Offset -4.0 0.0 -1.5
 	FrameIndex PHAS S 0 0
+}
 
+Model PhaserType1
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_1.md3"
+	Skin 0 "tosphaser_new.jpg"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
 	Rotation-Speed 0.5
 
 	AngleOffset 180.0
@@ -112,10 +123,35 @@ Model PhaserType2
 	Model 0 "phaser.md3"
 	Skin 0 "tosphaser_new.jpg"
 
+	RollOffset 90.0
+	Scale 1.5 1.5 1.5
+	Offset -10.0 0.0 2.0
+	FrameIndex PHAS S 0 0
+}
+
+Model PhaserType2
+{
+	Path "Models/weapons/"
+	Model 0 "phaser.md3"
+	Skin 0 "tosphaser_new.jpg"
+
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+	
+	RollOffset 0.0
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 5.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+}
 
-	Rotation-Speed 0.0
+Model PhaserType2
+{
+	Path "Models/weapons/"
+	Model 0 "phaser.md3"
+	Skin 0 "tosphaser_new.jpg"
 
 	Model 1 "phaser_hand.md3"
 	Skin 1 "hand.jpg"
@@ -141,22 +177,17 @@ Model PhaserType2
 
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
+}
 
-	Model 1 ""
+Model PhaserRifle
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_rifle.md3"
 
 	RollOffset 90.0
 	Scale 1.5 1.5 1.5
 	Offset -10.0 0.0 3.0
 	FrameIndex PHAS S 0 0
-
-	Rotation-Speed 0.5
-	
-	RollOffset 0.0
-	AngleOffset 180.0
-	PitchOffset 42.0
-	Scale 1.5 1.5 1.5
-	Offset 5.0 0.0 15.0
-	FrameIndex PHAS P 0 0
 }
 
 Model PhaserRifle
@@ -166,8 +197,20 @@ Model PhaserRifle
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
 
-	Rotation-Speed 0.0
+	RollOffset 0.0
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+}
+
+Model PhaserRifle
+{
+	Path "Models/weapons/"
+	Model 0 "phaser_rifle.md3"
 
 	Scale -1 1 1
 
@@ -189,36 +232,17 @@ Model PhaserRifle
 
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
+}
 
-/*
-	AngleOffset 4.0
-	Offset 4.0 -3.0 -7.0
-	FrameIndex PHAS B 0 0
+Model Disruptor
+{
+	Path "Models/weapons/"
+	Model 0 "disruptor.md3"
 
-	AngleOffset 2.0
-	Offset 2.0 -3.0 -7.5
-	FrameIndex PHAS C 0 0
-
-	AngleOffset 0.0
-	Offset 0.0 -3.0 -8.0
-	FrameIndex PHAS D 0 0
-
-	Offset 0.0 -2.75 -8.0
-	FrameIndex PHAS E 0 0
-*/
 	RollOffset 90.0
-	Scale 1.5 1.5 1.5
-	Offset -10.0 0.0 3.0
+	Scale 1.35 1.35 1.35
+	Offset -10.0 0.0 2.0
 	FrameIndex PHAS S 0 0
-
-	Rotation-Speed 0.5
-
-	RollOffset 0.0
-	AngleOffset 180.0
-	PitchOffset 42.0
-	Scale 1.5 1.5 1.5
-	Offset 0.0 0.0 15.0
-	FrameIndex PHAS P 0 0
 }
 
 Model Disruptor
@@ -228,8 +252,21 @@ Model Disruptor
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
 
-	Rotation-Speed 0.0
+	RollOffset 0.0
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.35 1.35 1.35
+	Offset 5.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+
+}
+
+Model Disruptor
+{
+	Path "Models/weapons/"
+	Model 0 "disruptor.md3"
 
 	Model 1 "phaser_1_hand.md3"
 	Skin 1 "hand.jpg"
@@ -255,22 +292,17 @@ Model Disruptor
 
 	Offset 0.0 -2.75 -6.5
 	FrameIndex PHAS E 0 0
+}
 
-	Model 1 ""
+Model PhotonGrenadeLauncher
+{
+	Path "Models/weapons/"
+	Model 0 "mortar.md3"
 
-	RollOffset 90.0
+	PitchOffset 35.0
 	Scale 1.5 1.5 1.5
-	Offset -10.0 0.0 3.0
+	Offset 0.0 0.0 7.0
 	FrameIndex PHAS S 0 0
-
-	Rotation-Speed 0.5
-	RollOffset 0.0
-
-	AngleOffset 180.0
-	PitchOffset 42.0
-	Scale 1.5 1.5 1.5
-	Offset 5.0 0.0 15.0
-	FrameIndex PHAS P 0 0
 }
 
 Model PhotonGrenadeLauncher
@@ -280,8 +312,20 @@ Model PhotonGrenadeLauncher
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
 
-	Rotation-Speed 0.0
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+
+}
+
+Model PhotonGrenadeLauncher
+{
+	Path "Models/weapons/"
+	Model 0 "mortar.md3"
 
 	Scale -1 1 1
 
@@ -303,19 +347,6 @@ Model PhotonGrenadeLauncher
 
 	Offset 0.0 -2.75 -7
 	FrameIndex PHAS E 0 0
-
-	PitchOffset 35.0
-	Scale 1.5 1.5 1.5
-	Offset 0.0 0.0 8.0
-	FrameIndex PHAS S 0 0
-
-	Rotation-Speed 0.5
-
-	AngleOffset 180.0
-	PitchOffset 42.0
-	Scale 1.5 1.5 1.5
-	Offset 0.0 0.0 15.0
-	FrameIndex PHAS P 0 0
 }
 
 Model Punch
@@ -348,8 +379,8 @@ Model Punch
 
 Model DisruptorStation
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "disruptorstation.md3"
@@ -383,8 +414,8 @@ Model DisruptorStation
 
 Model DisruptorStation
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "disruptorstation2.md3"
@@ -417,8 +448,8 @@ Model DisruptorStation
 
 Model PhaserRifleStation
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "phaserriflestation.md3"
@@ -453,8 +484,8 @@ Model PhaserRifleStation
 
 Model PhaserRifleStation
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "phaserriflestation2.md3"

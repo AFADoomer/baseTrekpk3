@@ -4,8 +4,8 @@ Model DisruptorBolt
 	Model 0 "projectile.md3"
 	Skin 0 "bolt.jpg"
 
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	ROTATING
 
@@ -23,8 +23,8 @@ Model PhotonGrenade
 	Model 0 "grenade_projectile.md3"
 	Skin 0 "grenade_ammo.jpg"
 
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	ROTATING
 
@@ -47,8 +47,8 @@ Model PhotonGrenadeHoming
 	Model 0 "grenade_projectile.md3"
 	Skin 0 "grenade_ammo.jpg"
 
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	ROTATING
 
@@ -99,8 +99,8 @@ Model DisruptorGrenade
 	Path "Textures/Solid/"
 	Skin 0 "Green.jpg"
 
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	ROTATING
 

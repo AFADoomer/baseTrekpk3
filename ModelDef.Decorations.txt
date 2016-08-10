@@ -37,8 +37,8 @@ Model Skybox4 //Stars
 
 Model Skybox5 //Clouds (Red)
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planet2.md3"
@@ -54,8 +54,8 @@ Model Skybox5 //Clouds (Red)
 
 Model Skybox6 //Clouds
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planet2.md3"
@@ -71,8 +71,8 @@ Model Skybox6 //Clouds
 
 Model Skybox7 //Clouds for Sky
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/skybox/"
 	Model 0 "skybox.md3"
@@ -89,8 +89,8 @@ Model Skybox7 //Clouds for Sky
 
 Model TOSChair
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
@@ -103,8 +103,8 @@ Model TOSChair
 
 Model TOSChair2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
@@ -120,8 +120,8 @@ Model TOSChair2
 
 Model TOSChair3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
@@ -136,8 +136,8 @@ Model TOSChair3
 
 Model TOSBurkeChair
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
@@ -400,8 +400,8 @@ Model TOSBridgeDome
 
 Model TOSCeilingPipes
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipes.md3"
@@ -414,8 +414,8 @@ Model TOSCeilingPipes
 
 Model TOSCeilingPipes2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipes.md3"
@@ -428,8 +428,8 @@ Model TOSCeilingPipes2
 
 Model TOSCeilingPipes3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipes.md3"
@@ -442,8 +442,8 @@ Model TOSCeilingPipes3
 
 Model TOSWallThing1
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wallthing1.md3"
@@ -457,8 +457,8 @@ Model TOSWallThing1
 
 Model TOSWallThing2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wallthing2.md3"
@@ -472,8 +472,8 @@ Model TOSWallThing2
 
 Model TOSWallThing3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton1.md3"
@@ -489,8 +489,8 @@ Model TOSWallThing3
 
 Model TOSWallThing4
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton1.md3"
@@ -506,8 +506,8 @@ Model TOSWallThing4
 
 Model TOSWallThing5
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wallthing5.md3"
@@ -521,8 +521,8 @@ Model TOSWallThing5
 
 Model TOSWallThing6
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wallthing6.md3"
@@ -536,8 +536,8 @@ Model TOSWallThing6
 
 Model TOSWallThing7
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "toswallthing7.md3"
@@ -549,8 +549,8 @@ Model TOSWallThing7
 
 Model TOSWallThing8
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wallthing8.md3"
@@ -588,8 +588,8 @@ Model TOSWallThingHangar
 
 Model TOSWallThingamajig
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wallthing_amajig.md3"
@@ -645,15 +645,15 @@ Model TOSTransporterConsole
 	Model 0 "transcons.md3"
 
 	AngleOffset 180.0
-	Scale 1.3 1.3 1.3
+	Scale 1.0 1.3 1.0
 
 	FrameIndex TOS1 A 0 0
 }
 
 Model TOSWallThingEngineering
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_wall_box.md3"
@@ -666,8 +666,8 @@ Model TOSWallThingEngineering
 
 Model TOSWallThingEngineering2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_wall_box.md3"
@@ -695,8 +695,8 @@ Model TOSLBDN
 
 Model TOSLamp
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tos_lamp.md3"
@@ -795,8 +795,8 @@ Model TOSMonitorBase4
 
 Model TOSPadd
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "padd.md3"
@@ -810,8 +810,8 @@ Model TOSPadd
 
 Model TOSBarrel1
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "barrel1.md3"
@@ -823,8 +823,8 @@ Model TOSBarrel1
 
 Model TOSBarrel2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "barrel2.md3"
@@ -836,8 +836,8 @@ Model TOSBarrel2
 
 Model TOSBarrel3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "barrel3.md3"
@@ -862,8 +862,8 @@ Model TOSTurboliftHandle
 
 Model TOSWallThing9
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wall_decor.md3"
@@ -877,8 +877,8 @@ Model TOSWallThing9
 
 Model TOSWallThing10
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wall_decor2.md3"
@@ -946,8 +946,8 @@ Model TOSEngCenter
 
 Model TOSEngChamber
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_cham.md3"
@@ -1084,8 +1084,8 @@ Model TOSEngineeringPanel
 
 Model TOSSecurityConsole
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_con2.md3"
@@ -1138,8 +1138,8 @@ Model TOSCrate
 
 Model TOSTapeRack
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tape_rack.md3"
@@ -1153,8 +1153,8 @@ Model TOSTapeRack
 
 Model TOSWallPipe
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallpipe.md3"
@@ -1166,8 +1166,8 @@ Model TOSWallPipe
 
 Model TOSEngWallthing1
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing1.md3"
@@ -1178,8 +1178,8 @@ Model TOSEngWallthing1
 
 Model TOSPipe1
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
@@ -1190,8 +1190,8 @@ Model TOSPipe1
 
 Model TOSPipe2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
@@ -1202,8 +1202,8 @@ Model TOSPipe2
 
 Model TOSPipe3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
@@ -1214,8 +1214,8 @@ Model TOSPipe3
 
 Model TOSPipe4
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
@@ -1226,8 +1226,8 @@ Model TOSPipe4
 
 Model TOSPipe5
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
@@ -1238,8 +1238,8 @@ Model TOSPipe5
 
 Model TOSPipe6
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
@@ -1250,8 +1250,8 @@ Model TOSPipe6
 
 Model TOSPipe8
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Scale 2.0 2.0 1.0
 
@@ -1264,8 +1264,8 @@ Model TOSPipe8
 
 Model TOSGrate
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "grate.md3"
@@ -1282,8 +1282,8 @@ Model TOSGrate
 
 Model TOSEngWallThing2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing2.md3"
@@ -1295,8 +1295,8 @@ Model TOSEngWallThing2
 
 Model TOSEngWallThing3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing3.md3"
@@ -1309,8 +1309,8 @@ Model TOSEngWallThing3
 
 Model TOSEngWallThing4
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing4a.md3"
@@ -1326,8 +1326,8 @@ Model TOSEngWallThing4
 
 Model TOSEngWallThing5
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing5.md3"
@@ -1337,8 +1337,8 @@ Model TOSEngWallThing5
 
 Model TOSEngWallThing6
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing6.md3"
@@ -1348,8 +1348,8 @@ Model TOSEngWallThing6
 
 Model TOSEngWallThing7
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing7.md3"
@@ -1359,8 +1359,8 @@ Model TOSEngWallThing7
 
 Model TOSEngWallThing8
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing8.md3"
@@ -1372,8 +1372,8 @@ Model TOSEngWallThing8
 
 Model TOSEngWallThing9
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing9.md3"
@@ -1384,8 +1384,8 @@ Model TOSEngWallThing9
 
 Model TOSEngWallThing10
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing9.md3"
@@ -1396,8 +1396,8 @@ Model TOSEngWallThing10
 
 Model TOSEngWallThing11
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing11.md3"
@@ -1494,8 +1494,8 @@ Model TOSTerrain
 
 Model TOSDeskIntercom
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Scale 1.4 1.4 1.2
 
@@ -1507,8 +1507,8 @@ Model TOSDeskIntercom
 
 Model TOSKlingonWeaponStation
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Scale 1.2 1.2 1.2
 
@@ -1520,8 +1520,8 @@ Model TOSKlingonWeaponStation
 
 Model TOSKlingonWeaponControls
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wpn_control.md3"
@@ -1531,8 +1531,8 @@ Model TOSKlingonWeaponControls
 
 Model TOSKlingonControlPanelScreen1
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con.md3"
@@ -1554,8 +1554,8 @@ Model TOSKlingonControlPanelScreen1
 
 Model TOSKlingonControlPanelScreen2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con.md3"
@@ -1577,8 +1577,8 @@ Model TOSKlingonControlPanelScreen2
 
 Model TOSKlingonControlPanelScreen3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con.md3"
@@ -1600,8 +1600,8 @@ Model TOSKlingonControlPanelScreen3
 
 Model TOSKlingonControlPanelScreen4
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con.md3"
@@ -1623,8 +1623,8 @@ Model TOSKlingonControlPanelScreen4
 
 Model TOSKlingonControlPanelScreen5
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con.md3"
@@ -1646,8 +1646,8 @@ Model TOSKlingonControlPanelScreen5
 
 Model TOSKlingonControlPanelScreen6
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con.md3"
@@ -1669,8 +1669,8 @@ Model TOSKlingonControlPanelScreen6
 
 Model TOSKlingonControlPanel1
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con2.md3"
@@ -1687,8 +1687,8 @@ Model TOSKlingonControlPanel1
 
 Model TOSKlingonControlPanel2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con2.md3"
@@ -1706,8 +1706,8 @@ Model TOSKlingonControlPanel2
 
 Model TOSKlingonControlPanel3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_con2.md3"
@@ -1724,8 +1724,8 @@ Model TOSKlingonControlPanel3
 
 Model TOSKlingonCaptChair
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "kl_cpt_c.md3"
@@ -1737,8 +1737,8 @@ Model TOSKlingonCaptChair
 
 Model TOSTable
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "table.md3"
@@ -1750,8 +1750,8 @@ Model TOSTable
 
 Model TOSTable2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "table2.md3"
@@ -1764,8 +1764,8 @@ Model TOSTable2
 
 Model TOSTable3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "table3.md3"
@@ -1777,8 +1777,8 @@ Model TOSTable3
 
 Model TOSTable4
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "table4.md3"
@@ -1790,8 +1790,8 @@ Model TOSTable4
 
 Model TOSTable5
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "table4.md3"
@@ -1805,8 +1805,8 @@ Model TOSTable5
 
 Model TOSBench
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "bench.md3"
@@ -1831,8 +1831,8 @@ Model TOSHangarDoors
 
 Model Pane
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pane.md3"
@@ -1843,8 +1843,8 @@ Model Pane
 
 Model Pane2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pane2.md3"
@@ -1902,8 +1902,8 @@ Model TOSComputerD
 
 Model TOSComputer2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "compute2.md3"
@@ -1914,8 +1914,8 @@ Model TOSComputer2
 
 Model TOSComputer2B
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "compute2.md3"
@@ -1927,8 +1927,8 @@ Model TOSComputer2B
 
 Model TOSComputer2C
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "compute2.md3"
@@ -1969,8 +1969,8 @@ Model TOSAuxRib
 
 Model TOSWallThing11
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton1.md3"
@@ -1982,8 +1982,8 @@ Model TOSWallThing11
 
 Model TOSWallThing12
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton4.md3"
@@ -1994,8 +1994,8 @@ Model TOSWallThing12
 
 Model TOSWallThing13
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton4.md3"
@@ -2006,8 +2006,8 @@ Model TOSWallThing13
 
 Model TOSEngWallThing12
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallthing12.md3"
@@ -2017,8 +2017,8 @@ Model TOSEngWallThing12
 
 Model TOSWallThing14
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton6.md3"
@@ -2030,8 +2030,8 @@ Model TOSWallThing14
 
 Model TOSWallBoard
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "wallboard.md3"
@@ -2043,8 +2043,8 @@ Model TOSWallBoard
 
 Model TOSRockerButtons
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "rockers.md3"
@@ -2056,8 +2056,8 @@ Model TOSRockerButtons
 
 Model TOSTableLeg 
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "table_leg.md3"
@@ -2069,8 +2069,8 @@ Model TOSTableLeg
 
 Model TOSGymApparatus
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "gym1.md3"
@@ -2083,8 +2083,8 @@ Model TOSGymApparatus
 
 Model TOSGymBar
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "gym_bar1.md3"
@@ -2096,8 +2096,8 @@ Model TOSGymBar
 
 Model TOSGymBar2
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "gym_bar2.md3"
@@ -2109,8 +2109,8 @@ Model TOSGymBar2
 
 Model TOSGymBar3
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "gym_bar3.md3"
@@ -2132,8 +2132,8 @@ Model TOSDiningRib
 
 Model TOSCloset
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "closet.md3"
@@ -2214,8 +2214,8 @@ Model TOSSickbayTable
 
 Model TOSPipe9
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Scale 2.0 2.0 1.0
 
@@ -2228,8 +2228,8 @@ Model TOSPipe9
 
 Model TOSPipe10
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Scale 1.0 1.0 1.0
 
@@ -2242,8 +2242,8 @@ Model TOSPipe10
 
 Model TOSConferenceViewer
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Scale 1.4 1.4 1.2
 
@@ -2255,8 +2255,8 @@ Model TOSConferenceViewer
 
 Model TOSIntercomAndRockers
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Scale 1.4 1.4 1.2
 
@@ -2268,8 +2268,8 @@ Model TOSIntercomAndRockers
 
 Model TOSFoodTray
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_base.md3"
@@ -2279,8 +2279,8 @@ Model TOSFoodTray
 
 Model TOSFoodCup
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_cup.md3"
@@ -2290,8 +2290,8 @@ Model TOSFoodCup
 
 Model TOSFoodDrink
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_drink.md3"
@@ -2301,8 +2301,8 @@ Model TOSFoodDrink
 
 Model TOSFoodDrink
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_drink_2.md3"
@@ -2312,8 +2312,8 @@ Model TOSFoodDrink
 
 Model TOSFoodDrink
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_drink_3.md3"
@@ -2323,8 +2323,8 @@ Model TOSFoodDrink
 
 Model TOSFoodDrink
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_drink_4.md3"
@@ -2334,8 +2334,8 @@ Model TOSFoodDrink
 
 Model TOSFoodFood
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_food.md3"
@@ -2345,8 +2345,8 @@ Model TOSFoodFood
 
 Model TOSFoodFood
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_food_2.md3"
@@ -2356,8 +2356,8 @@ Model TOSFoodFood
 
 Model TOSFoodFood
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_food_3.md3"
@@ -2367,8 +2367,8 @@ Model TOSFoodFood
 
 Model TOSFoodFood
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_food_4.md3"
@@ -2378,8 +2378,8 @@ Model TOSFoodFood
 
 Model TOSFoodNapkin
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_napkin.md3"
@@ -2389,8 +2389,8 @@ Model TOSFoodNapkin
 
 Model TOSFoodNapkin
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_napkin_2.md3"
@@ -2400,8 +2400,8 @@ Model TOSFoodNapkin
 
 Model TOSFoodNapkin
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_napkin.md3"
@@ -2413,8 +2413,8 @@ Model TOSFoodNapkin
 
 Model TOSFoodNapkin
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_napkin_2.md3"
@@ -2426,8 +2426,8 @@ Model TOSFoodNapkin
 
 Model TOSFoodUtensils
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_utensils.md3"
@@ -2437,8 +2437,8 @@ Model TOSFoodUtensils
 
 Model TOSFoodUtensils
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_utensils_2.md3"
@@ -2448,8 +2448,8 @@ Model TOSFoodUtensils
 
 Model TOSFoodUtensils
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_utensils.md3"
@@ -2461,8 +2461,8 @@ Model TOSFoodUtensils
 
 Model TOSFoodUtensils
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tray_utensils_2.md3"
@@ -2474,8 +2474,8 @@ Model TOSFoodUtensils
 
 Model TOSChess
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chess_base.md3"
@@ -2485,8 +2485,8 @@ Model TOSChess
 
 Model TOSCheckers
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "checkers_base.md3"
@@ -2496,8 +2496,8 @@ Model TOSCheckers
 
 Model TOSChessSmall
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chess_small.md3"
@@ -2508,8 +2508,8 @@ Model TOSChessSmall
 
 Model TOSCheckersSmall
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chess_small.md3"
@@ -2519,8 +2519,8 @@ Model TOSCheckersSmall
 
 Model TOSChessLarge
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chess_large.md3"
@@ -2530,8 +2530,8 @@ Model TOSChessLarge
 
 Model TOSChessLargeSingle
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "chess_large.md3"
@@ -2599,8 +2599,8 @@ Model TOSCheckersPiece
 
 Model WindowPane
 {
-	INHERITACTORPITCH
-	INHERITACTORROLL
+	USEACTORPITCH
+	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pane.md3"
