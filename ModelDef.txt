@@ -893,3 +893,17 @@ Model Shuttle
 
 	FrameIndex TOS1 B 0 0
 }
+
+Model 1x1 {
+	Path "Models/"
+	Model 0 "1x1.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model 1x1Bounding {
+	Path "Models/"
+	Model 0 "1x1.md3"
+
+	FrameIndex TOS1 A 0 0
+}
