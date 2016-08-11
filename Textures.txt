@@ -579,8 +579,10 @@ Texture Logo_K2, 128, 103
 	Patch Logo_K2, 0, 0 {Style Overlay}
 }
 
-Texture Diffuser, 64, 64
+Texture Diffuser, 128, 128
 {
+	XScale 2.0
+	YScale 2.0
 	Patch Diffuser, 0, 0 {Style Overlay}
 }
 
