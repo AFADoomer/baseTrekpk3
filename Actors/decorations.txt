@@ -29,26 +29,25 @@ Actor 1x1
 			}
 			Goto Spawn.Continue
 		Spawn.Debug:
-			TOS1 A 1 BRIGHT
+			TOS1 A 1
 			Goto Spawn.Continue
 		Spawn.Continue:
-			"####" # -1 {
+			"####" # -1 BRIGHT {
+				A_SetAngle(0);
 				If (Radius > 1) {
 					A_SetScale(Radius * 2, Height * 1.2);
-					A_SpawnItemEx ("1x1", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERPOINTERS | SXF_TRANSFERSCALE);
-				}
-/* Fill the blocked space with 1x1 blocks...  Don't do it!  Slow!!! - But would allow for non-square x/y
-					for (user_x == -Radius + 0.5; user_x <= Radius - 0.5; user_x++) {
-						for (user_y == -Radius + 0.5; user_y <= Radius - 0.5; user_y++) {
-							for (user_z == 0; user_z < Height; user_z++) {
+					A_SpawnItemEx ("1x1", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERPOINTERS | SXF_TRANSFERSCALE);
+/* Fill the blocked space with 1x1 blocks...  Don't do it!  Slow!!! - But would allow for non-square x/y */
+/*
+					for (user_x = -Radius + 0.5; user_x <= Radius - 0.5; user_x++) {
+						for (user_y = -Radius + 0.5; user_y <= Radius - 0.5; user_y++) {
+							for (user_z = 0; user_z < Height; user_z++) {
 								A_SpawnItemEx ("1x1", user_x, user_y, user_z, 0, 0, 0, 0, SXF_TRANSFERPOINTERS);
 							}
-							user_z = 0;
 						}
-						user_y = 0;
 					}
-				}
 */
+				}
 			}
 			Stop
 		Pain:
@@ -89,6 +88,7 @@ Actor Block10x32 : Block {Radius 10 Height 32 -NOGRAVITY}
 Actor Block16x56 : Block {Radius 16 Height 56 -NOGRAVITY}
 Actor Block22x1 : Block {Radius 22 Height 1}
 Actor Block27x1 : Block {Radius 27 Height 1}
+Actor Block24x32 : Block {Radius 24 Height 32}
 
 Actor TOSDecoration
 {
@@ -96,6 +96,8 @@ Actor TOSDecoration
 	var int user_width;
 	var int user_height;
 	var int user_disintegrationcolor;
+	var float user_scaleX;
+	var float user_scaleY;
 
 	+NOGRAVITY
 	-SOLID
@@ -119,10 +121,12 @@ Actor TOSDecoration
 				ACS_NamedExecuteAlways("SetRadarTID",0);
 				ACS_NamedExecuteAlways("A_SetupThing",0);
 				A_SetUserVar("user_uses", args[0] || args[2]);
+				user_scaleX = scaleX;
+				user_scaleY = scaleY;
 				if (GetCVar("g_bounding") && A_CheckFlag("SOLID", "Null")) {
 					A_SetScale(Radius * 2, Height * 1.2, AAPTR_DEFAULT, TRUE);
 					A_SpawnItemEx ("1x1Bounding", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERSCALE | SXF_SETMASTER);
-					A_SetScale(1.0, 1.0);
+					A_SetScale(user_scaleX, user_scaleY);
 				}
 				return State("Static");
 			}
@@ -208,6 +212,8 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 	var int user_width;
 	var int user_height;
 	var int user_disintegrationcolor;
+	var float user_scaleX;
+	var float user_scaleY;
 
 	+NOGRAVITY
 	+SOLID
@@ -226,10 +232,12 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 				ACS_NamedExecuteAlways("SetRadarTID",0);
 				ACS_NamedExecuteAlways("A_SetupThing",0);
 				A_SetUserVar("user_uses", args[0] || args[2]);
+				user_scaleX = scaleX;
+				user_scaleY = scaleY;
 				if (GetCVar("g_bounding") && A_CheckFlag("SOLID", "Null")) {
 					A_SetScale(Radius * 2, Height * 1.2, AAPTR_DEFAULT, TRUE);
 					A_SpawnItemEx ("1x1Bounding", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERSCALE | SXF_SETMASTER);
-					A_SetScale(1.0, 1.0);
+					A_SetScale(user_scaleX, user_scaleY);
 				}
 				return State("Static");
 			}
@@ -599,7 +607,7 @@ Actor TOSCrate : TOSUsableDecoration 20056
 	//$Arg0Type 11
 	//$Arg0Enum { 0 = "Nothing"; 1 = "Phaser Charge"; 2 = "Type I Phaser"; 3 = "Type II Phaser"; 4 = "Phaser Rifle Charge Pack"; 5 = "Tricorder"; 6 = "Photon Grenade"; 7 = "Photon Grenade Launcher"; 8 = "Access Level 2"; 9 = "Access Level 3"; 10 = "Access Level 4"; 11 = "Medical Kit (Regeneration)"; }
 	Radius 12
-	Height 28
+	Height 26
 	Health 99
 	+USESPECIAL
 	-NOGRAVITY
@@ -871,7 +879,7 @@ Actor TOSShuttleGalileo : TOSDecoration 20126
 	}
 }
 
-Actor TOSBurkeChair : TOSChair 20127 {Height 32 Radius 8 Tag "Chair"}
+Actor TOSBurkeChair : TOSChair 20127 {Tag "Chair"}
 Actor TOSConfSupport : TOSDecoration 20128 {Height 96 Radius 16 +SOLID Tag "Support Column"}
 Actor TOSKlingonWeaponStation : TOSDecoration 20129 {Height 64 Radius 32 +SOLID Tag "Klingon Weapon Station"}
 Actor TOSKlingonWeaponControls  : TOSDecoration 20130
@@ -958,8 +966,9 @@ Actor TOSBench : TOSDecoration 20144
 	{
 		Static:
 			TOS1 A -1 {
-				A_SpawnItemEx ("Block16", 8.0, 12.0, 0.0);
-				A_SpawnItemEx ("Block16", 8.0, -12.0, 0.0);
+				A_SpawnItemEx ("Block16", 8.0, 0.0, 0.0);
+				A_SpawnItemEx ("Block16", 8.0, 30.0, 0.0);
+				A_SpawnItemEx ("Block16", 8.0, -30.0, 0.0);
 			}
 			Stop
 	}
@@ -1000,6 +1009,7 @@ Actor Pane : TOSDecoration 20146
 
 Actor TOSComputer : TOSUsableDecoration 20147
 {
+	-SOLID
 	Height 64
 	Radius 16
 	Tag "Computer Processing Module"
@@ -1202,8 +1212,8 @@ Actor TOSSickbayBed : TOSDecoration 20197
 	{
 		Static:
 			TOS1 A -1 {
-				A_SpawnItemEx ("Block32", -32.0, 0.0, 0.0);
-				A_SpawnItemEx ("Block24", 32.0, 0.0, 0.0);
+				A_SpawnItemEx ("Block24x32", -36.0, 0.0, 0.0);
+				A_SpawnItemEx ("Block24", 20.0, 0.0, 0.0);
 			}
 			Stop
 	}
