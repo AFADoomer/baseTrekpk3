@@ -271,7 +271,7 @@ Model TOSShipOrbit
 	FrameIndex TOS1 Y 0 0
 }
 
-Model TOSPlanet
+Model TOSPlanetOrbit
 {
 	USEACTORPITCH
 	USEACTORROLL
@@ -294,6 +294,92 @@ Model TOSPlanet
 
 	FrameIndex TOS1 A 1 0
 
+}
+
+Model TOSPlanetOrbitBlue
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "planet_b.jpg"
+
+	Rotating
+	Rotation-Speed -0.02
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSPlanetOrbitGreen
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "planet_g.jpg"
+
+	Rotating
+	Rotation-Speed -0.02
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlanetOrbitPink
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "planet_p.jpg"
+
+	Rotating
+	Rotation-Speed -0.02
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMoonOrbit
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "planet_m.jpg"
+
+	Rotating
+	Rotation-Speed -0.02
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlanet
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "planet.jpg"
+
+	Rotating
+	Rotation-Speed -0.02
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
 }
 
 Model TOSPlanetClouds
@@ -320,11 +406,8 @@ Model TOSPlanetShadow
 	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
-	Model 0 "planetshadow.md3"
+	Model 0 "planet.md3"
 	Skin 0 "shadow.png"
-
-	Rotating
-	Rotation-Speed -0.015
 
 	Scale 0.315 0.315 0.315
 
@@ -371,7 +454,6 @@ Model TOSPlanet
 	FrameIndex TOS1 C 0 0
 }
 
-
 Model TOSPlanet
 {
 	USEACTORPITCH
@@ -393,6 +475,24 @@ Model TOSPlanet
 	Skin 1 "White_T.png"
 
 	FrameIndex TOS1 D 1 0
+}
+
+Model TOSSun
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+	Rotating
+	Rotation-Speed -0.01
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 A 0 0
 }
 
 Model TOSShuttleGalileo
@@ -417,7 +517,7 @@ Model TOSShuttleAstrostein
 
 	Path "Models/mapobjects/tos/shuttles"
 	Model 0 "galileo_landed.md3"
-	Skin 0 "astrostein.jpg"
+	Skin 0 "astrostein8.jpg"
 
 	FrameIndex TOS1 A 0 0
 

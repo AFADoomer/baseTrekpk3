@@ -228,6 +228,23 @@ Actor LensFlare 27000
 	}
 }
 
+Actor SunFlare 27003
+{
+	Radius 0
+	Height 0
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+		Spawn:
+			FLAR S -1 Bright
+			Stop
+	}
+}
+
 Actor Flare
 {
 	Radius 0
@@ -959,5 +976,20 @@ Actor TOSRedAlertLightSmall : SmallLight 27001
 			TNT1 A 35 Light("SmallRedLight") A_JumpIf(CallACS("A_CheckAlert") < 1, "Spawn")
 			TNT1 A 35 A_JumpIf(CallACS("A_CheckAlert") < 1, "Spawn")
 			Loop
+	}
+}
+
+Actor TOSFollowerCamera : TOSFollower 27004
+{
+	States
+	{
+		Spawn:
+			TNT1 A 1 NoDelay {
+				CountProximity("TOSOrbit", 512, CPXF_SETMASTER | CPXF_CLOSEST | CPXF_ANCESTOR);
+				user_xOffset = -96;
+				user_yOffset = -96;
+				user_zOffset = 32;
+			}
+			Goto Static
 	}
 }

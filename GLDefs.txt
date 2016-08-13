@@ -69,6 +69,24 @@ PointLight LargeOrangeLight
 	size 64
 }
 
+PointLight LargePinkLight
+{
+	color 0.8 0.4 0.4
+	size 64
+}
+
+PointLight LargeGreenLight
+{
+	color 0.2 0.8 0.2
+	size 64
+}
+
+PointLight LargeBlueLight
+{
+	color 0.2 0.2 0.8
+	size 64
+}
+
 PointLight SmallYellowLight
 {
 	color 0.4 0.4 0.1
@@ -173,6 +191,24 @@ PulseLight GrenadeExplodeLightW
 	size 256
 	secondarysize 8
 	interval 3
+}
+
+/* Original to lighten in front
+PointLight PlanetLight
+{
+	color 0.9 0.9 0.9
+	size 105
+	offset 0 0 70
+}
+*/
+
+PointLight PlanetLight
+{
+	Color 0.75 0.75 0.75
+	Size 100
+	Offset 0 0 -150
+	Subtractive 1
+//	DontLightSelf 1
 }
 
 Object SmallWhiteLight
@@ -350,6 +386,38 @@ object TrailShell
 	frame TOS1
 	{
 		light PurpleLight
+	}
+}
+
+Object TOSPlanetLightOrange
+{
+	Frame UNKN
+	{
+		Light LargeOrangeLight
+	}
+}
+
+Object TOSPlanetLightPink
+{
+	Frame UNKN
+	{
+		Light LargePinkLight
+	}
+}
+
+Object TOSPlanetLightGreen
+{
+	Frame UNKN
+	{
+		Light LargeGreenLight
+	}
+}
+
+Object TOSPlanetLightBlue
+{
+	Frame UNKN
+	{
+		Light LargeBlueLight
 	}
 }
 
