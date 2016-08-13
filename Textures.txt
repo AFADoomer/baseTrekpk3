@@ -360,12 +360,14 @@ Texture BED, 21, 23 //256, 256
 	Patch BED, 0, 0
 }
 
+/*
 Texture TABLE, 200, 150
 {
 	XScale 2.0
 	YScale 2.0
 	Patch TABLE, 0, 0
 }
+*/
 
 Texture WOOD, 128, 128
 {
@@ -374,7 +376,7 @@ Texture WOOD, 128, 128
 	Patch WOOD, 0, 0
 }
 
-
+/*
 Texture Stars1, 256, 256
 {
 	Patch Stars, 0, 0
@@ -394,6 +396,7 @@ Texture Stars4, 256, 256
 {
 	Patch Stars, 0, 0 {Rotate 270}
 }
+*/
 
 Graphic Logo_T, 1080, 288
 {
@@ -530,6 +533,14 @@ Sprite FLARE0, 320, 320
 	XScale 2.5
 	YScale 2.5
 	Graphic Flare, 0, 0
+}
+
+Sprite FLARS0, 256, 256
+{
+	Offset 128, 128
+	XScale 2.5
+	YScale 2.5
+	Graphic SunFlare, 0, 0
 }
 
 Graphic Marker_0, 32, 32 {Graphic Marker_A, 0, 0}
