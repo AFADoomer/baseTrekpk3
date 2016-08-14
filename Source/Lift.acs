@@ -348,6 +348,28 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 							ActivatorSound("transporter/energize", 128);
 							SetUserVariable(0, "user_travel", 1);
 							ClearPanel();
+
+							int intWaitloops = 0;
+
+							While (!CheckActorFloorTexture(0, "TRANSPAD"))
+							{
+								If (intWaitLoops >= 10)
+								{
+									Notification("Transport cancelled", "Programmed destination has been removed from queue", "", 0);
+									SetUserVariable(0, "user_travel", 0);
+									Terminate;
+								}
+								Else If (intWaitLoops == 0)
+								{
+									Notification("Transporter destination programmed", "Step onto the nearest transporter pad to initiate transport", "", 0);
+								}
+								
+								Delay(35);
+								intWaitLoops++;
+							}
+
+							Delay(35);
+
 							GiveInventory("TransportOut", 1);
 							Delay(35 * 3);
 						}
