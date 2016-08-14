@@ -193,22 +193,18 @@ PulseLight GrenadeExplodeLightW
 	interval 3
 }
 
-/* Original to lighten in front
 PointLight PlanetLight
 {
-	color 0.9 0.9 0.9
-	size 105
-	offset 0 0 70
-}
-*/
-
-PointLight PlanetLight
-{
-	Color 0.75 0.75 0.75
+	Color 1.0 1.0 1.0
 	Size 100
-	Offset 0 0 -150
+	Offset 0 0 150
 	Subtractive 1
-//	DontLightSelf 1
+}
+
+PointLight SunLight
+{
+	Color 1.0 0.75 0.75
+	Size 600
 }
 
 Object SmallWhiteLight
@@ -496,10 +492,6 @@ HardwareShader Sprite WFLAG0 { Shader "shaders/rotate_cw.fp" Speed 10.0 }
 HardwareShader Texture "models/weapons/communicator_moire.png" { Shader "shaders/rotate_cw.fp" Speed 0.25 }
 
 //Start of BoA Assets
-/////////////////////////////////////////////////////
-// FIRE SPAWNER LIGHTS //////////////////////////////
-/////////////////////////////////////////////////////
-
 FlickerLight FireSpawnerSmall
 {
 	Color 1.0 0.6 0.0
@@ -508,24 +500,16 @@ FlickerLight FireSpawnerSmall
 	Chance 0.6
 }
 
-FlickerLight FireSpawnerMedium
-{
-	Color 1.0 0.6 0.0
-	Size 56
-	SecondarySize 72
-	Chance 0.6
-}
-
-FlickerLight FireSpawnerLarge
-{
-	Color 1.0 0.6 0.0
-	Size 96
-	SecondarySize 160
-	Chance 0.6
-}
-
 Object SmallFlame { frame TNT1 { light FireSpawnerSmall } }
 
 //End of BoA Assets
 
 brightmap texture "models/mapobjects/tos/K7.jpg" { map "models/mapobjects/tos/K7_L.png" }
+brightmap texture "models/mapobjects/tos/K-7/lowmain_glow.png" { map "models/mapobjects/tos/K-7/lowmain_glow_l.png" }
+brightmap texture "models/mapobjects/tos/K-7/main_glow.png" { map "models/mapobjects/tos/K-7/main_glow_l.png" }
+brightmap texture "models/mapobjects/tos/K-7/main2_glow.png" { map "models/mapobjects/tos/K-7/main2_glow_l.png" }
+
+brightmap texture "models/mapobjects/tos/D-7/bot_glow (Original).png" { map "models/mapobjects/tos/D-7/bot_glow (Original)_l.png" }
+brightmap texture "models/mapobjects/tos/D-7/top_glow (Original).png" { map "models/mapobjects/tos/D-7/top_glow (Original)_l.png" }
+brightmap texture "models/mapobjects/tos/D-7/pod_glow (Original).png" { map "models/mapobjects/tos/D-7/pod_glow (Original)_l.png" }
+brightmap texture "models/mapobjects/tos/D-7/warps_glow (Original).png" { map "models/mapobjects/tos/D-7/warps_glow (Original)_l.png" }

@@ -419,16 +419,32 @@ Model TOSPlanet
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/K-7"
 	Model 0 "k7.md3"
-	Skin 0 "k7.jpg"
 
 	Rotating
 	Rotation-Speed 0.1
 
-	Scale 0.6 0.6 0.6
+//	Scale 0.6 0.6 0.6
+	Scale 15.0 15.0 15.0
 
 	FrameIndex TOS1 B 0 0
+}
+
+Model TOSSpacestationK7
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/K-7"
+	Model 0 "k7.md3"
+
+	Rotating
+	Rotation-Speed 0.1
+
+	Scale 15.0 15.0 15.0
+
+	FrameIndex TOS1 A 0 0
 }
 
 Model TOSPlanet
@@ -550,6 +566,32 @@ Model TOSShuttleCopernicus
 
 	ZOffset 24.0
 	AngleOffset 180.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSD7
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/D-7"
+	Model 0 "D7.md3"
+
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSDY100
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/dy-100"
+	Model 0 "dy-100.md3"
+
+	Scale 0.05 0.05 0.05
 
 	FrameIndex TOS1 A 0 0
 }

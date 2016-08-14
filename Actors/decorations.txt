@@ -743,26 +743,21 @@ Actor TOSOrbit : TOSDecoration
 			"####" # 0 {
 				user_Radius = GetDistance(TRUE, AAPTR_MASTER);
 
-				A_FaceMaster(0, 0, -90, 0, FAF_MIDDLE);
+				A_FaceMaster(0, 270, -90, 0, FAF_MIDDLE);
 
-				if (pitch < 180) {
-					user_Pitch = pitch;
-				} else {
-					user_Pitch = 360 - pitch;
-				}
-
-				A_SetPitch(0);
-
-				user_Speed = -args[0] * 0.01 * (GetCvar("g_timelapse") + 1);
-
+				user_Speed = args[0] * 0.01 * (GetCvar("g_timelapse") + 1);
 				user_Roll = Roll;
+/*
 				if (user_Roll < 180) {
 					A_SetRoll(user_Roll * user_Radius / 128);
 				} else {
 					A_SetRoll(-((360 - user_Roll) * user_Radius / 128));
 				}
+*/
 
 				user_z = z;
+
+				user_pitch = atan(z / user_Radius);
 
 				A_Warp(AAPTR_MASTER, 0, user_Radius, 0, 0, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE);
 
@@ -1424,9 +1419,9 @@ Actor TOSPlanetShadow : TOSOrbit 20213
 	{
 		Spawn: //Not Static; override defaults
 			TOS1 A 1 Light("PlanetLight") {
-				A_Warp(AAPTR_MASTER, 0, 0, 0, 0, WARPF_NOCHECKPOSITION | WARPF_INTERPOLATE);
+				A_Warp(AAPTR_MASTER, 0, 0, 0, 0, WARPF_NOCHECKPOSITION | WARPF_INTERPOLATE | WARPF_COPYPITCH);
 				if (CountProximity("TOSSun", 8192, CPXF_SETTARGET | CPXF_CLOSEST)) {
-					A_FaceTarget(0, 0, -90, 0, FAF_MIDDLE);
+					A_FaceTarget(0, 270, -90, 0, FAF_MIDDLE);
 				} else {
 					A_SetAngle(angle + 0.005, SPF_INTERPOLATE);
 				}
@@ -1743,12 +1738,7 @@ Actor TOSShipOrbit : TOSEnterprise 20277
 			TNT1 A 35
 			TNT1 A 0 {
 				user_Radius = args[0] * 1.0;
-				if (pitch + args[1] < 180) {
-					user_Pitch = pitch + args[1];
-				} else {
-					user_Pitch = 360 - pitch + args[1];
-				}
-				user_Speed = args[2];
+				user_Speed = args[2] * 0.01 * (GetCvar("g_timelapse") + 1);
 				user_Roll = Roll;
 				if (Roll < 180) {
 					A_SetRoll(user_Roll * user_Radius / 128);
@@ -1756,17 +1746,21 @@ Actor TOSShipOrbit : TOSEnterprise 20277
 					A_SetRoll(-((360 - user_Roll) * user_Radius / 128));
 				}
 
-				user_z = z;
-
-				if (CountProximity("TOSPlanet", 256, CPXF_SETMASTER | CPXF_CLOSEST) || CountProximity("TOSPlanetOrbit", 256, CPXF_SETMASTER | CPXF_CLOSEST)) {
+				if (CountProximity("TOSPlanet", 256, CPXF_SETMASTER | CPXF_CLOSEST) || CountProximity("TOSOrbit", 256, CPXF_SETMASTER | CPXF_FARTHEST | CPXF_ANCESTOR)) {
 					user_Radius = user_Radius - 16;
 				} else {
 					A_SpawnItemEx("OrbitCenter", 0, 0, 0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISMASTER);
 				}
 
-				A_Warp(AAPTR_MASTER, 0, user_Radius, 0, user_Speed * 0.01, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE);
+				user_z = z;
+
+				user_pitch = atan(z / user_Radius);
+
+				A_Warp(AAPTR_MASTER, 0, user_Radius, 0, 0, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE);
 
 				user_z = user_z - z;
+
+				if (args[1] == 0) { user_z = user_z / (128 * scaleX); }
 
 				if (args[3] == 1) {
 					return State("Static.Shuttle");
@@ -1778,7 +1772,12 @@ Actor TOSShipOrbit : TOSEnterprise 20277
 			}
 		Static:
 			TOS1 AAAAAABBBBBBCDDDDDDEEEEEEFFFFFFGGGGGGHHHHHH 1 {
-				A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, user_z - user_Pitch * 4 * sin(angle), user_Speed * 0.01, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0, -sin(angle) * user_Pitch / 600 / user_Speed);
+//				A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, user_z * user_Pitch * 4 * sin(angle), user_Speed, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0, -sin(angle) * user_Pitch / 600 / user_Speed);
+				if (args[1] == 0) {
+					A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, user_Pitch * user_z * sin(angle), user_Speed, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0);
+				} else {
+					A_Warp(AAPTR_MASTER, 0, user_Radius, user_z, user_Speed, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0);
+				}
 			}
 			Loop
 		Static.Shuttle:
@@ -1789,7 +1788,12 @@ Actor TOSShipOrbit : TOSEnterprise 20277
 			Goto Static.Resume
 		Static.Resume:
 			"####" # 1 {
-				A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, user_z - user_Pitch * 4 * sin(angle), user_Speed * 0.01, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0, -sin(angle) * user_Pitch / 600 / user_Speed);
+//				A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, user_z * user_Pitch * 4 * sin(angle), user_Speed, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0, -sin(angle) * user_Pitch / 600 / user_Speed);
+				if (args[1] == 0) {
+					A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, user_Pitch * user_z * sin(angle), user_Speed, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0);
+				} else {
+					A_Warp(AAPTR_MASTER, 0, user_Radius, user_z, user_Speed, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0);
+				}
 			}
 			Loop
 	}
@@ -1807,7 +1811,15 @@ Actor TOSSun : TOSDecoration 20279
 	States
 	{
 		Spawn: //Not Static; override defaults
-			TOS1 A 35 BRIGHT
+			TOS1 A 0 NoDelay {
+				user_scaleX = scaleX;
+				user_scaleY = scaleY;
+				A_SetScale(scaleX * 2.333, scaleY * 2.333);
+				A_SpawnItemEx ("SunFlare", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SetScale(user_scaleX, user_scaleY);
+			}
+		Static:
+			TOS1 A 35 BRIGHT Light("SunLight")
 			Loop
 	}
 }
@@ -1876,3 +1888,19 @@ Actor TOSMoonOrbit : TOSOrbit 20284
 			Goto Super::SetMaster
 	}
 }
+
+Actor TOSOrbitNoSun : TOSOrbit
+{
+	States
+	{
+		Spawn:
+			TOS1 A 0 NoDelay {
+				user_DoNotOrbitSun = 1;
+			}
+			Goto Super::SetMaster
+	}
+}
+
+Actor TOSSpacestationK7 : TOSOrbit 20285 {}
+Actor TOSD7 : TOSOrbitNoSun 20286 {}
+Actor TOSDY100 : TOSOrbitNoSun 20287 {}
