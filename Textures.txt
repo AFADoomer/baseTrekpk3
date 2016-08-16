@@ -543,6 +543,14 @@ Sprite FLARS0, 256, 256
 	Graphic SunFlare, 0, 0
 }
 
+Sprite FLARF0, 256, 256
+{
+	Offset 128, 128
+	XScale 2.5
+	YScale 2.5
+	Graphic SunFlare, 0, 0
+}
+
 Graphic Marker_0, 32, 32 {Graphic Marker_A, 0, 0}
 Graphic Marker_1, 32, 32 {Graphic Marker_1, 0, 0}
 Graphic Marker_2, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 90}}

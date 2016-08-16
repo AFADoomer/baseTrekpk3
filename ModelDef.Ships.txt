@@ -287,7 +287,9 @@ Model TOSPlanetOrbit
 
 	FrameIndex TOS1 A 0 0
 
-	Model 1 "planet2.md3"
+	Scale 0.302 0.302 0.302
+
+	Model 1 "planet.md3"
 	Skin 1 "clouds_r.png"
 
 	Rotation-Speed -0.011
@@ -312,7 +314,6 @@ Model TOSPlanetOrbitBlue
 
 	FrameIndex TOS1 A 0 0
 }
-
 
 Model TOSPlanetOrbitGreen
 {
@@ -339,6 +340,23 @@ Model TOSPlanetOrbitPink
 	Path "Models/mapobjects/tos/"
 	Model 0 "planet.md3"
 	Skin 0 "planet_p.jpg"
+
+	Rotating
+	Rotation-Speed -0.02
+
+	Scale 0.3 0.3 0.3
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlanetOrbitEarth
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Skin 0 "planet_e.jpg"
 
 	Rotating
 	Rotation-Speed -0.02
@@ -394,7 +412,7 @@ Model TOSPlanetClouds
 	Rotating
 	Rotation-Speed -0.02
 
-	Scale 0.305 0.305 0.305
+	Scale 0.304 0.304 0.304
 
 	FrameIndex TOS1 A 0 0
 }
@@ -406,10 +424,10 @@ Model TOSPlanetShadow
 	USEACTORROLL
 
 	Path "Models/mapobjects/tos/"
-	Model 0 "planet.md3"
+	Model 0 "shadow.md3"
 	Skin 0 "shadow.png"
 
-	Scale 0.315 0.315 0.315
+	Scale 0.306 0.306 0.306
 
 	FrameIndex TOS1 A 0 0
 }
@@ -423,7 +441,7 @@ Model TOSPlanet
 	Model 0 "k7.md3"
 
 	Rotating
-	Rotation-Speed 0.1
+	Rotation-Speed -0.1
 
 //	Scale 0.6 0.6 0.6
 	Scale 15.0 15.0 15.0
@@ -440,9 +458,9 @@ Model TOSSpacestationK7
 	Model 0 "k7.md3"
 
 	Rotating
-	Rotation-Speed 0.1
+	Rotation-Speed -0.1
 
-	Scale 15.0 15.0 15.0
+	Scale 5.0 5.0 5.0
 
 	FrameIndex TOS1 A 0 0
 }

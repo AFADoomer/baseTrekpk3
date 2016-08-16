@@ -513,3 +513,5 @@ brightmap texture "models/mapobjects/tos/D-7/bot_glow (Original).png" { map "mod
 brightmap texture "models/mapobjects/tos/D-7/top_glow (Original).png" { map "models/mapobjects/tos/D-7/top_glow (Original)_l.png" }
 brightmap texture "models/mapobjects/tos/D-7/pod_glow (Original).png" { map "models/mapobjects/tos/D-7/pod_glow (Original)_l.png" }
 brightmap texture "models/mapobjects/tos/D-7/warps_glow (Original).png" { map "models/mapobjects/tos/D-7/warps_glow (Original)_l.png" }
+
+brightmap texture "models/mapobjects/tos/planet_e.jpg" { map "models/mapobjects/tos/planet_e_l.png" }

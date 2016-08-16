@@ -245,6 +245,23 @@ Actor SunFlare 27003
 	}
 }
 
+Actor WarpFlash
+{
+	Radius 0
+	Height 0
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
+	RenderStyle Add
+	Alpha 0.99
+	States
+	{
+		Spawn:
+			FLAR F 1 Bright A_FadeOut
+			Loop
+	}
+}
+
 Actor Flare
 {
 	Radius 0
