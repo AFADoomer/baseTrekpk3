@@ -78,12 +78,15 @@ Actor 1x1Bounding : 1x1 {-SOLID}
 Actor Block : 1x1 {Radius 2 Height 8 +INVISIBLE}
 Actor Block4 : Block {Radius 4 Height 8}
 Actor Block8 : Block {Radius 8 Height 8}
+Actor Block12 : Block {Radius 12 Height 12}
 Actor Block16 : Block {Radius 16 Height 16}
 Actor Block24 : Block {Radius 24 Height 24}
 Actor Block25 : Block {Radius 25  Height 25}
 Actor Block32 : Block {Radius 32 Height 32}
 Actor Block48 : Block {Radius 48 Height 48}
 Actor Block64 : Block {Radius 64 Height 64}
+Actor Block64x8 : Block {Radius 64 Height 8}
+Actor Block28x16 : Block {Radius 28 Height 16}
 Actor Block12x54 : Block {Radius 12 Height 54 -NOGRAVITY}
 Actor Block10x32 : Block {Radius 10 Height 32 -NOGRAVITY}
 Actor Block16x56 : Block {Radius 16 Height 56 -NOGRAVITY}
@@ -693,6 +696,10 @@ Actor TOSEnterprise : TOSDecoration 20061
 
 Actor TOSFollower : TOSDecoration
 {
+	var int user_x;
+	var int user_y;
+	var int user_z;
+
 	var int user_xOffset;
 	var int user_yOffset;
 	var int user_zOffset;
@@ -700,7 +707,17 @@ Actor TOSFollower : TOSDecoration
 	States
 	{
 		Spawn:
-			UNKN A 0
+			UNKN A 0 {
+				user_x = x;
+				user_y = y;
+				user_z = z;
+
+				A_Warp(AAPTR_MASTER, 0, 0, 0, angle, WARPF_NOCHECKPOSITION | WARPF_INTERPOLATE | WARPF_ABSOLUTEANGLE);
+
+				user_xOffset = user_x - x;
+				user_yOffset = user_y - y;
+				user_zOffset = user_z - z;
+			}
 			Goto Static
 		Static:
 			"####" # 1 {
@@ -824,11 +841,11 @@ Actor TOSOrbit : TOSDecoration
 
 				user_pitch = atan(z / user_Radius);
 
-				A_Warp(AAPTR_MASTER, 0, user_Radius, 0, 0, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
+				A_Warp(AAPTR_MASTER, 0, user_Radius, 0, 0, WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
 
 				user_z = user_z - z;
 
-				A_Warp(AAPTR_MASTER, 0, user_Radius, user_z, 0, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
+				A_Warp(AAPTR_MASTER, 0, user_Radius, user_z, 0, WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
 
 				if (!user_FlatOrbit) {
 					user_z = user_z / (128 * scaleX); 
@@ -841,6 +858,7 @@ Actor TOSOrbit : TOSDecoration
 				} else {
 					A_Warp(AAPTR_MASTER, 0, user_Radius, user_z, user_Speed, WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0);
 				}
+
 				if (args[2] > 0 && args[2] < user_Radius) {
 					user_Radius--;
 				}
@@ -1984,12 +2002,18 @@ Actor TOSMoonOrbit : TOSOrbit 20284
 
 Actor TOSSpacestationK7 : TOSOrbit 20285
 {
-	Radius 72
+	-SOLID
 	States
 	{
 		Spawn:
 			TOS1 A 0 NoDelay {
 				user_FlatOrbit = 1;
+				A_SpawnItemEx ("Block16", 0.0, 0.0, 24.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block28x16", 0.0, 0.0, 8.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block64x8", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block", 0.0, 0.0, -8.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block", 0.0, 0.0, -12.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block12", 0.0, 0.0, -24.0, 0, 0, 0, 0, SXF_SETMASTER);
 			}
 			Goto Super::SetMaster
 	}
@@ -2015,7 +2039,7 @@ Actor TOSShipOrbiting : TOSOrbit
 }
 
 Actor TOSD7 : TOSShipOrbiting 20286 { Radius 24 }
-Actor TOSDY100 : TOSShipOrbiting 20287 { Radius 8 }
+Actor TOSDY100 : TOSShipOrbiting 20287 { Radius 12 }
 Actor TOSEnterprise : TOSShipOrbiting 20061 { Radius 32 }
 
 Actor TOSPlanetOrbitEarth : TOSOrbit 20288
