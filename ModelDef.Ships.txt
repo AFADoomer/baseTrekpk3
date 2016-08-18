@@ -613,3 +613,233 @@ Model TOSDY100
 
 	FrameIndex TOS1 A 0 0
 }
+
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0 0 "bus1.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0  0 "bus2.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0  0 "bus3.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 C 0 0
+}
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0  0 "bus4.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 D 0 0
+}
+
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0  0 "bus5.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 E 0 0
+}
+
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0  0 "bus6.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 F 0 0
+}
+
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0  0 "bus7.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 G 0 0
+}
+
+Model TOSEnterpriseExteriorRight
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_r.md3"
+	SurfaceSkin 0 0 "bus8.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 H 0 0
+}
+
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0 0 "bus1.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0  0 "bus2.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 B 0 0
+}
+
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0  0 "bus3.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 C 0 0
+}
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0  0 "bus4.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 D 0 0
+}
+
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0  0 "bus5.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 E 0 0
+}
+
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0  0 "bus6.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 F 0 0
+}
+
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0  0 "bus7.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 G 0 0
+}
+
+Model TOSEnterpriseExteriorLeft
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "ent_ext_l.md3"
+	SurfaceSkin 0 0 "bus8.png"
+	SurfaceSkin 0 13 "enterprise_d.png"
+
+	Scale 25.0 25.0 25.0
+
+	FrameIndex TOS1 H 0 0
+}

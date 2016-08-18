@@ -2147,3 +2147,16 @@ Script "ChangeCamera" (int CameraTID, int timeDelay)
 	HudMessage (s:""; 0, 2, 0, 0, 0, 0);
 	HudMessage (s:""; 0, 1, 0, 0, 0, 0);
 }
+
+Script "StepThrust" (int angle)
+{
+	SetActivatorToTarget(0);
+	int intPlayerAngle = GetActorAngle(ActivatorTID()) * 360 / 1.0;
+	int intAngleDelta = abs(angle - intPlayerAngle);
+
+	If (intAngleDelta < 45 && GetPlayerInput(-1, INPUT_FORWARDMOVE))
+	{ //Forward and up?
+//		ThrustThing(GetActorAngle(ActivatorTID()) * 256 / 1.0, 8, 0, ActivatorTID());
+		ThrustThingZ(ActivatorTID(), 8, 0, 0);
+	}
+}

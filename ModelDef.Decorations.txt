@@ -1023,6 +1023,51 @@ Model TOSGangway
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSGangwayFull
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "gangway2.md3"
+
+	Scale 2.5 2.5 2.5
+	ZOffset -4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSGangwayLongTop
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "gangway2.md3"
+
+	Scale 2.5 2.5 2.5
+	ZOffset -4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGangwayLong
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "gangway3.md3"
+
+	Scale 2.5 2.5 2.5
+	Offset 0.0 0.0 -4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSGangwayLongBottom
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "gangway4.md3"
+
+	Scale 2.5 2.5 2.5
+	ZOffset -4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model TOSEngineerConsole
 {
 	Path "Models/mapobjects/tos/"
