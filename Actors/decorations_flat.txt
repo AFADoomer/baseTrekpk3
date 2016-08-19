@@ -95,7 +95,7 @@ Actor TOSPlantonFoodSlot : TOSUsableSpriteDecoration 20223 { //$Title "Wall Plan
 	States { Static: PO07 A 1 A_Jump(256, "Super::Static") } }
 Actor TOSPlantonPanelGreyLarge : TOSSpriteDecoration 20225 { //$Title "Wall Planton: Panel (Grey, Large)" 
 	Height 34  	
-	//$Sprite PO08A0
+	//$Sprite PO09A0
 	States { Static: PO09 A 1 A_Jump(256, "Super::Static") } }
 Actor TOSPlantonPanelGreySmall : TOSSpriteDecoration 20226 { //$Title "Wall Planton: Panel (Grey, Small)" 
 	Height 7  	

@@ -121,6 +121,9 @@ Map Planet "Planet Surface"
 Map Demo "Test Map"
 {}
 
+Map Neck "Dorsal"
+{}
+
 Cluster 1
 {
 	hub
