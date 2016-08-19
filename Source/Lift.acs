@@ -19,38 +19,48 @@ int Selected = 2;
 int GetInput;
 int PanelWidth = 960;
 int PanelHeight = 720;
-int MapsMax = 23; //0-23, so 24...
-int RowMax = 12;
-int RowHeight = 45;
+int MapsMax = 33;
+int RowMax = 17;
+int RowHeight = 38;
 int SelectionX = 500; 
 int SelectionWidth = 500;
 int SelectionY = 200;
 
 //LevelNum, Title, Index, Access Level
-str Decks[48][4] = {
-	{"", "Deck 1", "", "2"},				//Start of items on turbolift menu
-	{"BRIDGE13", "Bridge", "1", "2"},
-	{"", "", "", "2"},
+str Decks[68][4] = {
+	{"", "Deck 1", "", ""},
+	{"BRIDGE13", "Bridge", "1", "2"},				//Start of items on turbolift menu
+	{"", "Deck 2", "", ""},
+	{"", "Deck 3", "", ""},
+	{"", "Deck 4", "", ""},
+	{"", "Deck 5", "", ""},
 	{"", "Deck 6", "", ""},
-	{"MAP07", "Security and Brig", "15", ""},
-	{"MAP07", "Sickbay, Transporter Rooms", "16", ""},
-	{"MAP07", "Crew Quarters, Cargo Bays", "17", ""},
-	{"MAP07", "Impulse Engineering", "21", ""},
-	{"", "", "", ""},
 	{"", "Deck 7", "", ""},
+	{"MAP07", "Security and Brig", "15", ""},
+	{"MAP07", "Sickbay, Main Transporter", "16", ""},
+	{"MAP07", "Crew Quarters", "17", ""},
+	{"MAP07", "Impulse Engineering", "21", ""},
+	{"", "Deck 8", "", ""},
 	{"MAP07", "Arboretum", "18", ""},
 	{"MAP07", "Recreation Area", "19", ""},
 	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "Dorsal Interconnect", "", ""},
+	{"Neck", "Auxiliary Machine Room", "9", ""},
+	{"Neck", "Dining Lounge", "10", ""},
+	{"Neck", "Observation Lounge", "11", ""},
+	{"Neck", "Assembly Area", "12", ""},
+	{"Neck", "'Lucky' Lounge", "13", ""},
+	{"Neck", "Lounge", "14", ""},
+	{"", "Deck 15", "", ""},
+	{"", "Deck 16", "", ""},
+	{"", "Deck 17", "", ""},
 	{"", "Deck 18", "", ""},
 	{"MAP06", "Engineering", "3", ""},
 	{"MAP06", "Auxiliary Control", "4", ""},
 	{"MAP06", "Observation Gallery", "2", ""},
-	{"", "", "", ""},
 	{"", "Deck 19", "", ""},
 	{"MAP06", "Hangar Deck", "1", ""},
-	{"", "", "", ""},
-	{"", "", "", ""},
-	{"", "", "", ""},
 	{"", "", "", ""},				//End of items on turbolift menu
 	{"", "Transporter Destinations", "", ""},	//Start of items on transporter menu
 	{"MAP01", "Filming Set", "1", ""},
@@ -74,7 +84,17 @@ str Decks[48][4] = {
 	{"", "", "", ""},
 	{"", "", "", ""},
 	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
 	{"MAP02", "Klingon D-7 Cruiser", "0", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
 	{"", "", "", ""}				//End of items on transporter menu
 };
 
@@ -90,7 +110,7 @@ Script 255 (void)
 
 Script 254 (void)
 {
-	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 24, 0);
+	ACS_NamedExecute("W_ElevatorPanel", 0, 1, MapsMax + 1, 0);
 }
 
 //Draw or Clear Elevator Panel Background Images
@@ -119,7 +139,7 @@ Script "W_ElevatorPanel" (int OnOff, int Offset, int Colorset)
 */
 		SetHudSize(PanelWidth, PanelHeight, 1);
 
-		If (Offset == 24)
+		If (Offset == MapsMax + 1)
 			SetFont("Tr_Panel");
 		Else
 			SetFont("Tu_Panel");
