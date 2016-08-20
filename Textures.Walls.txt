@@ -65,6 +65,22 @@ Texture WALL, 492, 984
 	Patch WALL_STR, 0, 492 {Style Overlay}
 }
 
+Sprite WALLA0, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Offset 246, 492
+	Patch WALL_G, 0, 0
+	Patch WALL_SHA, 0, 0 {Style Overlay}
+	Patch WALLTOP, 3, 0
+	Patch WALLTOP, 96, 0
+	Patch WALLTOP, 192, 0
+	Patch WALLTOP, 280, 0
+	Patch WALLTOP, 376, 0
+	Patch WALLTOP, 393, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+}
+
 Texture WALL2, 984, 984
 {
 	XScale 3.8
@@ -208,6 +224,15 @@ Texture WALLGRE2, 492, 492
 	YScale 3.8
 	Patch WALL_G, 0, 0
 }
+
+Sprite WALLB0, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Offset 249, 492
+	Patch WALL_G, 0, 0
+}
+
 
 Texture WALLGREB, 492, 492
 {

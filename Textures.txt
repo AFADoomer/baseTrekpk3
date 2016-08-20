@@ -872,11 +872,13 @@ Sprite PO59A0, 204, 185	{ XScale 3.8 YScale 3.8 Offset 100, 185	Patch WB2_5, -36
 
 Sprite PO60A0, 162, 273	{ XScale 6.0 YScale 7.5 Offset 81, 273	Patch Painting, 0, 0 }
 
+Sprite PO61A0, 266, 266	{ XScale 4.0 YScale 4.0 Offset 133, 266	Patch Pig, -36, -39 }
+Sprite PO62A0, 266, 266	{ XScale 4.0 YScale 4.0 Offset 133, 266	Patch Rooster, -36, -39 }
+
 Sprite FLAMA0, 620, 622 { Offset 310, 311 Patch FLM1A0, 0, 0 }
 Sprite FLAMB0, 620, 622 { Offset 310, 311 Patch FLM1A0, 0, 0 { Rotate 180 }}
 Sprite FLAMC0, 620, 622 { XScale 2.0 YScale 2.0 Offset 310, 311 Patch FLM1A0, 0, 0 }
 Sprite FLAMD0, 620, 622 { XScale 2.0 YScale 2.0 Offset 310, 311 Patch FLM1A0, 0, 0 { Rotate 180 }}
 Sprite FLAME0, 620, 622 { XScale 3.0 YScale 3.0 Offset 310, 311 Patch FLM1A0, 0, 0 }
 Sprite FLAMF0, 620, 622 { XScale 3.0 YScale 3.0 Offset 310, 311 Patch FLM1A0, 0, 0 { Rotate 180 }}
-
 // End of texture definitions

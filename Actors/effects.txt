@@ -756,7 +756,7 @@ Actor StarField 24000
 	{
 		Spawn:
 			TNT1 A 0 NoDelay {
-				A_SetUserVar("user_duration", 35 * 15 * 256);
+				A_SetUserVar("user_duration", 35 * 15 * 256 * ScaleX);
 				return A_Jump(8, "Blue", "LightBlue", "Red");
 			}
 		White:
@@ -765,20 +765,20 @@ Actor StarField 24000
 					"White",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					RandomPick(1, 1, 1, 1, 2, 2, 2, 3),
+					RandomPick(1, 1, 1, 1, 2, 2, 2, 3) * ScaleX,
 					0,
-					-128, RandomPick(-1, 1) * Random(16, 64), Random(-64, 64),
-					Random(1, 2), 0, 0,
+					-128, RandomPick(-1, 1) * Random(16 * ScaleX, 64 * ScaleX), Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 				A_SpawnParticle(
 					"White",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					RandomPick(1, 1, 1, 1, 2, 2, 2, 3),
+					RandomPick(1, 1, 1, 1, 2, 2, 2, 3) * ScaleX,
 					0,
-					-128, Random(-16, 16), RandomPick(-1, 1) * Random(16, 64),
-					Random(1, 2), 0, 0,
+					-128, Random(-16 * ScaleX, 16 * ScaleX), RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 			}
@@ -789,20 +789,20 @@ Actor StarField 24000
 					"Red",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					Random(1, 3),
+					Random(1, 3) * ScaleX,
 					0,
-					-128, RandomPick(-1, 1) * Random(16, 64), Random(-64, 64),
-					Random(1, 2), 0, 0,
+					-128, RandomPick(-1, 1) * Random(16 * ScaleX, 64 * ScaleX), Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 				A_SpawnParticle(
 					"Red",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					Random(1, 3),
+					Random(1, 3) * ScaleX,
 					0,
-					-128, Random(-16, 16), RandomPick(-1, 1) * Random(16, 64),
-					Random(1, 2), 0, 0,
+					-128, Random(-16 * ScaleX, 16 * ScaleX), RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 			}
@@ -813,20 +813,20 @@ Actor StarField 24000
 					"#0d9aec",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					Random(1, 3),
+					Random(1, 3) * ScaleX,
 					0,
-					-128, RandomPick(-1, 1) * Random(16, 64), Random(-64, 64),
-					Random(1, 2), 0, 0,
+					-128, RandomPick(-1, 1) * Random(16 * ScaleX, 64 * ScaleX), Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 				A_SpawnParticle(
 					"#0d9aec",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					Random(1, 3),
+					Random(1, 3) * ScaleX,
 					0,
-					-128, Random(-16, 16), RandomPick(-1, 1) * Random(16, 64),
-					Random(1, 2), 0, 0,
+					-128, Random(-16 * ScaleX, 16 * ScaleX), RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 			}
@@ -837,20 +837,134 @@ Actor StarField 24000
 					"Blue",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					Random(1, 3),
+					Random(1, 3) * ScaleX,
 					0,
-					-128, RandomPick(-1, 1) * Random(16, 64), Random(-64, 64),
-					Random(1, 2), 0, 0,
+					-128, RandomPick(-1, 1) * Random(16 * ScaleX, 64 * ScaleX), Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 				A_SpawnParticle(
 					"Blue",
 					SPF_FULLBRIGHT | SPF_RELATIVE,
 					user_duration,
-					Random(1, 3),
+					Random(1, 3) * ScaleX,
 					0,
-					-128, Random(-16, 16), RandomPick(-1, 1) * Random(16, 64),
-					Random(1, 2), 0, 0,
+					-128, Random(-16 * ScaleX, 16 * ScaleX), RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+			}
+			Goto Spawn
+	}
+}
+
+Actor StarScreen 24001
+{
+	var int user_duration;
+	var int user_color;
+
+	+NOBLOCKMAP
+	+NOGRAVITY
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay {
+				A_SetUserVar("user_duration", 35 * 15 * 256 * ScaleX * 2);
+				return A_Jump(8, "Blue", "LightBlue", "Red");
+			}
+		White:
+			TNT1 A 10 {
+				A_SpawnParticle(
+					"White",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					RandomPick(1, 1, 1, 1, 2, 2, 2, 3) * ScaleX,
+					0,
+					-128, 0, Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+				A_SpawnParticle(
+					"White",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					RandomPick(1, 1, 1, 1, 2, 2, 2, 3) * ScaleX,
+					0,
+					-128, 0, RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+			}
+			Goto Spawn
+		Red:
+			TNT1 A 10 {
+				A_SpawnParticle(
+					"Red",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					Random(1, 3) * ScaleX,
+					0,
+					-128, 0, Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+				A_SpawnParticle(
+					"Red",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					Random(1, 3) * ScaleX,
+					0,
+					-128, 0, RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+			}
+			Goto Spawn
+		LightBlue:
+			TNT1 A 10 {
+				A_SpawnParticle(
+					"#0d9aec",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					Random(1, 3) * ScaleX,
+					0,
+					-128, 0, Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+				A_SpawnParticle(
+					"#0d9aec",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					Random(1, 3) * ScaleX,
+					0,
+					-128, 0, RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+			}
+			Goto Spawn
+		Blue:
+			TNT1 A 10 {
+				A_SpawnParticle(
+					"Blue",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					Random(1, 3) * ScaleX,
+					0,
+					-128, 0, Random(-64 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
+					0, 0, 0,
+					1.0, 0.001);
+				A_SpawnParticle(
+					"Blue",
+					SPF_FULLBRIGHT | SPF_RELATIVE,
+					user_duration,
+					Random(1, 3) * ScaleX,
+					0,
+					-128, 0, RandomPick(-1, 1) * Random(16 * ScaleY, 64 * ScaleY),
+					Random(1, 2) * ScaleX, 0, 0,
 					0, 0, 0,
 					1.0, 0.001);
 			}
@@ -928,8 +1042,7 @@ Actor MeasurePuff : BulletPuff
 	States
 	{
 		Spawn:
-			TNT1 A 0
-			TNT1 A 1 {
+			TNT1 A 1 NoDelay {
 				A_SpawnitemEx("NullActor", 0, 0, 0, 0, 0, 0, 0, SXF_ISTRACER | SXF_SETMASTER | SXF_NOCHECKPOSITION);
 				A_TransferPointer(AAPTR_TRACER, AAPTR_TARGET, AAPTR_MASTER, AAPTR_MASTER);
 			}
@@ -970,6 +1083,7 @@ Actor SmallPurpleLight : SmallLight {}
 
 Actor TOSRedAlertLight : SmallLight 27002
 {
+	+SYNCHRONIZED
 	States
 	{
 		Spawn:
@@ -984,6 +1098,7 @@ Actor TOSRedAlertLight : SmallLight 27002
 
 Actor TOSRedAlertLightSmall : SmallLight 27001
 {
+	+SYNCHRONIZED
 	States
 	{
 		Spawn:

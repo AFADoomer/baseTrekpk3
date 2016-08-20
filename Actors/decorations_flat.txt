@@ -25,6 +25,7 @@ Actor TOSPlantonRedAlert : TOSUsableSpriteDecoration 20217
 	//$Sprite PO01A0
 	//$Title "Wall Planton: RedAlert" 
 	Height 16
+	+SYNCHRONIZED
 	States
 	{
 		Spawn:
@@ -45,6 +46,7 @@ Actor TOSPlantonIntercom : TOSUsableSpriteDecoration 20224
 	//$Title "Wall Planton: Intercom (Large)"
 	Height 18
 	Radius 8
+	+SYNCHRONIZED
 	Activation "THINGSPEC_Switch"
 	States
 	{
@@ -311,3 +313,54 @@ Actor TOSPlantonPainting : TOSSpriteDecoration 20276 { //$Title "Wall Planton: P
 	Height 48         
 	//$Sprite PO60A0
 	States { Static: PO60 A 1 A_Jump(256, "Super::Static") } }
+
+Actor TOSPlantonPig : TOSSpriteDecoration 20295 { //$Title "Wall Planton: Pig" 
+	Height 48         
+	//$Sprite PO61A0
+	States { Static: PO61 A 1 A_Jump(256, "Super::Static") } }
+
+Actor TOSPlantonRooster : TOSSpriteDecoration 20296 { //$Title "Wall Planton: Rooster" 
+	Height 48         
+	//$Sprite PO62A0
+	States { Static: PO62 A 1 A_Jump(256, "Super::Static") } }
+
+Actor TOSFalseWall : TOSSpriteDecoration 20297 { //$Title "False Wall (WALL)" 
+	Height 100
+	Radius 65
+	//$Sprite WALLA0
+	Height 100
+	Radius 64
+	Health 100
+	-SOLID
+	+USESPECIAL
+	-NOTAUTOAIMED
+	Tag "Structural Instability"
+	States
+	{
+		Static: 
+			WALL A 35 {
+				A_SpawnItemEx ("Block20x128", -21.0, 20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block20x128", -21.0, 44.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block20x128", -21.0, -20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block20x128", -21.0, -44.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+			}
+			Goto Super::Static
+		DeathResume:
+			"####" # 0 {
+				A_Explode(128, 32);
+			}
+			Goto Super::DeathResume
+	}
+
+}
+
+Actor TOSFalseWallWallGrey : TOSFalseWall 20298
+{
+	//$Title "False Wall (WALLGRE2)" 
+	//$Sprite WALLB0
+	States
+	{
+		Static:
+			WALL B 1 A_Jump(256, "Super::Static")
+	}
+}

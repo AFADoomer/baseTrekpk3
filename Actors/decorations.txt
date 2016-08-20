@@ -93,6 +93,7 @@ Actor Block28x16 : Block {Radius 28 Height 16}
 Actor Block12x54 : Block {Radius 12 Height 54 -NOGRAVITY}
 Actor Block10x32 : Block {Radius 10 Height 32 -NOGRAVITY}
 Actor Block16x56 : Block {Radius 16 Height 56 -NOGRAVITY}
+Actor Block20x128 : Block {Radius 20 Height 128 -NOGRAVITY}
 Actor Block22x1 : Block {Radius 22 Height 1}
 Actor Block27x1 : Block {Radius 27 Height 1}
 Actor Block24x32 : Block {Radius 24 Height 32}
@@ -935,7 +936,7 @@ Actor TOSPlanet : TOSDecoration 20062
 
 Actor TOSWallPipe : TOSDecoration 20063 {}
 Actor TOSEngWallThing1 : TOSDestroyableDecoration 20064 {Health 100}
-Actor TOSPipe1 : TOSDestroyableDecoration 20065 {Health 100 DeathSound "effects/explosion/debris/large"}
+Actor TOSPipe1 : TOSDestroyableDecoration 20065 { Height 96 Health 100 DeathSound "effects/explosion/debris/large" }
 Actor TOSPipe2 : TOSPipe1 20066 {Health 100}
 Actor TOSGrate : TOSDestroyableDecoration 20067 {}
 Actor TOSEngWallThing2 : TOSDestroyableDecoration 20068 {Health 100}
@@ -1940,11 +1941,10 @@ Actor TOSSun : TOSDecoration 20279
 
 Actor TOSPlanetOrbit : TOSOrbit 20280
 {
-	Radius 70
 	States
 	{
 		Spawn:
-			TOS1 A 5 NoDelay {
+			TOS1 A 0 NoDelay {
 				A_SpawnItemEx ("TOSPlanetShadow", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERPITCH | SXF_TRANSFERROLL | SXF_SETMASTER | SXF_TRANSFERSCALE);
 				A_SpawnItemEx ("TOSPlanetLightOrange", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERPITCH | SXF_SETMASTER | SXF_TRANSFERSCALE);
 			}
@@ -1954,7 +1954,6 @@ Actor TOSPlanetOrbit : TOSOrbit 20280
 
 Actor TOSPlanetOrbitPink : TOSOrbit 20281
 {
-	Radius 70
 	States
 	{
 		Spawn:
@@ -1968,7 +1967,6 @@ Actor TOSPlanetOrbitPink : TOSOrbit 20281
 
 Actor TOSPlanetOrbitGreen : TOSOrbit 20282
 {
-	Radius 70
 	States
 	{
 		Spawn:
@@ -1982,7 +1980,6 @@ Actor TOSPlanetOrbitGreen : TOSOrbit 20282
 
 Actor TOSPlanetOrbitBlue : TOSOrbit 20283
 {
-	Radius 70
 	States
 	{
 		Spawn:
@@ -2007,7 +2004,6 @@ Actor Spot : TOSFollower
 
 Actor TOSMoonOrbit : TOSOrbit 20284
 {
-	Radius 70
 	States
 	{
 		Spawn:

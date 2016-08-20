@@ -50,7 +50,7 @@ str Decks[68][4] = {
 	{"Neck", "Dining Lounge", "10", ""},
 	{"Neck", "Observation Lounge", "11", ""},
 	{"Neck", "Assembly Area", "12", ""},
-	{"Neck", "'Lucky' Lounge", "13", ""},
+	{"Neck", "'Pig and Rooster' Lounge", "13", ""},
 	{"Neck", "Lounge", "14", ""},
 	{"", "Deck 15", "", ""},
 	{"", "Deck 16", "", ""},
@@ -363,7 +363,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 				}
 				Else
 				{
-						If (index >= 24)
+						If (index > MapsMax)
 						{
 							ActivatorSound("transporter/energize", 128);
 							SetUserVariable(0, "user_travel", 1);
