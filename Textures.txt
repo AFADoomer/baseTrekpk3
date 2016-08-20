@@ -414,8 +414,8 @@ Graphic Logo_S, 729, 66
 
 Texture StarFld, 2880, 2160
 {
-	XScale 20
-	YScale 20
+	XScale 2.1
+	YScale 2.1
 	Graphic StarFld, 0, 0
 }
 

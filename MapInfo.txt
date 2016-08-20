@@ -107,10 +107,14 @@ Map MAP05 "Test Map 2"
 {}
 
 Map MAP06 "Secondary Hull"
-{}
+{
+	LevelNum = 18
+}
 
 Map MAP07 "Primary Hull"
-{}
+{
+	LevelNum = 7
+}
 
 Map Planet "Planet Surface"
 {
@@ -122,7 +126,9 @@ Map Demo "Test Map"
 {}
 
 Map Neck "Dorsal"
-{}
+{
+	LevelNum = 14
+}
 
 Cluster 1
 {

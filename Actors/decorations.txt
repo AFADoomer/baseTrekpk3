@@ -2185,4 +2185,40 @@ Actor TOSEnterpriseExteriorRight : TOSDecoration 20293
 			Loop
 	}
 }
+
 Actor TOSEnterpriseExteriorLeft : TOSEnterpriseExteriorRight 20294 {}
+
+Actor TOSHatch : TOSUsableDecoration 20299
+{
+	Radius 32
+	Height 2
+	Health 99
+	+BUMPSPECIAL
+
+	Activation THINGSPEC_Switch
+	Tag "Access Hatch"
+	States
+	{
+		Static:
+			TOS1 A 5
+			Loop
+		Active:
+		Inactive:
+			TOS1 A 20
+			TOS1 A 0 {
+				A_ChangeFlag("BUMPSPECIAL", FALSE);
+				A_UnsetSolid;
+			}
+			TOS1 BCDEF 10
+			TOS1 D 0
+			TOS1 EF 10
+			TOS1 F 175
+			TOS1 F 0  {
+				A_ChangeFlag("BUMPSPECIAL", TRUE);
+				A_SetSolid;
+			}
+			TOS1 EDCB 10
+			Goto Static
+	}
+}
+
