@@ -1166,8 +1166,6 @@ Model TOSQuartersRib
 
 Model TOSCrate
 {
-	NOINTERPOLATION
-
 	Path "Models/mapobjects/tos/"
 	Model 0 "crate.md3"
 
@@ -2654,19 +2652,32 @@ Model WindowPane
 	FrameIndex TOS1 A 0 0
 }
 
-Model TOSHatch
+Model TOSTubeHatch
 {
-//	NOINTERPOLATION
-
 	Path "Models/mapobjects/tos/"
 	Model 0 "hatch.md3"
 
 	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
-	FrameIndex TOS1 B 0 3
+	FrameIndex TOS1 B 0 2
 	FrameIndex TOS1 C 0 6
-	FrameIndex TOS1 D 0 9
-	FrameIndex TOS1 E 0 12
-	FrameIndex TOS1 F 0 15
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 E 0 10
+	FrameIndex TOS1 F 0 10
+}
+
+Model TOSHatch
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "hatch2.md3"
+
+	Scale 0.75 0.75 0.75
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 B 0 2
+	FrameIndex TOS1 C 0 6
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 E 0 10
+	FrameIndex TOS1 F 0 10
 }

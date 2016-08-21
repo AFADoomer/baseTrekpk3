@@ -636,24 +636,22 @@ Actor TOSCrate : TOSUsableDecoration 20056
 	States
 	{
 		Static:
-			TOS1 # 5
-			TOS1 # 0 {
+			TOS1 # 1  {
 				if (user_uses <= 0) {
 					A_UnSetInvulnerable;
 				}
 			}
+		StaticLoop:
+			TOS1 # 1
 			Loop
 		Active:
-			TOS1 BCDEF 2
-			TOS1 F 0 {
-				if (user_uses <= 0) {
-					return State("Static");
-				} else {
+			TOS1 A 0 {
+				if (user_uses > 0) {
 					A_SetUserVar("user_uses", 0);
 					ACS_NamedExecuteAlways("A_Drop", 0, args[0]);
-					return State("Static");
 				}
 			}
+			TOS1 BCDEF 1
 			Goto Static
 		Inactive:
 			TOS1 EDCBA 1
@@ -2188,7 +2186,7 @@ Actor TOSEnterpriseExteriorRight : TOSDecoration 20293
 
 Actor TOSEnterpriseExteriorLeft : TOSEnterpriseExteriorRight 20294 {}
 
-Actor TOSHatch : TOSUsableDecoration 20299
+Actor TOSTubeHatch : TOSUsableDecoration 20299
 {
 	Radius 32
 	Height 2
@@ -2222,3 +2220,7 @@ Actor TOSHatch : TOSUsableDecoration 20299
 	}
 }
 
+Actor TOSHatch : TOSTubeHatch 20300
+{
+	Radius 14
+}
