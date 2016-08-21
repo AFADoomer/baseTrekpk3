@@ -118,6 +118,7 @@ Actor TOSDecoration
 	var int user_disintegrationcolor;
 	var float user_scaleX;
 	var float user_scaleY;
+	var int user_destroyed;
 
 	+NOGRAVITY
 	-SOLID
@@ -166,13 +167,16 @@ Actor TOSDecoration
 				A_Quake(Radius / 16, Radius / 3, Radius, Radius * 3);
 				A_Explode(Radius / 16, Radius / 2, 0, 1);
 				A_SetScale(Radius / 32.0);
-				if (GetSpawnHealth() >= 300) {
-					A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
-				} else if (GetSpawnHealth() >= 100) {
-					A_SpawnItemEx("FlareUp", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
-				}
+				if (!user_destroyed) {
+					if (GetSpawnHealth() >= 300 / user_scalex) {
+						A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+					} else if (GetSpawnHealth() >= 100 / user_scalex && !user_destroyed) {
+						A_SpawnItemEx("FlareUp", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+					}
+				} 
 				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
 				A_SetScale(1.0);
+				user_destroyed = 1;
 			}
 			Goto Static
 		Moved:
@@ -2188,12 +2192,14 @@ Actor TOSEnterpriseExteriorLeft : TOSEnterpriseExteriorRight 20294 {}
 
 Actor TOSTubeHatch : TOSUsableDecoration 20299
 {
+	var int user_open;
+
 	Radius 32
 	Height 2
 	Health 99
 	+BUMPSPECIAL
 
-	Activation THINGSPEC_Switch
+	Activation THINGSPEC_Switch | THINGSPEC_ThingTargets
 	Tag "Access Hatch"
 	States
 	{
@@ -2202,17 +2208,32 @@ Actor TOSTubeHatch : TOSUsableDecoration 20299
 			Loop
 		Active:
 		Inactive:
-			TOS1 A 20
 			TOS1 A 0 {
-				A_ChangeFlag("BUMPSPECIAL", FALSE);
-				A_UnsetSolid;
+				if (user_open) {
+					return State("Open");
+				} else {
+					return State("");
+				}
 			}
-			TOS1 BCDEF 10
-			TOS1 D 0
-			TOS1 EF 10
-			TOS1 F 175
+			TOS1 A 20 
+			TOS1 B 10 {
+					user_open = 1;
+					A_UnsetSolid;
+			}
+			TOS1 CDEF 10
+			TOS1 F 105
+		Open:
+			TOS1 F 35 {
+				if (GetDistance(1, AAPTR_TARGET) > 40 * ScaleY) {
+					return State("Close");
+				} else {
+					return State("");
+				}
+			}
+			Loop
+		Close:
 			TOS1 F 0  {
-				A_ChangeFlag("BUMPSPECIAL", TRUE);
+				user_open = 0;
 				A_SetSolid;
 			}
 			TOS1 EDCB 10
@@ -2223,4 +2244,33 @@ Actor TOSTubeHatch : TOSUsableDecoration 20299
 Actor TOSHatch : TOSTubeHatch 20300
 {
 	Radius 14
+}
+
+Actor TOSDilithiumChamber : TOSUsableDecoration 20301
+{
+	Radius 6
+	Height 24
+	Health 99
+
+	Activation THINGSPEC_Switch | THINGSPEC_ThingTargets
+	Tag "Dilithium Chamber"
+	States
+	{
+		Static:
+			TOS1 A -1
+			Stop
+		StaticOpen:
+			TOS1 F -1 Light("SmallOrangeLight")
+			Stop
+		Active:
+			TOS1 A 20 
+			TOS1 BCDE 10 Light("SmallOrangeLight")
+			TOS1 F 1 Light("SmallOrangeLight")
+			Goto StaticOpen
+		Inactive:
+			TOS1 F 20 Light("SmallOrangeLight")
+			TOS1 EDCB 10 Light("SmallOrangeLight")
+			TOS1 A 1
+			Goto Static
+	}
 }

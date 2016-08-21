@@ -12,7 +12,7 @@ ACTOR FireSpawner : SwitchableDecoration
 	{
 		Active:
 		Spawn:
-			TNT1 A 35
+			TNT1 A 0
 		Initialize:
 			TNT1 A 2 {
 				A_PlaySound("effects/fire",6,1,1);
@@ -23,13 +23,20 @@ ACTOR FireSpawner : SwitchableDecoration
 			}
 		BurnLoop:
 			TNT1 A 2 {
-				A_SpawnItemEx("SmallFlame");
-				A_SpawnItemEx("Flame");
-				A_SpawnItemEx("Flame");
-				A_SpawnItemEx("Flame");
-				A_SpawnItemEx("Ember");
-				A_SpawnItemEx("Smoke");
-				A_Explode(RandomPick(1, 2), 8, 0);
+				if (CountProximity("PlayerPawn", 256, CPXF_ANCESTOR | CPXF_CHECKSIGHT | CPXF_SETTRACER | CPXF_CLOSEST)) {
+					A_SpawnItemEx("SmallFlame");
+					A_SpawnItemEx("Flame");
+					A_SpawnItemEx("Flame");
+					A_SpawnItemEx("Flame");
+					A_SpawnItemEx("Ember");
+					A_SpawnItemEx("Smoke");
+					A_Explode(RandomPick(1, 2), 8, 0);
+					if (GetDistance(1, AAPTR_TRACER) > 64) {
+						A_SetTics(GetDistance(1, AAPTR_TRACER) * 2 / 64);
+					}
+				} else {
+					A_SpawnItemEx("Smoke");
+				}
 			}
 			Loop
 		Inactive:
