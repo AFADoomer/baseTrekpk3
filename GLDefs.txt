@@ -504,7 +504,6 @@ Object SmallFlame { frame TNT1 { light FireSpawnerSmall } }
 
 //End of BoA Assets
 
-brightmap texture "models/mapobjects/tos/K7.jpg" { map "models/mapobjects/tos/K7_L.png" }
 brightmap texture "models/mapobjects/tos/K-7/lowmain_glow.png" { map "models/mapobjects/tos/K-7/lowmain_glow_l.png" }
 brightmap texture "models/mapobjects/tos/K-7/main_glow.png" { map "models/mapobjects/tos/K-7/main_glow_l.png" }
 brightmap texture "models/mapobjects/tos/K-7/main2_glow.png" { map "models/mapobjects/tos/K-7/main2_glow_l.png" }

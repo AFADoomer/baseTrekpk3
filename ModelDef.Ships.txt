@@ -559,7 +559,7 @@ Model TOSShuttleAstrostein
 
 	FrameIndex TOS1 B 0 0
 }
-
+/*
 Model TOSShuttleColumbus
 {
 	USEACTORPITCH
@@ -587,7 +587,7 @@ Model TOSShuttleCopernicus
 
 	FrameIndex TOS1 A 0 0
 }
-
+*/
 Model TOSD7
 {
 	USEACTORPITCH

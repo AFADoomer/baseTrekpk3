@@ -445,7 +445,7 @@ Model TOSWallThing1
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing1.md3"
 	Skin 0 "wallthing.png"
 
@@ -460,7 +460,7 @@ Model TOSWallThing2
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing2.md3"
 	Skin 0 "wallthing.png"
 
@@ -478,10 +478,7 @@ Model TOSWallThing3
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton1.md3"
 	Skin 0 "planton3.jpg"
-//	Model 0 "wallthing3.md3"
-//	Skin 0 "wallthing1.png"
 
-//	ZOffset 64.0
 	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
@@ -495,10 +492,7 @@ Model TOSWallThing4
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton1.md3"
 	Skin 0 "planton2.jpg"
-//	Model 0 "wallthing4.md3"
-//	Skin 0 "wallthing1a.png"
 
-//	ZOffset 64.0
 	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
@@ -509,7 +503,7 @@ Model TOSWallThing5
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing5.md3"
 	Skin 0 "wallthing4b.jpg"
 
@@ -524,7 +518,7 @@ Model TOSWallThing6
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing6.md3"
 	Skin 0 "wallthing5.jpg"
 
@@ -539,7 +533,7 @@ Model TOSWallThing7
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "toswallthing7.md3"
 
 	Scale 1.5 1.5 1.5
@@ -552,7 +546,7 @@ Model TOSWallThing8
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing8.md3"
 	Skin 0 "wallthing3.jpg"
 
@@ -564,7 +558,7 @@ Model TOSWallThing8
 
 Model TOSWallThingAtmospheric
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing_atmospheric.md3"
 	Skin 0 "wallthing_atmospheric.jpg"
 
@@ -576,7 +570,7 @@ Model TOSWallThingAtmospheric
 
 Model TOSWallThingHangar
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing_hangar.md3"
 	Skin 0 "wallthing_hangar.jpg"
 
@@ -591,7 +585,7 @@ Model TOSWallThingamajig
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing_amajig.md3"
 	Skin 0 "tripleGNDN.jpg"
 
@@ -604,7 +598,7 @@ Model TOSWallThingamajig
 
 Model TOSWallThingWarning
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing_warning.md3"
 	Skin 0 "wallthing_warning.jpg"
 
@@ -616,7 +610,7 @@ Model TOSWallThingWarning
 
 Model TOSGNDN
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "gndn.md3"
 	Skin 0 "tripleGNDN.jpg"
 
@@ -629,7 +623,7 @@ Model TOSGNDN
 
 Model TOSTransporterScanner
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "transcan.md3"
 
 	ZOffset 54.0
@@ -682,7 +676,7 @@ Model TOSWallThingEngineering2
 
 Model TOSLBDN
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "lbdn.md3"
 	Skin 0 "lbdn.jpg"
 
@@ -1153,7 +1147,7 @@ Model TOSTransformer
 
 Model TOSQuartersRib
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "room_rib.md3"
 	Path "Textures/Solid/"
 	Skin 0 "white.jpg"
@@ -1184,7 +1178,7 @@ Model TOSTapeRack
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "tape_rack.md3"
 	Skin 0 "tapes.jpg"
 
@@ -2115,7 +2109,7 @@ Model TOSGymApparatus
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "gym1.md3"
 	Skin 0 "gym_aparatus.jpg"
 
@@ -2672,7 +2666,7 @@ Model TOSHatch
 	Path "Models/mapobjects/tos/"
 	Model 0 "hatch2.md3"
 
-	Scale 0.75 0.75 0.75
+	Scale 0.65 0.65 0.75
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 B 0 2

@@ -119,6 +119,7 @@ Actor TOSDecoration
 	var float user_scaleX;
 	var float user_scaleY;
 	var int user_destroyed;
+	var int user_fadeincount;
 
 	+NOGRAVITY
 	-SOLID
@@ -153,7 +154,6 @@ Actor TOSDecoration
 			}
 		Pain.Stun:
 		Static:
-//			"####" # 1 A_JumpIf(velx != 0 || vely != 0 || velz != 0, "Moved")
 			"####" # 1 {
 				if (velx != 0 || vely != 0 || velz != 0) {
 					return State("Moved");
@@ -184,25 +184,25 @@ Actor TOSDecoration
 			Goto Static
 		Death:
 			"####" # 0 {
-				A_SetUserVar("user_disintegrationcolor", 16711590);
+				user_disintegrationcolor = 16711590;
 				A_KillChildren;
 			}
 			"####" # 0 A_Jump(256, "DeathResume")
 		Death.Phaser:
 			"####" # 0 {
-				A_SetUserVar("user_disintegrationcolor", 10803452);
+				user_disintegrationcolor = 10803452;
 				A_KillChildren("Phaser");
 			}
 			"####" # 0 A_Jump(256, "DeathResume")
 		Death.PhaserRifle:
 			"####" # 0 {
-				A_SetUserVar("user_disintegrationcolor", 16557295);
+				user_disintegrationcolor = 16557295;
 				A_KillChildren("PhaserRifle");
 			}
 			"####" # 0 A_Jump(256, "DeathResume")
 		Death.Disruptor:
 			"####" #  0 {
-				A_SetUserVar("user_disintegrationcolor", 2620994);
+				user_disintegrationcolor = 2620994;
 				A_KillChildren("Disruptor");
 			}
 			"####" # 0 A_Jump(256, "DeathResume")
@@ -2215,10 +2215,10 @@ Actor TOSTubeHatch : TOSUsableDecoration 20299
 					return State("");
 				}
 			}
-			TOS1 A 20 
+			TOS1 A 20
 			TOS1 B 10 {
-					user_open = 1;
 					A_UnsetSolid;
+					user_open = 1;
 			}
 			TOS1 CDEF 10
 			TOS1 F 105
@@ -2233,8 +2233,8 @@ Actor TOSTubeHatch : TOSUsableDecoration 20299
 			Loop
 		Close:
 			TOS1 F 0  {
-				user_open = 0;
 				A_SetSolid;
+				user_open = 0;
 			}
 			TOS1 EDCB 10
 			Goto Static
