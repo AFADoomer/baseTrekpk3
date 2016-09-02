@@ -209,6 +209,9 @@ ACTOR TrekPlayer : PlayerPawn
 	Swim:
 		TOSH ABCD 8 A_JumpIf(waterlevel <= 1, "Jump.Loop")
       		Loop
+	Hidden:
+		TNT1 A 8
+		Loop
 	}
 }
 

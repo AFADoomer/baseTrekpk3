@@ -1,6 +1,6 @@
 GameInfo
 {
-	PlayerClasses = "TrekPlayer"//, "Shuttle"//, "TrekPlayerF", "OldTrekPlayer"
+	PlayerClasses = "TrekPlayer"
 	dimcolor = "0 0 0"
 	dimamount = 0.7
 	cursorpic = "delta"
@@ -66,7 +66,7 @@ skill nightmare
 
 clearepisodes
 
-episode MAP06
+episode SHIP
 {
 	name = TOS
 }
@@ -91,30 +91,14 @@ Map TitleMap "Star Trek"
 	Cluster = 2
 }
 
-Map Bridge13 "Deck 1 - Bridge"
-{}
-
 Map MAP01 "Filming Set"
 {}
 
 Map MAP02 "D-7 Cruiser"
 {}
 
-Map MAP03 "Shuttlebay"
+Map Ship "U.S.S. Enterprise"
 {}
-
-Map MAP05 "Test Map 2"
-{}
-
-Map MAP06 "Secondary Hull"
-{
-	LevelNum = 18
-}
-
-Map MAP07 "Primary Hull"
-{
-	LevelNum = 7
-}
 
 Map Planet "Planet Surface"
 {
@@ -124,11 +108,6 @@ Map Planet "Planet Surface"
 
 Map Demo "Test Map"
 {}
-
-Map Neck "Dorsal"
-{
-	LevelNum = 14
-}
 
 Cluster 1
 {

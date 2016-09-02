@@ -12,7 +12,7 @@
 // name to this list, as well as defining its sound
 // in the LANGUAGE lump.
 
-#define FLOOR_TEXTURES 165
+#define FLOOR_TEXTURES 166
 str floorTexture[FLOOR_TEXTURES] =
 {
 	"FWATER1", "FWATER2", "FWATER3", "FWATER4",
@@ -56,7 +56,8 @@ str floorTexture[FLOOR_TEXTURES] =
 	"Gray_Flr", 
 	"Strip_Bl", "Strip_Br", "Strip_Or", "Strip_Re",	
 	"Shu_Flr", "Shu_Flr2", "Shu_Flr3",
-	"dirt", "grass", "gravel", "tile", "water"
+	"dirt", "grass", "gravel", "tile", "water",
+	"red"
 };
 
 // Scripts

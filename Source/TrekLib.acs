@@ -5,7 +5,7 @@
 #include "radar.acs"
 #include "lift.acs"
 
-global int 4:RedAlert, 7:FlightSpeed[];
+global int 4:RedAlert, 7:FlightSpeed[], 9:ActorPosX[], 10:ActorPosY[];
 global str 5:LogEntry[], 6:Weapon[], 8:HealRate[];
 
 int ReloadCount;
@@ -254,7 +254,12 @@ Script "W_LevelStart" ENTER
 			Scroll_Floor(14, 1, 1, 0); //Scrolling fog/clouds effect
 		}
 
-		SetCameraToTexture(553, "SHU_CAM", 85);
+		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Ship") == 0)
+		{
+			SetCameraToTexture(553, "SHU_CAM", 85);
+			SetCameraToTexture(553, "TESTA0", 85);
+		}
+
 		ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);
 	}
 }
@@ -536,6 +541,15 @@ Function int DoMovement (void)
 		strState = strParam(s:strStateModifier, s:strState);
 	}
 
+/*
+	//Handle hiding the model when changing position via portals...  Cleans up the single-player experience, at least...
+	If (abs(ActorPosX[PlayerNumber()] - GetActorX(0)) > 400.0 || abs(ActorPosY[PlayerNumber()] - GetActorY(0)) > 400.0)
+	{
+		If (PlayerCount() > 1) 
+			strState = "Hidden";
+	}
+*/
+
 	//Only change the state if it needs to change...
 	If (((StrICmp(strState, strOldState) != 0) && !GetUserVariable(0, "user_active")) || GetUserVariable(0, "user_forcestatechange"))
 	{
@@ -635,6 +649,9 @@ Function int DoMovement (void)
 	}
 	Else
 		SetActorProperty(0, APROP_Speed, 1.0);
+
+	ActorPosX[PlayerNumber()] = GetActorX(0);
+	ActorPosY[PlayerNumber()] = GetActorY(0);
 
 	return 1;
 }
@@ -1556,7 +1573,7 @@ Script "A_CheckAlert" (void)
 	SetResultValue(RedAlert);
 }
 
-// MAP06 Scripts
+// Ship Scripts
 int DoorStatus = 0;
 int PadStatus = 0;
 int PadMoving = False;
@@ -1578,15 +1595,13 @@ Function void CloseDoor (void)
 
 Script "MoveShuttle" (int Out)
 {
-	If (GetActorZ(0) <= 118) terminate;
+	If (GetActorZ(0) < -1536.0) terminate;
 	If (PadStatus) terminate;
 	
 	If (Moved == Out) terminate;
 
-	int ShuttleX, ShuttleY, ShuttleZ, StartY;
+	int ShuttleX, ShuttleY, ShuttleZ;
 	int i = 0;
-	
-	StartY = 80;
 	
 	ShuttleX = GetActorX(551);
 	ShuttleY = GetActorY(551);
@@ -1596,21 +1611,21 @@ Script "MoveShuttle" (int Out)
 
 	ReplaceTextures ("WALL_BEA", "WALL_BEB");
 
-	PolyObj_Move(12, 32, 0, 120);
+	PolyObj_Move(312, 32, 64, 120);
 	Ceiling_LowerToFloor(36, 32);
 
 	DoorStatus = 1;
 
 	If (Out)
-	{ //Rotate from East-facing to South
-		For (int j = 1.0; j >= 0.75; j -= 0.001)
+	{ //Rotate from North-facing to East
+		For (int j = 0.25; j >= 0.0; j -= 0.001)
 		{
 			SetActorAngle(551, j);
 			Delay(3);
 		}
 	}
 	Else
-		SetActorAngle(551, 0.25);
+		SetActorAngle(551, 0.5);
 	OpenDoor();
 
 	Delay(35 * 3);
@@ -1618,9 +1633,9 @@ Script "MoveShuttle" (int Out)
 	For (i = 0; i <= 1024; i = i + 3)
 	{
 		If (Out)
-			SetActorPosition(551, ShuttleX, ShuttleY - (i * 1.0), ShuttleZ + (i * 0.15), 0); 
+			SetActorPosition(551, ShuttleX + (i * 1.0), ShuttleY, ShuttleZ + (i * 0.15), 0); 
 		Else
-			SetActorPosition(551, ShuttleX, ShuttleY + (i * 1.0), ShuttleZ - (i * 0.15), 0);
+			SetActorPosition(551, ShuttleX - (i * 1.0), ShuttleY, ShuttleZ - (i * 0.15), 0);
 		   
 		Delay(1);
 	}
@@ -1630,15 +1645,15 @@ Script "MoveShuttle" (int Out)
 	For (i = 1024; i <= 2048; i = i + 3)
 	{
 		If (Out)
-			SetActorPosition(551, ShuttleX, ShuttleY - (i * 1.0), ShuttleZ + (i * 0.15), 0);
+			SetActorPosition(551, ShuttleX + (i * 1.0), ShuttleY, ShuttleZ + (i * 0.15), 0);
 		Else
-			SetActorPosition(551, ShuttleX, ShuttleY + (i * 1.0), ShuttleZ - (i * 0.15), 0);
+			SetActorPosition(551, ShuttleX - (i * 1.0), ShuttleY, ShuttleZ - (i * 0.15), 0);
 		
 		Delay(1);
 	}
 	DoorStatus = 0;
 	
-	PolyObj_Move(12, 32, 128, 120);
+	PolyObj_Move(312, 32, 192, 120);
 	Ceiling_RaiseToNearest(36, 32);
 
 	ReplaceTextures ("WALL_BEB", "WALL_BEA");
@@ -1648,7 +1663,7 @@ Script "MoveShuttle" (int Out)
 
 Script "MovePad" (void)
 {
-	If (GetActorZ(0) > -10.0 && GetActorZ(0) < 118.0) Terminate;
+	If (GetActorZ(0) > -1656.0 && GetActorZ(0) < -1536.0) Terminate;
 
 	If (!PadMoving && !DoorStatus)
 	{
@@ -1673,10 +1688,22 @@ Script "MovePad" (void)
 	}
 }
 
-Script "OpenDoor" (void)
+Script "OpenDoor" (int ID, int MaxHeight, int intAngle)
 {
-	If (DoorStatus == 0 && (GetActorZ(0) <= 92))
-			PolyObj_DoorSlide(7, 16, 0, 32, 105);
+	If (DoorStatus == 0 && (GetActorZ(0) / 1.0 <= MaxHeight))
+			PolyObj_DoorSlide(ID, 16, intAngle, 32, 105);
+}
+
+Script "OpenPolyDoor" (int ID, int MaxHeight, int intAngle)
+{
+	If (GetActorZ(0) / 1.0 <= MaxHeight && GetActorZ(0) / 1.0 >= (MaxHeight - 92))
+		PolyObj_DoorSlide(ID, 16, intAngle, 32, 105);
+}
+
+Script "OpenPolyDoorSingle" (int ID, int MaxHeight, int intAngle)
+{
+	If (GetActorZ(0) / 1.0 <= MaxHeight && GetActorZ(0) / 1.0 >= (MaxHeight - 92))
+		PolyObj_DoorSlide(ID, 16, intAngle, 47, 105);
 }
 
 Script "CheckInVacuum" ENTER
@@ -2088,7 +2115,7 @@ Script "A_CheckBeamUp" (void)
 	SetActorProperty(0, APROP_INVULNERABLE, 0);
 	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 
-	ChangeLevel ("MAP07", 3, CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+	ChangeLevel ("SHIP", 3, CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 }
 
 #define DropClassCount 12
