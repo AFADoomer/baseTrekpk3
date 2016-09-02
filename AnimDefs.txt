@@ -8,42 +8,8 @@ cameratexture TRICHUDS 250 200
 cameratexture SHU_CAM 604 338 fit 159 89 worldpanning
 cameratexture TITLECAM 1280 960 fit 1280 960
 cameratexture TITLEALT 1280 960 fit 1280 960
-/*
-texture WALLALE3
-    allowdecals
-    pic WALLALER tics 35
-    pic WALLALE3 tics 35
+cameratexture TESTA0 604 338 fit 159 89 worldpanning
 
-texture WALLALE4
-    allowdecals
-    pic WALLALE2 tics 35
-    pic WALLALE4 tics 35
-
-texture ARCHALE2
-    allowdecals
-    pic ARCHALER tics 35
-    pic ARCHALE2 tics 35
-
-texture TRANSAL2
-    allowdecals
-    pic TRANSALE tics 35
-    pic TRANSAL2 tics 35
-
-texture BR_WALLQ
-    allowdecals
-    pic BR_WALLP tics 35
-    pic BR_WALLQ tics 35
-
-texture BR_WALLM
-    allowdecals
-    pic BR_WALLL tics 35
-    pic BR_WALLM tics 35
-
-texture BR_WALLU
-    allowdecals
-    pic BR_WALLR tics 35
-    pic BR_WALLU tics 35
-*/
 texture WALL_BEB
     allowdecals
     pic WALL_BEA tics 35
@@ -82,3 +48,13 @@ Texture Hypo
 	pic Hypo9 tics 4
 	pic Hypo tics 8
 	Oscillate
+
+Texture "models/mapobjects/tos/enterprise/bus1.png"
+	pic "models/mapobjects/tos/enterprise/bus1.png" tics 4
+	pic "models/mapobjects/tos/enterprise/bus2.png" tics 4
+	pic "models/mapobjects/tos/enterprise/bus3.png" tics 4
+	pic "models/mapobjects/tos/enterprise/bus4.png" tics 4
+	pic "models/mapobjects/tos/enterprise/bus5.png" tics 4
+	pic "models/mapobjects/tos/enterprise/bus6.png" tics 4
+	pic "models/mapobjects/tos/enterprise/bus7.png" tics 4
+	pic "models/mapobjects/tos/enterprise/bus8.png" tics 4

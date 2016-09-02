@@ -167,16 +167,14 @@ Actor TOSDecoration
 				A_Quake(Radius / 16, Radius / 3, Radius, Radius * 3);
 				A_Explode(Radius / 16, Radius / 2, 0, 1);
 				A_SetScale(Radius / 32.0);
-				if (!user_destroyed) {
-					if (GetSpawnHealth() >= 300 / user_scalex) {
-						A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
-					} else if (GetSpawnHealth() >= 100 / user_scalex && !user_destroyed) {
-						A_SpawnItemEx("FlareUp", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
-					}
-				} 
+				if (!user_destroyed && (GetSpawnHealth() >= 300 / user_scalex)) {
+					A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				} else if (GetSpawnHealth() >= 100 / user_scalex) {
+					A_SpawnItemEx("FlareUp", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				}
 				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
 				A_SetScale(1.0);
-				user_destroyed = 1;
+				user_destroyed == 1;
 			}
 			Goto Static
 		Moved:
@@ -244,6 +242,8 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 	+SHOOTABLE
 	+INVULNERABLE
 	+NOBLOOD
+	+NODAMAGE
+	+DONTTHRUST
 
 	Height 0
 	Radius 0
@@ -431,7 +431,6 @@ Actor TOSWallThing8 : TOSDestroyableDecoration 20034 {Health 100}
 Actor TOSWallThingAtmospheric : TOSDestroyableDecoration 20018 {Health 100}
 Actor TOSWallThingHangar : TOSDestroyableDecoration 20019 {Health 100}
 Actor TOSWallThingamajig : TOSDestroyableDecoration 20020 {Health 100}
-Actor TOSWallThingWarning : TOSDestroyableDecoration 20021 {Health 100}
 
 Actor TOSCeilingPipes : TOSDestroyableDecoration 20022
 {
@@ -684,21 +683,6 @@ Actor TOSEngineeringConsole : TOSUsableDecoration 20058
 }
 
 Actor TOSTapeRack : TOSDestroyableDecoration 20060 {+SOLID +CANPASS -NOGRAVITY Height 3 Radius 4}
-
-/*
-Actor TOSEnterprise : TOSDecoration 20061
-{
-	States
-	{
-		Spawn: //Not Static; override defaults
-			TOS1 ABCDEFGH 6
-			Loop
-		Shuttle:
-			TOS1 Z 5
-			Loop
-	}
-}
-*/
 
 Actor TOSFollower : TOSDecoration
 {
@@ -1889,7 +1873,7 @@ Actor TOSShipOrbit : TOSDecoration 20277
 				}
 			}
 		Static:
-			TOS1 AAAAAABBBBBBCDDDDDDEEEEEEFFFFFFGGGGGGHHHHHH 1 {
+			TOS1 A 1 {
 				if (args[1] == 0) {
 					A_Warp(AAPTR_MASTER, user_Pitch * cos(angle), user_Radius, user_Pitch * user_z * sin(angle), user_Speed, WARPF_NOCHECKPOSITION | WARPF_USECALLERANGLE | WARPF_INTERPOLATE, "", 0, 0);
 				} else {
@@ -2183,8 +2167,9 @@ Actor TOSEnterpriseExteriorRight : TOSDecoration 20293
 	States
 	{
 		Spawn: //Not Static; override defaults
-			TOS1 ABCDEFGH 6
-			Loop
+			TOS1 A -1 //BCDEFGH 6
+			Stop
+//			Loop
 	}
 }
 
