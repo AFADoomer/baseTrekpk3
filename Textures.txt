@@ -881,4 +881,8 @@ Sprite FLAMC0, 620, 622 { XScale 2.0 YScale 2.0 Offset 310, 311 Patch FLM1A0, 0,
 Sprite FLAMD0, 620, 622 { XScale 2.0 YScale 2.0 Offset 310, 311 Patch FLM1A0, 0, 0 { Rotate 180 }}
 Sprite FLAME0, 620, 622 { XScale 3.0 YScale 3.0 Offset 310, 311 Patch FLM1A0, 0, 0 }
 Sprite FLAMF0, 620, 622 { XScale 3.0 YScale 3.0 Offset 310, 311 Patch FLM1A0, 0, 0 { Rotate 180 }}
+
+Sprite WARNA0, 256, 256 { XScale 7.0 YScale 8.0 Offset 128, 256 Patch Sign_War, 0, 0 {Style Overlay} }
+Sprite CHUTA0, 128, 128 { XScale 7.0 YScale 8.0 Offset 128, 128 Patch Chute_Vo, 0, 0 {Style Overlay} }
+Sprite CHUTB0, 128, 128 { XScale 7.0 YScale 8.0 Offset 128, 128 Patch Chute_Di, 0, 0 {Style Overlay} }
 // End of texture definitions

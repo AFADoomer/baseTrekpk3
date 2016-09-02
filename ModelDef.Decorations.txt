@@ -519,7 +519,7 @@ Model TOSWallThing6
 	USEACTORROLL
 
 	Path "Models/mapobjects/tos/imports"
-	Model 0 "wallthing6.md3"
+	Model 0 "wallthing5.md3"
 	Skin 0 "wallthing5.jpg"
 
 	ZOffset 10.0
@@ -596,6 +596,7 @@ Model TOSWallThingamajig
 	FrameIndex TOS1 A 0 0
 }
 
+/*
 Model TOSWallThingWarning
 {
 	Path "Models/mapobjects/tos/imports"
@@ -607,6 +608,7 @@ Model TOSWallThingWarning
 
 	FrameIndex TOS1 A 0 0
 }
+*/
 
 Model TOSGNDN
 {
@@ -625,6 +627,8 @@ Model TOSTransporterScanner
 {
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "transcan.md3"
+	SurfaceSkin 0 0 "viewer.jpg"
+	SurfaceSkin 0 1 "transcan.jpg"
 
 	ZOffset 54.0
 	AngleOffset 180.0

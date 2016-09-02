@@ -364,3 +364,57 @@ Actor TOSFalseWallWallGrey : TOSFalseWall 20298
 			WALL B 1 A_Jump(256, "Super::Static")
 	}
 }
+
+Actor TOSWallThingWarning : TOSSpriteDecoration 20021
+{
+	Health 100
+	Height 24
+	Radius 16
+	//$Title "Wall Planton: Warning Sign with Grey Tech" 
+	//$Sprite WARNA0
+	States
+	{
+		Static:
+			WARN A 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSWallThingDisposal : TOSSpriteDecoration 20302
+
+{
+	Health 100
+	Height 24
+	Radius 16
+	//$Title "Wall Planton: Pressure Vent Disposal" 
+	//$Sprite CHUTB0
+	States
+	{
+		Static:
+			CHUT B 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSWallThingVoltage : TOSSpriteDecoration 20303
+{
+	Health 100
+	Height 24
+	Radius 16
+	//$Title "Wall Planton: High Voltage" 
+	//$Sprite CHUTA0
+	States
+	{
+		Static:
+			CHUT A 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSTest : TOSSpriteDecoration 20304
+{
+	Height 64
+	Radius 32
+	States
+	{
+		Static:
+			TEST A 1 A_Jump(256, "Super::Static")
+	}
+}
