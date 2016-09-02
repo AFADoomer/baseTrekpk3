@@ -41,6 +41,7 @@ ambient/klingon/interior2		rom_int3
 ambient/klingon/interior3		rom_int3
 
 door/starfleet				door
+$limit	door/starfleet	1	64
 door/locked				door_l
 
 weapons/phaser				phaser_f
@@ -66,6 +67,9 @@ computer/button4			button4
 computer/button5			button5
 computer/button6			button6
 computer/button7			button7
+computer/button/back			b_back
+computer/button/select			b_sel
+computer/button/move			m_move
 computer/working			working
 
 actor/communicator			comm

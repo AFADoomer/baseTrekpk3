@@ -29,47 +29,47 @@ int SelectionY = 200;
 //LevelNum, Title, Index, Access Level
 str Decks[68][4] = {
 	{"", "Deck 1", "", ""},
-	{"BRIDGE13", "Bridge", "1", "2"},				//Start of items on turbolift menu
+	{"SHIP", "Bridge", "101", "2"},				//Start of items on turbolift menu
 	{"", "Deck 2", "", ""},
 	{"", "Deck 3", "", ""},
 	{"", "Deck 4", "", ""},
 	{"", "Deck 5", "", ""},
 	{"", "Deck 6", "", ""},
 	{"", "Deck 7", "", ""},
-	{"MAP07", "Security and Brig", "15", ""},
-	{"MAP07", "Sickbay, Main Transporter", "16", ""},
-	{"MAP07", "Crew Quarters", "17", ""},
-	{"MAP07", "Impulse Engineering", "21", ""},
+	{"SHIP", "Security and Brig", "15", ""},
+	{"SHIP", "Sickbay, Main Transporter", "16", ""},
+	{"SHIP", "Crew Quarters", "17", ""},
+	{"SHIP", "Impulse Engineering", "21", ""},
 	{"", "Deck 8", "", ""},
-	{"MAP07", "Arboretum", "18", ""},
-	{"MAP07", "Recreation Area", "19", ""},
+	{"SHIP", "Arboretum", "18", ""},
+	{"SHIP", "Recreation Area", "19", ""},
 	{"", "", "", ""},
 	{"", "", "", ""},
 	{"", "Dorsal Interconnect", "", ""},
-	{"MAP07", "Auxiliary Machine Room", "209", ""},
-	{"MAP07", "Dining Lounge", "210", ""},
-	{"MAP07", "Observation Lounge", "211", ""},
-	{"MAP07", "Assembly Area", "212", ""},
-	{"MAP07", "'Pig and Rooster' Lounge", "213", ""},
-	{"MAP07", "Lounge", "214", ""},
+	{"SHIP", "Auxiliary Machine Room", "209", ""},
+	{"SHIP", "Dining Lounge", "210", ""},
+	{"SHIP", "Observation Lounge", "211", ""},
+	{"SHIP", "Assembly Area", "212", ""},
+	{"SHIP", "'Pig and Rooster' Lounge", "213", ""},
+	{"SHIP", "Lounge", "214", ""},
 	{"", "Deck 15", "", ""},
 	{"", "Deck 16", "", ""},
 	{"", "Deck 17", "", ""},
 	{"", "Deck 18", "", ""},
-	{"MAP06", "Engineering", "3", ""},
-	{"MAP06", "Auxiliary Control", "4", ""},
-	{"MAP06", "Observation Gallery", "2", ""},
+	{"SHIP", "Engineering", "303", ""},
+	{"SHIP", "Auxiliary Control", "304", ""},
+	{"SHIP", "Observation Gallery", "302", ""},
 	{"", "Deck 19", "", ""},
-	{"MAP06", "Hangar Deck", "1", ""},
+	{"SHIP", "Hangar Deck", "301", ""},
 	{"", "", "", ""},				//End of items on turbolift menu
 	{"", "Transporter Destinations", "", ""},	//Start of items on transporter menu
 	{"MAP01", "Filming Set", "1", ""},
 	{"Planet", "Planet Surface", "0", ""},
 	{"DEMO", "Test Map", "0", ""},
 	{"", "", "", ""},
-	{"MAP07", "Transporter Room 1", "3-8", ""},
-	{"MAP07", "Transporter Room 2", "9-14", ""},
-	{"MAP07", "Emergency Transporter 1", "20", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
+	{"", "", "", ""},
 	{"", "", "", ""},
 	{"", "", "", ""},
 	{"", "", "", ""},
@@ -105,11 +105,16 @@ str Colorsets[2][5] = {
 
 Script 255 (void)
 {
+	PlaySound(0, "computer/button/move");
 	ACS_NamedExecute("W_ElevatorPanel", 0, 1, 0, 1);
 }
 
 Script 254 (void)
 {
+	If (GetInput)
+		PlaySound(0, "computer/button/back");
+	Else
+		PlaySound(0, "computer/button2");
 	ACS_NamedExecute("W_ElevatorPanel", 0, 1, MapsMax + 1, 0);
 }
 
@@ -123,7 +128,7 @@ Script "W_ElevatorPanel" (int OnOff, int Offset, int Colorset)
 //	PanelWidth = 960;
 //	PanelHeight = 720;
 
-	If (OnOff)
+	If (OnOff && !GetUserVariable(0, "user_travel"))
 	{
 		SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
 		SetActorProperty(0, APROP_INVULNERABLE, 1);
@@ -187,7 +192,7 @@ Script "W_ElevatorPanel" (int OnOff, int Offset, int Colorset)
 		ACS_NamedExecute("W_ElevatorInputLoop", 0, Offset, Colorset);
 		TakeActorInventory(0, "ElevatorPanel", 999);
 	}
-	Else If (ElevMsgCount > 0)
+	Else If (ElevMsgCount > 0 || GetUserVariable(0, "user_travel"))
 	{
 		TakeInventory("ElevatorPanel", 1);
 
@@ -270,6 +275,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 
 			If (Buttons == BT_FORWARD)
 			{
+				PlaySound(0, "computer/button/move");
 				Row = Row - 1;
 				If (Row < 0) Row = RowMax - 1;
 				If (Row * (Col + 1) >= MapsMax) Row = MapsMax % RowMax;
@@ -284,6 +290,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 			}
 			Else If (Buttons == BT_BACK)
 			{
+				PlaySound(0, "computer/button/move");
 				Row = Row + 1;
 				If (Row >= RowMax) Row = 0;
 				If (Row * (Col + 1) >= MapsMax) Row = 0;
@@ -298,6 +305,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 			}
 			Else If (Buttons == BT_LEFT | Buttons == BT_MOVELEFT)
 			{
+				PlaySound(0, "computer/button/move");
 				Col = Col - 1;
 				If (Col < 0) Col = 1;
 				index = (Row + Offset) + Col * RowMax;
@@ -313,6 +321,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 			}
 			Else If (Buttons == BT_RIGHT | Buttons == BT_MOVERIGHT)
 			{
+				PlaySound(0, "computer/button/move");
 				Col = Col + 1;
 				If (Col > 1) Col = 0;
 				index = (Row + Offset) + Col * RowMax;
@@ -328,82 +337,77 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 			}
 			Else If (Buttons == BT_ATTACK)
 			{
+				int bAccess = True;
+
 				//ACS_NamedExecuteAlways("W_StorePosition", 0, GetActorX(0), GetActorY(0), PlayerNumber());
-				If (StrCmp(Decks[(Row + Offset) + Col * RowMax][3], "") != 0)
+				If (StrCmp(Decks[index][3], "") != 0)
 				{
 					If (CheckInventory(StrParam(s:"AccessLevel", s:Decks[index][3])) == 0)
 					{
 //						Print(s:StrParam(s:"Level ", s:Decks[index][3]), s:" access required.");
 						str strTemp = ExpandLanguageString(StrParam(l:"Lock"), Decks[index][3], 0, 0, 0, 0, 0);
 						Notification(StrParam(s:"\cr", l:"Locked"), strTemp, "", 1);
+						bAccess = False;
 					}
-					Else
+				}
+
+				If (bAccess)
+				{
+					If (index > MapsMax)
 					{
-						If (index >= 24)
+						ActivatorSound("transporter/energize", 128);
+						SetUserVariable(0, "user_travel", 1);
+						ClearPanel();
+
+						int intWaitloops = 0;
+
+						While (!CheckActorFloorTexture(0, "TRANSPAD"))
 						{
-							ActivatorSound("transporter/energize", 128);
-							SetUserVariable(0, "user_travel", 1);
-							ClearPanel();
-							GiveInventory("TransportOut", 1);
-							Delay(35 * 3);
-						}
-						Else
-						{
-							ActivatorSound("turbolift/start", 128);
-							SetUserVariable(0, "user_travel", 2);
+							If (intWaitLoops >= 10)
+							{
+								Notification("Transport canceled", "Programmed destination has been removed from queue", "", 0);
+								SetUserVariable(0, "user_travel", 0);
+								Terminate;
+							}
+							Else If (intWaitLoops == 0)
+							{
+								Notification("Transporter destination programmed", "Step onto the nearest transporter pad to initiate transport", "", 0);
+							}
+								
+							Delay(35);
+							intWaitLoops++;
 						}
 
 						Delay(35);
+
+						GiveInventory("TransportOut", 1);
+						Delay(35 * 4);
 						SetActorProperty(0, APROP_INVULNERABLE, 0);
 						SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 
 						ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
-						ClearPanel();
 					}
-				}
-				Else
-				{
-						If (index > MapsMax)
-						{
-							ActivatorSound("transporter/energize", 128);
-							SetUserVariable(0, "user_travel", 1);
-							ClearPanel();
+					Else
+					{
+						ActivatorSound("turbolift/start", 128);
+						SetUserVariable(0, "user_travel", 2);
 
-							int intWaitloops = 0;
+						SetPlayerProperty(0, 1, PROP_TOTALLYFROZEN);
+						SetActorProperty(0, APROP_INVULNERABLE, 1);
 
-							While (!CheckActorFloorTexture(0, "TRANSPAD"))
-							{
-								If (intWaitLoops >= 10)
-								{
-									Notification("Transport cancelled", "Programmed destination has been removed from queue", "", 0);
-									SetUserVariable(0, "user_travel", 0);
-									Terminate;
-								}
-								Else If (intWaitLoops == 0)
-								{
-									Notification("Transporter destination programmed", "Step onto the nearest transporter pad to initiate transport", "", 0);
-								}
-								
-								Delay(35);
-								intWaitLoops++;
-							}
+						Delay(35);
 
-							Delay(35);
+						Teleport_NoFog(Turbolift(index), 0, 0, 1);
 
-							GiveInventory("TransportOut", 1);
-							Delay(35 * 3);
-						}
-						Else
-						{
-							ActivatorSound("turbolift/start", 128);
-							SetUserVariable(0, "user_travel", 2);
-						}
+						Delay(35);
 
-					Delay(35);
-					SetActorProperty(0, APROP_INVULNERABLE, 0);
-					SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+						SetActorProperty(0, APROP_INVULNERABLE, 0);
+						SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 
-					ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+						SetUserVariable(0, "user_travel", 0);
+//						ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+					}
+
 					ClearPanel();
 				}
 			}
