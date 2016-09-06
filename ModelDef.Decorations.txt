@@ -2184,6 +2184,9 @@ Model TOSCloset
 
 Model TOSSickbayBed
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_bed.md3"
 
@@ -2195,6 +2198,9 @@ Model TOSSickbayBed
 
 Model TOSSickbayCounter
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_counter.md3"
 
@@ -2205,6 +2211,9 @@ Model TOSSickbayCounter
 
 Model TOSSickbayCounter2R
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_counter2.md3"
 
@@ -2215,6 +2224,9 @@ Model TOSSickbayCounter2R
 
 Model TOSSickbayCounter2L
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_counter2.md3"
 
@@ -2225,6 +2237,9 @@ Model TOSSickbayCounter2L
 
 Model TOSSickbayMonitor
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_monitor.md3"
 
@@ -2235,6 +2250,9 @@ Model TOSSickbayMonitor
 
 Model TOSSickbayProbe
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_probe.md3"
 
@@ -2245,6 +2263,9 @@ Model TOSSickbayProbe
 
 Model TOSSickbayTable
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_table.md3"
 

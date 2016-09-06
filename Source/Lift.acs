@@ -404,6 +404,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 						SetActorProperty(0, APROP_INVULNERABLE, 0);
 						SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 
+						ActivatorSound("turbolift/end", 128);
 						SetUserVariable(0, "user_travel", 0);
 //						ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 					}

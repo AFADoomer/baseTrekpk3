@@ -32,8 +32,6 @@ SET ACSLib=TrekLib
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 SET ACCPath=C:\Games\Doom\Editing Tools\ACC
 SET ACCExecutable=acc.exe
-REM SET ACCPath=C:\Games\Doom\Editing Tools\GDCC
-REM SET ACCExecutable=gdcc-acc.exe
 SET ZipPath=C:\Program Files\7-Zip\7z.exe
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
