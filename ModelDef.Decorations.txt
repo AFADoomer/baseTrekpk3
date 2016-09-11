@@ -535,6 +535,7 @@ Model TOSWallThing7
 
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "toswallthing7.md3"
+	Skin 0 "wallthing7.jpg"
 
 	Scale 1.5 1.5 1.5
 
@@ -2713,4 +2714,12 @@ Model TOSDilithiumChamber
 	FrameIndex TOS1 D 0 10
 	FrameIndex TOS1 E 0 10
 	FrameIndex TOS1 F 0 10
+}
+
+Model TOSFlag
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "flag.md3"
+
+	FrameIndex TOS1 A 0 0
 }

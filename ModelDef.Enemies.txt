@@ -182,7 +182,7 @@ Model TOSCrewman
 	Model 0 "player.md3"
 	Skin 0 "Starfleet_E_ENS.jpg"
 
-	Model 1 "head_kirk.md3"
+	Model 1 "head_kirk_old.md3"
 	Skin 1 "head.jpg"
 
 	AngleOffset 180.0
@@ -284,6 +284,94 @@ Model TOSCrewman
 	FrameIndex TOS9 H 1 178
 	FrameIndex TOS9 I 0 180
 	FrameIndex TOS9 I 1 180
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_m.md3"
+	Model 1 "head_kirk.md3"
+
+	Skin 0 "Starfleet_E_ENS.jpg"
+
+	FrameIndex TOS1 W 0 530
+	FrameIndex TOS1 W 1 530
+	FrameIndex TOS1 X 0 540
+	FrameIndex TOS1 X 1 540
+	FrameIndex TOS1 Y 0 550
+	FrameIndex TOS1 Y 1 550
+
+	Skin 0 "Starfleet_C_ENS.jpg"
+
+	FrameIndex TOS2 W 0 530
+	FrameIndex TOS2 W 1 530
+	FrameIndex TOS2 X 0 540
+	FrameIndex TOS2 X 1 540
+	FrameIndex TOS2 Y 0 550
+	FrameIndex TOS2 Y 1 550
+
+	Skin 0 "Starfleet_S_ENS.jpg"
+
+	FrameIndex TOS3 W 0 530
+	FrameIndex TOS3 W 1 530
+	FrameIndex TOS3 X 0 540
+	FrameIndex TOS3 X 1 540
+	FrameIndex TOS3 Y 0 550
+	FrameIndex TOS3 Y 1 550
+
+	Skin 0 "Starfleet_E_LTJG.jpg"
+
+	FrameIndex TOS4 W 0 530
+	FrameIndex TOS4 W 1 530
+	FrameIndex TOS4 X 0 540
+	FrameIndex TOS4 X 1 540
+	FrameIndex TOS4 Y 0 550
+	FrameIndex TOS4 Y 1 550
+
+	Skin 0 "Starfleet_C_LTJG.jpg"
+
+	FrameIndex TOS5 W 0 530
+	FrameIndex TOS5 W 1 530
+	FrameIndex TOS5 X 0 540
+	FrameIndex TOS5 X 1 540
+	FrameIndex TOS5 Y 0 550
+	FrameIndex TOS5 Y 1 550
+
+	Skin 0 "Starfleet_S_LTJG.jpg"
+
+	FrameIndex TOS6 W 0 530
+	FrameIndex TOS6 W 1 530
+	FrameIndex TOS6 X 0 540
+	FrameIndex TOS6 X 1 540
+	FrameIndex TOS6 Y 0 550
+	FrameIndex TOS6 Y 1 550
+
+	Skin 0 "Starfleet_E_LT.jpg"
+
+	FrameIndex TOS7 W 0 530
+	FrameIndex TOS7 W 1 530
+	FrameIndex TOS7 X 0 540
+	FrameIndex TOS7 X 1 540
+	FrameIndex TOS7 Y 0 550
+	FrameIndex TOS7 Y 1 550
+
+	Skin 0 "Starfleet_C_LT.jpg"
+
+	FrameIndex TOS8 W 0 530
+	FrameIndex TOS8 W 1 530
+	FrameIndex TOS8 X 0 540
+	FrameIndex TOS8 X 1 540
+	FrameIndex TOS8 Y 0 550
+	FrameIndex TOS8 Y 1 550
+
+	Skin 0 "Starfleet_S_LT.jpg"
+
+	FrameIndex TOS9 W 0 530
+	FrameIndex TOS9 W 1 530
+	FrameIndex TOS9 X 0 540
+	FrameIndex TOS9 X 1 540
+	FrameIndex TOS9 Y 0 550
+	FrameIndex TOS9 Y 1 550
 }
 
 Model TOSKlingon

@@ -1,38 +1,38 @@
-Sprite TOS1A0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1B0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1C0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1D0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1E0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1F0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1G0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1H0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1I0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1J0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1K0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1L0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1M0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1N0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1O0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1P0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1Q0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1R0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1S0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1T0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1U0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1V0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1W0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1X0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1Y0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOS1Z0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOS1A0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1B0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1C0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1D0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1E0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1F0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1G0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1H0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1I0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1J0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1K0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1L0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1M0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1N0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1O0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1P0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1Q0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1R0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1S0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1T0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1U0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1V0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1W0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1X0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1Y0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOS1Z0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
 
-Sprite TOSDA0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOSDC0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOSDE0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOSDG0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOSDI0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOSDK0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOSDM0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
-Sprite TOSDO0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Icon, 0, 0 {Style Overlay}}
+Sprite TOSDA0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOSDC0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOSDE0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOSDG0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOSDI0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOSDK0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOSDM0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite TOSDO0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
 
 Sprite BLASA0, 6, 6
 {
@@ -886,3 +886,11 @@ Sprite WARNA0, 256, 256 { XScale 7.0 YScale 8.0 Offset 128, 256 Patch Sign_War, 
 Sprite CHUTA0, 128, 128 { XScale 7.0 YScale 8.0 Offset 128, 128 Patch Chute_Vo, 0, 0 {Style Overlay} }
 Sprite CHUTB0, 128, 128 { XScale 7.0 YScale 8.0 Offset 128, 128 Patch Chute_Di, 0, 0 {Style Overlay} }
 // End of texture definitions
+
+Sprite LINEA0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage1, 0, 0 }
+Sprite LINEB0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage2, 0, 0 }
+Sprite LINEC0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage3, 0, 0 }
+Sprite LINED0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage4, 0, 0 }
+Sprite LINEE0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage5, 0, 0 }
+
+Sprite DELTA0, 512, 512 {XScale 16.0 YScale 16.0 Offset 256, 512 Patch Delta, 0, 0 {Style Overlay Blend 143, 139, 116}}

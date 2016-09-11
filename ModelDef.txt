@@ -1,7 +1,7 @@
 Model TrekPlayer
 {
 	Path "Models/actors/player/"
-	Model 0 "player_new.md3"
+	Model 0 "player_m.md3"
 	Skin 0 "Starfleet_C_CAPT.jpg"
 
 	Model 1 "head_kirk.md3"

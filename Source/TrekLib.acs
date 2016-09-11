@@ -257,6 +257,7 @@ Script "W_LevelStart" ENTER
 		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Ship") == 0)
 		{
 			SetCameraToTexture(553, "CAMTEX_1", 85);
+			SetCameraToTexture(6, "CAMTEX_2", 85);
 		}
 
 		ACS_NamedExecuteAlways("RedAlert", 0, RedAlert);

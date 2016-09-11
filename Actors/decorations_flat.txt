@@ -418,3 +418,81 @@ Actor TOSTest : TOSSpriteDecoration 20304
 			TEST A 1 A_Jump(256, "Super::Static")
 	}
 }
+
+Actor TOSWallThingLineage1 : TOSSpriteDecoration 20306
+{
+	Health 100
+	Height 25
+	Radius 16
+	//$Sprite LINEA0
+	States
+	{
+		Static:
+			LINE A 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSWallThingLineage2 : TOSSpriteDecoration 20307
+{
+	Health 100
+	Height 25
+	Radius 16
+	//$Sprite LINEB0
+	States
+	{
+		Static:
+			LINE B 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSWallThingLineage3 : TOSSpriteDecoration 20308
+{
+	Health 100
+	Height 25
+	Radius 16
+	//$Sprite LINEC0
+	States
+	{
+		Static:
+			LINE C 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSWallThingLineage4 : TOSSpriteDecoration 20309
+{
+	Health 100
+	Height 25
+	Radius 16
+	//$Sprite LINED0
+	States
+	{
+		Static:
+			LINE D 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSWallThingLineage5 : TOSSpriteDecoration 20310
+{
+	Health 100
+	Height 25
+	Radius 16
+	//$Sprite LINEE0
+	States
+	{
+		Static:
+			LINE E 1 A_Jump(256, "Super::Static")
+	}
+}
+
+Actor TOSDelta : TOSSpriteDecoration 20311
+{
+	Health 100
+	Height 25
+	Radius 16
+	//$Sprite DELTA0
+	States
+	{
+		Static:
+			DELT A 1 A_Jump(256, "Super::Static")
+	}
+}

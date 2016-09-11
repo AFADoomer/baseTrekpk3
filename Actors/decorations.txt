@@ -2261,3 +2261,9 @@ Actor TOSDilithiumChamber : TOSUsableDecoration 20301
 			Goto Static
 	}
 }
+
+Actor TOSFlag : TOSDestroyableDecoration 20305
+{
+	Height 80
+	Radius 8
+}
