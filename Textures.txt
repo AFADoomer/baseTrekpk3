@@ -223,17 +223,14 @@ Texture LADDER_Y, 128, 128
 
 Sprite TRICA0, 606, 307
 {
-//	Offset -395, -355
 	Offset -284, -455
 	XScale 3.6
 	YScale 4.4
 	Patch TRICHUDM, 0, 0
-//	Patch TRICHUDS, 99, 34
 }
 
 Sprite TRICB0, 606, 307
 {
-//	Offset -395, -355
 	Offset -284, -455
 	XScale 3.6
 	YScale 4.4
@@ -242,20 +239,10 @@ Sprite TRICB0, 606, 307
 
 Sprite TRICW0, 606, 307
 {
-//	Offset -395, -355
 	Offset -284, -455
 	XScale 3.6
 	YScale 4.4
 	Patch TRICHUDW, 0, 0
-}
-
-Texture TRICHUDS, 235, 180
-{
-	Patch TRICHUDS, 0, 0
-	{
-		Style Translucent
-		Alpha 0.5		
-	}
 }
 
 Texture BRI_TRIM, 256, 128
@@ -723,22 +710,6 @@ Texture BLACK_W, 320, 200
 	Graphic BLACK, 0, 0
 }
 
-Texture TITLECAM, 320, 200
-{
-	XScale 0.125
-	YScale 0.20833333333333333333333333333333
-
-	Graphic BLACK, 0, 0
-}
-
-Texture TITLEALT, 320, 200
-{
-	XScale 0.125
-	YScale 0.20833333333333333333333333333333
-
-	Graphic BLACK, 0, 0
-}
-
 Sprite SPARB0, 256, 256
 {
 	XScale 4.0
@@ -829,7 +800,14 @@ Sprite PO41A0, 75, 20	{ XScale 3.8 YScale 3.8 Offset 38, 20	Patch Sign_Tu6, 0, 0
 Sprite PO42A0, 75, 20	{ XScale 3.8 YScale 3.8 Offset 38, 20	Patch Sign_Tu7, 0, 0 }
 Sprite PO43A0, 75, 20	{ XScale 3.8 YScale 3.8 Offset 38, 20	Patch Sign_Tu8, 0, 0 }
 Sprite PO44A0, 16, 64	{ XScale 3.8 YScale 3.8 Offset 8, 64	Patch Tu_Butns, 0, 0 }
-Sprite PO45A0, 175, 100	{ XScale 3.8 YScale 3.8 Offset 88, 100	Patch Viewer, 0, 0 }
+
+Sprite PO45A0, 175, 100
+{
+	XScale 3.8 YScale 3.8
+	Offset 88, 100
+	Patch Viewer, 0, 0
+}
+
 Sprite PO46A0, 170, 120	{ XScale 3.8 YScale 3.8 Offset 85, 120	Patch Wall_Br2, -20, -45 }
 Sprite PO47A0, 35, 27	{ XScale 3.8 YScale 3.8 Offset 18, 27	Patch Wall_Icm, 0, 0 }
 Sprite PO48A0, 64, 64	{ XScale 3.8 YScale 3.8 Offset 32, 64	Patch Safe, 0, 0 }

@@ -397,7 +397,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 
 						Delay(35);
 
-						Teleport_NoFog(Turbolift(index), 0, 0, 1);
+						Teleport_NoFog(Turbolift(index), 1, 0, 1);
 
 						Delay(35);
 

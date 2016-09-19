@@ -95,7 +95,6 @@ Model TOSChair
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
 	Model 1 "chair_headrest.md3"
-//	Scale 1.1 1.1 1.1
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 A 1 0
@@ -111,7 +110,6 @@ Model TOSChair2
 	Skin 0 "chair2_new.jpg"
 	Model 1 "chair_headrest.md3"
 	Skin 1 "chair2_new.jpg"
-//	Scale 1.1 1.1 1.1
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 A 1 0
@@ -127,7 +125,6 @@ Model TOSChair3
 	Model 0 "chair.md3"
 	Model 1 "chair_headrest.md3"
 	Model 2 "chair_arms.md3"
-//	Scale 1.1 1.1 1.1
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 A 1 0
@@ -142,7 +139,6 @@ Model TOSBurkeChair
 	Path "Models/mapobjects/tos/"
 	Model 0 "chair.md3"
 	Skin 0 "burke_new.jpg"
-//	Scale 1.1 1.1 1.1
 
 	FrameIndex TOS1 A 0 0
 }
@@ -479,8 +475,6 @@ Model TOSWallThing3
 	Model 0 "planton1.md3"
 	Skin 0 "planton3.jpg"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -492,8 +486,6 @@ Model TOSWallThing4
 	Path "Models/mapobjects/tos/"
 	Model 0 "planton1.md3"
 	Skin 0 "planton2.jpg"
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -508,8 +500,6 @@ Model TOSWallThing5
 	Skin 0 "wallthing4b.jpg"
 
 	ZOffset 10.0
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -523,8 +513,6 @@ Model TOSWallThing6
 	Skin 0 "wallthing5.jpg"
 
 	ZOffset 10.0
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -552,8 +540,6 @@ Model TOSWallThing8
 	Skin 0 "wallthing3.jpg"
 
 	ZOffset 24.0
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -592,8 +578,6 @@ Model TOSWallThingamajig
 
 	ZOffset 40.0
 	AngleOffset 90.0
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -605,8 +589,6 @@ Model TOSWallThingWarning
 	Skin 0 "wallthing_warning.jpg"
 
 	ZOffset 16.0
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 */
@@ -619,7 +601,6 @@ Model TOSGNDN
 
 	ZOffset 54.0
 	AngleOffset 90.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -633,7 +614,6 @@ Model TOSTransporterScanner
 
 	ZOffset 54.0
 	AngleOffset 180.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -658,7 +638,6 @@ Model TOSWallThingEngineering
 	Model 0 "eng_wall_box.md3"
 
 	ZOffset 64.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -673,7 +652,6 @@ Model TOSWallThingEngineering2
 	Model 1 "eng_wall_box_add.md3"
 
 	ZOffset 64.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 A 1 0
@@ -687,7 +665,6 @@ Model TOSLBDN
 
 	ZOffset 32.0
 	AngleOffset 90.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -699,11 +676,6 @@ Model TOSLamp
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "tos_lamp.md3"
-//	Skin 0 "tos_lamp.jpg"
-
-//	Offset 20.0 21.0 48.0
-//	AngleOffset 270.0
-//	Scale 1.3 1.3 1.3
 
 	FrameIndex TOS1 A 0 0
 }
@@ -712,12 +684,9 @@ Model TOSMonitor
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "monitor.md3"
-//	Model 0 "tos_monitor_flash.md3"
-//	Skin 0 "tos_monitor.jpg"
 	Model 1 "monitor_base.md3"
 
 	AngleOffset 180.0
-//	Scale 0.75 0.75 0.75
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 A 1 0
@@ -799,10 +768,9 @@ Model TOSPadd
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "padd.md3"
-//
+
 	ZOffset 1.0
 	AngleOffset 180.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -815,8 +783,6 @@ Model TOSBarrel1
 	Path "Models/mapobjects/tos/"
 	Model 0 "barrel1.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -827,8 +793,6 @@ Model TOSBarrel2
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "barrel2.md3"
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -841,20 +805,16 @@ Model TOSBarrel3
 	Path "Models/mapobjects/tos/"
 	Model 0 "barrel3.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
 Model TOSTurboliftHandle
 {
-	Path "Models/mapobjects/tos/"
+	Path "Models/mapobjects/tos/imports"
 	Model 0 "turbolift_handle.md3"
 	Skin 0 "turbolift_handle.jpg"
 
-//	ZOffset 48.0
 	AngleOffset 180.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -864,27 +824,8 @@ Model TOSWallThing9
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/"
-	Model 0 "wall_decor.md3"
-	Skin 0 "metal.png"
-
-	ZOffset 48.0
-	Scale 0.85 0.85 0.85
-
-	FrameIndex TOS1 A 0 0
-}
-
-Model TOSWallThing10
-{
-	USEACTORPITCH
-	USEACTORROLL
-
-	Path "Models/mapobjects/tos/"
-	Model 0 "wall_decor2.md3"
-	Skin 0 "metal.png"
-
-	ZOffset 64.0
-	Scale 2.0 2.0 2.0
+	Path "Models/mapobjects/tos"
+	Model 0 "wallthing9.md3"
 
 	FrameIndex TOS1 A 0 0
 }
@@ -895,8 +836,6 @@ Model TOSBriefRib
 	Model 0 "brief_rib.md3"
 	Path "Textures/Solid/"
 	Skin 0 "blue.jpg"
-
-//	Scale 1.1 1.1 1.3
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1072,8 +1011,6 @@ Model TOSEngineerConsole
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_con1.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -1082,8 +1019,6 @@ Model TOSEngineeringConsole
 	Path "Models/mapobjects/tos/"
 	Model 0 "engineering_console2.md3"
 	Skin 0 "eng_console1.jpg"
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1095,8 +1030,6 @@ Model TOSEngineeringConsole
 	Model 0 "engineering_console2.md3"
 	Skin 0 "eng_console2.jpg"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 B 0 0
 }
 
@@ -1106,8 +1039,6 @@ Model TOSEngineeringConsole
 	Path "Models/mapobjects/tos/"
 	Model 0 "engineering_console2.md3"
 	Skin 0 "eng_console3.jpg"
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 C 0 0
 }
@@ -1120,7 +1051,6 @@ Model TOSEngineeringPanel
 	Skin 0 "square_panel.jpg"
 
 	ZOffset 48.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1133,8 +1063,6 @@ Model TOSSecurityConsole
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_con2.md3"
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1168,8 +1096,6 @@ Model TOSCrate
 	Path "Models/mapobjects/tos/"
 	Model 0 "crate.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 B 0 2
 	FrameIndex TOS1 C 0 4
@@ -1188,7 +1114,6 @@ Model TOSTapeRack
 	Skin 0 "tapes.jpg"
 
 	ZOffset 2.0
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1200,8 +1125,6 @@ Model TOSWallPipe
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "engwallpipe.md3"
-//	Model 0 "wallpipe.md3"
-//	Skin 0 "wallpipe.jpg"
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1853,7 +1776,7 @@ Model TOSBench
 	Path "Models/mapobjects/tos/"
 	Model 0 "bench.md3"
 
-	Scale 1.4 1.4 1.0
+	Scale 1.0 1.2 1.2
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1879,7 +1802,6 @@ Model Pane
 	Path "Models/mapobjects/tos/"
 	Model 0 "pane.md3"
 
-	Scale 1.0 1.0 1.0
 	FrameIndex TOS1 A 0 0
 }
 
@@ -1891,7 +1813,6 @@ Model Pane2
 	Path "Models/mapobjects/tos/"
 	Model 0 "pane2.md3"
 
-	Scale 1.0 1.0 1.0
 	FrameIndex TOS1 A 0 0
 }
 
@@ -2191,8 +2112,6 @@ Model TOSSickbayBed
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_bed.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -2218,8 +2137,6 @@ Model TOSSickbayCounter2R
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_counter2.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -2244,8 +2161,6 @@ Model TOSSickbayMonitor
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_monitor.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -2257,8 +2172,6 @@ Model TOSSickbayProbe
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_probe.md3"
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -2269,8 +2182,6 @@ Model TOSSickbayTable
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "sickbay_table.md3"
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -2293,8 +2204,6 @@ Model TOSPipe10
 {
 	USEACTORPITCH
 	USEACTORROLL
-
-	Scale 1.0 1.0 1.0
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pipe.md3"
@@ -2668,7 +2577,6 @@ Model WindowPane
 	Path "Models/mapobjects/tos/"
 	Model 0 "pane.md3"
 
-	Scale 1.0 1.0 1.0
 	FrameIndex TOS1 A 0 0
 }
 
@@ -2676,8 +2584,6 @@ Model TOSTubeHatch
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "hatch.md3"
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 B 0 2
@@ -2720,6 +2626,24 @@ Model TOSFlag
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "flag.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFlagArrowhead
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "flag.md3"
+	SurfaceSkin 0 0 "flag_arr.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFlagUFP
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "flag.md3"
+	SurfaceSkin 0 0 "flag_ufp.png"
 
 	FrameIndex TOS1 A 0 0
 }

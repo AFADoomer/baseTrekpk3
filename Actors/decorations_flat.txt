@@ -4,7 +4,7 @@ Actor TOSSpriteDecoration : TOSDecoration
 	-INVULNERABLE
 	-NODAMAGE
 	-DONTTHRUST 
-	+FLATSPRITE
+	+WALLSPRITE
 	+ROLLSPRITE
 	-SOLID
 
@@ -15,7 +15,7 @@ Actor TOSSpriteDecoration : TOSDecoration
 Actor TOSUsableSpriteDecoration : TOSUsableDecoration
 {
 	+NOTAUTOAIMED
-	+FLATSPRITE
+	+WALLSPRITE
 	+ROLLSPRITE
 	-SOLID
 }
@@ -31,7 +31,7 @@ Actor TOSPlantonRedAlert : TOSUsableSpriteDecoration 20217
 		Spawn:
 			PO01 A 1 NoDelay A_SpawnItemEx("TOSRedAlertLight", 120.0, 0.0, 0.0)
 		Static:
-			PO01 A 1 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
+			PO01 A 35 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
 			Loop
 		Alert:
 			PO01 B 35 A_JumpIf(CallACS("A_CheckAlert") < 1, "Static")
@@ -57,7 +57,7 @@ Actor TOSPlantonIntercom : TOSUsableSpriteDecoration 20224
 			PO08 # 0 A_StopSound(CHAN_7)
 			Goto StaticLoop
 		StaticLoop:
-			PO08 # 1 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
+			PO08 # 35 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
 			Loop
 		Alert:
 			PO08 # 0 A_PlaySound("ambient/redalert", CHAN_7, 0.7, 1)

@@ -31,8 +31,6 @@ Model PhotonGrenade
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 
 	Path "Textures/Solid/"
@@ -55,8 +53,6 @@ Model PhotonGrenadeHoming
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
 
-	Scale 1.0 1.0 1.0
-
 	FrameIndex TOS1 A 0 0
 
 	Path "Textures/Solid/"
@@ -71,8 +67,6 @@ Model PhotonGrenadeShadow
 	Path "Models/weapons/"
 	Model 0 "grenade_projectile.md3"
 
-	Scale 1.0 1.0 1.0
-
 	Path "Textures/Solid/"
 	Skin 0 "Blue.jpg"
 
@@ -83,8 +77,6 @@ Model PhotonGrenadeShadow2
 {
 	Path "Models/weapons/"
 	Model 0 "grenade_projectile.md3"
-
-	Scale 1.0 1.0 1.0
 
 	Path "Textures/Solid/"
 	Skin 0 "Yellow.jpg"
@@ -106,8 +98,6 @@ Model DisruptorGrenade
 
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
-
-	Scale 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
 

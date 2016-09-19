@@ -241,7 +241,6 @@ Model TOSPlanet
 	Rotating
 	Rotation-Speed -0.1
 
-//	Scale 0.6 0.6 0.6
 	Scale 15.0 15.0 15.0
 
 	FrameIndex TOS1 B 0 0

@@ -746,17 +746,18 @@ Script "A_Stun" (int time)
 	{
 		If (time == 0) time = 10;
 
-//		Thing_Destroy(ActivatorTID());
 		SetActorState(0, "Death.Stun");
 
 		Delay(35 * time);
 
-		Thing_Raise(ActivatorTID());
-		Thing_ChangeTID(0, 0);
-		SetActorProperty(0, APROP_Health, actor_health);
-		If (!SetActorState(0, "Raise"))
+		If (CheckInventory("Health") > 0)
 		{
-			SetActorState(0, "Spawn");
+			Thing_Raise(ActivatorTID());
+			SetActorProperty(0, APROP_Health, actor_health);
+			If (!SetActorState(0, "Raise"))
+			{
+				SetActorState(0, "Spawn");
+			}
 		}
 	}
 }

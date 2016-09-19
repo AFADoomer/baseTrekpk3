@@ -465,7 +465,6 @@ Actor TOSWallThing : RandomSpawner 20025
 	DropItem "TOSGNDN", 255, 1
 	DropItem "TOSLBDN", 255, 1
 	DropItem "TOSWallThing9", 255, 1
-	DropItem "TOSWallThing10", 255, 1
 }
 
 Actor TOSGNDN : TOSDestroyableDecoration 20026 {Health 100}
@@ -555,7 +554,6 @@ Actor TOSBarrel2 : TOSBarrel1 20042
 }
 
 Actor TOSWallThing9 : TOSDestroyableDecoration 20043 {Health 100}
-Actor TOSWallThing10 : TOSDestroyableDecoration 20044 {Health 100}
 Actor TOSBriefRib : TOSDecoration 20045 { Height 0 }
 Actor TOSBriefTable : TOSDecoration 20046 {}
 Actor TOSEngRib : TOSDecoration 20047 { Height 0 }
@@ -2197,6 +2195,7 @@ Actor TOSTubeHatch : TOSUsableDecoration 20299
 				if (user_open) {
 					return State("Open");
 				} else {
+					A_ChangeFlag("BumpSpecial", FALSE);
 					return State("");
 				}
 			}
@@ -2221,6 +2220,7 @@ Actor TOSTubeHatch : TOSUsableDecoration 20299
 			TOS1 F 0  {
 				A_PlaySound("door/starfleet", CHAN_AUTO, 1.0);
 				A_SetSolid;
+				A_ChangeFlag("BumpSpecial", TRUE);
 				user_open = 0;
 			}
 			TOS1 EDCB 10
@@ -2266,4 +2266,9 @@ Actor TOSFlag : TOSDestroyableDecoration 20305
 {
 	Height 80
 	Radius 8
+
+	-NOGRAVITY
 }
+
+Actor TOSFlagArrowhead : TOSFlag 20312 {}
+Actor TOSFlagUFP : TOSFlag 20313 {}

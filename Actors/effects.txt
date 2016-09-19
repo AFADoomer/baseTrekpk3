@@ -1012,8 +1012,8 @@ Actor LaserBeam
 			TNT1 A 0
 			LAZR A 1 Bright {
 				A_SetPitch(pitch + 270);
-				A_Warp(AAPTR_MASTER, 0, 0, 8, 0, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION | WARPF_BOB, "", 0.5);
-				A_SetPitch(pitch + 270);
+//				A_Warp(AAPTR_MASTER, 0, 0, 8, 0, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION | WARPF_BOB, "", 0.5);
+//				A_SetPitch(pitch + 270);
 			}
 			Stop
 	}
@@ -1038,12 +1038,13 @@ Actor MeasurePuff : BulletPuff
 	-ALLOWPARTICLES
 	+ALWAYSPUFF
 	+PUFFGETSOWNER
+	+INVISIBLE
 
 	States
 	{
 		Spawn:
-			TNT1 A 0 // Don't change this to "TNT1 A 1 NoDelay" - It breaks the phaser beams!
-			TNT1 A 1 {
+			UNKN A 0 // Don't change this to "UNKN A 1 NoDelay" - It breaks the phaser beams!
+			UNKN A 1 {
 				A_SpawnitemEx("NullActor", 0, 0, 0, 0, 0, 0, 0, SXF_ISTRACER | SXF_SETMASTER | SXF_NOCHECKPOSITION);
 				A_TransferPointer(AAPTR_TRACER, AAPTR_TARGET, AAPTR_MASTER, AAPTR_MASTER);
 			}
@@ -1088,7 +1089,7 @@ Actor TOSRedAlertLight : SmallLight 27002
 	States
 	{
 		Spawn:
-			TNT1 A 1 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
+			TNT1 A 35 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
 			Loop
 		Alert:
 			TNT1 A 35 Light("RedAlertLightLarge") A_JumpIf(CallACS("A_CheckAlert") < 1, "Spawn")
@@ -1103,7 +1104,7 @@ Actor TOSRedAlertLightSmall : SmallLight 27001
 	States
 	{
 		Spawn:
-			TNT1 A 1 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
+			TNT1 A 35 A_JumpIf(CallACS("A_CheckAlert") > 0, "Alert")
 			Loop
 		Alert:
 			TNT1 A 35 Light("SmallRedLight") A_JumpIf(CallACS("A_CheckAlert") < 1, "Spawn")

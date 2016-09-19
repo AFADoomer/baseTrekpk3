@@ -1,7 +1,7 @@
 CameraTexture TRICHUDS 250 200
 
 CameraTexture CAMTEX_1 1372 768 fit 159 89 worldpanning
-CameraTexture CAMTEX_2 1372 768 fit 159 89 worldpanning
+CameraTexture CAMTEX_2 1372 768 fit 300 200 worldpanning
 CameraTexture CAMTEX_3 1372 768 fit 159 89 worldpanning
 
 CameraTexture TITLECAM 1280 960 fit 1280 960
