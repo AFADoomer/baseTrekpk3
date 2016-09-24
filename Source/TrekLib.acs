@@ -1188,7 +1188,7 @@ Script "PrintScan" (int filter)
 
 	If (TID != 0)
 	{
-		If (GetCVar("debug") > 0)
+		If (GetCVar("g_debug") > 0)
 		{
 			HudMessageOnActor(TID, ScanRange, GetActorClass(TID), 0, 0, "SUPBOLAA", 3);
 		}
@@ -1571,7 +1571,14 @@ Script "A_CheckNavDir" (void)
 
 Script "A_CheckAlert" (void)
 {
-	SetResultValue(RedAlert);
+	int intDelay = 6 * 35;
+
+	If (RedAlert)
+	{
+		SetResultValue(intDelay - (Timer() % intDelay));
+	}
+	Else
+		SetResultValue(0);
 }
 
 // Ship Scripts
@@ -2040,7 +2047,7 @@ Script "A_SetupThing" (void)
 	If (StrCmp(strData, strLookup) != 0)
 		SetActorProperty(0, APROP_NameTag, strData);
 	Else
-		If (GetCVar("debug") > 0) SetActorProperty(0, APROP_NameTag, strLookup);
+		If (GetCVar("g_debug") > 0) SetActorProperty(0, APROP_NameTag, strLookup);
 }
 
 Script "RollActor" (int TID, int angle, int tics)

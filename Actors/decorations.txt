@@ -135,6 +135,7 @@ Actor TOSDecoration
 	Mass 999999
 	Species "Decoration"
 	DeathSound "effects/explosion/debris"
+	Tag ""
 	States
 	{
 		Spawn:
@@ -248,6 +249,8 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 	Height 0
 	Radius 0
 	Mass 999999
+	Tag ""
+
 	States
 	{
 		Spawn:
@@ -263,6 +266,7 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 					A_SpawnItemEx ("1x1Bounding", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERSCALE | SXF_SETMASTER);
 					A_SetScale(user_scaleX, user_scaleY);
 				}
+				if (special > 0) { A_ChangeFlag("NOTAUTOAIMED", FALSE); }
 				return State("Static");
 			}
 		Static:

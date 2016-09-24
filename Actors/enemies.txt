@@ -9,6 +9,8 @@ ACTOR TrekEnemy
 	var int user_Width;
 	var int user_Height;
 	var int user_Uses;
+	var int user_Float;
+	var int user_Speed;
 
 	MONSTER 
 	+FLOORCLIP
@@ -32,15 +34,28 @@ ACTOR TrekEnemy
 	States
 	{
 		Spawn:
-			UNKN A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
-			UNKN A 0 ACS_NamedExecuteAlways("A_SetupThing",0)
+			UNKN A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				ACS_NamedExecuteAlways("A_SetupThing",0);
+			}
 			"####" # 0 A_Jump(256, "Stand")
 		Stand:
 			"####" A 0 A_SetUserVar("user_State", 2)
 			"####" A 1 A_LookEx (0, 0, 0, 2048, 0, "Chase")
 			Loop
 		Chase:
-			"####" A 0 A_SetUserVar("user_State", 1)
+			"####" A 0 {
+				A_SetUserVar("user_State", 1);
+				if (waterlevel > 2) {
+					A_ChangeFlag("FLOAT", "TRUE");
+					A_ChangeFlag("NOGRAVITY", "TRUE");
+				} else {
+					if (!user_Float) {
+						A_ChangeFlag("FLOAT", "FALSE");
+						A_ChangeFlag("NOGRAVITY", "FALSE");
+					}
+				}
+			}
 			"####" AAAAA 1 A_Chase
 			"####" AA 1
 			"####" BBBB 1 A_Chase
@@ -98,7 +113,10 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 	States
 	{
 		Spawn:
-			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				user_Speed = speed;
+			}
 			"####" # 0 A_GiveInventory("TransportK", 1)
 			"####" A 0 A_SpawnItemEx("TransporterEffectK")
 			"####" A 105
@@ -113,7 +131,18 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 			"####" CC 1
 			"####" DDDD 1 A_Chase ("", "")
 		Chase:
-			"####" # 0 A_SetUserVar("user_State", 1)
+			"####" A 0 {
+				A_SetUserVar("user_State", 1);
+				if (waterlevel > 1) {
+					A_ChangeFlag("FLOAT", "TRUE");
+					Speed == speed / 2;
+					A_NoGravity;
+				} else {
+					A_ChangeFlag("FLOAT", "FALSE");
+					Speed == user_Speed;
+					A_Gravity;
+				}
+			}
 			"####" # 0 ACS_NamedExecuteAlways("A_CheckFrightened")
 			"####" AAAAA 1 A_Chase
 			"####" AA 1
@@ -125,7 +154,14 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 			Goto Chase
 		Melee:
 		Missile:
-			"####" EE 3 A_FaceTarget
+			"####" EE 3 {
+				A_FaceTarget;
+				if (waterlevel > 1) {
+					return State("Chase");
+				} else {
+					return State("");
+				}
+			}
 			"####" # 0 A_CheckLOF("Fire", CLOFF_JUMP_ON_MISS)
 			Goto Return
 		Fire:
