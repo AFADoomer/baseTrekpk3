@@ -135,7 +135,6 @@ Actor TOSDecoration
 	Mass 999999
 	Species "Decoration"
 	DeathSound "effects/explosion/debris"
-	Tag ""
 	States
 	{
 		Spawn:
@@ -249,7 +248,6 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 	Height 0
 	Radius 0
 	Mass 999999
-	Tag ""
 
 	States
 	{
@@ -2276,3 +2274,7 @@ Actor TOSFlag : TOSDestroyableDecoration 20305
 
 Actor TOSFlagArrowhead : TOSFlag 20312 {}
 Actor TOSFlagUFP : TOSFlag 20313 {}
+Actor TOSBlueSupport : TOSDecoration 20314 {Height 96 Radius 16 +SOLID Tag "Support Column (Blue)"}
+Actor TOSSupport : TOSDecoration 20315 {Height 96 Radius 16 +SOLID Tag "Support Column (Red)"}
+
+Actor TOSSink : TOSUsableDecoration 20316 {}

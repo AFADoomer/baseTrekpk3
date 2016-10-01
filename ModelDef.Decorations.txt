@@ -2647,3 +2647,39 @@ Model TOSFlagUFP
 
 	FrameIndex TOS1 A 0 0
 }
+
+Model TOSBlueSupport
+{
+	Path "models/mapobjects/tos"
+	Model 0 "support.md3"
+
+	Path "Textures/Solid/"
+	SurfaceSkin 0 0 "blue.jpg"
+
+	Scale 1.5 1.5 1.5
+	Offset -30.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSupport
+{
+	Path "models/mapobjects/tos"
+	Model 0 "support.md3"
+
+	Path "Textures/Enterprise/Walls"
+	SurfaceSkin 0 0 "walltop.jpg"
+
+	Scale 1.5 1.5 1.5
+	Offset -30.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSink
+{
+	Path "models/mapobjects/tos"
+	Model 0 "sink.md3"
+
+	FrameIndex TOS1 A 0 0
+}

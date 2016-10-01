@@ -1037,3 +1037,10 @@ Texture ENG_WALL, 360, 244
 	YScale 5.0
 	Patch ENG_WALL, 0, 0
 }
+
+Texture WALL_S, 512, 512
+{
+	XScale 4.0
+	YScale 4.0
+	Patch SHOWER, 0, 0
+}
