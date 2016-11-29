@@ -1,0 +1,122 @@
+/*
+  "Block" actors spawned to emulate collision detection for 3D models
+*/
+
+class Block1x1 : SwitchableDecoration
+{
+	int user_w;
+	bool bDrawn;
+
+	Default
+	{
+		+NOGRAVITY
+		+SOLID
+		+SHOOTABLE
+		+NOBLOOD
+		+NODAMAGE
+		+DONTTHRUST
+		+NOTAUTOAIMED
+		+ACTLIKEBRIDGE
+		+ALLOWPAIN
+		Painchance 255;
+		Radius 1;
+		Height 1;
+		Species "Block";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 1 NoDelay {
+				if (GetCVar("g_bounding") > 0) {
+					return ResolveState("Spawn.Bounding");
+				} else {
+					return ResolveState(null);
+				}
+			}
+			Goto Spawn.Resume;
+		Spawn.Bounding:
+			TOS1 A 1 {
+				If (Radius > 1 && !bDrawn) {
+					A_SetScale(Radius * 2, Height * 1.2);
+					A_SpawnItemEx("Block1x1", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERPOINTERS | SXF_TRANSFERSCALE | SXF_ABSOLUTEANGLE);
+					bDrawn = True;
+				}
+			}
+			Goto Spawn.Resume;
+		Spawn.Resume:
+			"####" # 35 BRIGHT;
+			Goto Spawn;
+		Pain:
+			TNT1 A 0 A_DamageMaster(1);
+			Goto Spawn;
+		Pain.Stun:
+			TNT1 A 0;
+			Goto Spawn;
+		Pain.Phaser:
+			TNT1 A 0 A_DamageMaster(1, "Phaser");
+			Goto Spawn;
+		Pain.PhaserRifle:
+			TNT1 A 0 A_DamageMaster(3, "PhaserRifle");
+			Goto Spawn;
+		Pain.Disruptor:
+			TNT1 A 0 A_DamageMaster(5, "Disruptor");
+			Goto Spawn;
+		Death:
+			TNT1 A 0 A_RemoveChildren(TRUE, RMVF_MISC, "None", "Block");
+			Stop;
+	}
+
+}
+
+class Block1x1Bounding : Block1x1 { Default { -SOLID } }
+
+class Block : Block1x1 { Default { Radius 2; Height 8; +INVISIBLE } }
+class Block2x2 : Block { Default { Radius 2; Height 2; } }
+class Block2x16 : Block { Default { Radius 2; Height 16; } }
+class Block4 : Block { Default { Radius 4; Height 8; } }
+class Block8 : Block { Default { Radius 8; Height 8; } }
+class Block8x1 : Block { Default { Radius 8; Height 1; } }
+class Block12 : Block { Default { Radius 12; Height 12; } }
+class Block16 : Block { Default { Radius 16; Height 16; } }
+class Block24 : Block { Default { Radius 24; Height 24; } }
+class Block25 : Block { Default { Radius 25;  Height 25; } }
+class Block32 : Block { Default { Radius 32; Height 32; } }
+class Block48 : Block { Default { Radius 48; Height 48; } }
+class Block64 : Block { Default { Radius 64; Height 64; } }
+class Block64x8 : Block { Default { Radius 64; Height 8; } }
+class Block28x16 : Block { Default { Radius 28; Height 16; } }
+class Block12x54 : Block { Default { Radius 12; Height 54; -NOGRAVITY } }
+class Block10x32 : Block { Default { Radius 10; Height 32; -NOGRAVITY } }
+class Block16x56 : Block { Default { Radius 16; Height 56; -NOGRAVITY } }
+class Block20x128 : Block { Default { Radius 20; Height 128; -NOGRAVITY } }
+class Block22x1 : Block { Default { Radius 22; Height 1; } }
+class Block27x1 : Block { Default { Radius 27; Height 1; } }
+class Block24x32 : Block { Default { Radius 24; Height 32; } }
+
+class ShuttleBlock1 : Block { Default { -ACTLIKEBRIDGE Radius 50; Height 75; } }
+class ShuttleBlock2 : ShuttleBlock1 { Default { Radius 50; Height 65; } }
+class ShuttleBlock3 : ShuttleBlock1 { Default { Radius 50; Height 55; } }
+class ShuttleBlock4 : ShuttleBlock1 { Default { Radius 50; Height 45; } }
+class ShuttleBlock5 : ShuttleBlock1 { Default { Radius 50; Height 35; } }
+class ShuttleBlock6 : ShuttleBlock1 { Default { Radius 50; Height 25; } }
+class ShuttleBlock7 : ShuttleBlock1 { Default { Radius 70; Height 42; } }
+class ShuttleBlock8 : ShuttleBlock1 { Default { Radius 16; Height 24; } }
+
+/*
+class TestBlock : Block
+{
+	Default
+	{
+		Radius 8;
+		Height 32;
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay { user_w = 32; }
+			Goto Super::Spawn;
+	}
+}
+*/
+
+class GangwayStep : Block8x1 {}

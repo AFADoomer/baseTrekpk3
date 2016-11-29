@@ -211,13 +211,14 @@ Actor LaserTrail
 	}
 }
 
-Actor LensFlare 27000
+Actor LensFlare
 {
 	Radius 0
 	Height 0
 	+NOBLOCKMAP
 	+NOGRAVITY
 	- SOLID
+	+FORCEXYBILLBOARD
 	RenderStyle Add
 	Alpha 0.2
 	States
@@ -228,13 +229,14 @@ Actor LensFlare 27000
 	}
 }
 
-Actor SunFlare 27003
+Actor SunFlare
 {
 	Radius 0
 	Height 0
 	+NOBLOCKMAP
 	+NOGRAVITY
 	-SOLID
+	+FORCEXYBILLBOARD
 	RenderStyle Add
 	Alpha 0.5
 	States
@@ -245,6 +247,25 @@ Actor SunFlare 27003
 	}
 }
 
+Actor MarkerFlare
+{
+	Radius 0
+	Height 0
+	+NOBLOCKMAP
+	+NOGRAVITY
+	-SOLID
+	+FORCEXYBILLBOARD
+	RenderStyle Add
+	Alpha 0.5
+	States
+	{
+		Spawn:
+			FLAR R -1 Bright
+			Stop
+	}
+}
+
+
 Actor WarpFlash
 {
 	Radius 0
@@ -252,6 +273,7 @@ Actor WarpFlash
 	+NOBLOCKMAP
 	+NOGRAVITY
 	-SOLID
+	+FORCEXYBILLBOARD
 	RenderStyle Add
 	Alpha 0.99
 	States
@@ -269,6 +291,7 @@ Actor Flare
 	+NOBLOCKMAP
 	+NOGRAVITY
 	- SOLID
+	+FORCEXYBILLBOARD
 	RenderStyle Add
 	Alpha 0.7
 	States
@@ -744,7 +767,7 @@ Actor HINT
 	}
 }
 
-Actor StarField 24000
+Actor StarField
 {
 	var int user_duration;
 	var int user_color;
@@ -858,7 +881,7 @@ Actor StarField 24000
 	}
 }
 
-Actor StarScreen 24001
+Actor StarScreen
 {
 	var int user_duration;
 	var int user_color;
@@ -1086,7 +1109,7 @@ Actor SmallGreenLight : SmallLight {}
 Actor SmallBlueLight : SmallLight {}
 Actor SmallPurpleLight : SmallLight {}
 
-Actor TOSRedAlertLight : SmallLight 27002
+Actor TOSRedAlertLight : SmallLight
 {
 	var int user_delay;
 
@@ -1111,7 +1134,7 @@ Actor TOSRedAlertLight : SmallLight 27002
 	}
 }
 
-Actor TOSRedAlertLightSmall : SmallLight 27001
+Actor TOSRedAlertLightSmall : SmallLight
 {
 	var int user_delay;
 
@@ -1136,17 +1159,17 @@ Actor TOSRedAlertLightSmall : SmallLight 27001
 	}
 }
 
-Actor TOSFollowerCamera : TOSFollower 27004
+Actor TOSFollowerCamera : TOSFollower
 {
 	States
 	{
 		Spawn:
 			TNT1 A 1 NoDelay {
 				CountProximity("TOSOrbit", 512, CPXF_SETMASTER | CPXF_CLOSEST | CPXF_ANCESTOR);
-				user_xOffset = -96;
-				user_yOffset = -96;
-				user_zOffset = 32;
+				user_xOffset = -96.0;
+				user_yOffset = -96.0;
+				user_zOffset = 32.0;
 			}
-			Goto Static
+			Goto Initial
 	}
 }

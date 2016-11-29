@@ -1,0 +1,527 @@
+class DestroyableDecoration : Decoration
+{
+	//$Sprite TOS1A0
+	Default
+	{
+		-INVULNERABLE
+		-NODAMAGE
+		-DONTTHRUST 
+		Health 10;
+		Mass 50;
+	}
+}
+
+class TOSChair : DestroyableDecoration
+{
+	Default
+	{
+		+PUSHABLE
+		+SLIDESONWALLS
+		+SOLID
+		-NOGRAVITY
+		Height 18;
+		Radius 14;
+		Health 99;
+		Mass 50;
+		Tag "Chair";
+	}
+	States
+	{
+		Initial:
+			TOS1 A 1 {
+				A_SpawnItemEx ("Block4", -16.0, 0.0, 33.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block4", -16.0, 0.0, 26.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block4", -16.0, 0.0, 18.0, 0, 0, 0, 0, SXF_SETMASTER);
+			}
+			Goto Super::Initial;
+		Moved:
+			TOS1 A 1 {
+				A_RemoveChildren(TRUE, RMVF_EVERYTHING);
+				if (health > 0) {
+					A_SpawnItemEx ("Block4", -16.0, 0.0, 33.0, 0, 0, 0, 0, SXF_SETMASTER);
+					A_SpawnItemEx ("Block4", -16.0, 0.0, 26.0, 0, 0, 0, 0, SXF_SETMASTER);
+					A_SpawnItemEx ("Block4", -16.0, 0.0, 18.0, 0, 0, 0, 0, SXF_SETMASTER);
+				}
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSMonitor : DestroyableDecoration { Default { +SOLID +CANPASS -NOGRAVITY Height 16; Radius 3; Tag "Monitor"; } }
+class TOSWallThing1 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing2 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing3 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing4 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing5 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing6 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing7 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing8 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThingAtmospheric : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThingHangar : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThingamajig : DestroyableDecoration { Default { Health 100; } }
+
+class TOSCeilingPipes : DestroyableDecoration
+{
+	Default
+	{
+		+SPAWNCEILING
+		Height 0;
+		Radius 32;
+		DeathSound "effects/explosion/debris/large";
+	}
+}
+
+class TOSGNDN : DestroyableDecoration { Default { Health 100; } }
+class TOSTransporterScanner : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThingEngineering : DestroyableDecoration { Default { Health 100; } }
+class TOSLBDN : DestroyableDecoration { Default { Health 100; } }
+class TOSLamp : DestroyableDecoration { Default { +NOBLOCKMAP } }
+class TOSPadd : DestroyableDecoration { Default { +SOLID +CANPASS -NOGRAVITY Height 2; Radius 4; } }
+
+class TOSBarrel1 : DestroyableDecoration
+{
+	Default
+	{ 
+		+SOLID
+		+CANPASS
+		-NOGRAVITY
+		-NOTAUTOAIMED
+		Height 44;
+		Radius 8;
+		Health 99;
+		Mass 150;
+		Tag "Cargo (Barrel)";
+	}
+}
+
+class TOSBarrel2 : TOSBarrel1
+{
+	Default
+	{ 
+		Height 28;
+		Radius 5;
+	}
+}
+
+class TOSWallThing9 : DestroyableDecoration { Default { Health 100; } }
+class TOSTapeRack : DestroyableDecoration { Default { +SOLID +CANPASS -NOGRAVITY Height 3; Radius 4; } }
+class TOSEngWallThing1 : DestroyableDecoration { Default { Health 100; } }
+class TOSPipe1 : DestroyableDecoration { Default { Height 96; Health 100; DeathSound "effects/explosion/debris/large"; } }
+class TOSPipe2 : TOSPipe1 { Default { Health 100; } }
+class TOSGrate : DestroyableDecoration {}
+class TOSEngWallThing2 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing3 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing4 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing5 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing6 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing7 : DestroyableDecoration { Default { Health 100; } }
+class TOSPipe3 : TOSPipe1 { Default { Health 100; } }
+class TOSPipe4 : TOSPipe1 { Default { Health 100; } }
+class TOSPipe5 : TOSPipe1 { Default { Health 100; } }
+class TOSPipe6 : TOSPipe1 { Default { Health 100; } }
+class TOSChair2 : TOSChair { Default { Tag "Chair with Arms"; } }
+class TOSDeskIntercom : DestroyableDecoration { Default { +SOLID +CANPASS -NOGRAVITY Height 2; Radius 2; } }
+class TOSBurkeChair : TOSChair { Default { Tag "Old-style Chair"; } }
+class TOSPipe8 : TOSPipe1 {}
+class TOSEngWallThing8 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing9 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing10 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing11 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing11 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing12 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing13 : DestroyableDecoration { Default { Health 100; } }
+class TOSEngWallThing12 : DestroyableDecoration { Default { Health 100; } }
+class TOSWallThing14 : DestroyableDecoration { Default { Health 100; } }
+class TOSMonitorSwivel : DestroyableDecoration { Default { +SOLID +CANPASS -NOGRAVITY Height 16; Radius 3; Tag "Monitor"; } }
+class TOSMonitorBase : DestroyableDecoration { Default { +SOLID +CANPASS -NOGRAVITY Height 0; Radius 2; } }
+class TOSMonitorBase1 : TOSMonitorBase {}
+class TOSMonitorBase2 : TOSMonitorBase {}
+class TOSMonitorBase3 : TOSMonitorBase {}
+class TOSMonitorBase4 : TOSMonitorBase {}
+class TOSComputerB : TOSComputer {}
+class TOSComputerC : TOSComputer {}
+class TOSComputerD : TOSComputer {}
+class TOSComputer2B : TOSComputer2 {}
+class TOSComputer2C : TOSComputer2 {}
+class TOSComputer3 : TOSComputer2 {}
+class TOSComputer3B : TOSComputer2 {}
+class TOSCeilingPipes2 : TOSCeilingPipes {}
+class TOSCeilingPipes3 : TOSCeilingPipes {}
+class TOSWallBoard : DestroyableDecoration  {}
+class TOSGymApparatus : DestroyableDecoration {}
+class TOSGymBar : DestroyableDecoration {}
+class TOSGymBar2 : DestroyableDecoration {}
+class TOSGymBar3 : DestroyableDecoration {}
+
+class TOSBarrel3 : TOSBarrel1
+{
+	Default
+	{
+		Height 28;
+		Radius 10;
+		Health 150;
+		Tag "Cargo (Volatile Material Container)";
+		DeathSound "effects/explosion";
+	}
+	States
+	{
+		DeathResume:
+			"####" # 15 {
+				A_PlaySound("effects/explosion/distance", CHAN_AUTO, 1.0, 0, ATTN_NONE);
+				A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0);
+				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor);
+				A_Scream();
+				A_Quake(4, 15, 48, 256);
+				A_Explode();
+				bNOGRAVITY = False;
+				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetRoll(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SpawnItemEx("ExplosionSphereYellow", 0, 0, 0, 0, 0, 0, 0);
+				A_SpawnItemEx("ExplosionSphereBlue", 0, 0, 0, 0, 0, 0, 0);
+			}
+			Stop;
+	}
+}
+
+class TOSPipe9 : TOSPipe1 {}
+class TOSPipe10 : TOSPipe1 {}
+class TOSWallThingEngineering2 : DestroyableDecoration { Default { Health 100; } }
+class TOSChair3 : TOSChair {}
+class TOSConferenceViewer : DestroyableDecoration { Default {+SOLID +CANPASS -NOGRAVITY Height 8; Radius 4; } }
+
+class TOSFoodTray : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		+CANPASS
+		-NOGRAVITY
+		Height 0;
+		Radius 8;
+		Mass 20;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSFoodCup", -1.0, RandomPick(Random(0.0, -5.0), Random(-11.0, -16.0)), 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSFoodFood", 0.0, 0.0, 0.0, 0, 0, 0, Random(0.0, 359.0), SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSFoodNapkin", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSFoodUtensils", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSFoodCup : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		+CANPASS
+		-NOGRAVITY
+		Height 0;
+		Radius 2;
+		Mass 10;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSFoodDrink", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSFoodDrink : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		+CANPASS
+		-NOGRAVITY
+		Height 0;
+		Radius 4;
+		Mass 10;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 0 A_Jump(233, "Spawn1", "Spawn2", "Spawn3", "Spawn4");
+		Spawn0:
+			TNT1 A 1;
+			Goto Super::Initial;
+		Spawn1:
+			TOS1 A 1;
+			Goto Super::Initial;
+		Spawn2:
+			TOS1 B 1;
+			Goto Super::Initial;
+		Spawn3:
+			TOS1 C 1;
+			Goto Super::Initial;
+		Spawn4:
+			TOS1 D 1;
+			Goto Super::Initial;
+	}
+}
+
+class TOSFoodNapkin : TOSFoodDrink {}
+class TOSFoodUtensils : TOSFoodDrink {}
+class TOSFoodFood : TOSFoodDrink
+{
+	States
+	{
+		Initial: 
+			TOS1 A 0 A_Jump(233, "Spawn1", "Spawn2", "Spawn3", "Spawn4");
+			Goto Super::Initial;
+	}
+}
+
+class TOSChessSmall : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		RenderStyle'STYLE_Translucent';
+		Alpha 0.8;
+		Height 4;
+		Radius 2;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 1 {
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", -0.75, 0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) < 33) {
+					A_SpawnItemEx ("TOSChessPiece", 0.75, -0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSChessLarge : DestroyableDecoration 
+{
+	Default
+	{
+		+SOLID
+		RenderStyle'STYLE_Translucent';
+		Alpha 0.8;
+		Height 0;
+		Radius 8;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 1 {
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessSmall", RandomPick(1, -1) * 3.6, RandomPick(1, -1) * 3.6, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) < 33) {
+					A_SpawnItemEx ("TOSChessSmall", RandomPick(1, -1) * 3.6, RandomPick(1, -1) * 3.6, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSChessLargeSingle : DestroyableDecoration
+{
+	int user_piececount;
+
+	Default
+	{
+		+SOLID
+		RenderStyle'STYLE_Translucent';
+		Alpha 0.8;
+		Height 0;
+		Radius 8;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 1 {
+				for (user_piececount = 0; user_piececount < 8; user_piececount = user_piececount + 1) {
+					if (Random(0, 100) > 33) {
+						A_SpawnItemEx ("TOSChessPiece", RandomPick(-3, -1, 1, 3), RandomPick(-3, -1, 1, 3), 0.05, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+					}
+				}
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSChess : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		+CANPASS
+		+SOLID
+		-NOGRAVITY
+		Height 0;
+		Mass 99999;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 10;
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSChessLarge", 6.05, 0.0, 4.3, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSChessLarge", -0.4, 0.0, 11.8, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSChessLargeSingle", -6.85, 0.0, 19.3, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSCheckersSmall : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		RenderStyle'STYLE_Translucent';
+		Alpha 0.8;
+		Height 4;
+		Radius 2;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 1 {
+				if (Random(0, 100) > 33) {
+					A_SpawnItemEx ("TOSCheckersPiece", -0.75, 0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+				if (Random(0, 100) < 33) {
+					A_SpawnItemEx ("TOSCheckersPiece", 0.75, -0.75, 3.35, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				}
+		}
+		Goto Super::Initial;
+	}
+}
+
+class TOSCheckers : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		+CANPASS
+		-NOGRAVITY
+		Height 0;
+		Mass 99999;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 10;
+			TOS1 A 1 {
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, 3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, 3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, 3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, -3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, -3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", 3.6, -3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, 3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, 3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, 3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, -3.6, 0.2, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, -3.6, 3.4, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+				A_SpawnItemEx ("TOSCheckersSmall", -3.6, -3.6, 6.6, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSChessPiece : DestroyableDecoration
+{
+	Default
+	{
+		Height 2;
+	}
+	States
+	{
+		Initial:
+			TOS1 A 0 A_SetScale(FRandom(0.5, 1.0), FRandom(0.5, 2.0));
+			TOS1 A 0 A_Jump(256, "WhiteA", "BlackA", "WhiteB", "BlackB", "WhiteC", "BlackC");
+		WhiteA:
+			TOS1 B 1;
+			Goto Super::Initial;
+		BlackA:
+			TOS1 A 1;
+			Goto Super::Initial;
+		WhiteB:
+			TOS1 D 1;
+			Goto Super::Initial;
+		BlackB:
+			TOS1 C 1;
+			Goto Super::Initial;
+		WhiteC:
+			TOS1 F 1;
+			Goto Super::Initial;
+		BlackC:
+			TOS1 E 1;
+			Goto Super::Initial;
+	}
+}
+
+class TOSCheckersPiece : DestroyableDecoration
+{
+	Default
+	{
+		Height 1;
+	}
+	States
+	{
+		Initial:
+			TOS1 A 0 A_Jump(256, "Red", "Black");
+		Red:
+			TOS1 B 1;
+			Goto Super::Initial;
+		Black:
+			TOS1 A 1;
+			Goto Super::Initial;
+	}
+}
+
+class TOSFlag : DestroyableDecoration
+{
+	Default
+	{
+		-NOGRAVITY
+		Height 80;
+		Radius 8;
+	}
+}
+
+class TOSFlagArrowhead : TOSFlag {}
+class TOSFlagUFP : TOSFlag {}
+class TOSLamp2 : DestroyableDecoration { Default { +NOBLOCKMAP } }

@@ -1,0 +1,6 @@
+zscript/decorations/blocks.txt
+zscript/decorations/static.txt
+zscript/decorations/usable.txt
+zscript/decorations/destroyable.txt
+zscript/decorations/redalert.txt
+zscript/decorations/orbiters.txt

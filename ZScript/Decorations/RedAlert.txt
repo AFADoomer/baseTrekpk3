@@ -1,0 +1,140 @@
+class AlertChecker : UsableDecoration {bool bActive;}
+
+class TOSHelmConsole : AlertChecker
+{
+	Default
+	{
+		+NOTAUTOAIMED
+		Height 20;
+		Radius 32;
+		Tag "Helm Console";
+	}
+	States
+	{
+		Inactive:
+			TOS1 A 30 A_CheckAlert();
+			Loop;
+		Alert:
+			TOS1 BA 30 A_CheckAlert();
+			Loop;
+	}
+}
+
+
+class TOSHelmConsolePilot : AlertChecker
+{
+	Default
+	{
+		+NOTAUTOAIMED
+		Height 20;
+		Radius 32;
+		Tag "Helm Console";
+	}
+	States
+	{
+		Inactive:
+			TOS1 A -1;
+			Stop;
+	}
+}
+
+class TOSBridgeConsole7 : AlertChecker
+{
+	Default
+	{
+		Tag "Console";
+	}
+	States
+	{
+		Inactive:
+			TOS1 A 35 A_CheckAlert();
+			Loop;
+		Alert:
+			TOS1 B 35 A_CheckAlert();
+			Loop;
+	}
+}
+
+class TOSPlantonRedAlert : AlertChecker
+{
+	//$Sprite PO01A0
+	//$Title "Wall Planton: RedAlert" 
+	Default
+	{
+		+NOTAUTOAIMED
+		+WALLSPRITE
+		+ROLLSPRITE
+		-SOLID
+		+SYNCHRONIZED
+		Height 16;
+	}
+	States
+	{
+		Spawn:
+			PO01 A 1 NoDelay A_SpawnItemEx("TOSRedAlertLight", 120.0, 0.0, 0.0);
+		Inactive:
+			PO01 A 35 A_CheckAlert();
+			Loop;
+		Alert:
+			PO01 BA 35 A_CheckAlert();
+			Loop;
+	}
+}
+
+class TOSPlantonIntercom : AlertChecker
+{
+	//$Sprite PO08A0
+	//$Title "Wall Planton: Intercom (Large)"
+	Default
+	{
+		+NOTAUTOAIMED
+		+WALLSPRITE
+		+ROLLSPRITE
+		-SOLID
+		+SYNCHRONIZED
+		Height 18;
+		Radius 8;
+		Activation 1024; //THINGSPEC_Switch;
+	}
+	States
+	{
+		Spawn:
+			PO08 A 1 NoDelay A_SpawnItemEx("TOSRedAlertLightSmall", 32.0, 0.0, 18.0);
+		InactiveLoop:
+			PO08 # 35 A_CheckAlert();
+			Loop;
+		Alert:
+			PO08 BA 35 {
+				A_PlaySound("ambient/redalert", CHAN_7, 0.7, 1);
+				A_CheckAlert();
+			}
+			Loop;
+		Alert.End:
+			PO08 # 0 A_StopSound(CHAN_7);
+			Goto InactiveLoop;
+		Active:
+		Inactive:
+			PO01 # 0 A_PlaySound("intercom", CHAN_AUTO, 1.0);
+			Goto InactiveLoop;
+	}
+}
+
+extend class AlertChecker
+{
+	void A_CheckAlert()
+	{
+		int alertDelay = CallACS("A_CheckAlert");
+
+		if (alertDelay > 0 && !bActive)
+		{
+			bActive = True;
+			A_SetTics(alertDelay);
+			SetStateLabel("Alert");
+		}
+		else if (alertDelay <= 0 && bActive)
+		{
+			bActive = False;
+			SetStateLabel("Inactive");
+		}
+	}
+}

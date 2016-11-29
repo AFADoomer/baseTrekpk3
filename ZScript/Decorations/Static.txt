@@ -1,0 +1,860 @@
+class Decoration : SwitchableDecoration
+{
+	int user_uses;
+	int user_width;
+	int user_height;
+	int user_disintegrationcolor;
+	double user_scaleX;
+	double user_scaleY;
+	int user_destroyed;
+	int user_fadeincount;
+
+	Default
+	{
+		+NOGRAVITY
+		-SOLID
+		+SHOOTABLE
+		+NOBLOOD
+		+INVULNERABLE
+		+NODAMAGE
+		+DONTTHRUST
+		+NOTAUTOAIMED
+		Height 16;
+		Radius 8;
+		Health 99999;
+		Mass 999999;
+		Species "Decoration";
+		DeathSound "effects/explosion/debris";
+	}
+	States
+	{
+		Spawn:
+			TOS1 A 1;
+			#### # 0 {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				ACS_NamedExecuteAlways("A_SetupThing",0);
+				user_uses = args[0] || args[2];
+				user_scaleX = Scale.X;
+				user_scaleY = Scale.Y;
+				if (GetCVar("g_bounding") && bSolid) {
+					Scale.X = Radius * 2;
+					Scale.Y = Height * 2;
+					A_SpawnItemEx("Block1x1Bounding", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERSCALE | SXF_SETMASTER);
+					Scale.X = user_scaleX;
+					Scale.Y = user_scaleY;
+				}
+				if (bNoGravity = TRUE) {
+					bDontThrust = TRUE;
+					bPushable = FALSE;
+				}
+				return ResolveState("Initial");
+			}
+		Pain.Stun:
+		Active:
+			#### # 0 { return ResolveState("Inactive"); }
+		Inactive:
+		Initial:
+			#### # 5 {
+				if (vel.x != 0 || vel.y != 0 || vel.z != 0) {
+					return ResolveState("Moved");
+				} else {
+					return ResolveState(null);
+				}
+			}
+			Loop;
+		Pain:
+			#### # 5 {
+				A_Quake(int(Radius) / 16, int(Radius) / 3, int(Radius), int(Radius) * 3);
+				A_Explode(int(Radius) / 16, int(Radius) / 2, 0, 1);
+				A_SetScale(Radius / 32.0);
+				if (!user_destroyed && (GetSpawnHealth() >= 300 / user_scalex)) {
+					A_SpawnItemEx("FireSpawner", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				} else if (GetSpawnHealth() >= 100 / user_scalex) {
+					A_SpawnItemEx("FlareUp", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				}
+				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SetScale(1.0);
+				user_destroyed == 1;
+			}
+			Goto Initial;
+		Moved:
+			#### # 5 A_Gravity;
+			Goto Initial;
+		Death:
+			#### # 0 {
+				user_disintegrationcolor = 16711590;
+				A_KillChildren();
+			}
+			#### # 0 A_Jump(256, "DeathResume");
+		Death.Phaser:
+			#### # 0 {
+				user_disintegrationcolor = 10803452;
+				A_KillChildren("Phaser");
+			}
+			#### # 0 A_Jump(256, "DeathResume");
+		Death.PhaserRifle:
+			#### # 0 {
+				user_disintegrationcolor = 16557295;
+				A_KillChildren("PhaserRifle");
+			}
+			#### # 0 A_Jump(256, "DeathResume");
+		Death.Disruptor:
+			#### # 0 {
+				user_disintegrationcolor = 2620994;
+				A_KillChildren("Disruptor");
+			}
+			#### # 0 A_Jump(256, "DeathResume");
+		DeathResume:
+			#### # 45 {
+				if (Radius >= 16) {
+					A_Scream();
+				}
+				A_RemoveChildren(TRUE, RMVF_MISC, "None", "Block");
+				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor, 1);
+				bNoGravity = False;
+				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetRoll(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+			}
+			Stop;
+	}
+}
+
+class TOSBridgeRailing : Decoration
+{
+	Default
+	{
+		Height 32;
+		Radius 16;
+		Tag "Railing";
+	}
+}
+
+class TOSCaptainChair : Decoration { Default { Height 20; Radius 16; Tag "Captain's Chair"; } }
+
+class TOSSteps : Decoration
+{
+	Default
+	{
+		+SOLID
+		-SHOOTABLE
+		Height 8;
+		Radius 12;
+	}
+}
+
+class TOSSteps2 : TOSSteps {}
+class TOSBridgeDome : Decoration { Default { +SPAWNCEILING } }
+class TOSBriefRib : Decoration { Default { Height 0; } }
+class TOSBriefRibGrey : Decoration { Default { Height 0; } }
+class TOSBriefTable : Decoration {}
+class TOSEngRib : Decoration { Default { Height 0; } }
+class TOSEngCenter : Decoration {}
+class TOSEngChamber : Decoration {}
+
+class TOSEngConsoleR : Decoration {
+	Default
+	{
+		Tag "Console";
+	}
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx("Block16", 0.0, 40.0, 40.0);
+				A_SpawnItemEx("Block16", 0.0, 0.0, 40.0);
+				A_SpawnItemEx("Block16", 0.0, -20.0, 40.0);
+				A_SpawnItemEx("Block16", 0.0, -40.0, 40.0);
+				A_SpawnItemEx("Block16", 0.0, 40.0, 80.0);
+				A_SpawnItemEx("Block16", 0.0, 20.0, 80.0);
+				A_SpawnItemEx("Block16", 0.0, 0.0, 80.0);
+				A_SpawnItemEx("Block16", 0.0, -20.0, 80.0);
+				A_SpawnItemEx("Block16", 0.0, -40.0, 80.0);
+			}
+			Stop;
+	}
+}
+class TOSEngConsoleL : TOSEngConsoleR {}
+
+class TOSEngSteps : Decoration
+{
+	States
+	{
+		Initial:
+			TOS1 A -1 { 
+				A_SpawnItemEx("Block8", 24.0, -12.0, -134.0);
+				A_SpawnItemEx("Block8", 24.0, 12.0, -134.0);
+				A_SpawnItemEx("Block8", 20.0, -12.0, -118.0);
+				A_SpawnItemEx("Block8", 20.0, 12.0, -118.0);
+				A_SpawnItemEx("Block8", 16.0, -12.0, -102.0);
+				A_SpawnItemEx("Block8", 16.0, 12.0, -102.0);
+				A_SpawnItemEx("Block8", 12.0, -12.0, -86.0);
+				A_SpawnItemEx("Block8", 12.0, 12.0, -86.0);
+				A_SpawnItemEx("Block8", 8.0, -12.0, -70.0);
+				A_SpawnItemEx("Block8", 8.0, 12.0, -70.0);
+			}
+			Stop;
+	}
+}
+
+class TOSTransformer : Decoration {}
+class TOSQuartersRib : Decoration { Default { Height 0; } }
+class TOSWallPipe : Decoration {}
+
+class TOSTree1 : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 96;
+		Radius 12;
+		Tag "Vegetation";
+	}
+}
+
+class TOSPlant1 : Decoration
+{
+	Default
+	{
+		Height 16;
+		Radius 16;
+		Tag "Vegetation";
+	}
+}
+
+class TOSTree2 : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 64;
+		Radius 32;
+		Tag "Vegetation";
+	}
+}
+
+class TOSTree3 : TOSTree1 {}
+class TOSTree4 : TOSTree1 {}
+class TOSTree5 : TOSTree1 {}
+class TOSTree6 : TOSTree1 {}
+class TOSShuttleColumbus : Decoration {}
+class TOSShuttleCopernicus : Decoration {}
+
+class TOSColumn : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 178;
+		Radius 20;
+		Tag "Support Column";
+	}
+}
+
+class TOSTerrain : Decoration {}
+class TOSRailingAlt : Decoration {}
+class TOSBridgeRailingPilot : Decoration {}
+
+class TOSShuttleGalileo : Decoration
+{
+	Default
+	{
+		-NOGRAVITY
+		+NORADIUSDMG
+		Speed 8;
+		Tag "Shuttlecraft";
+	}
+	States
+	{
+
+		Spawn:
+			TNT1 A 0 NoDelay {
+				user_width = 250;
+				user_height = 90;
+			}
+			Goto Land;
+		Land:
+			TOS1 A 70 { bNoGravity = False; } //A_UnSetFloat();
+		Blocking:
+			TNT1 A 1 {
+				A_SpawnItemEx("ShuttleBlock1", 0.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock1", 25.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock1", -60.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock2", 40.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock3", 55.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock4", 70.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock5", 85.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock6", 100.0, 0.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock7", -50.0, 20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock7", -50.0, -20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", 64.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", 64.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", 32.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", 32.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", 0.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", 0.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -32.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -32.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -64.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -64.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -96.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -96.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -128.0, -70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx("ShuttleBlock8", -128.0, 70.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+			}
+		Landed:
+			TOS1 A 35;
+			TOS1 A 0 A_JumpIf(pos.z - floorz > 8.0, "TakeOff");
+			Loop;
+		TakeOff:
+			TOS1 B 1 A_RemoveChildren(TRUE, RMVF_EVERYTHING);
+			TOS1 B 70 { bNoGravity = True; } //A_SetFloat;
+		Flight:
+			TOS1 B 3 {
+				A_JumpIf(pos.z - floorz <= 8.0, "Land");
+			}
+			Loop;
+	}
+}
+
+class TOSConfSupport : Decoration { Default { +SOLID Height 96; Radius 16; Tag "Support Column"; } }
+class TOSKlingonWeaponStation : Decoration { Default { +SOLID Height 64; Radius 32; Tag "Klingon Weapon Station"; } }
+class TOSKlingonWeaponControls  : Decoration
+{
+	Default
+	{
+		+SPAWNCEILING
+		+SOLID
+		Height 0;
+		Tag "Weapon Controls";
+	}
+}
+
+class TOSKlingonControlPanel1 : Decoration { Default { Height 4; Radius 16; Tag "Klingon Control Panel"; } }
+class TOSKlingonControlPanelScreen1 : TOSKlingonControlPanel1 {}
+class TOSKlingonControlPanelScreen2 : TOSKlingonControlPanel1 {}
+class TOSKlingonControlPanelScreen3 : TOSKlingonControlPanel1 {}
+class TOSKlingonControlPanelScreen4 : TOSKlingonControlPanel1 {}
+class TOSKlingonControlPanelScreen5 : TOSKlingonControlPanel1 {}
+class TOSKlingonControlPanelScreen6 : TOSKlingonControlPanel1 {}
+class TOSKlingonControlPanel2 : TOSKlingonControlPanel1 {}
+class TOSKlingonControlPanel3 : TOSKlingonControlPanel1 {}
+class TOSKlingonCaptChair : Decoration { Default { +SOLID Height 32; Radius 16; Tag "Klingon Captain's Chair"; } }
+
+class TOSTable : Decoration
+{
+	Default
+	{
+		Height 25 ;
+		Tag "Table";
+	}
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx("Block22x1", 0.0, 0.0, 24.0);
+				A_SpawnItemEx("Block", 0.0, 0.0, 0.0);
+				A_SpawnItemEx("Block", 0.0, 0.0, 8.0);
+				A_SpawnItemEx("Block", 0.0, 0.0, 16.0);
+			}
+			Stop;
+	}
+
+}
+
+class TOSTable2 : TOSTable
+{
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx("Block22x1", 0.0, 22.0, 24.0);
+				A_SpawnItemEx("Block22x1", 0.0, -22.0, 24.0);
+				A_SpawnItemEx("Block", 0.0, 0.0, 0.0);
+				A_SpawnItemEx("Block", 0.0, 0.0, 8.0);
+				A_SpawnItemEx("Block", 0.0, 0.0, 16.0);
+			}
+			Stop;
+	}
+}
+
+class TOSTable3 : TOSTable2
+{
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx("Block27x1", 13.0, 22.0, 24.0);
+				A_SpawnItemEx("Block27x1", 13.0, -22.0, 24.0);
+				A_SpawnItemEx("Block", 13.0, 40.0, 0.0);
+				A_SpawnItemEx("Block", 13.0, 40.0, 8.0);
+				A_SpawnItemEx("Block", 13.0, 40.0, 16.0);
+				A_SpawnItemEx("Block", 13.0, -40.0, 0.0);
+				A_SpawnItemEx("Block", 13.0, -40.0, 8.0);
+				A_SpawnItemEx("Block", 13.0, -40.0, 16.0);
+			}
+			Stop;
+	}
+}
+
+class TOSBench : Decoration
+{
+	Default
+	{
+		Height 16;
+		Radius 16;
+		Tag "Bench";
+	}
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx("Block16", 8.0, 0.0, 0.0);
+				A_SpawnItemEx("Block16", 8.0, 30.0, 0.0);
+				A_SpawnItemEx("Block16", 8.0, -30.0, 0.0);
+			}
+			Stop;
+	}
+}
+
+class TOSHangarDoors : Decoration
+{
+	Default
+	{
+		-SHOOTABLE
+	}
+	States
+	{
+
+		Spawn:
+			TOS1 A 10;
+			Loop;
+		Opening:
+			TOS1 ABCD 70;
+		Opened:
+			TOS1 D -1;
+			Stop;
+		Closing:
+			TOS1 DCBA 70;
+		Closed:
+			TOS1 A -1;
+			Stop;
+	}
+}
+
+class Pane : Decoration
+{
+	Default
+	{
+		+SOLID
+		Height 16;
+		Radius 8;
+		RenderStyle 'STYLE_Translucent';
+		Alpha 0.4;
+		Tag "Observation Window";
+	}
+}
+
+class TOSGangway : Decoration
+{
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx("Block2x16", 30.0, 26.0, 142.0);
+				A_SpawnItemEx("Block2x16", 30.0, 40.0, 142.0);
+				A_SpawnItemEx("Block2x16", 30.0, -26.0, 142.0);
+				A_SpawnItemEx("Block2x16", 30.0, -40.0, 142.0);
+				A_SpawnItemEx("Block2x16", 10.0, 40.0, 142.0);
+				A_SpawnItemEx("Block2x16", 10.0, -40.0, 142.0);
+				A_SpawnItemEx("Block2x16", -10.0, 40.0, 142.0);
+				A_SpawnItemEx("Block2x16", -10.0, -40.0, 142.0);
+				A_SpawnItemEx("Block2x16", -32.0, 40.0, 142.0);
+				A_SpawnItemEx("Block2x16", -32.0, -40.0, 142.0);
+				A_SpawnItemEx("Block2x16", -32.0, 20.0, 142.0);
+				A_SpawnItemEx("Block2x16", -32.0, 0.0, 142.0);
+				A_SpawnItemEx("Block2x16", -32.0, -20.0, 142.0);
+				A_SpawnItemEx("Block8", 26.0, -12.0, 96.0);
+				A_SpawnItemEx("Block8", 26.0, 12.0, 96.0);
+				A_SpawnItemEx("Block8", 22.0, -12.0, 80.0);
+				A_SpawnItemEx("Block8", 22.0, 12.0, 80.0);
+				A_SpawnItemEx("Block8", 16.0, -12.0, 64.0);
+				A_SpawnItemEx("Block8", 16.0, 12.0, 64.0);
+				A_SpawnItemEx("Block8", 12.0, -12.0, 48.0);
+				A_SpawnItemEx("Block8", 12.0, 12.0, 48.0);
+				A_SpawnItemEx("Block8", 8.0, -12.0, 32.0);
+				A_SpawnItemEx("Block8", 8.0, 12.0, 32.0);
+				A_SpawnItemEx("Block8", 4.0, -12.0, 16.0);
+				A_SpawnItemEx("Block8", 4.0, 12.0, 16.0);
+				A_SpawnItemEx("Block8", 0.0, -12.0, 0.0);
+				A_SpawnItemEx("Block8", 0.0, 12.0, 0.0);
+				A_SpawnItemEx("Block8", -4.0, -12.0, -16.0);
+				A_SpawnItemEx("Block8", -4.0, 12.0, -16.0);
+				A_SpawnItemEx("Block8", -8.0, -12.0, -32.0);
+				A_SpawnItemEx("Block8", -8.0, 12.0, -32.0);
+			}
+			Stop;
+	}
+}
+
+class TOSAuxRib : Decoration { Default { Height 0; } }
+class TOSEngConsoleA : Decoration { Default { Tag "Console"; } }
+
+class TOSEngConsoleBlock : Decoration
+{
+	Default
+	{
+		+NOGRAVITY
+		+SOLID
+		+SHOOTABLE
+		+NOBLOOD
+		+NODAMAGE
+		+DONTTHRUST
+		+NOTAUTOAIMED
+		+ACTLIKEBRIDGE
+		Radius 10;
+		Height 14;
+	}
+	States
+	{
+		Spawn:
+			TOS1 A -1;
+			Stop;
+	}
+}
+
+class Pane2 : Pane {}
+
+class TOSTable4 : Decoration
+{
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx("Block24", 16.0, 6.0, 0.0);
+				A_SpawnItemEx("Block24", 16.0, -6.0, 0.0);
+			}
+			Stop;
+	}
+}
+
+class TOSTableLeg : Decoration {}
+class TOSTree7 : TOSTree1 {}
+class TOSTree8 : TOSTree1 {}
+class TOSTree9 : TOSTree1 {}
+class TOSTree10 : TOSTree1 {}
+class TOSTree11 : TOSTree1 {}
+
+class Fountain : Decoration
+{
+	Default
+	{
+		RenderStyle 'STYLE_Translucent';
+		Alpha 0.4;
+	}
+	States
+	{
+		Initial:
+			FNTN A 5 A_SetScale(0.6, 0.75);
+		Spray:
+			FNTN ABCD 3;
+			Loop;
+	}
+}
+
+class TOSDiningRib : Decoration { Default { Height 0; } }
+class TOSSickbayBed : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 28;
+		Radius 16;
+		Tag "Recovery Bed";
+	}
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block24x32", -36.0, 0.0, 0.0);
+				A_SpawnItemEx ("Block24", 20.0, 0.0, 0.0);
+			}
+			Stop;
+	}
+}
+
+class TOSSickbayCounter : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 28;
+		Radius 16;
+		Tag "Counter";
+	}
+}
+
+class TOSSickbayCounter2R : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 28;
+		Radius 16;
+		Tag "Counter";
+	}
+}
+
+class TOSSickbayCounter2L : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 28;
+		Radius 16;
+		Tag "Counter";
+	}
+}
+
+class TOSSickbayMonitor : Decoration
+{
+	Default
+	{
+		Height 32;
+		Radius 16;
+		Tag "Vital Signs Monitor";
+	}
+}
+
+class TOSSickbayProbe : Decoration
+{
+	Default
+	{
+		Height 8;
+		Radius 4;
+		Tag "Vital Signs Probe";
+	}
+}
+
+class TOSSickbayTable : Decoration
+{
+	Default
+	{
+		+Solid
+		Height 24;
+		Radius 8;
+		Tag "Table";
+	}
+}
+
+class TOSTable5 : TOSTable4 {}
+
+class TOSShuttleAstrostein : TOSShuttleGalileo {}
+
+class TOSPlanetClouds : Decoration
+{
+	Default
+	{
+		RenderStyle 'STYLE_Shaded';
+		StencilColor 'White';
+	}
+	States
+	{
+		Spawn: //Not Initial; override defaults
+			TOS1 A 1 A_Warp(AAPTR_MASTER, 0, 0, 0, 0, WARPF_NOCHECKPOSITION | WARPF_INTERPOLATE);
+			Loop;
+	}
+}
+
+class WindowPane : Pane
+{
+	Default
+	{
+		Radius 1;
+		Alpha 0.1;
+		Tag "Window Glass";
+	}
+}
+
+class TOSGangwayLong : Decoration
+{
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				A_SpawnItemEx ("Block2x16", 0.0, 26.0, 24.0);
+				A_SpawnItemEx ("Block2x16", 0.0, -26.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -15.0, 26.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -15.0, -26.0, 24.0);
+				A_SpawnItemEx ("Block2x16", 0.0, 40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", 0.0, -40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -20.0, 40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -20.0, -40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -40.0, 40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -40.0, -40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -60.0, 40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -60.0, -40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -80.0, 40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -80.0, -40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -100.0, 40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -100.0, -40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -112.0, 40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -112.0, -40.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -40.0, 26.0, 8.0);
+				A_SpawnItemEx ("Block2x16", -40.0, -26.0, 8.0);
+				A_SpawnItemEx ("Block2x16", -65.0, 26.0, -23.0);
+				A_SpawnItemEx ("Block2x16", -65.0, -26.0, -23.0);
+				A_SpawnItemEx ("Block", -90.0, 26.0, -48.0);
+				A_SpawnItemEx ("Block", -90.0, -26.0, -48.0);
+			}
+			Stop;
+	}
+}
+
+class TOSGangwayLongTop : TOSGangwayLong
+{
+	States
+	{
+		Initial:
+			TOS1 A 1 {
+				A_SpawnItemEx ("Block2x16", -112.0, 20.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -112.0, 0.0, 24.0);
+				A_SpawnItemEx ("Block2x16", -112.0, -20.0, 24.0);
+			}
+			Goto TOSGangwayLong::Initial;
+	}
+}
+
+class TOSGangwayLongBottom : Decoration {}
+
+class TOSGangwayFull : TOSGangwayLong
+{
+	States
+	{
+		Initial:
+			TOS1 A 1 {
+				A_SpawnItemEx ("GangwayStep", -116.0, -12.0, 11.0);
+				A_SpawnItemEx ("GangwayStep", -116.0, 12.0, 11.0);
+				A_SpawnItemEx ("GangwayStep", -10.0, -12.0, -16.0);
+				A_SpawnItemEx ("GangwayStep", -10.0, 12.0, -16.0);
+				A_SpawnItemEx ("GangwayStep", -20.5, -12.0, -27.0);
+				A_SpawnItemEx ("GangwayStep", -20.5, 12.0, -27.0);
+				A_SpawnItemEx ("GangwayStep", -31.0, -12.0, -38.0);
+				A_SpawnItemEx ("GangwayStep", -31.0, 12.0, -38.0);
+				A_SpawnItemEx ("GangwayStep", -41.5, -12.0, -49.0);
+				A_SpawnItemEx ("GangwayStep", -41.5, 12.0, -49.0);
+				A_SpawnItemEx ("GangwayStep", -52.0, -12.0, -60.0);
+				A_SpawnItemEx ("GangwayStep", -52.0, 12.0, -60.0);
+				A_SpawnItemEx ("GangwayStep", -62.5, -12.0, -71.0);
+				A_SpawnItemEx ("GangwayStep", -62.5, 12.0, -71.0);
+				A_SpawnItemEx ("GangwayStep", -73.0, -12.0, -82.0);
+				A_SpawnItemEx ("GangwayStep", -73.0, 12.0, -82.0);
+				A_SpawnItemEx ("GangwayStep", -83.5, -12.0, -93.0);
+				A_SpawnItemEx ("GangwayStep", -83.5, 12.0, -93.0);
+				A_SpawnItemEx ("GangwayStep", -94.0, -12.0, -104.0);
+				A_SpawnItemEx ("GangwayStep", -94.0, 12.0, -104.0);
+				A_SpawnItemEx ("GangwayStep", -105.5, -12.0, -115.0);
+				A_SpawnItemEx ("GangwayStep", -105.5, 12.0, -115.0);
+				A_SpawnItemEx ("GangwayStep", -116.0, -12.0, -126.0);
+				A_SpawnItemEx ("GangwayStep", -116.0, 12.0, -126.0);
+			}
+			Goto TOSGangwayLong::Initial;
+	}
+}
+
+class TOSEnterpriseExteriorRight : Decoration
+{
+	Default
+	{
+		Radius 32;
+		Height 64;
+	}
+	States
+	{
+		Spawn: //Not Initial; override defaults
+			TOS1 A -1;
+			Stop;
+	}
+}
+
+class TOSEnterpriseExteriorLeft : TOSEnterpriseExteriorRight {}
+
+class TOSBlueSupport : Decoration { Default { +SOLID Height 96; Radius 16; Tag "Support Column (Blue)"; } }
+class TOSSupport : Decoration { Default { +SOLID Height 96; Radius 16; Tag "Support Column (Red)"; } }
+class TOSSupportGrey : Decoration { Default { +SOLID Height 96; Radius 16; Tag "Support Column (Grey)"; } }
+class TOSTable6 : TOSTable {}
+
+class TOSMarkerLight : Decoration
+{
+	//$Arg0 "Duration"
+	//$Arg0ToolTip "How long the light stays lit (tics - 0 means 35 tics)"
+	//$Arg0Type 0
+	//$Arg1 "Delay"
+	//$Arg1ToolTip "How long the light stays dark (tics - 0 means the light stays on)"
+	//$Arg1Type 0
+	//$Arg2 "Synchronization Offset"
+	//$Arg2ToolTip "Delay before lights begin blinking (tics - 0 means Random)"
+	//$Arg2Type 0
+	Default
+	{
+		RenderStyle 'STYLE_Add';
+	}
+	States
+	{
+		Initial:
+			TOS1 A 0 {
+				if (args[1] == 0) {
+					args[0] = -1;
+				} else if (args[0] == 0) {
+					args[0] = 35;
+				}
+				if (args[2] == 0) { args[2] = Random(0, 35); }
+
+				A_SetTics(args[2]);
+			}
+			TOS1 A 0 {
+				return ResolveState("Blink");
+			}
+			Stop;
+		Blink:
+			TOS1 A 35 BRIGHT Light("MarkerLightRed") {
+				A_SetTics(args[0]);
+				A_SpawnItemEx ("MarkerFlare", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			TOS1 A 0 {
+				return ResolveState("Blink.Logic");
+			}
+		Blink.Logic:
+			TOS1 A 0 {
+				if (args[1] > 0) {
+					return ResolveState("BlinkOff");
+				} else {
+					return ResolveState(null);
+				}
+			}
+		BlinkOff:
+			TOS1 A 35 {
+				A_RemoveChildren(TRUE, RMVF_EVERYTHING);
+				A_SetTics(args[1]);
+			}
+			TOS1 A 0 {
+				return ResolveState("Blink");
+			}
+	}
+}
+
+class TOSMarkerLightWhite : TOSMarkerLight
+{
+	States
+	{
+		Blink:
+			TOS1 A 35 BRIGHT Light("MarkerLightWhite") {
+				A_SetTics(args[0]);
+				A_SpawnItemEx ("SunFlare", 0, 0, 0, 0, 0, 0, 0, SXF_SETMASTER | SXF_TRANSFERSCALE);
+			}
+			TOS1 A 0 {
+				return ResolveState("Blink.Logic");
+			}
+	}
+}
+
+class TOSRailSupport : Decoration { Default { +SOLID Height 32; Radius 0; Tag "Bridge Railing"; } }

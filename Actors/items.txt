@@ -102,8 +102,8 @@ Actor NavGoal 26000
 	}
 }
 
-Actor TurboLiftMarker : NavGoal 26500 {}
-Actor TransporterMarker : NavGoal 26501 {}
+Actor TurboLiftMarker : NavGoal {}
+Actor TransporterMarker : NavGoal {}
 
 Actor ChaseCam
 {
@@ -147,7 +147,7 @@ Actor LeanCam
 	}
 }
 
-Actor DisruptorStation : SwitchableDecoration 25102
+Actor DisruptorStation : SwitchableDecoration
 {
 	//$Sprite TOS1A0
 	var int user_level;
@@ -215,7 +215,7 @@ Actor DisruptorStation : SwitchableDecoration 25102
 	}
 }
 
-Actor PhaserRifleStation : DisruptorStation 25104
+Actor PhaserRifleStation : DisruptorStation
 {
 	Height 32
 
@@ -262,6 +262,9 @@ ACTOR Nav_Check
 		Loop
 	}
 }
+
+Actor AccessLevel1 : Key //Default key to allow broader ship access
+{}
 
 Actor AccessLevel2 : Key
 {

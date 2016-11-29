@@ -186,7 +186,7 @@ ACTOR BarrelFireSpawner
 			TNT1 A 1 A_SpawnItemEx("Flame")
 			Goto BurnLoop
 		Death:
-			TNT1 A -1 A_StopSound(6)
+			TNT1 A 1 A_StopSound(6)
 			Stop
 	}
 }
@@ -224,7 +224,7 @@ ACTOR FlareUp
 				A_SpawnItemEx ("Smoke", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
 			}
 		Death:
-			TNT1 A -1 A_StopSound(6)
+			TNT1 A 1 A_StopSound(6)
 			Stop
 	}
 }
