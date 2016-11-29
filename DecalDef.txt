@@ -1,0 +1,98 @@
+decal DirtSplat1
+{
+	pic BSPLAT1
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal DirtSplat2
+{
+	pic BSPLAT2
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal DirtSplat3
+{
+	pic BSPLAT3
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal DirtSplat4
+{
+	pic BSPLAT4
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal DirtSplat5
+{
+	pic BSPLAT5
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal DirtSplat6
+{
+	pic BSPLAT6
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal DirtSplat7
+{
+	pic BSPLAT7
+	shade "00 00 00"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decalgroup RandomDamage 1
+{
+	BulletChip1	1
+	BulletChip2	1
+	BulletChip3	1
+	BulletChip4	1
+	BulletChip5	1
+	Scorch		6
+	BigScorch	6
+	PlasmaScorchLower	6
+	BFGScorch	6
+	RailScorchLower	6
+	RevenantScorch	6
+	DirtSplat1	4
+	DirtSplat2	5
+	DirtSplat3	6
+	DirtSplat4	6
+	DirtSplat5	6
+	DirtSplat6	6
+	DirtSplat7 	6
+	BloodSplat1	1
+	BloodSplat2	2
+	BloodSplat3	3
+	BloodSplat4	3
+	BloodSplat5	3
+	BloodSplat6	3
+	BloodSplat7 	4
+}

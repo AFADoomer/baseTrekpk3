@@ -207,6 +207,18 @@ PointLight SunLight
 	Size 600
 }
 
+PointLight MarkerLightRed
+{
+	color 1.0 0.1 0.1
+	size 32
+}
+
+PointLight MarkerLightWhite
+{
+	color 1.0 1.0 1.0
+	size 32
+}
+
 Object SmallWhiteLight
 {
 	Frame TOS1
@@ -516,3 +528,7 @@ brightmap texture "models/mapobjects/tos/D-7/warps_glow (Original).png" { map "m
 brightmap texture "models/mapobjects/tos/planet_e.jpg" { map "models/mapobjects/tos/planet_e_l.png" }
 
 brightmap texture "models/mapobjects/tos/dilithium.png" { map "models/mapobjects/tos/dilithium_l.png" }
+
+brightmap sprite PANLA0 { map "textures/enterprise/walls/overlays/panel5_m.png" }
+brightmap sprite SHULA0 { map "textures/enterprise/walls/overlays/shu_st0l.png" }
+brightmap sprite SHULB0 { map "textures/enterprise/walls/overlays/shu_st1l.png" }
