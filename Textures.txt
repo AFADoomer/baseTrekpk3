@@ -40,29 +40,31 @@ Sprite BLASA0, 6, 6
 	Patch BLASA0, 0, 0
 }
 
+/*
 Sprite PHASA0, 57, 59
 {
 	Offset -124, -110
-	Patch PHASA0, 0, 0
+	Sprite PHASA0, 0, 0
 }
 
 Sprite PHASB0, 57, 59
 {
 	Offset -124, -112
-	Patch PHASA0, 0, 0
+	Sprite PHASA0, 0, 0
 }
 
 Sprite PHASP0, 51, 30
 {
 	Offset 25, 30
-	Patch PHASP0, 0, 0
+	Sprite PHASP0, 0, 0
 }
+*/
 
 Graphic RADARBKG, 400, 400
 {
 	XScale 2.0
 	YScale 2.0
-	Graphic RADARBKG, 0, 0 {Style Overlay}	
+	Patch RADARBKG, 0, 0 {Style Overlay}	
 }
 
 Texture DOOR, 256, 512
@@ -114,6 +116,13 @@ Texture DOOR_NON, 256, 512
 	Patch DOOR_NON, 0, 0
 }
 
+Texture DOOR_CAG, 256, 512
+{
+	XScale 4.0
+	YScale 4.0
+	Patch DOOR_CAG, 0, 0
+}
+
 Texture Dr1M, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M, 0, 0}
 Texture Dr1M_Bl, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_Bl, 0, 0}
 Texture Dr1M_G, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_G, 0, 0}
@@ -160,6 +169,44 @@ Texture GRATE_R_E, 128, 2432
 	Patch GRATE_R, 0, 2176
 	Patch GRATE_R, 0, 2304
 }
+
+Texture GRATE_R_T, 128, 3968
+{
+	XScale 32.0
+	YScale 32.0
+	Patch GRATE_R, 0, 0
+	Patch GRATE_R, 0, 128
+	Patch GRATE_R, 0, 256
+	Patch GRATE_R, 0, 384
+	Patch GRATE_R, 0, 512
+	Patch GRATE_R, 0, 640
+	Patch GRATE_R, 0, 768
+	Patch GRATE_R, 0, 896
+	Patch GRATE_R, 0, 1024
+	Patch GRATE_R, 0, 1152
+	Patch GRATE_R, 0, 1280
+	Patch GRATE_R, 0, 1408
+	Patch GRATE_R, 0, 1536
+	Patch GRATE_R, 0, 1664
+	Patch GRATE_R, 0, 1792
+	Patch GRATE_R, 0, 1920
+	Patch GRATE_R, 0, 2048
+	Patch GRATE_R, 0, 2176
+	Patch GRATE_R, 0, 2304
+	Patch GRATE_R, 0, 2432
+	Patch GRATE_R, 0, 2560
+	Patch GRATE_R, 0, 2688
+	Patch GRATE_R, 0, 2816
+	Patch GRATE_R, 0, 2944
+	Patch GRATE_R, 0, 3072
+	Patch GRATE_R, 0, 3200
+	Patch GRATE_R, 0, 3328
+	Patch GRATE_R, 0, 3456
+	Patch GRATE_R, 0, 3584
+	Patch GRATE_R, 0, 3712
+	Patch GRATE_R, 0, 3840
+}
+
 
 Texture GRATE_RE, 128, 2432
 {
@@ -399,12 +446,14 @@ Graphic Logo_S, 729, 66
 	Graphic Logo_S, 0, 0 {Style Overlay}
 }
 
+/*
 Texture StarFld, 2880, 2160
 {
 	XScale 2.1
 	YScale 2.1
 	Graphic StarFld, 0, 0
 }
+*/
 
 Texture Grass, 512, 512
 {
@@ -413,11 +462,11 @@ Texture Grass, 512, 512
 	Patch Grass, 0, 0
 }
 
-Texture Grass2, 512, 512
+Texture Grass_2, 512, 512
 {
 	XScale 8.0
 	YScale 8.0
-	Patch Grass2, 0, 0
+	Patch Grass_2, 0, 0
 }
 
 Texture Gravel, 512, 512
@@ -538,14 +587,22 @@ Sprite FLARF0, 256, 256
 	Graphic SunFlare, 0, 0
 }
 
-Graphic Marker_0, 32, 32 {Graphic Marker_A, 0, 0}
-Graphic Marker_1, 32, 32 {Graphic Marker_1, 0, 0}
-Graphic Marker_2, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 90}}
-Graphic Marker_3, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 90}}
-Graphic Marker_4, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 180}}
-Graphic Marker_5, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 180}}
-Graphic Marker_6, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 270}}
-Graphic Marker_7, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 270}}
+Sprite FLARR0, 256, 256
+{
+	Offset 128, 128
+	XScale 2.5
+	YScale 2.5
+	Graphic Flare_R, 0, 0
+}
+
+Texture Marker_0, 32, 32 {Graphic Marker_A, 0, 0}
+Texture Marker_1, 32, 32 {Graphic Marker_1, 0, 0}
+Texture Marker_2, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 90}}
+Texture Marker_3, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 90}}
+Texture Marker_4, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 180}}
+Texture Marker_5, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 180}}
+Texture Marker_6, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 270}}
+Texture Marker_7, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 270}}
 
 Sprite WHITG0, 256, 256
 {
@@ -592,12 +649,17 @@ Texture Diffuser, 128, 128
 	Patch Diffuser, 0, 0 {Style Overlay}
 }
 
-Texture StarFld, 1024, 770
+/*
+Texture StarFldB, 1920, 1440
 {
 	XScale 3.0
 	YScale 3.0
 	Patch StarFld, 0, 0
+	Patch StarFld, 0, 720
+	Patch StarFld, 960, 0
+	Patch StarFld, 960, 720
 }
+*/
 
 Texture SHU_FLR2, 492, 492
 {
@@ -614,28 +676,28 @@ Graphic CHARA0, 64, 78
 {
 	XScale 3.75
 	YScale 3.75
-	Graphic CHARA0, 0, 0 {Style Overlay}
+	Sprite CHARA0, 0, 0 {Style Overlay}
 }
 
 Graphic CHARB0, 64, 78
 {
 	XScale 3.75
 	YScale 3.75
-	Graphic CHARB0, 0, 0 {Style Overlay}
+	Sprite CHARB0, 0, 0 {Style Overlay}
 }
 
 Graphic CHARG0, 64, 78
 {
 	XScale 3.75
 	YScale 3.75
-	Graphic CHARG0, 0, 0 {Style Overlay}
+	Sprite CHARG0, 0, 0 {Style Overlay}
 }
 
 Graphic CHARP0, 64, 78
 {
 	XScale 3.75
 	YScale 3.75
-	Graphic CHARP0, 0, 0 {Style Overlay}
+	Sprite CHARP0, 0, 0 {Style Overlay}
 }
 
 
@@ -644,24 +706,24 @@ Graphic Back, 512, 512
 {
 	XScale 32.0
 	YScale 32.0
-	Graphic Back, 0, 0 {Style Overlay}
+	Sprite Back, 0, 0 {Style Overlay}
 }
 
-Graphic Icon, 512, 512 {XScale 32.0 YScale 32.0 Graphic Icon, 0, 0 {Style Overlay}}
-Graphic IconB, 512, 512 {XScale 32.0 YScale 32.0 Graphic IconB, 0, 0 {Style Overlay}}
-Graphic IconC, 512, 512 {XScale 32.0 YScale 32.0 Graphic IconC, 0, 0 {Style Overlay}}
-Graphic IconD, 512, 512 {XScale 32.0 YScale 32.0 Graphic IconD, 0, 0 {Style Overlay}}
+Graphic Icon, 512, 512 {XScale 32.0 YScale 32.0 Sprite Icon, 0, 0 {Style Overlay}}
+Graphic IconB, 512, 512 {XScale 32.0 YScale 32.0 Sprite IconB, 0, 0 {Style Overlay}}
+Graphic IconC, 512, 512 {XScale 32.0 YScale 32.0 Sprite IconC, 0, 0 {Style Overlay}}
+Graphic IconD, 512, 512 {XScale 32.0 YScale 32.0 Sprite IconD, 0, 0 {Style Overlay}}
 
 Graphic Icon2, 512, 512
 {
 	XScale 22.0
 	YScale 22.0
-	Graphic Icon, 0, 0 {Style Overlay}
+	Sprite Icon, 0, 0 {Style Overlay}
 }
 
-Graphic Icon2B, 512, 512 {XScale 22.0 YScale 22.0 Graphic IconB, 0, 0 {Style Overlay}}
-Graphic Icon2C, 512, 512 {XScale 22.0 YScale 22.0 Graphic IconC, 0, 0 {Style Overlay}}
-Graphic Icon2D, 512, 512 {XScale 22.0 YScale 22.0 Graphic IconD, 0, 0 {Style Overlay}}
+Graphic Icon2B, 512, 512 {XScale 22.0 YScale 22.0 Sprite IconB, 0, 0 {Style Overlay}}
+Graphic Icon2C, 512, 512 {XScale 22.0 YScale 22.0 Sprite IconC, 0, 0 {Style Overlay}}
+Graphic Icon2D, 512, 512 {XScale 22.0 YScale 22.0 Sprite IconD, 0, 0 {Style Overlay}}
 
 Texture MATTE, 512, 512
 {
@@ -700,6 +762,21 @@ Texture GOLD, 320, 200
 	{
 		Translation "0:255=[250,234,149]:[250,234,149]"
 	}
+}
+
+Texture DARKGREY, 320, 200
+{
+	Graphic BLACK, 0, 0
+	{
+		Translation "0:255=[20, 20, 20]:[20, 20, 20]"
+	}
+}
+
+Texture BLACK_FUL, 320, 200
+{
+	XScale 0.125
+	YScale 0.20833333333333333333333333333333
+	Graphic BLACK, 0, 0
 }
 
 Texture BLACK_W, 320, 200
@@ -748,7 +825,7 @@ Texture Cloud_Ov, 1024, 1024
 {
 	XScale 12.0
 	YScale 12.0
-	Graphic Cloud_Ov, 0, 0
+	Patch Cloud_Ov, 0, 0
 }
 
 //Sprite PO01B0, 30, 60	{ XScale 3.8 YScale 3.8 Offset 15, 60	Patch Alert2, 0, 0 }
@@ -863,7 +940,8 @@ Sprite FLAMF0, 620, 622 { XScale 3.0 YScale 3.0 Offset 310, 311 Patch FLM1A0, 0,
 Sprite WARNA0, 256, 256 { XScale 7.0 YScale 8.0 Offset 128, 256 Patch Sign_War, 0, 0 {Style Overlay} }
 Sprite CHUTA0, 128, 128 { XScale 7.0 YScale 8.0 Offset 128, 128 Patch Chute_Vo, 0, 0 {Style Overlay} }
 Sprite CHUTB0, 128, 128 { XScale 7.0 YScale 8.0 Offset 128, 128 Patch Chute_Di, 0, 0 {Style Overlay} }
-// End of texture definitions
+
+Sprite PANLA0, 256, 256 { XScale 10.5 YScale 10.5 Offset 128, 256 Patch Panel5, 0, 0 {Style Overlay} }
 
 Sprite LINEA0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage1, 0, 0 }
 Sprite LINEB0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage2, 0, 0 }
@@ -872,3 +950,36 @@ Sprite LINED0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage4,
 Sprite LINEE0, 499, 316 {XScale 10.0 YScale 10.0 Offset 249, 316 Patch Lineage5, 0, 0 }
 
 Sprite DELTA0, 512, 512 {XScale 16.0 YScale 16.0 Offset 256, 512 Patch Delta, 0, 0 {Style Overlay Blend 143, 139, 116}}
+
+Sprite DECOA0, 512, 512 {XScale 8.0 YScale 8.0 Offset 256, 512 Patch Decor, 0, 0 {Style Overlay}}
+
+Graphic Shu_St0, 128, 64
+{
+	Patch Shu_St, 0, 0 {Style Overlay}
+}
+
+Sprite SHULA0, 128, 64
+{
+	XScale 5.0
+	YScale 5.0
+	Offset 64, 64
+
+	Patch Shu_St, 0, 0 {Style Overlay}
+}
+
+Sprite SHULB0, 128, 64
+{
+	XScale 5.0
+	YScale 5.0
+	Offset 64, 64
+
+	Graphic Shu_St0, 0, 0 {Style Overlay}
+}
+
+Graphic MASK_LB, 1024, 768
+{
+	XScale 0.3125
+	YScale 0.26041666666666666666666666666667
+	Graphic BLACK, 0, 0
+}
+// End of texture definitions

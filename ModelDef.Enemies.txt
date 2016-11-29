@@ -408,6 +408,18 @@ Model TOSKlingon
 	FrameIndex TOS1 G 0 65
 	FrameIndex TOS1 G 1 65
 	FrameIndex TOS1 G 2 65
+	FrameIndex TOS1 V 0 84
+	FrameIndex TOS1 V 1 84
+	FrameIndex TOS1 V 2 84
+
+	Offset -30 0 0
+
+	FrameIndex TOS1 W 0 85
+	FrameIndex TOS1 W 1 85
+	FrameIndex TOS1 W 2 85
+	FrameIndex TOS1 X 0 87
+	FrameIndex TOS1 X 1 87
+	FrameIndex TOS1 X 2 87
 }
 
 Model TOSKlingon
@@ -495,6 +507,378 @@ Model TOSKlingonGrenade
 	Path "Models/actors/klingon/"
 	Model 0 "klingon.md3"
 	Skin 0 "klingon2.jpg"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 H 0 174
+	FrameIndex TOS1 H 1 174
+	FrameIndex TOS1 I 0 175
+	FrameIndex TOS1 I 1 175
+	FrameIndex TOS1 J 0 177
+	FrameIndex TOS1 J 1 177
+	FrameIndex TOS1 K 0 179
+	FrameIndex TOS1 K 1 179
+	FrameIndex TOS1 L 0 180
+	FrameIndex TOS1 L 1 180
+	FrameIndex TOS1 M 0 166
+	FrameIndex TOS1 M 1 166
+	FrameIndex TOS1 N 0 167
+	FrameIndex TOS1 N 1 167
+	FrameIndex TOS1 O 0 168
+	FrameIndex TOS1 O 1 168
+	FrameIndex TOS1 P 0 169
+	FrameIndex TOS1 P 1 169
+	FrameIndex TOS1 Q 0 170
+	FrameIndex TOS1 Q 1 170
+	FrameIndex TOS1 R 0 171
+	FrameIndex TOS1 R 1 171
+	FrameIndex TOS1 S 0 171
+	FrameIndex TOS1 S 1 171
+	FrameIndex TOS1 T 0 171
+	FrameIndex TOS1 T 1 171
+	FrameIndex TOS1 U 0 171
+	FrameIndex TOS1 U 1 171
+}
+
+Model TOSPirate
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_2.png"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	Path "Models/weapons/"
+	Model 2 "disruptor_w.md3"
+	Skin 2 "tos_klingon_disruptor.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS1 E 0 63
+	FrameIndex TOS1 E 1 63
+	FrameIndex TOS1 E 2 63
+	FrameIndex TOS1 F 0 63
+	FrameIndex TOS1 F 1 63
+	FrameIndex TOS1 F 2 63
+	FrameIndex TOS1 G 0 65
+	FrameIndex TOS1 G 1 65
+	FrameIndex TOS1 G 2 65
+
+	Offset -30 0 0
+
+	FrameIndex TOS1 V 0 84
+	FrameIndex TOS1 V 1 84
+	FrameIndex TOS1 V 2 84
+	FrameIndex TOS1 W 0 85
+	FrameIndex TOS1 W 1 85
+	FrameIndex TOS1 W 2 85
+	FrameIndex TOS1 X 0 87
+	FrameIndex TOS1 X 1 87
+	FrameIndex TOS1 X 2 87
+}
+
+Model TOSPirate
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_2.png"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 H 0 174
+	FrameIndex TOS1 H 1 174
+	FrameIndex TOS1 I 0 175
+	FrameIndex TOS1 I 1 175
+	FrameIndex TOS1 J 0 177
+	FrameIndex TOS1 J 1 177
+	FrameIndex TOS1 K 0 179
+	FrameIndex TOS1 K 1 179
+	FrameIndex TOS1 L 0 180
+	FrameIndex TOS1 L 1 180
+	FrameIndex TOS1 M 0 166
+	FrameIndex TOS1 M 1 166
+	FrameIndex TOS1 N 0 167
+	FrameIndex TOS1 N 1 167
+	FrameIndex TOS1 O 0 168
+	FrameIndex TOS1 O 1 168
+	FrameIndex TOS1 P 0 169
+	FrameIndex TOS1 P 1 169
+	FrameIndex TOS1 Q 0 170
+	FrameIndex TOS1 Q 1 170
+	FrameIndex TOS1 R 0 171
+	FrameIndex TOS1 R 1 171
+	FrameIndex TOS1 S 0 171
+	FrameIndex TOS1 S 1 171
+	FrameIndex TOS1 T 0 171
+	FrameIndex TOS1 T 1 171
+	FrameIndex TOS1 U 0 171
+	FrameIndex TOS1 U 1 171
+}
+
+Model TOSPirateAlt
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_3.png"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	Path "Models/weapons/"
+	Model 2 "disruptor_w.md3"
+	Skin 2 "tos_klingon_disruptor.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS1 E 0 63
+	FrameIndex TOS1 E 1 63
+	FrameIndex TOS1 E 2 63
+	FrameIndex TOS1 F 0 63
+	FrameIndex TOS1 F 1 63
+	FrameIndex TOS1 F 2 63
+	FrameIndex TOS1 G 0 65
+	FrameIndex TOS1 G 1 65
+	FrameIndex TOS1 G 2 65
+
+	Offset -30 0 0
+
+	FrameIndex TOS1 V 0 84
+	FrameIndex TOS1 V 1 84
+	FrameIndex TOS1 V 2 84
+	FrameIndex TOS1 W 0 85
+	FrameIndex TOS1 W 1 85
+	FrameIndex TOS1 W 2 85
+	FrameIndex TOS1 X 0 87
+	FrameIndex TOS1 X 1 87
+	FrameIndex TOS1 X 2 87
+}
+
+Model TOSPirateAlt
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_3.png"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 H 0 174
+	FrameIndex TOS1 H 1 174
+	FrameIndex TOS1 I 0 175
+	FrameIndex TOS1 I 1 175
+	FrameIndex TOS1 J 0 177
+	FrameIndex TOS1 J 1 177
+	FrameIndex TOS1 K 0 179
+	FrameIndex TOS1 K 1 179
+	FrameIndex TOS1 L 0 180
+	FrameIndex TOS1 L 1 180
+	FrameIndex TOS1 M 0 166
+	FrameIndex TOS1 M 1 166
+	FrameIndex TOS1 N 0 167
+	FrameIndex TOS1 N 1 167
+	FrameIndex TOS1 O 0 168
+	FrameIndex TOS1 O 1 168
+	FrameIndex TOS1 P 0 169
+	FrameIndex TOS1 P 1 169
+	FrameIndex TOS1 Q 0 170
+	FrameIndex TOS1 Q 1 170
+	FrameIndex TOS1 R 0 171
+	FrameIndex TOS1 R 1 171
+	FrameIndex TOS1 S 0 171
+	FrameIndex TOS1 S 1 171
+	FrameIndex TOS1 T 0 171
+	FrameIndex TOS1 T 1 171
+	FrameIndex TOS1 U 0 171
+	FrameIndex TOS1 U 1 171
+}
+
+Model TOSPirateAlt2
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_4.png"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	Path "Models/weapons/"
+	Model 2 "disruptor_w.md3"
+	Skin 2 "tos_klingon_disruptor.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS1 E 0 63
+	FrameIndex TOS1 E 1 63
+	FrameIndex TOS1 E 2 63
+	FrameIndex TOS1 F 0 63
+	FrameIndex TOS1 F 1 63
+	FrameIndex TOS1 F 2 63
+	FrameIndex TOS1 G 0 65
+	FrameIndex TOS1 G 1 65
+	FrameIndex TOS1 G 2 65
+
+	Offset -30 0 0
+
+	FrameIndex TOS1 V 0 84
+	FrameIndex TOS1 V 1 84
+	FrameIndex TOS1 V 2 84
+	FrameIndex TOS1 W 0 85
+	FrameIndex TOS1 W 1 85
+	FrameIndex TOS1 W 2 85
+	FrameIndex TOS1 X 0 87
+	FrameIndex TOS1 X 1 87
+	FrameIndex TOS1 X 2 87
+}
+
+Model TOSPirateAlt2
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_4.png"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 H 0 174
+	FrameIndex TOS1 H 1 174
+	FrameIndex TOS1 I 0 175
+	FrameIndex TOS1 I 1 175
+	FrameIndex TOS1 J 0 177
+	FrameIndex TOS1 J 1 177
+	FrameIndex TOS1 K 0 179
+	FrameIndex TOS1 K 1 179
+	FrameIndex TOS1 L 0 180
+	FrameIndex TOS1 L 1 180
+	FrameIndex TOS1 M 0 166
+	FrameIndex TOS1 M 1 166
+	FrameIndex TOS1 N 0 167
+	FrameIndex TOS1 N 1 167
+	FrameIndex TOS1 O 0 168
+	FrameIndex TOS1 O 1 168
+	FrameIndex TOS1 P 0 169
+	FrameIndex TOS1 P 1 169
+	FrameIndex TOS1 Q 0 170
+	FrameIndex TOS1 Q 1 170
+	FrameIndex TOS1 R 0 171
+	FrameIndex TOS1 R 1 171
+	FrameIndex TOS1 S 0 171
+	FrameIndex TOS1 S 1 171
+	FrameIndex TOS1 T 0 171
+	FrameIndex TOS1 T 1 171
+	FrameIndex TOS1 U 0 171
+	FrameIndex TOS1 U 1 171
+}
+
+Model TOSPirateCapt
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_1.png"
+
+	Model 1 "head_klingon.md3"
+	Skin 1 "klingon1_head.jpg"
+
+	Path "Models/weapons/"
+	Model 2 "disruptor_w.md3"
+	Skin 2 "tos_klingon_disruptor.jpg"
+
+	AngleOffset 180.0
+	Scale 1.1 1.0 0.9
+
+	FrameIndex TOS1 A 0 1
+	FrameIndex TOS1 A 1 1
+	FrameIndex TOS1 A 2 1
+	FrameIndex TOS1 B 0 4
+	FrameIndex TOS1 B 1 4
+	FrameIndex TOS1 B 2 4
+	FrameIndex TOS1 C 0 7
+	FrameIndex TOS1 C 1 7
+	FrameIndex TOS1 C 2 7
+	FrameIndex TOS1 D 0 10
+	FrameIndex TOS1 D 1 10
+	FrameIndex TOS1 D 2 10
+	FrameIndex TOS1 E 0 63
+	FrameIndex TOS1 E 1 63
+	FrameIndex TOS1 E 2 63
+	FrameIndex TOS1 F 0 63
+	FrameIndex TOS1 F 1 63
+	FrameIndex TOS1 F 2 63
+	FrameIndex TOS1 G 0 65
+	FrameIndex TOS1 G 1 65
+	FrameIndex TOS1 G 2 65
+
+	Offset -30 0 0
+
+	FrameIndex TOS1 V 0 84
+	FrameIndex TOS1 V 1 84
+	FrameIndex TOS1 V 2 84
+	FrameIndex TOS1 W 0 85
+	FrameIndex TOS1 W 1 85
+	FrameIndex TOS1 W 2 85
+	FrameIndex TOS1 X 0 87
+	FrameIndex TOS1 X 1 87
+	FrameIndex TOS1 X 2 87
+}
+
+Model TOSPirateCapt
+{
+	Path "Models/actors/klingon/"
+	Model 0 "klingon.md3"
+	Skin 0 "pirate_1.png"
 
 	Model 1 "head_klingon.md3"
 	Skin 1 "klingon1_head.jpg"

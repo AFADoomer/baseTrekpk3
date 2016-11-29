@@ -419,3 +419,54 @@ Script "GetActorViewHeight" (void)
 {
 	SetResultValue(GetActorViewHeight(0) >> 16);
 }
+
+
+global str 11:CutsceneData[];
+
+global str 50:SplitData[];
+
+Function void SplitString (str InputData, str separator)
+{
+	StrCpy(a:SplitData, InputData);
+
+	int CurrentLetter = 0;
+	int CurrentLength = 0;
+	int Index = 0;
+
+	For (int t = 0; t <= StrLen(InputData); t++)
+	{
+		If (SplitData[t] == separator)
+		{
+			CutsceneData[Index] = strMid(InputData, CurrentLetter, CurrentLength);
+			Index++;
+			CurrentLength = 0;
+			CurrentLetter = t + 1;
+		}
+		Else
+			CurrentLength++;
+	}
+}
+
+global str 51:IntStringData[];
+
+Function int IntFromString(str InputData)
+{
+	StrCpy(a:IntStringData, InputData);
+
+	int CurrentLetter = 0;
+	int Result = 0;
+
+	For (int t = 0; t < StrLen(InputData); t++)
+	{
+		Result += pow(10, StrLen(InputData) - t - 1) * (IntStringData[t] - 48);
+	}
+
+	return Result;
+}
+
+function int pow (int x, int n)
+{
+	int y = 1;
+	while (n-- > 0) y *= x;
+	return y;
+}

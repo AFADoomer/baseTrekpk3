@@ -18,10 +18,13 @@ $ambient 17 ambient/klingon/interior2 point continuous 0.5
 $ambient 18 ambient/klingon/interior3 point continuous 0.5
 
 ambient/bridge				bridge
+ambient/bridge/pilot			bridge_p
 ambient/redalert			redalert
 $limit ambient/redalert 1
 ambient/klingon/alert			klaxon
 $limit ambient/klingon/alert 1
+ambient/redalert/old			klaxon_p
+$limit ambient/redalert/old 1
 ambient/planet1				planet_1
 ambient/planet2				planet_2
 ambient/planet3				planet_3
@@ -73,6 +76,8 @@ computer/button/move			m_move
 computer/working			working
 
 actor/communicator			comm
+actor/communicator/close		comm_cl
+actor/communicator/beep			commbeep
 actor/medscanner			medscan
 actor/tricorder				tri_scan
 actor/intercom				intercom

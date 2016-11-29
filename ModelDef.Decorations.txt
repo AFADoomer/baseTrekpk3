@@ -28,7 +28,7 @@ Model Skybox3 //Horizon only, transparent sky
 Model Skybox4 //Stars
 {
 	Path "Models/mapobjects/skybox"
-	Model 0 "skybox.md3"
+	Model 0 "skybox2.md3"
 	Path "Textures/"
 	Skin 0 "StarFld.jpg"
 
@@ -171,6 +171,19 @@ Model TOSHelmConsole
 	FrameIndex TOS1 B 0 0
 }
 
+Model TOSHelmConsolePilot
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "helm.md3"
+	Skin 0 "helm_pilot.png"
+
+	AngleOffset 180.0
+	Scale 1.45 1.45 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+
 Model TOSCaptainChair
 {
 	Path "Models/mapobjects/tos/"
@@ -199,6 +212,16 @@ Model TOSRailingAlt
 	Model 0 "railing.md3"
 	Skin 0 "Br_rail2.png"
 	Scale 1.45 1.45 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBridgeRailingPilot
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "railing.md3"
+	Skin 0 "Br_rail3.png"
+	Scale 1.45 1.45 1.1
 
 	FrameIndex TOS1 A 0 0
 }
@@ -345,18 +368,7 @@ Model TOSBridgeConsole6
 	FrameIndex TOS1 A 2 0
 }
 
-Model TOSBridgeConsole7
-{
-	Path "Models/mapobjects/tos/"
-	Model 0 "console.md3"
-	Skin 0 "cons_7.jpg"
-
-	AngleOffset 180.0
-	Scale 1.235 1.235 1.45
-
-	FrameIndex TOS1 A 0 0
-}
-
+ 
 Model TOSBridgeConsole7
 {
 	Path "Models/mapobjects/tos/"
@@ -521,11 +533,8 @@ Model TOSWallThing7
 	USEACTORPITCH
 	USEACTORROLL
 
-	Path "Models/mapobjects/tos/imports"
-	Model 0 "toswallthing7.md3"
-	Skin 0 "wallthing7.jpg"
-
-	Scale 1.5 1.5 1.5
+	Path "Models/mapobjects/tos"
+	Model 0 "wallthing7.md3"
 
 	FrameIndex TOS1 A 0 0
 }
@@ -545,6 +554,9 @@ Model TOSWallThing8
 
 Model TOSWallThingAtmospheric
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing_atmospheric.md3"
 	Skin 0 "wallthing_atmospheric.jpg"
@@ -557,6 +569,9 @@ Model TOSWallThingAtmospheric
 
 Model TOSWallThingHangar
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "wallthing_hangar.md3"
 	Skin 0 "wallthing_hangar.jpg"
@@ -595,6 +610,9 @@ Model TOSWallThingWarning
 
 Model TOSGNDN
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "gndn.md3"
 	Skin 0 "tripleGNDN.jpg"
@@ -607,6 +625,9 @@ Model TOSGNDN
 
 Model TOSTransporterScanner
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "transcan.md3"
 	SurfaceSkin 0 0 "viewer.jpg"
@@ -659,6 +680,9 @@ Model TOSWallThingEngineering2
 
 Model TOSLBDN
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "lbdn.md3"
 	Skin 0 "lbdn.jpg"
@@ -682,6 +706,9 @@ Model TOSLamp
 
 Model TOSMonitor
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "monitor.md3"
 	Model 1 "monitor_base.md3"
@@ -810,6 +837,9 @@ Model TOSBarrel3
 
 Model TOSTurboliftHandle
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "turbolift_handle.md3"
 	Skin 0 "turbolift_handle.jpg"
@@ -832,6 +862,9 @@ Model TOSWallThing9
 
 Model TOSBriefRib
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "brief_rib.md3"
 	Path "Textures/Solid/"
@@ -840,8 +873,25 @@ Model TOSBriefRib
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSBriefRibGrey
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "brief_rib.md3"
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Wall_Br.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+
 Model TOSBriefTable
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "conf_tab.md3"
 
@@ -852,6 +902,9 @@ Model TOSBriefTable
 
 Model TOSBriefComputer
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "conf_com.md3"
 
@@ -862,6 +915,9 @@ Model TOSBriefComputer
 
 Model TOSEngRib
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_rib.md3"
 	Path "Textures/Enterprise/Walls"
@@ -874,6 +930,9 @@ Model TOSEngRib
 
 Model TOSEngCenter
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_cent.md3"
 
@@ -1008,6 +1067,9 @@ Model TOSGangwayLongBottom
 
 Model TOSEngineerConsole
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_con1.md3"
 
@@ -1016,6 +1078,9 @@ Model TOSEngineerConsole
 
 Model TOSEngineeringConsole
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "engineering_console2.md3"
 	Skin 0 "eng_console1.jpg"
@@ -1026,6 +1091,9 @@ Model TOSEngineeringConsole
 
 Model TOSEngineeringConsole
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "engineering_console2.md3"
 	Skin 0 "eng_console2.jpg"
@@ -1036,6 +1104,9 @@ Model TOSEngineeringConsole
 
 Model TOSEngineeringConsole
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "engineering_console2.md3"
 	Skin 0 "eng_console3.jpg"
@@ -1080,6 +1151,9 @@ Model TOSTransformer
 
 Model TOSQuartersRib
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/imports"
 	Model 0 "room_rib.md3"
 	Path "Textures/Solid/"
@@ -1236,7 +1310,7 @@ Model TOSGrate
 	Model 0 "grate.md3"
 	Skin 0 "grate.png"
 	Model 1 "grateframe.md3"
-	Path "textures/enterprise/floors/"
+	Path "Textures/enterprise/floors/"
 	Skin 1 "br_flr.jpg"
 
 	Scale 0.8 0.8 0.8
@@ -1428,6 +1502,9 @@ Model Yucca { Path "models/mapobjects/plants/" Model 0 "yucca.md3" FrameIndex TO
 */
 Model TOSColumn
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos"
 	Model 0 "column.md3"
 
@@ -1438,6 +1515,9 @@ Model TOSColumn
 
 Model TOSConfSupport
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "models/mapobjects/tos"
 	Model 0 "support.md3"
 
@@ -1818,6 +1898,9 @@ Model Pane2
 
 Model TOSComputer
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "computer.md3"
 	Model 1 "computer_panel.md3"
@@ -1829,6 +1912,9 @@ Model TOSComputer
 
 Model TOSComputerB
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "computer.md3"
 	Model 1 "computer_panel.md3"
@@ -1841,6 +1927,9 @@ Model TOSComputerB
 
 Model TOSComputerC
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "computer.md3"
 	Model 1 "computer_panel.md3"
@@ -1853,6 +1942,9 @@ Model TOSComputerC
 
 Model TOSComputerD
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "computer.md3"
 	Model 1 "computer_panel.md3"
@@ -1903,6 +1995,9 @@ Model TOSComputer2C
 
 Model TOSComputer3
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "compute3.md3"
 
@@ -1912,6 +2007,9 @@ Model TOSComputer3
 
 Model TOSComputer3B
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "compute3.md3"
 	Skin 0 "comp_4bb.jpg"
@@ -1922,6 +2020,9 @@ Model TOSComputer3B
 
 Model TOSAuxRib
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "aux_rib.md3"
 
@@ -2582,6 +2683,9 @@ Model WindowPane
 
 Model TOSTubeHatch
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "hatch.md3"
 
@@ -2595,6 +2699,9 @@ Model TOSTubeHatch
 
 Model TOSHatch
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "hatch2.md3"
 
@@ -2650,6 +2757,9 @@ Model TOSFlagUFP
 
 Model TOSBlueSupport
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "models/mapobjects/tos"
 	Model 0 "support.md3"
 
@@ -2664,6 +2774,9 @@ Model TOSBlueSupport
 
 Model TOSSupport
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "models/mapobjects/tos"
 	Model 0 "support.md3"
 
@@ -2680,6 +2793,202 @@ Model TOSSink
 {
 	Path "models/mapobjects/tos"
 	Model 0 "sink.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLadderYellow
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "ladder.md3"
+
+	Scale 2.5 2.5 2.5
+	Offset -4.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLadderYellowExtension
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "ladder.md3"
+
+	Path "Textures/Solid/"
+	SurfaceSkin 0 1 "clear.png"
+
+	Scale 2.5 2.5 2.5
+	Offset -4.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLadderRed
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "ladder.md3"
+	Skin 0 "Ladder_R.png"
+
+	Scale 2.5 2.5 2.5
+	Offset -4.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLadderRedExtension
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "ladder.md3"
+	SurfaceSkin 0 0 "Ladder_R.png"
+
+	Path "Textures/Solid/"
+	SurfaceSkin 0 1 "clear.png"
+
+	Scale 2.5 2.5 2.5
+	Offset -4.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSTable6
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table6.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMarkerLight
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Red.jpg"
+
+	Scale 0.01 0.01 0.01
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMarkerLightWhite
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+	Scale 0.01 0.01 0.01
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSupportGrey
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models/mapobjects/tos"
+	Model 0 "support.md3"
+
+	Path "Textures/Enterprise/Walls"
+	SurfaceSkin 0 0 "transpa3.jpg"
+
+	Scale 1.5 1.5 1.5
+	Offset -30.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBridgeConsoleP1
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Model 1 "cons_mid.md3"
+	Skin 1 "cons_pi1.png"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_p1.png"
+
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Pillar.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+	FrameIndex TOS1 A 3 0
+}
+
+Model TOSBridgeConsoleP2
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cons_bot.md3"
+	Model 1 "cons_mid.md3"
+	Skin 1 "cons_pi2.png"
+	Model 2 "cons_top.md3"
+	Skin 2 "br_up_p2.png"
+
+	Path "Textures/Enterprise/Walls/"
+	Skin 0 "Pillar.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 A 1 0
+	FrameIndex TOS1 A 2 0
+	FrameIndex TOS1 A 3 0
+}
+
+Model TOSBridgeConsoleP3
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "console.md3"
+	Skin 0 "cons_7_p.png"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLamp2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "lamp2.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSRailSupport
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "rail_sup.md3"
+
+	Scale 1.45 1.45 1.1
 
 	FrameIndex TOS1 A 0 0
 }

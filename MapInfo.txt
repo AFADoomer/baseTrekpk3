@@ -15,6 +15,401 @@ GameInfo
 	quitmessages = "Are you sure you want to exit?"
 }
 
+DoomEdNums
+{
+	20000 = TOSCrewman
+	20001 = TOSChair
+	20002 = TOSBridgeRailing
+	20004 = TOSHelmConsole
+	20005 = TOSCaptainChair
+	20007 = TOSBridgeConsole7
+	20008 = TOSBridgeConsole8
+	20009 = TOSTurboliftHandle
+	20010 = TOSMonitor
+	20011 = TOSWallThing1
+	20012 = TOSWallThing2
+	20013 = TOSWallThing3
+	20014 = TOSWallThing4
+	20015 = TOSWallThing5
+	20016 = TOSWallThing6
+	20017 = TOSWallThing7
+	20018 = TOSWallThingAtmospheric
+	20019 = TOSWallThingHangar
+	20020 = TOSWallThingamajig
+	20021 = TOSWallThingWarning
+	20022 = TOSCeilingPipes
+	20023 = TOSSteps
+	20024 = TOSSteps2
+//	20025 = TOSWallThing
+	20026 = TOSGNDN
+	20027 = TOSBridgeConsole1
+	20028 = TOSBridgeConsole2
+	20029 = TOSBridgeConsole3
+	20030 = TOSBridgeConsole4
+	20031 = TOSBridgeConsole5
+	20032 = TOSBridgeConsole6
+	20033 = TOSBridgeDome
+	20034 = TOSWallThing8
+	20035 = TOSTransporterScanner
+	20036 = TOSTransporterConsole
+	20037 = TOSWallThingEngineering
+	20038 = TOSLBDN
+	20039 = TOSLamp
+	20040 = TOSPadd
+	20041 = TOSBarrel1
+	20042 = TOSBarrel2
+	20043 = TOSWallThing9
+	20045 = TOSBriefRib
+	20046 = TOSBriefTable
+	20047 = TOSEngRib
+	20048 = TOSEngCenter
+	20049 = TOSEngChamber
+	20050 = TOSEngConsoleR
+	20051 = TOSEngConsoleL
+	20052 = TOSEngSteps
+	20053 = TOSEngineerConsole
+	20054 = TOSTransformer
+	20055 = TOSQuartersRib
+	20056 = TOSCrate
+	20057 = TOSSecurityConsole
+	20058 = TOSEngineeringConsole
+	20059 = TOSComputer2C
+	20060 = TOSTapeRack
+	20061 = TOSEnterprise
+	20062 = TOSPlanet
+	20063 = TOSWallPipe
+	20064 = TOSEngWallThing1
+	20065 = TOSPipe1
+	20066 = TOSPipe2
+	20067 = TOSGrate
+	20068 = TOSEngWallThing2
+	20069 = TOSEngWallThing3
+	20070 = TOSEngWallThing4
+	20071 = TOSEngWallThing5
+	20072 = TOSEngWallThing6
+	20073 = TOSEngWallThing7
+	20074 = TOSPipe3
+	20075 = TOSPipe4
+	20076 = TOSPipe5
+	20077 = TOSPipe6
+	20078 = TOSChair2
+/*
+	20079 = Cactus
+	20080 = Cactus2
+	20081 = Cactus3
+	20082 = Cactus4
+	20083 = Garden1
+	20084 = Garden2
+	20085 = Garden3
+	20086 = Garden4
+	20087 = Garden5
+	20088 = Garden6
+	20089 = Garden7
+	20090 = Garden8
+*/
+	20091 = TOSTree1
+/*
+	20092 = Palmtree2
+	20093 = Plant03
+	20094 = Plant09
+	20095 = Plant1
+	20096 = Plant10
+	20097 = Plant11
+	20098 = Plant11New
+	20099 = Plant12
+	20100 = Plant13
+	20101 = Plant1New
+	20102 = Plant2
+	20103 = Plant20New
+	20104 = Plant25New
+	20105 = Plant2New
+	20106 = Plant3
+	20107 = Plant30
+	20108 = Plant31
+*/
+	20109 = TOSPlant1
+/*
+	20110 = Plant35
+	20111 = Plant8
+	20112 = Plant9
+	20113 = Shrub
+*/
+	20114 = TOSTree2
+	20115 = TOSTree3
+	20116 = TOSTree4
+	20117 = TOSTree5
+	20118 = TOSTree6
+/*
+	20119 = Yucca
+*/
+	20120 = TOSShuttleColumbus
+	20121 = TOSShuttleCopernicus
+	20122 = TOSColumn
+	20123 = TOSTerrain
+	20124 = TOSRailingAlt
+	20125 = TOSDeskIntercom
+	20126 = TOSShuttleGalileo
+	20127 = TOSBurkeChair
+	20128 = TOSConfSupport
+	20129 = TOSKlingonWeaponStation
+	20130 = TOSKlingonWeaponControls
+	20131 = TOSKlingonControlPanelScreen1
+	20132 = TOSKlingonControlPanel1
+	20133 = TOSKlingonCaptChair
+	20134 = TOSKlingonControlPanelScreen2
+	20135 = TOSKlingonControlPanelScreen3
+	20136 = TOSKlingonControlPanelScreen4
+	20137 = TOSKlingonControlPanelScreen5
+	20138 = TOSKlingonControlPanelScreen6
+	20139 = TOSKlingonControlPanel2
+	20140 = TOSKlingonControlPanel3
+	20141 = TOSTable
+	20142 = TOSTable2
+	20143 = TOSTable3
+	20144 = TOSBench
+	20145 = TOSHangarDoors
+	20146 = Pane
+	20147 = TOSComputer
+	20148 = TOSPipe8
+	20149 = TOSBriefComputer
+	20150 = TOSGangway
+	20151 = TOSAuxRib
+	20152 = TOSEngConsoleA
+	20153 = TOSComputer2
+	20154 = TOSEngWallThing8
+	20155 = TOSEngWallThing9
+	20156 = TOSEngWallThing10
+	20157 = TOSEngWallThing11
+	20158 = TOSWallThing11
+	20159 = TOSWallThing12
+	20160 = TOSWallThing13
+	20161 = TOSEngWallThing12
+	20162 = TOSWallThing14
+	20163 = TOSEngConsoleBlock
+	20164 = TOSMonitorSwivel
+	20165 = TOSMonitorBase
+	20166 = TOSMonitorBase1
+	20167 = TOSMonitorBase2
+	20168 = TOSMonitorBase3
+	20169 = TOSMonitorBase4
+	20170 = TOSComputerB
+	20171 = TOSComputerC
+	20172 = TOSComputerD
+	20173 = TOSComputer2B
+	20175 = TOSComputer3
+	20176 = TOSComputer3B
+	20177 = Pane2
+	20178 = TOSCeilingPipes2
+	20179 = TOSCeilingPipes3
+	20180 = TOSTable4
+	20181 = TOSWallBoard
+	20182 = TOSRockerButtons
+	20183 = TOSTableLeg
+	20184 = TOSGymApparatus
+	20185 = TOSGymBar
+	20186 = TOSGymBar2
+	20187 = TOSGymBar3
+	20188 = TOSTree7
+	20189 = TOSTree8
+	20190 = TOSTree9
+	20191 = TOSTree10
+	20192 = TOSTree11
+	20193 = Fountain
+	20194 = TOSDiningRib
+	20195 = TOSCloset
+	20196 = TOSBarrel3
+	20197 = TOSSickbayBed
+	20198 = TOSSickbayCounter
+	20199 = TOSSickbayCounter2R
+	20200 = TOSSickbayCounter2L
+	20201 = TOSSickbayMonitor
+	20202 = TOSSickbayProbe
+	20203 = TOSSickbayTable
+	20204 = TOSPipe9
+	20205 = TOSPipe10
+	20206 = TOSTable5
+	20207 = TOSWallThingEngineering2
+	20208 = TOSChair3
+	20209 = TOSShuttleAstrostein
+	20210 = TOSConferenceViewer
+	20211 = TOSIntercomAndRockers
+	20212 = TOSPlanetClouds
+	20213 = TOSPlanetShadow
+	20214 = TOSFoodTray
+	20215 = TOSChess
+	20216 = TOSCheckers
+	20217 = TOSPlantonRedAlert
+	20218 = TOSPlantonButton
+	20219 = TOSPlantonButton2
+	20220 = TOSPlantonButton3
+	20221 = TOSPlantonButton4
+	20222 = TOSPlantonButton5
+	20223 = TOSPlantonFoodSlot
+	20224 = TOSPlantonIntercom
+	20225 = TOSPlantonPanelGreyLarge
+	20226 = TOSPlantonPanelGreySmall
+	20227 = TOSPlantonPanelYellow
+	20228 = TOSPlantonPanelEnvEng
+	20229 = TOSPlantonPlugs
+	20230 = TOSPlantonSign_Aut
+	20231 = TOSPlantonSign_Aux
+	20232 = TOSPlantonSign_Br2
+	20233 = TOSPlantonSign_Br5
+	20234 = TOSPlantonSign_Br6
+	20235 = TOSPlantonSign_BrA
+	20236 = TOSPlantonSign_BRG
+	20237 = TOSPlantonSign_CC
+	20238 = TOSPlantonSign_CH
+	20239 = TOSPlantonSign_EMM
+	20240 = TOSPlantonSign_EnA
+	20241 = TOSPlantonSign_EnE
+	20242 = TOSPlantonSign_Eng
+	20243 = TOSPlantonSign_HB1
+	20244 = TOSPlantonSign_HB2
+	20245 = TOSPlantonSign_Qr1
+	20246 = TOSPlantonSign_Qr2
+	20247 = TOSPlantonSign_QrG
+	20248 = TOSPlantonSign_RR1
+	20249 = TOSPlantonSign_RR6
+	20250 = TOSPlantonSign_SC
+	20251 = TOSPlantonSign_ScL
+	20252 = TOSPlantonSign_Tu1
+	20253 = TOSPlantonSign_Tu2
+	20254 = TOSPlantonSign_Tu3
+	20255 = TOSPlantonSign_Tu4
+	20256 = TOSPlantonSign_Tu5
+	20257 = TOSPlantonSign_Tu6
+	20258 = TOSPlantonSign_Tu7
+	20259 = TOSPlantonSign_Tu8
+	20260 = TOSPlantonTu_Btns
+	20261 = TOSPlantonViewer
+	20262 = TOSPlantonWall_Br2
+	20263 = TOSPlantonWall_Icm
+	20264 = TOSPlantonWallSafe
+	20265 = TOSPlantonPanelGreyLarge2
+	20266 = TOSPlantonWB_1
+	20267 = TOSPlantonWB_2
+	20268 = TOSPlantonWB_3
+	20269 = TOSPlantonWB_4
+	20270 = TOSPlantonWB_5
+	20271 = TOSPlantonWB2_1
+	20272 = TOSPlantonWB2_2
+	20273 = TOSPlantonWB2_3
+	20274 = TOSPlantonWB2_4
+	20275 = TOSPlantonWB2_5
+	20276 = TOSPlantonPainting
+	20277 = TOSShipOrbit
+	20278 = WindowPane
+	20279 = TOSSun
+	20280 = TOSPlanetOrbit
+	20281 = TOSPlanetOrbitPink
+	20282 = TOSPlanetOrbitGreen
+	20283 = TOSPlanetOrbitBlue
+	20284 = TOSMoonOrbit
+	20285 = TOSSpacestationK7
+	20286 = TOSD7
+	20287 = TOSDY100
+	20288 = TOSPlanetOrbitEarth
+	20289 = TOSGangwayLong
+	20290 = TOSGangwayLongTop
+	20291 = TOSGangwayLongBottom
+	20292 = TOSGangwayFull
+	20293 = TOSEnterpriseExteriorRight
+	20294 = TOSEnterpriseExteriorLeft
+	20295 = TOSPlantonPig
+	20296 = TOSPlantonRooster
+	20297 = TOSFalseWall
+	20298 = TOSFalseWallWallGrey
+	20299 = TOSTubeHatch
+	20300 = TOSHatch
+	20301 = TOSDilithiumChamber
+	20302 = TOSWallThingDisposal
+	20303 = TOSWallThingVoltage
+	20304 = TOSTest
+	20305 = TOSFlag
+	20306 = TOSWallThingLineage1
+	20307 = TOSWallThingLineage2
+	20308 = TOSWallThingLineage3
+	20309 = TOSWallThingLineage4
+	20310 = TOSWallThingLineage5
+	20311 = TOSDelta
+	20312 = TOSFlagArrowhead
+	20313 = TOSFlagUFP
+	20314 = TOSBlueSupport
+	20315 = TOSSupport
+	20316 = TOSSink
+	20317 = TOSWallThingPanel
+	20318 = TOSLadderYellow
+	20319 = TOSLadderYellowExtension
+	20320 = TOSLadderRed
+	20321 = TOSTable6
+	20322 = TOSWallDecor
+	20323 = TOSLadderRedExtension
+	20324 = TOSMarkerLight
+	20325 = TOSMarkerLightWhite
+	20326 = TOSWallThingShuttlebayStatus
+	20327 = TOSBriefRibGrey
+	20328 = TOSSupportGrey
+	20329 = TOSBridgeRailingPilot
+	20330 = TOSHelmConsolePilot 
+	20331 = TOSBridgeConsoleP1
+	20332 = TOSBridgeConsoleP2
+	20333 = TOSBridgeConsoleP3
+	20334 = TOSLamp2
+	20335 = TOSRailSupport
+	20336 = TOSAnaxagoras
+
+//Skyboxes
+	21000 = Skybox1
+	21001 = Skybox2
+	21002 = Skybox3
+	21003 = Skybox4
+	21004 = Skybox5
+	21005 = Skybox6
+	21006 = Skybox7
+
+//Enemies
+	3004 = TOSKlingon
+	24001 = TOSPirate
+	24002 = TOSPirateAlt
+	24003 = TOSPirateAlt2
+	24004 = TOSPirateCapt
+
+//Weapons
+	25000 = PhaserType1
+	25001 = PhaserType2
+	25002 = Disruptor
+	25003 = PhotonGrenadeLauncher
+	25004 = PhaserRifle
+	25090 = TOSCommunicator
+	25010 = Tricorder
+
+//Weapon Stations
+	25102 = DisruptorStation
+	25104 = PhaserRifleStation
+
+//Ammo
+	26001 = Charge
+	26002 = PhotonGrenadeAmmo
+	26003 = PhotonGrenadeAmmoBox
+	26004 = DisruptorCharge
+	26005 = DisruptorChargeBox
+	26006 = RifleCharge
+	26007 = ChargePack
+
+//Markers
+	26500 = TurboLiftMarker
+	26501 = TransporterMarker
+
+//Miscellaneous
+	24000 = StarField
+	27000 = LensFlare
+	27001 = TOSRedAlertLightSmall
+	27002 = TOSRedAlertLight
+	27003 = SunFlare
+	27004 = TOSFollowerCamera
+}
+
 clearskills
 skill baby
 {
@@ -65,7 +460,6 @@ skill nightmare
 }
 
 clearepisodes
-
 episode SHIP
 {
 	name = TOS
@@ -77,7 +471,7 @@ DefaultMap
 	Music = ""
 	Cluster = 1
 
-	CheckSwitchRange
+//	CheckSwitchRange
 	UsePlayerStartZ
 	StrifeFallingDamage
 	EvenLighting
@@ -96,6 +490,14 @@ Map MAP01 "Filming Set"
 
 Map MAP02 "D-7 Cruiser"
 {}
+
+Map MAP07 "Outpost 11"
+{}
+
+Map MAP09 "U.S.S. Aristarchus"
+{
+	Fade = "111111"
+}
 
 Map Ship "U.S.S. Enterprise"
 {}

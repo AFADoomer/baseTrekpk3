@@ -1,0 +1,93 @@
+global int 14:showObjectives[];
+str objectives[10][3];
+
+Script "ToggleObjectives" (void)
+{
+	showObjectives[PlayerNumber()] = 1;
+}
+
+script "DisplayObjectives" ENTER
+{
+	int ActiveCount = 0;
+
+	While (showObjectives[PlayerNumber()] == 0 || Cutscene)
+	{
+		Delay(1);
+	}
+
+	showObjectives[PlayerNumber()] = 0;
+
+	str strFullOutput = "";
+
+	SetHudSize(1024, 768, 0);
+
+	int intMsgID = 10000;
+
+	For (int i = 0; i < 10; i++)
+	{
+		If (objectives[i][1] == 0) //Initial Run...
+		{
+			str strLookup = StrParam(s:"Objective_", n:PRINTNAME_LEVEL, s:"_", d:i);
+			str strOutput = StrParam(l:strLookup);
+
+			If (StrCmp(strOutput, strLookup) != 0)
+			{
+				StrCpy(a:SplitData, strOutput);
+
+				int CurrentLetter = 0;
+				int CurrentLength = 0;
+				int Index = 0;
+
+				For (int t = 0; t <= StrLen(strOutput); t++)
+				{
+					If (SplitData[t] == '~')
+					{
+						objectives[i][Index] = strMid(strOutput, CurrentLetter, CurrentLength);
+						Index++;
+						CurrentLength = 0;
+						CurrentLetter = t + 1;
+					}
+					Else
+						CurrentLength++;
+				}
+			}
+		}
+
+		If (IntFromString(objectives[i][2]) == 1 && IntFromString(objectives[i][0]) < 3) //Just Completed
+		{
+			strFullOutput = StrParam(s:strFullOutput,s:"\cq", s:objectives[i][1], s:"\n");
+			objectives[i][0] = "3";
+			ActiveCount++;
+		}
+		Else If (IntFromString(objectives[i][0]) == 4) //Failed
+		{
+			strFullOutput = StrParam(s:strFullOutput,s:"\cg", s:objectives[i][1], s:"\n");
+			ActiveCount++;
+		}
+		Else If (IntFromString(objectives[i][0]) == 1) //Unlocked but not complete
+		{
+			strFullOutput = StrParam(s:strFullOutput,s:"\cc", s:objectives[i][1], s:"\n");
+			ActiveCount++;
+		}
+		if (ActiveCount == 3) i = 10;
+	}
+
+	Notification("Objectives:", strFullOutput, "", 0);
+
+	Delay(1);
+	Restart;
+}
+
+Script "AddObjective" (int intIndex)
+{
+	objectives[intIndex - 1][0] = "1";
+
+	showObjectives[PlayerNumber()] = 1;
+}
+
+Script "MetObjective" (int intIndex)
+{
+	objectives[intIndex - 1][2] = "1";
+
+	showObjectives[PlayerNumber()] = 1;
+}

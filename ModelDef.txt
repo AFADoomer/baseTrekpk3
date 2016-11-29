@@ -2,7 +2,7 @@ Model TrekPlayer
 {
 	Path "Models/actors/player/"
 	Model 0 "player_m.md3"
-	Skin 0 "Starfleet_C_CAPT.jpg"
+	Skin 0 "Starfleet_E_LT_S.jpg"
 
 	Model 1 "head_kirk.md3"
 /*
@@ -242,7 +242,7 @@ Model TrekPlayer
 {
 	Path "Models/actors/player/"
 	Model 0 "player_new.md3"
-	Skin 0 "Starfleet_C_CAPT.jpg"
+	Skin 0 "Starfleet_E_LT_S.jpg"
 
 	Model 1 "head_kirk.md3"
 
@@ -894,14 +894,14 @@ Model Shuttle
 	FrameIndex TOS1 B 0 0
 }
 
-Model 1x1 {
+Model Block1x1 {
 	Path "Models/"
 	Model 0 "1x1.md3"
 
 	FrameIndex TOS1 A 0 0
 }
 
-Model 1x1Bounding {
+Model Block1x1Bounding {
 	Path "Models/"
 	Model 0 "1x1.md3"
 

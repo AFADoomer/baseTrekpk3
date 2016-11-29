@@ -1,17 +1,20 @@
 #library "TrekLib"
 
+global int 4:RedAlert, 7:FlightSpeed[], 9:ActorPosX[], 10:ActorPosY[], 13:Cutscene;
+global str 5:LogEntry[], 6:Weapon[], 8:HealRate[];
+
 #include "zcommon.acs"
 #include "functions.acs"
 #include "radar.acs"
 #include "lift.acs"
-
-global int 4:RedAlert, 7:FlightSpeed[], 9:ActorPosX[], 10:ActorPosY[];
-global str 5:LogEntry[], 6:Weapon[], 8:HealRate[];
+#include "objectives.acs"
 
 int ReloadCount;
 int MapViewDelay;
 int PlayerX, PlayerY, PlayerAngle;
 int Flight;
+
+int SkipCutscene = False;
 
 int mapRadius = 80;
 //int mapX = 425; //Tricorder screen overlay coords
@@ -78,12 +81,11 @@ str TitleSequence[16][6] = {
 Script "W_LevelStart" ENTER
 {
 	Thing_ChangeTID(0, 1001+PlayerNumber());
+	TakeInventory("HideHUD", 1);
 
 	If (GameType() == GAME_TITLE_MAP || StrICmp(StrParam(n:PRINTNAME_LEVEL), "TitleMap") == 0)
 	{
 		GiveInventory("HideHUD", 1);
-
-		SetMusic("music/opening.ogg", 0);
 
 		SetHudSize(320, 200, 1);
 		SetFont("WSMASK");
@@ -98,6 +100,11 @@ Script "W_LevelStart" ENTER
 
 		int showplanet = 0;
 		bool shuttle = 0;
+
+		Delay(35);
+
+		If (GameType() != GAME_TITLE_MAP)
+			SetMusic("music/opening.ogg", 0);
 
 		While (TRUE)
 		{
@@ -133,7 +140,7 @@ Script "W_LevelStart" ENTER
 
 				If (Angle != 0) SetActorAngle(Camera, Angle);
 
-				If (strGraphic != "" && showPlanet == 0)
+				If (strGraphic != "" && showPlanet == 0 && GameType() != GAME_TITLE_MAP)
 				{
 					int intTimeIn, intTimeHold, intTimeOut;
 					int intEndHeight, intStartScale, intSteps, intStartHeight, intSizeStep, intAlpha, intHeight, intWidth;
@@ -237,6 +244,9 @@ Script "W_LevelStart" ENTER
 			}
 
 			showplanet++;
+
+			if (GameType() != GAME_TITLE_MAP)
+				ChangeLevel ("MAP09", 0, CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 		}
 	}
 	Else
@@ -245,9 +255,13 @@ Script "W_LevelStart" ENTER
 			Notification("\crWarning!", "This mod contains textures that cause game lag when not pre-cached.\nPlease enable \cl'Precache GL Textures'\cc in the OpenGL Texture Options Menu.", "Alternatively, you can set the \cl'gl_precache'\cc CVAR to \cltrue\cc in the console.", 1);
 
 		CheckEnterEffect();
-
-		LogEntry[PlayerNumber()] = ""; //No objective is set at this time.
-
+/*
+		LogEntry[PlayerNumber() * 10] = ""; //No objective is set at this time.
+		LogEntry[PlayerNumber() * 10 + 1] = ""; //No objective is set at this time.
+		LogEntry[PlayerNumber() * 10 + 2] = ""; //No objective is set at this time.
+		LogEntry[PlayerNumber() * 10 + 3] = ""; //No objective is set at this time.
+		LogEntry[PlayerNumber() * 10 + 4] = ""; //No objective is set at this time.
+*/
 		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Planet") == 0)
 		{
 			//Thing_Activate(5);
@@ -256,6 +270,7 @@ Script "W_LevelStart" ENTER
 
 		If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "Ship") == 0)
 		{
+			GiveInventory("AccessLevel1", 1);
 			SetCameraToTexture(553, "CAMTEX_1", 85);
 			SetCameraToTexture(6, "CAMTEX_2", 85);
 		}
@@ -278,7 +293,13 @@ Function void CheckEnterEffect (void)
 			ActivatorSound("turbolift/end", 128);
 		}
 
+
+		Letterbox(0);
 		SetUserVariable(0, "user_travel", 0);
+		SetActorProperty(0, APROP_INVULNERABLE, 0);
+		SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
+
+		RedAlert = 0;
 	}
 }
 
@@ -315,7 +336,7 @@ Script "W_PlayerLoop" ENTER
 			ReloadCount++;
 	}
 
-	If (CheckInventory("Tricorder"))
+	If (CheckInventory("Tricorder") && !Cutscene)
 	{
 		int scale = 0;
 		int hud = 1;
@@ -347,7 +368,7 @@ Script "W_PlayerLoop" ENTER
 		DrawRadar(0, 0, 0, 0, 0, 0);
 	}
 
-	If (!Flight)
+	If (!Flight && !Cutscene)
 	{
 		DoMovement();
 
@@ -391,13 +412,22 @@ Script "W_PlayerLoop" ENTER
 	}
 	Else
 	{
-		If (StrICmp(GetWeapon(), "NoWeapon"))
+		If (StrICmp(GetWeapon(), "TOSCommunicator") == 0)
+		{
+			//Let it go...
+		}
+		Else If (StrICmp(GetWeapon(), "NoWeapon") != 0)
 			Weapon[PlayerNumber()] = GetWeapon();
 		Else
 		{
 			Delay(70);
 			SetWeapon(Weapon[PlayerNumber()]);
 		}
+	}
+
+	If (Cutscene && (GetPlayerInput(-1, INPUT_BUTTONS) != GetPlayerInput(-1, INPUT_OLDBUTTONS)))
+	{
+		SkipCutscene = True;
 	}
 
 	Delay(1);
@@ -780,7 +810,7 @@ Script "A_Transport" (int Fade, int BeamDir)
 	If (BeamDir != 1)
 	{
 		SpawnForced("TransporterEffect", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
-		If (Fade)
+		If (Fade && !Cutscene)
 		{
 			//FadeRange (250, 234, 149, 0.0, 250, 234, 149, 1.0, 6.0);
 			FadeToGraphic ("Gold", 5.0, 4.0, 0);
@@ -799,7 +829,7 @@ Script "A_Transport" (int Fade, int BeamDir)
 	If (BeamDir > 0)
 	{
 		SpawnForced("TransporterEffect2", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
-		If (Fade)
+		If (Fade && !Cutscene)
 		{
 			//FadeRange (250, 234, 149, 1.0, 250, 234, 149, 0.0, 6.0);
 			FadeToGraphic ("Gold", 1.0, 0, 3.0);
@@ -858,7 +888,8 @@ Script "A_AmmoStation" (int intType, int intAmt)
 		break;
 	}
 
-	SetWeapon("NoWeapon");
+	SetUserVariable(0, "user_travel", 1); //Force weapon to lower
+	Weapon[PlayerNumber()] = strWeapon; //Set current weapon to whatever the unit is dispensing
 
 	If (CheckInventory(strWeapon))
 	{
@@ -883,7 +914,8 @@ Script "A_AmmoStation" (int intType, int intAmt)
 		SetResultValue(-1);
 	}
 
-	SetWeapon(strWeapon);
+	SetUserVariable(0, "user_travel", 0); //Allow Weapon to Rais
+	SetWeapon(strWeapon); //Force currently dispensed weapon, just in case
 }
 
 Script "ToggleFly" (int EnterExit, int minHeight, int maxHeight)
@@ -894,24 +926,24 @@ Script "ToggleFly" (int EnterExit, int minHeight, int maxHeight)
 	{
 		SetPlayerProperty (0, 1, PROP_FLY);
 		SetUserVariable(0, "user_climb", 1);
-/*
+
 		If (minHeight != 0 && maxHeight != 0)
 		{
-			While (TRUE)
+			maxHeight = maxHeight - GetActorProperty(0, APROP_Height) / 2.0;
+			minHeight = minHeight - GetActorProperty(0, APROP_Height) / 2.0;
+			While (GetUserVariable(0, "user_climb") == 1)
 			{
-				If (GetActorZ(ActivatorTID()) > maxHeight << 16)
+				If (GetActorZ(ActivatorTID()) <= maxHeight << 16 && GetActorZ(ActivatorTID()) >= minHeight << 16)
 				{
-					ThrustThingZ(0, -16, 0, 0);
+					SetPlayerProperty (0, 1, PROP_FLY);
 				}
-				Else If (GetActorZ(ActivatorTID()) < minHeight << 16)
+				Else
 				{
 					SetPlayerProperty (0, 0, PROP_FLY);
-					Terminate;
 				}
 				Delay(1);
 			}
 		}
-*/
 	}
 	Else
 	{
@@ -1601,12 +1633,20 @@ Function void CloseDoor (void)
 	DoorStatus = 0;
 }
 
-Script "MoveShuttle" (int Out)
+Script "A_CheckDoorStatus" (void)
 {
-	If (GetActorZ(0) < -1536.0) terminate;
+	SetResultValue(DoorStatus);
+}
+
+Script "MoveShuttle" (int Out, int Override)
+{
+	If (!Override)
+	{
+		If (GetActorZ(0) < -1536.0) terminate;
+		If (Moved == Out) terminate;
+	}
+
 	If (PadStatus) terminate;
-	
-	If (Moved == Out) terminate;
 
 	int ShuttleX, ShuttleY, ShuttleZ;
 	int i = 0;
@@ -1633,7 +1673,16 @@ Script "MoveShuttle" (int Out)
 		}
 	}
 	Else
+	{
+		ShuttleX = 11704.0;
+		ShuttleY = -2972.0;
+		ShuttleZ = -1348.0;
+
+		SetActorPosition(551, ShuttleX, ShuttleY, ShuttleZ, 0); 
+
 		SetActorAngle(551, 0.5);
+	}
+
 	OpenDoor();
 
 	Delay(35 * 3);
@@ -1648,7 +1697,9 @@ Script "MoveShuttle" (int Out)
 		Delay(1);
 	}
 	
-	CloseDoor();  
+	//CloseDoor();  
+	PlaySound(0, "hangar/doors", CHAN_AUTO, 0.35);
+	SetActorState(2, "Closing");
 	
 	For (i = 1024; i <= 2048; i = i + 3)
 	{
@@ -1659,13 +1710,24 @@ Script "MoveShuttle" (int Out)
 		
 		Delay(1);
 	}
+
+	ReplaceTextures ("WALL_BEB", "WALL_BEA");
+
+	If (!Out) {
+		For (j = 0.5; j >= 0.25; j -= 0.001)
+		{
+			SetActorAngle(551, j);
+			Delay(3);
+		}
+
+		SetActorState(551, "Land");
+	}
+
 	DoorStatus = 0;
 	
 	PolyObj_Move(312, 32, 192, 120);
 	Ceiling_RaiseToNearest(36, 32);
 
-	ReplaceTextures ("WALL_BEB", "WALL_BEA");
-	
 	Moved = Out;
 }
 
@@ -2068,14 +2130,9 @@ Script "TurnActor" (int TID, int angle, int tics)
 	SetActorAngle(TID, oldAngle);
 }
 
-Script "Test" (void)
-{
-	LogEntry[PlayerNumber()] = "This is a test";
-}
-
 Function void Notification(str strTitle, str strContent, str strLogOnlyContent, bool bLog)
 {
-	str strString = StrParam(s:"\ck", s:strTitle, s:"\n\n\cc", s:strContent);
+	str strString = StrParam(s:"\ck", s:strTitle, s:"\n\cc", s:strContent);
 
 	For (int i = 10000; i <= 11000; i++)
 	{
@@ -2118,12 +2175,12 @@ Script "A_CheckBeamUp" (void)
 	SetUserVariable(0, "user_travel", 1);
 	GiveInventory("TransportOut", 1);
 
-	Delay(35 * 4);
+	Delay(35 * 5);
 
 	SetActorProperty(0, APROP_INVULNERABLE, 0);
 	SetPlayerProperty(0, 0, PROP_TOTALLYFROZEN);
 
-	ChangeLevel ("SHIP", 3, CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+	ChangeLevel ("SHIP", 3 + PlayerNumber(), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 }
 
 #define DropClassCount 12
@@ -2193,5 +2250,259 @@ Script "StepThrust" (int angle)
 	{ //Forward and up?
 //		ThrustThing(GetActorAngle(ActivatorTID()) * 256 / 1.0, 8, 0, ActivatorTID());
 		ThrustThingZ(ActivatorTID(), 8, 0, 0);
+	}
+}
+
+function void Letterbox (int OnOff)
+{
+	CutScene = OnOff;
+
+	If (OnOff > 0)
+	{
+		SetFont("DARKGREY");
+		SetHudSize(320, 200, 0);
+		HudMessage (s:"A"; 0, 100, -1, 0.0, -70.0, 0);
+		HudMessage (s:"A"; 0, 102, -1, 320.0, -70.0, 0);
+		HudMessage (s:"A"; 0, 101, -1, 0.0, 270.0, 0);
+		HudMessage (s:"A"; 0, 103, -1, 320.0, 270.0, 0);
+	}
+	Else
+	{
+		SetHudSize(320, 200, 0);
+		HudMessage (s:""; 0, 100, -1, 0.0, 0.0, 0);
+		HudMessage (s:""; 0, 101, -1, 0.0, 0.0, 0);
+		HudMessage (s:""; 0, 102, -1, 0.0, 0.0, 0);
+		HudMessage (s:""; 0, 103, -1, 0.0, 0.0, 0);
+		HudMessage (s:""; 0, -1000, 0, 0, 0, 0, 0);
+	}
+}
+
+Script "QuickFade" (void)
+{
+	If (!SkipCutscene)
+	{
+		FadeToGraphic("Black_Ful", 0.1, 0.5, 0.5);
+		Delay(14);
+	}
+}
+
+Script "Cutscene" (int index, int inTime, int outTime)
+{
+	str strLookupName;
+	str strLookupData = " ";
+	str strString;
+	int i = 0;
+	int hold = 0;
+	int posv = 720.2;
+	int pos = 0.0;
+
+	SetPlayerProperty(1, 1, PROP_TOTALLYFROZEN);
+
+	FadeToGraphic("Black_Ful", 1.0, inTime * 1.0, outTime * 1.0);
+
+	Delay(inTime * 35 + 5);
+
+	Letterbox(1);
+
+	SetHudSize(1024, 768, 0);
+	SetFont("BIGFONT");
+	strLookupName = strParam(s:"Cutscene_",n:PRINTNAME_LEVEL,s:"_",d:index, s:"_", d:i);
+
+	strLookupData = strParam(l:strLookupName);
+
+	While (StrCmp(strLookupData, strLookupName))
+	{
+		SetPlayerProperty(1, 1, PROP_TOTALLYFROZEN);
+
+		If (SkipCutscene)
+		{
+			SetHudSize(1280, 960, 1);
+			SetFont("Black_Ful");
+			HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, 1, -1, 640.0, 480.0, 0);
+			Log(s:"...");
+		}
+
+		SplitString(strLookupData, '~');
+
+		If (StrCmp(CutsceneData[0], "") != 0 && IntFromString(CutsceneData[0]) > 0)
+		{
+			//ChangeCamera(IntFromString(CutsceneData[0]), 1, 0);
+			// Use texture instead of direct camera so the camera has modifiable FOV...
+			SetHudSize(1280, 960, 1);
+			SetCameraToTexture(IntFromString(CutsceneData[0]), "CUTSCENE", 35);
+			SetFont("CUTSCENE");
+			HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, -1000, -1, 640.0, 480.0, 0);
+		}
+		Else
+		{
+			ChangeCamera(0, 1, 0);
+			HudMessage (s:""; 0, -1000, 0, 0, 0, 0, 0);
+		}
+
+		hold = StrLen(CutsceneData[2]) * 1.0 / 20;
+
+		posv = 720.2;
+
+		If (StrCmp(CutsceneData[3], "L") == 0)
+		{
+			pos = 32.1;
+		}
+		Else If (StrCmp(CutsceneData[3], "R") == 0)
+		{
+			pos = 992.2;
+		}
+		Else If (StrCmp(CutsceneData[3], "T") == 0)
+		{
+			pos = 32.1;
+			posv = 32.1;
+		}
+		Else
+		{
+			pos = 512.0;
+		}
+
+		If (StrCmp(CutsceneData[4], "") != 0)
+		{
+			ACS_NamedExecuteWait(CutsceneData[4], 0);
+		}
+
+		SetHudSize(1024, 768, 0);
+		SetFont("BIGFONT");
+
+		If (StrCmp(CutsceneData[2], "") != 0)
+		{
+			If (StrCmp(CutsceneData[1], "") != 0)
+				strString = strParam(s:"\cj", s:CutsceneData[1], s:":\cl\n", s:CutsceneData[2]);
+			Else
+				strString = strParam(s:CutsceneData[2]);
+
+			HudMessage(s:strString; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING | HUDMSG_LOG, 99 - i, "TOSGold", pos, posv, hold, 0.5, 1.0);
+
+			ACS_NamedExecuteWait("CutsceneDelay", 0, (hold + 2.5) * 35 / 1.0);
+		}
+
+		If (StrCmp(CutsceneData[5], "") != 0)
+			ACS_NamedExecuteWait("CutsceneDelay", 0, IntFromString(CutsceneData[5]));
+
+		i++;
+
+		strLookupName = strParam(s:"Cutscene_",n:PRINTNAME_LEVEL,s:"_",d:index, s:"_", d:i);
+		strLookupData = strParam(l:strLookupName);
+
+		If (GetCVar("developer") == 0) SkipCutscene = False;
+	}
+
+	FadeToGraphic("Black_Ful", 1.0, (1 - SkipCutscene) * 1.0, 1.0);
+
+	Delay(35);
+
+	SkipCutscene = False;
+
+	If (outTime > 0) //No outtime assumes end of level, so don't reset
+	{
+		ChangeCamera(0, 1, 0);
+		SetPlayerProperty(1, 0, PROP_TOTALLYFROZEN);
+		Letterbox(0);
+		Autosave();
+	}
+}
+
+Script "CommUp" (void)
+{
+	Weapon[PlayerNumber()] = GetWeapon();
+	SetWeapon("TOSCommunicator");
+	Delay(35);
+}
+
+Script "CommDown" (void)
+{
+	Delay(5);
+	SetWeapon(Weapon[PlayerNumber()]);
+}
+
+Script "Chirp" (void) //TODO:  Combine with CommUp?
+{
+	PlaySound(0, "actor/communicator/beep", CHAN_BODY, 0.1);
+	Delay(50);
+}
+
+Script "HidePlayer" (void) //Used to prep for levels where player beams in during cutscene
+{
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
+	SetActorProperty(0, APROP_Alpha, 0);
+}
+
+Script "ShowPlayer" (void)
+{
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
+	SetActorProperty(0, APROP_Alpha, 255);
+}
+
+Script "GameSkill" (void)
+{
+	SetResultValue(GameSkill() + 1);
+}
+
+Script "Title" (void)
+{
+	int d;
+	int bShadows = TRUE;
+
+	SetHudSize(256, 192, 0);
+	SetFont("BIGFONT");
+
+	str strTitleLookup = StrParam(s:"Title_",n:PRINTNAME_LEVEL);
+	str strTitle = StrParam(c:'"',l:strTitleLookup,c:'"');
+	str strCreditLookup = StrParam(s:"Credit_",n:PRINTNAME_LEVEL);
+
+	HudMessage(s:strTitle; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 94, "TOSGold", 128.0, 44.1, 2.5, 0.5, 1.0);
+
+	If (bShadows)
+	{
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 16);
+		HudMessage(s:strTitle; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 95, "TrueBlack", 129.0, 45.1, 1.5, 0.5, 0.5);
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 17);
+	}
+	Else
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 35);
+
+	SetHudSize(576, 432, 0);
+	HudMessage(l:"StoryByString"; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 96, "TOSGold", 50.1, 266.1, 1.5, 0.5, 1.0);
+
+	SetHudSize(384, 288, 0);
+	HudMessage(l:strCreditLookup; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 98, "TOSGold", 33.1, 192.1, 1.5, 0.5, 1.0);
+
+	If (bShadows)
+	{
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 16);
+		SetHudSize(576, 432, 0);
+		HudMessage(l:"StoryByString"; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 97, "TrueBlack", 52.1, 268.1, 0.5, 0.5, 0.5);
+		SetHudSize(384, 288, 0);
+		HudMessage(l:strCreditLookup; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 99, "TrueBlack", 35.1, 194.1, 0.5, 0.5, 0.5);
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 87);
+	}
+	Else
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 3 * 35);
+}
+
+Script "CutsceneDelay" (int duration)
+{
+	For (int d = 0; d <= duration; d++)
+	{
+		Delay(1);
+		If (SkipCutscene)
+		{
+			HudMessage (s:""; 0, 90, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 91, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 92, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 93, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 94, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 95, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 96, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 97, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 98, -1, 0.0, 0.0, 0);
+			HudMessage (s:""; 0, 99, -1, 0.0, 0.0, 0);
+			d = duration;
+		}
 	}
 }

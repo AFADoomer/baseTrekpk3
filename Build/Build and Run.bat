@@ -38,7 +38,7 @@ SET ZipPath=C:\Program Files\7-Zip\7z.exe
 :: Engine/Launch Information                                                 ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 SET Engine=C:\Games\Doom\gzdoom.exe
-SET Map=ship
+SET Map=map09
 SET RunArgs=-file Autoload\*.* %* +skill 3 +logfile Log.txt +map %MAP% -iwad doom2.wad
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

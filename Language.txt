@@ -1,7 +1,7 @@
 [enu default]
 
 LOCKED = "Access Denied";
-LOCK = "Level ^1 Access Required";
+LOCK = "You can't go there, yet.";
 LOCK_2 = "Level 2 Access Required";
 LOCK_2_G = "Level 2 Access Granted";
 LOCK_3 = "Level 3 Access Required";
@@ -59,4 +59,52 @@ TOSTransporterConsole_SHIP_3 = "Transporter Room 2 Console";
 TOSTransporterConsole_SHIP_4 = "Emergency Transporter 1 Console";
 TOSTransporterConsole_SHIP_5 = "Emergency Transporter 2 Console";
 TOSTransporterConsole_SHIP_6 = "Emergency Transporter 3 Console";
-TOSPLantonButton_SHIP_0 = "Partition Wall Door Control";
+TOSPlantonButton_SHIP_0 = "Partition Wall Door Control";
+TOSPlantonTu_Btns_MAP09_0 = "Turbolift Controls";
+TOSBridgeConsoleP2_MAP09_3 = "Communications";
+TOSBridgeConsoleP1_MAP09_4 = "Science Station";
+TOSBridgeConsoleP2_MAP09_5 = "Science Station 2";
+TOSBridgeConsoleP1_MAP09_6 = "Damage Control";
+TOSBridgeConsoleP3_MAP09_7 = "Towing Operations";
+TOSBridgeConsoleP3_MAP09_8 = "Weapon and Defense";
+TOSBridgeConsoleP2_MAP09_9 = "Environmental Control";
+TOSBridgeConsoleP1_MAP09_10 = "Engineering";
+
+Title_MAP09 = "PIRATE     \n     TROUBLE";
+Credit_MAP09 = "MARTEN VAN WIER";
+
+StoryByString = "STORY BASED ON IDEAS FROM";
+
+Cutscene_MAP09_0_0 = "20~~~~HidePlayer~70~";
+Cutscene_MAP09_0_1 = "20~~~~Title~35~";
+Cutscene_MAP09_0_2 = "20~Security Officer's Log, Stardate 6037.4~We're beaming aboard the U.S.S. Anaxagoras, a ship thought lost over a decade ago.\nThe ship has been taken over by pirates. My team is tasked with re-taking the vessel from the inside.~T~~~";
+Cutscene_MAP09_0_3 = "20~~~~QuickFade~~";
+Cutscene_MAP09_0_4 = "1~~~~~35~";
+Cutscene_MAP09_0_5 = "1~~~~BeamIn~175~";
+Cutscene_MAP09_0_6 = "1~~~~QuickFade~~";
+Cutscene_MAP09_0_7 = "0~~~~Chirp~~";
+Cutscene_MAP09_0_8 = "0~~~~CommUp~~";
+Cutscene_MAP09_0_9 = "0~Spock~Lieutenant, we have detected a fluctuation in the Anaxagoras's internal systems.\nThe pirates may have detected our transport; continue your mission, but know that you will be alone.~T~~~";
+Cutscene_MAP09_0_10 = "0~~\ccAcknowledged~~~~";
+Cutscene_MAP09_0_11 = "0~~~~CommDown~~";
+Cutscene_MAP09_1_0 = "0~~~~Chirp~~";
+Cutscene_MAP09_1_1 = "0~~~~CommUp~~";
+Cutscene_MAP09_1_2 = "0~Spock~Lieutenant, you have been detected.  Your turbolift has been halted on deck 3.\nYou should be able to force the doors open to escape and use access ladders to reach the bridge.~T~~~";
+Cutscene_MAP09_1_3 = "0~~~~CommDown~~";
+Cutscene_MAP09_1_4 = "0~~~~Objective2~~";
+Cutscene_MAP09_2_0 = "0~~~~Chirp~~";
+Cutscene_MAP09_2_1 = "0~~~~CommUp~~";
+Cutscene_MAP09_2_2 = "0~Spock~Effectively done, Lieutenant.\nYou should be able to incapacitate the remaining pirate crew from the Environmental station on the port side.~T~~~";
+Cutscene_MAP09_2_3 = "0~~~~CommDown~~";
+Cutscene_MAP09_2_4 = "0~~~~Objective4~~";
+Cutscene_MAP09_3_0 = "11~~~~Chirp~~";
+Cutscene_MAP09_3_1 = "11~~~~CommUp~~";
+Cutscene_MAP09_3_2 = "11~Kirk~Well done, Lieutenant.  It looks like you've knocked out the remaining pirates.\nStand by for beam out.~T~~~";
+Cutscene_MAP09_3_3 = "11~~\ccAye, Sir.~~~~";
+Cutscene_MAP09_3_4 = "21~~~~CommDown~~";
+Cutscene_MAP09_3_5 = "21~~~~A_CheckBeamUp~350~";
+
+Objective_MAP09_0 = "1~Gain access to the Anaxagoras' bridge.~";
+Objective_MAP09_1 = "0~Escape from the Turbolift.~";
+Objective_MAP09_2 = "0~Clear the bridge of pirates.~";
+Objective_MAP09_3 = "0~Incapacitate the remaining pirates aboard the ship.~";

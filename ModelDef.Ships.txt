@@ -410,3 +410,17 @@ Model TOSEnterpriseExteriorLeft
 
 	FrameIndex TOS1 A 0 0
 }
+
+Model TOSAnaxagoras
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/Anaxagoras/"
+	Model 0 "Anaxagoras.md3"
+
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
