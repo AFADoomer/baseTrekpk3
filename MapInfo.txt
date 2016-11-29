@@ -481,9 +481,7 @@ DefaultMap
 }
 
 Map TitleMap "Star Trek"
-{
-	Cluster = 2
-}
+{}
 
 Map MAP01 "Filming Set"
 {}
