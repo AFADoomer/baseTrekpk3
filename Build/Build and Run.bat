@@ -126,7 +126,8 @@ ECHO Launching '%TargetFile%'...
 
 IF NOT EXIST %DevFolder%\%WADFolder%\Build MKDIR %DevFolder%\%WADFolder%\Build
 
-COPY %TargetFile% %DevFolder%\%WADFolder%\Build > nul
+REM If the file is over 100MB, GitHub won't take it...
+REM COPY %TargetFile% %DevFolder%\%WADFolder%\Build > nul
 COPY %0 %DevFolder%\%WADFolder%\Build > nul
 
 ECHO อออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
