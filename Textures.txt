@@ -1,3 +1,7 @@
+Sprite CURSORD, 32, 32 {XScale 4.0 YScale 4.0 Graphic Delta, 0, 0 {Style Overlay Rotate 90}}
+Sprite DIMBKG, 640, 400 {Offset 320, 200 Graphic Dim, 0, 0 {Style Overlay} }
+Sprite HelpScrn, 1024, 640 {XScale 3.2 YScale 3.2 Graphic Help, 0, 0 {Style Overlay} }
+
 Sprite TOS1A0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
 Sprite TOS1B0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
 Sprite TOS1C0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
@@ -71,78 +75,78 @@ Texture DOOR, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR.jpg", 0, 0
 }
 
 Texture DOOR_B, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR_B, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR_B.jpg", 0, 0
 }
 
 Texture DOOR_G, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR_G, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR_G.jpg", 0, 0
 }
 
 Texture DOOR_R, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR_R, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR_R.jpg", 0, 0
 }
 
 Texture DOOR_Y, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR_Y, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR_Y.jpg", 0, 0
 }
 
 Texture DOOR_GR, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR_GR, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR_GR.jpg", 0, 0
 }
 
 Texture DOOR_NON, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR_NON, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR_NON.jpg", 0, 0
 }
 
 Texture DOOR_CAG, 256, 512
 {
 	XScale 4.0
 	YScale 4.0
-	Patch DOOR_CAG, 0, 0
+	Patch "Textures/Enterprise/Doors/DOOR_CAG.png", 0, 0
 }
 
-Texture Dr1M, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M, 0, 0}
-Texture Dr1M_Bl, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_Bl, 0, 0}
-Texture Dr1M_G, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_G, 0, 0}
-Texture Dr1M_Gr, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_Gr, 0, 0}
-Texture Dr1M_Non, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_Non, 0, 0}
-Texture Dr1M_R, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_R, 0, 0}
-Texture Dr1M_Y, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr1M_Y, 0, 0}
-Texture Dr2M, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr2M, 0, 0}
-Texture Dr2M_Bl, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr2M_Bl, 0, 0}
-Texture Dr2M_G, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr2M_G, 0, 0}
-Texture Dr2M_Gr, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr2M_Gr, 0, 0}
-Texture Dr2M_Non, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr2M_Non, 0, 0}
-Texture Dr2M_R, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr2M_R, 0, 0}
-Texture Dr2M_Y, 256, 512 {XScale 4.0 YScale 4.0 Patch Dr2M_Y, 0, 0}
+Texture Dr1M, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M.jpg", 0, 0}
+Texture Dr1M_Bl, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_Bl.jpg", 0, 0}
+Texture Dr1M_G, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_G.jpg", 0, 0}
+Texture Dr1M_Gr, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_Gr.jpg", 0, 0}
+Texture Dr1M_Non, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_Non.jpg", 0, 0}
+Texture Dr1M_R, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_R.jpg", 0, 0}
+Texture Dr1M_Y, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_Y.jpg", 0, 0}
+Texture Dr2M, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr2M.jpg", 0, 0}
+Texture Dr2M_Bl, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr2M_Bl.jpg", 0, 0}
+Texture Dr2M_G, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr2M_G.jpg", 0, 0}
+Texture Dr2M_Gr, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr2M_Gr.jpg", 0, 0}
+Texture Dr2M_Non, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr2M_Non.jpg", 0, 0}
+Texture Dr2M_R, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr2M_R.jpg", 0, 0}
+Texture Dr2M_Y, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr2M_Y.jpg", 0, 0}
 
 Texture GRATE_R, 128, 128
 {
 	XScale 32.0
 	YScale 32.0
-	Patch GRATE_R, 0, 0
+	Patch "Textures/Enterprise/Walls/GRATE_R.png", 0, 0
 }
 
 Texture GRATE_R_E, 128, 2432
@@ -237,35 +241,35 @@ Texture GRATE_Y, 128, 128
 {
 	XScale 32.0
 	YScale 32.0
-	Patch GRATE_Y, 0, 0
+	Patch "Textures/Enterprise/Walls/GRATE_Y.png", 0, 0
 }
 
 Texture GRATE_G, 128, 128
 {
 	XScale 32.0
 	YScale 32.0
-	Patch GRATE_G, 0, 0
+	Patch "Textures/Enterprise/Walls/GRATE_G.png", 0, 0
 }
 
 Texture GRATE_G2, 128, 128
 {
 	XScale 48.0
 	YScale 48.0
-	Patch GRATE_G2, 0, 0
+	Patch "Textures/Enterprise/Walls/GRATE_G2.png", 0, 0
 }
 
 Texture LADDER_R, 128, 128
 {
 	XScale 6.2
 	YScale 8.0
-	Patch LADDER_R, 0, 0
+	Patch "Textures/Enterprise/Walls/LADDER_R.png", 0, 0
 }
 
 Texture LADDER_Y, 128, 128
 {
 	XScale 6.4
 	YScale 8.0
-	Patch LADDER_Y, 0, 0
+	Patch "Textures/Enterprise/Walls/LADDER_Y.png", 0, 0
 }
 
 Sprite TRICA0, 606, 307
@@ -296,7 +300,7 @@ Texture BRI_TRIM, 256, 128
 {
 	XScale 4.75
 	YScale 4.75
-	Patch BRI_TRIM, 0, 0
+	Patch "Textures/Enterprise/Walls/BRI_TRIM.png", 0, 0
 }
 
 Sprite TRANA0, 1, 1
@@ -335,63 +339,63 @@ Texture BR_FLR, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch BR_FLR, 0, 0
+	Patch "Textures/Enterprise/Floors/BR_FLR.jpg", 0, 0
 }
 
 Texture BR_FLR2, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch BR_FLR2, 0, 0
+	Patch "Textures/Enterprise/Floors/BR_FLR2.jpg", 0, 0
 }
 
 Texture BRF_FLR, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch BRF_FLR, 0, 0
+	Patch "Textures/Enterprise/Floors/BRF_FLR.jpg", 0, 0
 }
 
 Texture TU_FLOOR, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch TU_FLOOR, 0, 0
+	Patch "Textures/Enterprise/Floors/TU_FLOOR.jpg", 0, 0
 }
 
 Texture STRIP_BL, 64, 64
 {
 	XScale 10.0
-	YScale 10.0
-	Patch STRIP_BL, 0, 0
+	YScale 	10.0
+	Patch "Textures/Enterprise/Floors/STRIP_BL.jpg", 0, 0
 }
 
 Texture STRIP_BR, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch STRIP_BR, 0, 0
+	Patch "Textures/Enterprise/Floors/STRIP_BR.jpg", 0, 0
 }
 
 Texture STRIP_OR, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch STRIP_OR, 0, 0
+	Patch "Textures/Enterprise/Floors/STRIP_OR.jpg", 0, 0
 }
 
 Texture STRIP_RE, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch STRIP_RE, 0, 0
+	Patch "Textures/Enterprise/Floors/STRIP_RE.jpg", 0, 0
 }
 
 Texture BED, 21, 23 //256, 256
 {
 	XScale 12.0
 	YScale 12.0
-	Patch BED, 0, 0
+	Patch "Textures/Enterprise/Floors/BED.jpg", 0, 0
 }
 
 /*
@@ -407,7 +411,7 @@ Texture WOOD, 128, 128
 {
 	XScale 2.0
 	YScale 2.0
-	Patch WOOD, 0, 0
+	Patch "Textures/Enterprise/Floors/WOOD.jpg", 0, 0
 }
 
 /*
@@ -434,16 +438,31 @@ Texture Stars4, 256, 256
 
 Graphic Logo_T, 1080, 288
 {
-	XScale 6.0
-	YScale 6.0
+	XScale 12.0
+	YScale 12.0
 	Graphic Logo, 0, 0 {Style Overlay}
 }
 
 Graphic Logo_S, 729, 66
 {
-	XScale 6.0
-	YScale 6.0
-	Graphic Logo_S, 0, 0 {Style Overlay}
+	XScale 12.0
+	YScale 12.0
+	Graphic "Graphics/Menu/Logo_S.png", 0, 0 {Style Overlay}
+}
+
+
+Graphic Logo_T2, 1085, 293
+{
+	XScale 12.0
+	YScale 12.0
+	Graphic Logo, 5, 5 {Style Modulate}
+}
+
+Graphic Logo_S2, 734, 71
+{
+	XScale 12.0
+	YScale 12.0
+	Graphic Logo_S, 5, 5 {Style Modulate}
 }
 
 /*
@@ -459,56 +478,56 @@ Texture Grass, 512, 512
 {
 	XScale 8.0
 	YScale 8.0
-	Patch Grass, 0, 0
+	Patch "Textures/Planet/Grass.jpg", 0, 0
 }
 
 Texture Grass_2, 512, 512
 {
 	XScale 8.0
 	YScale 8.0
-	Patch Grass_2, 0, 0
+	Patch "Textures/Planet/Grass_2.png", 0, 0
 }
 
 Texture Gravel, 512, 512
 {
 	XScale 8.0
 	YScale 8.0
-	Patch Gravel, 0, 0
+	Patch "Textures/Planet/Gravel.jpg", 0, 0
 }
 
 Texture Dirt, 512, 512
 {
 	XScale 8.0
 	YScale 8.0
-	Patch Dirt, 0, 0
+	Patch "Textures/Planet/Dirt.jpg", 0, 0
 }
 
 Texture Tile, 480, 480
 {
 	XScale 7.5
 	YScale 7.5
-	Patch Tile, 0, 0
+	Patch "Textures/Planet/Tile.jpg", 0, 0
 }
 
 Texture Water, 250, 250
 {
 	XScale 3.9
 	YScale 3.9
-	Patch Water, 0, 0
+	Patch "Textures/Planet/Water.jpg", 0, 0
 }
 
 Texture Water2, 250, 250
 {
 	XScale 3.9
 	YScale 3.9
-	Patch Water2, 0, 0
+	Patch "Textures/Planet/Water2.jpg", 0, 0
 }
 
 Texture Water_P, 250, 250
 {
 	XScale 3.9
 	YScale 3.9
-	Patch Water_P, 0, 0
+	Patch "Textures/Planet/Water_P.jpg", 0, 0
 }
 
 Texture Field_G, 32, 32 { Patch Green_T, 0, 0 { Style Add } }
@@ -521,14 +540,14 @@ Texture Pl_Door, 448, 384
 {
 	XScale 4.98
 	YScale 5.0
-	Patch Pl_Door, 0, 0
+	Patch "Textures/Planet/Pl_Door.png", 0, 0
 }
 
 Texture Pl_DoorG, 448, 384
 {
 	XScale 4.98
 	YScale 5.0
-	Patch Pl_DoorG, 0, 0
+	Patch "Textures/Planet/Pl_DoorG.png", 0, 0
 }
 
 Sprite FLARG0, 64, 64
@@ -639,14 +658,14 @@ Texture Logo_K2, 128, 103
 {
 	XScale 2.0
 	YScale 2.0
-	Patch Logo_K2, 0, 0 {Style Overlay}
+	Patch "Textures/Enterprise/Walls/Overlays/Logo_K2.png", 0, 0 {Style Overlay}
 }
 
 Texture Diffuser, 128, 128
 {
 	XScale 2.0
 	YScale 2.0
-	Patch Diffuser, 0, 0 {Style Overlay}
+	Patch "Textures/Enterprise/Walls/Diffuser.png", 0, 0 {Style Overlay}
 }
 
 /*
@@ -725,25 +744,39 @@ Graphic Icon2B, 512, 512 {XScale 22.0 YScale 22.0 Sprite IconB, 0, 0 {Style Over
 Graphic Icon2C, 512, 512 {XScale 22.0 YScale 22.0 Sprite IconC, 0, 0 {Style Overlay}}
 Graphic Icon2D, 512, 512 {XScale 22.0 YScale 22.0 Sprite IconD, 0, 0 {Style Overlay}}
 
+Graphic Icon3, 6016, 512
+{
+	XScale 66.0
+	YScale 66.0
+	Patch Selector, 0, 0
+	Patch Selector, 5504, 0 { Rotate 180 }
+}
+
+Graphic Icon4, 512, 512 {XScale 10.0 YScale 10.0 Sprite Icon, 0, 0 {Style Overlay}}
+Graphic Icon4B, 512, 512 {XScale 10.0 YScale 10.0 Sprite IconB, 0, 0 {Style Overlay}}
+Graphic Icon4C, 512, 512 {XScale 10.0 YScale 10.0 Sprite IconC, 0, 0 {Style Overlay}}
+Graphic Icon4D, 512, 512 {XScale 10.0 YScale 10.0 Sprite IconD, 0, 0 {Style Overlay}}
+
+
 Texture MATTE, 512, 512
 {
 	XScale 2.0
 	YScale 2.0
-	Patch MATTE, 0, 0
+	Patch "Textures/Enterprise/Floors/MATTE.jpg", 0, 0
 }
 
 Texture GRAY_FLR, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch GRAY_FLR, 0, 0
+	Patch "Textures/Enterprise/Floors/GRAY_FLR.jpg", 0, 0
 }
 
 Texture BLK_FLR, 64, 64
 {
 	XScale 10.0
 	YScale 10.0
-	Patch BLK_FLR, 0, 0
+	Patch "Textures/Enterprise/Floors/BLK_FLR.jpg", 0, 0
 }
 
 
@@ -751,7 +784,7 @@ Texture TRANSTOP, 512, 512
 {
 	XScale 2.6
 	YScale 2.6
-	Patch TRANSTOP, 0, 0
+	Patch "Textures/Enterprise/Floors/TRANSTOP.jpg", 0, 0
 }
 
 Texture GOLD, 320, 200
@@ -825,7 +858,7 @@ Texture Cloud_Ov, 1024, 1024
 {
 	XScale 12.0
 	YScale 12.0
-	Patch Cloud_Ov, 0, 0
+	Patch Cloud_O, 0, 0
 }
 
 //Sprite PO01B0, 30, 60	{ XScale 3.8 YScale 3.8 Offset 15, 60	Patch Alert2, 0, 0 }
@@ -982,4 +1015,16 @@ Graphic MASK_LB, 1024, 768
 	YScale 0.26041666666666666666666666666667
 	Graphic BLACK, 0, 0
 }
+
+Sprite STEMA0, 512, 512
+{
+	Offset 256, 256
+	Sprite STEAM, 0, 0
+}
+
+Texture F_SKY1, 64, 64
+{
+	Graphic StarFld, 0, 0
+}
+
 // End of texture definitions

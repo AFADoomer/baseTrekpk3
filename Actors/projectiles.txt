@@ -16,7 +16,7 @@ Actor DisruptorBolt
 	States
 	{
 		Spawn:
-			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0, 0, 1)
 		Static:
 			TOS1 A 0 A_SetTranslucent(frandom(0.85, 1.0), 1)
 			TOS1 A 1 Bright Light("DisruptorLight")
@@ -61,7 +61,7 @@ Actor DisruptorGrenade
 	States
 	{
 		Spawn:
-			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0, 0, 1)
 		Static:
 			"####" # 1 Bright Light("DisruptorLight") {
 				A_SpawnItemEx("WpnFlare_G", 0, 0, 0, 0, 0, 0, angle);
@@ -109,7 +109,7 @@ Actor PhotonGrenade
 	States
 	{
 		Spawn:
-			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0, 0, 1)
 			TOS1 A 5 Bright A_LoopActiveSound
 			TOS1 A 0 A_Jump(256, "Static")
 		Static:
@@ -176,7 +176,7 @@ Actor LaserBlast
 	States
 	{
 		Spawn:
-			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
+			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0, 0, 1)
 		Static:
 			BLAS A 1 BRIGHT A_SpawnItemEx("LaserTrail", 0, 0, 0)
 			Loop
@@ -201,6 +201,7 @@ Actor Trail
 	States
 	{
 		Spawn:
+			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0, 0, 1)
 			TOS1 A 1 Bright
 			"####" # 0 A_PlaySound("effectss/electric", CHAN_7, 1.0, 1)
 			"####" # 0 A_SpawnItemEx("TrailShell", 0, 0, 0)

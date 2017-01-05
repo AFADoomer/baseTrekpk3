@@ -470,3 +470,24 @@ function int pow (int x, int n)
 	while (n-- > 0) y *= x;
 	return y;
 }
+
+Function void ClearRange (int start, int end)
+{
+	int temp;
+
+	If (start > end)
+	{
+		temp = start;
+		start = end;
+		end = temp;
+	}
+	For (int i = start; i <= end; i++)
+	{
+		HudMessage (s:""; 0, i, -1, 0.0, 0.0, 0);
+	}
+}
+
+Function void WriteConsole (str strInput)
+{
+	HudMessage (s:strInput; HUDMSG_LOG | HUDMSG_ALPHA, 0, 0, 0, 0, 0, 0);
+}

@@ -593,6 +593,7 @@ Actor TOSWallThingPanel : TOSUsableSpriteDecoration
 	Radius 16
 	//$Title "Wall Planton: Lighted Panel" 
 	//$Sprite PANLA0
+	Tag "Control Panel"
 	States
 	{
 		Static:

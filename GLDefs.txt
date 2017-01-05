@@ -14,34 +14,11 @@ pulselight TransporterBeamK
 	interval 2.75
 }
 
-object TransporterLight
-{
-	frame UNKN
-	{
-		light TransporterBeam
-	}
-}
-
-object TransporterLightK
-{
-	frame UNKN
-	{
-		light TransporterBeamK
-	}
-}
-
-object NavGoal
-{
-	frame UNKN
-	{
-		light GoldLight
-	}
-}
-
 PointLight SmallRedLight
 {
 	color 0.4 0.1 0.1
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight RedAlertLight
@@ -60,143 +37,165 @@ PointLight RedAlertLightLarge
 PointLight SmallOrangeLight
 {
 	color 0.4 0.2 0.1
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight LargeOrangeLight
 {
 	color 0.8 0.4 0.2
-	size 64
+	size 96
+	attenuate 1
 }
 
 PointLight LargePinkLight
 {
 	color 0.8 0.4 0.4
-	size 64
+	size 96
+	attenuate 1
 }
 
 PointLight LargeGreenLight
 {
 	color 0.2 0.8 0.2
-	size 64
+	size 96
+	attenuate 1
 }
 
 PointLight LargeBlueLight
 {
 	color 0.2 0.2 0.8
-	size 64
+	size 96
+	attenuate 1
 }
 
 PointLight SmallYellowLight
 {
 	color 0.4 0.4 0.1
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight SmallGreenLight
 {
 	color 0.1 0.4 0.1
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight SmallBlueLight
 {
 	color 0.1 0.1 0.4
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight SmallPurpleLight
 {
 	color 0.4 0.1 0.4
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight SmallWhiteLight
 {
 	color 0.4 0.4 0.4
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight WhiteLight
 {
 	color 1.0 1.0 1.0
-	size 48
+	size 72
+	attenuate 1
 }
 
 PointLight GoldLight
 {
 	color 0.3 0.2 0.0
-	size 8
+	size 12
+	attenuate 1
 }
 
 PointLight WhiteLightS
 {
 	color 1.0 1.0 1.0
-	size 16
+	size 24
+	attenuate 1
 }
 
 PointLight PurpleLight
 {
 	color 0.8 0.2 0.8
-	size 48
+	size 72
+	attenuate 1
 }
 
 PointLight DisruptorLight
 {
 	color 0.1 0.9 0.1
-	size 16
+	size 24
+	attenuate 1
 }
 
 PulseLight DisruptorPulseLight
 {
 	color 0.1 0.9 0.1
-	size 2
-	secondarysize 16
+	size 3
+	secondarysize 24
+	attenuate 1
 	interval 2.856
 }
 
 PointLight GrenadeLight
 {
 	color 0.3 0.3 0.9
-	size 16
+	size 24
+	attenuate 1
 }
 
 PulseLight GrenadeExplodeLightB
 {
 	color 0.3 0.3 0.9
-	size 48
-	secondarysize 16
+	size 72
+	secondarysize 24
+	attenuate 1
 	interval 3
 }
 
 PulseLight GrenadeExplodeLightG
 {
 	color 0.5 0.9 0.3
-	size 48
-	secondarysize 16
+	size 72
+	secondarysize 24
+	attenuate 1
 	interval 3
 }
 
 PulseLight GrenadeExplodeLightY
 {
 	color 0.9 0.9 0.3
-	size 32
-	secondarysize 8
+	size 48
+	secondarysize 12
+	attenuate 1
 	interval 3
 }
 
 PulseLight GrenadeExplodeLightW
 {
 	color 1.0 1.0 1.0
-	size 256
-	secondarysize 8
+	size 384
+	secondarysize 12
+	attenuate 1
 	interval 3
 }
 
 PointLight PlanetLight
 {
 	Color 1.0 1.0 1.0
-	Size 100
+	Size 150
+	attenuate 1
 	Offset 0 0 150
 	Subtractive 1
 }
@@ -204,19 +203,22 @@ PointLight PlanetLight
 PointLight SunLight
 {
 	Color 1.0 0.75 0.75
-	Size 600
+	Size 900
+	attenuate 1
 }
 
 PointLight MarkerLightRed
 {
 	color 1.0 0.1 0.1
-	size 32
+	size 48
+	attenuate 1
 }
 
 PointLight MarkerLightWhite
 {
 	color 1.0 1.0 1.0
-	size 32
+	size 48
+	attenuate 1
 }
 
 Object SmallWhiteLight
@@ -429,6 +431,30 @@ Object TOSPlanetLightBlue
 	}
 }
 
+object TransporterLight
+{
+	frame UNKN
+	{
+		light TransporterBeam
+	}
+}
+
+object TransporterLightK
+{
+	frame UNKN
+	{
+		light TransporterBeamK
+	}
+}
+
+object NavGoal
+{
+	frame UNKN
+	{
+		light GoldLight
+	}
+}
+
 brightmap texture "models/mapobjects/tos/enterprise/enterprise.png"
 {
 	map "models/mapobjects/tos/enterprise/enterprise_l.png"
@@ -492,6 +518,7 @@ HardwareShader Texture Water_P { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 HardwareShader Texture "models/mapobjects/tos/clouds_r.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.01 }
 HardwareShader Texture "models/mapobjects/tos/clouds.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.01 }
 HardwareShader Texture cloud_ov { Shader "shaders/glsl/func_warp2.fp" Speed 0.01 }
+HardwareShader Texture cloud_o { Shader "shaders/glsl/func_warp2.fp" Speed 0.01 }
 
 HardwareShader Texture Field_R { Shader "shaders/func_forcefield.fp" Speed 10.0 }
 HardwareShader Texture Field_O { Shader "shaders/func_forcefield.fp" Speed 10.0 }
@@ -507,9 +534,10 @@ HardwareShader Texture "models/weapons/communicator_moire.png" { Shader "shaders
 FlickerLight FireSpawnerSmall
 {
 	Color 1.0 0.6 0.0
-	Size 32
+	Size 24
 	SecondarySize 48
-	Chance 0.6
+	attenuate 1
+	Chance 0.2
 }
 
 Object SmallFlame { frame TNT1 { light FireSpawnerSmall } }

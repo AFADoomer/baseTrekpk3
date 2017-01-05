@@ -1,6 +1,8 @@
-zscript/decorations/blocks.txt
-zscript/decorations/static.txt
-zscript/decorations/usable.txt
-zscript/decorations/destroyable.txt
-zscript/decorations/redalert.txt
-zscript/decorations/orbiters.txt
+#include "actors/zscript/decorations/blocks.txt"
+#include "actors/zscript/decorations/static.txt"
+#include "actors/zscript/decorations/usable.txt"
+#include "actors/zscript/decorations/destroyable.txt"
+#include "actors/zscript/decorations/redalert.txt"
+#include "actors/zscript/decorations/orbiters.txt"
+#include "actors/zscript/effects/sparks.txt"
+#include "actors/zscript/NPCs.txt"

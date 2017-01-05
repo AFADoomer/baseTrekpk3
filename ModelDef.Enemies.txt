@@ -373,7 +373,87 @@ Model TOSCrewman
 	FrameIndex TOS9 Y 0 550
 	FrameIndex TOS9 Y 1 550
 }
+/*
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console.md3"
 
+	ZOffset -10.5
+
+	FrameIndex P035 A 0 0
+	FrameIndex P035 B 0 3
+	FrameIndex P035 C 0 6
+	FrameIndex P035 D 0 9
+	FrameIndex P035 E 0 12
+	FrameIndex P035 F 0 15
+	FrameIndex P035 G 0 18
+	FrameIndex P035 H 0 21
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console_idle.md3"
+
+	ZOffset -10.5
+
+	FrameIndex P036 A 0 0
+	FrameIndex P036 B 0 4
+	FrameIndex P036 C 0 8
+	FrameIndex P036 D 0 12
+	FrameIndex P036 E 0 16
+	FrameIndex P036 F 0 20
+	FrameIndex P036 G 0 24
+	FrameIndex P036 H 0 28
+	FrameIndex P036 I 0 32
+	FrameIndex P036 J 0 36
+	FrameIndex P036 K 0 40
+	FrameIndex P036 L 0 44
+	FrameIndex P036 M 0 48
+	FrameIndex P036 N 0 52
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console_left.md3"
+
+	ZOffset -10.5
+
+	FrameIndex P037 A 0 0
+	FrameIndex P037 B 0 2
+	FrameIndex P037 C 0 4
+	FrameIndex P037 D 0 6
+	FrameIndex P037 E 0 8
+	FrameIndex P037 F 0 10
+	FrameIndex P037 G 0 12
+	FrameIndex P037 H 0 14
+	FrameIndex P037 I 0 16
+	FrameIndex P037 J 0 18
+	FrameIndex P037 K 0 20
+	FrameIndex P037 L 0 22
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console_right.md3"
+
+	ZOffset -10.5
+
+	FrameIndex P038 A 0 0
+	FrameIndex P038 B 0 2
+	FrameIndex P038 C 0 4
+	FrameIndex P038 D 0 6
+	FrameIndex P038 E 0 8
+	FrameIndex P038 F 0 10
+	FrameIndex P038 G 0 12
+	FrameIndex P038 H 0 14
+	FrameIndex P038 I 0 16
+	FrameIndex P038 J 0 18
+}
+*/
 Model TOSKlingon
 {
 	Path "Models/actors/klingon/"

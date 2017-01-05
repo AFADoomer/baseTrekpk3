@@ -499,9 +499,20 @@ Actor PulseSphereGreen : PulseSphere
 
 ACTOR TransporterParticle
 {
+	var float user_z;
+	var float user_Radius;
+	var float user_scale;
+	var float user_scaleamt;
+	var int user_rollamt;
+
 	RenderStyle "Add"
 	+BRIGHT
 	+NOINTERACTION
+	+NOBLOCKMAP
+	+NOTELEPORT
+	+NOGRAVITY
+	+ROLLSPRITE
+	+FORCEXYBILLBOARD
 
 	States
 	{
@@ -520,10 +531,40 @@ ACTOR TransporterParticle
 			TRAN D 1
 			Goto Static
 		Static:
-			"####" # 0 A_SetScale(frandom(0.85, 1.2))
+			"####" # 0 {
+				user_scale = frandom(0.125, 0.5);
+				user_scaleamt = frandom(-0.1, 0.1);
+				user_rollamt = Random(-15, 15);
+				user_Radius = GetDistance(FALSE, AAPTR_MASTER);
+				user_z = z;
+
+				A_SetScale(user_scale);
+				A_FaceMaster(0, 270, -90, 0, FAF_MIDDLE);
+
+				A_Warp(AAPTR_MASTER, 0, user_Radius, 0, 0, WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
+
+				user_z = user_z - z;
+
+				A_Warp(AAPTR_MASTER, 0, user_Radius, user_z, 0, WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
+			}
 		Draw:
-			"####" # 1 A_FadeOut(0.01)
-			"####" # 0 A_JumpIf(z - floorz > 84, "Done")
+			"####" # 1 {
+				A_Warp(AAPTR_MASTER, 0, user_Radius, z - floorz, (16.0 - user_Radius) * 3, WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
+
+				if (scaleY >= user_scale || scaleY <= -user_scale) {
+					user_scaleamt = -user_scaleamt;
+				}
+
+				ScaleY += user_scaleamt;
+				roll += user_rollamt;
+
+				A_FadeOut(0.01);
+
+				if ((z - floorz > 84.0 && velz > 0) || (z < floorz && velz < 0)) {
+					return State("Done");
+				}
+				return State("");
+			}
 			Loop
 		Done:
 			TNT1 A 1
@@ -555,22 +596,31 @@ ACTOR TransporterLightK
 	}
 }
 
-ACTOR TransporterEffect
-{
+ACTOR TransporterEffect : TeleportFog
+{	
+	-NOGRAVITY
+	Radius 0
+
 	var int user_count;
+
+	Species "Transporter"
 
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay A_CheckSight("Done")
-			TNT1 A 0 A_PlaySound("transporter/out")
-			TNT1 A 0 A_SpawnItemEx(
+			TNT1 A 0 NoDelay {
+				A_CheckSight("Done");
+				A_PlaySound("transporter/out");
+				ACS_NamedExecuteAlways("SetRadarTID", 0);
+			}
+			TNT1 A 35 A_SpawnItemEx(
 				"TransporterLight",
 				0, 0, 0,
-				0, 0, 0.7,
+				0, 0, 0.35,
 				0,
 				0)
 		DrawParticles:
+/*
 			TNT1 A 0 A_SpawnParticle(
 				FAEA92,
 				SPF_FULLBRIGHT | SPF_RELATIVE,
@@ -601,52 +651,58 @@ ACTOR TransporterEffect
 				0, 0, frandom(0.1, 0.2),
 				0, 0, 0,
 				1.0, 0.004)
-				
-/*
-			TNT1 A 0 A_SpawnItemEx(
-				"TransporterParticle",
-				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0, 32.0),
-				0, 0, frandom(1.0, 2.0),
-				0,
-				0)
-			TNT1 A 0 A_SpawnItemEx(
-				"TransporterParticle",
-				frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(0, 32.0),
-				0, 0, frandom(0.5, 2.0),
-				0,
-				0)
-			TNT1 A 0 A_SpawnItemEx(
-				"TransporterParticle",
-				frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(45.0, 65.0),
-				0, 0, frandom(0.25, 1.0),
-				0,
-				0)
 */
-			TNT1 A 0 A_JumpIf(user_count > 512, "Done")
+			TNT1 A 0 {
+				A_SpawnItemEx("TransporterParticle", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(0, 52.0), 0, 0, frandom(0.0625, 0.25), 0, SXF_SETMASTER);
+				A_SpawnItemEx("TransporterParticle", frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(0, 32.0), 0, 0, frandom(0.125, 0.5), 0, SXF_SETMASTER);
+				A_SpawnItemEx("TransporterParticle", frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(45.0, 65.0), 0, 0, frandom(0.25, 0.5), 0, SXF_SETMASTER);
+				if (user_count == 0) {
+					A_SetTics(Random(1, 15));
+				} else if (user_count % 32 == 0) {
+					A_SetTics(1);
+				}
+			}
+			TNT1 A 0 A_JumpIf(user_count > (64 * GetCVar("st_glitterdensity")), "Done")
 			TNT1 A 0 A_SetUserVar("user_count", user_count + 1)
 			Loop
 		Done:
-			TNT1 A 1
+			TNT1 A 175
 			Stop
 	}
 }
 
-ACTOR TransporterEffect2
+Actor TransSource : TransporterEffect
 {
-	var int user_count;
-
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay A_CheckSight("Done")
-			TNT1 A 0 A_PlaySound("transporter/in")
-			TNT1 A 0 A_SpawnItemEx(
+			TNT1 A 0 NoDelay {
+				A_CheckSight("Done");
+				A_PlaySound("transporter/out");
+				ACS_NamedExecuteAlways("SetRadarTID", 0);
+			}
+			Goto DrawParticles
+	}
+}
+
+ACTOR TransporterEffect2 : TransporterEffect
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay {
+				A_CheckSight("Done");
+				A_PlaySound("transporter/in");
+				ACS_NamedExecuteAlways("SetRadarTID", 0);
+			}
+			TNT1 A 35 A_SpawnItemEx(
 				"TransporterLight",
 				0, 0, 84.0,
-				0, 0, -0.6,
+				0, 0, -0.5,
 				0,
 				0)
 		DrawParticles:
+/*
 			TNT1 A 0 A_SpawnParticle(
 				FAEA92,
 				SPF_FULLBRIGHT | SPF_RELATIVE,
@@ -677,44 +733,47 @@ ACTOR TransporterEffect2
 				0, 0, frandom(-0.1, -0.2),
 				0, 0, 0,
 				1.0, 0.004)
-/*
-			TNT1 A 0 A_SpawnItemEx(
-				"TransporterParticle",
-				frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(52.0, 84.0),
-				0, 0, frandom(-1.0, -2.0),
-				0,
-				0)
-			TNT1 A 0 A_SpawnItemEx(
-				"TransporterParticle",
-				frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(52.0, 84.0),
-				0, 0, frandom(-0.5, -2.0),
-				0,
-				0)
-			TNT1 A 0 A_SpawnItemEx(
-				"TransporterParticle",
-				frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(45.0, 65.0),
-				0, 0, frandom(-0.25, -1.0),
-				0,
-				0)
 */
-			TNT1 A 0 A_JumpIf(user_count > 512, "Done")
+			TNT1 A 0 {
+				A_SpawnItemEx("TransporterParticle", frandom(-16.0, 16.0), frandom(-16.0, 16.0), frandom(52.0, 84.0), 0, 0, frandom(-0.25, -0.5), 0, SXF_SETMASTER);
+				A_SpawnItemEx("TransporterParticle", frandom(-12.0, 12.0), frandom(-12.0, 12.0), frandom(45.0, 65.0), 0, 0, frandom(-0.125, -0.5), 0, SXF_SETMASTER);
+				A_SpawnItemEx("TransporterParticle", frandom(-8.0, 8.0), frandom(-8.0, 8.0), frandom(16, 52.0), 0, 0, frandom(-0.0625, -0.25), 0, SXF_SETMASTER);
+				if (user_count == 0) {
+					A_SetTics(Random(1, 15));
+				} else if (user_count % 32 == 0) {
+					A_SetTics(1);
+				}
+			}
+			TNT1 A 0 A_JumpIf(user_count > (64 * GetCVar("st_glitterdensity")), "Done")
 			TNT1 A 0 A_SetUserVar("user_count", user_count + 1)
 			Loop
-		Done:
-			TNT1 A 1
-			Stop
 	}
 }
 
-ACTOR TransporterEffectK
+Actor TransDest : TransporterEffect2
 {
-	var int user_count;
-
 	States
 	{
 		Spawn:
-			TNT1 A 0 NoDelay A_CheckSight("Done")
-			TNT1 A 0 A_PlaySound("transporter/klingon")
+			TNT1 A 0 NoDelay {
+				A_CheckSight("Done");
+				A_PlaySound("transporter/in");
+				ACS_NamedExecuteAlways("SetRadarTID", 0);
+			}
+			Goto DrawParticles
+	}
+}
+
+ACTOR TransporterEffectK : TransporterEffect
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay {
+				A_CheckSight("Done");
+				A_PlaySound("transporter/klingon");
+				ACS_NamedExecuteAlways("SetRadarTID", 0);
+			}
 			TNT1 A 0 A_SpawnItemEx(
 				"TransporterLightK",
 				0, 0, 84.0,
@@ -732,12 +791,9 @@ ACTOR TransporterEffectK
 				0, 0, frandom(-0.25, -0.5),
 				0, 0, 0,
 				0.9, 0.008)
-			TNT1 A 0 A_JumpIf(user_count > 128, "Done")
+			TNT1 A 0 A_JumpIf(user_count > (64 * GetCVar("st_glitterdensity")), "Done")
 			TNT1 A 0 A_SetUserVar("user_count", user_count + 1)
 			Loop
-		Done:
-			TNT1 A 1
-			Stop
 	}
 }
 
@@ -1093,9 +1149,11 @@ Actor SmallLight
 {
 	+INVISIBLE
 	+NOINTERACTION
+	Species "Projectile"
 	States
 	{
 		Spawn:
+			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID", 0, 0, 1)
 			TOS1 A 2 Light("WhiteLightS")
 			Stop
 	}

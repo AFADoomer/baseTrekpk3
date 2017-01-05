@@ -79,7 +79,7 @@ ACTOR TrekEnemy
 			"####" M 9 A_Scream
 			"####" J 11
 			"####" K 10
-			"####" L 9 A_NoBlocking
+			"####" L 9 //A_NoBlocking
 			"####" # 0 A_Jump(256, "Dead")
 		Dead:
 			"####" H -1
@@ -92,7 +92,7 @@ ACTOR TrekEnemy
 	}
 }
 
-ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
+ACTOR TOSKlingon : TrekEnemy
 {
 	var int user_FireCount;
 	var int user_Angle;
@@ -100,17 +100,17 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 	var int user_Stunned;
 	var int user_Weapon;
 
-//	AttackSound "weapons/disruptor"
 	YScale 1.33
 	RenderStyle Translucent
 	Alpha 0
 	Speed 6
 	Health 75
-	Painchance 8
+	Painchance 128
+	Activation "THINGSPEC_NoDeathSpecial"
+	TeleFogSourceType "TransporterEffectK"
+	TeleFogDestType "TransporterEffectK"
 	Tag "Klingon Male"
 	Obituary "%o was killed by a Klingon."
-
-//	DropItem "Disruptor"
 
 	States
 	{
@@ -121,12 +121,8 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 					Speed = 0;
 				}
 				user_Speed = Speed;
-				if (user_Weapon == 0) {
-					user_Weapon = Random[Weapon](2, 4);
-				}
 			}
-			"####" # 0 A_GiveInventory("TransportK", 1)
-			"####" A 0 A_SpawnItemEx("TransporterEffectK")
+			"####" # 0 ACS_NamedExecuteAlways("A_TransportK", 0)
 			"####" A 105
 			"####" # 0 A_SetUserVar("user_Ammo", 3)
 			Goto Stand
@@ -142,14 +138,18 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 			"####" # 1 A_LookEx (0, 0, 0, 2048, 0, "Chase")
 			Loop
 		CheckSight:
-			"####" # 0 A_CheckLOF("Missile", CLOFF_JUMP_ON_MISS)
-			"####" A 0 A_Jump(256, "Return")
+			"####" # 0 A_CheckLOF("Missile", CLOFF_SKIPOBSTACLES)
+			"####" A 0 {
+				return State("Return");
+			}
 		Wander:
 			"####" # 0 {
+				A_ChangeFlag("NORADIUSDMG", FALSE);
 				A_SetUserVar("user_State", 1);
-				if (speed == 0) {
+				if (user_Speed == 0) {
 					return State("Crouch");
 				} else {
+					Speed = user_speed;
 					return State("");
 				}
 			}
@@ -162,53 +162,68 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 		Chase:
 			"####" A 0 {
 				A_SetUserVar("user_State", 1);
-				A_ChangeFlag("NORADIUSDMG", FALSE);
-				if (waterlevel > 1) {
+					if (waterlevel > 1) {
 					A_ChangeFlag("FLOAT", "TRUE");
-					Speed == speed / 2;
+					Speed == Speed / 2;
 					A_NoGravity;
 				} else {
 					A_ChangeFlag("FLOAT", "FALSE");
-					Speed == user_Speed;
 					A_Gravity;
+
+					If (Speed == 0) {
+						return State("Crouch");
+					} else {
+						Speed == user_Speed;
+						return State("");
+					}
 				}
-				if (speed == 0) {
-					return State("Crouch");
-				} else {
-					return State("");
-				}
+				return State("");
 			}
 			"####" # 0 ACS_NamedExecuteAlways("A_CheckFrightened")
-			"####" AAAAA 1 A_Chase
+			"####" AAAAA 1 A_Chase("CheckSight", "CheckSight")
 			"####" AA 1
-			"####" BBBB 1 A_Chase
-			"####" CCCCC 1 A_Chase
+			"####" BBBB 1 A_Chase("CheckSight", "CheckSight")
+			"####" CCCCC 1 A_Chase("CheckSight", "CheckSight")
 			"####" CC 1
-			"####" DDDD 1 A_Chase
+			"####" DDDD 1 A_Chase("CheckSight", "CheckSight")
 			"####" # 0 A_CheckFlag("FRIGHTENED", "Frightened", AAPTR_DEFAULT)
 			Goto Chase
 		CrouchLook:
 			"####" X 1 A_LookEx (0, 0, 0, 2048, 0, "Crouch")
 			Loop
 		Crouch:
+			"####" # 0 {
+				if (user_Speed > 0 && A_CheckLOF("Return", 0, 256.0)) {
+					Speed = user_Speed;
+					return State("Return");
+				} else {
+					return State("");
+				}
+			}
 			"####" VVVWWW 1
-			"####" X 5 {
-				A_SetTics(Random(5, 52));
-				A_ChangeFlag("INVULNERABLE", TRUE);
+			"####" XXX 1 {
+				Height = Height / 2;
+				A_FaceTarget;
+				A_SetTics(Random[Crouch](5, 52));
+//				A_ChangeFlag("INVULNERABLE", TRUE);
 				A_ChangeFlag("NORADIUSDMG", FALSE);
 			}
 			"####" XW 1 {
-				A_Chase("", "", CHF_FASTCHASE);
+				if (user_Speed > 0) {
+					A_Chase("", "", CHF_FASTCHASE);
+				}
 			}
-			"####" X 5 {
-				A_SetTics(Random(5, 52));
+			"####" X 35 {
+				A_FaceTarget;
+				A_SetTics(Random(35, 105));
 			}
 			"####" WWWVVV 1
-			"####" AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 {
-				A_ChangeFlag("INVULNERABLE", FALSE);
-				return State("Missile");
+			"####" V 1 {
+				A_SetTics(Random[Popup](5, 15));
+//				A_ChangeFlag("INVULNERABLE", FALSE);
+				Height = Height * 2;
 			}
-			Goto Crouch
+			Goto CheckSight
 		Melee:
 		Missile:
 			"####" EE 3 {
@@ -219,7 +234,9 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 					return State("");
 				}
 			}
+		Missile.Shoot:
 			"####" # 0 {
+				Speed == user_Speed;
 				if (user_Weapon == 1) {
 					if (GetDistance(TRUE) >= 256.0) {
 						return State("Fire.Grenade");
@@ -237,8 +254,6 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 			"####" A 0 A_Jump(256, "Return")
 		Fire:
 			"####" # 0 A_JumpIf(user_FireCount > 3, "Return")
-//			"####" # 0 A_CustomRailgun(0, 0, "None", "77 DD 77", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "None", 0, 0, 2048, 1, 0.2, 0, "None", 22)
-//			"####" F 1 A_CustomRailgun(1, 0, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "DisruptorHit", 0, 0, 2048, 0, 0.4, 0, "GreenPhaserParticle", 22)
 			"####" # 0 A_SetUserVar("user_Angle", Random(-1, 1))
 			"####" # 0 A_SetUserVar("user_Pitch", Random(-1, 1))
 			"####" F 1 A_CustomMissile("DisruptorBolt", 60, 0, user_angle, CMF_OFFSETPITCH | CMF_SAVEPITCH, user_pitch)
@@ -253,8 +268,8 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 			"####" EE 8 A_FaceTarget
 			"####" # 0 A_SetUserVar ("user_FireCount", user_FireCount + 1)
 			"####" # 0 A_JumpIfHealthLower(2, "Disintegrate",  AAPTR_TARGET)
-			"####" # 0 A_CheckLOF("Fire", CLOFF_JUMP_ON_MISS)
-			"####" A 0 A_Jump(256, "Return")
+			"####" A 0 A_Jump(128, "CheckSight")
+			Goto Chase
 		Fire.Grenade:
 			"####" # 0 A_Jump(128, "Fire")
 			"####" # 0 A_SetUserVar("user_Angle", Random(-5, 5))
@@ -264,7 +279,7 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 			}
 			"####" F 10 A_CustomMissile("DisruptorGrenade", 60, 0, user_Angle, CMF_OFFSETPITCH | CMF_SAVEPITCH, user_Pitch)
 			"####" EE 3 A_FaceTarget
-			Goto Wander
+			"####" A 0 A_Jump(256, "Wander")
 		Fire.Rifle:
 			"####" F 0 A_JumpIf(user_FireCount > 40, "Return")
 			"####" # 0 A_PlaySound("weapons/rifle", CHAN_WEAPON, 1.0, True)
@@ -275,10 +290,7 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 				A_SetUserVar ("user_FireCount", user_FireCount + 1);
 				A_FaceTarget(0.1);
 			}
-			"####" A 0 A_SetUserVar ("user_FireCount", user_FireCount + 1)
-			"####" A 0 A_FaceTarget(0.1)
-			"####" E 0 A_CheckLOF("Fire.Rifle", CLOFF_JUMP_ON_MISS)
-			"####" A 0 A_Jump(256, "Return")
+			"####" A 0 A_Jump(256, "CheckSight")
 		Fire.Phaser:
 			"####" A 0 A_JumpIf(user_FireCount > 10, "Return")
 			"####" # 0 A_PlaySound("weapons/phaser", CHAN_WEAPON, 1.0, True)
@@ -286,16 +298,18 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 				A_SpawnItemEx("LaserBeam_R", 14, 9, 50, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER | SXF_TRANSFERPITCH);
 				A_SetScale(FRandom(0.7, 0.9), GetDistance(1, AAPTR_TARGET) - 14, AAPTR_TRACER);
 				A_CustomRailgun(10, 9, "None", "None", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT, 1, 0, "PhaserDisintegrateHit", 0, 0, 2048, 4, FRandom(6.0, 8.0), 0, "SmallRedLight", 22);
+				A_SetUserVar ("user_FireCount", user_FireCount + 1);
+				A_FaceTarget(0.1);
 			}
-			"####" A 0 A_SetUserVar ("user_FireCount", user_FireCount + 1)
-			"####" A 0 A_FaceTarget(0.1)
-			"####" A 0 A_CheckLOF("Fire.Phaser")
-			"####" A 0 A_Jump(256, "Return")
+			"####" A 0 A_Jump(256, "CheckSight")
 		Return:
-			"####" # 0 A_StopSound(CHAN_WEAPON)
-			"####" # 0 A_SetUserVar ("user_FireCount", 0)
-//			"####" # 0 A_SetUserVar("user_Ammo", user_Ammo - 1)
-			"####" # 0 A_CheckLOF("Return.Speed", CLOFF_FROMBASE | CLOFF_SKIPOBSTACLES, 0, 0, 0, 0, 24.0)
+			"####" # 0 {
+//				A_ChangeFlag("INVULNERABLE", FALSE);
+				A_StopSound(CHAN_WEAPON);
+				A_SetUserVar ("user_FireCount", 0);
+				//A_SetUserVar("user_Ammo", user_Ammo - 1);
+			}
+			"####" # 0 A_CheckLOF("Return.Speed", CLOFF_FROMBASE, 0, 0, 0, 0, 24.0)
 			"####" # 0 {
 				if (Random(0, 256) < 128) {
 					Speed = 0;
@@ -310,15 +324,11 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 			}
 			Goto Chase
 		Pain:
-			"####" G 3 {
-				A_ChangeFlag("INVULNERABLE", TRUE);
-			}
+			"####" G 3 
 			"####" G 3 A_Pain
-			Goto Crouch
+			Goto Wander
 		Death:
-			"####" H 5
-			"####" I 5 A_Scream
-			"####" # 0 {
+			"####" H 5 {
 				if (user_Weapon == 2) {
 					A_DropItem("PhaserRifle");
 				} else if (user_Weapon == 3) {
@@ -327,34 +337,38 @@ ACTOR TOSKlingon : TrekEnemy replaces ZombieMan
 					A_DropItem("Disruptor");
 				}
 				A_StopSound(CHAN_WEAPON); //Just in case
+				A_CallSpecial(special, args[0], args[1], args[2], args[3], args[4]);
+				A_NoBlocking;
 			}
-			"####" J 5 A_NoBlocking
-			"####" K 5
+			"####" I 5 A_Scream
+			"####" JK 5
 			"####" L -1
 			Stop
 		Death.Stun:
-			"####" H 5
-			"####" I 5 A_Scream
-			"####" J 5 {
-				if (health > 0) {
-					A_UnSetSolid;
-				} else {
-					A_NoBlocking;
-				}
+			"####" H 5 {
+				A_UnSetSolid;
+				A_ChangeFlag("Shootable", False);
 				A_StopSound(CHAN_WEAPON); //Just in case
 			}
-			"####" K 5
+			"####" I 5 A_Scream
+			"####" JK 5
 			"####" L -1
 			Stop
 		XDeath:
-			"####" M 5
+			"####" M 5 {
+				A_StopSound(CHAN_WEAPON); //Just in case
+				A_CallSpecial(special, args[0], args[1], args[2], args[3], args[4]);
+				A_NoBlocking;
+			}
 			"####" N 5 A_XScream
-			"####" O 5 A_NoBlocking
-			"####" PQRST 5
+			"####" OPQRST 5
 			"####" U -1
 			Stop
 		Raise:
-			"####" K 5 A_SetSolid
+			"####" K 5 {
+				A_SetSolid;
+				A_ChangeFlag("Shootable", True);
+			}
 			"####" JIH 5
 			Goto Chase
 		Disintegrate:
@@ -368,26 +382,26 @@ ACTOR TOSPirate : TOSKlingon
 {
 	Tag "Pirate"
 	Obituary "%o was killed by a pirate."
+	States
+	{
+		Spawn:
+			TOS1 A 0 NoDelay {
+				if (user_Weapon == 0) {
+					user_Weapon = Random[Weapon](2, 4);
+				}
+			}
+			Goto Super::Spawn
+	}
 }
 
-ACTOR TOSPirateAlt : TOSKlingon
-{
-	Tag "Pirate"
-	Obituary "%o was killed by a pirate."
-}
+ACTOR TOSPirateAlt : TOSPirate {}
+ACTOR TOSPirateAlt2 : TOSPirate {}
 
-ACTOR TOSPirateAlt2 : TOSKlingon
-{
-	Tag "Pirate"
-	Obituary "%o was killed by a pirate."
-}
-
-ACTOR TOSPirateCapt : TOSKlingon
+ACTOR TOSPirateCapt : TOSPirate 
 {
 	Speed 0
-	Health 225
-	Tag "Pirate"
-	Painchance 128
+	Health 125
+	Painchance 255
 	Obituary "%o was killed by the pirate Captain."
 	States
 	{
@@ -403,11 +417,19 @@ ACTOR TOSPirateCapt : TOSKlingon
 				Speed = 0;
 			}
 			Goto Chase
+		Pain:
+			"####" G 3 
+			"####" G 3 {
+//				A_ChangeFlag("INVULNERABLE", TRUE);				
+				A_Pain;
+			}
+			Goto Crouch
+
 
 	}
 }
 
-Actor TOSKlingonGrenade : TOSKlingon Replaces ShotgunGuy
+Actor TOSKlingonGrenade : TOSKlingon
 {
 	States
 	{
@@ -500,7 +522,7 @@ Actor TOSKlingon2 : ShotgunGuy //Replaces ShotgunGuy
 }
 */
 
-Actor PhaserChaingunGuy : ChaingunGuy //Replaces ChaingunGuy
+Actor PhaserChaingunGuy : ChaingunGuy
 {
 	var int user_FireCount;
 
@@ -553,7 +575,7 @@ Actor PhaserChaingunGuy : ChaingunGuy //Replaces ChaingunGuy
 			Goto See
 	}
 }
-
+/*
 ACTOR TOSCrewman : TrekEnemy
 {
 	var int user_FireCount;
@@ -662,6 +684,8 @@ ACTOR TOSCrewman : TrekEnemy
 				if (args[2] == 1) {
 					user_static = 1;
 					return State("Static");
+				} else if (args[2] == 2) {
+					return State("Stand");
 				} else {
 					return State("");
 				}
@@ -767,9 +791,12 @@ ACTOR TOSCrewman : TrekEnemy
 		Idle:
 			"####" WWXXYYWW 5
 			Goto Static
+		Stand:
+			"####" A 5 A_Look
+			Loop
 	}
 }
-
+*/
 ACTOR TOSCrewmanOld : TrekEnemy
 {
 	var int user_FireCount;
@@ -996,7 +1023,7 @@ ACTOR TOSCrewmanOld : TrekEnemy
 	}
 }
 
-
+/*
 ACTOR TOSArmedRedShirt : TOSCrewman
 {
 	var int user_mapmarker;
@@ -1032,3 +1059,4 @@ ACTOR TOSArmedRedShirtLoaded : TOSArmedRedShirt
 			Goto Death.Respawn
 	}
 }
+*/

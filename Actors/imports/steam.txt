@@ -1,0 +1,58 @@
+ACTOR SteamParticle
+{
+	var int user_rolldir;
+
+	Height 1
+	Radius 1
+	Speed 2
+	PROJECTILE
+	+SHOOTABLE
+	+FORCEXYBILLBOARD
+	+WINDTHRUST
+	+ROLLSPRITE
+	+CANBOUNCEWATER
+	+NOWALLBOUNCESND
+	BounceType "Hexen"
+	BounceFactor 0
+	Scale 0.04
+	Alpha 0.65
+	Tag "Hazard: Steam"
+	States
+	{
+		Spawn:
+			STEM A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID", 0, 0, 1);
+				A_SetRoll(RandomPick(0, 359.0));
+				user_rolldir = Random(-5, 5);
+			}
+		Death:
+			STEM A 2 {
+				A_Explode(8, 16);
+				A_SetRoll(roll + user_rolldir);
+				A_SetScale(ScaleX + 0.01, ScaleY + 0.01);
+				A_FadeOut(.02);
+			}
+			Loop
+	}
+}
+
+ACTOR SteamSpot : SwitchableDecoration
+{
+	+NOGRAVITY
+	+INVISIBLE
+	States
+	{
+		Spawn:
+		Active:
+			UNKN A 3 {
+				A_PlaySound("effects/steam", CHAN_6, 0.5, 1);
+				A_CustomMissile("SteamParticle", 0, 0, 0, CMF_AIMDIRECTION, pitch);
+			}
+			Loop
+		Inactive:
+			UNKN A 3 {
+				A_StopSound(CHAN_6);
+			}
+			Loop
+	}
+}

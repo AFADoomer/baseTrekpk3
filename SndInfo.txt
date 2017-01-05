@@ -101,6 +101,7 @@ effects/electric			electric
 effects/disintegrate/alive		disint
 effects/disintegrate/object		disint2
 effects/disintegrate/object_small	disint3
+effects/steam				steam
 
 actor/appear				appear
 
@@ -126,6 +127,10 @@ hangar/lift/end				hb_lifte
 
 intercom				whistle
 
+/* Musical Cues */
+music/load_1				load_1
+music/ship/load				intro
+
 /* Menu Sounds */
 $pitchshiftrange 7
 menu/activate				b_sel
@@ -137,3 +142,23 @@ menu/cursor				m_move
 menu/dismiss				b_back
 menu/invalid				NULL
 menu/prompt				b_move
+
+$playersound	player	male	*death		death1
+$playersound	player	male	*xdeath		death2
+$playersound	player	male	*gibbed		death3
+$playersound	player	male	*pain100	pain100
+$playersound	player	male	*pain75		pain75
+$playersound	player	male	*pain50		pain50
+$playersound	player	male	*pain25		pain25
+$playersound	player	male	*grunt		land1
+$playersound	player	male	*jump		jump1
+$playersound 	player	male	*usefail	NULL
+
+$playersound	player	male	*dive		watr_un
+$playersound	player	male	*surface	watr_out
+$playersound	player	male	*gasp		gasp
+
+misc/w_pkup				pickup
+misc/p_pkup				pickup
+misc/i_pkup				pickup
+misc/k_pkup				pickup

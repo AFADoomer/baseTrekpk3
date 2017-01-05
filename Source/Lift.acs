@@ -111,6 +111,7 @@ Script 255 (void)
 
 Script 254 (void)
 {
+	If (Mission > 0) Terminate;
 	If (GetInput)
 		PlaySound(0, "computer/button/back");
 	Else
@@ -344,7 +345,7 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 				{
 					If (CheckInventory(StrParam(s:"AccessLevel", s:Decks[index][3])) == 0)
 					{
-//						Print(s:StrParam(s:"Level ", s:Decks[index][3]), s:" access required.");
+						Print(s:StrParam(s:"Level ", s:Decks[index][3]), s:" access required.");
 						str strTemp = ExpandLanguageString(StrParam(l:"Lock"), Decks[index][3], 0, 0, 0, 0, 0);
 						Notification(StrParam(s:"\cr", l:"Locked"), strTemp, "", 1);
 						bAccess = False;
@@ -397,6 +398,10 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 
 						Delay(35);
 
+						If (StrICmp(StrParam(n:PRINTNAME_LEVEL), "SHIP") != 0)
+							ChangeLevel ("SHIP", 3 + PlayerNumber(), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+//							ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
+
 						Teleport_NoFog(Turbolift(index), 1, 0, 1);
 
 						Delay(35);
@@ -406,7 +411,6 @@ Script "W_ElevatorInputLoop" (int Offset, int Colorset)
 
 						ActivatorSound("turbolift/end", 128);
 						SetUserVariable(0, "user_travel", 0);
-//						ChangeLevel (Map(index), Turbolift(index), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 					}
 
 					ClearPanel();

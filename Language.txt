@@ -1,5 +1,70 @@
 [enu default]
 
+//Actual unique values
+SECRETMESSAGE = "";
+MNU_OPTIONS = "Configuration";
+MNU_QUITGAME = "Exit";
+MNU_CHOOSESKILL = "Select a difficulty level";
+MNU_EPISODE = "Select a start point";
+AM_MONSTERS = "Enemies:";
+AM_SECRETS = "Hidden Areas:";
+
+//Most of these are for capitalization and nothing else...
+PRESSKEY = "Press a key.";
+PRESSYN = "Press Y or N.";
+QUITMSG = "Are you sure you want to quit?";
+LOADNET = "You can't load while in a net game!\n\nPress a key.";
+QLOADNET = "You can't quickload during a netgame!\n\nPress a key.";
+QSAVESPOT = "You haven't picked a quicksave slot yet!\n\nPress a key.";
+SAVEDEAD = "You can't save if you aren't playing!\n\nPress a key.";
+QSPROMPT = "Quicksave over your game named\n\n'%s'?\n\nPress Y or N.";
+QLPROMPT = "Do you want to quickload the game named\n\n'%s'?\n\nPress Y or N.";
+NEWGAME = "You can't start a new game\nwhile in a network game.\n\nPress a key.";
+GGSAVED = "Game saved.";
+MNU_NEWGAME = "New Game";
+MNU_LOADGAME = "Load Game";
+MNU_SAVEGAME = "Save Game";
+OPTMNU_TITLE = "Configuration";
+OPTMNU_MOUSE = "Mouse Options";
+OPTMNU_JOYSTICK = "Joystick Options";
+CNTRLMNU_TITLE = "Customize Controls";
+MOUSEMNU_TITLE  = "Mouse Options";
+JOYMNU_CONFIG = "Configure Controller";
+JOYMNU_OPTIONS = "Controller Options";
+MNU_PLAYERSETUP = "Player Setup";
+DSPLYMNU_TITLE  = "Display Options";
+AUTOMAPMNU_TITLE = "Automap Options";
+MAPCNTRLMNU_TITLE = "Customize Map Controls";
+MAPCOLORMNU_TITLE = "Cutomize Map Colors";
+MSGMNU_TITLE = "Message Options";
+SCRBRDMNU_TITLE = "Scoreboard Options";
+GMPLYMNU_TITLE = "Gameplay Options";
+CMPTMNU_TITLE = "Compatibility Options";
+SNDMNU_TITLE = "Sound Options";
+FMODMNU_TITLE = "FMOD Options";
+OPENALMNU_TITLE = "OpenAL Options";
+ADVSNDMNU_TITLE = "Advanced Sound Options";
+MODMNU_TITLE = "Module Replayer Options";
+VIDMNU_TITLE = "Video Mode";
+NETMNU_TITLE = "Network Options";
+MNU_COLORPICKER = "Select Color";
+
+/*
+SK_1 = "I wear a red shirt";
+SK_2 = "Just tell me what to do, Sir";
+SK_3 = "This isn't my first landing party";
+SK_4 = "I give the orders around here";
+SK_5 = "I've been beyond the galactic barrier";
+*/
+
+SK_1 = "Red Shirt";
+SK_2 = "Officer";
+SK_3 = "Senior Staff";
+SK_4 = "Captain";
+SK_5 = "Admiral";
+
+BARRIER = "Are you sure?";
+
 LOCKED = "Access Denied";
 LOCK = "You can't go there, yet.";
 LOCK_2 = "Level 2 Access Required";
@@ -8,19 +73,6 @@ LOCK_3 = "Level 3 Access Required";
 LOCK_3_G = "Level 3 Access Granted";
 LOCK_4 = "Level 4 Access Required";
 LOCK_4_G = "Level 4 Access Granted";
-
-NEWGAME = "NEW GAME";
-SAVEGAME = "SAVE GAME";
-LOADGAME = "LOAD GAME";
-SKILL = "Select a difficulty level";
-
-SK_1 = "I wear a red shirt";
-SK_2 = "Just tell me what to do, Sir";
-SK_3 = "This isn't my first landing party";
-SK_4 = "I give the orders around here";
-SK_5 = "I've been beyond the galactic barrier";
-
-BARRIER = "Are you sure?";
 
 //Pickups and items
 CHARGE = "A partial charge for a Type-II Phaser";
@@ -41,7 +93,7 @@ PHOTONTORPEDO = "Photon Torpedo Targeting System";
 
 // Map-specific thing tags
 //
-//   Automatically applied to anything that inherits from TOSDecoration or TOSEnemy
+//   Automatically applied to anything that inherits from Decoration or TOSEnemy
 //
 //   Format:
 //		ThingClass_MapName_ThingTID = "New Tag Information";
@@ -60,51 +112,119 @@ TOSTransporterConsole_SHIP_4 = "Emergency Transporter 1 Console";
 TOSTransporterConsole_SHIP_5 = "Emergency Transporter 2 Console";
 TOSTransporterConsole_SHIP_6 = "Emergency Transporter 3 Console";
 TOSPlantonButton_SHIP_0 = "Partition Wall Door Control";
-TOSPlantonTu_Btns_MAP09_0 = "Turbolift Controls";
-TOSBridgeConsoleP2_MAP09_3 = "Communications";
-TOSBridgeConsoleP1_MAP09_4 = "Science Station";
-TOSBridgeConsoleP2_MAP09_5 = "Science Station 2";
-TOSBridgeConsoleP1_MAP09_6 = "Damage Control";
-TOSBridgeConsoleP3_MAP09_7 = "Towing Operations";
-TOSBridgeConsoleP3_MAP09_8 = "Weapon and Defense";
-TOSBridgeConsoleP2_MAP09_9 = "Environmental Control";
-TOSBridgeConsoleP1_MAP09_10 = "Engineering";
+TOSPlantonTu_Btns_MSN01_0 = "Turbolift Controls";
+TOSBridgeConsoleP2_MSN01_3 = "Communications";
+TOSBridgeConsoleP1_MSN01_4 = "Science Station";
+TOSBridgeConsoleP2_MSN01_5 = "Science Station 2";
+TOSBridgeConsoleP1_MSN01_6 = "Damage Control";
+TOSBridgeConsoleP3_MSN01_7 = "Towing Operations";
+TOSBridgeConsoleP3_MSN01_8 = "Weapon and Defense";
+TOSBridgeConsoleP2_MSN01_9 = "Environmental Control";
+TOSBridgeConsoleP1_MSN01_10 = "Engineering";
+TOSWallThingPanel_MSN01_0 = "Control Panel";
 
-Title_MAP09 = "PIRATE     \n     TROUBLE";
-Credit_MAP09 = "MARTEN VAN WIER";
+//Cutscene 'Scripting'
+Cutscene_SHIP_0_0 = "22~~~~HidePlayer~35~";
+Cutscene_SHIP_0_1 = "22~~~~LoadCue~35~";
+Cutscene_SHIP_0_2 = "22~Captain's Log, Stardate 6032.1~As part of a new initiative, we are taking aboard Lieutenant Jason Nesmith as our new Chief of Security.\nHis charge is to reduce the recent alarming increase in death rate among security officers assigned across Starfleet.~T~~~";
+Cutscene_SHIP_0_3 = "22~~~~QuickFade~~";
+Cutscene_SHIP_0_4 = "12~~~~~70~";
+Cutscene_SHIP_0_5 = "12~Chekov~Stand by to recover shuttlecraft.~T~~~";
+Cutscene_SHIP_0_6 = "12~~Depressurizing.~L~~~";
+Cutscene_SHIP_0_7 = "12~~Recovering Shuttlecraft.~L~~~";
+Cutscene_SHIP_0_8 = "12~~~~QuickFade~~";
+Cutscene_SHIP_0_9 = "553~~~~ShuttleEntry~~";
+Cutscene_SHIP_0_10 = "553~~Hangar deck pressurizing.~T~~35~";
+Cutscene_SHIP_0_11 = "553~~~~QuickFade~~";
+Cutscene_SHIP_0_12 = "7~~~~Frame7~35~";
+Cutscene_SHIP_0_13 = "7~Kirk~It's not ideal, but we've been requesting specialized training for our security personnel for years...~L~~~";
+Cutscene_SHIP_0_14 = "7~Kirk~Our standard programs never anticipated some of the more... unique... situations that we've encountered.~L~~~";
+Cutscene_SHIP_0_15 = "7~Sulu~Oh, I certainly agree, Sir.\nI'm looking forward to the skills he brings. His records are impressive.~R~~~";
+Cutscene_SHIP_0_16 = "7~~~~ShowPlayer~35~";
+Cutscene_SHIP_0_17 = "7~Kirk~Let's go meet him!~L~~35~";
+Cutscene_SHIP_0_18 = "7~~~~OpenDoorHold~35~";
+Cutscene_SHIP_0_19 = "7~~~~EnterBay~70~";
+Cutscene_SHIP_0_20 = "7~~~~SetupKirkSulu~~";
+
+
+Cutscene_SHIP_1_0 = "13~~~~~35~";
+Cutscene_SHIP_1_1 = "13~~Permission to come aboard, Sir?~~~~";
+Cutscene_SHIP_1_2 = "13~Kirk~Granted, Lieutenant.\nWelcome to the Enterprise~L~~~";
+Cutscene_SHIP_1_3 = "13~~Thank you, Sir!~~~~";
+Cutscene_SHIP_1_4 = "13~Kirk~My senior helmsman and nominal head of ship-board security, Lieutenant Hikaru Sulu.~L~~~";
+Cutscene_SHIP_1_5 = "13~~A pleasure.~~~~";
+Cutscene_SHIP_1_6 = "13~Sulu~Likewise.~R~~~";
+Cutscene_SHIP_1_7 = "13~~~~Whistle~~";
+Cutscene_SHIP_1_8 = "13~Spock~Bridge to Captain Kirk.~T~~~";
+Cutscene_SHIP_1_9 = "13~Kirk~Gentlemen, if you'll excuse me...~L~~~";
+Cutscene_SHIP_1_10 = "13~~~~KirkToIntercom~~";
+Cutscene_SHIP_1_11 = "13~Kirk~Kirk here.~L~~~";
+Cutscene_SHIP_1_12 = "13~Spock~Captain, we've recieved a garbled distress call from a neighboring star system.  The call letters indicate a Ptolemy-class transport, the USS Anaxagoras - but according to Starfleet records, that ship was lost with all hands 12 years ago.~T~~~";
+Cutscene_SHIP_1_13 = "13~Kirk~Can sensor scans confirm the ship's identification?~L~~~";
+Cutscene_SHIP_1_14 = "13~Spock~Negative, we are outside of sensor range.\nEstimated time until the source of the distress call is within range of long-range sensors is 7.3 minutes.~T~~~";
+Cutscene_SHIP_1_15 = "13~Kirk~Understood.  Notify Starfleet Command of our status.  I'm on my way to the bridge.~L~~~";
+Cutscene_SHIP_1_16 = "13~Spock~Acknowledged.~T~~~";
+Cutscene_SHIP_1_17 = "13~Kirk~Well, Lieutenant, duty calls.  I'll leave you in Lt Sulu's capable hands.~L~~~";
+Cutscene_SHIP_1_18 = "0~~~~KirkToTurbolift~~";
+Cutscene_SHIP_1_19 = "0~~That sounds exciting...~~~~";
+Cutscene_SHIP_1_20 = "0~Sulu~Just another day aboard the Enterprise.  Most of us have gotten used to the excitement.~R~~~";
+Cutscene_SHIP_1_21 = "0~Sulu~Let's get you to your quarters.  They've allocated you a berth on deck 7.~R~~~";
+Cutscene_SHIP_1_22 = "0~~~~SuluToTurbolift~~";
+
+Objective_SHIP_0 = "1~Report in to Captain Kirk.~";
+Objective_SHIP_0_Sulu_0 = "You need to report in to the Captain.";
+Objective_SHIP_0_Sulu_1 = "Proper protocol isn't your strong suit, is it?";
+Objective_SHIP_0_Sulu_2 = "Captain Kirk doesn't like being ignored.";
+
+Objective_SHIP_1 = "0~Get to your quarters.~";
+Objective_SHIP_2 = "0~Explore the ship.~";
+Objective_SHIP_3 = "0~Find a weapon.~";
+Objective_SHIP_4 = "0~Get to Auxiliary Control.~";
+Objective_SHIP_5 = "0~Incapacitate the intruders.~";
+Objective_SHIP_6 = "0~Get to Sickbay.~";
+Objective_SHIP_7 = "0~Meet with Captain Kirk.~";
+Objective_SHIP_8 = "0~Find Lieutenant Sulu.~";
+Objective_SHIP_9 = "0~Get your security access level updated.~";
+Objective_SHIP_10 = "0~Equip yourself for an away mission.~";
+Objective_SHIP_11 = "0~Get to the transporter room.~";
+
+Title_MSN01 = "PIRATE     \n     TROUBLE";
+Credit_MSN01 = "MARTEN VAN WIER";
 
 StoryByString = "STORY BASED ON IDEAS FROM";
 
-Cutscene_MAP09_0_0 = "20~~~~HidePlayer~70~";
-Cutscene_MAP09_0_1 = "20~~~~Title~35~";
-Cutscene_MAP09_0_2 = "20~Security Officer's Log, Stardate 6037.4~We're beaming aboard the U.S.S. Anaxagoras, a ship thought lost over a decade ago.\nThe ship has been taken over by pirates. My team is tasked with re-taking the vessel from the inside.~T~~~";
-Cutscene_MAP09_0_3 = "20~~~~QuickFade~~";
-Cutscene_MAP09_0_4 = "1~~~~~35~";
-Cutscene_MAP09_0_5 = "1~~~~BeamIn~175~";
-Cutscene_MAP09_0_6 = "1~~~~QuickFade~~";
-Cutscene_MAP09_0_7 = "0~~~~Chirp~~";
-Cutscene_MAP09_0_8 = "0~~~~CommUp~~";
-Cutscene_MAP09_0_9 = "0~Spock~Lieutenant, we have detected a fluctuation in the Anaxagoras's internal systems.\nThe pirates may have detected our transport; continue your mission, but know that you will be alone.~T~~~";
-Cutscene_MAP09_0_10 = "0~~\ccAcknowledged~~~~";
-Cutscene_MAP09_0_11 = "0~~~~CommDown~~";
-Cutscene_MAP09_1_0 = "0~~~~Chirp~~";
-Cutscene_MAP09_1_1 = "0~~~~CommUp~~";
-Cutscene_MAP09_1_2 = "0~Spock~Lieutenant, you have been detected.  Your turbolift has been halted on deck 3.\nYou should be able to force the doors open to escape and use access ladders to reach the bridge.~T~~~";
-Cutscene_MAP09_1_3 = "0~~~~CommDown~~";
-Cutscene_MAP09_1_4 = "0~~~~Objective2~~";
-Cutscene_MAP09_2_0 = "0~~~~Chirp~~";
-Cutscene_MAP09_2_1 = "0~~~~CommUp~~";
-Cutscene_MAP09_2_2 = "0~Spock~Effectively done, Lieutenant.\nYou should be able to incapacitate the remaining pirate crew from the Environmental station on the port side.~T~~~";
-Cutscene_MAP09_2_3 = "0~~~~CommDown~~";
-Cutscene_MAP09_2_4 = "0~~~~Objective4~~";
-Cutscene_MAP09_3_0 = "11~~~~Chirp~~";
-Cutscene_MAP09_3_1 = "11~~~~CommUp~~";
-Cutscene_MAP09_3_2 = "11~Kirk~Well done, Lieutenant.  It looks like you've knocked out the remaining pirates.\nStand by for beam out.~T~~~";
-Cutscene_MAP09_3_3 = "11~~\ccAye, Sir.~~~~";
-Cutscene_MAP09_3_4 = "21~~~~CommDown~~";
-Cutscene_MAP09_3_5 = "21~~~~A_CheckBeamUp~350~";
+Cutscene_MSN01_0_0 = "20~~~~HidePlayer~35~";
+Cutscene_MSN01_0_1 = "20~~~~LoadCue~35~";
+Cutscene_MSN01_0_2 = "20~~~~Title~35~";
+Cutscene_MSN01_0_3 = "20~Security Officer's Log, Stardate 6037.4~We're beaming aboard the U.S.S. Anaxagoras, a ship thought lost over a decade ago.\nThe ship has been taken over by pirates. My team is tasked with re-taking the vessel from the inside.~T~~~";
+Cutscene_MSN01_0_4 = "20~~~~QuickFade~~";
+Cutscene_MSN01_0_5 = "1~~~~~35~";
+Cutscene_MSN01_0_6 = "1~~~~BeamIn~175~";
+Cutscene_MSN01_0_7 = "1~~~~QuickFade~~";
+Cutscene_MSN01_0_8 = "0~~~~Chirp~~";
+Cutscene_MSN01_0_9 = "0~~~~CommUp~~";
+Cutscene_MSN01_0_10 = "0~Spock~Lieutenant, we have detected a fluctuation in the Anaxagoras's internal systems.\nThe pirates may have detected our transport; continue your mission, but know that you will be alone.~T~~~";
+Cutscene_MSN01_0_11 = "0~Spock~I recommend that you rely on your tricorder and avoid contact with pirate crewmen to the greatest extent possible.~T~~~";
+Cutscene_MSN01_0_12 = "0~~\ccAcknowledged~~~~";
+Cutscene_MSN01_0_13 = "0~~~~CommDown~~";
+Cutscene_MSN01_1_0 = "0~~~~Chirp~~";
+Cutscene_MSN01_1_1 = "0~~~~CommUp~~";
+Cutscene_MSN01_1_2 = "0~Spock~Lieutenant, you have been detected.  Your turbolift has been halted on deck 3.\nYou should be able to force the doors open to escape and use access ladders to reach the bridge.~T~~~";
+Cutscene_MSN01_1_3 = "0~~~~CommDown~~";
+Cutscene_MSN01_1_4 = "0~~~~Objective2~~";
+Cutscene_MSN01_2_0 = "0~~~~Chirp~~";
+Cutscene_MSN01_2_1 = "0~~~~CommUp~~";
+Cutscene_MSN01_2_2 = "0~Spock~Effectively done, Lieutenant.\nYou should be able to incapacitate the remaining pirate crew from the Environmental station on the port side.~T~~~";
+Cutscene_MSN01_2_3 = "0~~~~CommDown~~";
+Cutscene_MSN01_2_4 = "0~~~~Objective4~~";
+Cutscene_MSN01_3_0 = "11~~~~Chirp~~";
+Cutscene_MSN01_3_1 = "11~~~~CommUp~~";
+Cutscene_MSN01_3_2 = "11~Kirk~Well done, Lieutenant.  It looks like you've knocked out the remaining pirates.\nStand by for beam out.~T~~~";
+Cutscene_MSN01_3_3 = "11~~\ccAye, Sir.~~~~";
+Cutscene_MSN01_3_4 = "21~~~~CommDown~~";
+Cutscene_MSN01_3_5 = "21~~~~A_CheckBeamUp~350~";
 
-Objective_MAP09_0 = "1~Gain access to the Anaxagoras' bridge.~";
-Objective_MAP09_1 = "0~Escape from the Turbolift.~";
-Objective_MAP09_2 = "0~Clear the bridge of pirates.~";
-Objective_MAP09_3 = "0~Incapacitate the remaining pirates aboard the ship.~";
+Objective_MSN01_0 = "1~Gain access to the Anaxagoras' bridge.~";
+Objective_MSN01_1 = "0~Escape from the Turbolift.~";
+Objective_MSN01_2 = "0~Clear the bridge of pirates.~";
+Objective_MSN01_3 = "0~Incapacitate the remaining pirates aboard the ship.~";

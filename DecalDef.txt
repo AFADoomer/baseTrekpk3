@@ -1,7 +1,7 @@
 decal DirtSplat1
 {
 	pic BSPLAT1
-	shade "00 00 00"
+	shade "2c 2a 25"
 	x-scale 0.75
 	y-scale 0.75
 	randomflipx
@@ -11,7 +11,7 @@ decal DirtSplat1
 decal DirtSplat2
 {
 	pic BSPLAT2
-	shade "00 00 00"
+	shade "2c 2a 25"
 	x-scale 0.75
 	y-scale 0.75
 	randomflipx
@@ -21,7 +21,7 @@ decal DirtSplat2
 decal DirtSplat3
 {
 	pic BSPLAT3
-	shade "00 00 00"
+	shade "2c 2a 25"
 	x-scale 0.75
 	y-scale 0.75
 	randomflipx
@@ -31,7 +31,7 @@ decal DirtSplat3
 decal DirtSplat4
 {
 	pic BSPLAT4
-	shade "00 00 00"
+	shade "2c 2a 25"
 	x-scale 0.75
 	y-scale 0.75
 	randomflipx
@@ -41,7 +41,7 @@ decal DirtSplat4
 decal DirtSplat5
 {
 	pic BSPLAT5
-	shade "00 00 00"
+	shade "2c 2a 25"
 	x-scale 0.75
 	y-scale 0.75
 	randomflipx
@@ -51,7 +51,7 @@ decal DirtSplat5
 decal DirtSplat6
 {
 	pic BSPLAT6
-	shade "00 00 00"
+	shade "2c 2a 25"
 	x-scale 0.75
 	y-scale 0.75
 	randomflipx
@@ -61,7 +61,7 @@ decal DirtSplat6
 decal DirtSplat7
 {
 	pic BSPLAT7
-	shade "00 00 00"
+	shade "2c 2a 25"
 	x-scale 0.75
 	y-scale 0.75
 	randomflipx

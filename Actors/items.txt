@@ -15,34 +15,36 @@ Actor OrbitCenter
 
 Actor Transport : CustomInventory Replaces TeleportFog
 {
-	Radius 48
-	+AUTOACTIVATE
+	+NOBLOCKMAP
+	+NOTELEPORT
+	+NOGRAVITY
 	States
+//	+AUTOACTIVATE
 	{
 		Spawn:
 			TNT1 A 1
-			TNT1 A 1 A_Recoil(5)
+			TNT1 A 1
 		Static:
 			TNT1 A 70
 			Stop
-		Pickup:
-			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 1, 1)
-			Stop
+//		Pickup:
+			//TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 1, 1)
+//			Stop
 	}
 
 }
 
 Actor TransportK : CustomInventory
 {
-	+AUTOACTIVATE
+//	+AUTOACTIVATE
 	States
 	{
 		Spawn:
 			TNT1 A -1
 			Loop
-		Pickup:
-			TNT1 A 0 ACS_NamedExecuteAlways("A_TransportK", 0)
-			Stop
+//		Pickup:
+//			TNT1 A 0 ACS_NamedExecuteAlways("A_TransportK", 0)
+//			Stop
 	}
 }
 
@@ -50,9 +52,9 @@ Actor TransportOut : Transport
 {
 	States
 	{
-		Pickup:
-			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 1, 0)
-			Stop
+//		Pickup:
+//			TNT1 A 0 ACS_NamedExecuteAlways("A_Transport", 0, 1, 0)
+//			Stop
 	}
 }
 
@@ -79,7 +81,7 @@ Actor Stunner : CustomInventory
 			TNT1 A -1
 			Loop
 		Pickup:
-			TNT1 A 0 ACS_NamedExecuteAlways("A_Stun")
+			TNT1 A 0 ACS_NamedExecuteAlways("A_Stun", 0, 300) //300s = 5m
 			Stop
 	}
 }
@@ -170,14 +172,23 @@ Actor DisruptorStation : SwitchableDecoration
 	States
 	{
 		Spawn:
-			TOS1 D 1
-			TOS1 D 1 ACS_NamedExecuteAlways("SetRadarTID",0)
-			TOS1 D 0 A_SetUserVar("user_level", 100)
-			TOS1 D 0 A_SetUserVar("user_uses", args[0])
-			TOS1 D 0 A_JumpIf(user_uses > 0, "Static")
-			TOS1 D 0 A_SetUserVar("user_uses", 300)
+			TOS1 D 1 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				user_level = 100;
+				if (user_uses == 0) { user_uses = args[0]; }
+				if (user_uses == 0) { user_uses = 300; }
+				if (user_uses < 0) { return State("Done"); }
+				return State("Static");
+			}
 		Static:
-			"####" # 21
+			TOS1 # 0 A_JumpIf(user_given > 0, "Static.Used")
+			TOS1 # 1 
+			Goto Static.Resume
+		Static.Used:
+			TOS2 # 1
+			Goto Static.Resume
+		Static.Resume:
+			"####" # 20
 			"####" # 0 A_JumpIf(user_level >= 100, "Full")
 		Quarter:
 			"####" A 0 A_JumpIf(user_level <= 25, "Charge")
@@ -193,24 +204,33 @@ Actor DisruptorStation : SwitchableDecoration
 			Goto Static
 		Inactive:
 		Active:
-			"####" # 0 A_SetUserVar("user_used", CallACS("A_AmmoStation", 0, user_level))
+			"####" # 0 {
+				if (user_uses <= 0) { return State("Done"); }
+				user_used = CallACS("A_AmmoStation", 0, user_level);
+				if (user_used != 0) { return State("Return"); }
+				return State("Return.Empty");
+			}
 		Return:
-			"####" # 0 A_JumpIf(user_used < 0, "DispensedWeapon")
-			"####" # 0 A_SetUserVar("user_uses", user_uses - user_used)
-			"####" # 0 A_SetUserVar("user_level", user_level - user_used)
-			"####" # 0 A_JumpIf(user_uses <= 0, "Done")
-			"####" E 0 A_PlaySound("actor/powerup", CHAN_AUTO, 1.0)
-			"####" # 0 A_JumpIf(user_given > 0, "Static")
-			TOS1 # 10
-			TOS2 # 20
-			Goto Static
+			TOS1 # 35 {
+				user_uses = user_uses - user_used;
+				user_level = user_level - user_used;
+				if (user_used < 0) { return State("DispensedWeapon"); }
+				if (user_uses <= 0) { return State("Done"); }
+				if (user_uses > 0) { A_PlaySound("actor/powerup", CHAN_AUTO, 1.0); }
+				return State("");
+			}
+		Return.Empty:
+			TOS2 # 20 {
+				return State("Static");
+			}
 		Done:
-			"####" # 0 A_PlaySound("actor/burnout", CHAN_AUTO, 1.0)
-			"####" E -1
+			TOS2 E -1 { if (user_used > 0) { A_PlaySound("actor/burnout", CHAN_AUTO, 1.0); } }
 			Stop
 		DispensedWeapon:
-			"####" # 0 A_SetUserVar("user_given", 1)
-			"####" # 0 A_SetUserVar("user_used", 100)
+			"####" # 0 {
+				user_given = 1;
+				user_used = 100;
+			}
 			TOS2 A 0 A_Jump(256, "Return")
 	}
 }
@@ -224,24 +244,31 @@ Actor PhaserRifleStation : DisruptorStation
 	States
 	{
 		Spawn:
-			TOS1 D 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0)
-			TOS1 D 1
-			TOS1 D 0 A_SetUserVar("user_level", 100)
-			TOS1 D 0 A_SetUserVar("user_uses", args[0])
-			TOS1 D 0 A_JumpIf(user_uses > 0, "Static")
-			TOS1 D 0 A_SetUserVar("user_uses", 400)
-			Goto Static
+			TOS1 D 1 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				user_level = 100;
+				if (user_uses == 0) { user_uses = args[0]; }
+				if (user_uses == 0) { user_uses = 400; }
+				if (user_uses < 0) { return State("Done"); }
+				return State("Static");
+			}
 		Inactive:
 		Active:
-			"####" # 0 A_PlaySound("computer/button2")
-			"####" # 0 A_SetUserVar("user_used", CallACS("A_AmmoStation", 1, user_level))
-			Goto Return
+			"####" # 0 {
+				if (user_uses <= 0) { return State("Done"); }
+				user_used = CallACS("A_AmmoStation", 1, user_level);
+				if (user_used != 0) {
+					A_PlaySound("computer/button2");
+					return State("Return");
+				}
+				return State("Return.Empty");
+			}
 	}
 }
 
 ACTOR Nav_Block
 {
-	Radius 0
+	Radius 8
 	Height 0
 	States
 	{

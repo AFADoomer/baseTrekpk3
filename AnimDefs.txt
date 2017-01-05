@@ -1,4 +1,4 @@
-CameraTexture TRICHUDS 250 200
+CameraTexture RADARBKG 800 800 fit 400 400
 
 CameraTexture CAMTEX_1 1372 768 fit 159 89 worldpanning
 CameraTexture CAMTEX_2 1372 768 fit 300 200 worldpanning
@@ -22,15 +22,21 @@ Texture WALL_BEB
 
 Texture Icon
 	pic Icon rand 200 600
-	pic IconB tics 2
-	pic IconC tics 2
-	pic IconD tics 2
+	pic IconB tics 5
+	pic IconC tics 5
+	pic IconD tics 5
 
 Texture Icon2
 	pic Icon2 rand 200 600
-	pic Icon2B tics 2
-	pic Icon2C tics 2
-	pic Icon2D tics 2
+	pic Icon2B tics 5
+	pic Icon2C tics 5
+	pic Icon2D tics 5
+
+Texture Icon4
+	pic Icon4 rand 200 600
+	pic Icon4B tics 5
+	pic Icon4C tics 5
+	pic Icon4D tics 5
 
 Texture Hypo
 	pic Hypo1 tics 2

@@ -33,7 +33,7 @@ Actor TOSDecoration
 				A_SetUserVar("user_uses", args[0] || args[2]);
 				user_scaleX = scaleX;
 				user_scaleY = scaleY;
-				if (GetCVar("g_bounding") && A_CheckFlag("SOLID", "Null")) {
+				if (GetCVar("st_bounding") && A_CheckFlag("SOLID", "Null")) {
 					A_SetScale(Radius * 2, Height * 1.2, AAPTR_DEFAULT, TRUE);
 					A_SpawnItemEx ("Block1x1Bounding", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERSCALE | SXF_SETMASTER);
 					A_SetScale(user_scaleX, user_scaleY);
@@ -147,7 +147,7 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 				A_SetUserVar("user_uses", args[0] || args[2]);
 				user_scaleX = scaleX;
 				user_scaleY = scaleY;
-				if (GetCVar("g_bounding") && A_CheckFlag("SOLID", "Null")) {
+				if (GetCVar("st_bounding") && A_CheckFlag("SOLID", "Null")) {
 					A_SetScale(Radius * 2, Height * 1.2, AAPTR_DEFAULT, TRUE);
 					A_SpawnItemEx ("Block1x1Bounding", 0, 0, Height / 2, 0, 0, 0, 0, SXF_TRANSFERSCALE | SXF_SETMASTER);
 					A_SetScale(user_scaleX, user_scaleY);

@@ -1,0 +1,32 @@
+class SparkSpawner : Spark
+{
+	void A_DoSparkInterval()
+	{
+		int Interval;
+
+		Activate(self);
+
+		if(args[1] > 0 && args[2] > 0)
+		{
+			Interval = Random[Sparks](args[1], args[2]) * 35;
+		}
+		else
+		{
+			Interval = Random[Sparks](1, 30) * 35;
+		}
+		A_SetTics(Interval);
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A 1 A_DoSparkInterval();
+			Loop;
+	}
+}
+
+/*
+class SparkSwirl : Spark
+{
+}
+*/

@@ -368,6 +368,18 @@ Model TOSBridgeConsole6
 	FrameIndex TOS1 A 2 0
 }
 
+
+Model TOSBridgeConsole7
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "console.md3"
+	Skin 0 "cons_7.jpg"
+
+	AngleOffset 180.0
+	Scale 1.235 1.235 1.45
+
+	FrameIndex TOS1 A 0 0
+}
  
 Model TOSBridgeConsole7
 {
@@ -729,6 +741,16 @@ Model TOSMonitorSwivel
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSMonitorSwivel
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "monitor.md3"
+	SurfaceSkin 0 0 "ScrnMsn.png"
+
+	AngleOffset 180.0
+
+	FrameIndex TOS1 B 0 0
+}
 
 Model TOSMonitorBase
 {
@@ -1176,6 +1198,48 @@ Model TOSCrate
 	FrameIndex TOS1 D 0 6
 	FrameIndex TOS1 E 0 8
 	FrameIndex TOS1 F 0 10
+}
+
+Model TOSCrate
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "crate.md3"
+	Skin 0 "crate2.png"
+
+	FrameIndex TOS2 A 0 0
+	FrameIndex TOS2 B 0 2
+	FrameIndex TOS2 C 0 4
+	FrameIndex TOS2 D 0 6
+	FrameIndex TOS2 E 0 8
+	FrameIndex TOS2 F 0 10
+}
+
+Model TOSCrate
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "crate.md3"
+	Skin 0 "crate3.png"
+
+	FrameIndex TOS3 A 0 0
+	FrameIndex TOS3 B 0 2
+	FrameIndex TOS3 C 0 4
+	FrameIndex TOS3 D 0 6
+	FrameIndex TOS3 E 0 8
+	FrameIndex TOS3 F 0 10
+}
+
+Model TOSCrate
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "crate.md3"
+	Skin 0 "crate4.png"
+
+	FrameIndex TOS4 A 0 0
+	FrameIndex TOS4 B 0 2
+	FrameIndex TOS4 C 0 4
+	FrameIndex TOS4 D 0 6
+	FrameIndex TOS4 E 0 8
+	FrameIndex TOS4 F 0 10
 }
 
 Model TOSTapeRack
@@ -2350,6 +2414,21 @@ Model TOSFoodTray
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSDrinkTray
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_base.md3"
+
+	Path "Textures/Solid/"
+	SurfaceSkin 0 1 "clear.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+
 Model TOSFoodCup
 {
 	USEACTORPITCH
@@ -2360,6 +2439,30 @@ Model TOSFoodCup
 
 	FrameIndex TOS1 A 0 0
 }
+
+Model TOSCoffeeCup
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_cup.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSCoffee
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_drink.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
 
 Model TOSFoodDrink
 {
@@ -2543,6 +2646,18 @@ Model TOSFoodUtensils
 	Scale 1.0 -1.0 1.0
 
 	FrameIndex TOS1 D 0 0
+}
+
+
+Model TOSPitcher
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/imports"
+	Model 0 "pitcher.md3"
+
+	FrameIndex TOS1 A 0 0
 }
 
 Model TOSChess

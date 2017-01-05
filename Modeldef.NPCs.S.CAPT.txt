@@ -1,0 +1,766 @@
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_fire1.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S501 A 0 0
+	FrameIndex S501 B 0 1
+	FrameIndex S501 C 0 2
+	FrameIndex S501 D 0 3
+	FrameIndex S501 E 0 4
+	FrameIndex S501 F 0 5
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_fire2.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S502 A 0 0
+	FrameIndex S502 B 0 1
+	FrameIndex S502 C 0 2
+	FrameIndex S502 D 0 3
+	FrameIndex S502 E 0 4
+	FrameIndex S502 F 0 5
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_fire3.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S503 A 0 0
+	FrameIndex S503 B 0 1
+	FrameIndex S503 C 0 2
+	FrameIndex S503 D 0 3
+	FrameIndex S503 E 0 4
+	FrameIndex S503 F 0 5
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_walk1.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S504 A 0 4
+	FrameIndex S504 B 0 9
+	FrameIndex S504 C 0 14
+	FrameIndex S504 D 0 19
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_walk2.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S505 A 0 2
+	FrameIndex S505 B 0 4
+	FrameIndex S505 C 0 7
+	FrameIndex S505 D 0 9
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_walkback.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S506 A 0 0
+	FrameIndex S506 B 0 1
+	FrameIndex S506 C 0 2
+	FrameIndex S506 D 0 3
+	FrameIndex S506 E 0 4
+	FrameIndex S506 F 0 5
+	FrameIndex S506 G 0 6
+	FrameIndex S506 H 0 7
+	FrameIndex S506 I 0 8
+	FrameIndex S506 J 0 9
+	FrameIndex S506 K 0 10
+	FrameIndex S506 L 0 11
+	FrameIndex S506 M 0 12
+	FrameIndex S506 N 0 13
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_run1.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S507 A 0 0
+	FrameIndex S507 B 0 1
+	FrameIndex S507 C 0 2
+	FrameIndex S507 D 0 3
+	FrameIndex S507 E 0 4
+	FrameIndex S507 F 0 5
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_run2.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S508 A 0 0
+	FrameIndex S508 B 0 1
+	FrameIndex S508 C 0 2
+	FrameIndex S508 D 0 3
+	FrameIndex S508 E 0 4
+	FrameIndex S508 F 0 5
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_turn1.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S509 A 0 0
+	FrameIndex S509 B 0 1
+	FrameIndex S509 C 0 2
+	FrameIndex S509 D 0 3
+	FrameIndex S509 E 0 4
+	FrameIndex S509 F 0 5
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_turn2.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S510 A 0 0
+	FrameIndex S510 B 0 1
+	FrameIndex S510 C 0 2
+	FrameIndex S510 D 0 3
+	FrameIndex S510 E 0 4
+	FrameIndex S510 F 0 5
+}
+
+//11 - Crouch Fire
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_crouchwalk.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S512 A 0 0
+	FrameIndex S512 B 0 1
+	FrameIndex S512 C 0 2
+	FrameIndex S512 D 0 3
+	FrameIndex S512 E 0 4
+	FrameIndex S512 F 0 5
+	FrameIndex S512 G 0 6
+	FrameIndex S512 H 0 7
+	FrameIndex S512 I 0 8
+	FrameIndex S512 J 0 9
+	FrameIndex S512 K 0 10
+	FrameIndex S512 L 0 11
+	FrameIndex S512 M 0 12
+	FrameIndex S512 N 0 13
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_death1.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S513 A 0 0
+	FrameIndex S513 B 0 2
+	FrameIndex S513 C 0 4
+	FrameIndex S513 D 0 6
+	FrameIndex S513 E 0 8
+	FrameIndex S513 F 0 10
+	FrameIndex S513 G 0 12
+	FrameIndex S513 H 0 14
+	FrameIndex S513 I 0 16
+	FrameIndex S513 J 0 18
+	FrameIndex S513 K 0 20
+	FrameIndex S513 L 0 22
+	FrameIndex S513 M 0 24
+	FrameIndex S513 N 0 26
+	FrameIndex S513 O 0 28
+	FrameIndex S513 P 0 30
+	FrameIndex S513 Q 0 32
+	FrameIndex S513 R 0 34
+	FrameIndex S513 S 0 36
+	FrameIndex S513 T 0 38
+	FrameIndex S513 U 0 40
+	FrameIndex S513 V 0 42
+	FrameIndex S513 W 0 44
+	FrameIndex S513 X 0 46
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_death2.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S514 A 0 0
+	FrameIndex S514 B 0 2
+	FrameIndex S514 C 0 4
+	FrameIndex S514 D 0 6
+	FrameIndex S514 E 0 8
+	FrameIndex S514 F 0 10
+	FrameIndex S514 G 0 12
+	FrameIndex S514 H 0 14
+	FrameIndex S514 I 0 16
+	FrameIndex S514 J 0 18
+	FrameIndex S514 K 0 20
+	FrameIndex S514 L 0 22
+	FrameIndex S514 M 0 24
+	FrameIndex S514 N 0 26
+	FrameIndex S514 O 0 28
+	FrameIndex S514 P 0 30
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_kneel.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S515 A 0 0
+	FrameIndex S515 B 0 1
+	FrameIndex S515 C 0 2
+	FrameIndex S515 D 0 3
+	FrameIndex S515 E 0 4
+	FrameIndex S515 F 0 5
+	FrameIndex S515 G 0 6
+	FrameIndex S515 H 0 7
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_climb_dn.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S516 A 0 0
+	FrameIndex S516 B 0 1
+	FrameIndex S516 C 0 2
+	FrameIndex S516 D 0 3
+	FrameIndex S516 E 0 4
+	FrameIndex S516 F 0 5
+	FrameIndex S516 G 0 6
+	FrameIndex S516 H 0 7
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_climb_up.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S517 A 0 0
+	FrameIndex S517 B 0 1
+	FrameIndex S517 C 0 2
+	FrameIndex S517 D 0 3
+	FrameIndex S517 E 0 4
+	FrameIndex S517 F 0 5
+	FrameIndex S517 G 0 6
+	FrameIndex S517 H 0 7
+}
+
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_crossedarms.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S518 A 0 0
+	FrameIndex S518 B 0 5
+	FrameIndex S518 C 0 10
+	FrameIndex S518 D 0 15
+}
+
+//19 - Stand - Push Intercom Button
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_wallbutton.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S519 A 0 0
+	FrameIndex S519 B 0 2
+	FrameIndex S519 C 0 4
+	FrameIndex S519 D 0 6
+	FrameIndex S519 E 0 8
+	FrameIndex S519 F 0 10
+	FrameIndex S519 G 0 12
+	FrameIndex S519 H 0 14
+	FrameIndex S519 I 0 16
+	FrameIndex S519 J 0 18
+	FrameIndex S519 K 0 20
+}
+
+//20 - Stand - Raise Communicator
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_tricorder.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S520 A 0 18
+	FrameIndex S520 B 0 12
+	FrameIndex S520 C 0 6
+	FrameIndex S520 D 0 0
+}
+
+//21 - Stand - Idle
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_idle.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S521 A 0 0
+	FrameIndex S521 B 0 7
+	FrameIndex S521 C 0 14
+	FrameIndex S521 D 0 21
+	FrameIndex S521 E 0 28
+	FrameIndex S521 F 0 35
+}
+
+//22 - Stand - Gesture Left
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_gestureleft.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S522 A 0 0
+	FrameIndex S522 B 0 2
+	FrameIndex S522 C 0 4
+	FrameIndex S522 D 0 6
+}
+
+//23 - Stand - Gesture Right
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_gestureright.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S523 A 0 0
+	FrameIndex S523 B 0 2
+	FrameIndex S523 C 0 4
+	FrameIndex S523 D 0 6
+}
+
+//24 - Stand - Console
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_console.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S524 A 0 0
+	FrameIndex S524 B 0 3
+	FrameIndex S524 C 0 6
+	FrameIndex S524 D 0 9
+	FrameIndex S524 E 0 12
+	FrameIndex S524 F 0 15
+	FrameIndex S524 G 0 18
+	FrameIndex S524 H 0 21
+}
+
+//25 - Stand - Console Idle
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_console_idle.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S525 A 0 0
+	FrameIndex S525 B 0 4
+	FrameIndex S525 C 0 8
+	FrameIndex S525 D 0 12
+	FrameIndex S525 E 0 16
+	FrameIndex S525 F 0 20
+	FrameIndex S525 G 0 24
+	FrameIndex S525 H 0 28
+	FrameIndex S525 I 0 32
+	FrameIndex S525 J 0 36
+	FrameIndex S525 K 0 40
+	FrameIndex S525 L 0 44
+	FrameIndex S525 M 0 48
+	FrameIndex S525 N 0 52
+}
+
+//26 - Stand - Console Left
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_console_left.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S526 A 0 0
+	FrameIndex S526 B 0 2
+	FrameIndex S526 C 0 4
+	FrameIndex S526 D 0 6
+	FrameIndex S526 E 0 8
+	FrameIndex S526 F 0 10
+	FrameIndex S526 G 0 12
+	FrameIndex S526 H 0 14
+	FrameIndex S526 I 0 16
+	FrameIndex S526 J 0 18
+	FrameIndex S526 K 0 20
+	FrameIndex S526 L 0 22
+}
+
+//27 - Stand - Console Right
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_console_right.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S527 A 0 0
+	FrameIndex S527 B 0 2
+	FrameIndex S527 C 0 4
+	FrameIndex S527 D 0 6
+	FrameIndex S527 E 0 8
+	FrameIndex S527 F 0 10
+	FrameIndex S527 G 0 12
+	FrameIndex S527 H 0 14
+	FrameIndex S527 I 0 16
+	FrameIndex S527 J 0 18
+}
+
+//28 - Stand - Tricorder
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_tricorder.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S528 A 0 0
+	FrameIndex S528 B 0 6
+	FrameIndex S528 C 0 12
+	FrameIndex S528 D 0 18
+	FrameIndex S528 E 0 12
+	FrameIndex S528 F 0 6
+}
+
+//29 - Stand - Wall Console
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_stand_wallconsole.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S529 A 0 0
+	FrameIndex S529 B 0 4
+	FrameIndex S529 C 0 8
+	FrameIndex S529 D 0 12
+	FrameIndex S529 E 0 16
+	FrameIndex S529 F 0 20
+	FrameIndex S529 G 0 24
+	FrameIndex S529 H 0 28
+	FrameIndex S529 I 0 32
+}
+
+//30 - Sit - Idle
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_table_idle.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S530 A 0 0
+	FrameIndex S530 B 0 4
+	FrameIndex S530 C 0 8
+	FrameIndex S530 D 0 12
+	FrameIndex S530 E 0 16
+	FrameIndex S530 F 0 20
+}
+
+//31 - Sit - Hand to Lap
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_table_handtolap.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S531 A 0 0
+	FrameIndex S531 B 0 4
+	FrameIndex S531 C 0 8
+	FrameIndex S531 D 0 10
+}
+
+//32 - Sit - Hand to Table
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_table_handtotable.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S532 A 0 0
+	FrameIndex S532 B 0 4
+	FrameIndex S532 C 0 8
+	FrameIndex S532 D 0 10
+}
+
+//33 - Sit - Gesture
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_table_gesture.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S533 A 0 0
+	FrameIndex S533 B 0 4
+	FrameIndex S533 C 0 8
+	FrameIndex S533 D 0 10
+}
+
+//34 - Sit - Eat
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_table_eat.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S534 A 0 0
+	FrameIndex S534 B 0 7
+	FrameIndex S534 C 0 14
+}
+
+//35 - Sit - Console
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	ZOffset -10.5
+
+	FrameIndex S535 A 0 0
+	FrameIndex S535 B 0 3
+	FrameIndex S535 C 0 6
+	FrameIndex S535 D 0 9
+	FrameIndex S535 E 0 12
+	FrameIndex S535 F 0 15
+	FrameIndex S535 G 0 18
+	FrameIndex S535 H 0 21
+}
+
+//36 - Sit - Console Idle
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console_idle.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	ZOffset -10.5
+
+	FrameIndex S536 A 0 0
+	FrameIndex S536 B 0 4
+	FrameIndex S536 C 0 8
+	FrameIndex S536 D 0 12
+	FrameIndex S536 E 0 16
+	FrameIndex S536 F 0 20
+	FrameIndex S536 G 0 24
+	FrameIndex S536 H 0 28
+	FrameIndex S536 I 0 32
+	FrameIndex S536 J 0 36
+	FrameIndex S536 K 0 40
+	FrameIndex S536 L 0 44
+	FrameIndex S536 M 0 48
+	FrameIndex S536 N 0 52
+}
+
+//37 - Sit - Console Left
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console_left.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	ZOffset -10.5
+
+	FrameIndex S537 A 0 0
+	FrameIndex S537 B 0 2
+	FrameIndex S537 C 0 4
+	FrameIndex S537 D 0 6
+	FrameIndex S537 E 0 8
+	FrameIndex S537 F 0 10
+	FrameIndex S537 G 0 12
+	FrameIndex S537 H 0 14
+	FrameIndex S537 I 0 16
+	FrameIndex S537 J 0 18
+	FrameIndex S537 K 0 20
+	FrameIndex S537 L 0 22
+}
+
+//38 - Sit - Console Right
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_console_right.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	ZOffset -10.5
+
+	FrameIndex S538 A 0 0
+	FrameIndex S538 B 0 2
+	FrameIndex S538 C 0 4
+	FrameIndex S538 D 0 6
+	FrameIndex S538 E 0 8
+	FrameIndex S538 F 0 10
+	FrameIndex S538 G 0 12
+	FrameIndex S538 H 0 14
+	FrameIndex S538 I 0 16
+	FrameIndex S538 J 0 18
+}
+
+//39 - Sit to Stand
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_sit_table_stand.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S539 A 0 0
+	FrameIndex S539 B 0 4
+	FrameIndex S539 C 0 8
+	FrameIndex S539 D 0 10
+}
+
+//40 - Jump
+Model TOSCrewman
+{
+	Path "Models/actors/player/"
+	Model 0 "player_land.md3"
+
+	SurfaceSkin 0 4 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 5 "Starfleet_S_CAPT.jpg"
+	SurfaceSkin 0 6 "Starfleet_S_CAPT.jpg"
+
+	FrameIndex S540 A 0 4
+	FrameIndex S540 B 0 2
+	FrameIndex S540 C 0 0
+}

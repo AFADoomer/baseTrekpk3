@@ -1,0 +1,294 @@
+Function void Letterbox (int OnOff)
+{
+	CutScene = OnOff;
+
+	If (OnOff > 0)
+	{
+		SetFont("DARKGREY");
+		SetHudSize(320, 200, 0);
+		HudMessage (s:"A"; 0, 100, -1, 0.0, -70.0, 0);
+		HudMessage (s:"A"; 0, 102, -1, 320.0, -70.0, 0);
+		HudMessage (s:"A"; 0, 101, -1, 0.0, 270.0, 0);
+		HudMessage (s:"A"; 0, 103, -1, 320.0, 270.0, 0);
+
+		SetFont("WSMASK");
+		HudMessage (s:"A"; 0, 104, -1, 160.0, 100.0, 0);
+	}
+	Else
+	{
+		SetHudSize(320, 200, 0);
+		ClearRange(100, 104);
+		HudMessage (s:""; 0, 0, 0, 0, 0, 0, 0);
+		HudMessage (s:""; 0, -1000, 0, 0, 0, 0, 0);
+	}
+}
+
+Script "QuickFade" (void)
+{
+	If (!SkipCutscene)
+	{
+		FadeToGraphic("Black_Ful", 0.25, 0.5, 0.5);
+		Delay(16);
+	}
+}
+
+Function void SetCutsceneCamera (int ID, int FOV)
+{
+	SetCameraToTexture(ID, "CUTSCENE", FOV);
+	CutsceneCamera = ID;
+}
+
+Script "Cutscene" (int index, int inTime, int outTime)
+{
+	If (GetCVar("st_nocutscenes") > 0) SkipCutscene = True;
+
+	str strLookupName;
+	str strLookupData = " ";
+	str strString = "";
+	str strSkipString = "";
+	int i = 0;
+	int hold = 0;
+	int posv = 720.2;
+	int pos = 0.0;
+
+	SetPlayerProperty(1, 1, PROP_TOTALLYFROZEN);
+
+	FadeToGraphic("Black_Ful", 1.0, inTime * 1.0, outTime * 1.0);
+
+	ACS_NamedExecuteWait("CutsceneDelay", 0, inTime * 35 + 5);
+
+	Letterbox(1);
+
+	SetHudSize(1024, 768, 0);
+	SetFont("BIGFONT");
+	strLookupName = strParam(s:"Cutscene_",n:PRINTNAME_LEVEL,s:"_",d:index, s:"_", d:i);
+
+	strLookupData = strParam(l:strLookupName);
+
+	While (StrCmp(strLookupData, strLookupName))
+	{
+		SetPlayerProperty(1, 1, PROP_TOTALLYFROZEN);
+		SetHUDClipRect(0, 0, 0, 0, 0);
+
+		If (SkipCutscene)
+		{
+			SetHudSize(1280, 960, 1);
+			SetFont("Black_Ful");
+			HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, 1, -1, 640.0, 480.0, 0);
+
+			strSkipString = strParam(s:strSkipString, s:".");
+			SetHudSize(GetScreenWidth(), GetScreenHeight(), 0);
+			SetFont("CONFONT");
+			HudMessage(s:strSkipString; HUDMSG_COLORSTRING, 0, "TOSGold", 0.1, 0.1, 1.5);
+		}
+
+		SplitString(strLookupData, '~');
+
+		If (StrCmp(CutsceneData[0], "") != 0 && IntFromString(CutsceneData[0]) > 0)
+		{
+			//ChangeCamera(IntFromString(CutsceneData[0]), 1, 0);
+			// Use texture instead of direct camera so the camera has modifiable FOV...
+			SetHudSize(1280, 960, 1);
+			If (IntFromString(CutsceneData[0]) != CutsceneCamera) //If it's not alrady set, and so that you can set it in a script with custom FOV.
+			{
+				SetCutSceneCamera(IntFromString(CutsceneData[0]), 35);
+			}
+			Thing_Activate(IntFromString(CutsceneData[0]));
+			SetFont("CUTSCENE");
+			HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, -1000, -1, 640.0, 480.0, 0);
+		}
+		Else
+		{
+			ChangeCamera(0, 1, 0);
+			HudMessage (s:""; 0, -1000, 0, 0, 0, 0, 0);
+		}
+
+		hold = StrLen(CutsceneData[2]) * 1.0 / 20;
+
+		posv = 669.1;
+
+		If (StrCmp(CutsceneData[3], "L") == 0)
+		{
+			pos = 16.1;
+			SetHudClipRect(16, 669, 325, 90, 325);
+		}
+		Else If (StrCmp(CutsceneData[3], "R") == 0)
+		{
+			pos = 682.1;
+			SetHudClipRect(682, 669, 325, 90, 325);
+		}
+		Else If (StrCmp(CutsceneData[3], "T") == 0)
+		{
+			pos = 16.1;
+			posv = 24.1;
+			SetHudClipRect(16, 16, 1008, 90, 1008);
+		}
+		Else
+		{
+			pos = 512.0;
+			SetHudClipRect(349, 669, 325, 90, 325);
+		}
+
+		If (StrCmp(CutsceneData[4], "") != 0)
+		{
+			ACS_NamedExecuteWait(CutsceneData[4], 0);
+		}
+
+		SetHudSize(1024, 768, 0);
+		SetFont("BIGFONT");
+
+		If (StrCmp(CutsceneData[2], "") != 0)
+		{
+			If (StrCmp(CutsceneData[1], "") != 0)
+				strString = strParam(s:"\cj", s:CutsceneData[1], s:":\cl\n", s:CutsceneData[2]);
+			Else
+			{
+				posv = posv - 0.1 + 40.0;
+				strString = strParam(s:CutsceneData[2]);
+			}
+
+			HudMessage(s:strString; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING | HUDMSG_LOG, 99 - i, "TOSGold", pos, posv, hold, 0.5, 1.0);
+
+			ACS_NamedExecuteWait("CutsceneDelay", 0, (hold + 2.5) * 35 / 1.0);
+		}
+
+		If (StrCmp(CutsceneData[5], "") != 0)
+			ACS_NamedExecuteWait("CutsceneDelay", 0, IntFromString(CutsceneData[5]));
+
+		i++;
+
+		strLookupName = strParam(s:"Cutscene_",n:PRINTNAME_LEVEL,s:"_",d:index, s:"_", d:i);
+		strLookupData = strParam(l:strLookupName);
+
+		If (GetCVar("st_debugcutscenes") >= 1)
+			SkipCutscene = False;
+	}
+	SetHUDClipRect(0, 0, 0, 0, 0);
+
+	ClearRange(99 - i, 99);
+
+	FadeToGraphic("Black_Ful", 1.0, (1 - SkipCutscene) * 1.0, 1.0);
+
+	ACS_NamedExecuteWait("CutsceneDelay", 0, 35);
+
+	SkipCutscene = False;
+
+	If (outTime > 0) //No outtime assumes end of level, so don't reset
+	{
+		ChangeCamera(0, 1, 0);
+		SetPlayerProperty(1, 0, PROP_TOTALLYFROZEN);
+		Letterbox(0);
+		Autosave();
+	}
+}
+
+Script "CommUp" (void)
+{
+	Weapon[PlayerNumber()] = GetWeapon();
+	SetWeapon("TOSCommunicator");
+	ACS_NamedExecuteWait("CutsceneDelay", 0, 35);
+}
+
+Script "CommDown" (void)
+{
+	ACS_NamedExecuteWait("CutsceneDelay", 0, 5);
+	SetWeapon(Weapon[PlayerNumber()]);
+}
+
+Script "Chirp" (void) //TODO:  Combine with CommUp?
+{
+	PlaySound(0, "actor/communicator/beep", CHAN_BODY, 0.1);
+	ACS_NamedExecuteWait("CutsceneDelay", 0, 50);
+}
+
+Script "Whistle" (void)
+{
+	PlaySound(0, "intercom", CHAN_BODY, 0.1);
+	ACS_NamedExecuteWait("CutsceneDelay", 0, 50);
+}
+
+Script "HidePlayer" (void) //Used to prep for levels where player beams in during cutscene
+{
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
+	SetActorProperty(0, APROP_Alpha, 0);
+}
+
+Script "ShowPlayer" (void)
+{
+	SetActorProperty(0, APROP_Alpha, 1.0);
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
+}
+
+Script "GameSkill" (void)
+{
+	SetResultValue(GameSkill() + 1);
+}
+
+Script "Title" (void)
+{
+	int d;
+	int bShadows = TRUE;
+
+	SetHudSize(256, 192, 0);
+	SetFont("BIGFONT");
+
+	str strTitleLookup = StrParam(s:"Title_",n:PRINTNAME_LEVEL);
+	str strTitle = StrParam(c:'"',l:strTitleLookup,c:'"');
+	str strCreditLookup = StrParam(s:"Credit_",n:PRINTNAME_LEVEL);
+
+	HudMessage(s:strTitle; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 94, "TOSGold", 128.0, 44.1, 2.5, 0.5, 1.0);
+
+	If (bShadows)
+	{
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 16);
+		HudMessage(s:strTitle; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 95, "TrueBlack", 129.0, 45.1, 1.5, 0.5, 0.5);
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 17);
+	}
+	Else
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 35);
+
+	SetHudSize(576, 432, 0);
+	HudMessage(l:"StoryByString"; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 96, "TOSGold", 50.1, 266.1, 1.5, 0.5, 1.0);
+
+	SetHudSize(384, 288, 0);
+	HudMessage(l:strCreditLookup; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 98, "TOSGold", 33.1, 192.1, 1.5, 0.5, 1.0);
+
+	If (bShadows)
+	{
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 16);
+		SetHudSize(576, 432, 0);
+		HudMessage(l:"StoryByString"; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 97, "TrueBlack", 52.1, 268.1, 0.5, 0.5, 0.5);
+		SetHudSize(384, 288, 0);
+		HudMessage(l:strCreditLookup; HUDMSG_FADEINOUT | HUDMSG_COLORSTRING, 99, "TrueBlack", 35.1, 194.1, 0.5, 0.5, 0.5);
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 87);
+	}
+	Else
+		ACS_NamedExecuteWait("CutsceneDelay", 0, 3 * 35);
+}
+
+Script "CutsceneDelay" (int duration)
+{
+	If (Cutscene)
+	{
+		For (int d = 0; d <= duration; d++)
+		{
+			Delay(1);
+			If (SkipCutscene)
+			{
+				HudMessage (s:""; 0, 90, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 91, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 92, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 93, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 94, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 95, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 96, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 97, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 98, -1, 0.0, 0.0, 0);
+				HudMessage (s:""; 0, 99, -1, 0.0, 0.0, 0);
+				d = duration;
+			}
+		}
+	}
+	Else
+		Delay(duration);
+}

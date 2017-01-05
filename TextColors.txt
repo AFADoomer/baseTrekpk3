@@ -53,50 +53,24 @@ TOSBrightPurple
 	#9966CC	#9966CC
 }
 
-/*
-White
-{
-	#AAAAAA	#FFFFFF
-Console:
-	#AAAAAA	#FFFFFF
-Flat:
-	#DFDFDF
-}
-
-Gray Grey
-{
-	#AAAAAA	#DDDDDD
-Console:
-	#AAAAAA	#DDDDDD
-Flat:
-	#CCCCCC
-}
-*/
-
 DarkGray DarkGrey "Dark Gray" "Dark Grey" TOSDarkGrey
 {
-	#BBBBBB  #DDDDDD
+	#888888 #BBBBBB
 Console:
-	#BBBBBB  #DDDDDD
+	#888888 #BBBBBB
 Flat:
-	#D0D0D0
+	#AAAAAA
 }
 
-TOSGold TOSMenuGold
+TOSGold TOSMenuGold Gold
 {
-	#947d21 #f6ce39
+	#c2a12d #f6ce39
 Console:
-	#947d21 #f6ce39
+	#c2a12d  #f6ce39 0 127
+	#5c4c15  #8f7721  128 256
 Flat:
 	#f6ce39
 }
-
-/*
-TOSMenuGold
-{
-	#fad336	#fad336
-}
-*/
 
 TOSMenuLightGold
 {
@@ -136,11 +110,212 @@ TOSBrightOrange
 	#FFAA00	#FFAA00
 }
 
-TOSBlue
+TOSBlue Blue
 {
-	#0a69a1 #0d9aec
+	#0a69a1  #0d9aec
 Console:
-	#0a69a1 #0d9aec
+	#0e96e5  #0fa7ff     0 127
+	#0b75b3  #0c86cc   128 256
+
 Flat:
 	#0d9aec
+}
+
+TOSMenuSelect
+{
+	#DFDFDF	#DFDFDF //White
+Console:
+	#000000 #990000   0 127
+	#CC0000 #DD0000 128 256 //Red
+}
+
+//Re-worked Original Colors
+Brick
+{
+	#e53939 #ff4040
+Console:
+	#e53939 #ff4040    0 127
+	#b32d2d #cc3333  128 256
+Flat:
+	#CC3333
+}
+
+Tan
+{
+	#e5c59a  #ffdbab
+Console:
+	#e5c59a  #fff1de    0 127
+	#b39978  #ccaf89  128 256
+Flat:
+	#D2B48C
+}
+
+Gray Grey
+{
+	#b3b3b3  #CCCCCC
+Console:
+	#b3b3b3  #CCCCCC    0 127
+	#808080  #999999 128 256
+Flat:
+	#CCCCCC
+}
+
+Green
+{
+	#00e500  #00ff00
+Console:
+	#00e500  #00ff00    0 127
+	#00b300  #00cc00  128 256
+Flat:
+	#00CC00
+}
+
+Brown
+{
+	#e5994c  #ffaa54
+Console:
+	#e5994c  #ffaa54    0 127
+	#b3773b  #cc8843  128 256
+Flat:
+	#996633
+}
+
+Red
+{
+	#e50000  #ff0000
+Console:
+	#e50000  #ff0000    0 127
+	#b30000  #cc0000  128 256
+Flat:
+	#ff0019
+}
+
+Orange
+{
+	#e57700  #ff8400
+Console:
+	#e57700  #ff8400    0 127
+	#b35c00  #cc6900 128 256
+Flat:
+	#FFAA00
+}
+
+White
+{
+	#242424  #FFFFFF
+Console:
+	#000000  #7F7F7F    0 127
+	#808080  #FFFFFF  128 256
+Flat:
+	#DFDFDF
+}
+
+Yellow
+{
+	#c9cc00  #fcff00
+Console:
+	#c9cc00  #fcff00    0 127
+	#646600  #969900  128 256
+Flat:
+	#EEEE33
+}
+
+Black
+{
+	#131313  #505050
+Console:
+	#000000  #323232    0 127
+	#0A0A0A  #505050  128 256
+Flat:
+	#000000
+}
+
+LightBlue "Light Blue"
+{
+	#75bce5 #82d1ff
+Console:
+	#75bce5  #82d1ff    0 127
+	#5b92b3  #68a7cc  128 256
+Flat:
+	#52a1cf
+}
+
+Cream
+{
+	#CF8353  #FFD7BB
+Console:
+	#2B230F  #BF7B4B    0 127
+	#FFB383  #FFFFFF  128 256
+Flat:
+	#FFCC99
+}
+
+Olive
+{
+	#2F371F  #7B7F50
+Console:
+	#373F27  #7B7F63    0 127
+	#676B4F  #D1D8A8  128 256
+Flat:
+	#D1D8A8
+}
+
+DarkGreen "Dark Green"
+{
+	#0B1707  #439337
+Console:
+	#000000  #005800    0 127
+	#008C00  #DCFFDC  128 256
+Flat:
+	#008C00
+}
+
+DarkRed "Dark Red"
+{
+	#2B0000  #AF2B2B
+Console:
+	#000000  #730000    0 127
+	#800000  #FFDCDC  128 255
+Flat:
+	#800000
+}
+
+DarkBrown "Dark Brown"
+{
+	#1F170B  #A36B3F
+Console:
+	#2B230F  #773000    0 127
+	#735743  #F7BD58  128 256
+Flat:
+	#663333
+}
+
+Purple
+{
+	#230023  #CF00CF
+Console:
+	#000000  #9F009B    0 127
+	#FF00FF  #FFFFFF  128 256
+Flat:
+	#9966CC
+}
+
+DarkGray DarkGrey "Dark Gray" "Dark Grey"
+{
+	#232323  #8B8B8B
+Console:
+	#000000  #646464    0 127
+	#404040  #B4B4B4  128 256
+Flat:
+	#808080
+}
+
+Cyan
+{
+	#001F1F #00F0F0
+Console:
+	#000000 #007F7F     0 127
+	#00FFFF #FEFFFF   128 256
+Flat:
+	#00DDDD
 }

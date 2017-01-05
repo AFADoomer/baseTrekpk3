@@ -4,7 +4,7 @@
 ::  DevFolder	-	Root folder for your mod                             ::
 ::  WADFolder	-	A sub-folder of DevFolder containing all resources   ::
 ::                      that will be included in your mod (for me, this is   ::
-::                      the files that sync with my GutHub repository.)      ::
+::                      the files that sync with my GitHub repository.)      ::
 ::  TargetFile	-	The desired output filename for your mod             ::
 ::  ACSLib	-	The ACS library that your mod uses, if applicable    ::
 ::                                                                           ::
@@ -22,8 +22,16 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 SET DevFolder=Working
 SET WADFolder=baseTrekpk3
-SET TargetFile=Trek.pk7
+SET TargetFile=TrekData.pk7
+SET LaunchFile=
 SET ACSLib=TrekLib
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Engine/Launch Information                                                 ::
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+SET Engine=C:\Games\Doom\gzdoom.exe
+SET Map=
+SET RunArgs=-file Autoload\*.* %* +skill 3 +logfile Log.txt +map %MAP%
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Tool Paths                                                                ::
@@ -33,13 +41,6 @@ SET ACSLib=TrekLib
 SET ACCPath=C:\Games\Doom\Editing Tools\ACC
 SET ACCExecutable=acc.exe
 SET ZipPath=C:\Program Files\7-Zip\7z.exe
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Engine/Launch Information                                                 ::
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-SET Engine=C:\Games\Doom\gzdoom.exe
-SET Map=map09
-SET RunArgs=-file Autoload\*.* %* +skill 3 +logfile Log.txt +map %MAP% -iwad doom2.wad
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: End of user-configurable parameters                                       ::
@@ -120,9 +121,11 @@ ECHO อออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 
 IF "%1" EQU "norun" GOTO :EOF
 
-ECHO Launching '%TargetFile%'...
+IF "%LaunchFile%" EQU "" SET LaunchFile=%TargetFile% -iwad doom.wad
 
-%Engine% -file %TargetFile% %RunArgs%
+ECHO Launching '%LaunchFile%'...
+
+%Engine% -file %LaunchFile% %RunArgs%
 
 IF NOT EXIST %DevFolder%\%WADFolder%\Build MKDIR %DevFolder%\%WADFolder%\Build
 

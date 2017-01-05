@@ -1,13 +1,18 @@
 //Radar heavily modified from initial version by cybermind
 
 int TIDIndexStart = 10000;
+int DynamicTIDIndexStart = 35000;
 int TIDIndex = 10000;
+int DynamicTIDIndex = 35000;
 
 int mode=0;
 int maxZdist = 256;
 global int 1:kx[];
 global int 2:ky[];
 global int 3:kz[];
+
+int CurrentTIDs[100];
+int CurrentMax = 0;
 
 Function int GetSpeed (int tid)
 {
@@ -28,13 +33,11 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 {
 	If (scale == 0)
 	{ //Clear the Radar
-		HudMessage(s:""; 0, 30000, 0, 0, 0, 0);
-		HudMessage(s:""; 0, 29999, 0, 0, 0, 0);
-		HudMessage(s:""; 0, 29998, 0, 0, 0, 0);
+		HudMessage(s:""; 0, 40000, 0, 0, 0, 0);
+		HudMessage(s:""; 0, 39999, 0, 0, 0, 0);
+		HudMessage(s:""; 0, 39998, 0, 0, 0, 0);
 		return;
 	}
-
-	int x, y, z, dx, dy, dz, da;
 
 	SetHudSize(1024, 768, 0);
 
@@ -43,161 +46,239 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 
 	SetFont("RadarBkg");
 	If (hud > 0)
-		HudMessage(s:"A"; HUDMSG_PLAIN, 30000, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);
+		HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_NOTWITHFULLMAP, 40000, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);
 	Else
-		HudMessage(s:""; 0, 30000, 0, 0, 0, 0);
+		HudMessage(s:""; 0, 40000, 0, 0, 0, 0);
 
 	SetFont("Marker");
-	HudMessage(s:"A"; HUDMSG_PLAIN, 29999, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);
-/*
-	//Compass marker location algorithm derived from Enjay's Operation: Overlord
-	int CompassX = -ActorCos(GetActorAngle(tid)) * dist / scale / 1.0 * 112 / 100;
-	int CompassY = ActorCos(GetActorAngle(tid) + 0.25) * dist / scale / 1.0 * 112 / 100;
+	HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_NOTWITHFULLMAP, 39999, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);
 
-	SetFont("Marker_W");
-	HudMessage(s:"A"; HUDMSG_PLAIN, 29998, CR_UNTRANSLATED, ((x1 + CompassX) << 16), ((y1 + CompassY) << 16), 0.01);
-*/
+	/* DoomDelta-style wall maps */
+	if (Timer() % 1 == 0 && GetCVar("st_radar") > 0)
+	{
+		If (!ThingCountName("Nav_Block", 10000) > 0)
+			SpawnForced("Nav_Block", GetActorX(tid), GetActorY(tid), GetActorZ(tid) + 32.0, 10000);
+
+		int index = 0;
+
+		int range = dist << 16;
+		int steps = 64;
+		int stepsize = range * 2 / steps;
+
+		for(int h = 0; h < steps; h++)
+		{
+			for(int v = 0; v < steps; v++)
+			{
+				if(!Warp(9999, range - (stepsize * h), range - (stepsize * v), 0, 0, WARPF_TOFLOOR | WARPF_MOVEPTR))
+				{
+					If (Distance(tid, 99990) < dist)
+					{
+						int dx = (x1 - dist / scale) << 16;
+						int dy = (y1 + dist / scale) << 16;
+
+						int alpha = (1.0 - FixedDiv(Distance(tid, 9999), dist)) / 4 * 64 / steps;
+						If (alpha > 0.25 * 64 / steps) { alpha = 0.25 * 64 / steps; }
+
+						SetFont("BLASA0");
+						HudMessage(s:"A"; HUDMSG_ALPHA | HUDMSG_NOTWITHFULLMAP, 35000 + index, -1, dy - v * stepsize / scale, dx + h * stepsize / scale, 0.03, alpha);
+						index++;
+					}
+				}
+			}
+		}
+	}
+
+	If (GetCVar("st_compass") > 0)
+	{
+		//Compass marker location algorithm derived from Enjay's Operation: Overlord
+		int CompassX = -ActorCos(GetActorAngle(tid)) * dist / scale / 1.0 * 112 / 100;
+		int CompassY = ActorCos(GetActorAngle(tid) + 0.25) * dist / scale / 1.0 * 112 / 100;
+
+		SetFont("SUPBOLAA");
+		HudMessage(s:"N"; HUDMSG_PLAIN | HUDMSG_COLORSTRING | HUDMSG_NOTWITHFULLMAP, 39998, "TOSBrightRed", ((x1 + CompassX) << 16), ((y1 + CompassY) << 16), 0.01);
+	}
 
 	For (int i = TIDIndexStart; i < TIDIndex; ++i)
 	{
-		str graphic = "NULL";
-		str color = "NULL";
-		str text = "NULL";
-		str textcolor = "TOSBrightRed";
-		int alpha = 1.0;
+		DrawBlip(i, tid, scale, x1, y1, dist);
+	}
 
-		int isGoal = 0;
-		int offScreen = 0;
+	For (int j = DynamicTIDIndexStart; j < DynamicTIDIndex; ++j)
+	{
+		DrawBlip(j, tid, scale, x1, y1, dist);
+	}
 
-		x = GetActorX(tid) - GetActorX(i);
-		y = GetActorY(tid) - GetActorY(i);
-		z = GetActorZ(tid) - GetActorZ(i);
+	For (int k = 0; k < CurrentMax; k++)
+	{
+		DrawBlip(CurrentTIDs[k], tid, scale, x1, y1, dist);
+	}
+}
 
-//		If (abs(z) > maxZdist) maxZdist = abs(z);
+Function void DrawBlip(int i, int tid, int scale, int x1, int y1, int dist)
+{
+	str graphic = "NULL";
+	str color = "NULL";
+	str text = "NULL";
+	str textcolor = "TOSBrightRed";
+	int alpha = 1.0;
 
-		isGoal = CheckActorClass(i, "NavGoal");
+	int alwaysShow = 0;
+	int offScreen = 0;
 
-		If (Distance(tid, i) <= dist || isGoal)
+	int x, y, z, dx, dy, dz, da;
+
+	x = GetActorX(tid) - GetActorX(i);
+	y = GetActorY(tid) - GetActorY(i);
+	z = GetActorZ(tid) - GetActorZ(i);
+
+//	If (abs(z) > maxZdist) maxZdist = abs(z);
+
+	alwaysShow = CheckActorClass(i, "NavGoal");
+
+	If (Distance(tid, i) <= dist || alwaysShow)
+	{
+		If (alwaysShow && Distance(tid, i) > dist * 112 / 100)
 		{
-			If (isGoal && Distance(tid, i) > dist * 112 / 100)
+			offScreen = 1;
+			int angle = ((VectorAngle(x, y) - GetActorAngle(0) + 0.5) % 1.0);
+			dx = x1 + (-cos(angle) * (dist * 112 / 100));
+			dy = y1 + (cos(angle + 0.25) * (dist * 112 / 100));
+		}
+		Else
+		{
+			offScreen = 0;
+			dx=((((FixedMul(x,cos(-GetActorAngle(0))))-(FixedMul(y,sin(-GetActorAngle(0)))))));
+			dy=((((FixedMul(x,sin(-GetActorAngle(0))))+(FixedMul(y,cos(-GetActorAngle(0)))))));
+		}
+
+		dx /= scale;
+		dx+=y1<<16; dx=dx>>16; dx=dx<<16;
+		dy /= scale;
+		dy+=x1<<16; dy=dy>>16; dy=dy<<16;
+
+		da = (GetActorAngle(tid) - GetActorAngle(i)) / 0.125;
+		If (da < 0) da = da + 8;
+
+		if (CheckFlag(i, "USESPECIAL") && !CheckActorClass(i, "TOSTurboliftHandle"))
+		{ //Consoles and other useable things
+			If (GetUserVariable(i, "user_uses") > 0)
 			{
-				offScreen = 1;
-				int angle = ((VectorAngle(x, y) - GetActorAngle(0) + 0.5) % 1.0);
-				dx = x1 + (-cos(angle) * (dist * 112 / 100));
-				dy = y1 + (cos(angle + 0.25) * (dist * 112 / 100));
+				text = "!";
+				color = "Marker_D";
 			}
+		}
+
+		if (CheckActorClass(i, "NavGoal"))
+		{ //Navigation Goal Markers
+			If (!offScreen)
+			{
+				graphic = "Marker_o";
+			}
+
+			color = "Marker_N";
+
+			//Distance Fade
+			int fadeAmt = Distance(tid, i) / 64;
+			int cap = (100 - fadeAmt) * 0.01;
+			If (cap < 0.5) alpha = 0.5;
+
+			int tic = Timer() % 35;
+			If (tic > 17)
+				alpha = cap - ((tic - 17) * 0.03);
+			else
+				alpha = (tic * 0.03) + (cap / 2);
+		}
+		else if (CheckActorClass(i, "TurboLiftMarker") > 0)
+		{ //Turbolifts
+			text = "T";
+			textcolor = "TOSBrightBlue";
+			color = "Marker_D";
+		}
+		else if (CheckActorClass(i, "TransporterMarker") > 0 || GetActorProperty(i, APROP_Species) == "Transporter")
+		{ //Transporters
+			text = "*";
+			textcolor = "TOSBrightOrange";
+			color = "Marker_D";
+		}
+		else if ((GetActorProperty(i, APROP_Speed) == 0  && GetActorProperty(i, APROP_Invulnerable) && GetActorProperty(i, APROP_Species) != "Enemy") || GetActorProperty(i, APROP_Species) == "Decoration")
+		{ //Decorations
+			//color = "Marker_E";
+		}
+		else if (GetActorProperty(i, APROP_Speed) == 0  && GetActorProperty(i, APROP_SpawnHealth) == 1000 && GetActorProperty(i, APROP_Species) != "Projectile")
+		{ //Pickups
+			graphic = "Marker_S";
+			color = "Marker_B";
+		}
+		else if (GetActorProperty(i,APROP_Speed) > 0  && GetActorProperty(i, APROP_SpawnHealth) == 1000 && !CheckActorClass(i, "BaronOfHell") || GetActorProperty(i, APROP_Species) == "Projectile")
+		{ //Projectiles
+			graphic = StrParam(s:"Marker_", d:da);
+			color = "Marker_Y";
+		}
+		else if (GetActorProperty(i, APROP_SpawnHealth) > 0 && GetActorProperty(i, APROP_Health) > 0)
+		{ //Actors
+			graphic = StrParam(s:"Marker_", d:da);
+			If (GetActorProperty(i, APROP_Friendly))
+				color = "Marker_G";
 			Else
+				color = "Marker_R";
+		}
+		else if (GetActorProperty(i, APROP_SpawnHealth) > 0 && GetActorProperty(i, APROP_Health) <= 0)
+		{ //Dead Actors
+			//color = "Marker_E";
+		}
+
+		if (i < TIDIndexStart)
+			i = i + TIDIndexStart + 10000 - 256;
+
+		If (StrCmp(color, "NULL") != 0)
+		{
+			SetFont(color);
+
+			If (!alwaysShow)
 			{
-				offScreen = 0;
-				dx=((((FixedMul(x,cos(-GetActorAngle(0))))-(FixedMul(y,sin(-GetActorAngle(0)))))));
-				dy=((((FixedMul(x,sin(-GetActorAngle(0))))+(FixedMul(y,cos(-GetActorAngle(0)))))));
-			}
-
-			dx /= scale;
-			dx+=y1<<16; dx=dx>>16; dx=dx<<16;
-			dy /= scale;
-			dy+=x1<<16; dy=dy>>16; dy=dy<<16;
-
-			da = (GetActorAngle(tid) - GetActorAngle(i)) / 0.125;
-			If (da < 0) da = da + 8;
-
-			if (isGoal != 0)
-			{ //Navigation Goal Markers
-				If (!offScreen)
-					graphic = "Marker_O";
-
-				color = "Marker_W";
-
-				int fadeAmt = Distance(tid, i) / 64;
-
-				alpha = (100 - fadeAmt) * 0.01;
-
-				If (alpha < 0.5) alpha = 0.5;
-			}
-			else if (CheckFlag(i, "USESPECIAL") && !CheckActorClass(i, "TOSTurboliftHandle"))
-			{ //Consoles and other useable things
-				If (GetUserVariable(i, "user_uses") > 0)
-				{
-					text = "!";
-					color = "Marker_D";
-				}
-			}
-			else if (CheckActorClass(i, "TurboLiftMarker") > 0)
-			{ //Turbolifts
-				text = "T";
-				textcolor = "TOSBrightBlue";
-				color = "Marker_D";
-			}
-			else if (CheckActorClass(i, "TransporterMarker") > 0)
-			{ //Transporters
-				text = "*";
-				textcolor = "TOSBrightOrange";
-				color = "Marker_D";
-			}
-			else if ((GetActorProperty(i, APROP_Speed) == 0  && GetActorProperty(i, APROP_Invulnerable) && GetActorProperty(i, APROP_Species) != "Enemy") || GetActorProperty(i, APROP_Species) == "Decoration")
-			{ //Decorations
-				//color = "Marker_E";
-			}
-			else if (GetActorProperty(i, APROP_Speed) == 0  && GetActorProperty(i, APROP_SpawnHealth) == 1000)
-			{ //Pickups
-				graphic = "Marker_S";
-				color = "Marker_B";
-			}
-			else if (GetActorProperty(i,APROP_Speed) > 0  && GetActorProperty(i, APROP_SpawnHealth) == 1000 && !CheckActorClass(i, "BaronOfHell"))
-			{ //Projectiles
-				graphic = StrParam(s:"Marker_", d:da);
-				color = "Marker_Y";
-			}
-			else if (GetActorProperty(i, APROP_SpawnHealth) > 0 && GetActorProperty(i, APROP_Health) > 0)
-			{ //Actors
-				graphic = StrParam(s:"Marker_", d:da);
-				If (GetActorProperty(i, APROP_Friendly))
-					color = "Marker_G";
+				If (z > 48) //Point is below player
+					alpha = 0.9 - (abs(z) / maxZdist);
+				Else If (z < -96) //Point is above player
+					alpha = 0.9 - (abs(z) / maxZdist);
 				Else
-					color = "Marker_R";
-			}
-			else if (GetActorProperty(i, APROP_SpawnHealth) > 0 && GetActorProperty(i, APROP_Health) <= 0)
-			{ //Dead Actors
-				//color = "Marker_E";
-			}
+					alpha = 1.0;
 
-			If (StrCmp(color, "NULL") != 0)
-			{
-				SetFont(color);
-
-				If (!isGoal)
-				{
-					If (z > 48) //Point is below player
-						alpha = 0.9 - (abs(z) / maxZdist);
-					Else If (z < -96) //Point is above player
-						alpha = 0.9 - (abs(z) / maxZdist);
-					Else
-						alpha = 1.0;
-
-					If (alpha > 1.0) alpha = 1.0;
-					If (alpha < 0) alpha = 0;
-				}
-				HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_ALPHA, i + 10000, CR_UNTRANSLATED, dy, dx, 0.1, alpha);
+				If (alpha > 1.0) alpha = 1.0;
+				If (alpha < 0) alpha = 0;
 			}
+			HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_ALPHA | HUDMSG_NOTWITHFULLMAP, i + 10000, CR_UNTRANSLATED, dy, dx, 0.1, alpha);
+		}
 
-			If (StrCmp(graphic, "NULL") != 0)
-			{
-				SetFont(graphic);
-				HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_ALPHA, i, CR_UNTRANSLATED, dy, dx, 0.1);
-			}
+		If (StrCmp(graphic, "NULL") != 0)
+		{
+			SetFont(graphic);
+			HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_ALPHA | HUDMSG_NOTWITHFULLMAP, i, CR_UNTRANSLATED, dy, dx, 0.1);
+		}
 
-			If (StrCmp(text, "NULL") != 0)
-			{
-				SetFont("TINYFONT");
-				HudMessage(s:text; HUDMSG_PLAIN | HUDMSG_ALPHA | HUDMSG_COLORSTRING, i, textcolor, dy, dx, 0.1);
-			}
+		If (StrCmp(text, "NULL") != 0)
+		{
+			SetFont("TINYFONT");
+			HudMessage(s:text; HUDMSG_PLAIN | HUDMSG_ALPHA | HUDMSG_COLORSTRING | HUDMSG_NOTWITHFULLMAP, i, textcolor, dy, dx, 0.1);
 		}
 	}
 }
 
-Script "SetRadarTID" (void)
+Script "SetRadarTID" (int CurrentTID, int Dynamic)
 {
-	Thing_ChangeTID(0, TIDIndex++);
+	If (CurrentTID > 0) 	//Handling for things that already have a TID assigned in-editor.
+	{
+		CurrentTIDs[CurrentMax] = CurrentTID;
+		CurrentMax++;
+	}
+	Else If (Dynamic > 0)
+	{
+		Thing_ChangeTID(0, DynamicTIDIndex++);
+		If (DynamicTIDIndex > DynamicTIDIndexStart + 1024) DynamicTIDIndex = DynamicTIDIndexStart;
+	}
+	Else
+	{
+		Thing_ChangeTID(0, TIDIndex++);
+	}
 
 /*
 	While (CheckFlag(0, "USESPECIAL"))

@@ -2,7 +2,7 @@ Texture WALL_K, 492, 492
 {
 	XScale 3.8
 	YScale 3.8
-	Patch WALL_K, 0, 0
+	Patch "Textures/Enterprise/Walls/WALL_K.jpg", 0, 0
 }
 
 Texture WALL_GAR, 492, 492
@@ -30,21 +30,21 @@ Texture TRANSPAN, 1024, 644
 {
 	XScale 6.5
 	YScale 6.92
-	Patch TRANSPAN, 0, 0
+	Patch "Textures/Enterprise/Walls/TRANSPAN.jpg", 0, 0
 }
 
 Texture TRANSPA3, 256, 644
 {
 	XScale 6.52
 	YScale 6.0
-	Patch TRANSPA3, 0, 0
+	Patch "Textures/Enterprise/Walls/TRANSPA3.jpg", 0, 0
 }
 
 Texture DOORTOP, 600, 42
 {
 	XScale 10.0
 	YScale 10.0
-	Patch DOORTOP, 0, 0
+	Patch "Textures/Enterprise/Walls/Overlays/DOORTOP.jpg", 0, 0
 }
 
 Texture WALL, 492, 984
@@ -158,14 +158,14 @@ Texture WALL_B, 492, 492
 {
 	XScale 2.55
 	YScale 2.55
-	Patch WALL_B, 0, 0
+	Patch "Textures/Enterprise/Walls/WALL_B.jpg", 0, 0
 }
 
 Texture WALL_BE, 492, 492
 {
 	XScale 2.55
 	YScale 2.55
-	Patch WALL_BE, 0, 0
+	Patch "Textures/Planet/WALL_BE.jpg", 0, 0
 }
 
 Texture WALL_BEA, 492, 492
@@ -188,42 +188,42 @@ Texture WALL_E, 492, 492
 {
 	XScale 2.55
 	YScale 2.55
-	Patch WALL_E, 0, 0
+	Patch "Textures/Planet/WALL_E.jpg", 0, 0
 }
 
 Texture WALL_G, 492, 492
 {
 	XScale 2.55
 	YScale 2.55
-	Patch WALL_G, 0, 0
+	Patch "Textures/Enterprise/Walls/WALL_G.jpg", 0, 0
 }
 
 Texture WALL_GR, 492, 492
 {
 	XScale 2.55
 	YScale 2.55
-	Patch WALL_GR, 0, 0
+	Patch "Textures/Enterprise/Walls/WALL_GR.jpg", 0, 0
 }
 
 Texture WALL_P, 492, 492
 {
 	XScale 2.55
 	YScale 2.55
-	Patch WALL_P, 0, 0
+	Patch "Textures/Enterprise/Walls/WALL_P.jpg", 0, 0
 }
 
 Texture WALL_REB, 492, 492
 {
 	XScale 2.55
 	YScale 2.55
-	Patch WALL_REB, 0, 0
+	Patch "Textures/Planet/WALL_REB.jpg", 0, 0
 }
 
 Texture WALL_W, 492, 492
 {
 	XScale 3.8
 	YScale 3.8
-	Patch WALL_W, 0, 0
+	Patch "Textures/Enterprise/Walls/WALL_W.jpg", 0, 0
 }
 
 Texture WALLGREY, 492, 984
@@ -670,14 +670,14 @@ Texture BEAM, 492, 114
 {
 	XScale 3.8
 	YScale 3.8
-	Patch BEAM, 0, 0
+	Patch "Textures/Enterprise/Walls/BEAM.png", 0, 0
 }
 
 Texture BEAM2, 492, 114
 {
 	XScale 3.8
 	YScale 3.8
-	Patch BEAM2, 0, 0
+	Patch "Textures/Enterprise/Walls/BEAM2.png", 0, 0
 }
 
 Texture BEAM3, 492, 114
@@ -685,7 +685,7 @@ Texture BEAM3, 492, 114
 	XScale 3.9047619047619047619047619047619
 	YScale 9
 	WorldPanning
-	Patch BEAM3, 0, 0
+	Patch "Textures/Enterprise/Walls/BEAM3.png", 0, 0
 }
 
 Texture BRDG_FLS, 64, 64
@@ -706,7 +706,7 @@ Texture BR_WALLT, 119, 128
 {
 	XScale 1.9
 	YScale 2.0
-	Patch BR_WALLT, 0, 0
+	Patch "Textures/Enterprise/Walls/BR_WALLT.png", 0, 0
 }
 
 Texture BR_WALL, 492, 492
@@ -870,13 +870,13 @@ Texture Panel_Gr, 192, 512
 {
 	XScale 3.8
 	YScale 3.8
-	Patch Panel_Gr, 0, 0
-	Patch Panel_Gr, 0, 128
-	Patch Panel_Gr, 0, 256
+	Patch "Textures/Enterprise/Walls/Panel_Gr.jpg", 0, 0
+	Patch "Textures/Enterprise/Walls/Panel_Gr.jpg", 0, 128
+	Patch "Textures/Enterprise/Walls/Panel_Gr.jpg", 0, 256
 	Patch Wall_G, 0, 382
-	Patch Panel_Gr, 120, 0
-	Patch Panel_Gr, 120, 128
-	Patch Panel_Gr, 120, 256
+	Patch "Textures/Enterprise/Walls/Panel_Gr.jpg", 120, 0
+	Patch "Textures/Enterprise/Walls/Panel_Gr.jpg", 120, 128
+	Patch "Textures/Enterprise/Walls/Panel_Gr.jpg", 120, 256
 	Patch Wall_G, 120, 382
 }
 
@@ -900,14 +900,14 @@ Texture Drawers, 128, 128
 {
 	XScale 2.725
 	YScale 2.9
-	Patch Drawers, 0, 0
+	Patch "Textures/Enterprise/Walls/Drawers.jpg", 0, 0
 }
 
 Texture Drawers2, 128, 128
 {
 	XScale 2.725
 	YScale 2.9
-	Patch Drawers2, 0, 0
+	Patch "Textures/Enterprise/Walls/Drawers2.jpg", 0, 0
 }
 
 Texture SHU_CAM, 159, 89
@@ -1025,56 +1025,56 @@ Texture Wall_Bl, 360, 448
 {
 	XScale 3.8
 	YScale 3.8
-	Patch Wall_Bl, 0, 0
+	Patch "Textures/Planet/Wall_Bl.jpg", 0, 0
 }
 
 Texture Stone2, 512, 512
 {
 	XScale 1.76
 	YScale 1.76
-	Patch Stone2, 0, 0
+	Patch "Textures/Planet/Stone2.jpg", 0, 0
 }
 
 Texture Stone2a, 512, 512
 {
 	XScale 1.76
 	YScale 1.76
-	Patch Stone2a, 0, 0
+	Patch "Textures/Planet/Stone2a.jpg", 0, 0
 }
 
 Texture Cliff, 894, 894
 {
 	XScale 3.5
 	YScale 3.5
-	Patch Cliff, 0, 0
+	Patch "Textures/Planet/Cliff.jpg", 0, 0
 }
 
 Texture Cliff_P, 894, 894
 {
 	XScale 3.5
 	YScale 3.5
-	Patch Cliff_P, 0, 0
+	Patch "Textures/Planet/Cliff_P.png", 0, 0
 }
 
 Texture GREEN, 255, 256
 {
 	XScale 4.0
 	YScale 4.0
-	Patch GREEN, 0, 0
+	Patch "Textures/Solid/GREEN.jpg", 0, 0
 }
 
 Texture STEPGRIL, 512, 512
 {
 	XScale 6.0
 	YScale 6.0
-	Patch STEPGRIL, 0, 0
+	Patch "Textures/Enterprise/Walls/STEPGRIL.png", 0, 0
 }
 
 Texture ENG_WALL, 360, 244
 {
 	XScale 4.5
 	YScale 5.0
-	Patch ENG_WALL, 0, 0
+	Patch "Textures/Enterprise/Walls/ENG_WALL.jpg", 0, 0
 }
 
 Texture WALL_S, 512, 512
@@ -1088,5 +1088,5 @@ Texture WALLTOP4, 96, 96
 {
 	XScale 3.8
 	YScale 3.8
-	Patch WALLTOP4, 0, 0
+	Patch "Textures/Enterprise/Walls/WALLTOP4.png", 0, 0
 }

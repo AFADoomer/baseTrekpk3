@@ -21,9 +21,7 @@ script "DisplayObjectives" ENTER
 
 	SetHudSize(1024, 768, 0);
 
-	int intMsgID = 10000;
-
-	For (int i = 0; i < 10; i++) //Max of 10 objectives per level, total - only 3 active at a time (complete objectives are cleared)
+	For (int i = 0; i < 30; i++) //Max of 30 objectives per level, total - only 3 active at a time (complete objectives are cleared)
 	{
 		If (objectives[i][1] == 0) //Initial Run...
 		{

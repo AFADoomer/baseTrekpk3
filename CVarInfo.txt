@@ -1,0 +1,5 @@
+server int st_debug = 0;
+server int st_debugcutscenes = 0;
+server int st_glitterdensity = 4;
+server int st_compass = 0;
+server int st_radar = 0;

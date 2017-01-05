@@ -2,17 +2,178 @@ GameInfo
 {
 	PlayerClasses = "TrekPlayer"
 	dimcolor = "0 0 0"
-	dimamount = 0.7
+	dimamount = 0.35
 	cursorpic = "delta"
+	border = DoomBorder
 	menubackbutton = "back"
 	menufontcolor_title = "TOSMenuGold"
 	menufontcolor_label = "TOSMenuGold"
-	menufontcolor_value = "Grey"
+	menufontcolor_value = "TOSDarkGrey"
 	menufontcolor_action = "TOSMenuGold"
 	menufontcolor_header = "TOSBrightWhite"
 	menufontcolor_highlight = "TOSMenuLightGold"
-	menufontcolor_selection = "TOSMenuBrightRed"
+	menufontcolor_selection = "TOSMenuSelect"
 	quitmessages = "Are you sure you want to exit?"
+	pausesign = "Icon"
+}
+
+clearskills
+skill baby
+{
+	DamageFactor = 0.5
+	SpawnFilter = "Baby"
+	Name = "$SK_1"
+	TextColor = "TOSMenuGold"
+	Key = "1"
+	EasyKey
+}
+
+skill easy
+{
+	SpawnFilter = "Easy"
+	Name = "$SK_2"
+	TextColor = "TOSMenuGold"
+	Key = "2"
+}
+
+skill normal
+{
+	SpawnFilter = "Normal"
+	Name = "$SK_3"
+	TextColor = "TOSMenuGold"
+	Key = "3"
+	defaultskill
+}
+
+skill hard
+{
+	SpawnFilter = "Hard"
+	Name = "$SK_4"
+	TextColor = "TOSMenuGold"
+	Key = "4"
+}
+
+skill nightmare
+{
+	SpawnFilter = "Nightmare"
+	Name = "$SK_5"
+	TextColor = "TOSBlue"
+	Key = "5"
+	AmmoFactor = 2
+	FastMonsters
+	DisableCheats
+	RespawnTime = 12
+	MustConfirm = "$BARRIER"
+}
+
+clearepisodes
+episode TITLEMAP
+{
+	name = "Title Sequence"
+}
+
+episode MSN01
+{
+	name = "Mission 1"
+}
+
+episode SHIP
+{
+	name = "Enterprise (WIP)"
+}
+
+episode Planet
+{
+	name = "Planet (WIP)"
+}
+
+episode MAP02
+{
+	name = "D-7 Cruiser (WIP)"
+}
+
+episode MAP07
+{
+	name = "Outpost 11 (WIP)"
+}
+
+episode Demo
+{
+	name = "Test Map"
+}
+
+DefaultMap
+{
+	Sky1 = "StarFld"
+	Music = ""
+	Cluster = 1
+
+	UsePlayerStartZ
+	StrifeFallingDamage
+	MonsterFallingDamage
+	EvenLighting
+	NoInfighting
+	MonsterFallingDamage
+	BorderTexture = "Blk_Flr"
+}
+
+Map TitleMap "Star Trek"
+{}
+
+Map MAP01 "Filming Set"
+{}
+
+Map MAP02 "D-7 Cruiser"
+{}
+
+Map MAP07 "Outpost 11"
+{}
+
+Map MSN01 "U.S.S. Aristarchus"
+{
+	Fade = "111111"
+	OutsideFog = "000000"
+}
+
+Map Ship "U.S.S. Enterprise"
+{}
+
+Map Planet "Planet Surface"
+{
+	OutsideFog = "000022"
+	OutsideFogDensity = 16
+}
+
+Map Demo "Test Map"
+{}
+
+Cluster 1
+{
+	hub
+}
+
+Automap
+{
+	Base = "Raven"
+	ShowLocks = True
+
+	Background = "00 00 00"
+	YourColor = "F6 CE 39"
+	WallColor = "ff b4 28"
+	TwoSidedWallColor = "66 66 66"
+	FloorDiffWallColor = "66 66 66"
+	CeilingDiffWallColor = "66 66 66"
+	ExtraFloorWallColor = "66 66 66"
+	ThingColor = "88 88 88"			//Decorations
+	ThingColor_Item = "20 9C FC"		//Weapons and Ammo
+	ThingColor_CountItem = "FC F4 20"	//Items
+	ThingColor_Monster = "FC 00 00"
+	ThingColor_Friend = "00 FC 00"
+	SpecialWallColor = "00 77 00"
+	SecretWallColor = "AA AA 00"
+	GridColor = "22 22 22"
+	NotSeenColor = "50 50 50"
+	AlmostBackgroundColor = "11 11 11"
 }
 
 DoomEdNums
@@ -358,6 +519,8 @@ DoomEdNums
 	20334 = TOSLamp2
 	20335 = TOSRailSupport
 	20336 = TOSAnaxagoras
+	20337 = SteamSpot
+	20338 = TOSDrinkTray
 
 //Skyboxes
 	21000 = Skybox1
@@ -408,108 +571,6 @@ DoomEdNums
 	27002 = TOSRedAlertLight
 	27003 = SunFlare
 	27004 = TOSFollowerCamera
-}
-
-clearskills
-skill baby
-{
-	DamageFactor = 0.5
-	SpawnFilter = "Baby"
-	Name = "$SK_1"
-	TextColor = "TOSMenuGold"
-	Key = "1"
-	EasyKey
-}
-
-skill easy
-{
-	SpawnFilter = "Easy"
-	Name = "$SK_2"
-	TextColor = "TOSMenuGold"
-	Key = "2"
-}
-
-skill normal
-{
-	SpawnFilter = "Normal"
-	Name = "$SK_3"
-	TextColor = "TOSMenuGold"
-	Key = "3"
-	defaultskill
-}
-
-skill hard
-{
-	SpawnFilter = "Hard"
-	Name = "$SK_4"
-	TextColor = "TOSMenuGold"
-	Key = "4"
-}
-
-skill nightmare
-{
-	SpawnFilter = "Nightmare"
-	Name = "$SK_5"
-	TextColor = "TOSBlue"
-	Key = "5"
-	AmmoFactor = 2
-	FastMonsters
-	DisableCheats
-	RespawnTime = 12
-	MustConfirm = "$BARRIER"
-}
-
-clearepisodes
-episode SHIP
-{
-	name = TOS
-}
-
-DefaultMap
-{
-	Sky1 = "StarFld"
-	Music = ""
-	Cluster = 1
-
-//	CheckSwitchRange
-	UsePlayerStartZ
-	StrifeFallingDamage
-	EvenLighting
-	NoInfighting
-	MonsterFallingDamage
-	BorderTexture = "Blk_Flr"
-}
-
-Map TitleMap "Star Trek"
-{}
-
-Map MAP01 "Filming Set"
-{}
-
-Map MAP02 "D-7 Cruiser"
-{}
-
-Map MAP07 "Outpost 11"
-{}
-
-Map MAP09 "U.S.S. Aristarchus"
-{
-	Fade = "111111"
-}
-
-Map Ship "U.S.S. Enterprise"
-{}
-
-Map Planet "Planet Surface"
-{
-	OutsideFog = "000022"
-	OutsideFogDensity = 16
-}
-
-Map Demo "Test Map"
-{}
-
-Cluster 1
-{
-	hub
+	27005 = SparkSpawner
+	27006 = FireSpawner
 }
