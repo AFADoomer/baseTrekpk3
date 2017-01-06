@@ -1,9 +1,252 @@
+decal BulletChip1
+{
+	pic CHIP1
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip2
+{
+	pic CHIP2
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip3
+{
+	pic CHIP3
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip4
+{
+	pic CHIP4
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decal BulletChip5
+{
+	pic CHIP5
+	translucent 0.85
+	shade "00 00 00"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decalgroup BulletChip
+{
+	BulletChip1	1
+	BulletChip2	1
+	BulletChip3	1
+	BulletChip4	1
+	BulletChip5	1
+}
+
+decal BloodSplat1
+{
+	pic BSPLAT1
+	shade "BloodDefault"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat2
+{
+	pic BSPLAT2
+	shade "BloodDefault"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat3
+{
+	pic BSPLAT3
+	shade "BloodDefault"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat4
+{
+	pic BSPLAT4
+	shade "BloodDefault"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat5
+{
+	pic BSPLAT5
+	shade "BloodDefault"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat6
+{
+	pic BSPLAT6
+	shade "BloodDefault"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat7
+{
+	pic BSPLAT7
+	shade "BloodDefault"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal Scorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+decal BigScorch
+{
+	pic SCORCH1
+	shade "00 00 00"
+	x-scale 0.375
+	y-scale 0.375
+	randomflipx
+	randomflipy
+}
+
+decal PlasmaScorchLower1
+{
+	pic PLASMA1
+	shade "00 00 00"
+	x-scale 0.15
+	y-scale 0.15
+	randomflipx
+	randomflipy
+}
+
+decal PlasmaScorchLower2
+{
+	pic PLASMA2
+	shade "00 00 00"
+	x-scale 0.15
+	y-scale 0.15
+	randomflipx
+	randomflipy
+}
+
+decalgroup PlasmaScorchLower
+{
+	PlasmaScorchLower1	1
+	PlasmaScorchLower2	1
+}
+
+decal BFGScorch1
+{
+	pic BFGSCRC1
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decal BFGScorch2
+{
+	pic BFGSCRC2
+	shade "00 00 00"
+	x-scale 0.5
+	y-scale 0.5
+	randomflipx
+	randomflipy
+}
+
+decalgroup BFGScorch
+{
+	BFGScorch1	1
+	BFGScorch2	1
+}
+
+decal RailScorchLower1
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decal RailScorchLower2
+{
+	pic CBALSCR2
+	shade "00 00 00"
+	x-scale 0.1
+	y-scale 0.1
+	randomflipx
+	randomflipy
+}
+
+decalgroup RailScorchLower
+{
+	RailScorchLower1 1
+	RailScorchLower2 1
+}
+
+decal RevenantScorch
+{
+	pic BLAST1
+	shade "00 00 00"
+	x-scale 0.25
+	y-scale 0.25
+	randomflipx
+	randomflipy
+}
+
+//Same as blood, but black instead of red
 decal DirtSplat1
 {
 	pic BSPLAT1
 	shade "2c 2a 25"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.375
+	y-scale 0.375
 	randomflipx
 	randomflipy
 }
@@ -12,8 +255,8 @@ decal DirtSplat2
 {
 	pic BSPLAT2
 	shade "2c 2a 25"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.375
+	y-scale 0.375
 	randomflipx
 	randomflipy
 }
@@ -22,8 +265,8 @@ decal DirtSplat3
 {
 	pic BSPLAT3
 	shade "2c 2a 25"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.375
+	y-scale 0.375
 	randomflipx
 	randomflipy
 }
@@ -32,8 +275,8 @@ decal DirtSplat4
 {
 	pic BSPLAT4
 	shade "2c 2a 25"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.375
+	y-scale 0.375
 	randomflipx
 	randomflipy
 }
@@ -42,8 +285,8 @@ decal DirtSplat5
 {
 	pic BSPLAT5
 	shade "2c 2a 25"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.375
+	y-scale 0.375
 	randomflipx
 	randomflipy
 }
@@ -52,8 +295,8 @@ decal DirtSplat6
 {
 	pic BSPLAT6
 	shade "2c 2a 25"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.375
+	y-scale 0.375
 	randomflipx
 	randomflipy
 }
@@ -62,8 +305,8 @@ decal DirtSplat7
 {
 	pic BSPLAT7
 	shade "2c 2a 25"
-	x-scale 0.75
-	y-scale 0.75
+	x-scale 0.375
+	y-scale 0.375
 	randomflipx
 	randomflipy
 }
