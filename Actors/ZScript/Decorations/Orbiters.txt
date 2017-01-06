@@ -108,7 +108,8 @@ class TOSOrbit : Decoration
 			}
 			Loop;
 		Initialize:
-			"####" # 1 {
+			"####" # 1;
+			"####" # 0 {
 				if (!user_Traveling) {
 					A_FaceMaster(0, 270, -90, 0, FAF_MIDDLE);
 					return ResolveState("Initialize.Resume");
@@ -118,8 +119,7 @@ class TOSOrbit : Decoration
 					user_OffsetTurn = abs(user_Offset) / 90;
 					if (user_OffsetTurn < 1) { user_OffsetTurn = 1; }
 
-
-					if (user_Offset) {
+					if (abs(user_Offset) >= 1) {
 						if (user_Offset > 0) {
 							A_SetAngle(angle += user_OffsetTurn);
 						} else if (user_Offset < 0) {
@@ -128,13 +128,13 @@ class TOSOrbit : Decoration
 
 						A_Warp(AAPTR_DEFAULT, user_Speed * 25, 0, 0, 0, WARPF_USECALLERANGLE | WARPF_INTERPOLATE);
 
-						return ResolveState(null);
+						return ResolveState("Initialize");
 					} else {
-						return ResolveState("Initialize.Resume");
+						user_Traveling = 0;
+						return ResolveState(null);
 					}
 				}
 			}
-			Loop;
 		Initialize.Resume:
 			"####" # 1 {
 				user_Radius = GetDistance(FALSE, AAPTR_MASTER);
