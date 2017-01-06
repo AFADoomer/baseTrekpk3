@@ -138,7 +138,7 @@ ACTOR TOSKlingon : TrekEnemy
 			"####" # 1 A_LookEx (0, 0, 0, 2048, 0, "Chase")
 			Loop
 		CheckSight:
-			"####" # 0 A_CheckLOF("Missile", CLOFF_SKIPOBSTACLES)
+			"####" # 0 A_CheckLOF("Missile.Shoot", CLOFF_SKIPOBSTACLES)
 			"####" A 0 {
 				return State("Return");
 			}
