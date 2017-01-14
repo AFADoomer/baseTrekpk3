@@ -503,7 +503,34 @@ class TOSEnterprise : TOSShipOrbiting
 			Goto Super::SetMaster;
 	} 
 }
-class TOSAnaxagoras : TOSShipOrbiting { Default { Radius 32; } }
+class TOSAnaxagoras : TOSShipOrbiting
+{
+	Default { Radius 32; }
+	States
+	{
+		Spawn:
+			TNT1 A 5 NoDelay {
+				user_DoNotOrbitSun = 1;
+				user_FlatOrbit = 1;
+				user_scaleX = scale.X;
+				user_scaleY = scale.Y;
+				A_SetScale(Scale.X * Radius / 32, Scale.Y * Radius / 32);
+				A_SpawnItemEx ("WarpFlash", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERPITCH | SXF_TRANSFERROLL | SXF_TRANSFERSCALE);
+				A_SetScale(user_ScaleX, user_ScaleY);
+			}
+			TOS1 A 0 {
+				if (!bStandStill) {
+					return ResolveState("Pristine");
+				}
+				return ResolveState(null);
+			}
+			TOS1 A 0;
+			Goto Super::SetMaster;
+		Pristine:
+			TOS1 B 0;
+			Goto Super::SetMaster;
+	}
+}
 
 class TOSPlanetOrbitEarth : TOSOrbit
 {
