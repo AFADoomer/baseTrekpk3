@@ -510,11 +510,12 @@ Texture WALLTRA2, 492, 984
 	Patch TRAN_STA, 46, 100 {Style Overlay}
 }
 
-Texture RK, 492, 525
+Texture RK, 492, 1050
 {
 	XScale 3.8
 	YScale 3.8
 	Patch WALL_G, 0, 67
+	Patch WALL_G, 0, 559
 	Patch WALLTOP3, 0, 0
 	Patch WALLTOP3, 96, 0
 	Patch WALLTOP3, 192, 0
@@ -529,6 +530,7 @@ Texture RK, 492, 525
 	Patch WALLTOP3, 396, 49
 	Patch WALL_STK, 0, 0 {Style Overlay}
 	Patch WALL_STK, 0, 491 {Style Overlay}
+	Patch WALL_STK, 0, 982 {Style Overlay}
 }
 
 Texture RK_FILL, 492, 525
@@ -735,7 +737,7 @@ Texture BR_WALLL, 492, 492
 //	Patch ALERT, 268, 46
 	Patch BR_LEFT, 328, 46 {Style Overlay}
 }
-
+/*
 Texture BR_WALLM, 492, 492
 {
 	XScale 3.8
@@ -754,7 +756,7 @@ Texture BR_WALLN, 492, 492
 	YScale 3.8
 //	Patch ALERT2_M, 268, 46
 }
-
+*/
 Texture BR_WALLR, 492, 492
 {
 	XScale 3.8
@@ -765,7 +767,7 @@ Texture BR_WALLR, 492, 492
 //	Patch ALERT, 194, 46
 	Patch BR_RIGHT, 27, 46 {Style Overlay}
 }
-
+/*
 Texture BR_WALLU, 492, 492
 {
 	XScale 3.8
@@ -782,7 +784,7 @@ Texture BR_WALLW, 492, 492
 	YScale 3.8
 //	Patch ALERT2_M, 194, 46
 }
-
+*/
 Texture BR_WALLV, 492, 492
 {
 	XScale 3.8
@@ -801,7 +803,7 @@ Texture BR_WALLP, 492, 492
 //	Patch ALERT, 60, 120
 	Patch PLAQUE, 35, 210 {Style Overlay}
 }
-
+/*
 Texture BR_WALLQ, 492, 492
 {
 	XScale 3.8
@@ -818,7 +820,7 @@ Texture BR_WALLX, 492, 492
 	YScale 3.8
 //	Patch ALERT2_M, 60, 120
 }
-
+*/
 Texture BR_WALLS, 492, 492
 {
 	XScale 3.8

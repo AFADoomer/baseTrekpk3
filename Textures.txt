@@ -1,6 +1,6 @@
-Sprite CURSORD, 32, 32 {XScale 4.0 YScale 4.0 Graphic Delta, 0, 0 {Style Overlay Rotate 90}}
-Sprite DIMBKG, 640, 400 {Offset 320, 200 Graphic Dim, 0, 0 {Style Overlay} }
-Sprite HelpScrn, 1024, 640 {XScale 3.2 YScale 3.2 Graphic Help, 0, 0 {Style Overlay} }
+Graphic CURSORD, 32, 32 {XScale 4.0 YScale 4.0 Graphic Delta, 0, 0 {Style Overlay Rotate 90}}
+Graphic DIMBKG, 640, 400 {Offset 320, 200 Graphic Dim, 0, 0 {Style Overlay} }
+Graphic HelpScrn, 1024, 640 {XScale 3.2 YScale 3.2 Graphic Help, 0, 0 {Style Overlay} }
 
 Sprite TOS1A0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
 Sprite TOS1B0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
@@ -127,6 +127,13 @@ Texture DOOR_CAG, 256, 512
 	Patch "Textures/Enterprise/Doors/DOOR_CAG.png", 0, 0
 }
 
+Texture DOOR_CA2, 256, 512
+{
+	XScale 4.0
+	YScale 4.0
+	Patch "Textures/Enterprise/Doors/DOOR_CA2.png", 0, 0
+}
+
 Texture Dr1M, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M.jpg", 0, 0}
 Texture Dr1M_Bl, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_Bl.jpg", 0, 0}
 Texture Dr1M_G, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_G.jpg", 0, 0}
@@ -149,7 +156,7 @@ Texture GRATE_R, 128, 128
 	Patch "Textures/Enterprise/Walls/GRATE_R.png", 0, 0
 }
 
-Texture GRATE_R_E, 128, 2432
+Texture "GRATE_R_E", 128, 2432
 {
 	XScale 32.0
 	YScale 32.0
@@ -174,7 +181,7 @@ Texture GRATE_R_E, 128, 2432
 	Patch GRATE_R, 0, 2304
 }
 
-Texture GRATE_R_T, 128, 3968
+Texture "GRATE_R_T", 128, 3968
 {
 	XScale 32.0
 	YScale 32.0
@@ -805,7 +812,7 @@ Texture DARKGREY, 320, 200
 	}
 }
 
-Texture BLACK_FUL, 320, 200
+Texture "BLACK_FUL", 320, 200
 {
 	XScale 0.125
 	YScale 0.20833333333333333333333333333333
