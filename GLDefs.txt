@@ -498,10 +498,11 @@ brightmap texture "WALLALE3" {map "WALLALE5"}
 brightmap texture "WALLALE4" {map "WALLALE6"}
 brightmap texture "ARCHALE2" {map "ARCHALE3"}
 brightmap texture "TRANSAL2" {map "TRANSAL3"}
-*/
+
 brightmap texture "BR_WALLM" {map "BR_WALLN"}
 brightmap texture "BR_WALLU" {map "BR_WALLW"}
 brightmap texture "BR_WALLQ" {map "BR_WALLX"}
+*/
 brightmap texture "WALL_BEB" {map "SHU_LI_M"}
 
 brightmap texture "WALL0SW0" {map "WALLMSW0"}
@@ -560,3 +561,14 @@ brightmap texture "models/mapobjects/tos/dilithium.png" { map "models/mapobjects
 brightmap sprite PANLA0 { map "textures/enterprise/walls/overlays/panel5_m.png" }
 brightmap sprite SHULA0 { map "textures/enterprise/walls/overlays/shu_st0l.png" }
 brightmap sprite SHULB0 { map "textures/enterprise/walls/overlays/shu_st1l.png" }
+
+
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Body.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Body_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Bottom.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Bottom_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Nacelles.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Nacelles_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Neck.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Neck_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Top.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Top_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Damage.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Damage_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Bottom_Pristine.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Bottom_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Nacelles_Pristine.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Nacelles_l.png" }
+brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Top_Pristine.png" { map "models/mapobjects/tos/Anaxagoras/Anaxagoras_Top_Pristine_l.png" }
