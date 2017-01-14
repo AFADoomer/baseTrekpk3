@@ -30,7 +30,7 @@ SET ACSLib=TrekLib
 :: Engine/Launch Information                                                 ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 SET Engine=C:\Games\Doom\gzdoom.exe
-SET Map=demo
+SET Map=
 SET RunArgs=-file Autoload\*.* %* +skill 3 +logfile Log.txt +map %MAP%
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
