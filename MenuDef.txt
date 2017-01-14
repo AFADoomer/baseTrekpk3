@@ -68,6 +68,7 @@ ListMenu "EpisodeMenu"
 	StaticPatch 74, 62, "LOGO_S2"
 	StaticPatch 74, 62, "LOGO_S"
 
+	Font "SMALLFONT", "TOSDarkGrey"
 	StaticTextCentered 95, 80, "$MNU_EPISODE"
 
 	Font "SMALLFONT", "Red"
@@ -97,7 +98,6 @@ ListMenu "SkillMenu"
 	StaticTextCentered 95, 80, "$MNU_CHOOSESKILL"
 
 	Font "SMALLFONT", "TOSMenuGold", "TOSBrightWhite"
-//	Selector "Icon", -16, -2
 	Position 60, 95
 }
 
