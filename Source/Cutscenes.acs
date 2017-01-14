@@ -40,7 +40,7 @@ Function void SetCutsceneCamera (int ID, int FOV)
 
 Script "Cutscene" (int index, int inTime, int outTime)
 {
-	If (GetCVar("st_nocutscenes") > 0) SkipCutscene = True;
+	If (GetCVar("g_nocutscenes") > 0) SkipCutscene = True;
 
 	str strLookupName;
 	str strLookupData = " ";
@@ -160,7 +160,7 @@ Script "Cutscene" (int index, int inTime, int outTime)
 		strLookupName = strParam(s:"Cutscene_",n:PRINTNAME_LEVEL,s:"_",d:index, s:"_", d:i);
 		strLookupData = strParam(l:strLookupName);
 
-		If (GetCVar("st_debugcutscenes") >= 1)
+		If (GetCVar("g_debugcutscenes") >= 1)
 			SkipCutscene = False;
 	}
 	SetHUDClipRect(0, 0, 0, 0, 0);
@@ -173,7 +173,7 @@ Script "Cutscene" (int index, int inTime, int outTime)
 
 	SkipCutscene = False;
 
-	If (outTime > 0) //No outtime assumes end of level, so don't reset
+	If (outTime > 0 || SkipCutscene) //No outtime assumes end of level, so don't reset
 	{
 		ChangeCamera(0, 1, 0);
 		SetPlayerProperty(1, 0, PROP_TOTALLYFROZEN);

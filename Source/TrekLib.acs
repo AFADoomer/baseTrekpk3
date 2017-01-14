@@ -967,14 +967,13 @@ Script "A_AmmoStation" (int intType, int intAmt)
 
 Script "ToggleFly" (int EnterExit, int minHeight, int maxHeight)
 {
-//	If (PlayerNumber() < 0) Terminate;
-
 	If (EnterExit)
 	{
+		Delay(5); //So that this activates *after* adjoining sectors' disable script, if applicable, and doesn't drop you down a Jeffries tube.
 		SetPlayerProperty (0, 1, PROP_FLY);
 		SetUserVariable(0, "user_climb", 1);
 
-		If (minHeight != 0 && maxHeight != 0)
+		If (minHeight != maxHeight)
 		{
 			maxHeight = maxHeight - GetActorProperty(0, APROP_Height) / 2.0;
 			minHeight = minHeight - GetActorProperty(0, APROP_Height) / 2.0;
@@ -1267,7 +1266,7 @@ Script "PrintScan" (int filter)
 
 	If (TID != 0)
 	{
-		If (GetCVar("st_debug") > 0)
+		If (GetCVar("g_debug") > 0)
 		{
 			HudMessageOnActor(TID, ScanRange, GetActorClass(TID), 0, 0, "SUPBOLAA", 3);
 		}
@@ -1882,7 +1881,7 @@ Script "A_SetupThing" (void)
 	If (StrCmp(strData, strLookup) != 0)
 		SetActorProperty(0, APROP_NameTag, strData);
 	Else
-		If (GetCVar("st_debug") > 0) SetActorProperty(0, APROP_NameTag, strLookup);
+		If (GetCVar("g_debug") > 0) SetActorProperty(0, APROP_NameTag, strLookup);
 }
 
 Script "RollActor" (int TID, int angle, int tics)

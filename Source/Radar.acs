@@ -54,7 +54,7 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 	HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_NOTWITHFULLMAP, 39999, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);
 
 	/* DoomDelta-style wall maps */
-	if (Timer() % 1 == 0 && GetCVar("st_radar") > 0)
+	if (Timer() % 1 == 0 && GetCVar("g_radar") > 0)
 	{
 		If (!ThingCountName("Nav_Block", 10000) > 0)
 			SpawnForced("Nav_Block", GetActorX(tid), GetActorY(tid), GetActorZ(tid) + 32.0, 10000);
@@ -88,7 +88,7 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 		}
 	}
 
-	If (GetCVar("st_compass") > 0)
+	If (GetCVar("g_compass") > 0)
 	{
 		//Compass marker location algorithm derived from Enjay's Operation: Overlord
 		int CompassX = -ActorCos(GetActorAngle(tid)) * dist / scale / 1.0 * 112 / 100;
