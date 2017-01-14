@@ -115,8 +115,8 @@ class Decoration : SwitchableDecoration
 				A_RemoveChildren(TRUE, RMVF_MISC, "None", "Block");
 				ACS_NamedExecuteAlways("A_Disintegrate", 0, user_disintegrationcolor, 1);
 				bNoGravity = False;
-				A_SetPitch(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
-				A_SetRoll(FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetPitch(pitch + FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetRoll(roll + FRandom(-30.0, 30.0), SPF_INTERPOLATE);
 			}
 			Stop;
 	}

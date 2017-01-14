@@ -1,4 +1,4 @@
-Actor TOSSpriteDecoration : TOSDecoration
+Actor TOSSpriteDecoration : OldTOSDecoration
 {
 	//All but usable sprites are destroyable...
 	-INVULNERABLE
@@ -12,7 +12,7 @@ Actor TOSSpriteDecoration : TOSDecoration
 	Health 50
 }
 
-Actor TOSUsableSpriteDecoration : TOSUsableDecoration
+Actor TOSUsableSpriteDecoration : OldTOSUsableDecoration
 {
 	+NOTAUTOAIMED
 	+WALLSPRITE

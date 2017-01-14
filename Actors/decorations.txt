@@ -1,4 +1,4 @@
-Actor TOSDecoration
+Actor OldTOSDecoration
 {
 	var int user_uses;
 	var int user_width;
@@ -107,7 +107,7 @@ Actor TOSDecoration
 	}
 }
 
-Actor TOSDestroyableDecoration : TOSDecoration
+Actor OldTOSDestroyableDecoration : OldTOSDecoration
 {
 	//$Sprite TOS1A0
 	Health 10
@@ -116,7 +116,7 @@ Actor TOSDestroyableDecoration : TOSDecoration
 	-NODAMAGE
 	-DONTTHRUST 
 }
-Actor TOSSwitchableDecoration : SwitchableDecoration
+Actor OldTOSSwitchableDecoration : SwitchableDecoration
 {
 	var int user_uses;
 	var int user_width;
@@ -212,17 +212,17 @@ Actor TOSSwitchableDecoration : SwitchableDecoration
 	}
 }
 
-Actor TOSUsableDecoration : TOSSwitchableDecoration
+Actor OldTOSUsableDecoration : OldTOSSwitchableDecoration
 {
 	//$Sprite TOS1A0
 	-NOTAUTOAIMED 
 	+USESPECIAL
 }
 
-Actor Skybox1 : TOSDecoration {}
-Actor Skybox2 : TOSDecoration {}
-Actor Skybox3 : TOSDecoration {}
-Actor Skybox4 : TOSDecoration
+Actor Skybox1 : OldTOSDecoration {}
+Actor Skybox2 : OldTOSDecoration {}
+Actor Skybox3 : OldTOSDecoration {}
+Actor Skybox4 : OldTOSDecoration
 {
 	States
 	{
@@ -231,6 +231,6 @@ Actor Skybox4 : TOSDecoration
 			Stop
 	}
 }
-Actor Skybox5 : TOSDecoration {}
-Actor Skybox6 : TOSDecoration {}
-Actor Skybox7 : TOSDecoration { RenderStyle Translucent Alpha 0.7 }
+Actor Skybox5 : OldTOSDecoration {}
+Actor Skybox6 : OldTOSDecoration {}
+Actor Skybox7 : OldTOSDecoration { RenderStyle Translucent Alpha 0.7 }
