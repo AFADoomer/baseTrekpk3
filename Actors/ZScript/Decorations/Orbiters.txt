@@ -70,7 +70,7 @@ class TOSOrbit : Decoration
 			}
 		SetMaster:
 			"####" # 1 {
-				user_Speed = args[0] * 0.01 * (GetCVar("st_timelapse") + 1);
+				user_Speed = args[0] * 0.01 * (GetCVar("g_timelapse") + 1);
 				user_Roll = Roll - user_Speed;
 				user_Angle = Angle;
 				if (!user_OrbitRadius) { user_OrbitRadius = Radius * 8 * Scale.X; }
@@ -277,7 +277,7 @@ class TOSShipOrbit : Decoration
 			TNT1 A 10;
 			TNT1 A 0 {
 				user_Radius = args[0] * 1.0;
-				user_Speed = args[2] * 0.01 * (GetCvar("st_timelapse") + 1);
+				user_Speed = args[2] * 0.01 * (GetCvar("g_timelapse") + 1);
 				user_Roll = Roll;
 				if (Roll < 180) {
 					A_SetRoll(user_Roll * user_Radius / 128);
@@ -544,3 +544,5 @@ class TOSPlanetOrbitEarth : TOSOrbit
 			Goto Super::SetMaster;
 	}
 }
+
+class TOSBoP : TOSShipOrbiting { Default { Radius 24; } }
