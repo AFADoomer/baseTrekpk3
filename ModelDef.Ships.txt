@@ -443,3 +443,15 @@ Model TOSAnaxagoras
 	FrameIndex TOS1 B 1 0
 }
 
+Model TOSBoP
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/BoP/"
+	Model 0 "BoP.md3"
+
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TOS1 A 0 0
+}
