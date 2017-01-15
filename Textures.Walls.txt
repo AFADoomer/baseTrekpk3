@@ -830,6 +830,15 @@ Texture BR_WALLS, 492, 492
 	Patch DIAGRAM, 12, 130
 }
 
+Texture BR_WALLA, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch WALL_G2, 0, 0
+	Patch WALL_STR, 0, 0 {Style Overlay}
+	Patch DIAGRAM2, 12, 130
+}
+
 Texture BR_VSCRN, 492, 492
 {
 	XScale 4.8
