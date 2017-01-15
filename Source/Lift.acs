@@ -66,7 +66,7 @@ str Decks[68][4] = {
 	{"MAP01", "Filming Set", "1", ""},
 	{"Planet", "Planet Surface", "0", ""},
 	{"DEMO", "Test Map", "0", ""},
-	{"MAP09", "U.S.S. Aristarchus", "0", ""},
+	{"MSN01", "U.S.S. Aristarchus", "0", ""},
 	{"", "", "", ""},
 	{"", "", "", ""},
 	{"", "", "", ""},
