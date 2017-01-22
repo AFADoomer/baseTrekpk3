@@ -1,3 +1,5 @@
+ClearLocks
+
 Lock 1
 {
 	AccessLevel2
@@ -5,7 +7,6 @@ Lock 1
 	RemoteMessage "$LOCK_2"
 	Mapcolor 255 0 0
 }
-
 
 Lock 2
 {
@@ -23,7 +24,6 @@ Lock 3
 	RemoteMessage "$LOCK_4"
 	Mapcolor 255 255 0
 }
-
 
 Lock 4
 {
