@@ -1,0 +1,64 @@
+Class PhaserType1 : TOSWeapon
+{
+	Default
+	{
+		+Weapon.Ammo_Optional;
+		+Weapon.Alt_Ammo_Optional;
+		Obituary "%o got phasered by %k.";
+		Weapon.SelectionOrder 400;
+		Weapon.SlotNumber 2;
+		Weapon.AmmoType "Charge";
+		Weapon.AmmoType2 "Charge";
+		Weapon.AmmoUse 1;
+		Weapon.AmmoUse2 2;
+		Weapon.AmmoGive 10;
+		Tag "$Phaser1";
+		Inventory.PickupMessage "$Phaser1";
+		Weapon.UpSound "weapons/change";
+	}
+
+	States
+	{
+		Fire:
+			PHAS BCD 1;
+		FireInitial:
+			PHAS A 0 A_PlaySound("weapons/phaser", CHAN_WEAPON, 1.0, True);
+		Hold:
+			//TNT1 A 0 A_WeaponReady(WRF_NOFIRE | WRF_NOSWITCH) //Enable bobbing while firing...  
+			PHAS A 0 A_JumpIfInventory ("Charge", 2, 1);
+			Goto Sputter;
+			PHAS E 1 A_FirePhaser("LaserBeam_B", "SmallBlueLight", "PhaserHit");
+			TNT1 A 0 A_ReFire("FireInitial");
+			"####" # 0 A_StopSound(CHAN_WEAPON);
+			PHAS E 8;
+			PHAS DCB 1;
+			Goto Ready;
+		Sputter:
+			PHAS A 0 A_PlaySound("weapons/phaser_empty", CHAN_WEAPON, 1.0, True);
+			PHAS E 1 A_FirePhaser("LaserBeam_B", "SmallBlueLight", "PhaserHit", 1, "WhitePhaserParticle");
+			TNT1 A 0 A_ReFire ("Hold");
+			"####" # 0 A_StopSound(CHAN_WEAPON);
+			PHAS E 8;
+			PHAS DCB 1;
+			Goto Ready;
+		AltFire:
+			PHAS A 0 A_PlaySound("weapons/phaser", CHAN_WEAPON, 1.0, True);
+		AltHold:
+			PHAS A 0 A_JumpIfInventory ("Charge", 6, 1);
+			Goto AltSputter;
+			PHAS E 1 A_FirePhaser("LaserBeam_O", "SmallOrangeLight", "PhaserStunHit", 1);
+			TNT1 A 0 A_ReFire("AltFire");
+			"####" # 0 A_StopSound(CHAN_WEAPON);
+			PHAS E 8;
+			PHAS DCB 1;
+			Goto Ready;
+		AltSputter:
+			PHAS A 0 A_PlaySound("weapons/phaser_empty", CHAN_WEAPON, 1.0, True);
+			PHAS E 1 A_FirePhaser("LaserBeam_O", "SmallOrangeLight", "PhaserStunHit", 0, "OrangePhaserParticle");
+			TNT1 A 0 A_ReFire("AltHold");
+			"####" # 0 A_StopSound(CHAN_WEAPON);
+			PHAS E 8;
+			PHAS DCB 1;
+			Goto Ready;
+	}
+}

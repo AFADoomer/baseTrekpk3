@@ -1,6 +1,5 @@
 #include "actors/doom.txt"
 #include "actors/player.txt"
-#include "actors/weapons.txt"
 #include "actors/projectiles.txt"
 #include "actors/enemies.txt"
 #include "actors/items.txt"

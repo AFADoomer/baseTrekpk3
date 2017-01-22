@@ -1,0 +1,162 @@
+class Charge : Ammo
+{
+	Default
+	{
+		+SHOOTABLE;
+		+NODAMAGE;
+		+NOBLOOD;
+		Radius 10;
+		Height 20;
+		Inventory.Amount 100;
+		Inventory.MaxAmount 500;
+		Ammo.BackpackAmount 100;
+		Ammo.BackpackMaxAmount 500;
+		Inventory.Icon "CHARA0";
+		Tag "Phaser Ammunition";
+		Inventory.PickupMessage "$Charge";
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0);
+			CHAR A -1;
+			Stop;
+	}
+}
+
+class ChargePack : Charge
+{
+	Default
+	{
+		Inventory.Amount 300;
+		Tag "Phaser Ammunition Pack";
+		Inventory.PickupMessage "$Charges";
+	}
+}
+
+class RifleCharge : Ammo
+{
+	Default
+	{
+		+SHOOTABLE;
+		+NODAMAGE;
+		+NOBLOOD;
+		Radius 10;
+		Height 20;
+		Inventory.Amount 10;
+		Inventory.MaxAmount 100;
+		Ammo.BackpackAmount 20;
+		Ammo.BackpackMaxAmount 200;
+		Inventory.Icon "CHARP0";
+		Tag "Phaser Rifle Ammunition";
+		Inventory.PickupMessage "$RifleCharge";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0);
+			CHAR P -1;
+			Stop;
+	}
+}
+
+class RifleChargePack : Ammo
+{
+	Default
+	{
+		Radius 10;
+		Height 20;
+		Inventory.Amount 20;
+		Inventory.PickupMessage "$RifleCharges";
+	}
+}
+
+class PhotonGrenadeAmmo : Ammo
+{
+	Default
+	{
+		+SHOOTABLE;
+		+NODAMAGE;
+		+NOBLOOD;
+		Radius 10;
+		Height 20;
+		Inventory.Amount 1;
+		Inventory.MaxAmount 12;
+		Ammo.BackpackAmount 24;
+		Ammo.BackpackMaxAmount 48;
+		Inventory.Icon "CHARB0";
+		Tag "Photon Grenades";
+		Inventory.PickupMessage "$PhotonGrenade";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0);
+			CHAR B -1;
+			Stop;
+	}
+}
+
+class PhotonGrenadeAmmoBox : PhotonGrenadeAmmo
+{
+	Default
+	{
+		Radius 10;
+		Height 20;
+		Inventory.Amount 6;
+		Inventory.PickupMessage "$PhotonGrenades";
+		Tag "Photon Grenades";
+	}
+}
+
+class DisruptorCharge : Ammo
+{
+	Default
+	{
+		+SHOOTABLE;
+		+NODAMAGE;
+		+NOBLOOD;
+		Radius 10;
+		Height 20;
+		Inventory.Amount 10;
+		Inventory.MaxAmount 100;
+		Ammo.BackpackAmount 20;
+		Ammo.BackpackMaxAmount 200;
+		Inventory.Icon "CHARG0";
+		Tag "Disruptor Ammunition";
+		Inventory.PickupMessage "$DisruptorCharge";
+	}
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0);
+			CHAR G -1;
+			Stop;
+	}
+}
+
+class DisruptorChargeBox : DisruptorCharge
+{
+	Default
+	{
+		Inventory.Amount 25;
+		Inventory.PickupMessage "$DisruptorCharges";
+		Tag "Disruptor Ammunition";
+	}
+}
+
+class PhotonTorpedoShot : Ammo
+{
+	Default
+	{
+		+SHOOTABLE;
+		+NODAMAGE;
+		+NOBLOOD;
+		Inventory.Amount 1;
+		Inventory.MaxAmount 2;
+		Ammo.BackpackAmount 2;
+		Ammo.BackpackMaxAmount 4;
+		Inventory.Icon "TNT1A0";
+	}
+}

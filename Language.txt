@@ -89,7 +89,7 @@ PHASERRIFLE = "Phaser Rifle";
 DISRUPTOR = "Klingon Disruptor";
 PHOTONGRENADELAUNCHER = "Photon Grenade Launcher";
 TRICORDER = "Tricorder";
-PHOTONTORPEDO = "Photon Torpedo Targeting System";
+COMMUNICATOR = "Communicator";
 
 // Map-specific thing tags
 //

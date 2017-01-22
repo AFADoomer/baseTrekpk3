@@ -1,0 +1,36 @@
+class PhaserRifle : TOSWeapon
+{
+	float user_zoomlevel;
+
+	Default
+	{
+		Obituary "%o got phasered by %k.";
+		Weapon.SelectionOrder 150;
+		Weapon.SlotNumber 3;
+		Weapon.AmmoType "RifleCharge";
+		Weapon.AmmoType2 "RifleCharge";
+		Weapon.AmmoUse 1;
+		Weapon.AmmoUse2 1;
+		Weapon.AmmoGive 25;
+		Weapon.BobSpeed 0.75;
+		Tag "$PhaserRifle";
+		Inventory.PickupMessage "$PhaserRifle";
+		Weapon.UpSound "weapons/change";
+	}
+
+	States
+	{
+		Fire:
+		AltFire:
+			PHAS BCD 1;
+			PHAS A 0 A_PlaySound("weapons/rifle", CHAN_WEAPON, 1.0, True);
+		Hold:
+		AltHold:
+			PHAS E 1 A_FirePhaser("LaserBeam_P", "SmallPurpleLight", "PhaserHitW", 12);
+			TNT1 A 0 A_ReFire;
+			"####" # 0 A_StopSound(CHAN_WEAPON);
+			PHAS E 8;
+			PHAS DCB 1;
+			Goto Ready;
+	}
+}

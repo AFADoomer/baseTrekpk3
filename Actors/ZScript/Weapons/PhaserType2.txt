@@ -1,0 +1,57 @@
+Class PhaserType2 : TOSWeapon
+{
+	Default
+	{
+		Obituary "%o got phasered by %k.";
+		Weapon.SelectionOrder 100;
+		Weapon.SlotNumber 2;
+		Weapon.AmmoType "Charge";
+		Weapon.AmmoType2 "Charge";
+		Weapon.AmmoUse 1;
+		Weapon.AmmoUse2 2;
+		Weapon.AmmoGive 10;
+		Weapon.BobSpeed 0.95;
+		Weapon.SisterWeapon "PhaserType1";
+		Tag "$Phaser2";
+		Inventory.PickupMessage "$Phaser2";
+		Weapon.UpSound "weapons/change";
+	}
+
+	States
+	{
+		Fire:
+			PHAS BCD 1;
+			PHAS A 0 A_PlaySound("weapons/phaser", CHAN_WEAPON, 1.0, True);
+		Hold:
+			PHAS E 1 A_FirePhaser("LaserBeam_B", "SmallBlueLight", "PhaserHit", 4);
+			TNT1 A 0 A_ReFire;
+			"####" # 0 A_StopSound(CHAN_WEAPON);
+			PHAS E 8;
+			PHAS DCB 1;
+			Goto Ready;
+		AltFire:
+			PHAS BCD 1;
+			PHAS A 0 A_PlaySound("weapons/phaser_alt", CHAN_WEAPON, 1.0, True);
+		AltHold:
+			PHAS E 1 A_FirePhaser("LaserBeam_R", "SmallRedLight", "PhaserDisintegrateHit", 10);
+			TNT1 A 0 A_ReFire;
+			"####" # 0 A_StopSound(CHAN_WEAPON);
+			PHAS E 8;
+			PHAS DCB 1;
+			Goto Ready;
+	}
+
+	//Set the Type 1 Phaser to act as a sister weapon here
+	// Not doing this in the normal Weapon.SisterWeapon property for PhaserType1 because
+	// that would cause the engine to give the Type 2 phaser when the Type 1 is picked up.
+	// Doing it this way allows all of the drop/removal logic to still work.
+	override void AttachToOwner (Actor other)
+	{
+		Super.AttachToOwner (other);
+
+		If (SisterWeapon != NULL)
+		{
+			SisterWeapon.SisterWeapon = self;
+		}
+	}
+}
