@@ -2,41 +2,77 @@ Graphic CURSORD, 32, 32 {XScale 4.0 YScale 4.0 Graphic Delta, 0, 0 {Style Overla
 Graphic DIMBKG, 640, 400 {Offset 320, 200 Graphic Dim, 0, 0 {Style Overlay} }
 Graphic HelpScrn, 1024, 640 {XScale 3.2 YScale 3.2 Graphic Help, 0, 0 {Style Overlay} }
 
-Sprite TOS1A0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1B0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1C0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1D0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1E0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1F0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1G0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1H0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1I0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1J0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1K0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1L0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1M0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1N0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1O0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1P0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1Q0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1R0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1S0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1T0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1U0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1V0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1W0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1X0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1Y0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOS1Z0, 512, 512 {XScale 32.0 YScale 32.0 Graphic Delta, 0, 0 {Style Overlay}}
+Sprite P004A1, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004A2, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004A3, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004A4, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004A5, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004A6, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004A7, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004A8, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B1, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B2, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B3, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B4, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B5, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B6, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B7, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004B8, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C1, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C2, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C3, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C4, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C5, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C6, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C7, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004C8, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D1, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D2, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D3, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D4, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D5, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D6, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D7, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
+Sprite P004D8, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch DeltP0, 0, 0}
 
-Sprite TOSDA0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOSDC0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOSDE0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOSDG0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOSDI0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOSDK0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOSDM0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
-Sprite TOSDO0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Graphic Delta, 0, 0 {Style Overlay}}
+
+Sprite TOS1A0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1B0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1C0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1D0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1E0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1F0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1G0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1H0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1I0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1J0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1K0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1L0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1M0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1N0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1O0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1P0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1Q0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1R0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1S0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1T0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1U0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1V0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1W0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1X0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1Y0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOS1Z0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+
+Sprite TOSDA0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOSDC0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOSDE0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOSDG0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOSDI0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOSDK0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOSDM0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite TOSDO0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 0 {Style Overlay}}
+
+Sprite C004A0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
 
 Sprite BLASA0, 6, 6
 {
@@ -312,7 +348,7 @@ Texture BRI_TRIM, 256, 128
 
 Sprite TRANA0, 1, 1
 {
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 	{
 		Translation "0:255=[250,234,146]:[250,234,146]"
 	}
@@ -320,7 +356,7 @@ Sprite TRANA0, 1, 1
 
 Sprite TRANB0, 1, 1
 {
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 	{
 		Translation "0:255=[224,207,99]:[224,207,99]"
 	}
@@ -328,7 +364,7 @@ Sprite TRANB0, 1, 1
 
 Sprite TRANC0, 1, 1
 {
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 	{
 		Translation "0:255=[189,175,76]:[189,175,76]"
 	}
@@ -336,7 +372,7 @@ Sprite TRANC0, 1, 1
 
 Sprite TRAND0, 1, 1
 {
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 	{
 		Translation "0:255=[253,237,152]:[253,237,152]"
 	}
@@ -562,7 +598,7 @@ Sprite FLARG0, 64, 64
 	Offset 32, 32
 	XScale 3.0
 	YScale 3.0
-	Graphic Burst_G, 0, 0
+	Patch Burst_G, 0, 0
 }
 
 Sprite FLARB0, 64, 64
@@ -570,7 +606,7 @@ Sprite FLARB0, 64, 64
 	Offset 32, 32
 	XScale 3.0
 	YScale 3.0
-	Graphic Burst_B, 0, 0
+	Patch Burst_B, 0, 0
 }
 
 Sprite FLARY0, 64, 64
@@ -578,7 +614,7 @@ Sprite FLARY0, 64, 64
 	Offset 32, 32
 	XScale 3.0
 	YScale 3.0
-	Graphic Burst_Y, 0, 0
+	Patch Burst_Y, 0, 0
 }
 
 Sprite FLARW0, 64, 64
@@ -586,7 +622,7 @@ Sprite FLARW0, 64, 64
 	Offset 32, 32
 	XScale 3.0
 	YScale 3.0
-	Graphic Burst, 0, 0
+	Patch Burst, 0, 0
 }
 
 Sprite FLARE0, 320, 320
@@ -594,7 +630,7 @@ Sprite FLARE0, 320, 320
 	Offset 160, 160
 	XScale 2.5
 	YScale 2.5
-	Graphic Flare, 0, 0
+	Patch Flare, 0, 0
 }
 
 Sprite FLARS0, 256, 256
@@ -602,7 +638,7 @@ Sprite FLARS0, 256, 256
 	Offset 128, 128
 	XScale 2.5
 	YScale 2.5
-	Graphic SunFlare, 0, 0
+	Patch SunFlare, 0, 0
 }
 
 Sprite FLARF0, 256, 256
@@ -610,7 +646,7 @@ Sprite FLARF0, 256, 256
 	Offset 128, 128
 	XScale 2.5
 	YScale 2.5
-	Graphic SunFlare, 0, 0
+	Patch SunFlare, 0, 0
 }
 
 Sprite FLARR0, 256, 256
@@ -618,24 +654,24 @@ Sprite FLARR0, 256, 256
 	Offset 128, 128
 	XScale 2.5
 	YScale 2.5
-	Graphic Flare_R, 0, 0
+	Patch Flare_R, 0, 0
 }
 
-Texture Marker_0, 32, 32 {Graphic Marker_A, 0, 0}
+Texture Marker_0, 32, 32 {Patch Marker_A, 0, 0}
 Texture Marker_1, 32, 32 {Graphic Marker_1, 0, 0}
-Texture Marker_2, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 90}}
-Texture Marker_3, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 90}}
-Texture Marker_4, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 180}}
-Texture Marker_5, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 180}}
-Texture Marker_6, 32, 32 {Graphic Marker_A, 0, 0 {Rotate 270}}
-Texture Marker_7, 32, 32 {Graphic Marker_1, 0, 0 {Rotate 270}}
+Texture Marker_2, 32, 32 {Patch Marker_A, 0, 0 {Rotate 90}}
+Texture Marker_3, 32, 32 {Patch Marker_1, 0, 0 {Rotate 90}}
+Texture Marker_4, 32, 32 {Patch Marker_A, 0, 0 {Rotate 180}}
+Texture Marker_5, 32, 32 {Patch Marker_1, 0, 0 {Rotate 180}}
+Texture Marker_6, 32, 32 {Patch Marker_A, 0, 0 {Rotate 270}}
+Texture Marker_7, 32, 32 {Patch Marker_1, 0, 0 {Rotate 270}}
 
 Sprite WHITG0, 256, 256
 {
 	Offset 128, 128
 	XScale 4.0
 	YScale 4.0
-	Graphic WpnHit_G, 0, 0
+	Patch WpnHit_G, 0, 0
 }
 
 Sprite WFLAG0, 256, 256
@@ -643,7 +679,7 @@ Sprite WFLAG0, 256, 256
 	Offset 128, 128
 	XScale 3.5
 	YScale 3.5
-	Graphic WpnFla_G, 0, 0
+	Patch WpnFla_G, 0, 0
 }
 
 Graphic Scan_TL, 32, 32 {Graphic Scan, 0, 0}
@@ -798,7 +834,7 @@ Texture GOLD, 320, 200
 {
 	XScale 0.125
 	YScale 0.20833333333333333333333333333333
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 	{
 		Translation "0:255=[250,234,149]:[250,234,149]"
 	}
@@ -832,7 +868,7 @@ Sprite SPARB0, 256, 256
 	XScale 4.0
 	YScale 4.0
 	Offset 128, 128
-	Graphic Spark_B, 0, 0
+	Patch Spark_B, 0, 0
 }
 
 Sprite SPARR0, 256, 256
@@ -840,7 +876,7 @@ Sprite SPARR0, 256, 256
 	XScale 4.0
 	YScale 4.0
 	Offset 128, 128
-	Graphic Spark_R, 0, 0
+	Patch Spark_R, 0, 0
 }
 
 Sprite SPARW0, 256, 256
@@ -848,12 +884,12 @@ Sprite SPARW0, 256, 256
 	XScale 4.0
 	YScale 4.0
 	Offset 128, 128
-	Graphic Sparkle, 0, 0
+	Patch Sparkle, 0, 0
 }
 
 Texture LogBkg, 300, 40
 {
-	Graphic Black, 0, 0
+	Patch Black, 0, 0
 }
 
 Graphic MSGBOX, 250, 30
@@ -1013,14 +1049,14 @@ Sprite SHULB0, 128, 64
 	YScale 5.0
 	Offset 64, 64
 
-	Graphic Shu_St0, 0, 0 {Style Overlay}
+	Patch Shu_St0, 0, 0 {Style Overlay}
 }
 
 Graphic MASK_LB, 1024, 768
 {
 	XScale 0.3125
 	YScale 0.26041666666666666666666666666667
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 }
 
 Sprite STEMA0, 512, 512
@@ -1031,7 +1067,7 @@ Sprite STEMA0, 512, 512
 
 Texture F_SKY1, 64, 64
 {
-	Graphic StarFld, 0, 0
+	Patch StarFld, 0, 0
 }
 
 // End of texture definitions

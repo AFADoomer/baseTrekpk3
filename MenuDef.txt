@@ -158,8 +158,8 @@ ListMenu "PlayerMenu"
 	PlayerNameBox "$PLYRMNU_NAME", 10, "Playerbox"
 	Selector "-", -16, -1
 
-//	MouseWindow 0, 220
-//	PlayerDisplay 220, 80, "20 00 00", "80 00 40", 1, "PlayerDisplay"
+	MouseWindow 0, 220
+	PlayerDisplay 220, 80, "20 00 00", "80 00 40", 1, "PlayerDisplay"
 	
 	ValueText "$PLYRMNU_TEAM", "Team"
 	ValueText "$PLYRMNU_PLAYERCOLOR", "Color"
