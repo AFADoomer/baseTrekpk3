@@ -1,3 +1,4 @@
+/*
 Model TOSCrewman
 {
 	Path "Models/actors/player/"
@@ -373,6 +374,7 @@ Model TOSCrewman
 	FrameIndex TOS9 Y 0 550
 	FrameIndex TOS9 Y 1 550
 }
+*/
 /*
 Model TOSCrewman
 {
@@ -542,7 +544,7 @@ Model TOSKlingon
 	FrameIndex TOS1 U 0 171
 	FrameIndex TOS1 U 1 171
 }
-
+/*
 Model TOSKlingonGrenade
 {
 	Path "Models/actors/klingon/"
@@ -623,7 +625,7 @@ Model TOSKlingonGrenade
 	FrameIndex TOS1 U 0 171
 	FrameIndex TOS1 U 1 171
 }
-
+*/
 Model TOSPirate
 {
 	Path "Models/actors/klingon/"

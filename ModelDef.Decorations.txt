@@ -30,7 +30,7 @@ Model Skybox4 //Stars
 	Path "Models/mapobjects/skybox"
 	Model 0 "skybox2.md3"
 	Path "Textures/"
-	Skin 0 "StarFld.jpg"
+	Skin 0 "StarFld.png"
 
 	FrameIndex TOS1 A 0 0
 }
@@ -1524,7 +1524,7 @@ Model Garden6 { Path "models/mapobjects/plants/" Model 0 "garden6.md3" FrameInde
 Model Garden7 { Path "models/mapobjects/plants/" Model 0 "garden7.md3" FrameIndex TOS1 A 0 0 }
 Model Garden8 { Path "models/mapobjects/plants/" Model 0 "garden8.md3" FrameIndex TOS1 A 0 0 }
 */
-Model TOSTree1 { Path "models/mapobjects/plants/" Model 0 "joshua.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree1 { Path "models/mapobjects/plants/" Model 0 "joshua.md3" SurfaceSkin 0 0 "joshua1.jpg" FrameIndex TOS1 A 0 0 }
 /*
 Model Palmtree { Path "models/mapobjects/plants/" Model 0 "palmtree.md3" FrameIndex TOS1 A 0 0 }
 Model Plant03 { Path "models/mapobjects/plants/" Model 0 "plant03.md3" FrameIndex TOS1 A 0 0 }
@@ -1551,15 +1551,26 @@ Model Plant8 { Path "models/mapobjects/plants/" Model 0 "plant8.md3" FrameIndex 
 Model Plant9 { Path "models/mapobjects/plants/" Model 0 "plant9.md3" FrameIndex TOS1 A 0 0 }
 Model Shrub { Path "models/mapobjects/plants/" Model 0 "shrub.md3" FrameIndex TOS1 A 0 0 }
 */
-Model TOSTree2 { Path "models/mapobjects/plants/" Model 0 "tree05.md3" FrameIndex TOS1 A 0 0 }
-Model TOSTree3 { Path "models/mapobjects/plants/" Model 0 "tree1.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree2 { Path "models/mapobjects/plants/" Model 0 "tree05.md3" SurfaceSkin 0 1 "tree_05t.jpg" FrameIndex TOS1 A 0 0 }
+Model TOSTree3 {
+	Path "models/mapobjects/plants/"
+	Model 0 "tree1.md3"
+
+	SurfaceSkin 0 0 "bush_2_trunk.jpg"
+	SurfaceSkin 0 2 "bush_2_inner.jpg"
+	SurfaceSkin 0 3 "bush_2_inner.jpg"
+	SurfaceSkin 0 5 "bush_2_inner.jpg"
+	SurfaceSkin 0 7 "bush_2_inner.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
 Model TOSTree4 { Path "models/mapobjects/plants/" Model 0 "tree6.md3" FrameIndex TOS1 A 0 0 }
 Model TOSTree5 { Path "models/mapobjects/plants/" Model 0 "tree8.md3" FrameIndex TOS1 A 0 0 }
 Model TOSTree6 { Path "models/mapobjects/plants/" Model 0 "tree9.md3" FrameIndex TOS1 A 0 0 }
 Model TOSTree7 { Path "models/mapobjects/trees/" Model 0 "oak1.md3" FrameIndex TOS1 A 0 0 }
-Model TOSTree8 { Path "models/mapobjects/trees/" Model 0 "tree5.md3" FrameIndex TOS1 A 0 0 }
-Model TOSTree9 { Path "models/mapobjects/trees/" Model 0 "tree6.md3" FrameIndex TOS1 A 0 0 }
-Model TOSTree10 { Path "models/mapobjects/trees/" Model 0 "tree14.md3" FrameIndex TOS1 A 0 0 }
+Model TOSTree8 { Path "models/mapobjects/trees/" Model 0 "tree5.md3" SurfaceSkin 0 0 "stamm.jpg" SurfaceSkin 0 2 "stamm.jpg" FrameIndex TOS1 A 0 0 }
+Model TOSTree9 { Path "models/mapobjects/trees/" Model 0 "tree6.md3" SurfaceSkin 0 0 "stamm.jpg" SurfaceSkin 0 2 "stamm.jpg" FrameIndex TOS1 A 0 0 }
+Model TOSTree10 { Path "models/mapobjects/trees/" Model 0 "tree14.md3" SurfaceSkin 0 1 "trunck2l.jpg" FrameIndex TOS1 A 0 0 }
 Model TOSTree11 { Path "models/mapobjects/trees/" Model 0 "tree15.md3" FrameIndex TOS1 A 0 0 }
 /*
 Model Yucca { Path "models/mapobjects/plants/" Model 0 "yucca.md3" FrameIndex TOS1 A 0 0 }
@@ -3048,7 +3059,6 @@ Model TOSBridgeConsoleP1
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 A 1 0
 	FrameIndex TOS1 A 2 0
-	FrameIndex TOS1 A 3 0
 }
 
 Model TOSBridgeConsoleP2
@@ -3069,7 +3079,6 @@ Model TOSBridgeConsoleP2
 	FrameIndex TOS1 A 0 0
 	FrameIndex TOS1 A 1 0
 	FrameIndex TOS1 A 2 0
-	FrameIndex TOS1 A 3 0
 }
 
 Model TOSBridgeConsoleP3

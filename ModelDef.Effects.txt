@@ -385,7 +385,7 @@ Model Arrow_Head
 	Path "Models/actors/player/"
 	Model 0 "head_kirk.md3"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 //	Scale -0.01 0.01 0.05
 	ZOffset -48.0
@@ -400,7 +400,7 @@ Model Arrow_Torso
 	Path "Textures/Solid/"
 	Skin 0 "blue.jpg"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	Scale -0.05 0.05 0.05
 
@@ -414,7 +414,7 @@ Model Arrow_Legs
 	Path "Textures/Solid/"
 	Skin 0 "yellow.jpg"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	Scale -0.1 0.1 0.1
 

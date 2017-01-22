@@ -523,6 +523,33 @@ Model TOSCommunicator
 	Path "models/weapons/"
 	Model 0 "communicator.md3"
 
+	PitchOffset 35.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 7.0
+	FrameIndex PHAS S 0 0
+}
+
+Model TOSCommunicator
+{
+	Path "models/weapons/"
+	Model 0 "communicator.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+	Scale 1.5 1.5 1.5
+	Offset 0.0 0.0 15.0
+	FrameIndex PHAS P 0 0
+}
+
+Model TOSCommunicator
+{
+	Path "models/weapons/"
+	Model 0 "communicator.md3"
+
 	Scale -1.0 1.0 1.0
 
 	AngleOffset -20.0
@@ -552,5 +579,4 @@ Model TOSCommunicator
 	FrameIndex PHAS M 0 10
 	FrameIndex PHAS N 0 10
 	FrameIndex PHAS O 0 10
-	FrameIndex PHAS P 0 10
 }
