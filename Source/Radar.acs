@@ -112,6 +112,17 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 	{
 		DrawBlip(CurrentTIDs[k], tid, scale, x1, y1, dist);
 	}
+
+	For (int l = 1001; l <= 1000 + PlayerCount(); l++)
+	{
+		If (l != ActivatorTID() && !PlayerIsBot(PlayerNumber()))
+		{
+			If (ThingCount(0, l) > 0)
+			{
+				DrawBlip(l, tid, scale, x1, y1, dist);
+			}
+		}
+	}
 }
 
 Function void DrawBlip(int i, int tid, int scale, int x1, int y1, int dist)
@@ -187,6 +198,20 @@ Function void DrawBlip(int i, int tid, int scale, int x1, int y1, int dist)
 				alpha = cap - ((tic - 17) * 0.03);
 			else
 				alpha = (tic * 0.03) + (cap / 2);
+		}
+		else if (CheckActorClass(i, "TrekPlayer") > 0)
+		{ //Players
+			If (GameType() == GAME_NET_DEATHMATCH)
+			{
+				graphic = StrParam(s:"Marker_", d:da);
+				color = "Marker_R";
+			}
+			Else
+			{
+				text = StrParam(d:i - 1000);
+				textcolor = "TOSLightGrey";
+				color = "Marker_G";
+			}
 		}
 		else if (CheckActorClass(i, "TurboLiftMarker") > 0)
 		{ //Turbolifts
@@ -267,6 +292,7 @@ Script "SetRadarTID" (int CurrentTID, int Dynamic)
 {
 	If (CurrentTID > 0) 	//Handling for things that already have a TID assigned in-editor.
 	{
+Printbold(d:currenttid);
 		CurrentTIDs[CurrentMax] = CurrentTID;
 		CurrentMax++;
 	}
