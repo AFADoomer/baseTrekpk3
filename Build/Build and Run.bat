@@ -30,8 +30,8 @@ SET ACSLib=TrekLib
 :: Engine/Launch Information                                                 ::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 SET Engine=C:\Games\Doom\gzdoom.exe
-SET Map=
-SET RunArgs=-file Autoload\*.* %* +skill 3 +logfile Log.txt +map %MAP%
+SET Map=DEMO
+SET RunArgs=-file Autoload\*.* %* +skill 3 +logfile Log.txt
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Tool Paths                                                                ::
@@ -119,13 +119,23 @@ CD ..
 
 ECHO อออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ
 
-IF "%1" EQU "norun" GOTO :EOF
+IF "%1" == "norun" GOTO :EOF
 
-IF "%LaunchFile%" EQU "" SET LaunchFile=%TargetFile% -iwad doom.wad
+IF [%LaunchFile%] EQU [] SET LaunchFile=%TargetFile%
 
-ECHO Launching '%LaunchFile%'...
+IF [%MAP%] EQU [] (
+	ECHO Launching '%LaunchFile%'...
+) ELSE (
+	ECHO Launching '%LaunchFile%' ^(%MAP%^)...
+)
 
-%Engine% -file %LaunchFile% %RunArgs%
+IF "%LaunchFile%"=="%TargetFile%" SET LaunchFile=%TargetFile% -iwad doom.wad
+
+IF [%MAP%] EQU [] (
+	%Engine% -file %LaunchFile% %RunArgs%
+) ELSE (
+	%Engine% -file %LaunchFile% %RunArgs% +map %MAP%
+)
 
 IF NOT EXIST %DevFolder%\%WADFolder%\Build MKDIR %DevFolder%\%WADFolder%\Build
 
