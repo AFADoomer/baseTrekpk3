@@ -292,7 +292,6 @@ Script "SetRadarTID" (int CurrentTID, int Dynamic)
 {
 	If (CurrentTID > 0) 	//Handling for things that already have a TID assigned in-editor.
 	{
-Printbold(d:currenttid);
 		CurrentTIDs[CurrentMax] = CurrentTID;
 		CurrentMax++;
 	}

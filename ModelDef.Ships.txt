@@ -332,13 +332,20 @@ Model TOSShuttleGalileo
 	USEACTORROLL
 
 	Path "Models/mapobjects/tos/shuttles"
-	Model 0 "galileo_landed.md3"
 
+	Model 0 "galileo_landed.md3"
 	FrameIndex TOS1 A 0 0
 
 	Model 0 "galileo.md3"
-
 	FrameIndex TOS1 B 0 0
+
+	Model 0 "galileo_landed.md3"
+	Skin 0 "galileo_mirror.png"
+	FrameIndex TOS2 A 0 0
+
+	Model 0 "galileo.md3"
+	Skin 0 "galileo_mirror.png"
+	FrameIndex TOS2 B 0 0
 }
 
 Model TOSShuttleAstrostein
