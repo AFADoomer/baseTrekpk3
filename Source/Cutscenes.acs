@@ -4,6 +4,8 @@ Function void Letterbox (int OnOff)
 
 	If (OnOff > 0)
 	{
+		ClearNotification();
+
 		SetFont("DARKGREY");
 		SetHudSize(320, 200, 0);
 		HudMessage (s:"A"; 0, 100, -1, 0.0, -70.0, 0);
