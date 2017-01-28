@@ -363,7 +363,7 @@ class TrekEnemyFlier : TrekEnemy
 		+NOGRAVITY;
 		+NOBLOOD;
 		YScale 1.0;
-		Painchance 128; //Really just for how often the shield flare/damage shows up.
+		Painchance 256; //Really just for how often the shield flare/damage shows up.
 		Height 32;
 		Radius 32;
 		Speed 1;
@@ -374,7 +374,9 @@ class TrekEnemyFlier : TrekEnemy
 	{
 		Spawn:
 			TOS1 A 1;
-			"####" # 1 A_Jump(256, "Stand");
+			"####" # 0 {
+				return ResolveState("Stand");
+			}
 		Stand:
 			"####" # 1 {
 				ACS_NamedExecuteAlways("SetRadarTID",0);
@@ -502,7 +504,6 @@ extend class TrekEnemyFlier
 
 			closest = mo;
 		}
-		return closest;
 
 		Finder = ThinkerIterator.Create("TOSOrbit");
 		while ( (mo = TOSOrbit(Finder.Next())) )
@@ -512,7 +513,6 @@ extend class TrekEnemyFlier
 
 			closest = mo;
 		}
-		return closest;
 
 		Finder = ThinkerIterator.Create("TOSSun");
 		while ( (mo = TOSSun(Finder.Next())) )
@@ -522,6 +522,17 @@ extend class TrekEnemyFlier
 
 			closest = mo;
 		}
+
+		Finder = ThinkerIterator.Create("PhotonGrenade");
+		while ( (mo = PhotonGrenade(Finder.Next())) )
+		{
+			if (mo.tracer != self) { continue; }
+			if (mo.alpha < 0.5) { continue; }
+//			if (closest && Distance3d(mo) > Distance3d(closest)) { continue; }
+
+			closest = mo;
+		}
+
 		return closest;
 	}
 
@@ -571,10 +582,11 @@ extend class TrekEnemyFlier
 		bool sp;
 		Actor mo;
 		if (shield && health > SpawnHealth() / 3) { //Shield flare
-			[sp, mo] = A_SpawnItemEx("ExplosionSphereWhite", 0, 0, 0, flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH | SXF_TRANSFERROLL | SXF_SETMASTER);
-			mo.alpha = 0.1;
-			mo.Scale.X = 50 / radius;
-			mo.Scale.Y = height / 30;
+//			[sp, mo] = A_SpawnItemEx("ExplosionSphereWhite", 0, 0, 0, flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH | SXF_TRANSFERROLL | SXF_SETMASTER);
+//			mo.alpha = 0.1;
+//			mo.Scale.X = 50 / radius;
+//			mo.Scale.Y = height / 30;
+			A_SpawnItemEx("ShieldShell", 0, 0, 0, flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH | SXF_TRANSFERROLL | SXF_SETMASTER);
 		} else { //Damage/Explosions
 			[sp, mo] = A_SpawnItemEx("FlareUp", 0, 0, 0, flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH | SXF_TRANSFERROLL);
 			mo.Scale.X = 0.01;
@@ -612,25 +624,31 @@ extend class TrekEnemyFlier
 		if (pitch >= 1) { pitch -= 0.5; } 
 		else if (pitch <= -1) { pitch += 0.5; }
 
-		if (closest) { collisiondistance = int((height / 2 > radius ? height / 2 : radius) * sqrt(2) + (closest.height / 2 > closest.radius ? closest.height / 2 : closest.radius) * sqrt(2)); }
+		if (closest)
+		{
+			collisiondistance = int((height / 2 > radius ? height / 2 : radius) * sqrt(2) + (closest.height / 2 > closest.radius ? closest.height / 2 : closest.radius) * sqrt(2));
+			if (closest is "PhotonGrenade") { collisiondistance = 512.0; }
+		}
 
 		if (closest && Distance3d(closest) <= collisiondistance * 2) // Collision avoidance
 		{
-			if (Distance3d(closest) <= collisiondistance)
+			if (closest.tracer != self && Distance3d(closest) <= collisiondistance)
 			{
 				A_Explode(32);
 				A_DamageSigns();
 			}
 
-			if (closest.pos.z > pos.z) { floatdir = -1; destz = pos.z - height; }
-			else if (closest.pos.z < pos.z) { floatdir = 1; destz = pos.z + height; }
+			if (closest.pos.z > pos.z) { floatdir = -1; destz = Max(pos.z - height, floorz + height); }
+			else if (closest.pos.z < pos.z) { floatdir = 1; destz = Min(pos.z + height, ceilingz - height); }
 			else
 			{
-				if (closest.pos.x > pos.x) { floatdir = -1; destz = pos.z - height; }
-				else { floatdir = 1; destz = pos.z + height; }
+				if (closest.pos.x > pos.x) { floatdir = -1; destz = Max(pos.z - height, floorz + height); }
+				else { floatdir = 1; destz = Min(pos.z + height, ceilingz - height); }
 			}
 
-			destangle = angle + Random[ShipCollisionAvoidance](15, 60);
+			if (destz == floorz + height || destz == ceilingz - height) { destz = (ceilingz - floorz) / 2; floatdir *= -1; }
+
+			destangle = angle + Random[ShipCollisionAvoidance](30, 90);
 			bRun = True;
 		}
 		else if (target && pos != old_pos)
@@ -655,7 +673,7 @@ extend class TrekEnemyFlier
 					else if (destz < pos.z - 1) { floatdir = -1; }
 					else { floatdir = 0; }
 
-					if (hascloak) { if (alpha > 0) {A_SetRenderStyle(alpha - 0.005, STYLE_Translucent); } }
+					if (hascloak) { if (alpha > 0) { A_SetRenderStyle(alpha - 0.005, STYLE_Translucent); } }
 					else { bDoFire = True; }
 				}
 			}
@@ -730,7 +748,7 @@ extend class TrekEnemyFlier
 			if (timeout <= 0 && abs(angleto(target) - angle) < fov) //'timeout' tics between firing, 'fov' degrees of firing range left/right
 			{
 				if (health <= 0) return;
-				if (A_CheckLOF("null", 0, 2048, 0, 0, 0, 0, 0, AAPTR_TARGET)) { SetStateLabel("Missile"); }
+				if (A_CheckLOF("null", CLOFF_SKIPENEMY | CLOFF_SKIPOBJECT, 2048, 0, 0, 0, 0, 0, AAPTR_TARGET)) { SetStateLabel("Missile"); }
 			}
 		}
 		else { continuousfirethreshold = 0; }

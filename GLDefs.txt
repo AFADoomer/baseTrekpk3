@@ -571,6 +571,8 @@ HardwareShader Texture Field_Y { Shader "shaders/func_forcefield.fp" Speed 10.0 
 HardwareShader Texture Field_G { Shader "shaders/func_forcefield.fp" Speed 10.0 }
 HardwareShader Texture Field_W { Shader "shaders/func_forcefield.fp" Speed 10.0 }
 
+//HardwareShader Texture "Textures/Solid/ShieldShell.jpg" { Shader "shaders/func_forcefield.fp" Speed 10.0 }
+
 HardwareShader Sprite WFLAG0 { Shader "shaders/rotate_cw.fp" Speed 10.0 }
 
 HardwareShader Texture "models/weapons/communicator_moire.png" { Shader "shaders/rotate_cw.fp" Speed 0.25 }

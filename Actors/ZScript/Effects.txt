@@ -1,0 +1,24 @@
+class ShieldShell : Actor
+{
+	int user_scale;
+
+	Default
+	{
+		+NOGRAVITY;
+		RenderStyle "Add";
+		Alpha 0.1;
+	}
+	States
+	{
+		Spawn:
+			TOS1 A 1 Bright {
+				if (master) {
+					Scale.X = 50 / master.radius;
+					Scale.Y = master.height / 30;
+					A_Warp(AAPTR_MASTER, -4.0, 0, 12.0, 0, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION);
+				}
+				A_FadeOut(0.01);
+			}
+			Loop;
+	}
+}

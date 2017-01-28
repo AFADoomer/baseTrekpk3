@@ -13,8 +13,11 @@
 //Projectiles
 #include "actors/zscript/projectiles.txt"
 
+//Effects
+#include "actors/zscript/effects.txt"
+
 //Decorations
-#include "actors/zscript/decorations/DecorationsBase.txt"
+#include "actors/zscript/decorations/decorationsbase.txt"
 #include "actors/zscript/decorations/blocks.txt"
 #include "actors/zscript/decorations/static.txt"
 #include "actors/zscript/decorations/usable.txt"

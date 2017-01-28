@@ -32,11 +32,12 @@ Model PhotonGrenade
 	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
-
+/*
 	Path "Textures/Solid/"
 	Skin 0 "Yellow.jpg"
 
 	FrameIndex TOS1 B 0 0
+*/
 }
 
 Model PhotonGrenadeHoming
@@ -54,11 +55,12 @@ Model PhotonGrenadeHoming
 	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
-
+/*
 	Path "Textures/Solid/"
 	Skin 0 "Yellow.jpg"
 
 	FrameIndex TOS1 B 0 0
+*/
 }
 
 Model PhotonTorpedo
@@ -78,11 +80,12 @@ Model PhotonTorpedo
 	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
-
+/*
 	Path "Textures/Solid/"
 	Skin 0 "Purple.jpg"
 
 	FrameIndex TOS1 B 0 0
+*/
 }
 
 Model RomulanTorpedo
@@ -102,11 +105,12 @@ Model RomulanTorpedo
 	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
-
+/*
 	Path "Textures/Solid/"
 	Skin 0 "Red_T.png"
 
 	FrameIndex TOS1 B 0 0
+*/
 }
 
 
@@ -127,11 +131,12 @@ Model DisruptorGrenade
 	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
-
+/*
 	Path "Textures/Solid/"
 	Skin 0 "Yellow.jpg"
 
 	FrameIndex TOS1 B 0 0
+*/
 }
 
 /*
@@ -464,5 +469,19 @@ Model Arrow_Legs
 
 	Scale -0.1 0.1 0.1
 
+	FrameIndex TOS1 A 0 0
+}
+
+Model ShieldShell
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "ShieldShell.jpg"
+
+	Scale 0.1 0.1 0.1
 	FrameIndex TOS1 A 0 0
 }
