@@ -2013,6 +2013,7 @@ Script "A_CheckBeamUp" (void)
 	ChangeLevel ("SHIP", 3 + PlayerNumber(), CHANGELEVEL_NOINTERMISSION | CHANGELEVEL_PRERAISEWEAPON, -1);
 }
 
+/* ZScriptified as part of TOSCrate
 #define DropClassCount 12
 
 str DropClasses[DropClassCount] = {
@@ -2041,6 +2042,7 @@ Script "A_Drop" (int DropIndex)
 	Spawn (strDropItem, GetActorX(0), GetActorY(0), GetActorZ(0), itemTID);
 	SetActorProperty(itemTID, APROP_Dropped, 0);
 }
+*/
 
 Script "ChangeCamera" (int CameraTID, int timeDelay)
 {

@@ -537,6 +537,10 @@ DoomEdNums
 	24002 = TOSPirateAlt
 	24003 = TOSPirateAlt2
 	24004 = TOSPirateCapt
+	24500 = TOSD7Flier
+	24501 = TOSAnaxagorasFlier
+	24502 = TOSBoPFlier
+	24503 = TOSEnterpriseFlier
 
 //Weapons
 	25000 = PhaserType1

@@ -61,28 +61,55 @@ Model PhotonGrenadeHoming
 	FrameIndex TOS1 B 0 0
 }
 
-
-Model PhotonGrenadeShadow
+Model PhotonTorpedo
 {
 	Path "Models/weapons/"
 	Model 0 "grenade_projectile.md3"
 
 	Path "Textures/Solid/"
-	Skin 0 "Blue.jpg"
+	Skin 0 "White_T.png"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
+
+	Path "Textures/Solid/"
+	Skin 0 "Purple.jpg"
+
+	FrameIndex TOS1 B 0 0
 }
 
-Model PhotonGrenadeShadow2
+Model RomulanTorpedo
 {
 	Path "Models/weapons/"
 	Model 0 "grenade_projectile.md3"
 
 	Path "Textures/Solid/"
-	Skin 0 "Yellow.jpg"
+	Skin 0 "Yellow_T.png"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
+
+	Path "Textures/Solid/"
+	Skin 0 "Red_T.png"
+
+	FrameIndex TOS1 B 0 0
 }
+
+
 
 Model DisruptorGrenade
 {
@@ -191,6 +218,20 @@ Model ExplosionSphereGreen
 	FrameIndex TOS1 A 0 0
 }
 
+Model ExplosionSpherePurple
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "planet.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Purple.jpg"
+
+	Rotating
+	Rotation-Speed 1.0
+
+	Scale 0.05 0.05 0.05
+	FrameIndex TOS1 A 0 0
+}
+
 Model PulseSphere
 {
 	Path "Models/mapobjects/tos/"
@@ -229,6 +270,9 @@ Model ExplosionSphereYellow
 
 Model ExplosionSphereWhite
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "planet.md3"
 	Path "Textures/Solid/"
@@ -255,6 +299,7 @@ Model ExplosionSphereWhite2
 	FrameIndex TOS1 A 0 0
 }
 
+/*
 Model Trail
 {
 	Path "Models/mapobjects/tos/"
@@ -282,6 +327,7 @@ Model TrailShell
 	Scale 0.1 0.1 0.1
 	FrameIndex TOS1 A 0 0
 }
+*/
 
 Model Impact
 {
@@ -307,9 +353,9 @@ Model LaserBeam
 
 	INHERITACTORPITCH
 
-	Scale 0.5 0.5 1.0
+//	Scale 0.5 0.5 1.0
 
-	FrameIndex LAZR A 0 0
+	FrameIndex TOS1 A 0 0
 }
 
 Model LaserBeam_R
@@ -319,9 +365,9 @@ Model LaserBeam_R
 
 	INHERITACTORPITCH
 
-	Scale 0.5 0.5 1.0
+//	Scale 0.5 0.5 1.0
 
-	FrameIndex LAZR A 0 0
+	FrameIndex TOS1 A 0 0
 }
 
 Model LaserBeam_O
@@ -332,9 +378,9 @@ Model LaserBeam_O
 
 	INHERITACTORPITCH
 
-	Scale 0.5 0.5 1.0
+//	Scale 0.5 0.5 1.0
 
-	FrameIndex LAZR A 0 0
+	FrameIndex TOS1 A 0 0
 }
 
 Model LaserBeam_G
@@ -345,9 +391,9 @@ Model LaserBeam_G
 
 	INHERITACTORPITCH
 
-	Scale 0.5 0.5 1.0
+//	Scale 0.5 0.5 1.0
 
-	FrameIndex LAZR A 0 0
+	FrameIndex TOS1 A 0 0
 }
 
 Model LaserBeam_B
@@ -358,9 +404,9 @@ Model LaserBeam_B
 
 	INHERITACTORPITCH
 
-	Scale 0.5 0.5 1.0
+//	Scale 0.5 0.5 1.0
 
-	FrameIndex LAZR A 0 0
+	FrameIndex TOS1 A 0 0
 }
 
 Model LaserBeam_P
@@ -371,9 +417,9 @@ Model LaserBeam_P
 
 	INHERITACTORPITCH
 
-	Scale 0.5 0.5 1.0
+//	Scale 0.5 0.5 1.0
 
-	FrameIndex LAZR A 0 0
+	FrameIndex TOS1 A 0 0
 }
 
 Model Arrow_Head

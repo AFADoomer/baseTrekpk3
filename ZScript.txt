@@ -10,7 +10,11 @@
 #include "actors/zscript/weapons/tricorder.txt"
 #include "actors/zscript/weapons/miscellaneous.txt"
 
+//Projectiles
+#include "actors/zscript/projectiles.txt"
+
 //Decorations
+#include "actors/zscript/decorations/DecorationsBase.txt"
 #include "actors/zscript/decorations/blocks.txt"
 #include "actors/zscript/decorations/static.txt"
 #include "actors/zscript/decorations/usable.txt"
@@ -23,4 +27,6 @@
 #include "actors/zscript/enemies/enemybase.txt"
 #include "actors/zscript/enemies/klingons.txt"
 #include "actors/zscript/enemies/pirates.txt"
+#include "actors/zscript/enemies/romulans.txt"
+#include "actors/zscript/enemies/starfleet.txt"
 #include "actors/zscript/npcs.txt"

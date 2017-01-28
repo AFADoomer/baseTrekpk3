@@ -1,0 +1,22 @@
+class TOSBoPFlier : TrekEnemyFlier
+{
+	Default
+	{
+		Radius 24;
+		Health 300;
+		Speed 4;
+		Obituary "%o's ship was destroyed by a Romulan Bird of Prey.";
+	}
+
+	States
+	{
+		Spawn:
+			TOS1 A 0;
+			TOS1 A 1 { hascloak = True; }
+		Chase:
+			"####" # 1 A_ShipLookChase(512, 30.0);
+			Loop;
+		Missile:
+			Goto Missile.RomulanTorpedo;
+	}
+}

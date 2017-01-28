@@ -1,4 +1,4 @@
-class TOSKlingon : TrekEnemy
+class TOSKlingon : TrekEnemyActor
 {
 	Default
 	{
@@ -18,6 +18,22 @@ class TOSKlingon : TrekEnemy
 			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("A_TransportK", 0);
 			"####" A 105;
 			Goto Super::Spawn;
+	}
+}
+
+class TOSD7Flier : TrekEnemyFlier
+{
+	Default
+	{
+		Radius 24;
+		Health 500;
+		Speed 3;
+		Obituary "%o's ship was destroyed by a Klingon cruiser.";
+	}
+	States
+	{
+		Missile:
+			Goto Missile.Disruptor;
 	}
 }
 

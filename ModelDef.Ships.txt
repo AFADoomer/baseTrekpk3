@@ -12,6 +12,20 @@ Model TOSEnterprise
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSEnterpriseFlier
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/enterprise/"
+	Model 0 "enterprise.md3"
+	SurfaceSkin 0 0 "bus1.png"
+
+	Scale 0.1 0.1 0.1
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model TOSEnterprise
 {
 	USEACTORPITCH
@@ -366,6 +380,19 @@ Model TOSShuttleAstrostein
 
 Model TOSD7
 {
+	INHERITACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/D-7"
+	Model 0 "D7.md3"
+
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSD7Flier
+{
 	USEACTORPITCH
 	USEACTORROLL
 
@@ -373,6 +400,8 @@ Model TOSD7
 	Model 0 "D7.md3"
 
 	Scale 4.0 4.0 4.0
+
+	ZOffset 16.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -431,6 +460,22 @@ Model TOSAnaxagoras
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSAnaxagorasFlier
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/Anaxagoras/"
+	Model 0 "Anaxagoras.md3"
+	SurfaceSkin 0 0 "Anaxagoras_Top_Pristine.png"
+	SurfaceSkin 0 1 "Anaxagoras_Bottom_Pristine.png"
+	SurfaceSkin 0 2 "Anaxagoras_Nacelles_Pristine.png"
+
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model TOSAnaxagoras
 {
 	USEACTORPITCH
@@ -451,6 +496,19 @@ Model TOSAnaxagoras
 }
 
 Model TOSBoP
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/BoP/"
+	Model 0 "BoP.md3"
+
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSBoPFlier
 {
 	USEACTORPITCH
 	USEACTORROLL

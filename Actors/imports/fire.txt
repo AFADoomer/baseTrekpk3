@@ -89,7 +89,7 @@ ACTOR Smoke
 			SMOC A 0
 			"####" # 3 {
 				A_SetRoll(RandomPick(0, 180));
-				A_SetScale(FRandomPick(0.5, 0.75, 1.0));
+				A_SetScale(FRandomPick(0.5, 0.75, 1.0) * ScaleX);
 				ThrustThingZ(0, Random(2,6), 0, 0);
 				ThrustThing(Random(0,255), Random(0,1), 0, 0);
 			}
@@ -123,7 +123,7 @@ ACTOR Flame
 			FLAM A 2 BRIGHT NoDelay {
 				ACS_NamedExecuteAlways("SetRadarTID", 0, 0, 1);
 				A_SetRoll(RandomPick(0, 180));
-				A_SetScale(FRandomPick(0.2, 0.13, 0.07));
+				A_SetScale(FRandomPick(0.2, 0.13, 0.07) * ScaleX);
 				ThrustThingZ(0, Random(2,6), 0, 0);
 				ThrustThing(Random(0,255), Random(0,1), 0, 0);
 			}

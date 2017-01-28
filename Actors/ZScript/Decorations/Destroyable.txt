@@ -1,16 +1,3 @@
-class DestroyableDecoration : Decoration
-{
-	//$Sprite TOS1A0
-	Default
-	{
-		-INVULNERABLE
-		-NODAMAGE
-		-DONTTHRUST 
-		Health 10;
-		Mass 50;
-	}
-}
-
 class TOSChair : DestroyableDecoration
 {
 	Default

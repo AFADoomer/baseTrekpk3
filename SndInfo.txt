@@ -127,6 +127,8 @@ hangar/lift/end				hb_lifte
 
 intercom				whistle
 
+ship/hum				shiphum
+
 /* Musical Cues */
 music/load_1				load_1
 music/ship/load				intro

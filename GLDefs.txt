@@ -310,6 +310,50 @@ Object BluePhaserParticle
 }
 
 /*
+Object LaserBeam
+{
+	Frame TOS1
+	{
+		light SmallRedLight
+	}
+}
+Object LaserBeam_R
+{
+	Frame TOS1
+	{
+		light SmallRedLight
+	}
+}
+Object LaserBeam_O
+{
+	Frame TOS1
+	{
+		light SmallOrangeLight
+	}
+}
+Object LaserBeam_G
+{
+	Frame TOS1
+	{
+		light SmallGreenLight
+	}
+}
+Object LaserBeam_B
+{
+	Frame TOS1
+	{
+		light SmallBlueLight
+	}
+}
+Object LaserBeam_P
+{
+	Frame TOS1
+	{
+		light SmallPurpleLight
+	}
+}
+*/
+/*
 object DisruptorBolt
 {
 	frame TOS1
@@ -575,3 +619,8 @@ brightmap texture "models/mapobjects/tos/Anaxagoras/Anaxagoras_Top_Pristine.png"
 
 brightmap texture "models/mapobjects/tos/BoP/wbrd1.png" { map "models/mapobjects/tos/BoP/wbrd1_l.png" }
 brightmap texture "models/mapobjects/tos/BoP/wbrd2.png" { map "models/mapobjects/tos/BoP/wbrd2_l.png" }
+
+brightmap texture TRANA0 { map "graphics/effects/Flare.png" }
+brightmap texture TRANB0 { map "graphics/effects/Flare.png" }
+brightmap texture TRANC0 { map "graphics/effects/Flare.png" }
+brightmap texture TRAND0 { map "graphics/effects/Flare.png" }

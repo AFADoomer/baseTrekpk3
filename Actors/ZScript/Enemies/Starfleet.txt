@@ -1,0 +1,25 @@
+class TOSEnterpriseFlier : TrekEnemyFlier
+{
+	Default
+	{
+		+FRIENDLY
+		Radius 28;
+		Health 500;
+		Speed 2;
+		Obituary "%o's ship was destroyed by a Starship.";
+	}
+
+	States
+	{
+		Chase:
+			"####" # 1 A_ShipLookChase(64, 135.0);
+			Loop;
+		Missile:
+			"####" # 0 {
+				if (Random[TorpedoJump]() < 16) {
+					return ResolveState("Missile.Torpedo");
+				}
+				return ResolveState("Missile.Phaser");
+			}
+	}
+}

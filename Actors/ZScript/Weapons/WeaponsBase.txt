@@ -49,10 +49,11 @@ extend class TOSWeapon
 	action void A_FirePhaser(class<Actor> beam, class<Actor> light, class<Actor> hitpuff, int damage = 3, class<Actor> sputter = null)
 	{
 		A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 999999);
-		A_SpawnItemEx(beam, 0, 0, CallACS("GetActorViewHeight") / 2 + 8.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
-		A_SetScale(FRandom(0.95, 1.05), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+//		A_SpawnItemEx(beam, 0, 0, CallACS("GetActorViewHeight") / 2 + 8.0, 0, 0, 0, 0, SXF_NOCHECKPOSITION | SXF_ISTRACER | SXF_SETMASTER);
+//		A_SetScale(FRandom(0.95, 1.05), GetDistance(1, AAPTR_MASTER), AAPTR_TRACER);
+//		A_RailAttack(0, 0, 0, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, light, 16);
+		A_RailAttack(0, 0, 0, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "", 0, 0, 2048, 1, 1.0, 0, beam, 16);
 		A_RailAttack(0, 0, 0, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, light, 16);
-		A_RailAttack(0, 0, 0, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, "SmallBlueLight", 16);
 
 		If (sputter)
 		{

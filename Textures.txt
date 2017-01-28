@@ -609,6 +609,14 @@ Sprite FLARB0, 64, 64
 	Patch Burst_B, 0, 0
 }
 
+Sprite FLARP0, 64, 64
+{
+	Offset 32, 32
+	XScale 3.0
+	YScale 3.0
+	Patch Burst_P, 0, 0
+}
+
 Sprite FLARY0, 64, 64
 {
 	Offset 32, 32
@@ -625,6 +633,14 @@ Sprite FLARW0, 64, 64
 	Patch Burst, 0, 0
 }
 
+Sprite FLARR0, 64, 64
+{
+	Offset 32, 32
+	XScale 3.0
+	YScale 3.0
+	Patch Burst_R, 0, 0
+}
+
 Sprite FLARE0, 320, 320
 {
 	Offset 160, 160
@@ -633,7 +649,7 @@ Sprite FLARE0, 320, 320
 	Patch Flare, 0, 0
 }
 
-Sprite FLARS0, 256, 256
+Sprite FLASH0, 256, 256
 {
 	Offset 128, 128
 	XScale 2.5
@@ -641,7 +657,7 @@ Sprite FLARS0, 256, 256
 	Patch SunFlare, 0, 0
 }
 
-Sprite FLARF0, 256, 256
+Sprite FLASF0, 256, 256
 {
 	Offset 128, 128
 	XScale 2.5
@@ -649,7 +665,7 @@ Sprite FLARF0, 256, 256
 	Patch SunFlare, 0, 0
 }
 
-Sprite FLARR0, 256, 256
+Sprite FLASR0, 256, 256
 {
 	Offset 128, 128
 	XScale 2.5
