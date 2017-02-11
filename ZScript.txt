@@ -14,7 +14,9 @@
 #include "actors/zscript/projectiles.txt"
 
 //Effects
-#include "actors/zscript/effects.txt"
+#include "actors/zscript/effects/shieldshell.txt"
+#include "actors/zscript/effects/sparks.txt"
+#include "actors/zscript/effects/fountain.txt"
 
 //Decorations
 #include "actors/zscript/decorations/decorationsbase.txt"
@@ -24,10 +26,10 @@
 #include "actors/zscript/decorations/destroyable.txt"
 #include "actors/zscript/decorations/redalert.txt"
 #include "actors/zscript/decorations/orbiters.txt"
-#include "actors/zscript/effects/sparks.txt"
 
 //Enemies and NPCs
 #include "actors/zscript/enemies/enemybase.txt"
+#include "actors/zscript/enemies/weaponspots.txt"
 #include "actors/zscript/enemies/klingons.txt"
 #include "actors/zscript/enemies/pirates.txt"
 #include "actors/zscript/enemies/romulans.txt"

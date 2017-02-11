@@ -218,7 +218,7 @@ class TOSCloset : UsableDecoration
 		+USESPECIAL
 		Radius 16;
 		Height 24;
-		Activation 1024; //THINGSPEC_Switch;
+		Activation THINGSPEC_Switch;
 		Tag "Closet";
 	}
 	States
@@ -250,7 +250,7 @@ class TOSTubeHatch : UsableDecoration
 		Radius 32;
 		Height 2;
 		Health 99;
-		Activation THINGSPEC_ThingTargets | 1024; //THINGSPEC_Switch;
+		Activation THINGSPEC_ThingTargets | THINGSPEC_Switch;
 		Tag "Access Hatch";
 	}
 	States
@@ -312,7 +312,7 @@ class TOSDilithiumChamber : UsableDecoration
 		Radius 6;
 		Height 24;
 		Health 99;
-		Activation THINGSPEC_ThingTargets | 1024; //THINGSPEC_Switch;
+		Activation THINGSPEC_ThingTargets | THINGSPEC_Switch;
 		Tag "Dilithium Chamber";
 	}
 	States

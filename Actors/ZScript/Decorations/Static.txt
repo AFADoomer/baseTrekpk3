@@ -452,23 +452,6 @@ class TOSTree9 : TOSTree1 {}
 class TOSTree10 : TOSTree1 {}
 class TOSTree11 : TOSTree1 {}
 
-class Fountain : Decoration
-{
-	Default
-	{
-		RenderStyle 'STYLE_Translucent';
-		Alpha 0.4;
-	}
-	States
-	{
-		Initial:
-			FNTN A 5 A_SetScale(0.6, 0.75);
-		Spray:
-			FNTN ABCD 3;
-			Loop;
-	}
-}
-
 class TOSDiningRib : Decoration { Default { Height 0; } }
 class TOSSickbayBed : Decoration
 {

@@ -34,6 +34,7 @@ class TOSPirateCapt : TOSPirate
 	Default
 	{
 		Speed 0;
+		Mass 800;
 		Health 125;
 		Painchance 255;
 		Obituary "%o was killed by the pirate Captain.";
@@ -68,28 +69,27 @@ class TOSAnaxagorasFlier : TrekEnemyFlier
 	Default
 	{
 		Radius 24;
-		Health 300;
+		Height 20;
+		Health 600;
 		Speed 1;
 		Obituary "%o's ship was destroyed by a rogue Starship.";
+		TrekEnemyFlier.CenterofGravityZ -4;
+		TrekEnemyFlier.CenterofGravityX -14;
+		TrekEnemyFlier.Maneuverability 92;
+		TrekEnemyFlier.FOV 135;
+		TrekEnemyFlier.TorpedoChance 2;
+		Species "Pirate";
 	}
 
 	States
 	{
-		Chase:
-			"####" # 1 A_ShipLookChase(64, 90.0);
-			Loop;
+		Spawn:
+			TOS1 A 1;
+			"####" # 0 {
+				A_SpawnItemEx("PhaserSpot", 1, 0, 0.5, flags:SXF_SETMASTER);
+			}
+			Goto Super::Spawn;
 		Missile:
-			"####" # 0 {
-				if (Random[TorpedoJump]() < 2) {
-					return ResolveState("Missile.Torpedo");
-				}
-				return ResolveState("Missile.Phaser");
-			}
-		Missile.Torpedo:
-			"####" # 0 {
-				A_FireTorpedo("PhotonTorpedo", zoffset:16);
-				timeout = 140;
-				return ResolveState("Chase");
-			}
+			Goto Missile.Torpedo;
 	}
 }

@@ -1,0 +1,184 @@
+/*
+class Fountain : Decoration
+{
+	Default
+	{
+		RenderStyle 'STYLE_Translucent';
+		Alpha 0.4;
+	}
+	States
+	{
+		Initial:
+			FNTN ABCD 2 A_SetScale(0.6, 0.75);
+			Loop;
+	}
+}
+
+
+*/
+
+class Droplet : actor
+{
+	double fadeamt;
+	int rollamt;
+
+	Default
+	{
+		PROJECTILE;
+		+NOBLOCKMAP;
+
+		+NOTELEPORT;
+		-NOGRAVITY;
+		+ROLLSPRITE;
+		+FORCEXYBILLBOARD;
+		Height 2;
+		Radius 1;
+		Speed 5;
+		Mass 1;
+		Scale 0.025;
+		Gravity 0.25;
+		RenderStyle "AddStencil";
+		StencilColor "White";
+		BounceType "Hexen";
+		BounceFactor 0.2;
+	}
+
+	States
+	{
+		Spawn:
+			SPLA S 0 NoDelay {
+				SetShade(RandomPick(color(27, 243, 255), color(1, 184, 228), color(3, 161, 206), color(3, 139, 201), color(22, 247, 249), color(220, 247, 249)));
+				if (master) {
+					fadeamt = 0.05 / master.Scale.Y * gravity;
+				} else {
+					fadeamt = 0.05 * gravity;
+				}
+			}
+		Initial:
+			"####" # 0 {
+				Scale.X = Scale.X * (FRandom(0.7, 1.3));
+				Scale.Y = Scale.Y * (FRandom(0.7, 1.3));
+				rollamt = Random(-15, 15);
+			}
+		Draw:
+			"####" # 1 {
+				roll += rollamt;
+				A_FadeOut(fadeamt);
+			}
+			Loop;
+		Death:
+			TNT1 A 1;
+			Stop;
+	}
+}
+
+class DropletShadow : actor
+{
+	int user_scale;
+
+	Default
+	{
+		+NOGRAVITY;
+		+NOBLOCKMAP;
+		RenderStyle "AddStencil";
+		Alpha 0.75;
+	}
+
+	States
+	{
+		Spawn:
+			TOS1 A 0 {
+				user_scale += 1;
+				A_SetScale(1.0 - user_scale * 0.1);
+
+				if (master) { SetShade(master.fillcolor); alpha = master.alpha; }
+			}
+		SpawnLoop:
+			FLAR E 1 Bright A_FadeOut(0.25);
+			Loop;
+	}
+}
+
+
+class Fountain : SwitchableDecoration 
+{
+	int spread;
+	int dropletcount;
+
+	Default
+	{
+		+INVISIBLE
+		+NOBLOCKMAP;
+		+NOGRAVITY;
+		+NOINTERACTION;
+		+CLIENTSIDEONLY;
+		Height 2;
+		Radius 1;
+	}
+
+	void A_DoDropletInterval()
+	{
+		int Interval;
+
+		Activate(self);
+
+		if (args[2] > 0)
+		{
+			spread = args[2];
+		}
+		else
+		{
+			spread = 10;
+		}
+
+		if(args[0] > 0 || args[1] > 0)
+		{
+			Interval = Random[Droplets](args[0], args[1]);
+		}
+		else
+		{
+			Interval = 1;
+		}
+		A_SetTics(Interval);
+	}
+
+	States
+	{
+		Spawn:
+			UNKN A 5;
+		SpawnLoop:
+			UNKN A 1 A_DoDropletInterval();
+			Loop;
+		Active:
+			UNKN A 0;
+			Goto SpawnDroplets;
+		SpawnDroplets:
+			UNKN A 1 {
+				A_SetTics(Random(0, 1));
+			}
+			UNKN A 0 {
+				if (dropletcount < 75)
+				{
+					int waterangle;
+
+					if (pitch % 180 == 0) {
+						waterangle = Random(0, 360);
+					} else {
+						waterangle = Random(-spread, spread);
+					}
+
+					let mo = A_SpawnProjectile("Droplet", 0, 0, waterangle, CMF_AIMDIRECTION, 270 - pitch + FRandom(-spread, spread));
+					mo.master = self;
+
+					dropletcount++;
+					return ResolveState("SpawnDroplets");
+				}
+
+				dropletcount = 0;
+				return ResolveState("SpawnLoop");
+			}
+		Inactive:
+			UNKN A -1;
+			Loop;
+	}
+}

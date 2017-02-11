@@ -3,23 +3,81 @@ class TOSEnterpriseFlier : TrekEnemyFlier
 	Default
 	{
 		+FRIENDLY
+		Height 24;
 		Radius 28;
-		Health 500;
+		Mass 900;
+		Health 1000;
 		Speed 2;
 		Obituary "%o's ship was destroyed by a Starship.";
+		TrekEnemyFlier.NonAggressive True;
+		TrekEnemyFlier.CenterofGravityZ 0;
+		TrekEnemyFlier.CenterofGravityX -26;
+		TrekEnemyFlier.Maneuverability 64;
+		TrekEnemyFlier.FOV 135;
+		TrekEnemyFlier.TorpedoChance 16;
+		Species "Starfleet";
 	}
 
 	States
 	{
-		Chase:
-			"####" # 1 A_ShipLookChase(64, 135.0);
-			Loop;
-		Missile:
+		Spawn:
+			TOS1 A 1;
 			"####" # 0 {
-				if (Random[TorpedoJump]() < 16) {
-					return ResolveState("Missile.Torpedo");
+				if (!bFriendly) { passive = False; }
+				bool temp;
+				Actor mo;
+
+				A_SpawnItemEx("PhaserSpot", 1, -0.25, -0.5, flags:SXF_SETMASTER);
+
+				[temp, mo] = A_SpawnItemEx("PhaserSpot", 1, 0.25, -0.5, flags:SXF_SETMASTER);
+				if (temp) { PhaserSpot(mo).independent = True; }
+
+				[temp, mo] = A_SpawnItemEx("PhaserSpot", -36, 0.0, -1.75, angle:180.0, flags:SXF_SETMASTER);
+				if (temp) {
+					PhaserSpot(mo).independent = True;
+					PhaserSpot(mo).fov = 60;
 				}
-				return ResolveState("Missile.Phaser");
+				[temp, mo] = A_SpawnItemEx("PhotonTorpedoSpot", -36, 0.0, -1.5, angle:180.0, flags:SXF_SETMASTER);
+				if (temp) {
+					PhaserSpot(mo).independent = True;
+					PhaserSpot(mo).fov = 30;
+				}
 			}
+			Goto Super::Spawn;
+		Missile:
+			Goto Missile.Torpedo;
+	}
+}
+
+class TOSRahmanFlier : TOSEnterpriseFlier
+{
+	Default
+	{
+		Height 20;
+		Mass 500;
+		Health 700;
+		TrekEnemyFlier.CenterofGravityZ -4;
+		TrekEnemyFlier.Maneuverability 48;
+		TrekEnemyFlier.FOV 160;
+		TrekEnemyFlier.TorpedoChance 24;
+	}
+
+	States
+	{
+		Spawn:
+			TOS1 A 1;
+			"####" # 0 {
+				if (!bFriendly) { passive = False; }
+				bool temp;
+				Actor mo;
+
+				A_SpawnItemEx("PhaserSpot", 1, -0.25, -0.5, flags:SXF_SETMASTER);
+
+				[temp, mo] = A_SpawnItemEx("PhaserSpot", 1, 0.25, -0.5, flags:SXF_SETMASTER);
+				if (temp) { PhaserSpot(mo).independent = True; }
+			}
+			Goto TrekEnemyFlier::Spawn;
+		Missile:
+			Goto Missile.Torpedo;
 	}
 }

@@ -67,12 +67,12 @@ Model PhotonTorpedo
 {
 	Path "Models/weapons/"
 	Model 0 "grenade_projectile.md3"
-
 	Path "Textures/Solid/"
 	Skin 0 "White_T.png"
 
 	USEACTORPITCH
 	USEACTORROLL
+	PITCHFROMMOMENTUM
 
 	ROTATING
 
@@ -80,12 +80,26 @@ Model PhotonTorpedo
 	Rotation-Vector 1.0 1.0 1.0
 
 	FrameIndex TOS1 A 0 0
-/*
-	Path "Textures/Solid/"
-	Skin 0 "Purple.jpg"
+}
 
-	FrameIndex TOS1 B 0 0
-*/
+Model PhotonTorpedoTrail
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Purple_T.png"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 0.0 0.0
+
+	Scale 2.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
 }
 
 Model RomulanTorpedo
@@ -98,6 +112,7 @@ Model RomulanTorpedo
 
 	USEACTORPITCH
 	USEACTORROLL
+	PITCHFROMMOMENTUM
 
 	ROTATING
 
@@ -113,7 +128,26 @@ Model RomulanTorpedo
 */
 }
 
+Model RomulanTorpedoTrail
+{
+	Path "Models/weapons/"
+	Model 0 "projectile.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Red_T.png"
 
+	USEACTORPITCH
+	USEACTORROLL
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 0.0 0.0
+
+	Scale 2.25 1.75 1.75
+	Offset -4.0 0.0 0.0
+
+	FrameIndex TOS1 A 0 0
+}
 
 Model DisruptorGrenade
 {
@@ -423,6 +457,18 @@ Model LaserBeam_P
 	INHERITACTORPITCH
 
 //	Scale 0.5 0.5 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model LaserBeam_Ship
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam_ship.md3"
+
+	INHERITACTORPITCH
+
+	Scale 1.0 0.5 0.5
 
 	FrameIndex TOS1 A 0 0
 }

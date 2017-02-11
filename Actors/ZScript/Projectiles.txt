@@ -4,6 +4,8 @@ class DisruptorBolt : Actor
 	{
 		PROJECTILE;
 		+HITMASTER;
+		+SEEKERMISSILE;
+		+SPAWNSOUNDSOURCE;
 		Radius 4;
 		Height 4;
 		Speed 40;
@@ -24,9 +26,11 @@ class DisruptorBolt : Actor
 			TOS1 A 0 A_SetTranslucent(frandom(0.85, 1.0), 1);
 			TOS1 A 1 Bright Light("DisruptorLight");
 			TOS1 A 0 {
+				if (master is "TrekEnemyFlier") { A_SeekerMissile(1, 1, SMF_PRECISE, 0); }
 				A_SetPitch(-pitch + 90);
 				A_SpawnItemEx("Flare_G", 0, 0, 0, 0, 0, 0, angle, SXF_TRANSFERPITCH);
 				A_SetPitch(-pitch + 90);
+
 				if (waterlevel > 0) {
 					return ResolveState("Death");
 				} else {
@@ -50,7 +54,8 @@ class DisruptorGrenade : Actor
 	{
 		PROJECTILE;
 		-NOGRAVITY;
-		+FOILINVUL;
+		+SEEKERMISSILE;
+		+SPAWNSOUNDSOURCE;
 		Radius 6;
 		Height 6;
 		Damage 6;
@@ -70,6 +75,7 @@ class DisruptorGrenade : Actor
 			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0, 0, 1);
 		Static:
 			"####" # 1 Bright Light("DisruptorLight") {
+				if (master is "TrekEnemyFlier") { A_SeekerMissile(1, 1, SMF_PRECISE); Speed = 12; }
 				A_SpawnItemEx("WpnFlare_G", 0, 0, 0, 0, 0, 0, angle);
 				if (waterlevel > 0) {
 					return ResolveState("Death");
@@ -80,6 +86,7 @@ class DisruptorGrenade : Actor
 			Loop;
 		Death:
 			"####" # 1 {
+				A_Scream();
 				A_SetScale(Radius / 16.0);
 				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
 				A_SetScale(1.0);
@@ -102,8 +109,8 @@ class PhotonGrenade : Actor
 		PROJECTILE;
 		-NOGRAVITY;
 		+SEEKERMISSILE;
-		+FOILINVUL;
-		Radius 6;
+		+SPAWNSOUNDSOURCE;
+		Radius 3;
 		Height 6;
 		Damage 25;
 		RenderStyle "Add";
@@ -111,7 +118,7 @@ class PhotonGrenade : Actor
 		Scale 0.75;
 		Gravity 0.05;
 		Speed 18;
-		ActiveSound "weapons/photon_active";
+		SeeSound "weapons/photon";
 		DeathSound "weapons/photon_hit";
 		Decal "Scorch";
 	}
@@ -119,7 +126,6 @@ class PhotonGrenade : Actor
 	{
 		Spawn:
 			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("SetRadarTID",0, 0, 1);
-			TOS1 A 5 Bright A_LoopActiveSound;
 			TOS1 A 0 A_Jump(256, "Static");
 		Static:
 			TOS1 A 1 Bright {
@@ -134,6 +140,7 @@ class PhotonGrenade : Actor
 			Loop;
 		Death:
 			"####" # 1 {
+				A_Scream();
 				A_SetScale(Radius / 16.0);
 				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
 				A_SetScale(1.0);
@@ -157,7 +164,7 @@ class PhotonGrenadeHoming : PhotonGrenade
 	{
 		Static:
 			TOS1 A 1 Bright {
-				A_SeekerMissile(0, 4, SMF_LOOK | SMF_PRECISE, 256, 10);
+				A_SeekerMissile(0, 4, SMF_LOOK | SMF_PRECISE, 256, 8);
 				A_SpawnItemEx("Flare_B", 0, 0, 0, 0, 0, 0, angle);
 				A_SpawnItemEx("PhotonGrenadeShadow2", 0, 0, 0, 0, 0, 0, 0);
 				if (waterlevel > 0 || user_timer > 115) {
@@ -182,10 +189,10 @@ class PhotonTorpedo : PhotonGrenade
 	States
 	{
 		Static:
-			TOS1 A 1 Bright {
-				A_SeekerMissile(5, 1, SMF_LOOK | SMF_PRECISE, 256, 10);
-				A_SpawnItemEx("Flare_P", 0, 0, 0, 0, 0, 0, angle);
-				A_SpawnItemEx("PhotonTorpedoShadow", 0, 0, 0, 0, 0, 0, 0);
+			TOS1 A 1 Bright Light("PhotonTorpedoLight") {
+				A_SeekerMissile(2, 1, SMF_LOOK | SMF_PRECISE, 128, 16);
+				A_SpawnItemEx("Flare_P");
+				A_SpawnItemEx("PhotonTorpedoTrail", flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH);
 				if (waterlevel > 0 || user_timer > 115) {
 					return ResolveState("Death");
 				} else {
@@ -197,18 +204,40 @@ class PhotonTorpedo : PhotonGrenade
 		Death:
 			"####" # 1 {
 				A_SetScale(Radius / 16.0);
-				A_SpawnItemEx("SmokePuff", 0, 0, 0, 0, 0, 0, 0, SXF_TRANSFERSCALE);
+				A_SpawnItemEx("SmokePuff", flags:SXF_TRANSFERSCALE);
 				A_SetScale(1.0);
 			}
 			TNT1 A 15 Bright {
 				A_Explode(8, 256, 0, TRUE, 32);
-				A_SpawnItemEx("ExplosionSphereWhite", 0, 0, 0, 0, 0, 0, 0);
-				A_SpawnItemEx("ExplosionSpherePurple", 0, 0, 0, 0, 0, 0, 0);
+				A_SpawnItemEx("ExplosionSphereWhite");
+				A_SpawnItemEx("ExplosionSpherePurple");
 				A_Quake(2, 35, 128, 256);
 				A_PlaySound("effects/explosion/distance", CHAN_AUTO, 1.0, 0, ATTN_NONE);
 			}
 			Stop;
 
+	}
+}
+
+class PhotonTorpedoTrail : Actor
+{
+	Default
+	{
+		+MISSILE;
+		+NOGRAVITY;
+		Height 2;
+		Radius 1;
+		RenderStyle "Add";
+		Alpha 0.85;
+	}
+	States
+	{
+		Spawn:
+			TOS1 A 0 NoDelay {
+				A_SetScale(Scale.X * FRandom(0.9, 1.1));
+			}
+			TOS1 A 1 Bright;
+			Stop;
 	}
 }
 
@@ -219,15 +248,26 @@ class RomulanTorpedo : PhotonGrenade
 	Default
 	{
 		+NOGRAVITY;
+		-NOBLOCKMAP;
+		+SOLID;
+		+SHOOTABLE;
+		+NOBLOOD;
+		Health 100;
 		Speed 9;
+		SeeSound "";
+		ActiveSound "weapons/photon_active";
 	}
 	States
 	{
 		Static:
-			TOS1 A 1 Bright {
-				A_SeekerMissile(10, 1, SMF_LOOK | SMF_PRECISE, 256, 10);
+			TOS1 A 1 Bright Light("RomulanTorpedoLight") {
+				A_ActiveSound();
+				A_SeekerMissile(1, 1, SMF_LOOK | SMF_PRECISE, 256, 8);
 				A_SpawnItemEx("Flare_R", 0, 0, 0, 0, 0, 0, angle);
+//				A_SpawnItemEx("RomulanTorpedoTrail", flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH);
 				A_SpawnItemEx("RomulanTorpedoShadow", 0, 0, 0, 0, 0, 0, 0);
+				Scale.X = FRandom[TorpedoScale](0.9, 1.0);
+				Scale.Y = Scale.X;
 				if (waterlevel > 0 || user_timer > 230) {
 					return ResolveState("Death");
 				} else {
@@ -252,6 +292,9 @@ class RomulanTorpedo : PhotonGrenade
 			Stop;
 	}
 }
+
+class RomulanTorpedoTrail : PhotonTorpedoTrail {}
+
 /*
 class LaserBlast : Actor
 {

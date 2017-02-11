@@ -25,15 +25,19 @@ class TOSD7Flier : TrekEnemyFlier
 {
 	Default
 	{
-		Radius 24;
-		Health 500;
+		Radius 22;
+		Height 20;
+		Mass 700;
+		Health 1200;
 		Speed 3;
 		Obituary "%o's ship was destroyed by a Klingon cruiser.";
-	}
-	States
-	{
-		Missile:
-			Goto Missile.Disruptor;
+		TrekEnemyFlier.CenterofGravityZ 15;
+		TrekEnemyFlier.CenterofGravityX 2;
+		TrekEnemyFlier.Maneuverability 256;
+		TrekEnemyFlier.FOV 25;
+		TrekEnemyFlier.TorpedoChance 24;
+
+		Species "Klingon";
 	}
 }
 

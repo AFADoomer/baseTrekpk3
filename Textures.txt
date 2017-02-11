@@ -673,6 +673,14 @@ Sprite FLASR0, 256, 256
 	Patch Flare_R, 0, 0
 }
 
+Sprite SPLAS0, 320, 320
+{
+	Offset 160, 160
+	XScale 2.5
+	YScale 2.5
+	Patch Flare, 0, 0
+}
+
 Texture Marker_0, 32, 32 {Patch Marker_A, 0, 0}
 Texture Marker_1, 32, 32 {Graphic Marker_1, 0, 0}
 Texture Marker_2, 32, 32 {Patch Marker_A, 0, 0 {Rotate 90}}

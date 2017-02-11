@@ -18,6 +18,19 @@ Actor WeaponHit replaces BulletPuff
 	}
 }
 
+Actor NoPuff : WeaponHit
+{
+	+ALLOWTHRUFLAGS
+	+MTHRUSPECIES
+
+	States
+	{
+		Spawn:
+			TNT1 A 1
+			Stop
+	}
+}
+
 Actor PhaserHit : WeaponHit
 {
 	+ALWAYSPUFF
@@ -78,6 +91,15 @@ Actor PhaserHitW : PhaserHit
 			SPAR W 0
 			Goto Grow
 	}
+}
+
+
+Actor PhaserHitS : PhaserHit
+{
+	+ALLOWTHRUFLAGS
+	+MTHRUSPECIES
+
+	Scale 0.25
 }
 
 Actor PhaserDisintegrateHit : PhaserHitB
@@ -408,7 +430,7 @@ Actor RomulanTorpedoShadow
 		Spawn:
 			TOS1 A 0 A_SetUserVar("user_scale", user_scale + 1)
 			TOS1 A 0 A_SetScale(1.0 - user_scale * 0.1)
-			FLAR R 1 Bright A_FadeOut(0.1)
+			FLAR R 1 Bright Light("RomulanTorpedoLight") A_FadeOut(0.1)
 			Loop
 	}
 }
@@ -1182,6 +1204,7 @@ Actor LaserBeam_O : LaserBeam {}
 Actor LaserBeam_G : LaserBeam {}
 Actor LaserBeam_B : LaserBeam {}
 Actor LaserBeam_P : LaserBeam {}
+Actor LaserBeam_Ship : LaserBeam {}
 
 Actor MeasurePuff : BulletPuff
 {

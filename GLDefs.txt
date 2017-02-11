@@ -139,6 +139,20 @@ PointLight DisruptorLight
 	attenuate 1
 }
 
+PointLight PhotonTorpedoLight
+{
+	color 0.8 0.2 0.8
+	size 24
+	attenuate 1
+}
+
+PointLight RomulanTorpedoLight
+{
+	color 0.3 0.2 0.0
+	size 24
+	attenuate 1
+}
+
 PulseLight DisruptorPulseLight
 {
 	color 0.1 0.9 0.1
@@ -626,3 +640,8 @@ brightmap texture TRANA0 { map "graphics/effects/Flare.png" }
 brightmap texture TRANB0 { map "graphics/effects/Flare.png" }
 brightmap texture TRANC0 { map "graphics/effects/Flare.png" }
 brightmap texture TRAND0 { map "graphics/effects/Flare.png" }
+
+brightmap texture "models/mapobjects/tos/Rahman/top.png" { map "models/mapobjects/tos/Rahman/top_l.png" }
+brightmap texture "models/mapobjects/tos/Rahman/bottom.png" { map "models/mapobjects/tos/Rahman/bottom_l.png" }
+brightmap texture "models/mapobjects/tos/Rahman/detail.png" { map "models/mapobjects/tos/Rahman/detail_l.png" }
+brightmap texture "models/mapobjects/tos/Rahman/nacelle.png" { map "models/mapobjects/tos/Rahman/nacelle_l.png" }

@@ -541,6 +541,7 @@ DoomEdNums
 	24501 = TOSAnaxagorasFlier
 	24502 = TOSBoPFlier
 	24503 = TOSEnterpriseFlier
+	24504 = TOSRahmanFlier
 
 //Weapons
 	25000 = PhaserType1

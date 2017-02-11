@@ -7,7 +7,7 @@ Model TOSEnterprise
 	Model 0 "enterprise.md3"
 	SurfaceSkin 0 0 "bus1.png"
 
-	Scale 0.1 0.1 0.1
+	Scale 4.0 4.0 4.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -21,7 +21,7 @@ Model TOSEnterpriseFlier
 	Model 0 "enterprise.md3"
 	SurfaceSkin 0 0 "bus1.png"
 
-	Scale 0.1 0.1 0.1
+	Scale 4.0 4.0 4.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -50,7 +50,7 @@ Model TOSShipOrbit
 	Model 0 "enterprise.md3"
 	SurfaceSkin 0 0 "bus1.png"
 
-	Scale 0.1 0.1 0.1
+	Scale 4.0 4.0 4.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -515,6 +515,19 @@ Model TOSBoPFlier
 
 	Path "Models/mapobjects/tos/BoP/"
 	Model 0 "BoP.md3"
+
+	Scale 4.0 4.0 4.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSRahmanFlier
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/Rahman/"
+	Model 0 "Rahman.md3"
 
 	Scale 4.0 4.0 4.0
 
