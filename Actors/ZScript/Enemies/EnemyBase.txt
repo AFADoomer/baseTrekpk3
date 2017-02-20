@@ -9,8 +9,11 @@ class TrekEnemy : Actor //For common inheritance of action functions
 
 	override int TakeSpecialDamage(Actor inflictor, Actor source, int damage, Name damagetype)
 	{
-		if (source.bMissile && source.target && source.target != self) { self.lastDamageSource = source.target; }
-		else { self.lastDamageSource = source; }
+		if (source)
+		{
+			if (source.bMissile && source.target && source.target != self) { self.lastDamageSource = source.target; }
+			else { self.lastDamageSource = source; }
+		}
 
 		return damage;
 	}
@@ -452,7 +455,7 @@ class TrekEnemyFlier : TrekEnemy
 			}
 
 		Missile.Disruptor:
-			"####" # 10;
+			"####" # 1;
 			"####" # 0 {
 				if (user_FireCount > 3) {
 					timeout = 70;
@@ -496,7 +499,7 @@ class TrekEnemyFlier : TrekEnemy
 				A_RemoveChildren(True, RMVF_EVERYTHING);
 				A_Scream();
 				bNoGravity = True;
-				A_Stop();
+				A_ChangeVelocity(0, 0, 0, CVF_REPLACE);
 				ACS_NamedExecuteAlways("A_Disintegrate", 0, 16743936, 1);
 				A_SetScale(0.5);
 				A_SpawnItemEx("FlareUp", flags:SXF_TRANSFERSCALE);
@@ -666,6 +669,7 @@ extend class TrekEnemyFlier
 		if (old_angle) { anglediff = angle - old_angle; }
 		else
 		{
+			timeout = Random(0, 35); //Randomize initial attack delay - keeps game from freezing when multiple starships all target and fire at once
 			A_ChangeToCloserTarget();
 			anglediff = 0;
 		}

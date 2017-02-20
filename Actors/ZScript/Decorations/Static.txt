@@ -420,8 +420,8 @@ class TOSTable4 : Decoration
 	{
 		Initial:
 			TOS1 A -1 {
-				A_SpawnItemEx("Block18x1", 14.0, -15.0, 23.5);
-				A_SpawnItemEx("Block18x1", 14.0, 15.0, 23.5);
+				A_SpawnItemEx("Block18x1", 14.0, -15.0, 24.0);
+				A_SpawnItemEx("Block18x1", 14.0, 15.0, 24.0);
 				A_SpawnItemEx("Block", 0.0, -31.0, 0.0);
 				A_SpawnItemEx("Block", 0.0, -31.0, 8.0);
 				A_SpawnItemEx("Block", 0.0, -31.0, 16.0);

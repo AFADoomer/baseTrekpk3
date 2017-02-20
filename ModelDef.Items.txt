@@ -1,0 +1,153 @@
+Model HypoSpray
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/Items/"
+	Model 0 "hypo.md3"
+
+	RollOffset 90.0
+	PitchOffset 180.0
+
+	Scale 0.5 0.5 0.5
+	Offset 0.0 6.0 1.0
+	FrameIndex HLTH S 0 0
+}
+
+Model HypoSpray
+{
+	Path "Models/Items/"
+	Model 0 "hypo.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+
+	Scale 0.5 0.5 0.5
+
+	Offset -4.0 0.0 15.0
+	FrameIndex HLTH P 0 0
+}
+
+Model HypoSpray2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/Items/"
+	Model 0 "hypo.md3"
+
+	RollOffset 90.0
+	PitchOffset 180.0
+
+	Scale 0.5 0.5 0.5
+	Offset 0.0 6.0 1.0
+	FrameIndex HLTH S 0 0
+}
+
+Model HypoSpray2
+{
+	Path "Models/Items/"
+	Model 0 "hypo.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+
+	Scale 0.5 0.5 0.5
+
+	Offset -4.0 0.0 15.0
+	FrameIndex HLTH P 0 0
+}
+
+Model HypoSpray3
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/Items/"
+	Model 0 "hypo.md3"
+
+	RollOffset 90.0
+	PitchOffset 180.0
+
+	Scale 0.5 0.5 0.5
+	Offset 0.0 6.0 1.0
+	FrameIndex HLTH S 0 0
+}
+
+Model HypoSpray3
+{
+	Path "Models/Items/"
+	Model 0 "hypo.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+
+	Scale 0.5 0.5 0.5
+
+	Offset -4.0 0.0 15.0
+	FrameIndex HLTH P 0 0
+}
+
+Model HypoSprayMeds
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/Items/"
+	Model 0 "hypo_base.md3"
+
+	RollOffset 90.0
+	PitchOffset 180.0
+
+	Scale 0.5 0.5 0.5
+	Offset 0.0 6.0 1.0
+	FrameIndex HLTH S 0 0
+
+	Path "Textures/Solid/"
+	Skin 0 "blue_t.png"
+
+	FrameIndex HLT2 S 0 0
+
+	Skin 0 "green_t.png"
+
+	FrameIndex HLT3 S 0 0
+}
+
+Model HypoSprayMeds
+{
+	Path "Models/Items/"
+	Model 0 "hypo_base.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 1.0 0.0
+	Rotation-Speed 0.5
+
+	AngleOffset 180.0
+	PitchOffset 42.0
+
+	Scale 0.5 0.5 0.5
+
+	Offset -4.0 0.0 15.0
+	FrameIndex HLTH P 0 0
+
+	Path "Textures/Solid/"
+	Skin 0 "blue_t.png"
+
+	FrameIndex HLT2 P 0 0
+
+	Skin 0 "green_t.png"
+
+	FrameIndex HLT3 P 0 0
+}

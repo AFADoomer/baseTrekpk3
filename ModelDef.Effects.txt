@@ -31,13 +31,9 @@ Model PhotonGrenade
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
 
-	FrameIndex TOS1 A 0 0
-/*
-	Path "Textures/Solid/"
-	Skin 0 "Yellow.jpg"
+	Scale 1.0 1.0 1.2
 
-	FrameIndex TOS1 B 0 0
-*/
+	FrameIndex TOS1 A 0 0
 }
 
 Model PhotonGrenadeHoming
@@ -54,13 +50,9 @@ Model PhotonGrenadeHoming
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
 
-	FrameIndex TOS1 A 0 0
-/*
-	Path "Textures/Solid/"
-	Skin 0 "Yellow.jpg"
+	Scale 1.0 1.0 1.2
 
-	FrameIndex TOS1 B 0 0
-*/
+	FrameIndex TOS1 A 0 0
 }
 
 Model PhotonTorpedo
@@ -79,6 +71,8 @@ Model PhotonTorpedo
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
 
+	Scale 1.0 1.0 1.2
+
 	FrameIndex TOS1 A 0 0
 }
 
@@ -86,8 +80,7 @@ Model PhotonTorpedoTrail
 {
 	Path "Models/weapons/"
 	Model 0 "projectile.md3"
-	Path "Textures/Solid/"
-	Skin 0 "Purple_T.png"
+	Skin 0 "bolt_p.png"
 
 	USEACTORPITCH
 	USEACTORROLL
@@ -119,21 +112,16 @@ Model RomulanTorpedo
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
 
-	FrameIndex TOS1 A 0 0
-/*
-	Path "Textures/Solid/"
-	Skin 0 "Red_T.png"
+	Scale 1.0 1.0 1.2
 
-	FrameIndex TOS1 B 0 0
-*/
+	FrameIndex TOS1 A 0 0
 }
 
-Model RomulanTorpedoTrail
+Model RomulanTorpedoTrail //Unused in favor of sprite trail
 {
 	Path "Models/weapons/"
 	Model 0 "projectile.md3"
-	Path "Textures/Solid/"
-	Skin 0 "Red_T.png"
+	Skin 0 "bolt_r.png"
 
 	USEACTORPITCH
 	USEACTORROLL
@@ -164,70 +152,10 @@ Model DisruptorGrenade
 	Rotation-Speed 3.0
 	Rotation-Vector 1.0 1.0 1.0
 
+	Scale 1.0 1.0 1.2
+
 	FrameIndex TOS1 A 0 0
-/*
-	Path "Textures/Solid/"
-	Skin 0 "Yellow.jpg"
-
-	FrameIndex TOS1 B 0 0
-*/
 }
-
-/*
-Model GreenPhaserParticle
-{
-	Path "Models/weapons/"
-	Model 0 "projectile.md3"
-	Skin 0 "bolt.jpg"
-
-	FrameIndex BLAS A 0 0
-}
-
-Model RedPhaserParticle
-{
-	Path "Models/weapons/"
-	Model 0 "projectile.md3"
-	Skin 0 "bolt_r.jpg"
-
-	FrameIndex BLAS A 0 0
-}
-
-Model OrangePhaserParticle
-{
-	Path "Models/weapons/"
-	Model 0 "projectile.md3"
-	Skin 0 "bolt_o.jpg"
-
-	FrameIndex BLAS A 0 0
-}
-
-Model BluePhaserParticle
-{
-	Path "Models/weapons/"
-	Model 0 "projectile.md3"
-	Skin 0 "bolt_b.jpg"
-
-	FrameIndex BLAS A 0 0
-}
-
-Model WhitePhaserParticle
-{
-	Path "Models/weapons/"
-	Model 0 "projectile.md3"
-	Skin 0 "bolt_w.jpg"
-
-	FrameIndex BLAS A 0 0
-}
-
-Model LaserTrail
-{
-	Path "Models/weapons/"
-	Model 0 "projectile.md3"
-	Skin 0 "bolt_p.jpg"
-
-	FrameIndex BLAS A 0 0
-}
-*/
 
 Model ExplosionSphereBlue
 {
@@ -392,8 +320,6 @@ Model LaserBeam
 
 	INHERITACTORPITCH
 
-//	Scale 0.5 0.5 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -403,8 +329,6 @@ Model LaserBeam_R
 	Model 0 "phaser_beam.md3"
 
 	INHERITACTORPITCH
-
-//	Scale 0.5 0.5 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -417,8 +341,6 @@ Model LaserBeam_O
 
 	INHERITACTORPITCH
 
-//	Scale 0.5 0.5 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -429,8 +351,6 @@ Model LaserBeam_G
 	Skin 0 "beam_g.png"
 
 	INHERITACTORPITCH
-
-//	Scale 0.5 0.5 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -443,8 +363,6 @@ Model LaserBeam_B
 
 	INHERITACTORPITCH
 
-//	Scale 0.5 0.5 1.0
-
 	FrameIndex TOS1 A 0 0
 }
 
@@ -455,8 +373,6 @@ Model LaserBeam_P
 	Skin 0 "beam_p.png"
 
 	INHERITACTORPITCH
-
-//	Scale 0.5 0.5 1.0
 
 	FrameIndex TOS1 A 0 0
 }

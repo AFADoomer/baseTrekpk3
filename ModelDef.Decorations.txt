@@ -2439,6 +2439,19 @@ Model TOSDrinkTray
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSEmptyTray
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "tray_base.md3"
+
+	Path "Textures/Solid/"
+	SurfaceSkin 0 1 "clear.png"
+
+	FrameIndex TOS1 A 0 0
+}
 
 Model TOSFoodCup
 {
@@ -3113,6 +3126,15 @@ Model TOSRailSupport
 	Model 0 "rail_sup.md3"
 
 	Scale 1.45 1.45 1.1
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Fountain
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "fountain.md3"
+	Model 1 "fountain.md3"
 
 	FrameIndex TOS1 A 0 0
 }

@@ -1,7 +1,12 @@
+DefaultOptionMenu
+{
+	Class "TrekOptionMenu"
+}
+
 DEFAULTLISTMENU
 {
+	Class "TrekListMenu"
 	Font "SMALLFONT", "TOSMenuGold", "TOSBrightWhite"
-//	Selector "Icon", -16, -2
 	Selector "Icon3", -10, 1
 	Linespacing 10
 }
@@ -10,33 +15,23 @@ LISTMENU "MainMenu"
 {
 	StaticPatch 160, 100, "DimBkg"
 
-	StaticPatch 95, 55, "FlarS0"
+	StaticPatch 95, 55, "Flash0"
 	StaticPatchCentered 95, 30, "Icon4"
 
 	StaticPatch 50, 40, "LOGO_T2"
 	StaticPatch 50, 40, "LOGO_T"
 	StaticPatch 74, 62, "LOGO_S2"
 	StaticPatch 74, 62, "LOGO_S"
-/*
-	Position 100, 80
 
-	Selector "Icon2", -24, -2
-
-	TextItem "$MNU_NEWGAME", "n", "PlayerclassMenu"
-	TextItem "$MNU_LOADGAME", "l", "LoadGameMenu"
-	TextItem "$MNU_SAVEGAME", "s", "SaveGameMenu"
-	TextItem "$MNU_OPTIONS","c", "OptionsMenu"
-	TextItem "$MNU_QUITGAME", "e", "QuitMenu"
-*/
 	Position 60, 95
 
 	Selector "Icon3", -10, 1
 
-	TextItem "$MNU_NEWGAME", "n", "PlayerclassMenu"
-	TextItem "$MNU_LOADGAME", "l", "LoadGameMenu"
-	TextItem "$MNU_SAVEGAME", "s", "SaveGameMenu"
-	TextItem "$MNU_OPTIONS","c", "OptionsMenu"
-	TextItem "$MNU_QUITGAME", "e", "QuitMenu"
+	TextItemPulse "$MNU_NEWGAME", "n", "PlayerclassMenu"
+	TextItemPulse "$MNU_LOADGAME", "l", "LoadGameMenu"
+	TextItemPulse "$MNU_SAVEGAME", "s", "SaveGameMenu"
+	TextItemPulse "$MNU_OPTIONS","c", "OptionsMenu"
+	TextItemPulse "$MNU_QUITGAME", "e", "QuitMenu"
 }
 
 
@@ -60,7 +55,7 @@ ListMenu "EpisodeMenu"
 
 	StaticPatch 160, 100, "DimBkg"
 
-	StaticPatch 95, 55, "FlarS0"
+	StaticPatch 95, 55, "Flash0"
 	StaticPatchCentered 95, 30, "Icon4"
 
 	StaticPatch 50, 40, "LOGO_T2"
@@ -86,7 +81,7 @@ ListMenu "SkillMenu"
 {
 	StaticPatch 160, 100, "DimBkg"
 
-	StaticPatch 95, 55, "FlarS0"
+	StaticPatch 95, 55, "Flash0"
 	StaticPatchCentered 95, 30, "Icon4"
 
 	StaticPatch 50, 40, "LOGO_T2"
@@ -127,7 +122,7 @@ ListMenu "ReadThisMenu"
 {
 	StaticPatch 160, 100, "DimBkg"
 
-	StaticPatch 55, 25, "FlarS0"
+	StaticPatch 55, 25, "Flash0"
 	StaticPatchCentered 55, 0, "Icon4"
 
 	StaticPatch 10, 10, "LOGO_T2"
@@ -136,8 +131,6 @@ ListMenu "ReadThisMenu"
 	StaticPatch 34, 32, "LOGO_S"
 
 	StaticPatch 0, 0, "HelpScrn"
-
-//	StaticTextCentered 210, 0, "Thanks for playing!"
 }
 
 OptionMenuSettings
@@ -175,4 +168,83 @@ ListMenu "PlayerMenu"
 	ValueText "$PLYRMNU_SWITCHONPICKUP", "Switch", "OffOn"
 	ValueText "$PLYRMNU_ALWAYSRUN", "AlwaysRun", "OnOff"
 	Class "PlayerMenu"
+}
+
+OptionMenu "CustomizeControls"
+{
+	Title "$CNTRLMNU_TITLE"
+	ScrollTop 2
+	StaticTextSwitchable 	"$CNTRLMNU_SWITCHTEXT1", "$CNTRLMNU_SWITCHTEXT2", "ControlMessage"
+	StaticText 	""
+	StaticText 	"$CNTRLMNU_CONTROLS", 1
+
+	TrekControl 	"$CNTRLMNU_ATTACK",					"+attack"
+	TrekControl 	"$CNTRLMNU_ALTATTACK",				"+altattack"
+	TrekControl 	"$CNTRLMNU_RELOAD",					"+reload"
+	TrekControl 	"$CNTRLMNU_ZOOM",					"+zoom"
+	TrekControl	"$CNTRLMNU_USER1",					"+user1"
+	TrekControl	"$CNTRLMNU_USER2",					"+user2"
+	TrekControl	"$CNTRLMNU_USER3",					"+user3"
+	TrekControl	"$CNTRLMNU_USER4",					"+user4"
+	TrekControl 	"$CNTRLMNU_USE",					"+use"
+	TrekControl 	"$CNTRLMNU_FORWARD",				"+forward"
+	TrekControl 	"$CNTRLMNU_BACK",					"+back"
+	TrekControl 	"$CNTRLMNU_MOVELEFT",				"+moveleft"
+	TrekControl 	"$CNTRLMNU_MOVERIGHT",				"+moveright"
+	TrekControl 	"$CNTRLMNU_TURNLEFT",				"+left"
+	TrekControl 	"$CNTRLMNU_TURNRIGHT",				"+right"
+	TrekControl	"$CNTRLMNU_TURN180",				"turn180"
+	TrekControl	"Lean Left", 					"+user1"
+	TrekControl	"Lean Right", 					"+user2"
+	TrekControl 	"$CNTRLMNU_JUMP",					"+jump"
+	TrekControl 	"$CNTRLMNU_CROUCH",					"+crouch; +movedown"
+	TrekControl 	"$CNTRLMNU_TOGGLECROUCH",			"crouch"
+	TrekControl 	"$CNTRLMNU_LAND",					"land"
+	TrekControl 	"$CNTRLMNU_MOUSELOOK",				"+mlook"
+	TrekControl 	"$CNTRLMNU_KEYBOARDLOOK",			"+klook"
+	TrekControl 	"$CNTRLMNU_LOOKUP",					"+lookup"
+	TrekControl 	"$CNTRLMNU_LOOKDOWN",				"+lookdown"
+	TrekControl 	"$CNTRLMNU_CENTERVIEW",				"centerview"
+	TrekControl 	"$CNTRLMNU_RUN",					"+speed"
+	TrekControl 	"$CNTRLMNU_TOGGLERUN",				"toggle cl_run"
+	TrekControl 	"$CNTRLMNU_STRAFE",					"+strafe"
+	StaticText 	""
+	StaticText 	"$CNTRLMNU_CHAT", 1
+	TrekControl 	"$CNTRLMNU_SAY",					"messagemode"
+	TrekControl 	"$CNTRLMNU_TEAMSAY",				"messagemode2"
+	StaticText 	""
+	StaticText 	"$CNTRLMNU_WEAPONS", 1
+	TrekControl 	"$CNTRLMNU_NEXTWEAPON",				"weapnext"
+	TrekControl 	"$CNTRLMNU_PREVIOUSWEAPON",			"weapprev"
+	TrekControl	"$CNTRLMNU_SLOT1",					"slot 1"
+	TrekControl	"$CNTRLMNU_SLOT2",					"slot 2"
+	TrekControl	"$CNTRLMNU_SLOT3",					"slot 3"
+	TrekControl	"$CNTRLMNU_SLOT4",					"slot 4"
+	TrekControl	"$CNTRLMNU_SLOT5",					"slot 5"
+	TrekControl	"$CNTRLMNU_SLOT6",					"slot 6"
+	TrekControl	"$CNTRLMNU_SLOT7",					"slot 7"
+	TrekControl	"$CNTRLMNU_SLOT8",					"slot 8"
+	TrekControl	"$CNTRLMNU_SLOT9",					"slot 9"
+	TrekControl	"$CNTRLMNU_SLOT0",					"slot 0"
+	StaticText 	""
+	StaticText 	"$CNTRLMNU_INVENTORY", 1
+	TrekControl 	"$CNTRLMNU_USEITEM",				"invuse"
+	TrekControl 	"$CNTRLMNU_USEALLITEMS",			"invuseall"
+	TrekControl 	"$CNTRLMNU_NEXTITEM",				"invnext"
+	TrekControl 	"$CNTRLMNU_PREVIOUSITEM",			"invprev"
+	TrekControl 	"$CNTRLMNU_DROPITEM",				"invdrop"
+	TrekControl	"$CNTRLMNU_QUERYITEM",				"invquery"
+	TrekControl 	"$CNTRLMNU_DROPWEAPON",				"weapdrop"
+	StaticText 	""
+	StaticText 	"HUD Controls", 1
+	TrekControl 	"$CNTRLMNU_MISSION",				"pukename toggleobjectives"
+	TrekControl	"Zoom Radar In", 				"radarzoomin"
+	TrekControl	"Zoom Radar Out", 				"radarzoomout"
+	StaticText 	""
+	StaticText 	"$CNTRLMNU_OTHER", 1
+	TrekControl 	"$CNTRLMNU_AUTOMAP",				"togglemap"
+	TrekControl 	"$CNTRLMNU_CHASECAM",				"chase"
+	TrekControl 	"$CNTRLMNU_COOPSPY",				"spynext"
+	TrekControl 	"$CNTRLMNU_SCREENSHOT",				"screenshot"
+	TrekControl  	"$CNTRLMNU_CONSOLE",				"toggleconsole"
 }

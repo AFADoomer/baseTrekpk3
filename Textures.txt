@@ -100,6 +100,13 @@ Sprite PHASP0, 51, 30
 }
 */
 
+Sprite HLTHP0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite HLTHS0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite HLT2P0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite HLT2S0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite HLT3P0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+Sprite HLT3S0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
+
 Graphic RADARBKG, 400, 400
 {
 	XScale 2.0
@@ -799,6 +806,26 @@ Graphic Icon, 512, 512 {XScale 32.0 YScale 32.0 Sprite Icon, 0, 0 {Style Overlay
 Graphic IconB, 512, 512 {XScale 32.0 YScale 32.0 Sprite IconB, 0, 0 {Style Overlay}}
 Graphic IconC, 512, 512 {XScale 32.0 YScale 32.0 Sprite IconC, 0, 0 {Style Overlay}}
 Graphic IconD, 512, 512 {XScale 32.0 YScale 32.0 Sprite IconD, 0, 0 {Style Overlay}}
+
+Graphic Pause, 512, 512
+{
+	XScale 6.0
+	YScale 6.0
+
+	Sprite Icon, 0, 0 { Style Overlay }
+	Sprite TOS080, 20, 145 { Style Overlay Blend "Black" }
+	Sprite TOS080, 15, 140 { Style Overlay Blend 246, 206, 57, 255 }
+	Sprite TOS097, 95, 145 { Style Overlay Blend "Black" }
+	Sprite TOS097, 90, 140 { Style Overlay Blend 246, 206, 57, 255 }
+	Sprite TOS117, 170, 145 { Style Overlay Blend "Black" }
+	Sprite TOS117, 165, 140 { Style Overlay Blend 246, 206, 57, 255 }
+	Sprite TOS115, 245, 145 { Style Overlay Blend "Black" }
+	Sprite TOS115, 240, 140 { Style Overlay Blend 246, 206, 57, 255 }
+	Sprite TOS101, 320, 145 { Style Overlay Blend "Black" }
+	Sprite TOS101, 315, 140 { Style Overlay Blend 246, 206, 57, 255 }
+	Sprite TOS100, 395, 145 { Style Overlay Blend "Black" }
+	Sprite TOS100, 390, 140 { Style Overlay Blend 246, 206, 57, 255 }
+}
 
 Graphic Icon2, 512, 512
 {

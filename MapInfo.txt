@@ -14,7 +14,7 @@ GameInfo
 	menufontcolor_highlight = "TOSMenuLightGold"
 	menufontcolor_selection = "TOSMenuSelect"
 	quitmessages = "Are you sure you want to exit?"
-	pausesign = "Icon"
+	pausesign = "Pause"
 }
 
 clearskills
@@ -521,6 +521,7 @@ DoomEdNums
 	20336 = TOSAnaxagoras
 	20337 = SteamSpot
 	20338 = TOSDrinkTray
+	20339 = TOSEmptyTray
 
 //Skyboxes
 	21000 = Skybox1
@@ -565,6 +566,11 @@ DoomEdNums
 	26006 = RifleCharge
 	26007 = ChargePack
 
+//Health
+	26101 = HypoSpray
+	26102 = HypoSpray2
+	26103 = HypoSpray3
+
 //Markers
 	26500 = TurboLiftMarker
 	26501 = TransporterMarker
@@ -578,4 +584,5 @@ DoomEdNums
 	27004 = TOSFollowerCamera
 	27005 = SparkSpawner
 	27006 = FireSpawner
+	27007 = AutoCamera
 }

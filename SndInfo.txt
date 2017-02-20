@@ -164,3 +164,17 @@ misc/w_pkup				pickup
 misc/p_pkup				pickup
 misc/i_pkup				pickup
 misc/k_pkup				pickup
+
+world/spark1			spark1
+world/spark2			spark2
+world/spark3			spark3
+world/spark4			spark4
+world/spark5			spark5
+world/spark6			spark6
+$random world/spark { world/spark1 world/spark2 world/spark3 world/spark4 world/spark5 world/spark6 }
+
+world/waterdrop1		water1
+world/waterdrop2		water2
+$random world/waterdrop { world/waterdrop1 world/waterdrop2 }
+
+world/rain			rain

@@ -35,3 +35,15 @@
 #include "actors/zscript/enemies/romulans.txt"
 #include "actors/zscript/enemies/starfleet.txt"
 #include "actors/zscript/npcs.txt"
+
+//Misc Actors
+#include "actors/zscript/cameras.txt"
+
+//Items
+#include "actors/zscript/items/health.txt"
+
+//Menus
+#include "menus/optionmenu.txt"
+#include "menus/optionmenuitem.txt"
+#include "menus/listmenu.txt"
+#include "menus/listmenuitem.txt"

@@ -1,6 +1,5 @@
 Actor HideHUD : Inventory {}
 Actor ElevatorPanel : Inventory {}
-Actor MedKit : Inventory { Inventory.MaxAmount 1 }
 
 Actor OrbitCenter
 {

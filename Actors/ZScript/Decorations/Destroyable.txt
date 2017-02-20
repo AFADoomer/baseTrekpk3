@@ -255,6 +255,25 @@ class TOSDrinkTray : DestroyableDecoration
 	}
 }
 
+class TOSEmptyTray : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID
+		+CANPASS
+		-NOGRAVITY
+		Height 0;
+		Radius 8;
+		Mass 20;
+	}
+	States
+	{
+		Initial: 
+			TOS1 A 1;
+			Goto Super::Initial;
+	}
+}
+
 class TOSFoodCup : DestroyableDecoration
 {
 	Default

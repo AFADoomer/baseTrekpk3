@@ -38,15 +38,17 @@ Model Tricorder
 	Path "Models/mapobjects/tos/"
 	Model 0 "tricorder.md3"
 
+	Scale 1.5 1.5 1.5
+	FrameIndex PHAS S 0 0
+}
+
+Model Tricorder
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "tricorder.md3"
+
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
-
-	Rotation-Speed 0.0
-
-	Scale 1.5 1.5 1.5
-	Offset -4.0 0.0 0.0
-	FrameIndex PHAS S 0 0
-
 	Rotation-Speed 0.5
 
 	AngleOffset 180.0

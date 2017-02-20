@@ -60,3 +60,12 @@ Texture "models/mapobjects/tos/enterprise/bus1.png"
 	pic "models/mapobjects/tos/enterprise/bus6.png" tics 4
 	pic "models/mapobjects/tos/enterprise/bus7.png" tics 4
 	pic "models/mapobjects/tos/enterprise/bus8.png" tics 4
+
+Texture "textures/planet/wfall1.png"
+	pic "textures/planet/wfall1.png" tics 2
+	pic "textures/planet/wfall2.png" tics 2
+	pic "textures/planet/wfall3.png" tics 2
+	pic "textures/planet/wfall4.png" tics 2
+	pic "textures/planet/wfall5.png" tics 2
+	pic "textures/planet/wfall6.png" tics 2
+	pic "textures/planet/wfall7.png" tics 2

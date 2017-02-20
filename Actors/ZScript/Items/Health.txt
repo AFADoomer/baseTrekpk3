@@ -1,0 +1,150 @@
+class MedKit : Inventory { Default { Inventory.MaxAmount 1; } }
+
+class TOSHealth : Health
+{
+	double destangle;
+	int pitchdir;
+
+	Default
+	{
+		+SHOOTABLE;
+		+SOLID
+		+NODAMAGE;
+		+NOBLOOD;
+		+NOTAUTOAIMED;
+		Height 1;
+		Radius 4;
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				if (bDropped) {
+					return ResolveState("Spawn.Dropped");
+				}
+				return ResolveState(null);
+			}
+			HLTH S -1;
+			Stop;
+		Spawn.Dropped:
+			HLTH P -1;
+			Stop;
+	}
+
+	override bool TryPickup (in out Actor other)
+	{
+		bool pickedup = Super.TryPickup(other);
+		if (pickedup) { A_RemoveChildren(True, RMVF_EVERYTHING); }
+
+		return pickedup;
+	}
+}
+
+class HypoSpray : TOSHealth replaces Stimpack
+{
+	Default
+	{
+		Inventory.Amount 15;
+		Inventory.PickupMessage "Picked up a Hypospray";
+	}
+
+	States
+	{
+		Spawn:
+			HLTH S 0 NoDelay {
+				ACS_NamedExecuteAlways("SetRadarTID",0);
+				A_SpawnItemEx("HypoSprayMeds", flags:SXF_SETMASTER);
+				if (bDropped) {
+					return ResolveState("Spawn.Dropped");
+				}
+				return ResolveState(null);
+			}
+SpawnLoop:
+			HLTH S 1 {
+				if (vel.z == 0) { pitch = 0; }
+				else
+				{
+					if (pitchdir == 0) { pitchdir = RandomPick(-1, 1); }
+					pitch += pitchdir;
+					angle += pitchdir;
+				}
+			}
+Loop;
+			HLTH S -1;
+			Stop;
+		Spawn.Dropped:
+			HLTH P -1;
+			Stop;
+	}
+}
+
+class HypoSpray2 : HypoSpray replaces MediKit { Default { Inventory.Amount 30; } }
+class HypoSpray3 : HypoSpray replaces SoulSphere { Default { Inventory.Amount 50; } }
+
+class HypoSprayMeds : Actor
+{
+	Default
+	{
+		+NOGRAVITY;
+		Radius 1;
+		Height 2;
+		Renderstyle 'Translucent';
+		Alpha 0.7;
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay {
+				if (master) {
+					if (master.bDropped) { return ResolveState("Spawn.Dropped"); }
+					return ResolveState("Spawn.Normal");
+				}
+				return ResolveState(null);
+			}
+			TNT1 A 1;
+			Stop;
+		Spawn.Normal:
+			TNT1 A 0 {
+				int amt = inventory(master).amount;
+				if (amt >= 50) { return ResolveState("Spawn.NormalHigh"); }
+				else if (amt >= 30) { return ResolveState("Spawn.NormalMed"); }
+				return ResolveState("Spawn.NormalLow");
+			}
+		Spawn.NormalLow:
+			HLTH S 1;
+			Goto SpawnLoop;
+		Spawn.NormalMed:
+			HLT2 S 1;
+			Goto SpawnLoop;
+		Spawn.NormalHigh:
+			HLT3 S 1;
+			Goto SpawnLoop;
+		Spawn.Dropped:
+			TNT1 A 0 {
+				int amt = inventory(master).amount;
+				if (amt >= 50) { return ResolveState("Spawn.DroppedHigh"); }
+				else if (amt >= 30) { return ResolveState("Spawn.DroppedMed"); }
+				return ResolveState("Spawn.DroppedLow");
+			}
+		Spawn.DroppedLow:
+			HLTH P 1;
+			Goto SpawnLoop;
+		Spawn.DroppedMed:
+			HLT2 P 1;
+			Goto SpawnLoop;
+		Spawn.DroppedHigh:
+			HLT3 P 1;
+			Goto SpawnLoop;
+
+		SpawnLoop:
+			"####" # 1 {
+				if (master) {
+					A_Warp(AAPTR_MASTER, 0, 0, 0, 0, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION);
+				}
+			}
+			Loop;
+	}
+}
