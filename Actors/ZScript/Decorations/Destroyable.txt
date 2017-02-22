@@ -615,7 +615,7 @@ class TOSFlag : DestroyableDecoration
 {
 	Default
 	{
-		-NOGRAVITY
+		-NOGRAVITY;
 		Height 80;
 		Radius 8;
 	}
@@ -623,4 +623,50 @@ class TOSFlag : DestroyableDecoration
 
 class TOSFlagArrowhead : TOSFlag {}
 class TOSFlagUFP : TOSFlag {}
-class TOSLamp2 : DestroyableDecoration { Default { +NOBLOCKMAP } }
+class TOSLamp2 : DestroyableDecoration { Default { +NOBLOCKMAP; } }
+
+class TOSCloak : DestroyableDecoration
+{
+	Default
+	{
+		+SOLID;
+		-NOGRAVITY;
+		+DONTTHRUST;
+		Height 32;
+		Radius 8;
+		Health 100;
+		Tag "Cloaking Device";
+	}
+
+	States
+	{
+		Initial:
+			TOS1 A 0;
+			TOS1 A 1 {
+				A_SpawnItemEx("TOSCloakBase", zofs:-8, flags:SXF_SETMASTER | SXF_TRANSFERPITCH  | SXF_TRANSFERROLL | SXF_TRANSFERSCALE);
+			}
+			Goto Super::Initial;
+	}
+}
+
+class TOSCloakBase : DestroyableDecoration
+{
+	Default
+	{
+		-SHOOTABLE;
+		+NODAMAGE;
+		Height 0;
+		RenderStyle 'STYLE_Translucent';
+		Alpha 0.99;
+	}
+	States
+	{
+		Initial:
+			TOS1 A 1 Light("TinyBlueGreenLight") {
+				if (!master || master && master.health <= 0) { bNoDamage = False; return ResolveState("Death"); }
+				A_Warp(AAPTR_MASTER, flags:WARPF_COPYPITCH | WARPF_COPYINTERPOLATION);
+				return ResolveState(null);
+			}
+			Loop;
+	}
+}

@@ -5,3 +5,5 @@ defaultbind . radarzoomin
 
 alias radarzoomin "pukename w_radarzoomin"
 alias radarzoomout "pukename w_radarzoomout"
+alias +flydown "+crouch; +movedown"
+alias -flydown "-crouch; -movedown"

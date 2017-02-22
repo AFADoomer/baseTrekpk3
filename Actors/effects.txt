@@ -389,6 +389,7 @@ Actor PhotonGrenadeShadow
 	var int user_scale;
 
 	+NOGRAVITY
+	+FORCEXYBILLBOARD
 	RenderStyle Add
 	Alpha 0.75
 	States
@@ -406,6 +407,7 @@ Actor PhotonTorpedoShadow
 	var int user_scale;
 
 	+NOGRAVITY
+	+FORCEXYBILLBOARD
 	RenderStyle Add
 	Alpha 0.75
 	States
@@ -423,6 +425,7 @@ Actor RomulanTorpedoShadow
 	var int user_scale;
 
 	+NOGRAVITY
+	+FORCEXYBILLBOARD
 	RenderStyle Add
 	Alpha 0.75
 	States
@@ -1205,6 +1208,7 @@ Actor LaserBeam_G : LaserBeam {}
 Actor LaserBeam_B : LaserBeam {}
 Actor LaserBeam_P : LaserBeam {}
 Actor LaserBeam_Ship : LaserBeam {}
+Actor LaserBeam_ShipP : LaserBeam {}
 
 Actor MeasurePuff : BulletPuff
 {
@@ -1265,6 +1269,8 @@ Actor SmallYellowLight : SmallLight {}
 Actor SmallGreenLight : SmallLight {}
 Actor SmallBlueLight : SmallLight {}
 Actor SmallPurpleLight : SmallLight {}
+
+Actor TinyBlueGreenLight : SmallLight {}
 
 Actor TOSRedAlertLight : SmallLight
 {

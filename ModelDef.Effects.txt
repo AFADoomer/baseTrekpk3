@@ -389,6 +389,19 @@ Model LaserBeam_Ship
 	FrameIndex TOS1 A 0 0
 }
 
+Model LaserBeam_ShipP
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam_ship.md3"
+	Skin 0 "beam_p.png"
+
+	INHERITACTORPITCH
+
+	Scale 1.0 0.5 0.5
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model Arrow_Head
 {
 /*

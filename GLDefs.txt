@@ -83,6 +83,13 @@ PointLight SmallGreenLight
 	attenuate 1
 }
 
+PointLight TinyBlueGreenLight
+{
+	color 0.1 0.4 0.3
+	size 6
+	attenuate 1
+}
+
 PointLight SmallBlueLight
 {
 	color 0.1 0.1 0.4
@@ -96,6 +103,14 @@ PointLight SmallPurpleLight
 	size 24
 	attenuate 1
 }
+
+PointLight TinyPurpleLight
+{
+	color 0.4 0.1 0.4
+	size 6
+	attenuate 1
+}
+
 
 PointLight SmallWhiteLight
 {
@@ -274,6 +289,15 @@ Object SmallGreenLight
 		light SmallGreenLight
 	}
 }
+
+Object TinyBlueGreenLight
+{
+	Frame TOS1
+	{
+		light TinyBlueGreenLight
+	}
+}
+
 
 Object SmallBlueLight
 {

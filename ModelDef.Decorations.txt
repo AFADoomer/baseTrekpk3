@@ -3134,7 +3134,22 @@ Model Fountain
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "fountain.md3"
-	Model 1 "fountain.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCloak
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cloak.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCloakBase
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "cloak_base.md3"
 
 	FrameIndex TOS1 A 0 0
 }

@@ -1,0 +1,153 @@
+/*Trees from WolfenDoom*/
+
+//Jungle trees
+Model JungleTree1
+{
+	Path "models/trees"
+	Model 0 "jungletree1.md3"
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model JungleTree1_Burnt
+{
+	Path "models/trees"
+	Model 0 "jungletree1_burnt.md3"
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model JungleTree2
+{
+	Path "models/trees"
+	Model 0 "jungletree2.md3"
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model JungleTree2_Burnt
+{
+	Path "models/trees"
+	Model 0 "jungletree2_burnt.md3"
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model JungleTree3
+{
+	Path "models/trees"
+	Model 0 "bamboo.md3"
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+//"Regular" trees
+Model Tree2
+{
+	Path "models/trees"
+	Model 0 "tree2.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Tree2_Burnt
+{
+	Path "models/trees"
+	Model 0 "tree2_burnt.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Tree3
+{
+	Path "models/trees"
+	Model 0 "tree3.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Tree3_Burnt
+{
+	Path "models/trees"
+	Model 0 "tree3_burnt.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Tree4
+{
+	Path "models/trees"
+	Model 0 "tree4.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model Tree4_Burnt
+{
+	Path "models/trees"
+	Model 0 "tree4_burnt.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model SmallTree1
+{
+	Path "models/trees"
+	Model 0 "smalltree1.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model SmallTree1_Burnt
+{
+	Path "models/trees"
+	Model 0 "smalltree1_burnt.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model SmallTree2
+{
+	Path "models/trees"
+	Model 0 "smalltree2.md3"
+	ZOffset -16
+	USEACTORPITCH
+	USEACTORROLL
+
+	FrameIndex TOS1 A 0 0
+}

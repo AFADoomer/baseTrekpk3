@@ -102,6 +102,8 @@ effects/disintegrate/alive		disint
 effects/disintegrate/object		disint2
 effects/disintegrate/object_small	disint3
 effects/steam				steam
+effects/buzz				buzz
+effects/hover				hover
 
 actor/appear				appear
 

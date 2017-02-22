@@ -2,3 +2,4 @@
 #include "actors/imports/smoke.txt"
 #include "actors/imports/fire.txt"
 #include "actors/imports/steam.txt"
+#include "actors/imports/trees.txt"

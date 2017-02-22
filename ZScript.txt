@@ -34,6 +34,7 @@
 #include "actors/zscript/enemies/pirates.txt"
 #include "actors/zscript/enemies/romulans.txt"
 #include "actors/zscript/enemies/starfleet.txt"
+#include "actors/zscript/enemies/flier.txt"
 #include "actors/zscript/npcs.txt"
 
 //Misc Actors

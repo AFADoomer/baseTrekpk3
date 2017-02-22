@@ -1,0 +1,154 @@
+ACTOR Tree1
+{
+	//$Category Props (Wolf3D)/Trees
+	//$Title Tree (snow)
+	//$Color 3
+	Radius 32
+	Height 192
+	+MOVEWITHSECTOR
+	+RELATIVETOFLOOR
+	+SOLID
+	States
+	{
+	Spawn:
+		TOS1 A -1
+		Stop
+	}
+}
+
+ACTOR Tree2 : Tree1
+{
+	//$Title Tree (large)
+}
+
+ACTOR Tree3 : Tree1
+{
+	//$Title Tree 1 (middle)
+	Height 96
+}
+
+ACTOR Tree4 : Tree1
+{
+	//$Title Tree 2 (middle)
+	Height 96
+}
+
+ACTOR JungleTree1
+{
+	//$Category Props (Wolf3D)/Trees
+	//$Title Jungle Tree 1
+	//$Color 3
+	Radius 16
+	Height 128
+	+SOLID
+	States
+	{
+	Spawn:
+		TOS1 A -1
+		Stop
+	}
+}
+
+ACTOR JungleTree2 : JungleTree1
+{
+	//$Title Jungle Tree 2 (wall)
+	Height 32
+}
+
+ACTOR JungleTree3 : JungleTree1
+{
+	//$Title Jungle Tree 3 (bamboo)
+}
+
+ACTOR SmallTree1
+{
+	//$Category Props (Wolf3D)/Trees
+	//$Title Tree 4 (middle)
+	//$Color 3
+	Radius 16
+	Height 96
+	+MOVEWITHSECTOR
+	+RELATIVETOFLOOR
+	+SOLID
+	States
+	{
+	Spawn:
+		TOS1 A -1
+		Stop
+	}
+}
+
+ACTOR SmallTree2 : SmallTree1
+{
+	//$Title Tree 5 (small)
+	Height 64
+}
+
+//Burnt variants - Ozymandias81
+ACTOR Tree2_Burnt
+{
+	//$Category Props (Wolf3D)/Trees/Burnt
+	//$Title Tree (burnt, large)
+	//$Color 3
+	Radius 32
+	Height 192
+	+SOLID
+	States
+	{
+	Spawn:
+		TOS1 A -1
+		Stop
+	}
+}
+
+ACTOR Tree3_Burnt : Tree2_Burnt
+{
+	//$Title Tree 1 (burnt, middle)
+	Height 96
+	+NOGRAVITY
+}
+
+ACTOR Tree4_Burnt : Tree2_Burnt
+{
+	//$Title Tree 2 (burnt, middle)
+	Height 96
+}
+
+ACTOR JungleTree1_Burnt
+{
+	//$Category Props (Wolf3D)/Trees/Burnt
+	//$Title Jungle Tree 1 (Burnt)
+	//$Color 3
+	Radius 16
+	Height 128
+	+SOLID
+	States
+	{
+	Spawn:
+		TOS1 A -1
+		Stop
+	}
+}
+
+ACTOR JungleTree2_Burnt : JungleTree1_Burnt
+{
+	//$Title Jungle Tree 2 (burnt, wall)
+	Height 32
+	+NOGRAVITY
+}
+
+ACTOR SmallTree1_Burnt
+{
+	//$Category Props (Wolf3D)/Trees/Burnt
+	//$Title Tree 4 (burnt, middle)
+	//$Color 3
+	Radius 16
+	Height 96
+	+SOLID
+	States
+	{
+	Spawn:
+		TOS1 A -1
+		Stop
+	}
+}

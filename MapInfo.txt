@@ -538,6 +538,9 @@ DoomEdNums
 	24002 = TOSPirateAlt
 	24003 = TOSPirateAlt2
 	24004 = TOSPirateCapt
+	24005 =	TOSFlier
+
+//Starship Fliers
 	24500 = TOSD7Flier
 	24501 = TOSAnaxagorasFlier
 	24502 = TOSBoPFlier

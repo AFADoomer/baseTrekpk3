@@ -997,3 +997,33 @@ Model TOSPirateCapt
 	FrameIndex TOS1 U 0 171
 	FrameIndex TOS1 U 1 171
 }
+
+Model TOSFlier
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "flier.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 -1.0 0.0
+	Rotation-Speed 0.1
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSFlier_Glow
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "flier_glow.md3"
+
+	ROTATING
+	Rotation-Vector 0.0 -1.0 0.0
+	Rotation-Speed 0.1
+
+	FrameIndex TOS1 A 0 0
+}
