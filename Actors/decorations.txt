@@ -218,19 +218,3 @@ Actor OldTOSUsableDecoration : OldTOSSwitchableDecoration
 	-NOTAUTOAIMED 
 	+USESPECIAL
 }
-
-Actor Skybox1 : OldTOSDecoration {}
-Actor Skybox2 : OldTOSDecoration {}
-Actor Skybox3 : OldTOSDecoration {}
-Actor Skybox4 : OldTOSDecoration
-{
-	States
-	{
-		Static:
-			TOS1 A -1 Bright
-			Stop
-	}
-}
-Actor Skybox5 : OldTOSDecoration {}
-Actor Skybox6 : OldTOSDecoration {}
-Actor Skybox7 : OldTOSDecoration { RenderStyle Translucent Alpha 0.7 }

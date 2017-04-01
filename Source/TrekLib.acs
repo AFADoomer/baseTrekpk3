@@ -805,7 +805,7 @@ Script "A_Disintegrate" (int intColor, int bNoDeathJump)
 
 	If (CheckInventory("Health") <= 0 && !GetActorProperty(0, APROP_Invulnerable))
 	{
-		If (CheckFlag(0, "ISMONSTER"))
+		If (CheckFlag(0, "ISMONSTER") && !CheckFlag(0, "NOBLOOD"))
 			PlaySound(0, "effects/disintegrate/alive", CHAN_AUTO, 0.35);
 		Else
 		{

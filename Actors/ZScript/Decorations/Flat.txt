@@ -1,0 +1,604 @@
+class SpriteDecoration : Decoration
+{
+	Default
+	{
+		//All but usable sprites are destroyable...
+		-INVULNERABLE;
+		-NODAMAGE;
+		-DONTTHRUST;
+		+WALLSPRITE;
+		+ROLLSPRITE;
+		-SOLID;
+		Radius 0;
+		Health 50;
+	}
+}
+
+class UsableSpriteDecoration : UsableDecoration
+{
+	Default
+	{
+		+NOTAUTOAIMED;
+		+WALLSPRITE;
+		+ROLLSPRITE;
+		-SOLID;
+	}
+}
+
+class TOSPlantonButton : UsableSpriteDecoration {
+	//$Title "Wall Planton: Button" 
+	//$Sprite PO02A0
+	Default { Height 8; Radius 4; }
+	States { Initial: PO02 A 1 A_Jump(256, "Super::Initial"); }}
+class TOSPlantonButton2 : UsableSpriteDecoration {
+	//$Title "Wall Planton: Button2" 
+	//$Sprite PO03A0
+	Default { Height 4; Radius 2; }
+	States { Initial: PO03 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonButton3 : UsableSpriteDecoration {
+	//$Title "Wall Planton: Button3"
+	//$Sprite PO04A0
+	Default { Height 4; Radius 2; }
+	States { Initial: PO04 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonButton4 : UsableSpriteDecoration {
+	//$Title "Wall Planton: Button4" 
+	Default { Height 4; Radius 2; }
+	//$Sprite PO05A0
+	States { Initial: PO05 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonButton5 : UsableSpriteDecoration {
+	//$Title "Wall Planton: Button5" 
+	Default { Height 20; Radius 10; }
+	//$Sprite PO06A0
+	States { Initial: PO06 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonFoodSlot : UsableSpriteDecoration {
+	//$Title "Wall Planton: Food Slot" 
+	Default { Height 20; Radius 10; }
+	//$Sprite PO07A0
+	States { Initial: PO07 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonPanelGreyLarge : SpriteDecoration {
+	//$Title "Wall Planton: Panel (Grey, Large)" 
+	Default { Height 34; }	
+	//$Sprite PO09A0
+	States { Initial: PO09 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonPanelGreySmall : SpriteDecoration {
+	//$Title "Wall Planton: Panel (Grey, Small)" 
+	Default { Height 7; }
+	//$Sprite PO10A0
+	States { Initial: PO10 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonPanelYellow : SpriteDecoration {
+	//$Title "Wall Planton: Panel (Yellow)" 
+	Default { Height 20; }
+	//$Sprite PO11A0
+	States { Initial: PO11 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonPanelEnvEng : SpriteDecoration {
+	//$Title "Wall Planton: Panel (Environmental Engineering Personnel Only)" 
+	Default { Height 14; }
+	//$Sprite PO12A0
+	States { Initial: PO12 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonPlugs : SpriteDecoration {
+	//$Title "Wall Planton: Plugs" 
+	Default { Height 14; }
+	//$Sprite PO13A0
+	States { Initial: PO13 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Aut : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Authorized Personnel Only)" 
+	Default { Height 9; }
+	//$Sprite PO14A0
+	States { Initial: PO14 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Aux : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Auxilliary Control)" 
+	Default { Height 7; }
+	//$Sprite PO15A0
+	States { Initial: PO15 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Br2 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Briefing Room 2)" 
+	Default { Height 7; }
+	//$Sprite PO16A0
+	States { Initial: PO16 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Br5 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Briefing Room 5)" 
+	Default { Height 7; }
+	//$Sprite PO17A0
+	States { Initial: PO17 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Br6 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Briefing Room 6)" 
+	Default { Height 7; }
+	//$Sprite PO18A0
+	States { Initial: PO18 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_BrA : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Arrow - Briefing Room)" 
+	Default { Height 9; }
+	//$Sprite PO19A0
+	States { Initial: PO19 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_BRG : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Brig)" 
+	Default { Height 6; }
+	//$Sprite PO20A0
+	States { Initial: PO20 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_CC : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Computer Core)" 
+	Default { Height 9; }
+	//$Sprite PO21A0  
+	States { Initial: PO21 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_CH : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Cargo Hold)" 
+	Default { Height 9; }
+	//$Sprite PO22A0
+	States { Initial: PO22 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_EMM : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Emergency Manual Monitor)" 
+	Default { Height 19; }
+	//$Sprite PO23A0
+	States { Initial: PO23 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_EnA : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Arrow - Engineering)" 
+	Default { Height 9; }
+	//$Sprite PO24A0
+	States { Initial: PO24 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_EnE : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Environmental Engineering)" 
+	Default { Height 9; }
+	//$Sprite PO25A0
+	States { Initial: PO25 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Eng : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Engineering Section)" 
+	Default { Height 7; }
+	//$Sprite PO26A0
+	States { Initial: PO26 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_HB1 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Hangar Deck)" 
+	Default { Height 7; }
+	//$Sprite PO27A0
+	States { Initial: PO27 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_HB2 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Observation Deck)" 
+	Default { Height 7; }
+	//$Sprite PO28A0
+	States { Initial: PO28 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Qr1 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Arrow - L - Officer Quarters)" 
+	Default { Height 9; }
+	//$Sprite PO29A0
+	States { Initial: PO29 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Qr2 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Arrow - R - Officer Quarters)" 
+	Default { Height 9; }
+	//$Sprite PO30A0
+	States { Initial: PO30 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_QrG : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Quarters - Generic)" 
+	Default { Height 13; }
+	//$Sprite PO31A0
+	States { Initial: PO31 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_RR1 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Rec Room 11)" 
+	Default { Height 7; }
+	//$Sprite PO32A0
+	States { Initial: PO32 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_RR6 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Rec Room 6)" 
+	Default { Height 7; }  
+	//$Sprite PO33A0
+	States { Initial: PO33 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_SC : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Security Chief)" 
+	Default { Height 6; }  
+	//$Sprite PO34A0
+	States { Initial: PO34 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_ScL : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Science Library)" 
+	Default { Height 9; }  
+	//$Sprite PO35A0
+	States { Initial: PO35 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu1 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 1)" 
+	Default { Height 6; }  
+	//$Sprite PO36A0
+	States { Initial: PO36 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu2 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 2)" 
+	Default { Height 6; }  
+	//$Sprite PO37A0
+	States { Initial: PO37 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu3 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 3)" 
+	Default { Height 6; }  
+	//$Sprite PO38A0
+	States { Initial: PO38 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu4 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 4)" 
+	Default { Height 6; }  
+	//$Sprite PO39A0
+	States { Initial: PO39 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu5 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 5)" 
+	Default { Height 6; }  
+	//$Sprite PO40A0
+	States { Initial: PO40 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu6 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 6)" 
+	Default { Height 6; }  
+	//$Sprite PO41A0  
+	States { Initial: PO41 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu7 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 7)" 
+	Default { Height 6; }  
+	//$Sprite PO42A0
+	States { Initial: PO42 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonSign_Tu8 : SpriteDecoration {
+	//$Title "Wall Planton: Sign (Turbolift 8)" 
+	Default { Height 6; }  
+	//$Sprite PO43A0
+	States { Initial: PO43 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonTu_Btns : UsableSpriteDecoration {
+	//$Title "Wall Planton: Buttons (Turbolift)" 
+	Default { Height 17; Radius 4; }
+	//$Sprite PO44A0
+	States { Initial: PO44 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonViewer : UsableSpriteDecoration {
+	//$Sprite PO45A0
+	//$Title "Wall Planton: Viewer" 
+	Default { Height 27; Radius 16; }
+	States
+	{
+		Initial: PO45 A 1 A_Jump(256, "Super::Initial");
+	}
+}
+class TOSPlantonWall_Br2 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Rectangle)" 
+	Default { Height 32; }  
+	//$Sprite PO46A0
+	States { Initial: PO46 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWall_Icm : UsableSpriteDecoration {
+	//$Title "Wall Planton: Intercom (Small)" 
+	Default { Height 8; Radius 4; }
+	//$Sprite PO47A0
+	States { Initial: PO47 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWallSafe : UsableSpriteDecoration {
+	//$Title "Wall Planton: Wall Safe" 
+	Default { Height 17; Radius 8; }
+	//$Sprite PO48A0
+	States { Initial: PO48 A 1 A_Jump(256, "Super::Initial"); } }
+
+class TOSPlantonPanelGreyLarge2 : SpriteDecoration {
+	//$Title "Wall Planton: Panel (Grey, Large - Rotated)" 
+	Default { Height 0; } 
+	//$Sprite PO49A0
+	States { Initial: PO49 A 1 A_Jump(256, "Super::Initial"); } }
+
+class TOSPlantonWB_1 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Rectangle)" 
+	Default { Height 32; }  
+	//$Sprite PO50A0
+	States { Initial: PO50 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB_2 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Rectangle - Green)" 
+	Default { Height 32; }  
+	//$Sprite PO51A0
+	States { Initial: PO51 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB_3 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Rectangle - Blue)" 
+	Default { Height 32; } 
+	//$Sprite PO52A0
+	States { Initial: PO52 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB_4 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Rectangle - Purple)" 
+	Default { Height 32; } 
+	//$Sprite PO53A0
+	States { Initial: PO53 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB_5 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Rectangle - Wood)" 
+	Default { Height 32; } 
+	//$Sprite PO54A0
+	States { Initial: PO54 A 1 A_Jump(256, "Super::Initial"); } }
+
+class TOSPlantonWB2_1 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Trapezoid)" 
+	Default { Height 48; } 
+	//$Sprite PO55A0
+	States { Initial: PO55 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB2_2 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Trapezoid - Green)" 
+	Default { Height 48; } 
+	//$Sprite PO56A0
+	States { Initial: PO56 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB2_3 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Trapezoid - Blue)" 
+	Default { Height 48; } 
+	//$Sprite PO57A0
+	States { Initial: PO57 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB2_4 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Trapezoid - Purple)" 
+	Default { Height 48; } 
+	//$Sprite PO58A0
+	States { Initial: PO58 A 1 A_Jump(256, "Super::Initial"); } }
+class TOSPlantonWB2_5 : SpriteDecoration {
+	//$Title "Wall Planton: Wall Board (Trapezoid - Wood)" 
+	Default { Height 48; } 
+	//$Sprite PO59A0
+	States { Initial: PO59 A 1 A_Jump(256, "Super::Initial"); } }
+
+class TOSPlantonPainting : SpriteDecoration {
+	//$Title "Wall Planton: Painting" 
+	Default { Height 48; } 
+	//$Sprite PO60A0
+	States { Initial: PO60 A 1 A_Jump(256, "Super::Initial"); } }
+
+class TOSPlantonPig : SpriteDecoration {
+	//$Title "Wall Planton: Pig" 
+	Default { Height 48; } 
+	//$Sprite PO61A0
+	States { Initial: PO61 A 1 A_Jump(256, "Super::Initial"); } }
+
+class TOSPlantonRooster : SpriteDecoration {
+	//$Title "Wall Planton: Rooster" 
+	Default { Height 48; } 
+	//$Sprite PO62A0
+	States { Initial: PO62 A 1 A_Jump(256, "Super::Initial"); } }
+
+class TOSFalseWall : SpriteDecoration {
+	//$Title "False Wall (WALL)" 
+	//$Sprite WALLA0
+	Default
+	{
+		-SOLID;
+		+USESPECIAL;
+		-NOTAUTOAIMED;
+		Height 100;
+		Radius 64;
+		Health 100;
+		Tag "Structural Instability";
+	}
+	States
+	{
+		Initial: 
+			WALL A 35 {
+				A_SpawnItemEx ("Block20x128", -21.0, 20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block20x128", -21.0, 44.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block20x128", -21.0, -20.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block20x128", -21.0, -44.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+			}
+			Goto Super::Initial;
+		DeathResume:
+			"####" # 0 {
+				A_Explode(128, 32);
+			}
+			Goto Super::DeathResume;
+	}
+
+}
+
+class TOSFalseWallWallGrey : TOSFalseWall
+{
+	//$Title "False Wall (WALLGRE2)" 
+	//$Sprite WALLB0
+	States
+	{
+		Initial:
+			WALL B 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingWarning : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 24;
+		Radius 16;
+	}
+	//$Title "Wall Planton: Warning Sign with Grey Tech" 
+	//$Sprite WARNA0
+	States
+	{
+		Initial:
+			WARN A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingDisposal : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 24;
+		Radius 16;
+	}
+	//$Title "Wall Planton: Pressure Vent Disposal" 
+	//$Sprite CHUTB0
+	States
+	{
+		Initial:
+			CHUT B 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingVoltage : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 24;
+		Radius 16;
+	}
+	//$Title "Wall Planton: High Voltage" 
+	//$Sprite CHUTA0
+	States
+	{
+		Initial:
+			CHUT A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSTest : SpriteDecoration
+{
+	Default
+	{
+		Height 64;
+		Radius 32;
+	}
+	States
+	{
+		Initial:
+			TEST A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingLineage1 : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 25;
+		Radius 16;
+	}
+	//$Sprite LINEA0
+	States
+	{
+		Initial:
+			LINE A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingLineage2 : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 25;
+		Radius 16;
+	}
+	//$Sprite LINEB0
+	States
+	{
+		Initial:
+			LINE B 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingLineage3 : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 25;
+		Radius 16;
+	}
+	//$Sprite LINEC0
+	States
+	{
+		Initial:
+			LINE C 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingLineage4 : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 25;
+		Radius 16;
+	}
+	//$Sprite LINED0
+	States
+	{
+		Initial:
+			LINE D 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingLineage5 : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 25;
+		Radius 16;
+	}
+	//$Sprite LINEE0
+	States
+	{
+		Initial:
+			LINE E 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSDelta : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 0;
+		Radius 0;
+	}
+	//$Sprite DELTA0
+	States
+	{
+		Initial:
+			DELT A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingPanel : UsableSpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 24;
+		Radius 16;
+		Tag "Control Panel";
+	}
+	//$Title "Wall Planton: Lighted Panel" 
+	//$Sprite PANLA0
+	States
+	{
+		Initial:
+			PANL A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallDecor : SpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 24;
+		Radius 16;
+	}
+	//$Title "Wall Planton: Decor" 
+	//$Sprite DECOA0
+	States
+	{
+		Initial:
+			DECO A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallThingShuttlebayStatus : UsableSpriteDecoration
+{
+	Default
+	{
+		Health 100;
+		Height 0;
+		Radius 0;
+	}
+	//$Title "Wall Planton: Shuttlebay Status Lights" 
+	//$Sprite SHULA0
+	States
+	{
+		Initial:
+			SHUL B 35 {
+				if (CallACS("A_CheckDoorStatus") > 0) {
+					return ResolveState("Lit");
+				}
+				return ResolveState(null);
+			}
+			Loop;
+		Lit:
+			SHUL A 35 A_JumpIf(CallACS("A_CheckDoorStatus") < 1, "Initial");
+			Loop;
+
+	}
+
+}

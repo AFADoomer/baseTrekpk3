@@ -1020,6 +1020,8 @@ Model TOSFlier_Glow
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "flier_glow.md3"
+	Path "Textures/Solid/"
+	Skin 0 "purple.jpg"
 
 	ROTATING
 	Rotation-Vector 0.0 -1.0 0.0

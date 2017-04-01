@@ -1,0 +1,15 @@
+class Skybox1 : Decoration {}
+class Skybox2 : Decoration {}
+class Skybox3 : Decoration {}
+class Skybox4 : Decoration
+{
+	States
+	{
+		Static:
+			TOS1 A -1 Bright;
+			Stop;
+	}
+}
+class Skybox5 : Decoration {}
+class Skybox6 : Decoration {}
+class Skybox7 : Decoration { Default { RenderStyle "STYLE_Translucent"; Alpha 0.7; } }

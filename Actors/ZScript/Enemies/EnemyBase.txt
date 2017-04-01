@@ -41,7 +41,7 @@ extend class TrekEnemy
 		user_ammo -= ammoamt;
 	}
 
-	void A_FirePhaser(class<Actor> beam, class<Actor> light, class<Actor> hitpuff, int damage = 10, int ammoamt = 1, sound snd = "weapons/phaser_alt", int xoffset = 14, double zoffset = 50)
+	void A_FirePhaser(class<Actor> beam, class<Actor> light, class<Actor> hitpuff, int damage = 10, int ammoamt = 1, sound snd = "weapons/phaser_alt", int xoffset = 14, double zoffset = 50, double beamspacing = 1.0, int jitter = 0, class<Actor> shadow = null)
 	{
 		double old_height;
 
@@ -52,8 +52,11 @@ extend class TrekEnemy
 		old_height = height;
 		height = 0;
 
-		A_CustomRailgun(damage, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT |  RGF_SILENT, 1, 0, hitpuff, 0, 0, 2048, 4, 1.0, 0, beam, zoffset);
-		A_CustomRailgun(0, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 1, 0, "NoPuff", 0, 0, 2048, 1, FRandom(6.0, 8.0), 0, light, zoffset);
+		A_CustomRailgun(damage, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT |  RGF_SILENT, 1, 0, hitpuff, 0, 0, 2048, 4, beamspacing, jitter, beam, zoffset);
+		A_CustomRailgun(0, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 1, 0, "NoPuff", 0, 0, 2048, 1, FRandom(6.0, 8.0), jitter, light, zoffset);
+		if (shadow) {
+			A_CustomRailgun(0, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 1, 0, "NoPuff", 0, 0, 2048, 1, 1.0, jitter, shadow, zoffset);
+		}
 
 		height = old_height;
 		angle = old_angle;
@@ -502,9 +505,10 @@ class TrekEnemyFlier : TrekEnemy
 				A_Scream();
 				bNoGravity = True;
 				A_ChangeVelocity(0, 0, 0, CVF_REPLACE);
+				A_SpawnItemEx("DebrisSpawner", flags:SXF_SETMASTER);
+				A_SpawnItemEx("FlareUp", flags:SXF_TRANSFERSCALE);
 				ACS_NamedExecuteAlways("A_Disintegrate", 0, 16743936, 1);
 				A_SetScale(0.5);
-				A_SpawnItemEx("FlareUp", flags:SXF_TRANSFERSCALE);
 				A_SetScale(1.25);
 				A_SetPitch(pitch + FRandom(-30.0, 30.0), SPF_INTERPOLATE);
 				A_SetRoll(roll + FRandom(-30.0, 30.0), SPF_INTERPOLATE);
@@ -556,7 +560,7 @@ extend class TrekEnemyFlier
 		Actor mo, closest;
 		while ( (mo = TrekEnemyFlier(Finder.Next())) )
 		{
-			if (mo == self || mo.health <= 0 || mo.bDormant) { continue; }
+			if (mo == self || !mo.bShootable || mo.bDormant) { continue; }
 			if (mo.alpha < 0.25) { continue; }
 			if (Distance3d(mo) > 512) { continue; }
 			if (closest && Distance3d(mo) > Distance3d(closest)) { continue; }

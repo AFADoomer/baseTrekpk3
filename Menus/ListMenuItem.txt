@@ -50,7 +50,7 @@ Class ListMenuItemTextItemPulse : ListMenuItemSelectable
 		mHotkey = hotkey.CharCodeAt(0);
 		glowDir = -initialDirection;		// This...
 		glowAlpha = 1.0;					// and this were also added.
-		direction = dir;
+		direction = int(dir);
 	}
 	
 	void InitDirect(int x, int y, int height, String hotkey, String text, Font font, int color, int color2, Name child, 
@@ -64,7 +64,7 @@ Class ListMenuItemTextItemPulse : ListMenuItemSelectable
 		mHotkey = hotkey.CharCodeAt(0);
 		glowDir = -initialDirection;		// Here too, just for safety.
 		glowAlpha = 1.0;
-		direction = dir;
+		direction = int(dir);
 	}
 	
 	override int GetWidth()

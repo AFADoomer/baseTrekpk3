@@ -74,6 +74,19 @@ Sprite TOSDO0, 512, 512 {Offset 240, 500 XScale 8.0 YScale 10.0 Patch Delta, 0, 
 
 Sprite C004A0, 512, 512 {XScale 32.0 YScale 32.0 Patch Delta, 0, 0 {Style Overlay}}
 
+// Shut up stupid parsing errors from default MENUDEF
+Graphic M_DOOM, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_NGAME, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_OPTION, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_LOADG, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_SAVEG, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_QUITG, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_EPISOD, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_NEWG, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_SKILL, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_LOADG, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_SAVEG, 1, 1 { Patch BLACK, 0, 0 }
+
 Sprite BLASA0, 6, 6
 {
 	Offset 3, 3

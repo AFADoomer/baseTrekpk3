@@ -1,3 +1,5 @@
+version "2.4"
+
 //Weapons and Ammo
 #include "actors/zscript/weapons/ammo.txt"
 #include "actors/zscript/weapons/weaponsbase.txt"
@@ -17,6 +19,9 @@
 #include "actors/zscript/effects/shieldshell.txt"
 #include "actors/zscript/effects/sparks.txt"
 #include "actors/zscript/effects/fountain.txt"
+#include "actors/zscript/effects/skyboxes.txt"
+#include "actors/zscript/effects/debris.txt"
+#include "actors/zscript/effects/weapons.txt"
 
 //Decorations
 #include "actors/zscript/decorations/decorationsbase.txt"
@@ -26,6 +31,7 @@
 #include "actors/zscript/decorations/destroyable.txt"
 #include "actors/zscript/decorations/redalert.txt"
 #include "actors/zscript/decorations/orbiters.txt"
+#include "actors/zscript/decorations/flat.txt"
 
 //Enemies and NPCs
 #include "actors/zscript/enemies/enemybase.txt"
@@ -48,3 +54,4 @@
 #include "menus/optionmenuitem.txt"
 #include "menus/listmenu.txt"
 #include "menus/listmenuitem.txt"
+#include "menus/conversationmenu.txt"

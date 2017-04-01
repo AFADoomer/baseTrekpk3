@@ -1173,43 +1173,6 @@ Actor Impact
 	}
 }
 
-//Modified from kLazer (beta) by kodi - http://forum.zdoom.org/viewtopic.php?f=37&t=51412
-Actor LaserBeam
-{
-	var int user_offset;
-
-	Radius 0
-	Height 0
-	RenderStyle "Add"
-
-	+NOGRAVITY
-	+NOINTERACTION
-	+NOBLOCKMAP
-
-	States
-	{
-		Spawn:
-			TNT1 A 0
-			TOS1 A 1
-			Stop
-		Spawn.Old:
-			LAZR A 1 Bright {
-				user_offset = z - floorz;
-				A_SetPitch(pitch + 270);
-				A_Warp(AAPTR_MASTER, 0, 0, user_offset, 0, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION | WARPF_BOB | WARPF_TOFLOOR);
-				A_SetPitch(pitch + 270);
-			}
-	}
-}
-
-Actor LaserBeam_R : LaserBeam {}
-Actor LaserBeam_O : LaserBeam {}
-Actor LaserBeam_G : LaserBeam {}
-Actor LaserBeam_B : LaserBeam {}
-Actor LaserBeam_P : LaserBeam {}
-Actor LaserBeam_Ship : LaserBeam {}
-Actor LaserBeam_ShipP : LaserBeam {}
-
 Actor MeasurePuff : BulletPuff
 {
 	Radius 0

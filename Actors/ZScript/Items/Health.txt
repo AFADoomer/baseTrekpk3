@@ -13,7 +13,7 @@ class TOSHealth : Health
 		+NOBLOOD;
 		+NOTAUTOAIMED;
 		Height 1;
-		Radius 4;
+		Radius 8;
 	}
 
 	States

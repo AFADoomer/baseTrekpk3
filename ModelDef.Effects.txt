@@ -460,3 +460,104 @@ Model ShieldShell
 	Scale 0.1 0.1 0.1
 	FrameIndex TOS1 A 0 0
 }
+
+Model Debris
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/effects"
+
+	Model 0 "debris_1.md3"
+	FrameIndex TOS1 A 0 0
+
+	Model 0 "debris_2.md3"
+	FrameIndex TOS1 B 0 0
+
+	Model 0 "debris_3.md3"
+	FrameIndex TOS1 C 0 0
+}
+
+Model LightningBolt
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+
+	INHERITACTORPITCH
+
+	Scale 8.0 1.0 1.0
+
+	Skin 0 "Shock_A.png"
+	FrameIndex TOS1 A 0 0
+
+	Skin 0 "Shock_B.png"
+	FrameIndex TOS1 B 0 0
+
+	Skin 0 "Shock_C.png"
+	FrameIndex TOS1 C 0 0
+
+	Skin 0 "Shock_D.png"
+	FrameIndex TOS1 D 0 0
+}
+
+Model LightningBoltCore
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_b.png"
+
+	Scale 1.0 0.1 0.1
+
+	INHERITACTORPITCH
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model LightningBolt_P
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+
+	INHERITACTORPITCH
+
+	Scale 8.0 1.0 1.0
+
+	Skin 0 "Shock_2A.png"
+	FrameIndex TOS1 A 0 0
+
+	Skin 0 "Shock_2B.png"
+	FrameIndex TOS1 B 0 0
+
+	Skin 0 "Shock_2C.png"
+	FrameIndex TOS1 C 0 0
+
+	Skin 0 "Shock_2D.png"
+	FrameIndex TOS1 D 0 0
+}
+
+Model LightningBoltCore_P
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_p.png"
+
+	Scale 1.0 0.1 0.1
+
+	INHERITACTORPITCH
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model LightningBoltCore_W
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+	Skin 0 "beam_w.png"
+
+	Scale 1.0 0.1 0.1
+
+	INHERITACTORPITCH
+
+	FrameIndex TOS1 A 0 0
+}

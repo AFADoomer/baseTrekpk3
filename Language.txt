@@ -63,7 +63,7 @@ SK_3 = "Senior Staff";
 SK_4 = "Captain";
 SK_5 = "Admiral";
 
-BARRIER = "Are you sure?";
+BARRIER = "Are you sure this is what you want to do?";
 
 LOCKED = "Access Denied";
 LOCK = "You can't go there, yet.";
