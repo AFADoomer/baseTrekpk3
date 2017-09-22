@@ -1,0 +1,665 @@
+struct Coords
+{
+	double x;
+	double y;
+	double left;
+	double right;
+	double top;
+	double bottom;
+	double alpha;
+}
+
+class TrekStatusBar : BaseStatusBar
+{
+	HUDFont mHUDFont;
+	HUDFont mSmallFont;
+	HUDFont mTinyFont;
+	InventoryBarState diparms;
+	DynamicValueInterpolator mHealthInterpolator;
+	DynamicValueInterpolator mVisibilityInterpolator;
+	DynamicValueInterpolator mSuspicionInterpolator;
+
+	double basealpha;
+	int barstate;
+	bool stealth;
+	double healthbaralpha;
+	String LastTag;
+	int LastHealth;
+	int LastMaxHealth;
+	String LastIcon;
+	double velocity, oldangle, oldpitch;
+	int alertedcount;
+
+	double ScreenHeight, ScreenWidth, FOVfactor;
+	Vector2 hudscale;
+
+	override void Init()
+	{
+		Super.Init();
+		SetSize(0, 320, 200);
+		CompleteBorder = True;
+
+		// Create the fonts used
+		mHUDFont = HUDFont.Create("HUDFONT", 0);
+		mSmallFont = HUDFont.Create("BIGFONT", 2);
+		mTinyFont = HUDFont.Create("TINYFONT", 1);
+
+		diparms = InventoryBarState.Create();
+
+		mHealthInterpolator = DynamicValueInterpolator.Create(0, 1.25, 1, 40);
+		mVisibilityInterpolator = DynamicValueInterpolator.Create(0, 0.25, 1, 8);
+		mSuspicionInterpolator = DynamicValueInterpolator.Create(0, 0.25, 1, 8);
+	}
+
+	override void NewGame ()
+	{
+		Super.NewGame();
+
+		mHealthInterpolator.Reset(0);
+		mVisibilityInterpolator.Reset(0);
+		mSuspicionInterpolator.Reset(0);
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		mHealthInterpolator.Update(CPlayer.mo.Health);
+
+		Inventory vis = CPlayer.mo.FindInventory("Visibility");
+		if (vis)
+		{
+			mVisibilityInterpolator.Update(Visibility(vis).visibility);
+			
+			alertedcount = Visibility(vis).alertedcount; 
+
+			if (alertedcount)
+			{
+				mSuspicionInterpolator.Update(100);  // Force the suspicion level to 100% if sneakable enemies are alerted
+			}
+			else  // Otherwise use actual suspicion level
+			{
+				mSuspicionInterpolator.Update(Visibility(vis).suspicion);
+			}
+		}
+	}
+
+	override void Draw (int state, double TicFrac)
+	{
+		Super.Draw (state, TicFrac);
+
+		if (CPlayer.mo.FindInventory("HideHUD")) { return; }
+
+		if (!automapactive && screenblocks < 12)
+		{
+			barstate = state;
+
+			BeginHUD(1, False);
+			DrawOverlays();
+			DrawRadar(); // Must come after Overlays
+			DrawFullScreenStuff();
+		}
+		else
+		{
+			BeginStatusBar();
+		}
+	}
+
+	protected void DrawFullScreenStuff ()
+	{
+		if (barstate == HUD_StatusBar)
+		{
+			DrawBarAlpha("Health_F", "Health_B", mHealthInterpolator.GetValue(), CPlayer.mo.default.health, (5, -35), 0, 0, DI_ITEM_OFFSETS, 0.85);
+		}
+
+		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (35, -29), DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED);
+
+		if (CheckInventory("MedKit", 1))
+		{
+			if (CPlayer.mo.health > 0 && CPlayer.mo.health < 100)
+			{
+				DrawImage("Hypo", (45, -32), DI_ITEM_OFFSETS);
+			}
+		}
+
+		DrawVisibilityBar();
+
+		if (deathmatch || teamplay)
+		{
+			DrawString(mHUDFont, FormatNumber(CPlayer.FragCount, 3), (-10, -29), DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED);
+		}
+
+		if (!multiplayer || !deathmatch || teamplay)
+		{
+			bool locks[6];
+			String image;
+			for(int i = 0; i < 6; i++) locks[i] = CPlayer.mo.CheckKeys(i + 1, false, true);
+			// key 1
+			if (locks[1] && locks[4]) image = "STKEYS6";
+			else if (locks[1]) image = "STKEYS0";
+			else if (locks[4]) image = "STKEYS3";
+			DrawImage(image, (-10, 2), DI_ITEM_OFFSETS);
+			// key 2
+			if (locks[2] && locks[5]) image = "STKEYS7";
+			else if (locks[2]) image = "STKEYS1";
+			else if (locks[5]) image = "STKEYS4";
+			else image = "";
+			DrawImage(image, (-10, 12), DI_ITEM_OFFSETS);
+			// key 3
+			if (locks[0] && locks[3]) image = "STKEYS8";
+			else if (locks[0]) image = "STKEYS2";
+			else if (locks[3]) image = "STKEYS5";
+			else image = "";
+			DrawImage(image, (-10, 22), DI_ITEM_OFFSETS);
+		}
+
+		//Ammo
+		Ammo ammo1, ammo2;
+		int ammocount1, ammocount2;
+		[ammo1, ammo2, ammocount1, ammocount2] = GetCurrentAmmo();
+		if (ammo1)
+		{
+			DrawString(mHUDFont, FormatNumber(ammocount1, 3), (35, -58), DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED);
+			DrawInventoryIcon(ammo1, (52, -38), DI_ITEM_CENTER_BOTTOM);
+		}
+		if (ammo2 && ammo2 != ammo1)
+		{
+			DrawString(mHUDFont, FormatNumber(ammocount2, 3), (95, -58), DI_TEXT_ALIGN_RIGHT, Font.CR_UNTRANSLATED);
+			DrawInventoryIcon(ammo2, (112, -38), DI_ITEM_CENTER_BOTTOM);
+		}
+
+		//Inventory
+		if (CPlayer.mo.InvSel != null && !level.NoInventoryBar)
+		{
+			DrawInventoryIcon(CPlayer.mo.InvSel, (35, 29), DI_ITEM_OFFSETS);
+			if (CPlayer.mo.InvSel.Amount > 1)
+			{
+				DrawString(mTinyFont, FormatNumber(CPlayer.mo.InvSel.Amount), (35 + 31, 29 + 30 - mTinyFont.mFont.GetHeight()), DI_TEXT_ALIGN_RIGHT);
+			}
+		}
+	}
+
+	//Custom version of DrawBar that allows drawing with alpha - mostly copy/paste from original function, modified to allow alpha and scaling
+	void DrawBarAlpha(String ongfx, String offgfx, double curval, double maxval, Vector2 position, int border, int vertical, int flags = 0, double alpha = 1., double scale = 1.)
+	{
+		let ontex = TexMan.CheckForTexture(ongfx, TexMan.TYPE_MiscPatch);
+		if (!ontex.IsValid()) return;
+		let offtex = TexMan.CheckForTexture(offgfx, TexMan.TYPE_MiscPatch);
+
+		Vector2 texsize = TexMan.GetScaledSize(ontex);
+		texsize.x *= scale;
+		texsize.y *= scale;
+		[position, flags] = AdjustPosition(position, flags, texsize.X, texsize.Y);
+		
+		double value = (maxval != 0) ? clamp(curval / maxval, 0, 1) : 0;
+		if(border != 0) value = 1. - value; //invert since the new drawing method requires drawing the bg on the fg.
+		
+		// {cx, cb, cr, cy}
+		double Clip[4];
+		Clip[0] = Clip[1] = Clip[2] = Clip[3] = 0;
+		
+		bool horizontal = !(vertical & SHADER_VERT);
+		bool reverse = !!(vertical & SHADER_REVERSE);
+		double sizeOfImage = (horizontal ? texsize.X - border*2 : texsize.Y - border*2);
+		Clip[(!horizontal) | ((!reverse)<<1)] = sizeOfImage - sizeOfImage * value;
+		
+		// preserve the active clipping rectangle
+		int cx, cy, cw, ch;
+		[cx, cy, cw, ch] = screen.GetClipRect();
+
+		if(border != 0)
+		{
+			for(int i = 0; i < 4; i++) Clip[i] += border;
+
+			//Draw the whole foreground
+			DrawTexture(ontex, position, flags | DI_ITEM_LEFT_TOP, alpha, scale: (scale, scale));
+			SetClipRect(position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
+		}
+		
+		if (offtex.IsValid()) { DrawTexture(offtex, position, flags | DI_ITEM_LEFT_TOP, alpha, scale: (scale, scale)); }
+		
+		if (border == 0) 
+		{
+			SetClipRect(position.X + Clip[0], position.Y + Clip[1], texsize.X - Clip[0] - Clip[2], texsize.Y - Clip[1] - Clip[3], flags);
+			DrawTexture(ontex, position, flags | DI_ITEM_LEFT_TOP, alpha, scale: (scale, scale));
+		}
+		// restore the previous clipping rectangle
+		screen.SetClipRect(cx, cy, cw, ch);
+	}
+
+	void DrawVisibilityBar(Vector2 position = (0, 0), int flags = DI_SCREEN_HCENTER | DI_SCREEN_BOTTOM, double scale = 1.)
+	{
+		if (CPlayer.mo.FindInventory("Visibility"))
+		{
+			int current, max;
+
+			double x = position.x;
+			double y = position.y;
+
+			if (LivingSneakableActors())
+			{
+				if (basealpha < 1) { basealpha += 0.05; }
+
+				// Scale visibility to show more useful granularity
+				current = Clamp(mVisibilityInterpolator.GetValue() - 50, 0, 50);
+				max = 50;
+
+				if (alertedcount)
+				{
+					DrawImage("EYE", (x + 112 * scale, y - 21 * scale), flags | DI_ITEM_CENTER, basealpha, (-1, -1), (0.5 * scale, 0.5 * scale));
+					DrawString(mTinyFont, FormatNumber(alertedcount), (x + 124 * scale, y - 20 * scale - 2), flags | DI_TEXT_ALIGN_RIGHT, Font.CR_GRAY);
+				}
+
+				int suspicion = mSuspicionInterpolator.GetValue();
+
+				current = max(current, suspicion - 50);
+
+				DrawBarAlpha("VIS_BLK", ""/*barstate == HUD_StatusBar ? "VIS_BAC2" : "VIS_BACK"*/, current, max, (x, y - 20 * scale), 0, SHADER_HORZ, flags | DI_ITEM_CENTER, basealpha, scale);
+
+				let disguise = CPlayer.mo.FindInventory("DisguiseToken", True);
+
+				if (disguise && CheckWeaponSelected("NoWeapon"))
+				{
+					DrawBarAlpha("VIS_RED", "", current, max, (x, y - 20 * scale), 0, SHADER_HORZ, flags | DI_ITEM_CENTER, suspicion / 100., scale);
+
+					if (barstate == HUD_Fullscreen)
+					{
+						String disguisetag;
+						disguisetag = disguise.GetTag();
+						if (disguisetag != "") { disguisetag = " - " .. disguisetag; }
+
+						DrawInventoryIcon(disguise, (x - 104 * scale, y - 20 * scale), flags | DI_ITEM_CENTER, basealpha, (-1, -1), (scale, scale));
+						DrawString(mTinyFont, StringTable.Localize("$DISGUISED") .. disguisetag, (x, y - 20 * scale - 4), flags | DI_TEXT_ALIGN_CENTER, Font.CR_GRAY, basealpha - (suspicion / 100.));
+					}
+					else
+					{
+						DrawInventoryIcon(disguise, (240, 184), flags | DI_ITEM_CENTER, basealpha, (-1, -1), (0.75, 0.75));
+						DrawString(mTinyFont, StringTable.Localize("$DISGUISED"), (190, 159), DI_TEXT_ALIGN_CENTER, Font.CR_GRAY, basealpha - (suspicion / 100.));
+					}
+				}
+				else
+				{
+					DrawBarAlpha("VIS_GRN", "", current, max, (x, y - 20 * scale), 0, SHADER_HORZ, flags | DI_ITEM_CENTER, basealpha, scale);
+					DrawBarAlpha("VIS_YEL", "", current, max, (x, y - 20 * scale), 0, SHADER_HORZ, flags | DI_ITEM_CENTER, current / (max * .8), scale);
+					DrawBarAlpha("VIS_RED", "", current, max, (x, y - 20 * scale), 0, SHADER_HORZ, flags | DI_ITEM_CENTER, current / double(max), scale);
+				}
+			}
+			else
+			{
+				current = mVisibilityInterpolator.GetValue();
+				max = 100;
+
+				if (basealpha > 0) { basealpha -= 0.05; }
+				DrawBarAlpha("VIS_BLK", "VIS_BACK", current, max, (x, y - 20 * scale), 0, SHADER_HORZ, flags | DI_ITEM_CENTER, basealpha, scale);
+			}
+		}
+	}
+
+	bool LivingSneakableActors()
+	{
+		if (level.time < 5 || level.time % 35 == 0) // Cut down on how often this is run
+		{
+			ThinkerIterator it = ThinkerIterator.Create("StealthBase", Thinker.STAT_USER_MAX - 2); // Just iterate over the sneakable eyes - faster than all Nazi actors
+			StealthBase mo;
+			while (mo = StealthBase(it.Next(true)))
+			{
+				stealth = true;
+				return true;
+			}
+			
+			stealth = false;
+			return false;
+		}
+
+		return stealth;
+	}
+
+	void DrawOverlays()
+	{
+		bool draw;
+		double alpha;
+		Coords ScreenCoords;
+
+		hudscale = GetHUDScale();
+
+		FOVFactor = CPlayer.FOV / 90;
+
+		ScreenHeight = double(Screen.GetHeight()) / hudscale.y;
+		ScreenWidth = ScreenHeight * 1.333; // Use standard ratio for handling offsets
+
+		for (int i = 0; i < TrekPlayer(CPlayer.mo).ScannableThings.Size(); i++)
+		{
+			actor mo = TrekPlayer(CPlayer.mo).ScannableThings[i];
+
+			[draw, ScreenCoords.x, ScreenCoords.y, ScreenCoords.left, ScreenCoords.right, ScreenCoords.top, ScreenCoords.bottom, ScreenCoords.alpha] = GetTargetScreenCoords(CPlayer.mo, mo, 0);
+
+			if (draw)
+			{
+				double scale = clamp(1.0 - CPlayer.mo.Distance3D(mo) / 1024, 0, 1.0);
+				scale *= scale;
+
+				if (CPlayer.mo.CurSector.gravity < 0.25) { ScreenCoords.alpha += 1.0; }
+
+				String label;
+				
+//				label = CheckWeaponSelected("Tricorder") ? mo.GetTag() : "";
+/*
+				if (TrekPlayer(CPlayer.mo) && TrekPlayer(CPlayer.mo).CrosshairTarget == mo)
+				{
+//					ScreenCoords.alpha += 1.0;
+//					scale = 1.5;
+				}
+*/
+				readonly<Actor> defmobj = GetDefaultByType(mo.GetClass());
+				mo.bMissile |= defmobj.bMissile;
+
+				if (mo.bIsMonster)
+				{
+					if (mo.bFriendly && !(TrekEnemyActor(mo) && TrekEnemyActor(mo).user_sneakable)) { DrawFrame(CPlayer.mo, mo, ScreenCoords, "G", label, 0, scale); }
+					else { DrawFrame(CPlayer.mo, mo, ScreenCoords, "A", label, 0, scale); }
+				}
+				else if (mo is "CustomInventory")
+				{
+					DrawFrame(CPlayer.mo, mo, ScreenCoords, "B", label, 0, scale);
+				}
+				else if (
+					mo is "DisruptorStation" || 
+					(mo is "TOSCrate" && TOSCrate(mo).user_uses != 0) || 
+					(mo.bUseSpecial && mo.special)
+				)
+				{
+					DrawFrame(CPlayer.mo, mo, ScreenCoords, "B", label, Highlight | Flash, scale);
+				}
+				else if (
+					mo.bMissile && 
+					CheckWeaponSelected("Tricorder")
+				)
+				{
+					DrawFrame(CPlayer.mo, mo, ScreenCoords, "", label, 0, scale);
+				}
+			}
+		}
+	}
+
+	enum Styles
+	{
+		Normal = 0x0,
+		Flash = 0x1,
+		Highlight = 0x2,
+	}
+
+	void DrawFrame(Actor origin, Actor mo, Coords ScreenCoords, String modifier = "", String label = "", int type = 0, double scale = 1.0)
+	{
+		if (!origin || !mo) { return; }
+		if (mo.health <= 0) { return; }
+//		if (origin.Distance3d(mo) - origin.radius - mo.radius < 32) { return; }
+
+		double alpha = ScreenCoords.alpha - 1.0;
+
+		if (alpha <= 0) { return; }
+
+		if (type & Highlight) { alpha += 1.0; }
+
+		DrawString(mSmallFont, label, (ScreenCoords.x, max(ScreenCoords.top - (mSmallFont.mFont.GetHeight() * 2.5), 0)), DI_TEXT_ALIGN_CENTER, Font.FindFontColor("TOSGold"), alpha);
+
+		if (type & Flash) { alpha -= sin(level.time * 8) / 2 + 0.5; }
+
+		DrawImage("Scan" .. modifier .. "_TL", (ScreenCoords.left, ScreenCoords.top), DI_ITEM_RIGHT_BOTTOM, alpha, (-1, -1), (scale, scale));
+		DrawImage("Scan" .. modifier .. "_TR", (ScreenCoords.right, ScreenCoords.top), DI_ITEM_LEFT_BOTTOM, alpha, (-1, -1), (scale, scale));
+		DrawImage("Scan" .. modifier .. "_BL", (ScreenCoords.left, ScreenCoords.bottom), DI_ITEM_RIGHT_TOP, alpha, (-1, -1), (scale, scale));
+		DrawImage("Scan" .. modifier .. "_BR", (ScreenCoords.right, ScreenCoords.bottom), DI_ITEM_LEFT_TOP, alpha, (-1, -1), (scale, scale));
+	}
+
+	bool, double, double, double, double, double, double, double GetTargetScreenCoords(Actor origin, Actor target, double zOffset = 0)
+	{
+		if (!origin || !target) { return false, 0, 0, 0, 0, 0, 0, 0; }
+
+		double x, y, left, right, top, bottom, alpha;
+
+		double angle = origin.AngleTo(target) - origin.angle;
+		double fov = CPlayer.fov;
+		if (angle % 360 > fov / 2 && angle % 360 < 360 - fov / 2) { return false, 0, 0, 0, 0, 0, 0, 0; }
+
+		double dist = origin.Distance2d(target);
+
+		alpha = 1;
+
+		if (abs(origin.pitch) <= 50)
+		{
+			double radius = (Decoration(target) && Decoration(target).user_width > 0) ? Decoration(target).user_width / 2 : target.radius;
+			double height = (Decoration(target) && Decoration(target).user_height > 0) ? Decoration(target).user_height : target.height;
+
+			if (target.bMissile) { height = 0; }
+
+			if (zOffset == 0) { zOffset = height / 2; }
+
+			double viewpitch = VectorAngle(dist, target.pos.z + zOffset - (origin.pos.z + origin.player.viewheight));
+			viewpitch = viewpitch + origin.pitch; 
+			viewpitch *= 1.5 / FOVFactor;	
+
+			if ((ScreenWidth / 2) * sin(angle) != 0 && cos(angle) != 0 && (ScreenWidth / 2) * sin(viewpitch) != 0 && cos(viewpitch) != 0)
+			{
+				double xscale = ((ScreenWidth / 2) / max(origin.Distance3d(target), 1)) / FOVFactor;
+				double yscale = ((ScreenHeight / 2) / max(origin.Distance3d(target), 1)) / FOVFactor;
+
+				x = (Screen.GetWidth() / hudscale.x) / 2 - ((ScreenWidth / 2) * sin(angle) / cos(angle)) / FOVFactor;
+				y = ScreenHeight / 2 - ((ScreenHeight / 2) * sin(viewpitch) / cos(viewpitch));
+
+				if (screenblocks <= 10) { y -= RelTop; }
+
+				left = x - radius * xscale;
+				right = x + radius * xscale;
+				top = y - (height / 2) * yscale;
+				bottom = y + (height / 2) * yscale;
+
+				x = clamp(x, 0, Screen.GetWidth());
+				y = clamp(y, 0, Screen.GetHeight());
+				left = clamp(left, 0, Screen.GetWidth());
+				right = clamp(right, 0, Screen.GetWidth());
+				top = clamp(top, 0, Screen.GetHeight());
+				bottom = clamp(bottom, 0, Screen.GetHeight());
+/*
+				alpha = 1.0 - abs(x / (Screen.GetWidth() / hudscale.x) - 0.5) / 0.5;
+				alpha *= 1.0 - abs(y / (Screen.GetHeight() / hudscale.y) - 0.5) / 0.5;
+*/
+
+				alpha = 1.5 - abs(x / (Screen.GetWidth() / hudscale.x) - 0.5) / 0.5;
+				alpha *= 1.5 - abs(y / (Screen.GetHeight() / hudscale.y) - 0.5) / 0.5;
+				alpha *= clamp((1024 - origin.Distance3D(target)) / 1024, 0, 1.0);
+
+				return true, x, y, left, right, top, bottom, alpha;
+			}
+		}
+		return false, x, y, left, right, top, bottom, alpha;
+	}
+
+	void DrawRadar(double alpha = 1.0, double scale = 0.6125, double x = 124, double y = 124, double dist = 480)
+	{
+		double offset = (1024 - 768 * ScreenWidth / ScreenHeight) / 2; //Offset for widescreen resolutions
+
+		x = x + offset > 0 ? x + offset : 0;
+		
+		x *= scale;
+		y *= scale;
+
+		DrawImage("RadarBkg", (x, y), DI_ITEM_CENTER, alpha, (-1, -1), (scale, scale));
+		DrawImage("Marker", (x, y), DI_ITEM_CENTER, alpha, (-1, -1), (scale, scale));
+
+		if (TRUE)
+		{
+			//Compass marker location algorithm derived from Enjay's Operation: Overlord
+			double CompassX = -Cos(CPlayer.mo.angle) * 100 * scale;
+			double CompassY = Cos(CPlayer.mo.angle + 90) * 100 * scale - mTinyFont.mFont.GetHeight() / 2;
+
+			DrawString(mTinyFont, "N", (x + CompassX, y + CompassY), DI_TEXT_ALIGN_CENTER, Font.FindFontColor("TOSBrightRed"), alpha);
+		}
+
+		for (int i = 0; i < TrekPlayer(CPlayer.mo).MapThings.Size(); i++)
+		{
+			actor mo = TrekPlayer(CPlayer.mo).MapThings[i];
+
+			if (!mo) { continue; }
+
+			DrawBlip(mo, CPlayer.mo, scale, x, y, dist);
+		}
+	}
+
+	void DrawBlip(Actor object, Actor origin, double scale, double x, double y, double dist)
+	{
+		string graphic = "";
+		string colorgraphic = "";
+		string text = "";
+		string textcolor = "TOSBrightRed";
+		double alpha = 1.0;
+
+		bool alwaysShow;
+		bool offScreen;
+
+		double dx, dy;
+
+		double zoom = dist / 80;
+		Vector3 offset = origin.pos - object.pos;
+		
+		if (object.GetTag() == "NavGoal") { alwaysshow = true; }
+
+		if (origin.Distance3D(object) > dist && !alwaysshow) { return; }
+
+		if (alwaysshow && origin.Distance3D(object) > dist * 1.12)
+		{
+			offscreen = 1;
+			double angle = VectorAngle(offset.x, offset.y) - origin.angle + 90;
+			dx = -cos(angle) * (dist * 1.12);
+			dy = cos(angle + 90) * (dist * 1.12);
+		}
+		else
+		{
+			dx = offset.x * cos(-origin.angle - 90) - offset.y * sin(-origin.angle - 90);
+			dy = offset.x * sin(-origin.angle - 90) + offset.y * cos(-origin.angle - 90);
+		}
+
+		dx = dx * scale / zoom;
+		dy = dy * scale / zoom;
+
+		if (abs(dx) > x || abs(dy) > y) { return; }
+
+		int da = int(((origin.angle - object.angle) % 360) / 45);
+		if (da < 0) da = da + 8;
+
+		if (object.bUseSpecial && object is "Decoration" && !(object is "TOSTurboliftHandle"))
+		{ //Consoles and other useable things
+			if (Decoration(object).user_uses > 0)
+			{
+				text = "!";
+				colorgraphic = "Marker_D";
+			}
+		}
+
+		if (object.GetTag() == "NavGoal")
+		{ //Navigation Goal Markers
+			if (!offScreen)
+			{
+				graphic = "Marker_o";
+			}
+
+			colorgraphic = "Marker_N";
+
+			//Distance Fade
+			double fadeAmt = origin.Distance3D(object) / 64;
+			double cap = (100 - fadeAmt) * 0.01;
+			If (cap < 0.5) alpha = 0.5;
+
+			int tic = level.time % 35;
+			If (tic > 17)
+				alpha = cap - ((tic - 17) * 0.03);
+			else
+				alpha = (tic * 0.03) + (cap / 2);
+		}
+		else if (object is "PlayerPawn")
+		{ //Players
+			if (deathmatch)
+			{
+				graphic = "Marker_" .. da;
+				colorgraphic = "Marker_R";
+			}
+			Else
+			{
+				text = "" .. object.PlayerNumber();
+				textcolor = "TOSLightGrey";
+				colorgraphic = "Marker_G";
+			}
+		}
+		else if (object is "TurboLiftMarker")
+		{ //Turbolifts
+			text = "T";
+			textcolor = "TOSBrightBlue";
+			colorgraphic = "Marker_D";
+		}
+		else if (object is "TransporterMarker" || object.species == "Transporter")
+		{ //Transporters
+			text = "*";
+			textcolor = "TOSBrightOrange";
+			colorgraphic = "Marker_D";
+		}
+		else if (object is "LadderBase")
+		{ //Ladders
+			graphic = "Marker_L";
+			colorgraphic = "Marker_E";
+		}
+		else if ((object.speed == 0 && object.bInvulnerable && object.Species != "Enemy") || object.Species == "Decoration")
+		{ //Decorations
+			//colorgraphic = "Marker_E";
+		}
+		else if (object.speed == 0  && object.Default.Health == 1000 && object.species != "Projectile")
+		{ //Pickups
+			graphic = "Marker_S";
+			colorgraphic = "Marker_B";
+		}
+		else if (object.speed > 0 && object.Default.health == 1000 || object.species == "Projectile")
+		{ //Projectiles
+			graphic = "Marker_" .. da;
+			colorgraphic = "Marker_Y";
+		}
+		else if (object.Default.health > 0 && object.health > 0)
+		{ //Actors
+			if (object.bLookAllAround) { graphic = "Marker_O"; }
+			else { graphic = "Marker_" .. da; }
+
+			if (object.bFriendly && !(TrekEnemyActor(object) && TrekEnemyActor(object).user_sneakable))
+				colorgraphic = "Marker_G";
+			Else
+				colorgraphic = "Marker_R";
+		}
+		else if (object.default.health > 0 && object.health <= 0)
+		{ //Dead Actors
+			//colorgraphic = "Marker_E";
+		}
+
+		if (colorgraphic != "NULL")
+		{
+			If (!alwaysShow)
+			{
+				If (offset.z > 48) //Point is below player
+					alpha = 0.9 - (abs(offset.z) / 256);
+				Else If (offset.z < -96) //Point is above player
+					alpha = 0.9 - (abs(offset.z) / 256);
+				Else
+					alpha = 1.0;
+
+				If (alpha > 1.0) alpha = 1.0;
+				If (alpha < 0) alpha = 0;
+			}
+
+			DrawImage(colorgraphic, (x + dx, y - dy), DI_ITEM_CENTER, alpha, (-1, -1), (scale, scale));
+		}
+
+		if (graphic != "NULL")
+		{
+			DrawImage(graphic, (x + dx, y - dy), DI_ITEM_CENTER, alpha, (-1, -1), (scale, scale));
+		}
+
+		if (text != "NULL")
+		{
+			DrawString(mTinyFont, text, (x + dx, y - dy - mTinyFont.mFont.GetHeight() / 2), DI_TEXT_ALIGN_CENTER, Font.FindFontColor(textcolor), alpha);
+		}
+	}
+}

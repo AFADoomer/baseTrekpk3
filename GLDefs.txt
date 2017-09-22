@@ -86,8 +86,8 @@ PointLight SmallGreenLight
 PointLight TinyBlueGreenLight
 {
 	color 0.1 0.4 0.3
-	size 6
-	attenuate 1
+	size 12
+	attenuate 0
 }
 
 PointLight SmallBlueLight
@@ -231,8 +231,8 @@ PointLight PlanetLight
 
 PointLight SunLight
 {
-	Color 1.0 0.75 0.75
-	Size 900
+	Color 1.0 1.0 0.95
+	Size 1024
 	attenuate 1
 }
 

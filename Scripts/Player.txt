@@ -1,0 +1,338 @@
+class TrekPlayer : PlayerPawn
+{
+	int user_spawn;
+	int user_active;
+	int user_crouch;
+	int user_climb;
+	int user_back;
+	int user_weaponclass;
+	int user_forcestatechange;
+	int user_idletime;
+	int user_travel;
+	double user_zoomlevel;
+	Actor CrosshairTarget;
+	Array<Actor> ScannableThings;
+	Array<Actor> MapThings;
+	double currentFOV;
+
+	Default
+	{
+		Speed 0.85;
+		Health 100;
+		Radius 12;
+		Height 70;
+		YScale 1.33;
+		Mass 100;
+		PainChance 255;
+		Player.DisplayName "Starfleet";
+		Player.CrouchSprite "TOSO";
+		Player.StartItem "PhaserType2"; //Temp
+		Player.StartItem "Tricorder"; //Temp
+		Player.StartItem "TOSCommunicator"; //Temp
+		Player.StartItem "MedKit"; //Temp
+		Player.StartItem "AccessLevel1"; //Temp
+		Player.StartItem "AccessLevel2"; //Temp
+		Player.StartItem "Charge", 90; //Temp
+		Player.StartItem "NoWeapon";
+		Player.WeaponSlot 1, "Punch", "PhaserType1";
+		Player.WeaponSlot 2, "PhaserType2";
+		Player.WeaponSlot 3, "PhaserRifle";
+		Player.WeaponSlot 4, "Distruptor";
+		Player.WeaponSlot 5, "PhotonGrenadeLauncher";
+		Player.WeaponSlot 6, "";
+		Player.WeaponSlot 7, "";
+		Player.WeaponSlot 8, "";
+		Player.WeaponSlot 9, "TOSCommunicator";
+		Player.WeaponSlot 0, "Tricorder";
+		Player.ViewHeight 64;
+		Player.ClearColorSet 0;
+		Player.ClearColorSet 1;
+		Player.ClearColorSet 2;
+		Player.ClearColorSet 3;
+		Player.ClearColorSet 4;
+		Player.ClearColorSet 5;
+		Player.ClearColorSet 6;
+		Player.ClearColorSet 7;
+		MaxStepHeight 22;
+		TeleFogSourceType "TransSource";
+		TeleFogDestType "TransDest";
+		Tag "Human Male";
+	}
+
+	States
+	{
+		Spawn:
+			TNT1 A 15 NoDelay {
+				user_spawn = 1;
+				user_active = 0;
+				user_back = 0;
+				user_crouch = 0;
+				user_weaponclass = 0;
+			}
+			TNT1 A 0 A_JumpIf(user_weaponclass >= 2, "Stand2");
+			Goto Stand;
+		Idle:
+			TNT1 A 0 { user_idletime = 0; }
+			P021 ABCDE 26;
+			Loop;
+		Stand:
+			TNT1 A 0 {
+				user_active = 0;
+				user_forcestatechange = 0;
+			}
+			P021 A 6;
+			TNT1 A 0 A_JumpIf(user_idletime > 15, "Idle");
+			TNT1 A 0 { user_idletime = user_idletime + 1; }
+			Loop;
+		Stand2:
+			P005 A 6 {	
+				user_active = 0;
+				user_forcestatechange = 0;
+			}
+			Loop;
+		Stand.Crossed:
+			P018 ABCD 4;
+			Loop;
+		See:
+		Walk:
+			P004 ABCD 4;
+			Loop;
+		Walk2:
+			P005 ABCD 4;
+			Loop;
+		Run:
+			P007 ABCDEF 3;
+			Loop;
+		Run2:
+			P008 ABCDE 3;
+			Loop;
+		Walk.Back:
+			P006 ABCDEFGHIJKLMN 2;
+			Loop;
+		Turn:
+			P009 ABCDEF 3;
+			Loop;
+		Turn2:
+			P010 ABCDEF 3;
+			Loop;
+		Crouch:
+		Crouch.Stand:
+		Crouch.Turn:
+		Crouch.Turn2:
+			P012 A 2 A_JumpIf(user_crouch == 0, "Stand");
+			Loop;
+		Crouch.Walk:
+		Crouch.Walk2:
+			P012 ABCDEFGHIJKLMN 2 A_JumpIf(user_crouch == 0, "Stand");
+			Loop;
+		Crouch.Walk.Back:
+			P012 NMLKJIHGFEDCBA 2 A_JumpIf(user_crouch == 0, "Stand");
+			Loop;
+		Crouch.Rise:
+			P015 HGFEDCBA 2;
+			Goto Stand;
+		Crouch.Fire:
+//TODO: Convert to new model...
+			TOSK CD 6;
+			Goto Crouch.Stand;
+		Melee:
+		Missile:
+			TNT1 A 0 { user_active = 1; }
+			TNT1 A 0 A_JumpIf(user_crouch == 1, "Crouch.Fire");
+			TNT1 A 0 A_JumpIf(user_weaponclass == 2, "Fire2");
+			TNT1 A 0 A_JumpIf(user_weaponclass == 3, "Fire3");
+		Fire1:
+			P001 ABCDEF 2;
+			TNT1 A 0 { user_forcestatechange = 1; }
+			Goto Stand;
+		Fire2:
+			P002 ABCDEF 2;
+			TNT1 A 0 { user_forcestatechange = 1; }
+			Goto Stand2;
+		Fire3:
+			P003 ABCDEF 2;
+			TNT1 A 0 { user_forcestatechange = 1; }
+			Goto Stand2;
+		Pain:
+			P013 A 8 A_Pain;
+			Goto Stand;
+		Death:
+			TNT1 A 0 { user_active = 1; }
+			P013 ABCDEFG 1;
+			P013 H 1 {
+				A_PlayerScream();
+				A_NoBlocking();
+			}
+			P013 IJKLMNOPQRSTUVW 1;
+			P013 X -1;
+			Stop;
+		XDeath:
+			TNT1 A 0 { user_active = 1; }
+			P014 ABCDEFG 1;
+			P014 H 1 {
+				A_PlayerScream();
+				A_NoBlocking();
+			}
+			P014 IJKLMNO 1;
+			P014 P -1;
+			Stop;
+		Jump:
+		Jump.Back:
+			TNT1 A 0 A_JumpIf(vel.z < 0, "Jump.Loop");
+			P040 ABC 4;
+		Jump.Loop:
+			P040 C 8;
+			TNT1 A 0 A_CheckFloor("Land");
+			TNT1 A 0 A_JumpIf(vel.z == 0, "Land");
+			Loop;
+		Land:
+			TNT1 A 0 A_PlaySound("Player/Land");
+			P040 BA 2;
+			Goto Stand;
+		Climb.Down:
+			P016 ABCDEFGH 2 A_CheckFloor("Land");
+			Loop;
+		Climb.Up:
+			P017 ABCDEFGH 2 A_CheckFloor("Land");
+			Loop;
+		Swim:
+			P008 ABCD 4 A_JumpIf(waterlevel <= 1, "Jump.Loop");
+      			Loop;
+		Hidden:
+			TNT1 A 8;
+			Loop;
+		Perform:
+			//Placeholders to shut up the errors....
+			TOS1 A 0;
+			TOS2 A 0;
+			TOS3 A 0;
+			TOS4 A 0;
+			TOS5 A 0;
+			TOS6 A 0;
+			TOS7 A 0;
+			TOS8 A 0;
+			TOSA A 0;
+			TOSB A 0;
+			TOSC A 0;
+			TOSD A 0;
+			TOSE A 0;
+			TOSF A 0;
+			TOSG A 0;
+			TOSH A 0;
+			TOSI A 0;
+			TOSJ A 0;
+			TOSK A 0;
+			TOSL A 0;
+			TOSM A 0;
+			TOSN A 0;
+			TOSO A 0;
+			TOSP A 0;
+			TOSQ A 0;
+			TOSR A 0;
+			TOSS A 0;
+			TOST A 0;
+			TOSU A 0;
+			TOSV A 0;
+			P018 A 0;
+			P019 A 0;
+			P020 A 0;
+			P022 A 0;
+			P023 A 0;
+			P024 A 0;
+			P025 A 0;
+			P026 A 0;
+			P027 A 0;
+			P028 A 0;
+			P029 A 0;
+			P030 A 0;
+			P031 A 0;
+			P032 A 0;
+			P033 A 0;
+			P034 A 0;
+			P035 A 0;
+			P036 A 0;
+			P037 A 0;
+			P038 A 0;
+			P039 A 0;
+		Stop;
+	}
+
+	override void Tick()
+	{
+		if (Level.time % 5 == 0)
+		{
+			CrosshairTarget = GetLineTarget();
+			BuildScanList();
+		}
+
+		Super.Tick();
+	}
+
+	Actor GetLineTarget()
+	{
+		FTranslatedLineTarget t;
+		BulletSlope(t, ALF_CHECKNONSHOOTABLE);
+
+		return t.linetarget;
+	}
+
+	void BuildScanList(int range = 1024)
+	{
+		ScannableThings.Clear();
+		MapThings.Clear();
+
+		Actor mo;
+		ThinkerIterator Finder;
+
+		Finder = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
+
+		while ( mo = Actor(Finder.Next()) )
+		{
+			MapActor(mo, range);
+		}
+
+		Finder = ThinkerIterator.Create("Actor", Thinker.STAT_USER_MAX - 5);
+
+		while ( mo = Actor(Finder.Next()) )
+		{
+			MapActor(mo, range);
+		}
+	}
+
+	void MapActor(Actor mo, int range)
+	{
+		readonly<Actor> defmobj = GetDefaultByType(mo.GetClass());
+
+		if (
+			!(
+				mo is "NavGoal"
+			) &&
+			(
+				mo.health <= 0 ||
+				mo.bDormant ||
+				Distance3d(mo) > Range ||
+				mo is "Block"
+			)
+		) { return; }
+
+		if (
+			(defmobj.bMissile && mo.damage <= 0) ||
+			(mo.bNoBlockMap && !defmobj.bMissile)
+		) { return; }
+
+		if (MapThings.Find(mo) == MapThings.Size())
+		{
+			MapThings.Push(mo);
+		}
+
+		if (
+			(mo.bNoBlockMap && (mo.damage <= 0 || mo.vel.length() < 1)) ||
+			!IsVisible(mo, false)
+		) { return; }
+
+		if (ScannableThings.Find(mo) == ScannableThings.Size())
+		{
+			ScannableThings.Push(mo);
+		}
+	}
+}

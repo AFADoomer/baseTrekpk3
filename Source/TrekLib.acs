@@ -109,7 +109,9 @@ Script "W_LevelStart" ENTER
 			ChangeCamera(1, 1, 1);
 		}
 
-		SetCameraToTexture(1, "TITLECAM", 90);
+		int FOV = GetUserVariable(1, "CameraFOV") / 1.0;
+
+		SetCameraToTexture(1, "TITLECAM", FOV);
 
 		SetHudSize(1280, 960, 1);
 
@@ -141,11 +143,20 @@ Script "W_LevelStart" ENTER
 				int actionDelay = TitleSequence[t][4];
 				int TID = TitleSequence[t][5];
 
+				FOV = GetUserVariable(Camera, "CameraFOV") / 1.0;
+
 				If (oldCamera && Camera != oldCamera && actionDelay >= 35)
 				{
-					Delay(actionDelay - 17);
-					SetCameraToTexture(oldCamera, "TITLEALT", 90);
-					If (GameType() != GAME_TITLE_MAP) FadeToGraphic ("TITLEALT", 0.0, 0.4, 0.8);
+					Delay(actionDelay - 25);
+
+					int oldFOV = GetUserVariable(oldCamera, "CameraFOV") / 1.0;
+
+					SetCameraToTexture(oldCamera, "TITLEALT", oldFOV);
+					Delay(8);
+					If (GameType() != GAME_TITLE_MAP)
+					{
+						FadeToGraphic ("TITLEALT", 0.0, 0.4, 0.8);
+					}
 					Delay(17);
 				}
 				Else
@@ -157,7 +168,7 @@ Script "W_LevelStart" ENTER
 				}
 
 				If (GameType() != GAME_TITLE_MAP) ChangeCamera(Camera, 1, 1);
-				SetCameraToTexture(Camera, "TITLECAM", 90);
+				SetCameraToTexture(Camera, "TITLECAM", FOV);
 
 				If (t == numTitles - 1) SetMusic("*", 0);
 
@@ -407,7 +418,7 @@ Script "W_PlayerLoop" ENTER
 		int HUDY = GetScreenHeight();
 
 		SetHudSize(HUDX, HUDY, 1);
-
+/*
 		If(StrIcmp(GetWeapon(), "Tricorder") == 0)
 		{
 			ACS_NamedExecute("PrintScan", 0, 0);
@@ -420,14 +431,15 @@ Script "W_PlayerLoop" ENTER
 
 			ACS_NamedExecute("PrintScan", 0, 1);
 		}
+*/
 
 		scale = maxMapZoom - mapZoom;
 
-		DrawRadar(0, scale, mapX, mapY, mapRadius * scale, hud);
+//		DrawRadar(0, scale, mapX, mapY, mapRadius * scale, hud);
 	}
 	Else
 	{
-		DrawRadar(0, 0, 0, 0, 0, 0);
+//		DrawRadar(0, 0, 0, 0, 0, 0);
 	}
 
 	If (!Flight && !Cutscene)
@@ -886,14 +898,22 @@ Script "A_Transport" (int Fade, int BeamDir)
 	SetActorProperty(0, APROP_INVULNERABLE, 1);
 	SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
 
+	int activator = ActivatorTID();
+	int effecttid = UniqueTID();
+
 	If (BeamDir != 1)
 	{
-		SpawnForced("TransporterEffect", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
+		SpawnForced("TransporterEffect", GetActorX(0), GetActorY(0), GetActorZ(0), effecttid, 0);
+		SetActivator(effecttid);
+		SetPointer(AAPTR_MASTER, activator);
+		SetActivator(activator);
+
 		If (Fade && !Cutscene)
 		{
 			//FadeRange (250, 234, 149, 0.0, 250, 234, 149, 1.0, 6.0);
 			FadeToGraphic ("Gold", 5.0, 4.0, 0);
 		}
+/*
 		Delay(35);
 		SetActorProperty(0, APROP_Alpha, 1.0);
 
@@ -902,18 +922,24 @@ Script "A_Transport" (int Fade, int BeamDir)
 			SetActorProperty(0, APROP_Alpha, out * 0.01);
 			Delay (1);
 		}
+*/
 	}
 
 	If (BeamDir > 1) Delay(35);
 
 	If (BeamDir > 0)
 	{
-		SpawnForced("TransporterEffect2", GetActorX(0), GetActorY(0), GetActorZ(0), 0, 0);
+		SpawnForced("TransporterEffect2", GetActorX(0), GetActorY(0), GetActorZ(0), effecttid, 0);
+		SetActivator(effecttid);
+		SetPointer(AAPTR_MASTER, activator);
+		SetActivator(activator);
+
 		If (Fade && !Cutscene)
 		{
 			//FadeRange (250, 234, 149, 1.0, 250, 234, 149, 0.0, 6.0);
 			FadeToGraphic ("Gold", 1.0, 0, 3.0);
 		}
+/*
 		Delay(35);
 		SetActorProperty(0, APROP_Alpha, 0);
 
@@ -923,6 +949,7 @@ Script "A_Transport" (int Fade, int BeamDir)
 			Delay (1);
 		}
 		SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
+*/
 	}
 
 //	SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
@@ -1277,7 +1304,7 @@ Script "PrintInfo" (void)
 
 			Data = StrParam(s:Data, 
 					s:"\n",
-					s:"\c[TOSMenuLightGold]", d:FixedMul(Mass * 1.0, 0.85) / 1.0, s:"kg\n"
+					s:"\c[TOSMenuLightGold]", d:FixedMul(Mass * 1.0, 0.75) / 1.0, s:"kg\n"
 					);
 		}
 
@@ -1968,11 +1995,18 @@ Function void Notification(str strTitle, str strContent, str strLogOnlyContent, 
 
 	ClearNotification();
 
+	SetHudSize(475, 300, 0);
+	SetFont("SmallFont");
+
 	If (GetInput)
-		DrawString(StrParam(s:"\ck", s:strTitle, s:"\n\cc", s:strContent), 0, 15000, 20.1, 40.1, 3, 1.0, 1.0, 1.0, 1.0, 5.0, 4);
+	{
+		HudMessage (s:"\ck", s:strTitle, s:"\n\cc", s:strContent; HUDMSG_FADEINOUT | HUDMSG_NOTWITHFULLMAP | HUDMSG_ALPHA, 15000, -1, 110.1, 10.1, 5.0, 0.25, 0.25, 1.0);
+//		DrawString(StrParam(s:"\ck", s:strTitle, s:"\n\cc", s:strContent), 0, 15000, 20.1, 40.1, 4, 1.0, 1.0, 1.0, 1.0, 5.0, 4);
+	}
 	Else
 	{
-		DrawString(strString, 0, 15000, 740.1, 140.1, 3, 1.0, 1.0, 1.0, 1.0, 5.0, 4);
+//		DrawString(strString, 0, 15000, 740.1, 140.1, 4, 1.0, 1.0, 1.0, 1.0, 5.0, 4);
+		HudMessage (s:strString; HUDMSG_FADEINOUT | HUDMSG_NOTWITHFULLMAP | HUDMSG_ALPHA, 15000, -1, 110.1, 10.1, 5.0, 0.25, 0.25, 1.0);
 		SetFont("MSGBOX");
 		SetHudSize(320, 200, 0);
 		HudMessage (s:"A"; HUDMSG_FADEINOUT | HUDMSG_ALPHA, -15000, -1, 70.1, 5.1, 4.0, 1.0, 1.0, 0.6);

@@ -1,0 +1,30 @@
+class OptionMenuItemTrekControl : OptionMenuItemControl
+{
+	OptionMenuItemTrekControl Init(String label, Name command)
+	{
+		Super.Init(label, command);
+		return self;
+	}
+
+	override int Draw(OptionMenuDescriptor desc, int y, int indent, bool selected)
+	{
+		drawLabel(indent, y, mWaiting? OptionMenuSettings.mFontColorHighlight:
+			(selected? OptionMenuSettings.mFontColorSelection : OptionMenuSettings.mFontColor));
+
+		String description;
+		int Key1, Key2;
+
+		[Key1, Key2] = mBindings.GetKeysForCommand(mAction);
+		description = KeyBindings.NameKeys (Key1, Key2);
+		if (description.Length() > 0)
+		{
+			// change the bound key's font to use SmallFont instead of ConFont
+			screen.DrawText(SmallFont, Font.CR_DARKGRAY, indent + CursorSpace(), y + (OptionMenuSettings.mLinespacing-8)*CleanYfac_1, description, DTA_CleanNoMove_1, true);
+		}
+		else
+		{
+			screen.DrawText(SmallFont, Font.CR_BLACK, indent + CursorSpace(), y + (OptionMenuSettings.mLinespacing-8)*CleanYfac_1, "---", DTA_CleanNoMove_1, true);
+		}
+		return indent;
+	}
+}

@@ -13,8 +13,9 @@ Function void Letterbox (int OnOff)
 		HudMessage (s:"A"; 0, 101, -1, 0.0, 270.0, 0);
 		HudMessage (s:"A"; 0, 103, -1, 320.0, 270.0, 0);
 
-		SetFont("WSMASK");
-		HudMessage (s:"A"; 0, 104, -1, 160.0, 100.0, 0);
+//		SetFont("WSMASK");
+//		HudMessage (s:"A"; 0, 104, -1, 160.0, 100.0, 0);
+		GiveInventory("HideHUD", 1);
 	}
 	Else
 	{
@@ -22,6 +23,7 @@ Function void Letterbox (int OnOff)
 		ClearRange(100, 104);
 		HudMessage (s:""; 0, 0, 0, 0, 0, 0, 0);
 		HudMessage (s:""; 0, -1000, 0, 0, 0, 0, 0);
+		TakeInventory("HideHUD", 999);
 	}
 }
 
@@ -53,6 +55,9 @@ Script "Cutscene" (int index, int inTime, int outTime)
 	int posv = 720.2;
 	int pos = 0.0;
 
+	int captionwidth = 768;
+	int captionheight = 576;
+
 	SetPlayerProperty(1, 1, PROP_TOTALLYFROZEN);
 
 	FadeToGraphic("Black_Ful", 1.0, inTime * 1.0, outTime * 1.0);
@@ -62,7 +67,6 @@ Script "Cutscene" (int index, int inTime, int outTime)
 	Letterbox(1);
 
 	SetHudSize(1024, 768, 0);
-	SetFont("BIGFONT");
 	strLookupName = strParam(s:"Cutscene_",n:PRINTNAME_LEVEL,s:"_",d:index, s:"_", d:i);
 
 	strLookupData = strParam(l:strLookupName);
@@ -74,9 +78,9 @@ Script "Cutscene" (int index, int inTime, int outTime)
 
 		If (SkipCutscene)
 		{
-			SetHudSize(1280, 960, 1);
+			SetHudSize(1280, 720, 1);
 			SetFont("Black_Ful");
-			HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, 1, -1, 640.0, 480.0, 0);
+			HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, 1, -1, 640.0, 360.0, 0);
 
 			strSkipString = strParam(s:strSkipString, s:".");
 			SetHudSize(GetScreenWidth(), GetScreenHeight(), 0);
@@ -88,47 +92,40 @@ Script "Cutscene" (int index, int inTime, int outTime)
 
 		If (StrCmp(CutsceneData[0], "") != 0 && IntFromString(CutsceneData[0]) > 0)
 		{
-			//ChangeCamera(IntFromString(CutsceneData[0]), 1, 0);
-			// Use texture instead of direct camera so the camera has modifiable FOV...
-			SetHudSize(1280, 960, 1);
-			If (IntFromString(CutsceneData[0]) != CutsceneCamera) //If it's not alrady set, and so that you can set it in a script with custom FOV.
-			{
-				SetCutSceneCamera(IntFromString(CutsceneData[0]), 35);
-			}
-			Thing_Activate(IntFromString(CutsceneData[0]));
-			SetFont("CUTSCENE");
-			HudMessage (s:"A"; HUDMSG_LAYER_OVERHUD, -1000, -1, 640.0, 480.0, 0);
+			int tid = IntFromString(CutsceneData[0]);
+
+			ChangeCamera(tid, 1, 0);
+//			SetUserVariable(tid, "user_setfov", 30);
 		}
 		Else
 		{
 			ChangeCamera(0, 1, 0);
-			HudMessage (s:""; 0, -1000, 0, 0, 0, 0, 0);
 		}
 
 		hold = StrLen(CutsceneData[2]) * 1.0 / 20;
 
-		posv = 669.1;
+		posv = captionheight * 86 / 100 * 1.0 + 0.1;
 
 		If (StrCmp(CutsceneData[3], "L") == 0)
 		{
 			pos = 16.1;
-			SetHudClipRect(16, 669, 325, 90, 325);
+			SetHudClipRect(16, (posv - 0.1) / 1.0, captionwidth / 3 - 16, 90, captionwidth / 3 - 16);
 		}
 		Else If (StrCmp(CutsceneData[3], "R") == 0)
 		{
-			pos = 682.1;
-			SetHudClipRect(682, 669, 325, 90, 325);
+			pos = captionwidth * 66 / 100 * 1.0 + 0.1; //682.1;
+			SetHudClipRect((pos - 0.1) / 1.0, (posv - 0.1) / 1.0, captionwidth / 3 - 16, 90, captionwidth / 3 - 16);
 		}
 		Else If (StrCmp(CutsceneData[3], "T") == 0)
 		{
 			pos = 16.1;
-			posv = 24.1;
-			SetHudClipRect(16, 16, 1008, 90, 1008);
+			posv = 16.1;
+			SetHudClipRect(16, 16, captionwidth - 32, 90, captionwidth - 32);
 		}
 		Else
 		{
-			pos = 512.0;
-			SetHudClipRect(349, 669, 325, 90, 325);
+			pos = captionwidth * 1.0 / 2; //512.0;
+			SetHudClipRect((pos - 0.1) / 1.0 - 162, (posv - 0.1) / 1.0, captionwidth / 3 - 16, 90, captionwidth / 3 - 16);
 		}
 
 		If (StrCmp(CutsceneData[4], "") != 0)
@@ -136,7 +133,7 @@ Script "Cutscene" (int index, int inTime, int outTime)
 			ACS_NamedExecuteWait(CutsceneData[4], 0);
 		}
 
-		SetHudSize(1024, 768, 0);
+		SetHudSize(captionwidth, captionheight, 0);
 		SetFont("BIGFONT");
 
 		If (StrCmp(CutsceneData[2], "") != 0)
@@ -145,7 +142,7 @@ Script "Cutscene" (int index, int inTime, int outTime)
 				strString = strParam(s:"\cj", s:CutsceneData[1], s:":\cl\n", s:CutsceneData[2]);
 			Else
 			{
-				posv = posv - 0.1 + 40.0;
+				posv = posv - 0.1 + captionheight * 5 / 100 * 1.0;
 				strString = strParam(s:CutsceneData[2]);
 			}
 
@@ -232,7 +229,7 @@ Script "Title" (void)
 	int bShadows = TRUE;
 
 	SetHudSize(256, 192, 0);
-	SetFont("BIGFONT");
+	SetFont("GIANTFONT");
 
 	str strTitleLookup = StrParam(s:"Title_",n:PRINTNAME_LEVEL);
 	str strTitle = StrParam(c:'"',l:strTitleLookup,c:'"');

@@ -1,0 +1,24 @@
+class TOSEngTool : CustomInventory
+{
+	Default
+	{
+		Inventory.MaxAmount 1;
+		+INVENTORY.AUTOACTIVATE
+	}
+
+	States
+	{
+		Spawn:
+			TOS1 A -1;
+			Loop;
+		Use:
+			TNT1 A 0;
+			Fail;
+		Pickup:
+			TNT1 A 0
+			{
+				return true;
+			}
+			Stop;
+	}
+}

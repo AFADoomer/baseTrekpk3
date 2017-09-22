@@ -1,0 +1,302 @@
+/*
+
+  Base class for the helper actors that are spawned when a Nazi class 
+  descendant is flagged as "sneakable". Also handles "perceptive" enemies who
+  can see through disguises.
+
+  Developer note: These actors have their statnum set to STAT_USER_MAX - 2
+  (used to limit ThinkerIterator performance hit)
+
+  New Functions
+	A_LookForNoTargetPlayer()
+	- Allows enemies to "see through" player disguises, essentially by having 
+	  those enemies ignore the NOTARGET flag when looking for their target, then
+	  alerting the actor once the player has been in sight for more than the 
+	  specified modder-configured threshold  (See Nazi class declaration).
+	- Threshold increments more quickly the closer the player is the the actor
+	- Used in-game for Gestapo agents who can see through player disguises.
+	- This should not be called directly; it is configured via Nazi class 
+	  Properties and called automatically by the sneakableeyes actors.
+
+*/
+class StealthBase : Actor
+{
+	int playernum;
+	int threshold;
+	int fov;
+	double sighttime;
+	LookExParams SearchParams;
+	Actor alert;
+	Inventory vis;
+
+	Default
+	{
+		+NEVERTARGET
+		+NOCLIP
+		+NOGRAVITY
+		RenderStyle "None";
+		Height 46;
+		Species "Eyes";
+	}
+
+	override void BeginPlay()
+	{
+		ChangeStatNum(Thinker.STAT_USER_MAX - 2); // Change the statnum of these actors so that ThinkerIterators can look at just this statnum and be more efficient
+	}
+
+	state A_LookForNoTargetPlayer(int Range = 256)
+	{
+		if (master && master is "TrekEnemyActor") // Get the master actor's perceptionfov and perceptionthreshold properties
+		{ // These become the fov parameter for visibility checks and the time threshold for how long the player must stay in view before detection
+			fov = TrekEnemyActor(master).perceptionfov;
+			threshold = TrekEnemyActor(master).perceptionthreshold;
+		}
+
+		if (threshold <= 0 || fov <= 0) { return ResolveState(null); } // If threshold is 0, the actor can't see through NOTARGET at all, so just return
+
+		if (target != goal) { target = null; } // Clear target, just in case, but only if it's not a patrolpoint or other goal
+
+		// Set up view parameters for this search
+		SearchParams.fov = fov;
+		SearchParams.minDist = 32;
+		SearchParams.maxDist = Range;
+		SearchParams.maxHearDist = Range;
+
+		for (int p = 0; p < MAXPLAYERS; p++) // Iterate through all of the players and find one that's in range
+		{
+			Actor mo = players[p].mo;
+
+			if (mo) {
+				if (!mo.bShootable || mo.health <= 0) { continue; }
+				if (isFriend(mo)) { continue; }
+				if (Range && Distance3d(mo) > Range) { continue; }
+				if (!IsVisible(mo, false, SearchParams)) { continue; }
+
+				let disguise = mo.FindInventory("DisguiseToken", True);
+				if (!disguise) { continue; }
+
+				target = mo;
+				playernum = p;
+			}
+		}
+
+		if (target) { vis = players[playernum].mo.FindInventory("Visibility"); }
+
+		if (target && playernum >= 0) // If we have a player in view
+		{
+			sighttime += (Range - Distance3d(target)) / Range; // Increment sight time counter, scaled to how far away player is
+
+			if (master && !alert)
+			{  // Spawn the alert indicator
+				alert = Spawn("AlertMarkerAlpha", (master.pos.x, master.pos.y, master.pos.z + 64));
+				if (alert) { alert.master = master; }
+			}
+
+			if (sighttime >= threshold) // If 'threshold' amount of time has elapsed since player first seen
+			{
+				sighttime = 0; // Reset the count
+
+				if (vis)
+				{
+					Visibility(vis).visibility = 200;
+					Visibility(vis).suspicion = 0; // Clear the player's suspicion variable
+				}
+
+				players[playernum].cheats ^= CF_NOTARGET;  // Turn off the player's NOTARGET
+				if (alert) { alert.Destroy(); } // Get rid of the alert indicator that was spawned here
+				return ResolveState("AlertMaster"); // Alert the actor to attack
+			}
+			else if (sighttime >= threshold / 4) // Otherwise, start looking at the currently targeted player
+			{
+				if (master) { master.A_Face(target, 0.25); } // (slowly...)
+			}
+		}
+		else // If all players are out of sight...
+		{
+			sighttime > 0 ? sighttime -= 0.05 : 0;  // ...decrement the amount of time elapsed gradually to 0
+
+			if (sighttime <= 0 && playernum > -1) // Once fully out of sight and 'forgotten', restore NOTARGET flag if the player has a disguise (added check since default for playernum is 0)
+			{
+				let disguise = players[playernum].mo.FindInventory("DisguiseToken", True);
+
+				if (disguise && !(players[playernum].cheats & CF_NOTARGET)) { players[playernum].cheats ^= CF_NOTARGET; }
+				playernum = -1;
+			}
+		}
+
+		if (alert) {
+			if (sighttime <= 0) { alert.SetStateLabel("Fade"); } // If we've completely lost sight of the player, fade out the alert indicator
+			else // Otherwise, set the alpha and scale to correspond to sight time
+			{
+				alert.alpha = double(sighttime) / threshold;
+				alert.scale.x = alert.scale.y = 1 + alert.alpha; // End scale is 2.0 to match the standard alert marker
+			} 
+		}
+
+		// Write the suspicion level to the player's suspicion variable so that it can be used on the hud
+		if (vis) { Visibility(vis).suspicion = int(sighttime * 100 / threshold); }
+
+		return ResolveState(null);
+	}
+
+	bool TargetIsHidden()
+	{
+		Inventory vis = target.FindInventory("Visibility");
+		if (vis)
+		{
+			if (Visibility(vis).alertedcount > 0) { return false; }
+
+			Visibility(vis).extravisibility += skill + 2;
+			if (Visibility(vis).visibility  >= 100) { return false; }
+		} else { return false; }
+		
+		return true;
+	}
+}
+
+// Basic alert marker
+class AlertMarker : Actor
+{
+	Default
+	{
+		+BRIGHT
+		+NOGRAVITY
+		Scale 2.0;
+	}
+
+	States
+	{
+		Spawn:
+			EXCL C 1 NoDelay A_PlaySound("misc/alert", CHAN_BODY);
+			Goto Fade;
+		Fade:
+			EXCL C 1 {
+				A_Warp(AAPTR_MASTER, 0, 0, (master && master.bBoss) ? 84 : 64);
+				A_FadeOut(0.01);
+			}
+			Loop;
+	}
+}
+
+// Version of the alert marker that starts out fully translucent (alpha 0)
+class AlertMarkerAlpha : AlertMarker
+{
+	Default
+	{
+		Scale 1.0;
+		Renderstyle "Translucent";
+		Alpha 0;
+	}
+
+	States
+	{
+		Spawn:
+			EXCL C 1 A_Warp(AAPTR_MASTER, 0, 0, (master && master.bBoss) ? 84 : 64);
+			Loop;
+	}
+}
+
+// This actor follows SneakableGuard around looking for players
+class SneakableGuardEyesIdle : StealthBase
+{
+	States
+	{
+		Spawn:
+			TNT1 A 0 NoDelay A_SetArg(1, random(490, 630)); // Set quote countdown time to 14 - 18 seconds
+			TNT1 A 0 {
+				if (master) {
+					if (!master.target || (master.target && master.target != master.goal)) {
+						master.A_ClearTarget();
+						master.SetStateLabel("Spawn");
+					}
+				}
+			}
+			Goto Look;
+		Look:
+			TNT1 A 1; // Need a slight delay between A_Looks to prevent infinite loop
+			TNT1 A 0 {
+				if (!master || master.bDormant) { return ResolveState("Look"); }
+
+				A_Warp(AAPTR_MASTER, 0, 0, Height);
+
+				if (LastHeard && LastHeard is "PlayerPawn") {
+					target = LastHeard;
+					return ResolveState("AlertMaster");
+					LastHeard = null;
+				}
+
+				A_LookEx(0, 0.0, 160.0, 256.0, 120.0, "PlayerSeen"); // Wider FOV sight check for short-range
+				A_LookEx(0, 0.0, 1024.0, 256.0, master.bLookAllAround ? 360.0 : 65.0, "PlayerSeen");
+				A_LookForNoTargetPlayer();
+				if (master && !master.bBoss) { A_CountdownArg(1, "PlayIdleSound"); }
+				return ResolveState(null);
+			}
+			Loop;
+		PlayIdleSound:
+			TNT1 A 0 A_PlaySound("axis1/idle", CHAN_BODY);
+			Goto Spawn;
+		PlayerSeen:
+			TNT1 A 0 {
+				if (master && target) {
+					int dist = int(Distance3D(target) - master.radius - target.radius);
+					int checkdist;
+
+					if (TrekEnemyActor(master)) { checkdist = TrekEnemyActor(master).sneakableclosesightradius; }
+					else { checkdist = 64; }
+
+					if (dist < checkdist)
+					{
+						if (target)
+						{
+							Inventory vis = target.FindInventory("Visibility");
+							if (vis) { Visibility(vis).extravisibility = (checkdist - dist) * 2; }
+						}
+					}
+				}
+			}
+			TNT1 A 0 {
+				if (TargetIsHidden()) { return ResolveState("IgnorePlayer"); }
+				return ResolveState("AlertMaster");
+			}
+			Goto AlertMaster;
+		IgnorePlayer:
+			TNT1 A 1 A_ClearTarget;
+			Goto Look;
+		AlertMaster:
+			TNT1 A 0 { 
+				if (master && !master.bDormant) { TrekEnemyActor(master).BecomeAlerted(target); } // Cause the master to become alerted
+			} 
+			Stop;
+	}
+}
+
+// This actor follows SneakableGuard around checking if players are no longer seen
+class SneakableGuardEyesAlerted : StealthBase
+{
+	States
+	{
+		Spawn:
+			TNT1 A 1;
+			Goto ResetCounters;
+		ResetCounters: 
+			TNT1 A 0 A_SetArg(0, random(280, 350)); // Set countdown time to 8 - 10 seconds
+			TNT1 A 0 A_SetArg(1, random(140, 210));  // Set quote countdown time to 4 - 6 seconds 
+			Goto Look;
+		Look:
+			TNT1 A 1 A_Warp(AAPTR_MASTER, 0, 0, Height); // Need a slight delay between A_Looks to prevent infinite loop
+			TNT1 A 0 A_LookEx(0, 0.0, 1024.0, 256.0, 65.0, "PlayerSeen");
+			TNT1 A 0 A_CountdownArg(0, "ResetMaster"); // Sets master state to Patrol when the countdown reaches zero
+			TNT1 A 0 A_CountdownArg(1, "TryPlayLoosingTargetSound");
+			Loop;
+		TryPlayLoosingTargetSound:
+			TNT1 A 0 A_JumpIf(args[0] > 220, "Look"); // Too early!
+			TNT1 A 0 { if (master && !master.bBoss) { A_PlaySound("axis1/target_not_seen", CHAN_BODY); } }
+			Goto ResetCounters + 1; // Reset quote countdown time only
+		PlayerSeen: // Reset countdown
+			TNT1 A 1 A_ClearTarget();
+			Goto ResetCounters;
+		ResetMaster:
+			TNT1 A 0 { if (master) { TrekEnemyActor(master).BecomeIdle(); } } // Cause the master to become idle
+			Stop;
+	}
+}

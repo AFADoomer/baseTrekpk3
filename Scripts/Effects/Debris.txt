@@ -1,0 +1,116 @@
+class Debris : Actor
+{
+	double rollamt;
+	double pitchamt;
+	double scaleamt;
+	int loopcount;
+
+	Default
+	{
+		PROJECTILE;
+		+NOBLOCKMAP;
+		-NOGRAVITY;
+		+USEBOUNCESTATE;
+		+THRUACTORS;
+		Height 2;
+		Radius 1;
+		Speed 10;
+		Mass 10;
+		BounceType "Doom";
+		BounceFactor 0.35;
+	}
+	States
+	{
+		Spawn:
+			TOS1 A 0 NoDelay {
+				String newsprite = String.Format("%s%c%s", "TOS1", Random(65, 67), "0"); //random between TOS1A0 and TOS1C0
+				sprite = GetSpriteIndex(newsprite);
+
+				Scale.X = Scale.X * FRandom(0.1, 0.5);
+				Scale.Y = Scale.Y * FRandom(0.1, 0.5);
+
+				Speed = Max(GetGravity() * Speed + Scale.X, 1);
+			}
+		Bounce:
+			TOS1 # 0 {
+				rollamt = FRandom(-5.0, 5.0);
+				pitchamt = FRandom(-5.0, 5.0);
+				scaleamt = Scale.Y / 100;
+			}
+		SpawnLoop:
+			TOS1 # 1 {
+				roll += rollamt;
+				pitch += pitchamt;
+				if (vel.x + vel.y + vel.z == 0) { return ResolveState("Death"); }
+				if (loopcount >= 175) { return ResolveState("FadeOut"); }
+				if (GetGravity() <= 0.75) { loopcount++; }
+				return ResolveState(null);
+			}
+			Loop;
+		Death:
+			TOS1 # 105;
+			TOS1 # -1;
+			Stop;
+		FadeOut:
+			TOS1 # 1 {
+				if (pos.z >= floorz + height / 2) {
+					if (GetGravity()) {
+						SetOrigin((pos.x, pos.y, height / 2), true);
+						Gravity = 0;
+					}
+				}
+				else { 
+					roll += rollamt;
+					pitch += pitchamt;
+				}
+				A_FadeOut(0.01);
+				Scale.Y -= scaleamt;
+			}
+			Loop;
+	}
+}
+
+
+class DebrisSpawner : Actor
+{
+	int debriscount;
+
+	Default
+	{
+		+INVISIBLE
+		+NOBLOCKMAP;
+		+NOGRAVITY;
+		+NOINTERACTION;
+		+CLIENTSIDEONLY;
+		Height 2;
+		Radius 1;
+	}
+
+	States
+	{
+		Spawn:
+			UNKN A 5;
+		SpawnDebris:
+			UNKN A 1 { A_SetTics(Random(1, 5)); }
+			UNKN A 1 {
+				if (debriscount < 4)
+				{
+					int debrisangle;
+
+					debrisangle = Random(0, 360);
+					
+					let mo = A_SpawnProjectile("Debris", -1, 0, debrisangle, CMF_AIMDIRECTION, Random(-45, 45));
+					if (master) { mo.master = master; }
+					mo.scale.x = scale.x;
+					mo.scale.y = scale.y;
+
+					debriscount++;
+					return ResolveState("SpawnDebris");
+				}
+				return ResolveState("Done");
+			}
+		Done:
+			UNKN A 35;
+			Stop;
+	}
+}

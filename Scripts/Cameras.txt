@@ -1,0 +1,142 @@
+class AutoCamera : Actor
+{
+	Actor mo, left, right, closest;
+	double deltaleft;
+	double deltaright;
+	double targetfov;
+	double targetangle;
+	double fov;
+	int timeout;
+
+	void A_Follow(void)
+	{
+		left = null;
+		right = null;
+
+		ThinkerIterator Finder = ThinkerIterator.Create("TrekEnemyFlier");
+
+		while ( (mo = TrekEnemyFlier(Finder.Next())) )
+		{
+			if (mo == self || mo.health <= 0 || mo.bDormant) { continue; }
+			if (mo.alpha < 0.85) { continue; }
+			if (AngleTo(mo) > 90) { continue; }
+			if (left) { if (AngleTo(mo) < AngleTo(left)) { left = mo; } } else { left = mo; }
+			if (right) { if (AngleTo(mo) > AngleTo(right)) { right = mo; } } else { right = mo; }
+		}
+
+		if (left && right)
+		{
+			deltaleft = deltaangle(angle, AngleTo(left));
+			deltaright = deltaangle(angle, AngleTo(right));
+
+			targetfov = abs(deltaleft) + abs(deltaright) + 10;
+			targetangle = (AngleTo(left) + AngleTo(right)) / 2;
+
+			if (targetfov > 110) { targetfov = 110; }
+			else if (targetfov < 30) { targetfov = 30; }
+
+			if (targetangle > angle + 0.1) { angle += 0.1; }
+			if (targetangle < angle - 0.1) { angle -= 0.1; }
+
+			if (timeout <= 0)
+			{
+				Friction = targetfov; 
+				timeout = 35 * 5;
+			}
+			timeout--;
+		}
+		else
+		{
+			if (left) { A_Face(left); }
+			else if (right) { A_Face(right); }
+			else { A_FaceClosestActor(); }
+		}
+	}
+
+	void A_FaceClosestActor(void)
+	{
+		ThinkerIterator Finder = ThinkerIterator.Create("TrekEnemyFlier");
+		Actor mo, closest;
+		while ( (mo = TrekEnemyFlier(Finder.Next())) )
+		{
+			if (mo == self || mo.health <= 0 || mo.bDormant) { continue; }
+			if (mo.alpha < 0.75) { continue; }
+			if (closest && Distance3d(mo) > Distance3d(closest)) { continue; }
+
+			closest = mo;
+			A_Face(closest);
+		}
+	}
+
+	Default
+	{
+		+INVISIBLE;
+		+NOGRAVITY;
+		+NOBLOCKMAP;
+	}
+
+	States
+	{
+		Spawn:
+			UNKN A 1 A_Follow;
+			Loop;
+	}
+}
+
+class AimingCameraFOV : AimingCamera replaces AimingCamera
+{
+	int user_fov;
+	int user_setfov;
+
+	Default
+	{
+		//$arg0 "Pitch"
+		//$arg1 "Max. yaw per second"
+		//$arg2 "Max. pitch per second"
+		//$arg3 "Target Thing Tag"
+		//$arg3type = 14
+	}
+
+
+	override void Tick()
+	{
+		if (user_setfov > 0) { CameraFOV = user_setfov; }
+		else if (user_fov > 0 && CameraFOV != user_fov)
+		{
+			double delta = (CameraFOV + user_fov) / 2 - CameraFOV;
+			delta = clamp(delta, -1, 1);
+
+			CameraFOV += delta;
+		}
+
+		Super.Tick();
+	}
+}
+
+class SecurityCameraFOV : SecurityCamera replaces SecurityCamera
+{
+	int user_fov;
+	int user_setfov;
+
+	Default
+	{
+		//$arg0 "Pitch"
+		//$arg1 "Maximum yaw"
+		//$arg2 "Cycle time (octics)"
+	}
+
+
+	override void Tick()
+	{
+		if (user_setfov > 0) { CameraFOV = user_setfov; }
+		else if (user_fov > 0 && CameraFOV != user_fov)
+		{
+			double delta = (CameraFOV + user_fov) / 2 - CameraFOV;
+			delta = clamp(delta, -1, 1);
+
+			CameraFOV += delta;
+		}
+
+		Super.Tick();
+	}
+}

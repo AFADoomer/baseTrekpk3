@@ -43,7 +43,7 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 
 	int screenRatio = GetScreenWidth() * 1.0 / GetScreenHeight();
 	x1 += (1024 - (768 * screenRatio / 1.0)) / 2; //Offset for widescreen resolutions
-
+/*
 	SetFont("RadarBkg");
 	If (hud > 0)
 		HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_NOTWITHFULLMAP, 40000, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);
@@ -52,7 +52,7 @@ Function void DrawRadar (int tid, int scale, int x1, int y1, int dist, int hud)
 
 	SetFont("Marker");
 	HudMessage(s:"A"; HUDMSG_PLAIN | HUDMSG_NOTWITHFULLMAP, 39999, CR_UNTRANSLATED, (x1 << 16), (y1 << 16), 0.01);
-
+*/
 	/* DoomDelta-style wall maps */
 	if (Timer() % 1 == 0 && GetCVar("g_radar") > 0)
 	{

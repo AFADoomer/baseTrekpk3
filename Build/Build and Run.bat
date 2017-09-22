@@ -23,7 +23,7 @@
 SET DevFolder=Working
 SET WADFolder=baseTrekpk3
 SET TargetFile=TrekData.pk7
-SET LaunchFile=
+SET LaunchFile=%DevFolder%\%WADFolder%\
 SET ACSLib=TrekLib
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -31,7 +31,7 @@ SET ACSLib=TrekLib
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 SET Engine=C:\Games\Doom\gzdoom.exe
 SET Map=demo
-SET RunArgs=-file Autoload\*.* %* +skill 3 +logfile Log.txt -stdout
+SET RunArgs=-iwad standalone.dat -file Autoload\*.* %* +skill 3 +logfile Log.txt -stdout
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Tool Paths                                                                ::

@@ -894,16 +894,37 @@ Model Shuttle
 	FrameIndex TOS1 B 0 0
 }
 
-Model Block1x1 {
-	Path "Models/"
-	Model 0 "1x1.md3"
-
-	FrameIndex TOS1 A 0 0
-}
-
-Model Block1x1Bounding {
-	Path "Models/"
-	Model 0 "1x1.md3"
-
-	FrameIndex TOS1 A 0 0
-}
+Model Block1x1 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block1x1Bounding { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block2x2 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block2x16 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block4 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block8 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block8x1 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block12 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block16 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block24 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block25 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block32 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block48 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block64 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block64x8 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block28x16 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block12x54 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block10x32 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block16x56 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block18x1 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block20x128 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block22x1 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block27x1 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model Block24x32 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock1 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock2 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock3 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock4 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock5 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock6 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock7 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model ShuttleBlock8 { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }
+Model GangwayStep { Path "Models/" Model 0 "1x1.md3" Path "Graphics/HUD/" Skin 0 "Bound.png" FrameIndex TOS1 A 0 0 }

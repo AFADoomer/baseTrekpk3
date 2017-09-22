@@ -1923,6 +1923,20 @@ Model TOSTable5
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSTable7
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "table_rec.md3"
+
+	Scale 1.4 1.4 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+
 Model TOSBench
 {
 	USEACTORPITCH
@@ -2255,6 +2269,21 @@ Model TOSGymBar3
 	Model 0 "gym_bar3.md3"
 
 	Scale 1.0 2.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCageLadderRung
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "gym_bar3.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Metal.jpg"
+
+	Scale 1.0 0.9 1.0
 
 	FrameIndex TOS1 A 0 0
 }
@@ -3152,4 +3181,221 @@ Model TOSCloakBase
 	Model 0 "cloak_base.md3"
 
 	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLamp
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLampGrille
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp_grille.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLampLight
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp_lights.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCable1
+{
+	Path "Models/mapobjects/tos/"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	Scale 1.0 1.0 1.0
+
+	Model 0 "cable1.md3"
+	Skin 0 "cable1.jpg"
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCable2
+{
+	Path "Models/mapobjects/tos/"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	Scale 1.0 1.0 1.0
+
+	Model 0 "cable2.md3"
+	Skin 0 "cable2.jpg"
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCable3
+{
+	Path "Models/mapobjects/tos/"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	Scale 1.0 1.0 1.0
+
+	Model 0 "cable3.md3"
+	Skin 0 "cable3.jpg"
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCable4
+{
+	Path "Models/mapobjects/tos/"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	Scale 1.0 1.0 1.0
+
+	Model 0 "cable4.md3"
+	Skin 0 "cable4.jpg"
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCable5
+{
+	Path "Models/mapobjects/tos/"
+
+	USEACTORPITCH
+	USEACTORROLL
+
+	Scale 1.0 1.0 1.0
+
+	Model 0 "cable5.md3"
+	Skin 0 "cable5.jpg"
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSShuttleNacelle
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "shuttle_nacelle.md3"
+	Skin 0 "galileo.jpg"
+	FrameIndex TOS1 A 0 0
+	Skin 0 "galileo_damaged.jpg"
+	FrameIndex TOS2 A 0 0
+	Skin 0 "galileo_original.jpg"
+	FrameIndex TOS3 A 0 0
+	Skin 0 "galileo_mirror.png"
+	FrameIndex TOS4 A 0 0
+	Skin 0 "starbase.png"
+	FrameIndex TOS5 A 0 0
+	Skin 0 "anaxagoras.png"
+	FrameIndex TOS6 A 0 0
+	Skin 0 "astrostein5.jpg"
+	FrameIndex TOS7 A 0 0
+}
+
+
+Model TOSShuttleNacelleDamaged
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "shuttle_nacelle.md3"
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayBedCage
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_bed.md3"
+	SurfaceSkin 0 0 "pillow2.png"
+	SurfaceSkin 0 2 "bed_fabric2.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+
+Model TOSSickbayCounterCage
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_counter.md3"
+	Skin 0 "sickbay_counter_old.png"
+
+	Scale 1.0 1.5 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayCounter2RCage
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_counter2.md3"
+	Skin 0 "sickbay_counter2_old.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSSickbayCounter2LCage
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "sickbay_counter2.md3"
+	Skin 0 "sickbay_counter2_old.png"
+
+	Scale -1.0 1.0 1.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSCargo
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "cargo.md3"
+
+	AngleOffset 90.0
+
+	FrameIndex TOS1 A 0 0
+	FrameIndex TOS1 B 0 0
+
+	Skin 0 "cargo_blue.png"
+	FrameIndex TOS1 C 0 0
+
+	Skin 0 "cargo_green.png"
+	FrameIndex TOS1 D 0 0
+
+	Skin 0 "cargo_red.png"
+	FrameIndex TOS1 E 0 0
+
+	Skin 0 "cargo_klingon.png"
+	FrameIndex TOS1 F 0 0
+
+	Skin 0 "cargo_starfleet.png"
+	FrameIndex TOS1 G 0 0
 }

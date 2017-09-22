@@ -57,6 +57,14 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 		x = Floor(x - (strLen(strString) * intSpacing * 1.0 / 2));
 	else if (xOffset == 0.2)
 		x = Floor(x - (strLen(strString) * intSpacing * 1.0));
+	else
+		x += 0.1;
+
+	SetFont("SMALLFONT");
+	HudMessage(s:strString; flags, msgID * 128 + l, -1, x, y, intHoldTime, 0.25, 0.25, intAlpha);
+
+/*
+//	HudMessage(s:strString; flags, msgID, -1, x, y, intHoldTime, 0.25, 0.25, R);
 
 	While (l < strLen(strString))
 	{
@@ -65,11 +73,12 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 		If (strLetter >= 32)
 		{
 //			strLetterGraphic = StrParam(s:strFontName, s:Pad(strLetter, intFontNamePadding));
+*/
 /*
 			SetFont(strLetterGraphic);
 			HudMessage(s:"A"; flags, msgID * 128 + l, -1, x + (col * intSpacing * 1.0), y + (row * intSpacing * 2.0), intHoldTime, 0.25, 0.25, intAlpha);
 */
-
+/*
 			If (R == G && G == B)
 			{
 				strLetterGraphic = StrParam(s:"STCFN", s:Pad(strLetter, intFontNamePadding));
@@ -158,6 +167,7 @@ Function int DrawString(str strString, int flags, int msgID, int x, int y, int s
 		l++;
 		col++;
 	}
+*/
 	return msgID;
 }
 

@@ -17,6 +17,8 @@ GameInfo
 	pausesign = "Pause"
 
 	defaultconversationmenuclass = "BoAConversationMenu"
+	statusbarclass = "TrekStatusBar"
+	addeventhandlers = "TrekEventHandler"
 }
 
 clearskills
@@ -305,8 +307,8 @@ DoomEdNums
 /*
 	20119 = Yucca
 */
-	20120 = TOSShuttleColumbus
-	20121 = TOSShuttleCopernicus
+	20120 = TOSShuttle
+	20121 = TOSShuttleDamaged
 	20122 = TOSColumn
 	20123 = TOSTerrain
 	20124 = TOSRailingAlt
@@ -524,6 +526,24 @@ DoomEdNums
 	20337 = SteamSpot
 	20338 = TOSDrinkTray
 	20339 = TOSEmptyTray
+	20340 = TOSOutdoorLamp
+	20341 = TOSCable1
+	20342 = TOSCable2
+	20343 = TOSCable3
+	20344 = TOSCable4
+	20345 = TOSCable5
+	20346 = TOSCageLadderRung
+	20347 = TOSCloak
+	20348 = TOSShuttleAnaxagoras
+	20349 = TOSShuttleNacelleDamaged
+	20350 = TOSShuttleNacelle
+	20351 = TOSSickbayBedCage
+	20352 = TOSSickbayCounterCage
+	20353 = TOSSickbayCounter2RCage
+	20354 = TOSSickbayCounter2LCage
+	20355 = TOSFoodCup
+	20356 = TOSTable7
+	20357 = TOSCargo
 
 //Skyboxes
 	21000 = Skybox1
@@ -575,6 +595,9 @@ DoomEdNums
 	26101 = HypoSpray
 	26102 = HypoSpray2
 	26103 = HypoSpray3
+
+//Items
+	26150 = TOSEngTool
 
 //Markers
 	26500 = TurboLiftMarker

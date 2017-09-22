@@ -132,7 +132,7 @@ decal BloodSplat7
 	randomflipy
 }
 
-decal Scorch
+decal Scorch 2
 {
 	pic SCORCH1
 	shade "00 00 00"
@@ -142,7 +142,7 @@ decal Scorch
 	randomflipy
 }
 
-decal BigScorch
+decal BigScorch 3
 {
 	pic SCORCH1
 	shade "00 00 00"
@@ -230,7 +230,7 @@ decalgroup RailScorchLower
 	RailScorchLower2 1
 }
 
-decal RevenantScorch
+decal RevenantScorch 4
 {
 	pic BLAST1
 	shade "00 00 00"

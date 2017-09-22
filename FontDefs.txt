@@ -4,44 +4,37 @@ TINYFONT
 	Template BST%02d
 }
 
+GIANTFONT
+{
+	SpaceWidth 7
+	Template TOS2%03d
+	DONTTRANSLATE
+}
+
 BIGFONT
 {
 	SpaceWidth 7
 	Template TOS%03d
+	DONTTRANSLATE
+}
+
+BIGFONTITALIC
+{
+	SpaceWidth 7
+	Template TOSI%03d
+	DONTTRANSLATE	
 }
 
 SMALLFONT
 {
 	SpaceWidth 5
 	Template STCFN%03d
+	DONTTRANSLATE
 }
 
-GOLDFONT
+HUDFONT
 {
-	SpaceWidth 5
-	Template FNT_Y%03d
-}
-
-REDFONT
-{
-	SpaceWidth 5
-	Template FNT_R%03d
-}
-
-GREENFONT
-{
-	SpaceWidth 5
-	Template FNT_G%03d
-}
-
-BLUEFONT
-{
-	SpaceWidth 5
-	Template FNT_B%03d
-}
-
-BLACKFONT
-{
-	SpaceWidth 5
-	Template FNT_K%03d
+	SpaceWidth 7
+	Template HUD%03d
+	DONTTRANSLATE
 }

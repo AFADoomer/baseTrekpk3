@@ -151,3 +151,14 @@ Model HypoSprayMeds
 
 	FrameIndex HLT3 P 0 0
 }
+
+Model TOSEngTool
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models/mapobjects/tos/"
+	Model 0 "eng_tool.md3"
+
+	FrameIndex TOS1 A 0 0
+}

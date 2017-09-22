@@ -86,6 +86,8 @@ Graphic M_NEWG, 1, 1 { Patch BLACK, 0, 0 }
 Graphic M_SKILL, 1, 1 { Patch BLACK, 0, 0 }
 Graphic M_LOADG, 1, 1 { Patch BLACK, 0, 0 }
 Graphic M_SAVEG, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_SKULL1, 1, 1 { Patch BLACK, 0, 0 }
+Graphic M_SKULL2, 1, 1 { Patch BLACK, 0, 0 }
 
 Sprite BLASA0, 6, 6
 {
@@ -702,7 +704,7 @@ Sprite SPLAS0, 320, 320
 }
 
 Texture Marker_0, 32, 32 {Patch Marker_A, 0, 0}
-Texture Marker_1, 32, 32 {Graphic Marker_1, 0, 0}
+//Texture Marker_1, 32, 32 {Patch Marker_1, 0, 0}
 Texture Marker_2, 32, 32 {Patch Marker_A, 0, 0 {Rotate 90}}
 Texture Marker_3, 32, 32 {Patch Marker_1, 0, 0 {Rotate 90}}
 Texture Marker_4, 32, 32 {Patch Marker_A, 0, 0 {Rotate 180}}
@@ -740,6 +742,11 @@ Graphic ScanB_TL, 32, 32 {Graphic ScanB, 0, 0}
 Graphic ScanB_TR, 32, 32 {Graphic ScanB, -96, 0}
 Graphic ScanB_BL, 32, 32 {Graphic ScanB, 0, -96}
 Graphic ScanB_BR, 32, 32 {Graphic ScanB, -96, -96}
+
+Graphic ScanG_TL, 32, 32 {Graphic ScanG, 0, 0}
+Graphic ScanG_TR, 32, 32 {Graphic ScanG, -96, 0}
+Graphic ScanG_BL, 32, 32 {Graphic ScanG, 0, -96}
+Graphic ScanG_BR, 32, 32 {Graphic ScanG, -96, -96}
 
 Texture Logo_K2, 128, 103
 {
@@ -906,7 +913,7 @@ Texture GOLD, 320, 200
 
 Texture DARKGREY, 320, 200
 {
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 	{
 		Translation "0:255=[20, 20, 20]:[20, 20, 20]"
 	}
@@ -916,7 +923,7 @@ Texture "BLACK_FUL", 320, 200
 {
 	XScale 0.125
 	YScale 0.20833333333333333333333333333333
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 }
 
 Texture BLACK_W, 320, 200
@@ -924,7 +931,7 @@ Texture BLACK_W, 320, 200
 	XScale 0.125
 	YScale 0.20833333333333333333333333333333
 
-	Graphic BLACK, 0, 0
+	Patch BLACK, 0, 0
 }
 
 Sprite SPARB0, 256, 256
@@ -958,7 +965,7 @@ Texture LogBkg, 300, 40
 
 Graphic MSGBOX, 250, 30
 {
-	Graphic Black, 0, 0
+	Patch Black, 0, 0
 }
 
 Texture Cloud_Ov, 1024, 1024

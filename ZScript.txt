@@ -1,57 +1,72 @@
-version "2.4"
+version "2.5"
+
+//Status Bar
+#include "scripts/statusbar.txt"
 
 //Weapons and Ammo
-#include "actors/zscript/weapons/ammo.txt"
-#include "actors/zscript/weapons/weaponsbase.txt"
-#include "actors/zscript/weapons/phasertype1.txt"
-#include "actors/zscript/weapons/phasertype2.txt"
-#include "actors/zscript/weapons/disruptor.txt"
-#include "actors/zscript/weapons/phaserrifle.txt"
-#include "actors/zscript/weapons/photongrenadelauncher.txt"
-#include "actors/zscript/weapons/communicator.txt"
-#include "actors/zscript/weapons/tricorder.txt"
-#include "actors/zscript/weapons/miscellaneous.txt"
+#include "scripts/weapons/ammo.txt"
+#include "scripts/weapons/weaponsbase.txt"
+#include "scripts/weapons/phasertype1.txt"
+#include "scripts/weapons/phasertype2.txt"
+#include "scripts/weapons/disruptor.txt"
+#include "scripts/weapons/phaserrifle.txt"
+#include "scripts/weapons/photongrenadelauncher.txt"
+#include "scripts/weapons/communicator.txt"
+#include "scripts/weapons/tricorder.txt"
+#include "scripts/weapons/miscellaneous.txt"
 
 //Projectiles
-#include "actors/zscript/projectiles.txt"
+#include "scripts/projectiles.txt"
 
 //Effects
-#include "actors/zscript/effects/shieldshell.txt"
-#include "actors/zscript/effects/sparks.txt"
-#include "actors/zscript/effects/fountain.txt"
-#include "actors/zscript/effects/skyboxes.txt"
-#include "actors/zscript/effects/debris.txt"
-#include "actors/zscript/effects/weapons.txt"
+#include "scripts/effects/shieldshell.txt"
+#include "scripts/effects/sparks.txt"
+#include "scripts/effects/fountain.txt"
+#include "scripts/effects/skyboxes.txt"
+#include "scripts/effects/debris.txt"
+#include "scripts/effects/weapons.txt"
+#include "scripts/effects/alertlights.txt"
+#include "scripts/effects/transporter.txt"
 
 //Decorations
-#include "actors/zscript/decorations/decorationsbase.txt"
-#include "actors/zscript/decorations/blocks.txt"
-#include "actors/zscript/decorations/static.txt"
-#include "actors/zscript/decorations/usable.txt"
-#include "actors/zscript/decorations/destroyable.txt"
-#include "actors/zscript/decorations/redalert.txt"
-#include "actors/zscript/decorations/orbiters.txt"
-#include "actors/zscript/decorations/flat.txt"
+#include "scripts/decorations/decorationsbase.txt"
+#include "scripts/decorations/blocks.txt"
+#include "scripts/decorations/static.txt"
+#include "scripts/decorations/usable.txt"
+#include "scripts/decorations/destroyable.txt"
+#include "scripts/decorations/redalert.txt"
+#include "scripts/decorations/orbiters.txt"
+#include "scripts/decorations/flat.txt"
 
 //Enemies and NPCs
-#include "actors/zscript/enemies/enemybase.txt"
-#include "actors/zscript/enemies/weaponspots.txt"
-#include "actors/zscript/enemies/klingons.txt"
-#include "actors/zscript/enemies/pirates.txt"
-#include "actors/zscript/enemies/romulans.txt"
-#include "actors/zscript/enemies/starfleet.txt"
-#include "actors/zscript/enemies/flier.txt"
-#include "actors/zscript/npcs.txt"
+#include "scripts/enemies/enemybase.txt"
+#include "scripts/enemies/weaponspots.txt"
+#include "scripts/enemies/klingons.txt"
+#include "scripts/enemies/pirates.txt"
+#include "scripts/enemies/romulans.txt"
+#include "scripts/enemies/starfleet.txt"
+#include "scripts/enemies/flier.txt"
+#include "scripts/npcs.txt"
+#include "scripts/enemies/stealth.txt"
 
 //Misc Actors
-#include "actors/zscript/cameras.txt"
+#include "scripts/cameras.txt"
+#include "scripts/ladders.txt"
 
 //Items
-#include "actors/zscript/items/health.txt"
+#include "scripts/items/health.txt"
+#include "scripts/items/visibility.txt"
+#include "scripts/items/miscellaneous.txt"
 
 //Menus
-#include "menus/optionmenu.txt"
-#include "menus/optionmenuitem.txt"
-#include "menus/listmenu.txt"
-#include "menus/listmenuitem.txt"
-#include "menus/conversationmenu.txt"
+#include "scripts/menus/optionmenu.txt"
+#include "scripts/menus/optionmenuitem.txt"
+#include "scripts/menus/listmenu.txt"
+#include "scripts/menus/listmenuitem.txt"
+#include "scripts/menus/conversationmenu.txt"
+
+//Event Handler
+#include "scripts/eventhandler.txt"
+
+//Player
+#include "scripts/player.txt"

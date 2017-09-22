@@ -36,6 +36,8 @@ TOSBrightYellow
 TrueBlack
 {
 	#000000	#000000
+Flat:
+	#000000
 }
 
 TOSBrightLightBlue

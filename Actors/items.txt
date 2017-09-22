@@ -148,16 +148,16 @@ Actor LeanCam
 	}
 }
 
-Actor DisruptorStation : SwitchableDecoration
+Actor DisruptorStation : Decoration
 {
 	//$Sprite TOS1A0
 	var int user_level;
-	var int user_uses;
+//	var int user_uses;
 	var int user_used;
 	var int user_given;
 
-	Height 25
-	Radius 16
+	Height 8
+	Radius 8
 	Mass 999999
 	+SOLID
 	+SHOOTABLE
@@ -177,6 +177,18 @@ Actor DisruptorStation : SwitchableDecoration
 				if (user_uses == 0) { user_uses = args[0]; }
 				if (user_uses == 0) { user_uses = 300; }
 				if (user_uses < 0) { return State("Done"); }
+				user_width = 18;
+				user_height = 32;
+
+				A_SpawnItemEx ("Block8", 6.0, -8.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 6.0, 8.0, 0.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 6.0, -8.0, 8.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 6.0, 8.0, 8.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 6.0, -8.0, 16.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 6.0, 8.0, 16.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 6.0, -8.0, 24.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 6.0, 8.0, 24.0, 0, 0, 0, 0, SXF_SETMASTER);
+
 				return State("Static");
 			}
 		Static:
@@ -236,7 +248,8 @@ Actor DisruptorStation : SwitchableDecoration
 
 Actor PhaserRifleStation : DisruptorStation
 {
-	Height 32
+	Height 8
+	Radius 8
 
 	Tag "Phaser Rifle Charging Station"
 
@@ -249,6 +262,13 @@ Actor PhaserRifleStation : DisruptorStation
 				if (user_uses == 0) { user_uses = args[0]; }
 				if (user_uses == 0) { user_uses = 400; }
 				if (user_uses < 0) { return State("Done"); }
+				user_width = 8;
+				user_height = 32;
+
+				A_SpawnItemEx ("Block8", 0.0, 0.0, 8.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 0.0, 0.0, 16.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("Block8", 0.0, 0.0, 24.0, 0, 0, 0, 0, SXF_SETMASTER);
+
 				return State("Static");
 			}
 		Inactive:

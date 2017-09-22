@@ -1,0 +1,61 @@
+class Disruptor : TOSWeapon
+{
+	Default
+	{
+		Obituary "%o got disrupted by %k.";
+		Weapon.SelectionOrder 300;
+		Weapon.SlotNumber 4;
+		Weapon.AmmoType "DisruptorCharge";
+		Weapon.AmmoType2 "DisruptorCharge";
+		Weapon.AmmoUse 1;
+		Weapon.AmmoUse2 10;
+		Weapon.AmmoGive 10;
+		Weapon.BobSpeed 0.92;
+		Tag "$Disruptor";
+		Inventory.PickupMessage "$Disruptor";
+		Weapon.UpSound "weapons/change";
+	}
+
+	States
+	{
+		Fire:
+			PHAS BCD 1;
+			"####" # 0 A_SetArg(1, 1);
+			PHAS E 1 A_FireProjectile("DisruptorBolt", 0, 1, 0, 16, FPF_AIMATANGLE, 0);
+			PHAS D 6;
+			TNT1 A 0 A_ReFire;
+			PHAS CB 1;
+			Goto Ready;
+		Hold:
+			"####" # 0 A_SetArg(1, Args[1] + 1);
+			"####" # 0 A_Jump(64, "Hold.Wild");
+			PHAS E 1 A_FireProjectile("DisruptorBolt", FRandom(-1.0, 1.0), 1, 0, 16, FPF_AIMATANGLE, FRandom(-1.0, 1.0));
+			Goto Hold.Resume;
+		Hold.Wild:
+			PHAS E 1 A_FireProjectile("DisruptorBolt", FRandom(-3.0, 3.0), 1, 0, 16, FPF_AIMATANGLE, FRandom(-2.0, 2.0));
+		Hold.Resume:
+			"####" # 0 A_JumpIf(Args[1] >= 3, "Resume");
+			PHAS D 6;
+			TNT1 A 0 A_ReFire;
+			PHAS CB 1;
+			Goto Ready;
+		Resume:
+			PHAS D 16;
+			"####" # 0 A_SetArg(1, 0);
+			Goto Ready;
+		AltFire:
+			PHAS BCD 1;
+			"####" # 0 A_SetArg(0, 0);
+		AltHold:
+			"####" # 0 A_SetArg(0, Args[0] + 5);
+			PHAS D 5;
+			"####" # 0 A_JumpIf(Args[0] > 30, "AltFireActual");
+			TNT1 A 0 A_ReFire;
+		AltFireActual:
+			PHAS E 1 A_FireProjectile("DisruptorGrenade", Random(-1.0, 1.0), 1, 0, 16, FPF_NOAUTOAIM, -Args[0]);
+			PHAS D 16;
+			"####" # 0 A_SetArg(0, 0);
+			Goto Resume;
+	}
+}
+

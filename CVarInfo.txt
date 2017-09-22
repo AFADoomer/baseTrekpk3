@@ -3,3 +3,5 @@ server int g_debugcutscenes = 0;
 server int g_glitterdensity = 4;
 server int g_compass = 0;
 server int g_radar = 0;
+
+user string zmse_toggle = "H";

@@ -1,0 +1,97 @@
+class TOSPirate : TrekEnemyActor
+{
+	Default
+	{
+		Speed 5;
+		Health 75;
+		Tag "Pirate";
+		Obituary "%o was killed by a pirate.";
+		TeleFogSourceType "TransporterEffectK";
+		TeleFogDestType "TransporterEffectK";
+		RenderStyle 'Translucent';
+		Alpha 0;
+
+		TrekEnemyActor.Sneakable True;
+	}
+
+	States
+	{
+		Spawn:
+			TOS1 A 0 NoDelay {
+				if (user_Weapon == 0) {
+					user_Weapon = Random[Weapon](2, 4);
+				}
+				ACS_NamedExecuteAlways("A_TransportK", 0);
+			}
+			"####" A 105;
+			Goto Super::Spawn;
+	}
+}
+
+class TOSPirateAlt : TOSPirate {}
+class TOSPirateAlt2 : TOSPirate {}
+
+class TOSPirateCapt : TOSPirate 
+{
+	Default
+	{
+		Speed 0;
+		Mass 800;
+		Health 125;
+		Painchance 255;
+		Obituary "%o was killed by the pirate Captain.";
+	}
+
+	States
+	{
+		Return:
+			"####" # 0 {
+				A_StopSound(CHAN_WEAPON);
+				user_FireCount = 0;
+				if (user_ammo <= 0) {
+					bFrightened = True;
+				}
+				user_Weapon = Random[Weapon](2, 4);
+				user_Speed = 6;
+			}
+			"####" # 0 A_CheckLOF("Return.Speed", CLOFF_FROMBASE | CLOFF_SKIPOBSTACLES, 0, 0, 0, 0, 24.0);
+			"####" # 0 {
+				Speed = 0;
+			}
+			Goto Chase;
+		Pain:
+			"####" G 3;
+			"####" G 3 A_Pain;
+			Goto Crouch;
+	}
+}
+
+class TOSAnaxagorasFlier : TrekEnemyFlier
+{
+	Default
+	{
+		Radius 24;
+		Height 20;
+		Health 600;
+		Speed 1;
+		Obituary "%o's ship was destroyed by a rogue Starship.";
+		TrekEnemyFlier.CenterofGravityZ -4;
+		TrekEnemyFlier.CenterofGravityX -14;
+		TrekEnemyFlier.Maneuverability 92;
+		TrekEnemyFlier.FOV 135;
+		TrekEnemyFlier.TorpedoChance 2;
+		Species "Pirate";
+	}
+
+	States
+	{
+		Spawn:
+			TOS1 A 1;
+			"####" # 0 {
+				A_SpawnItemEx("PhaserSpot", 1, 0, 0.5, flags:SXF_SETMASTER);
+			}
+			Goto Super::Spawn;
+		Missile:
+			Goto Missile.Torpedo;
+	}
+}

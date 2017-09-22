@@ -318,7 +318,7 @@ Model LaserBeam
 	Model 0 "phaser_beam.md3"
 	Skin 0 "beam_w.png"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -328,7 +328,7 @@ Model LaserBeam_R
 	Path "Models/Weapons/"
 	Model 0 "phaser_beam.md3"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -339,7 +339,7 @@ Model LaserBeam_O
 	Model 0 "phaser_beam.md3"
 	Skin 0 "beam_o.png"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -350,7 +350,7 @@ Model LaserBeam_G
 	Model 0 "phaser_beam.md3"
 	Skin 0 "beam_g.png"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -361,7 +361,7 @@ Model LaserBeam_B
 	Model 0 "phaser_beam.md3"
 	Skin 0 "beam_b.png"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -372,7 +372,7 @@ Model LaserBeam_P
 	Model 0 "phaser_beam.md3"
 	Skin 0 "beam_p.png"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -382,7 +382,7 @@ Model LaserBeam_Ship
 	Path "Models/Weapons/"
 	Model 0 "phaser_beam_ship.md3"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	Scale 1.0 0.5 0.5
 
@@ -395,7 +395,7 @@ Model LaserBeam_ShipP
 	Model 0 "phaser_beam_ship.md3"
 	Skin 0 "beam_p.png"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	Scale 1.0 0.5 0.5
 
@@ -483,7 +483,7 @@ Model LightningBolt
 	Path "Models/Weapons/"
 	Model 0 "phaser_beam.md3"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	Scale 8.0 1.0 1.0
 
@@ -508,7 +508,7 @@ Model LightningBoltCore
 
 	Scale 1.0 0.1 0.1
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -518,7 +518,7 @@ Model LightningBolt_P
 	Path "Models/Weapons/"
 	Model 0 "phaser_beam.md3"
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	Scale 8.0 1.0 1.0
 
@@ -543,7 +543,7 @@ Model LightningBoltCore_P
 
 	Scale 1.0 0.1 0.1
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }
@@ -557,7 +557,7 @@ Model LightningBoltCore_W
 
 	Scale 1.0 0.1 0.1
 
-	INHERITACTORPITCH
+	USEACTORPITCH
 
 	FrameIndex TOS1 A 0 0
 }

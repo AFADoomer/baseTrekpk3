@@ -1,0 +1,112 @@
+class TrekEventHandler : StaticEventHandler
+{
+	bool pressed[256]; // Array used to track what keys are pressed (index in array is ASCII code of key)
+	int holdtime[256]; // Array used to track how long keys are pressed (index in array is ASCII code of key)
+
+	// Used by zoom code to track some self-explanatory info
+	double defaultFOV; 
+	bool bZoomed;
+
+	override void PlayerEntered(PlayerEvent e)
+	{
+		players[e.PlayerNumber].mo.A_GiveInventory("Visibility", 1);
+	}
+
+	override void WorldLoaded(WorldEvent e)
+	{
+		// Save the startup FOV
+		defaultFOV = players[consoleplayer].FOV;
+	}
+
+	override void WorldUnloaded(WorldEvent e)
+	{
+		// Restore the startup FOV
+		players[consoleplayer].SetFOV(defaultFOV);
+	}
+
+	// Gets the keypress, then sends the ASCII character code and type info as a network event
+	override bool InputProcess(InputEvent e)
+	{
+		EventHandler.SendNetworkEvent("keypress", e.KeyChar, e.Type);
+
+		return false;
+	}
+
+	// Gets the network event and sets that key as pressed or not pressed in the pressed[] array
+	override void NetworkProcess(ConsoleEvent e)
+	{
+		if (e.Name == "keypress" && e.Player == consoleplayer)
+		{
+			int keychar = e.args[0];
+
+			if (e.args[1] == InputEvent.Type_KeyDown) { pressed[keychar] = true; }
+			else { pressed[keychar] = false; }
+		}
+	}
+
+	// Gets the first character of a string cvar and returns the lowercase version as an ASCII code
+	// Ideally, this will be replaced by some GetKeysForCommand handling
+	int GetBoundKey(String cvarname)
+	{
+		cvar lookup = CVar.FindCVar(cvarname);
+
+		if (lookup)
+		{
+			String keyname = lookup.GetString();
+			keyname.ToLower();
+
+			return keyname.CharCodeAt(0);
+		}
+
+		return 0;
+	}
+
+	override void WorldTick()
+	{
+		int zoom = GetBoundKey("zmse_toggle");
+
+		if (zoom)
+		{
+			if (pressed[zoom])
+			{
+				double targetFOV;
+
+				if (holdtime[zoom] == 0 && players[consolePlayer].FOV != defaultFOV) // Detect second press to reset the zoom amount
+				{
+					targetFOV = defaultFOV;
+					pressed[zoom] = false;
+					bZoomed = false;
+				}
+				else // Increment the FOV based on how long the key is being held down
+				{
+					targetFOV = clamp(defaultFOV - holdtime[zoom] * 3, 10, defaultFOV);
+					bZoomed = true;
+				}
+
+				// Actually sets the player's FOV
+				players[consolePlayer].SetFOV(targetFOV);
+			}
+
+			if (bZoomed)
+			{
+				//Do some aesthetic stuff...
+			}
+		}
+
+		// Increment through all of the keys and, if they are currently pressed, increment the holdtime[] counter.
+		// If the key's not being pressed, reset the counter to 0.
+		// This is what lets you see how long a key has been held down.
+		for (int i = 0; i < pressed.Size(); i++)
+		{
+			if (pressed[i]) { holdtime[i]++; }
+			else { holdtime[i] = 0; }
+		}
+	}
+}
+
+/*
+int key1, key2;
+[key1, key2] = KeyBindings.GetKeysForCommand("zmse_toggle");
+
+console.printf("%d, %d", key1, key2);
+*/

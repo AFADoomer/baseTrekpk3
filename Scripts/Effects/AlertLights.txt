@@ -1,0 +1,142 @@
+/*
+
+  Version of standard dynamic light that spawns a helper actor that sets the 
+  visibility variable of any player in proximity to the light, based on the 
+  distance that the payer is from the center of the light
+
+  These lights automatically replace all point lights.
+
+*/
+class AlertPointLight : PointLight replaces PointLight
+{
+	bool sneakables;
+
+	override void PostBeginPlay()
+	{
+		sneakables = SneakableActors();
+
+		if (!bDormant) { SpawnLight(); }
+
+		Super.PostBeginPlay();
+	}
+
+	override void Activate(Actor activator)
+	{
+		Super.Activate(activator);
+
+		if (bDormant) { DestroyLight(); }
+		else { SpawnLight(); }
+	}
+
+	override void Deactivate(Actor activator)
+	{
+		Super.Deactivate(activator);
+
+		if (bDormant) { DestroyLight(); }
+		else { SpawnLight(); }
+	}
+
+	void SpawnLight()
+	{
+		if (sneakables) { A_SpawnItemEx("AlertLight", flags:SXF_SETMASTER); } // Only spawn AlertLight if there are sneakables in the level
+
+		bDormant = false;
+	}
+
+	void DestroyLight()
+	{
+		A_RemoveChildren(TRUE, RMVF_MISC);
+
+		bDormant = true;
+	}
+
+	bool SneakableActors() // Are there sneakable actors in the level?
+	{
+		ThinkerIterator it = ThinkerIterator.Create("StealthBase", Thinker.STAT_USER_MAX - 2); // Just iterate over the sneakable eyes - faster than all Nazi actors
+		StealthBase mo;
+		while (mo = StealthBase(it.Next(true)))
+		{
+			return true;
+		}
+
+		return false;
+	}
+}
+
+/*
+
+  Helper actor that handles changing the player's visibility value based on
+  how close the player is to the center of the light.
+
+  By default, when spawned by the point light replacement above, whihc sets 
+  itself as master to the AlertLight, this actor automatically scales itself 
+  to match the dynamic light's radius, and uses the brightness of the dynamic 
+  light to scale the visibility value that it sets for the player.  
+
+  If placed directly in-editor, argument 0 is used to set the radius of the
+  visibility increase (with a fall-back to 64 units if no value is provided, 
+  and the brightness of the light is assumed to be 100%.
+
+  If spawned by an actor that sets itself as the AlertLight's tracer, the
+  brightness of the light is scaled based on the alpha value of the tracer
+  actor.  this is used in-game by the Volumetric Light actor.
+
+*/
+class AlertLight : Actor
+{
+	double checkRadius;
+	double oldVisibility;
+
+	Default
+	{
+		//$Category Misc (Wolf3D)
+		//$Title Alert Light (stealth)
+		//$Color 1
+		+INVISIBLE
+		+NOGRAVITY
+		+NOBLOCKMAP
+	}
+
+	States
+	{
+		Spawn:
+			UNKN A 1;
+		CheckForPlayer:
+			UNKN A 1 A_LookEx(LOF_NOSOUNDCHECK | LOF_DONTCHASEGOAL | LOF_NOSEESOUND, 0, checkRadius * 2, 0, 360, "Illuminate");
+			Loop;
+		Illuminate:
+			UNKN A 1 A_AddVisibility();
+			Goto CheckForPlayer;
+	}
+
+	override void PostBeginPlay()
+	{
+		if (master) {
+			checkRadius = master.args[3]; // If spawned and master is set, use parent's arg[3] as check radius
+		} else {
+			checkRadius = args[0]; // Otherwise, use the actor's arg[0] 
+		}
+		if (!checkRadius) { checkRadius = 64; } // If nothing was set, use 64 map unit radius
+	}
+
+	void A_AddVisibility()
+	{
+		double brightness = 1;
+		if (tracer) { brightness = min(tracer.alpha * 1.5, 1.0); }
+		if (master) { brightness = (master.args[0] + master.args[1] + master.args[2]) / (255. * 3) * 1.25; } // Calculate the light's overall brightness
+
+		double amount = checkRadius * 2 - Distance3d(target) + 8; // Calculate visibility based on how close the player is to the light
+
+		amount *= brightness; // Adjust based on brightness level
+
+		if (target)
+		{
+			Inventory vis = target.FindInventory("Visibility");
+			if (vis)
+			{
+				oldVisibility = Visibility(vis).extravisibility;
+				Visibility(vis).extravisibility  = int(oldvisibility + Max(amount - oldVisibility, 0)); // Set the new visibility - use delta in value instad of overriding so that multiple lights can be additive in visibility
+			}
+		}
+	}
+}

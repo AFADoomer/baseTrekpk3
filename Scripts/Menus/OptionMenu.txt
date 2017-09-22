@@ -1,0 +1,93 @@
+class TrekOptionMenu : OptionMenu
+{
+	override void Drawer()
+	{
+		int y = mDesc.mPosition;
+
+		if (y <= 0)
+		{
+			if (BigFont && mDesc.mTitle.Length() > 0)
+			{
+				let tt = Stringtable.Localize(mDesc.mTitle);
+				screen.DrawText (SmallFont, OptionMenuSettings.mTitleColor,
+					(screen.GetWidth() - SmallFont.StringWidth(tt) * CleanXfac_1) / 2, 10*CleanYfac_1,
+					tt, DTA_CleanNoMove_1, true);
+				y = -y + SmallFont.GetHeight();
+			}
+			else
+			{
+				y = -y;
+			}
+		}
+		mDesc.mDrawTop = y;
+		int fontheight = OptionMenuSettings.mLinespacing * CleanYfac_1;
+		y *= CleanYfac_1;
+
+		int indent = mDesc.mIndent;
+		if (indent > 280)
+		{ // kludge for the compatibility options with their extremely long labels
+			if (indent + 40 <= CleanWidth_1)
+			{
+				indent = (screen.GetWidth() - ((indent + 40) * CleanXfac_1)) / 2 + indent * CleanXfac_1;
+			}
+			else
+			{
+				indent = screen.GetWidth() - 40 * CleanXfac_1;
+			}
+		}
+		else
+		{
+			indent = (indent - 160) * CleanXfac_1 + screen.GetWidth() / 2;
+		}
+
+		int ytop = y + mDesc.mScrollTop * 8 * CleanYfac_1;
+		int lastrow = screen.GetHeight() - SmallFont.GetHeight() * CleanYfac_1;
+
+		int i;
+		for (i = 0; i < mDesc.mItems.Size() && y <= lastrow; i++)
+		{
+			// Don't scroll the uppermost items
+			if (i == mDesc.mScrollTop)
+			{
+				i += mDesc.mScrollPos;
+				if (i >= mDesc.mItems.Size()) break;	// skipped beyond end of menu
+			}
+			bool isSelected = mDesc.mSelectedItem == i;
+			int cur_indent = mDesc.mItems[i].Draw(mDesc, y, indent, isSelected);
+			if (cur_indent >= 0 && isSelected && mDesc.mItems[i].Selectable())
+			{
+				if (((MenuTime() % 8) < 6) || GetCurrentMenu() != self)
+				{
+					DrawConText(OptionMenuSettings.mFontColorSelection, cur_indent + 3 * CleanXfac_1, y+fontheight-9*CleanYfac_1, "\xd");
+				}
+
+//				let tex = TexMan.CheckForTexture("Icon", TexMan.Type_Any);
+//				if (tex.IsValid()) { screen.DrawTexture (tex, true, cur_indent + 3, y + 2, DTA_DestWidth, 6 * CleanXfac, DTA_DestHeight, 6 * CleanYfac); }
+/*
+				else
+				{ 
+					screen.DrawText(SmallFont, OptionMenuSettings.mFontColorSelection, cur_indent + 3 * CleanXfac_1, y+fontheight-9*CleanYfac_1, ">", DTA_CleanNoMove_1, true);
+				}
+*/
+			}
+			y += fontheight;
+		}
+
+		CanScrollUp = (mDesc.mScrollPos > 0);
+		CanScrollDown = (i < mDesc.mItems.Size());
+		VisBottom = i - 1;
+
+		if (CanScrollUp)
+		{
+			DrawConText(Font.CR_ORANGE, 3 * CleanXfac_1, ytop, "\x1a");
+		}
+		if (CanScrollDown)
+		{
+			DrawConText(Font.CR_ORANGE, 3 * CleanXfac_1, y - 8*CleanYfac_1, "\x1b");
+		}
+
+		// needs to call the basic drawer function for the Back Button and other
+		// basic drawing stuff to be seen
+		Menu.Drawer();
+	}
+}

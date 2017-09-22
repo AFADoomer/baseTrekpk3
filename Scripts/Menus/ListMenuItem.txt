@@ -1,0 +1,109 @@
+/*==============================================================================
+From: https://forum.zdoom.org/viewtopic.php?f=3&t=55267&start=45#p978630
+ demo .pk3 by Major Cooke	
+
+	TextItemPulse (name, hotkey, menu, direction)
+	
+	Behaves just like TextItem, except it can be used to move a menu around
+	upon activation.
+	
+	Direction is in degrees. Default is 0.
+	0 = 	right
+	90 = 	up
+	180 = 	left
+	270 = 	down
+	
+	Setting it to < 0 will make it behave like default and just pop open
+	the next one.
+
+==============================================================================*/
+
+Class ListMenuItemTextItemPulse : ListMenuItemSelectable
+{
+	const initialDirection = 0.1;
+	double glowAlpha;
+	double glowDir;
+	double widest;
+	int activeTimer, direction;
+	
+	//==========================================================================
+	// Due to problems with initialization, I was forced to copy/paste this
+	// stuff from ListMenuItemTextItem itself and inherit from 
+	// ListMenuItemSelectable.
+	
+	String mText;
+	Font mFont;
+	int mColor;
+	int mColorSelected;
+
+	void Init(ListMenuDescriptor desc, String text, String hotkey, Name child, 
+					double dir = 0, int param = 0)	
+					// The two directions were added. I put them in front of param
+					// because param is just for passing things to the items
+					// from the menu.
+	{
+		Super.Init(desc.mXpos, desc.mYpos, desc.mLinespacing, child, param);
+		mText = text;
+		mFont = desc.mFont;
+		mColor = desc.mFontColor;
+		mColorSelected = desc.mFontcolor2;
+		mHotkey = hotkey.CharCodeAt(0);
+		glowDir = -initialDirection;		// This...
+		glowAlpha = 1.0;					// and this were also added.
+		direction = int(dir);
+	}
+	
+	void InitDirect(int x, int y, int height, String hotkey, String text, Font font, int color, int color2, Name child, 
+					double dir = 0, int param = 0)
+	{
+		Super.Init(x, y, height, child, param);
+		mText = text;
+		mFont = font;
+		mColor = color;
+		mColorSelected = color2;
+		mHotkey = hotkey.CharCodeAt(0);
+		glowDir = -initialDirection;		// Here too, just for safety.
+		glowAlpha = 1.0;
+		direction = int(dir);
+	}
+	
+	override int GetWidth()
+	{
+		return min(1, mFont.StringWidth(StringTable.Localize(mText))); 
+	}
+	
+	//==========================================================================
+	// The following are vastly modified from their originals.
+	// Grabs the specified colors and slowly pulses between two colors
+	// specified by the Font menudef keyword.
+	//==========================================================================
+	
+	override void Drawer(bool selected)
+	{
+		if (glowDir == 0.0)
+		{
+			glowDir = -initialDirection;
+			glowAlpha = 1.0;
+		}
+		
+		screen.DrawText(mFont, mColor, mXpos, mYpos, mText, DTA_Clean, true);
+		
+		if (selected)
+		{
+			glowAlpha += glowDir;
+			
+			if (glowAlpha >= 1.0 || glowAlpha <= 0.0)
+			{
+				glowDir = -glowDir;
+				glowAlpha += glowDir;
+			}
+			
+			screen.DrawText(mFont, mColorSelected, mXpos, mYpos, mText, DTA_Clean, true, DTA_Alpha, glowAlpha);
+		}
+		else
+		{
+			glowAlpha = 1.0;
+			glowDir = -initialDirection;
+		}
+	}
+}

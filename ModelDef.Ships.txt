@@ -187,8 +187,8 @@ Model TOSMoonOrbit
 	Model 0 "planet.md3"
 	Skin 0 "planet_m.jpg"
 
-	Rotating
-	Rotation-Speed -0.02
+//	Rotating
+//	Rotation-Speed -0.02
 
 	Scale 0.3 0.3 0.3
 
@@ -340,6 +340,81 @@ Model TOSSun
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSShuttle
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+
+	Model 0 "galileo_landed.md3"
+	FrameIndex TOS1 A 0 0
+	Skin 0 "galileo_damaged.jpg"
+	FrameIndex TOS2 A 0 0
+	Skin 0 "galileo_original.jpg"
+	FrameIndex TOS3 A 0 0
+	Skin 0 "galileo_mirror.png"
+	FrameIndex TOS4 A 0 0
+	Skin 0 "starbase.png"
+	FrameIndex TOS5 A 0 0
+	Skin 0 "anaxagoras.png"
+	FrameIndex TOS6 A 0 0
+	Skin 0 "astrostein5.jpg"
+	FrameIndex TOS7 A 0 0
+
+	Model 0 "galileo.md3"
+	FrameIndex TOS1 B 0 0
+	Skin 0 "galileo_damaged.jpg"
+	FrameIndex TOS2 B 0 0
+	Skin 0 "galileo_original.jpg"
+	FrameIndex TOS3 B 0 0
+	Skin 0 "galileo_mirror.png"
+	FrameIndex TOS4 B 0 0
+	Skin 0 "starbase.png"
+	FrameIndex TOS5 B 0 0
+	Skin 0 "anaxagoras.png"
+	FrameIndex TOS6 B 0 0
+	Skin 0 "astrostein5.jpg"
+	FrameIndex TOS7 B 0 0
+}
+
+Model TOSShuttleDamaged
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "shuttle_damaged.md3"
+	FrameIndex TOS1 A 0 0
+	Skin 0 "galileo_damaged.jpg"
+	FrameIndex TOS2 A 0 0
+	Skin 0 "galileo_original.jpg"
+	FrameIndex TOS3 A 0 0
+	Skin 0 "galileo_mirror.png"
+	FrameIndex TOS4 A 0 0
+	Skin 0 "starbase.png"
+	FrameIndex TOS5 A 0 0
+	Skin 0 "anaxagoras.png"
+	FrameIndex TOS6 A 0 0
+	Skin 0 "astrostein5.jpg"
+	FrameIndex TOS7 A 0 0
+
+	Model 0 "shuttle_damaged.md3"
+	FrameIndex TOS1 B 0 0
+	Skin 0 "galileo_damaged.jpg"
+	FrameIndex TOS2 B 0 0
+	Skin 0 "galileo_original.jpg"
+	FrameIndex TOS3 B 0 0
+	Skin 0 "galileo_mirror.png"
+	FrameIndex TOS4 B 0 0
+	Skin 0 "starbase.png"
+	FrameIndex TOS5 B 0 0
+	Skin 0 "anaxagoras.png"
+	FrameIndex TOS6 B 0 0
+	Skin 0 "astrostein5.jpg"
+	FrameIndex TOS7 B 0 0
+}
+
 Model TOSShuttleGalileo
 {
 	USEACTORPITCH
@@ -369,7 +444,7 @@ Model TOSShuttleAstrostein
 
 	Path "Models/mapobjects/tos/shuttles"
 	Model 0 "galileo_landed.md3"
-	Skin 0 "astrostein8.jpg"
+	Skin 0 "astrostein5.jpg"
 
 	FrameIndex TOS1 A 0 0
 
@@ -378,9 +453,25 @@ Model TOSShuttleAstrostein
 	FrameIndex TOS1 B 0 0
 }
 
+Model TOSShuttleAnaxagoras
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/shuttles"
+	Model 0 "shuttle_damaged.md3"
+	Skin 0 "anaxagoras.png"
+
+	FrameIndex TOS1 A 0 0
+
+	Model 0 "shuttle_damaged.md3"
+
+	FrameIndex TOS1 B 0 0
+}
+
 Model TOSD7
 {
-	INHERITACTORPITCH
+	USEACTORPITCH
 	USEACTORROLL
 
 	Path "Models/mapobjects/tos/D-7"
