@@ -20,6 +20,7 @@ class Block1x1 : SwitchableDecoration
 		+NOTAUTOAIMED
 		+ALLOWPAIN
 		+ACTLIKEBRIDGE
+		+DONTTHRUST
 //		+SPECIAL
 		Painchance 255;
 		Radius 1;

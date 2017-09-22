@@ -20,7 +20,7 @@ class TOSHealth : Health
 	{
 		Spawn:
 			TNT1 A 0 NoDelay {
-				ACS_NamedExecuteAlways("SetRadarTID",0);
+//				ACS_NamedExecuteAlways("SetRadarTID",0);
 				if (bDropped) {
 					return ResolveState("Spawn.Dropped");
 				}
@@ -92,7 +92,8 @@ class HypoSprayMeds : Actor
 
 	Default
 	{
-		+NOGRAVITY;
+//		+NOGRAVITY;
+		+CANPASS;
 		Radius 1;
 		Height 2;
 		Renderstyle 'Translucent';

@@ -667,3 +667,39 @@ class TOSCloakBase : DestroyableDecoration
 		if (master) { alpha = master.alpha; }
 	}
 }
+
+class TOSSprayer : DestroyableDecoration
+{
+	Default
+	{
+		Radius 4;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		SetOrigin(master.pos, true);
+	}
+}
+
+class TOSSprayBottle : DestroyableDecoration
+{
+	Default
+	{
+		Radius 3;
+	}
+
+	override void PostBeginPlay()
+	{
+		scale.y = FRandom(0.8, 1.2);
+		frame = Random(0, 2);
+
+		Actor mo = Spawn("TOSSprayer", pos + (0, 0, (scale.y - 1) * 8));
+		if (mo)
+		{
+			mo.master = self;
+			mo.angle = angle;
+		}
+	}
+}

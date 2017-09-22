@@ -544,6 +544,7 @@ DoomEdNums
 	20355 = TOSFoodCup
 	20356 = TOSTable7
 	20357 = TOSCargo
+	20358 = TOSSprayBottle
 
 //Skyboxes
 	21000 = Skybox1

@@ -3399,3 +3399,31 @@ Model TOSCargo
 	Skin 0 "cargo_starfleet.png"
 	FrameIndex TOS1 G 0 0
 }
+
+Model TOSSprayBottle
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "bottle.md3"
+
+	FrameIndex TOS1 A 0 0
+
+	Skin 0 "bottle_blue.png"
+	FrameIndex TOS1 B 0 0
+
+	Skin 0 "bottle_orange.png"
+	FrameIndex TOS1 C 0 0
+}
+
+Model TOSSprayer
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "sprayer.md3"
+
+	FrameIndex TOS1 A 0 0
+}
