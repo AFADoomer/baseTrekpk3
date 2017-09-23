@@ -670,16 +670,24 @@ class TOSCloakBase : DestroyableDecoration
 
 class TOSSprayer : DestroyableDecoration
 {
+	Vector3 offset;
+
 	Default
 	{
-		Radius 4;
+		Height 2;
+		Radius 3;
+	}
+
+	override void PostBeginPlay()
+	{
+		offset = pos - master.pos;
 	}
 
 	override void Tick()
 	{
 		Super.Tick();
 
-		SetOrigin(master.pos, true);
+		SetOrigin(master.pos + offset, true);
 	}
 }
 
@@ -687,15 +695,18 @@ class TOSSprayBottle : DestroyableDecoration
 {
 	Default
 	{
-		Radius 3;
+		Height 7;
+		Radius 2;
 	}
 
 	override void PostBeginPlay()
 	{
-		scale.y = FRandom(0.8, 1.2);
+		scale.y = scale.y * FRandom(0.8, 1.2);
 		frame = Random(0, 2);
 
-		Actor mo = Spawn("TOSSprayer", pos + (0, 0, (scale.y - 1) * 8));
+		A_SetSize(-1, height * scale.y);
+
+		Actor mo = Spawn("TOSSprayer", pos + (0, 0, height));
 		if (mo)
 		{
 			mo.master = self;
@@ -703,3 +714,11 @@ class TOSSprayBottle : DestroyableDecoration
 		}
 	}
 }
+
+class TOSMedicalMute : DestroyableDecoration { Default { Height 8; } }
+class TOSMedicalJugBlue : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalJugGold : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalLampshadeBlue : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalLampshadeGold : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalPillarBlue : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalPillarGold : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }

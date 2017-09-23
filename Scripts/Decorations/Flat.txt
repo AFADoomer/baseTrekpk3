@@ -8,6 +8,7 @@ class SpriteDecoration : Decoration
 		-DONTTHRUST;
 		+WALLSPRITE;
 		+ROLLSPRITE;
+		+ROLLCENTER;
 		-SOLID;
 		Radius 0;
 		Health 50;

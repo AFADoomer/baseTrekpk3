@@ -545,6 +545,14 @@ DoomEdNums
 	20356 = TOSTable7
 	20357 = TOSCargo
 	20358 = TOSSprayBottle
+	20359 = TOSMedicalMute
+	20360 = TOSMedicalJugBlue
+	20361 = TOSMedicalJugGold
+	20362 = TOSMedicalLampshadeBlue
+	20363 = TOSMedicalLampshadeGold
+	20364 = TOSMedicalPillarBlue
+	20365 = TOSMedicalPillarGold
+
 
 //Skyboxes
 	21000 = Skybox1

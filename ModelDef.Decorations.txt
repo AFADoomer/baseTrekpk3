@@ -3425,5 +3425,93 @@ Model TOSSprayer
 	Path "Models/mapobjects/tos/"
 	Model 0 "sprayer.md3"
 
+	ZOffset -7.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMedicalMute
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "mute.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMedicalJugBlue
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "jug.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMedicalJugGold
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "jug.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Gold.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMedicalLampshadeBlue
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "shade.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMedicalLampshadeGold
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "shade.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Gold.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMedicalPillarBlue
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pillar.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSMedicalPillarGold
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pillar.md3"
+	Path "Textures/Solid/"
+	Skin 0 "Gold.png"
+
 	FrameIndex TOS1 A 0 0
 }

@@ -2,6 +2,7 @@ class TOSEngTool : CustomInventory
 {
 	Default
 	{
+		Radius 10;
 		Inventory.MaxAmount 1;
 		+INVENTORY.AUTOACTIVATE
 	}
