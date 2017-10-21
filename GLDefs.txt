@@ -8,9 +8,9 @@ pulselight TransporterBeam
 
 pulselight TransporterBeamK
 {
-	color 1.0 0.5 0.5
+	color 1.0 0.25 0.25
 	size 0
-	secondarySize 20
+	secondarySize 30
 	interval 2.75
 }
 
@@ -597,6 +597,7 @@ brightmap texture "WALL3SW1" {map "WALLMSW1"}
 HardwareShader Texture Water { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 HardwareShader Texture Water2 { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 HardwareShader Texture Water_P { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
+HardwareShader Texture Water_C { Shader "shaders/glsl/func_warp1.fp" Speed 1.0 }
 
 HardwareShader Texture "models/mapobjects/tos/clouds_r.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.01 }
 HardwareShader Texture "models/mapobjects/tos/clouds.png" { Shader "shaders/glsl/func_warp1.fp" Speed 0.01 }
@@ -614,6 +615,16 @@ HardwareShader Texture Field_W { Shader "shaders/func_forcefield.fp" Speed 10.0 
 HardwareShader Sprite WFLAG0 { Shader "shaders/rotate_cw.fp" Speed 10.0 }
 
 HardwareShader Texture "models/weapons/communicator_moire.png" { Shader "shaders/rotate_cw.fp" Speed 0.25 }
+
+HardwareShader "textures/enterprise/walls/Power_Y.png" { Shader "shaders/overlay.fp" Speed 1 }
+HardwareShader "textures/enterprise/walls/Power_R.png" { Shader "shaders/overlay.fp" Speed 1 }
+HardwareShader "textures/enterprise/walls/Power_G.png" { Shader "shaders/overlay.fp" Speed 1 }
+HardwareShader "textures/enterprise/walls/Power_B.png" { Shader "shaders/overlay.fp" Speed 1 }
+HardwareShader Power_Y { Shader "shaders/overlay.fp" Speed 1 }
+HardwareShader Power_R { Shader "shaders/overlay.fp" Speed 1 }
+HardwareShader Power_G { Shader "shaders/overlay.fp" Speed 1 }
+HardwareShader Power_B { Shader "shaders/overlay.fp" Speed 1 }
+
 
 //Start of BoA Assets
 FlickerLight FireSpawnerSmall

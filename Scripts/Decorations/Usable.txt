@@ -294,7 +294,7 @@ class TOSDilithiumChamber : UsableDecoration
 	Default
 	{
 		Radius 6;
-		Height 24;
+		Height 0;
 		Health 99;
 		Activation THINGSPEC_ThingTargets | THINGSPEC_Switch;
 		Tag "Dilithium Chamber";

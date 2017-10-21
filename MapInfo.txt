@@ -18,7 +18,7 @@ GameInfo
 
 	defaultconversationmenuclass = "BoAConversationMenu"
 	statusbarclass = "TrekStatusBar"
-	addeventhandlers = "TrekEventHandler"
+	addeventhandlers = "TrekEventHandler", "KeyPressEventHandler", "MapEventHandler"
 }
 
 clearskills
@@ -552,7 +552,34 @@ DoomEdNums
 	20363 = TOSMedicalLampshadeGold
 	20364 = TOSMedicalPillarBlue
 	20365 = TOSMedicalPillarGold
-
+	20366 = TOSOutdoorLampWhite
+	20367 = TOSOutdoorLamp2
+	20368 = TOSOutdoorLampWhite2
+	20369 = TOSDeflectorDish
+	20370 = TOSPhaserEmplacement
+	20371 = TOSShieldGenerator
+	20372 = TOSWallDecor2
+	20373 = TOSArchExt
+	20374 = TOSOutpostRib
+	20375 = TOSWeaponsScanner
+	20376 = TOSUFPLogo
+	20377 = TOSPlantonMedicalPanel
+	20378 = TOSWallThingPanel2
+	20379 = TOSProtoplaser
+	20380 = TOSProtoplaser2
+	20381 = TOSProtoplaser3
+	20382 = TOSScalpel
+	20383 = TOSScalpel2
+	20384 = TOSScalpel3
+	20385 = TOSScalpel4
+	20386 = TOSScalpel5
+	20387 = TOSScalpel6
+	20388 = TOSScalpel7
+	20389 = TOSPot
+	20390 = TOSPlant
+	20391 = TOSPlant2
+	20392 = TOSPlant3
+	20393 = TOSPlant4
 
 //Skyboxes
 	21000 = Skybox1
@@ -577,6 +604,7 @@ DoomEdNums
 	24502 = TOSBoPFlier
 	24503 = TOSEnterpriseFlier
 	24504 = TOSRahmanFlier
+	24506 = TOSD7FlierBig
 
 //Weapons
 	25000 = PhaserType1
@@ -622,4 +650,6 @@ DoomEdNums
 	27005 = SparkSpawner
 	27006 = FireSpawner
 	27007 = AutoCamera
+	28000 = DoorHandler
+	28001 = DoorHandlerSingle
 }

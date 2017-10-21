@@ -52,6 +52,7 @@ version "2.5"
 //Misc Actors
 #include "scripts/cameras.txt"
 #include "scripts/ladders.txt"
+#include "scripts/doorhandler.txt"
 
 //Items
 #include "scripts/items/health.txt"

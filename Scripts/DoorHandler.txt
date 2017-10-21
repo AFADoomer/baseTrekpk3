@@ -1,0 +1,183 @@
+class DoorHandler : Actor
+{
+	bool single;
+	int moveamt, maxmoveamt, movetimeout, activationradius, locknumber;
+	double movespeed, olddir;
+	Array<Line> Lines;
+	Array<Actor> Activators;
+
+	Property MoveAmount:maxmoveamt;
+	Property MoveSpeed:movespeed;
+	Property SingleDoor:single;
+	Property ActivationRadius:ActivationRadius;
+
+	Default
+	{
+		//$Category "Actor Effects"
+		//$Arg0 "Key"
+		//$Arg0ToolTip "What key should this door use (default none)?"
+		//$Arg0Type 11
+		//$Arg0Enum "keys"
+
+		+SPECIAL
+		+INVISIBLE
+		-SOLID
+		Height 92;
+		Radius 8;
+		DoorHandler.MoveAmount 120;
+		DoorHandler.MoveSpeed 8;
+		DoorHandler.SingleDoor 0;
+		DoorHandler.ActivationRadius 92;
+		ActiveSound "door/starfleet";
+	}
+
+	States
+	{
+		Spawn:
+			UNKN A -1;
+			Stop;
+	}
+
+	override void PostBeginPlay()
+	{
+		int lastindex;
+
+		A_SetSize(activationradius);
+
+		BlockLinesIterator it = BlockLinesIterator.Create(self, -1);
+      
+		While (it.Next())
+		{
+			Line current = it.curline;
+
+			if (current)
+			{
+				if (current.v1.p == pos.xy || current.v2.p == pos.xy)
+				{
+					if (current.v2.p == pos.xy) // Check position/line order so that we make sure these are pushed in the right order into the array 
+					{
+						Lines.Insert(0, current);
+					}
+					else
+					{
+						Lines.Push(current);
+					}
+
+					current.flags |= Line.ML_3DMIDTEX;
+					current.flags |= Line.ML_BLOCKSIGHT;
+
+					lastindex = current.Index();
+				}
+			}
+		}
+
+		locknumber = args[0];
+	}
+
+	override void Touch(Actor toucher)
+	{
+		if (Activators.Find(toucher) == Activators.Size()) { Activators.Push(toucher); }
+	}
+
+	void Move(double dir)
+	{
+		if (dir < 0 && moveamt <= 0) { return; }
+		else if (dir > 0 && moveamt >= maxmoveamt) { return; }
+
+		dir = dir * movespeed;
+
+		if (!Lines.Size()) { return; }
+
+		if (Lines[0])
+		{
+			Lines[0].sidedef[0].AddTextureXOffset(1, dir);
+			Lines[0].sidedef[1].AddTextureXOffset(1, -dir);
+		}
+
+		if (Lines[1])
+		{
+			Lines[1].sidedef[0].AddTextureXOffset(1, single ? dir : -dir);
+			Lines[1].sidedef[1].AddTextureXOffset(1, single ? -dir : dir);
+		}
+
+		if (dir < 0 && moveamt < maxmoveamt / 2)
+		{
+			if (Lines[0])
+			{
+				Lines[0].flags |= Line.ML_3DMIDTEX;
+				Lines[0].flags |= Line.ML_BLOCKSIGHT;
+			}
+
+			if (Lines[1])
+			{
+				Lines[1].flags |= Line.ML_3DMIDTEX;
+				Lines[1].flags |= Line.ML_BLOCKSIGHT;
+			}
+		}
+		else if (dir > 0 && moveamt > maxmoveamt / 2)
+		{
+			if (Lines[0])
+			{
+				Lines[0].flags &= ~Line.ML_3DMIDTEX;
+				Lines[0].flags &= ~Line.ML_BLOCKSIGHT;
+			}
+
+			if (Lines[1])
+			{
+				Lines[1].flags &= ~Line.ML_3DMIDTEX;
+				Lines[1].flags &= ~Line.ML_BLOCKSIGHT;
+			}
+		}
+
+		if (dir != olddir) { A_PlaySound(ActiveSound, CHAN_7, 0.7); }
+
+		moveamt = int(moveamt + dir);
+		olddir = dir;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		if (globalfreeze || level.Frozen) { return; }
+
+		for (int i = 0; i < Activators.Size(); i++)
+		{
+			if (Activators[i])
+			{
+				double offsetangle = absangle(angle, Activators[i].angle);
+				if (offsetangle > 90) { offsetangle = 180 - offsetangle; }
+
+				if (
+					(
+						Distance2D(Activators[i]) <= Activators[i].Radius * 2 ||
+						(
+							Distance2D(Activators[i]) <= Radius &&
+							(offsetangle < 50)
+						)
+					) &&
+					(!locknumber || Activators[i].CheckKeys(locknumber, false))
+				)
+				{
+					movetimeout = 70;
+				}
+				else { Activators.Delete(i); }
+			}
+		}
+
+		if (movetimeout <= 0) { Move(-1); }
+		else { Move(1); }
+
+		if (movetimeout > 0) { movetimeout--; }
+	}
+}
+
+class DoorHandlerSingle : DoorHandler
+{
+	Default
+	{
+		DoorHandler.MoveAmount 120;
+		DoorHandler.SingleDoor 1;
+		DoorHandler.ActivationRadius 64;
+	}
+}

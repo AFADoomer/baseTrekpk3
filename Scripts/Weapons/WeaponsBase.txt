@@ -48,6 +48,8 @@ extend class TOSWeapon
 {
 	action void A_FirePhaser(class<Actor> beam, class<Actor> light, class<Actor> hitpuff, int damage = 3, class<Actor> sputter = null, double beamspacing = 3.0, int spread = 0, int jitter = 0)
 	{
+		if (globalfreeze || level.Frozen) { return; }
+
 		A_FireBullets(0, 0, 1, 0, "MeasurePuff", FBF_NORANDOMPUFFZ, 2048);
 		A_RailAttack(0, 0, 0, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "", spread, spread, 2048, 1, beamspacing, jitter, beam, 16);
 		A_RailAttack(0, 0, 0, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT, 0, "", spread, spread, 2048, 1, FRandom(6.0, 8.0), jitter, light, 16);

@@ -959,20 +959,18 @@ Script "A_Transport" (int Fade, int BeamDir)
 
 Script "A_TransportK" (void)
 {
-	SetActorProperty(0, APROP_INVULNERABLE, 1);
-	SetActorProperty(0, APROP_RenderStyle, STYLE_TranslucentStencil);
+	SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
 
-	SetActorProperty(0, APROP_Alpha, 0);
-	SetActorProperty(0, APROP_StencilColor, "#bf0000");
+	int activator = ActivatorTID();
+	int effecttid = UniqueTID();
 
-	For (int in = 0; in <= 100; in = in + 1)
-	{
-		If (in >= 25) SetActorProperty(0, APROP_RenderStyle, STYLE_Translucent);
-		SetActorProperty(0, APROP_Alpha, in * 0.01);
-		Delay (1);
-	}
+	SpawnForced("TransporterEffectK", GetActorX(0), GetActorY(0), GetActorZ(0), effecttid, 0);
+	SetActivator(effecttid);
+	SetPointer(AAPTR_MASTER, activator);
+	SetActivator(activator);
 
-	SetActorProperty(0, APROP_RenderStyle, STYLE_Normal);
+	Delay(35);
+
 	SetActorProperty(0, APROP_INVULNERABLE, 0);
 }
 

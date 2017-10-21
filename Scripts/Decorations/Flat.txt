@@ -631,6 +631,27 @@ class TOSWallThingPanel : UsableSpriteDecoration
 	}
 }
 
+class TOSWallThingPanel2 : UsableSpriteDecoration
+{
+	Default
+	{
+		//$Title "Wall Planton: Lighted Panel (Flat)" 
+		//$Sprite PANLA0
+		-WALLSPRITE
+		+FLATSPRITE
+		Health 100;
+		Height 24;
+		Radius 16;
+		Tag "Control Panel";
+	}
+
+	States
+	{
+		Initial:
+			PANL A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
 class TOSWallDecor : SpriteDecoration
 {
 	Default
@@ -646,6 +667,24 @@ class TOSWallDecor : SpriteDecoration
 	{
 		Initial:
 			DECO A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSWallDecor2 : SpriteDecoration
+{
+	Default
+	{
+		//$Title "Wall Planton: Decor (Delta)" 
+		//$Sprite DECOB0
+		Health 100;
+		Height 24;
+		Radius 16;
+	}
+
+	States
+	{
+		Initial:
+			DECO B 1 A_Jump(256, "Super::Initial");
 	}
 }
 
@@ -677,4 +716,41 @@ class TOSWallThingShuttlebayStatus : UsableSpriteDecoration
 
 	}
 
+}
+
+class TOSUFPLogo : Decoration
+{
+	Default
+	{
+		//$Title "Wall Planton: UFP Logo" 
+		//$Sprite UFPLA0
+		+FLATSPRITE
+		+ROLLSPRITE;
+		+ROLLCENTER;
+		-SOLID;
+		Height 0;
+		Radius 16;
+	}
+
+	States
+	{
+		Initial:
+			UFPL A 1 A_Jump(256, "Super::Initial");
+	}
+}
+
+class TOSPlantonMedicalPanel : SpriteDecoration
+{
+	Default
+	{  
+		//$Title "Wall Planton: Medical Panel (Grey, Small)" 
+		//$Sprite MPNLA0
+		Height 10;
+	}
+
+	States
+	{
+		Initial:
+			MPNL A 1 A_Jump(256, "Super::Initial");
+	}
 }

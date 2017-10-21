@@ -26,8 +26,11 @@ class Debris : Actor
 				String newsprite = String.Format("%s%c%s", "TOS1", Random(65, 67), "0"); //random between TOS1A0 and TOS1C0
 				sprite = GetSpriteIndex(newsprite);
 
-				Scale.X = Scale.X * FRandom(0.1, 0.5);
-				Scale.Y = Scale.Y * FRandom(0.1, 0.5);
+				Scale *= FRandom(0.1, 0.5);
+
+				if (master) {
+					Scale *= master.Radius / 10;
+				}
 
 				Speed = Max(GetGravity() * Speed + Scale.X, 1);
 			}
@@ -100,9 +103,10 @@ class DebrisSpawner : Actor
 					debrisangle = Random(0, 360);
 					
 					let mo = A_SpawnProjectile("Debris", -1, 0, debrisangle, CMF_AIMDIRECTION, Random(-45, 45));
-					if (master) { mo.master = master; }
-					mo.scale.x = scale.x;
-					mo.scale.y = scale.y;
+					mo.scale = scale;
+					if (master) {
+						mo.master = master;
+					}
 
 					debriscount++;
 					return ResolveState("SpawnDebris");

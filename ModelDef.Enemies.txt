@@ -1029,3 +1029,18 @@ Model TOSFlier_Glow
 
 	FrameIndex TOS1 A 0 0
 }
+
+Model TOSPhaserEmplacement
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "phaserball.md3"
+
+	Scale 0.216 0.18 0.18
+
+	PitchOffset -90
+
+	FrameIndex TOS1 A 0 0
+}

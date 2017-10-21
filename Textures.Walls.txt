@@ -1074,6 +1074,20 @@ Texture Wall_Bl, 360, 448
 	Patch "Textures/Planet/Wall_Bl.jpg", 0, 0
 }
 
+Texture Wall_Bl2, 448, 360
+{
+	XScale 3.8
+	YScale 3.8
+	Patch "Textures/Planet/Wall_Bl.jpg", 0, 0 { Rotate 90 }
+}
+
+Texture Wall_Bl3, 360, 448
+{
+	XScale 3.8
+	YScale 3.8
+	Patch "Textures/Planet/Wall_Bl3.png", 0, 0
+}
+
 Texture Stone2, 512, 512
 {
 	XScale 1.76
@@ -1135,4 +1149,32 @@ Texture WALLTOP4, 96, 96
 	XScale 3.8
 	YScale 3.8
 	Patch "Textures/Enterprise/Walls/WALLTOP4.png", 0, 0
+}
+
+Texture WALL_EX, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch "Textures/Enterprise/Walls/WALL_EX.png", 0, 0
+}
+
+Texture WALL_EX2, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch "Textures/Enterprise/Walls/WALL_EX2.png", 0, 0
+}
+
+Texture WALL_EX3, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch "Textures/Enterprise/Walls/WALL_EX3.png", 0, 0
+}
+
+Texture WALL_EX5, 492, 492
+{
+	XScale 3.8
+	YScale 3.8
+	Patch "Textures/Enterprise/Walls/WALL_EX5.png", 0, 0
 }

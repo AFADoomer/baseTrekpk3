@@ -3,6 +3,7 @@ class TOSFlier : TrekEnemyActor
 	double fixedangle;
 	int timeout;
 	int floatdir;
+	int firecount;
 	vector3 oldpos;
 	Actor firetarget;
 
@@ -11,14 +12,16 @@ class TOSFlier : TrekEnemyActor
 		+NOGRAVITY;
 		+NOBLOOD;
 		+LOOKALLAROUND;
+		+AVOIDMELEE;
 		Speed 1;
 		Mass 500;
 		Height 54;
 		Radius 10;
-		Health 300;
+		Health 250;
 		Tag "Sentry Drone";
 		Obituary "%o was killed by a sentry drone.";
 		Scale 0.75;
+		MaxDropOffHeight 99999;
 	}
 
 	States
@@ -40,9 +43,16 @@ class TOSFlier : TrekEnemyActor
 			"####" A 0 {
 				pitch = 0;
 				roll = 0;
+
 				if (target && Distance3D(target) <= 2048) {
 					if (timeout <= 0 && health > 0 && CheckSight(target)) {
-						A_Chase("Missile", "Missile");
+						if (Distance3D(target) <= 256) {
+							bFrightened = true;
+							A_Chase(null, null);
+						} else {
+							bFrightened = false;
+							A_Chase("Missile", "Missile");
+						}
 					} else {
 						A_Chase(null, null);
 						timeout--;
@@ -56,21 +66,23 @@ class TOSFlier : TrekEnemyActor
 					if (Distance3d(target) < radius + 32 + target.radius) { bFrightened = True; }
 					else { bFrightened = False; }
 
-					if (target.pos.z + target.height / 3 > pos.z + 16) { floatdir = 1; }
-					else if (target.pos.z + target.height / 3 < pos.z - 16) { floatdir = -1; }
+					if (target.pos.z + target.height * 0.75 > pos.z + height / 2) { floatdir = 1; }
+					else if (target.pos.z + target.height / 3 < pos.z - height / 2) { floatdir = -1; }
 					else { floatdir = 0; }
 
-					ThinkerIterator ActorFinder = ThinkerIterator.Create("Actor");
-					Actor mo;
-					while (mo = Actor(ActorFinder.Next()))
-					{
-						if (mo == self) { continue; }
-						if (Distance2d(mo) >= (radius + mo.radius) * 1.4) { continue; }
-						if (mo.pos.z + mo.height < pos.z || mo.pos.z > pos.z + height) { continue; }
-						if (!mo.bSolid) { continue; }
+					if (level.time % 35 == 0) {
+						ThinkerIterator ActorFinder = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
+						Actor mo;
+						while (mo = Actor(ActorFinder.Next()))
+						{
+							if (mo == self) { continue; }
+							if (Distance2d(mo) >= (radius + mo.radius) * 1.4) { continue; }
+							if (mo.pos.z + mo.height < pos.z || mo.pos.z > pos.z + height) { continue; }
+							if (!mo.bSolid) { continue; }
 
-						if (mo.pos.z + mo.height > pos.z - 16 && ceilingz - mo.pos.z + mo.height > height ) { floatdir = 1; }
-						if (mo.pos.z < pos.z + height + 16 && mo.pos.z > floorz + height ) { floatdir = -1; }
+							if (mo.pos.z + mo.height > pos.z - 16 && ceilingz - mo.pos.z + mo.height > height ) { floatdir = 1; }
+							if (mo.pos.z < pos.z + height + 16 && mo.pos.z > floorz + height ) { floatdir = -1; }
+						}
 					}
 
 					A_ChangeVelocity(vel.x, vel.y, floatdir * Speed / 4, CVF_RELATIVE | CVF_REPLACE);
@@ -87,7 +99,14 @@ class TOSFlier : TrekEnemyActor
 				if (left) { left.tracer = target; left.Speed = 10; }
 				let right = A_SpawnProjectile("FlierShot", 23.0);
 				if (right) { right.tracer = target; right.Speed = -10; }
-				timeout = 70 + Random[FireDelay](0, 70);
+
+				if (firecount > 2) {
+					timeout = 70 + Random[FireDelay](0, 70);
+					firecount = 0;
+				} else {
+					timeout = 35;
+					firecount++;
+				}
 			}
 			Goto Chase;
 		Pain:
@@ -144,9 +163,10 @@ class FlierShot : TrekEnemy
 		+MISSILE;
 		+NOINTERACTION;
 		Speed 1;
+		Height 0; 
+		Radius 0;
 		Scale 0.5;
 		RenderStyle "STYLE_Add";
-		Species "Projectile";
 	}
 
 	States
@@ -178,20 +198,37 @@ class FlierShot : TrekEnemy
 		Final:
 			FLAS H 1;
 			FLAH H 0 {
-				if (Speed > 0 && firecount <= 35 && master && master.health > 0 && master != target)
+				if (Speed > 0 && firecount <= 24 && master && master.health > 0 && master != target)
 				{
 					A_Warp(AAPTR_MASTER, 14, 0, zoffset, fireangle, WARPF_ABSOLUTEANGLE | WARPF_NOCHECKPOSITION | WARPF_INTERPOLATE);
 
+					if (firecount % 25 == 0) {
+						bSolid = False;
+
+/*
 					firetarget = TOSFlier(master).firetarget;
 
 					if (!firetarget) { firetarget = Spawn("TargetActor", (target.pos.xy, target.pos.z + target.height / 2)); }
 					if (firetarget) { firetarget.master = self; target = firetarget; }
 
 //					A_FirePhaser("LaserBeam_ShipP", "SmallPurpleLight", "PhaserHitW", 1, 0, "weapons/rifle", 0, 4);
-					A_FirePhaser("LightningBolt_P", "SmallPurpleLight", "PhaserHitW", 1, 0, "weapons/rifle", 0, 4, RandomPick(4.0, 8.0), 4, "LightningBoltCore_W");
+					A_FirePhaser("LightningBolt_P", "", "PhaserHitW", 1, 0, "weapons/rifle", 0, 4, 10.0, 4, "LaserBeam_ShipP"); //"LightningBoltCore_W");
+*/
+
+						let mo = master.A_SpawnProjectile("FlierTorpedo", master.height / 2, 0, Random[Torpedo](-5, 5), CMF_OFFSETPITCH | CMF_SAVEPITCH | CMF_BADPITCH, Random[Torpedo](-1, 1), AAPTR_TARGET);
+
+						if (mo)
+						{
+							mo.bNoGravity = !gravity;
+							mo.tracer = target;
+						}
+
+					}
 
 					firecount++;
-					A_SetScale(max(sin(firecount / 35 * 180) / 2, 0.15));
+//					A_SetScale(max(sin(firecount / 35 * 180) / 2, 0.15));
+//					A_SetScale(sin((25 - (firecount + 12) % 25) / 25 * 180) / 2);
+					A_SetScale(max(sin(firecount / 25 * 180) / 2, 0.15));
 					return ResolveState("Final");
 				}
 				return ResolveState(null);

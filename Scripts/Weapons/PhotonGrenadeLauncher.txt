@@ -7,7 +7,7 @@ class PhotonGrenadeLauncher : TOSWeapon
 		Weapon.SlotNumber 5;
 		Weapon.AmmoType "PhotonGrenadeAmmo";
 		Weapon.AmmoUse 1;
-		Weapon.AmmoGive 2;
+		Weapon.AmmoGive 0;
 		Weapon.AmmoType2 "PhotonGrenadeAmmo";
 		Weapon.AmmoUse2 1;
 		Weapon.BobSpeed 0.7;

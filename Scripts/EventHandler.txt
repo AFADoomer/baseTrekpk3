@@ -1,16 +1,20 @@
 class TrekEventHandler : StaticEventHandler
 {
+	override void PlayerEntered(PlayerEvent e)
+	{
+		players[e.PlayerNumber].mo.A_GiveInventory("Visibility", 1);
+	}
+
+}
+
+class KeyPressEventHandler :  EventHandler
+{
 	bool pressed[256]; // Array used to track what keys are pressed (index in array is ASCII code of key)
 	int holdtime[256]; // Array used to track how long keys are pressed (index in array is ASCII code of key)
 
 	// Used by zoom code to track some self-explanatory info
 	double defaultFOV; 
 	bool bZoomed;
-
-	override void PlayerEntered(PlayerEvent e)
-	{
-		players[e.PlayerNumber].mo.A_GiveInventory("Visibility", 1);
-	}
 
 	override void WorldLoaded(WorldEvent e)
 	{
@@ -27,7 +31,7 @@ class TrekEventHandler : StaticEventHandler
 	// Gets the keypress, then sends the ASCII character code and type info as a network event
 	override bool InputProcess(InputEvent e)
 	{
-		EventHandler.SendNetworkEvent("keypress", e.KeyChar, e.Type);
+		EventHandler.SendNetworkEvent("keypress", e.KeyScan, e.Type);
 
 		return false;
 	}
@@ -39,31 +43,17 @@ class TrekEventHandler : StaticEventHandler
 		{
 			int keychar = e.args[0];
 
-			if (e.args[1] == InputEvent.Type_KeyDown) { pressed[keychar] = true; }
-			else { pressed[keychar] = false; }
+			if (keychar < 256)
+			{
+				if (e.args[1] == InputEvent.Type_KeyDown) { pressed[keychar] = true; }
+				else { pressed[keychar] = false; }
+			}
 		}
-	}
-
-	// Gets the first character of a string cvar and returns the lowercase version as an ASCII code
-	// Ideally, this will be replaced by some GetKeysForCommand handling
-	int GetBoundKey(String cvarname)
-	{
-		cvar lookup = CVar.FindCVar(cvarname);
-
-		if (lookup)
-		{
-			String keyname = lookup.GetString();
-			keyname.ToLower();
-
-			return keyname.CharCodeAt(0);
-		}
-
-		return 0;
 	}
 
 	override void WorldTick()
 	{
-		int zoom = GetBoundKey("zmse_toggle");
+		int zoom = Bindings.GetKeysForCommand("+zoom"); // Doesn't handle double bindings
 
 		if (zoom)
 		{
@@ -104,9 +94,293 @@ class TrekEventHandler : StaticEventHandler
 	}
 }
 
-/*
-int key1, key2;
-[key1, key2] = KeyBindings.GetKeysForCommand("zmse_toggle");
+class MapEventHandler : EventHandler
+{
+	TextureID bop;
+	TextureID bop2;
+	TextureID boop;
+	ui int screenoffset;
 
-console.printf("%d, %d", key1, key2);
-*/
+	override void OnRegister()
+	{
+		bop = TexMan.CheckForTexture("MINIWALL", TexMan.Type_MiscPatch);
+		bop2 = TexMan.CheckForTexture("MINIWAL2", TexMan.Type_MiscPatch);
+		boop = TexMan.CheckForTexture("MINIPLUU", TexMan.Type_MiscPatch);
+	}
+
+	override void RenderOverlay (RenderEvent e)
+	{
+		if(multiplayer==true||gamestate!=0)
+		{
+			return;
+		}
+//		if(CVar.GetCVar("delta_helmetautomap", players[consoleplayer]).GetInt()!=1 || CVar.GetCVar("screenblocks", players[consoleplayer]).GetInt() > 10 || CVar.GetCVar("delta_hudtype", players[consoleplayer]).GetInt()!=1)
+//		if(CVar.GetCVar("screenblocks", players[consoleplayer]).GetInt() > 10)
+if (TRUE)
+		{
+			return;
+		}
+		if(screen.GetAspectRatio()>=(4.0/3))
+		{
+			screenoffset = 0;
+		}
+		if(screen.GetAspectRatio()>=(16.0/10))
+		{
+			screenoffset = 31;
+		}
+		if(screen.GetAspectRatio()>=(16.0/9))
+		{
+			screenoffset = 53;
+		}
+		//Vector2 midcent = (screen.GetWidth()/2,screen.GetHeight);
+		//DrawLine("#FFFFFF",midcent,(midcent.x-80,midcent.y-80));
+		int lineso = 0;
+		Vector2 funnyloc;
+		Vector2 funnymax;
+		Vector2 playerpos = (players[0].mo.pos.x,players[0].mo.pos.y);
+		TextureID funnycol;
+		for (int i = 0; i < level.Lines.Size(); i++)
+		{
+			if(level.Lines[i].backsector==NULL)
+			{
+				funnycol = bop;
+			}
+			else if(level.Lines[i].backsector!=NULL&&(!(level.Lines[i].frontsector.floorplane.isEqual(level.Lines[i].backsector.floorplane)) || level.Lines[i].flags & 0x00000001))
+			{
+				funnycol = bop2;
+			}
+			else
+			{
+				continue;
+			}
+			/*if(!(level.Lines[i].flags & 0x00000001))
+			{
+				continue;
+			}*/
+			funnyloc = (level.Lines[i].v1.p.x,level.Lines[i].v1.p.y);
+			funnymax = (level.Lines[i].v2.p.x,level.Lines[i].v2.p.y);
+			if(abs(funnyloc.x-playerpos.x)>512&&abs(funnymax.x-playerpos.x)>512 && abs(funnyloc.y-playerpos.y)>512&&abs(funnymax.y-playerpos.y)>512)
+			{
+				continue;
+			}
+			//Console.Printf(level.Lines[i].v1.p.x.." "..level.Lines[i].v1.p.y);
+			//let funny = TexMan.CheckForTexture("MINIMAPR", TexMan.Type_MiscPatch);
+			//funnyloc = rotateVector(funnyloc,players[0].mo.angle,playerpos);
+			//funnymax = rotateVector(funnymax,players[0].mo.angle,playerpos);
+			funnyloc = rotateVector(funnyloc,-players[0].mo.angle-90,playerpos);
+			funnymax = rotateVector(funnymax,-players[0].mo.angle-90,playerpos);
+			funnyloc.x*=-1;
+			funnymax.x*=-1;
+			funnyloc.x += playerpos.x;
+			funnymax.x += playerpos.x;
+			funnyloc.y -= playerpos.y;
+			funnymax.y -= playerpos.y;
+			funnyloc /= 8;
+			funnymax /= 8;
+			funnyloc += (288+screenoffset,34);
+			funnymax += (288+screenoffset,34);
+			DrawLine(funnycol,funnyloc,funnymax-funnyloc);
+			//Console.Printf(funnyloc.." "..funnymax-funnyloc.." "..players[0].mo.angle);
+			/*drawman.x = funnyloc.x;
+			drawman.y = funnyloc.y;
+			while(drawman.x<funnymax.x||drawman.y<funnymax.y)
+			{
+				if(lineso>512)
+				{
+					return;
+				}
+				screen.DrawTexture(funny,1,(drawman.x-playerpos.x)/4+160,(playerpos.y-drawman.y)/4+100,DTA_320x200,true);
+				if(drawman.x!=funnymax.x)
+				{
+					drawman.x++;
+				}
+				if(drawman.y!=funnymax.y)
+				{
+					drawman.y++;
+				}
+				lineso++;
+			}*/
+		}
+		screen.DrawTexture(boop, true, 288+screenoffset,32, DTA_VirtualWidth, 320, DTA_VirtualHeight, 200);
+	}
+	
+	/*ui Vector2 rotateVector(Vector2 vec,double angle, Vector2 rPoint) const
+	{
+		Vector2 ret = vec;//Vector2 ret;// = *this;
+		ret -= rPoint;
+		Vector2 retC = ret;
+		ret.x = retC.x * cos(angle) - retC.y * sin(angle);
+		ret.y = retC.x * sin(angle) + retC.y * cos(angle);
+		ret += rPoint;
+		return ret;
+	}*/
+	ui Vector2 rotateVector(Vector2 selfer, double angle, Vector2 rPoint) const
+	{
+		selfer -= rPoint;
+		return (selfer.x * cos(angle) - selfer.y * sin(angle),
+				selfer.x * sin(angle) + selfer.y * cos(angle)) + rPoint;
+	}
+	
+		ui void Swap(out int a, out int b) {
+		let temp = a;
+		a = b;
+		b = temp;
+	}
+	 
+	ui int round(double x) {
+		return int(x + 0.5);
+	}
+	 
+	ui double fpart(double x) {
+		if (x < 0) return 1 - (x - floor(x));
+		else return x - floor(x);
+	}
+	 
+	ui double rfpart(double x) {
+		return 1 - fpart(x);
+	}
+	 
+	ui Color colBrightness(Color col, double brightness) {
+		brightness = Clamp(brightness, 0, 1);
+		let b = brightness;
+		return Color(col.a, int(col.r * b), int(col.g * b), int(col.b * b));
+	}
+	
+	ui void DrawLine(TextureID walltex, Vector2 start, Vector2 size) {
+		// implementation of the Xiaolin Wu's line algorithm
+		// thanks, wikipedia!
+		int x0 = int(start.x);
+		int x1 = int(start.x + size.x);
+		int y0 = int(start.y);
+		int y1 = int(start.y + size.y);
+	   
+		bool steep = abs(y1 - y0) > abs(x1 - x0);
+	   
+		if (steep) {
+			Swap(x0, y0);
+			Swap(x1, y1);
+		}
+		if (x0 > x1) {
+			swap(x0, x1);
+			swap(y0, y1);
+		}
+	   
+		Vector2 delta = (x0 - x1, y0 - y1);
+		double gradient = (delta.x != 0) ? delta.y / delta.x : 1;
+	   
+		Vector2 end;
+		end.x = round(x0);
+		end.y = y0 + gradient * (end.x - x0);
+		double xGap = rfpart(x0 + 0.5);
+		Vector2 pixel1 = (end.x, int(end.y));
+	   
+		double m;
+		if (steep) {
+			if(pixel1.y>286+screenoffset-31 && pixel1.y<288+screenoffset+32 && pixel1.x<63 && pixel1.x > -1) screen.DrawTexture(walltex, true, pixel1.y,     pixel1.x, DTA_VirtualWidth, 320, DTA_VirtualHeight, 200);//screen.Dim(col,1.0, pixel1.y,     pixel1.x, 1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel1.y + 1, pixel1.x, 1, 1);
+		}
+		else {
+			if(pixel1.y>286+screenoffset-31 && pixel1.y<288+screenoffset+32 && pixel1.x<63 && pixel1.x > -1) screen.DrawTexture(walltex, true, pixel1.x, pixel1.y, DTA_VirtualWidth, 320, DTA_VirtualHeight, 200);//screen.Dim(col,1.0, pixel1.x, pixel1.y,     1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel1.x, pixel1.y + 1, 1, 1);
+		}
+	   
+		double interY = end.y + gradient;
+	   
+		end.x = round(x1);
+		end.y = y1 + gradient * (end.x - x1);
+		xGap = fpart(x1 + 0.5);
+		Vector2 pixel2 = (end.x, int(end.y));
+		if (steep) {
+			if(pixel2.y>286+screenoffset-31 && pixel2.y<288+screenoffset+32 && pixel2.x<63 && pixel2.x > -1) screen.DrawTexture(walltex, true, pixel2.y,pixel2.x, DTA_VirtualWidth, 320, DTA_VirtualHeight, 200);//screen.Dim(col,1.0, pixel2.y,     pixel2.x, 1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel2.y + 1, pixel2.x, 1, 1);
+		}
+		else {
+			if(pixel2.x>286+screenoffset-31 && pixel2.x<288+screenoffset+32 && pixel2.y<63 && pixel2.y > -1) screen.DrawTexture(walltex, true, pixel2.x,pixel2.y, DTA_VirtualWidth, 320, DTA_VirtualHeight, 200);//screen.Dim(col,1.0, pixel2.x, pixel2.y,     1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel2.x, pixel2.y + 1, 1, 1);
+		}
+	   
+		if (steep) {
+			for (double x = pixel1.x + 1; x < pixel2.x; x++) {
+				if(int(interY)>286+screenoffset-31 && int(interY)<288+screenoffset+32 && x<63 && x > -1) screen.DrawTexture(walltex, true, int(interY),x, DTA_VirtualWidth, 320, DTA_VirtualHeight, 200);//screen.Dim(col,1.0, int(interY),     x, 1, 1);
+				//screen.Dim("#FFFFFF",1.0, int(interY) + 1, x, 1, 1);
+				interY += gradient;
+			}
+		}
+		else {
+			for (double x = pixel1.x + 1; x < pixel2.x; x++) {
+				if(x>286+screenoffset-31 && x<288+screenoffset+32 && int(interY)<63 && int(interY) > -1) screen.DrawTexture(walltex, true, x,int(interY), DTA_VirtualWidth, 320, DTA_VirtualHeight, 200);//screen.Dim(col,1.0, x, int(interY),     1, 1);
+				//screen.Dim("#FFFFFF",1.0, x, int(interY) + 1, 1, 1);
+				interY += gradient;
+			}
+		}
+	}
+	 
+	/*ui void DrawLine(Color col, Vector2 start, Vector2 size) {
+		// implementation of the Xiaolin Wu's line algorithm
+		// thanks, wikipedia!
+		int x0 = int(start.x);
+		int x1 = int(start.x + size.x);
+		int y0 = int(start.y);
+		int y1 = int(start.y + size.y);
+	   
+		bool steep = abs(y1 - y0) > abs(x1 - x0);
+	   
+		if (steep) {
+			Swap(x0, y0);
+			Swap(x1, y1);
+		}
+		if (x0 > x1) {
+			swap(x0, x1);
+			swap(y0, y1);
+		}
+	   
+		Vector2 delta = (x0 - x1, y0 - y1);
+		double gradient = (delta.x != 0) ? delta.y / delta.x : 1;
+	   
+		Vector2 end;
+		end.x = round(x0);
+		end.y = y0 + gradient * (end.x - x0);
+		double xGap = rfpart(x0 + 0.5);
+		Vector2 pixel1 = (end.x, int(end.y));
+	   
+		double m;
+		if (steep) {
+			screen.Dim(col,1.0, pixel1.y,     pixel1.x, 1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel1.y + 1, pixel1.x, 1, 1);
+		}
+		else {
+			screen.Dim(col,1.0, pixel1.x, pixel1.y,     1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel1.x, pixel1.y + 1, 1, 1);
+		}
+	   
+		double interY = end.y + gradient;
+	   
+		end.x = round(x1);
+		end.y = y1 + gradient * (end.x - x1);
+		xGap = fpart(x1 + 0.5);
+		Vector2 pixel2 = (end.x, int(end.y));
+		if (steep) {
+			screen.Dim(col,1.0, pixel2.y,     pixel2.x, 1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel2.y + 1, pixel2.x, 1, 1);
+		}
+		else {
+			screen.Dim(col,1.0, pixel2.x, pixel2.y,     1, 1);
+			//screen.Dim("#FFFFFF",1.0, pixel2.x, pixel2.y + 1, 1, 1);
+		}
+	   
+		if (steep) {
+			for (int x = pixel1.x + 1; x < pixel2.x; x++) {
+				screen.Dim(col,1.0, int(interY),     x, 1, 1);
+				//screen.Dim("#FFFFFF",1.0, int(interY) + 1, x, 1, 1);
+				interY += gradient;
+			}
+		}
+		else {
+			for (int x = pixel1.x + 1; x < pixel2.x; x++) {
+				screen.Dim(col,1.0, x, int(interY),     1, 1);
+				//screen.Dim("#FFFFFF",1.0, x, int(interY) + 1, 1, 1);
+				interY += gradient;
+			}
+		}
+	}*/
+}

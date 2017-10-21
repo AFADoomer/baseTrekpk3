@@ -26,6 +26,7 @@ class LaserBeam_B : LaserBeam {}
 class LaserBeam_P : LaserBeam {}
 class LaserBeam_Ship : LaserBeam {}
 class LaserBeam_ShipP : LaserBeam {}
+class LaserBeam_Planet : LaserBeam {}
 
 class LightningBolt : LaserBeam
 {

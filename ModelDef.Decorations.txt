@@ -1,3 +1,4 @@
+
 Model Skybox1 //Day
 {
 	Path "Models/mapobjects/skybox"
@@ -169,6 +170,20 @@ Model TOSHelmConsole
 	Scale 1.45 1.45 1.45
 
 	FrameIndex TOS1 B 0 0
+}
+
+Model TOSWeaponsScanner
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "helm_scanner.md3"
+	Skin 0 "helm_scanner.jpg"
+
+	AngleOffset 180.0
+	Scale 1.45 1.45 1.45
+
+	Offset 6.0 -38.5 -32.0
+
+	FrameIndex TOS1 A 0 0
 }
 
 Model TOSHelmConsolePilot
@@ -1162,6 +1177,9 @@ Model TOSSecurityConsole
 
 Model TOSTransformer
 {
+	USEACTORPITCH
+	USEACTORROLL
+
 	Path "Models/mapobjects/tos/"
 	Model 0 "eng_tran.md3"
 	Skin 0 "eng_tran.jpg"
@@ -3193,6 +3211,42 @@ Model TOSOutdoorLamp
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSOutdoorLampWhite
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLamp2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp2.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLampWhite2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp2.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model TOSOutdoorLampGrille
 {
 	Path "Models/mapobjects/tos/"
@@ -3207,6 +3261,46 @@ Model TOSOutdoorLampLight
 {
 	Path "Models/mapobjects/tos/"
 	Model 0 "outdoor_lamp_lights.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLampLightWhite
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp_lights.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLampLight2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp_lights2.md3"
+
+	Scale 1.5 1.5 1.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutdoorLampLightWhite2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "outdoor_lamp_lights2.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White.jpg"
 
 	Scale 1.5 1.5 1.5
 
@@ -3448,6 +3542,7 @@ Model TOSMedicalJugBlue
 {
 	USEACTORPITCH
 	USEACTORROLL
+	DONTCULLBACKFACES
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "jug.md3"
@@ -3459,6 +3554,7 @@ Model TOSMedicalJugGold
 {
 	USEACTORPITCH
 	USEACTORROLL
+	DONTCULLBACKFACES
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "jug.md3"
@@ -3472,6 +3568,7 @@ Model TOSMedicalLampshadeBlue
 {
 	USEACTORPITCH
 	USEACTORROLL
+	DONTCULLBACKFACES
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "shade.md3"
@@ -3483,6 +3580,7 @@ Model TOSMedicalLampshadeGold
 {
 	USEACTORPITCH
 	USEACTORROLL
+	DONTCULLBACKFACES
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "shade.md3"
@@ -3496,6 +3594,7 @@ Model TOSMedicalPillarBlue
 {
 	USEACTORPITCH
 	USEACTORROLL
+	DONTCULLBACKFACES
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pillar.md3"
@@ -3507,11 +3606,289 @@ Model TOSMedicalPillarGold
 {
 	USEACTORPITCH
 	USEACTORROLL
+	DONTCULLBACKFACES
 
 	Path "Models/mapobjects/tos/"
 	Model 0 "pillar.md3"
 	Path "Textures/Solid/"
 	Skin 0 "Gold.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSDeflectorDish
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "dish.md3"
+	Path "Textures/Solid/"
+	SurfaceSkin 0 1 "Metal.jpg"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSShieldGenerator
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "shield_generator.md3"
+	Path "Textures/Enterprise/Walls/"
+	SurfaceSkin 0 1 "Power_B.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSArchExt
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "aux_rib_arch.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSOutpostRib
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "outpost_rib.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSProtoplaser
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "protoplaser.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSProtoplaser2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "protoplaser.md3"
+
+	SurfaceSkin 0 3 "protoplaser.png"
+
+	Path "Textures/Solid/"
+	SurfaceSkin 0 2 "clear.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSProtoplaser3
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "protoplaser.md3"
+
+	SurfaceSkin 0 0 "protoplaser2.png"
+	SurfaceSkin 0 5 "protoplaser2.png"
+
+	Path "Textures/Solid/"
+	SurfaceSkin 0 1 "clear.png"
+	SurfaceSkin 0 2 "clear.png"
+	SurfaceSkin 0 4 "chrome.png"
+
+	Scale 0.8 0.8 0.8
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSScalpel
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "scalpel.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSScalpel2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "scalpel2.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSScalpel3
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "scalpel3.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSScalpel4
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "scalpel4.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSScalpel5
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "scalpel5.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSScalpel6
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "scalpel6.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSScalpel7
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "scalpel6.md3"
+	Skin 0 "pepper.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPot
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "pot.md3"
+
+	FrameIndex TOS1 A 0 0
+
+	Skin 0 "pot2.png"
+	FrameIndex TOS1 B 0 0
+
+	Skin 0 "pot3.png"
+	FrameIndex TOS1 C 0 0
+
+	Skin 0 "pot4.png"
+	FrameIndex TOS1 D 0 0
+
+	Skin 0 "pot5.png"
+	FrameIndex TOS1 E 0 0
+
+	Skin 0 "pot6.png"
+	FrameIndex TOS1 F 0 0
+}
+
+Model TOSLeaf
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "leaf.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLeaf2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "leaf2.md3"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSLeaf3
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/"
+	Model 0 "leaf2.md3"
+	Skin 0 "leaf3.png"
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlant
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "trunk.md3"
+
+	Scale 0.375 0.375 0.375
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlant2
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "trunk.md3"
+
+	Path "Textures/Solid"
+	Skin 0 "green_dark.png"
+
+	Scale 0.25 0.25 0.375
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlant3
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "trunk.md3"
+
+	Scale 0.375 0.375 0.375
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model TOSPlant4
+{
+	Path "Models/mapobjects/tos/"
+	Model 0 "trunk.md3"
+
+	Scale 0.375 0.375 0.375
 
 	FrameIndex TOS1 A 0 0
 }

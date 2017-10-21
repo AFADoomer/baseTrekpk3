@@ -152,14 +152,12 @@ Actor DisruptorStation : Decoration
 {
 	//$Sprite TOS1A0
 	var int user_level;
-//	var int user_uses;
 	var int user_used;
 	var int user_given;
 
 	Height 8
 	Radius 8
 	Mass 999999
-	+SOLID
 	+SHOOTABLE
 	+INVULNERABLE
 	+USESPECIAL

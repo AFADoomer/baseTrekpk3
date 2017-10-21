@@ -11,14 +11,6 @@ class TOSKlingon : TrekEnemyActor
 		RenderStyle 'Translucent';
 		Alpha 0;
 	}
-
-	States
-	{
-		Spawn:
-			TOS1 A 0 NoDelay ACS_NamedExecuteAlways("A_TransportK", 0);
-			"####" A 105;
-			Goto Super::Spawn;
-	}
 }
 
 class TOSD7Flier : TrekEnemyFlier
@@ -38,6 +30,29 @@ class TOSD7Flier : TrekEnemyFlier
 		TrekEnemyFlier.TorpedoChance 24;
 
 		Species "Klingon";
+	}
+}
+
+class TOSD7FlierBig : TOSD7Flier
+{
+	Default
+	{
+		+AVOIDMELEE;
+		+NOBLOCKMONST
+		MeleeRange 512;
+		Radius 440;
+		Height 400;
+		Speed 60;
+		TrekEnemyFlier.CenterofGravityZ 300;
+		TrekEnemyFlier.CenterofGravityX 40;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+//		if (pitch < -30) { pitch = -30; }
+//		if (pitch > 30) { pitch = 30; }
 	}
 }
 

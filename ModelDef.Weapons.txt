@@ -1,5 +1,16 @@
 Model Charge
 {
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/weapons/"
+	Model 0 "phaser_ammo.md3"
+
+	FrameIndex CHAR A 0 0
+}
+
+Model Charge
+{
 	Path "Models/weapons/"
 	Model 0 "phaser_ammo.md3"
 
@@ -11,13 +22,24 @@ Model Charge
 	PitchOffset 42.0
 	Scale 1.5 1.5 1.5
 	Offset 0.0 0.0 15.0
+	FrameIndex CHAR P 0 0
+}
+
+Model ChargePack
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/weapons/"
+	Model 0 "phaser_ammo2.md3"
+
 	FrameIndex CHAR A 0 0
 }
 
 Model ChargePack
 {
 	Path "Models/weapons/"
-	Model 0 "phaser_ammo2.md3"
+	Model 0 "phaser_ammo.md3"
 
 	ROTATING
 	Rotation-Vector 0.0 1.0 0.0
@@ -27,7 +49,7 @@ Model ChargePack
 	PitchOffset 42.0
 	Scale 1.5 1.5 1.5
 	Offset 0.0 0.0 15.0
-	FrameIndex CHAR A 0 0
+	FrameIndex CHAR P 0 0
 }
 
 Model Tricorder
@@ -349,6 +371,14 @@ Model PhotonGrenadeLauncher
 
 	Offset 0.0 -2.75 -7
 	FrameIndex PHAS E 0 0
+}
+
+Model PhotonGrenadeAmmoBox
+{
+	Path "Models/weapons/"
+	Model 0 "grenade_ammo.md3"
+
+	FrameIndex CHAR B 0 0
 }
 
 Model Punch

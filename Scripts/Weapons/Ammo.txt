@@ -72,6 +72,7 @@ class RifleChargePack : Ammo
 	}
 }
 
+// Probably shouldn't be a pickup...  
 class PhotonGrenadeAmmo : Ammo
 {
 	Default
@@ -104,7 +105,7 @@ class PhotonGrenadeAmmoBox : PhotonGrenadeAmmo
 	{
 		Radius 10;
 		Height 20;
-		Inventory.Amount 6;
+		Inventory.Amount 8;
 		Inventory.PickupMessage "$PhotonGrenades";
 		Tag "Photon Grenades";
 	}

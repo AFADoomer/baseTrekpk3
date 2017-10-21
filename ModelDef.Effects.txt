@@ -76,6 +76,27 @@ Model PhotonTorpedo
 	FrameIndex TOS1 A 0 0
 }
 
+Model FlierTorpedo
+{
+	Path "Models/weapons/"
+	Model 0 "grenade_projectile.md3"
+	Path "Textures/Solid/"
+	Skin 0 "White_T.png"
+
+	USEACTORPITCH
+	USEACTORROLL
+	PITCHFROMMOMENTUM
+
+	ROTATING
+
+	Rotation-Speed 3.0
+	Rotation-Vector 1.0 1.0 1.0
+
+	Scale 1.0 1.0 1.2
+
+	FrameIndex TOS1 A 0 0
+}
+
 Model PhotonTorpedoTrail
 {
 	Path "Models/weapons/"
@@ -398,6 +419,18 @@ Model LaserBeam_ShipP
 	USEACTORPITCH
 
 	Scale 1.0 0.5 0.5
+
+	FrameIndex TOS1 A 0 0
+}
+
+Model LaserBeam_Planet
+{
+	Path "Models/Weapons/"
+	Model 0 "phaser_beam.md3"
+
+	USEACTORPITCH
+
+	Scale 1.0 2.0 2.0
 
 	FrameIndex TOS1 A 0 0
 }

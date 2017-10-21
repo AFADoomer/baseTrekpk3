@@ -257,12 +257,98 @@ class TrekPlayer : PlayerPawn
 		Stop;
 	}
 
+	double, double GetBestSideMove()
+	{
+		double left = GetMoveDistance(90);
+		double right = GetMoveDistance(-90);
+
+		if (left == right) return 0, 0;
+		else if (left > right) return left, angle + 90;
+		else return right, angle - 90;
+	}
+
+	double GetMoveDistance(double angle, double range = 128)
+	{
+		bool blocked;
+
+		for (double i = Radius; i <= range; i += Speed)
+		{
+			for (int a = -1; a <= 1; a += 2)
+			{
+				tracer = null;
+
+				blocked = CheckBlock(CBF_DROPOFF | CBF_SETTRACER, AAPTR_DEFAULT, i, 0, 0, angle);
+
+				if (blocked)
+				{
+//					Console.Printf("Blocked by %s at distance %d", tracer ? tracer.GetTag() : "wall", i - Speed);
+					return i;
+				}
+			}
+		}
+
+		return range;
+	}
+
+//	int blockmap[9][9];
+
 	override void Tick()
 	{
 		if (Level.time % 5 == 0)
 		{
 			CrosshairTarget = GetLineTarget();
+		}
+
+		if (level.time % 35 == 0)
+		{
 			BuildScanList();
+/*
+			FCheckPosition tm;
+
+			Vector3 oldpos = pos;
+
+			double s = sin(angle - 90);
+			double c = cos(angle - 90);
+
+			for (int x = -4; x <= 4; x++)
+			{
+				for (int y = -4; y <= 4; y++)
+				{
+					Vector2 newpos = Vec2Offset(x * radius * c + y * radius * s, x * radius * s - y * radius * c);
+
+					blockmap[x + 4][y + 4] = !TryMove(newpos, true, false, tm);
+
+//					if (BlockingLine) { console.printf("%d", BlockingLine.Index()); }
+//					if (BlockingMobj) { blockmap[x + 8][y + 8][0] = BlockingMobj.GetTag(); }
+
+//console.printf("%d, %d: %d", x, y, tm.floorz);
+					SetOrigin(oldpos, false);
+				}
+			}
+*/
+/*
+			double dodgeangle;
+			double dodgedistance;
+
+			[dodgedistance, dodgeangle] = GetBestSideMove();
+
+			if (dodgedistance)
+			{
+//				console.printf("Dodge at %d degrees for %d units.", dodgeangle, dodgedistance);
+			}
+
+			Vector3 oldpos = pos;
+
+			double s = sin(dodgeangle);
+			double c = cos(dodgeangle);
+
+			Vector3 newpos = Vec3Offset(dodgedistance * c, dodgedistance * s, 0);
+
+			SetOrigin(newpos, false);
+//if (BlockingLine) { console.printf("%d", BlockingLine.Index()); }
+//if (BlockingMobj) { console.printf("%s", BlockingMobj.GetTag()); }
+			SetOrigin(oldpos, false);
+*/
 		}
 
 		Super.Tick();

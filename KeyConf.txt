@@ -1,6 +1,6 @@
 defaultbind q +user1
 defaultbind e +user2
-defaultbind z +user3
+defaultbind z +zoom
 defaultbind , radarzoomout
 defaultbind . radarzoomin
 

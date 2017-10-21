@@ -525,7 +525,6 @@ class TOSSickbayCounter : Decoration
 {
 	Default
 	{
-		+Solid
 		Height 28;
 		Radius 16;
 		Tag "Counter";
@@ -548,7 +547,6 @@ class TOSSickbayCounter2R : Decoration
 {
 	Default
 	{
-		+Solid
 		Height 28;
 		Radius 16;
 		Tag "Counter";
@@ -569,7 +567,6 @@ class TOSSickbayCounter2L : Decoration
 {
 	Default
 	{
-		+Solid
 		Height 28;
 		Radius 16;
 		Tag "Counter";
@@ -693,7 +690,18 @@ class TOSGangwayLongTop : TOSGangwayLong
 	}
 }
 
-class TOSGangwayLongBottom : Decoration {}
+class TOSGangwayLongBottom : Decoration
+{
+	States
+	{
+		Initial:
+			TOS1 A 1 {
+				A_SpawnItemEx ("GangwayStep", -116.0, -12.0, 11.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("GangwayStep", -116.0, 12.0, 11.0, 0, 0, 0, 0, SXF_SETMASTER);
+			}
+			Goto Super::Initial;
+	}
+}
 
 class TOSGangwayFull : TOSGangwayLong
 {
@@ -719,12 +727,12 @@ class TOSGangwayFull : TOSGangwayLong
 				A_SpawnItemEx ("GangwayStep", -73.0, 12.0, -82.0, 0, 0, 0, 0, SXF_SETMASTER);
 				A_SpawnItemEx ("GangwayStep", -83.5, -12.0, -93.0, 0, 0, 0, 0, SXF_SETMASTER);
 				A_SpawnItemEx ("GangwayStep", -83.5, 12.0, -93.0, 0, 0, 0, 0, SXF_SETMASTER);
-				A_SpawnItemEx ("GangwayStep", -94.0, -12.0, -104.0);
-				A_SpawnItemEx ("GangwayStep", -94.0, 12.0, -104.0);
-				A_SpawnItemEx ("GangwayStep", -105.5, -12.0, -115.0);
-				A_SpawnItemEx ("GangwayStep", -105.5, 12.0, -115.0);
-				A_SpawnItemEx ("GangwayStep", -116.0, -12.0, -126.0);
-				A_SpawnItemEx ("GangwayStep", -116.0, 12.0, -126.0);
+				A_SpawnItemEx ("GangwayStep", -94.0, -12.0, -104.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("GangwayStep", -94.0, 12.0, -104.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("GangwayStep", -105.5, -12.0, -115.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("GangwayStep", -105.5, 12.0, -115.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("GangwayStep", -116.0, -12.0, -126.0, 0, 0, 0, 0, SXF_SETMASTER);
+				A_SpawnItemEx ("GangwayStep", -116.0, 12.0, -126.0, 0, 0, 0, 0, SXF_SETMASTER);
 			}
 			Goto TOSGangwayLong::Initial;
 	}
@@ -851,6 +859,20 @@ class TOSOutdoorLamp : Decoration
 	}
 }
 
+class TOSOutdoorLampWhite : TOSOutdoorLamp
+{ 
+	States
+	{
+		Initial:
+			TOS1 A -1 {
+				Spawn("TOSOutdoorLampLightWhite", pos);
+				Spawn("TOSOutdoorLampGrille", pos);
+				Spawn("WhiteLight", (pos.x, pos.y, pos.z + height));
+			}
+			Stop;
+	}
+}
+
 class TOSOutdoorLampGrille : Decoration
 {
 	Default
@@ -875,6 +897,74 @@ class TOSOutdoorLampLight : Decoration
 			Stop;
 	}
 }
+
+class TOSOutdoorLampLightWhite : Decoration
+{
+	Default { -NOGRAVITY }
+
+	States
+	{
+		Initial:
+			TOS1 A -1 Bright;
+			Stop;
+	}
+}
+
+class TOSOutdoorLamp2 : Decoration
+{ 
+	Default { 
+		Height 16;
+		Radius 0;
+		Tag "Light Fixture";
+	}
+
+	States
+	{
+		Initial:
+			TOS1 A -1;
+			Stop;
+	}
+
+	override void PostBeginPlay()
+	{
+		Spawn("WhiteLight", pos);
+		Spawn("Block16x16", pos);
+		Spawn("Block16x16", (pos.x - 16, pos.y, pos.z));
+		Spawn("Block16x16", (pos.x + 16, pos.y, pos.z));
+
+		Actor light = Spawn("TOSOutdoorLampLight2", pos);
+
+		if (light)
+		{
+			light.roll = roll;
+			light.pitch = pitch;
+			light.angle = angle;
+		}
+	}
+}
+
+class TOSOutdoorLampWhite2 : TOSOutdoorLamp2 
+{ 
+	override void PostBeginPlay()
+	{
+		Spawn("WhiteLight", pos);
+		Spawn("Block16x16", pos);
+		Spawn("Block16x16", (pos.x - 16, pos.y, pos.z));
+		Spawn("Block16x16", (pos.x + 16, pos.y, pos.z));
+
+		Actor light = Spawn("TOSOutdoorLampLightWhite2", pos);
+
+		if (light)
+		{
+			light.roll = roll;
+			light.pitch = pitch;
+			light.angle = angle;
+		}
+	}
+}
+
+class TOSOutdoorLampLight2 : TOSOutdoorLampLight { Default { +NOGRAVITY } }
+class TOSOutdoorLampLightWhite2 : TOSOutdoorLampLightWhite { Default { +NOGRAVITY } }
 
 class TOSCable1 : Decoration { Default { Height 0; } States { Initial: TOS1 A -1; Stop; } }
 class TOSCable2 : Decoration { Default { Height 0; } States { Initial: TOS1 A -1; Stop; } }
@@ -920,5 +1010,165 @@ class TOSCargo : Decoration
 		if (!args[0]) { args[0] = Random(1, 6); }
 
 		frame = args[0];
+	}
+}
+
+class TOSDeflectorDish : Decoration {}
+
+class TOSShieldGenerator : Decoration
+{
+	Default
+	{
+		+SOLID
+		Height 16;
+		Radius 56;
+	}
+}
+
+class TOSArchExt : Decoration {}
+class TOSOutpostRib : Decoration {}
+class TOSWeaponsScanner : Decoration {}
+
+class TOSPot : Decoration
+{
+	Default
+	{
+		//$Arg0 "Pot Variant"
+		//$Arg0Type 11
+		//$Arg0Enum { 1 = "Grey"; 2 = "Brown"; 3= "Green"; 4 = "Blue"; 5 = "Purple"; 6 = "Yellow"; }
+
+		-NOGRAVITY
+		+SOLID
+		+ACTLIKEBRIDGE
+		+CANPASS
+		Height 10;
+		Radius 8;
+	}
+	States
+	{
+
+		Spawn:
+			TOS1 A -1;
+			Stop;
+	}
+	override void PostBeginPlay()
+	{
+		if (!args[0]) { args[0] = Random(1, 6); }
+
+		frame = args[0] - 1;
+	}
+}
+
+class TOSLeaf : DestroyableDecoration
+{
+	States
+	{
+		DeathResume:
+			#### # 5 {
+				if (Radius >= 16) {
+					A_Scream();
+				}
+				A_RemoveChildren(TRUE, RMVF_MISC, "None", "Block");
+				bNoGravity = False;
+				A_SetPitch(pitch + FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+				A_SetRoll(roll + FRandom(-30.0, 30.0), SPF_INTERPOLATE);
+			}
+			Stop;
+	}
+}
+
+class TOSLeaf2 : TOSLeaf {}
+class TOSLeaf3 : TOSLeaf {}
+
+class TOSPlant : Decoration
+{
+	int minleafcount;
+	int maxleafcount;
+	int step;
+	double choke;
+	bool round;
+	String leafclass;
+
+	Property MinLeafCount:minleafcount;
+	Property MaxLeafCount:maxleafcount;
+	Property TierStepHeight:step;
+	Property LeafStartHeightModifier:choke;
+	Property ShapePlant:round;
+	Property LeafClass:leafclass;
+
+	Default
+	{
+		+SOLID
+		Radius 2;
+		Height 48;
+
+		TOSPlant.MinLeafCount 4;
+		TOSPlant.MaxLeafCount 6;
+		TOSPlant.TierStepHeight 4;
+		TOSPlant.LeafStartHeightModifier 0.5;
+		TOSPlant.ShapePlant true;
+		TOSPlant.LeafClass "TOSLeaf";
+	}
+
+	override void PostBeginPlay()
+	{
+		A_SetSize(radius, height * scale.y);
+
+		double leafheight = height * choke;
+
+		while (leafheight <= height)
+		{
+			int leafcount = Random(minleafcount, maxleafcount);
+			int stepangle = 360 / leafcount;
+			double startangle = Random(0, stepangle);
+
+			for (int i = 0; i <= leafcount; i++)
+			{
+				let mo = Spawn(leafclass, pos + (0, 0, leafheight));
+
+				if (mo)
+				{
+					mo.angle = startangle + stepangle * (i % leafcount);
+					mo.pitch = FRandom(-15, 15);
+					mo.roll = FRandom(-15, 15);
+
+					mo.scale.x = mo.scale.x * FRandom(0.9, 1.1);
+
+					if (round) { mo.scale.x += sin((height - leafheight) * 360 / height + 0.5); }
+					mo.scale.y = mo.scale.x;
+				}
+			}
+
+			leafheight += step;
+		}
+	}
+}
+
+class TOSPlant2 : TOSPlant
+{
+	Default
+	{
+		TOSPlant.MinLeafCount 1;
+		TOSPlant.MaxLeafCount 3;
+		TOSPlant.TierStepHeight 8;
+		TOSPlant.LeafStartHeightModifier 0;
+		TOSPlant.ShapePlant false;
+		TOSPlant.LeafClass "TOSLeaf2";
+	}
+}
+
+class TOSPlant3 : TOSPlant
+{
+	Default
+	{
+		TOSPlant.LeafClass "TOSLeaf3";
+	}
+}
+
+class TOSPlant4 : TOSPlant
+{
+	Default
+	{
+		TOSPlant.LeafClass "TOSLeaf2";
 	}
 }

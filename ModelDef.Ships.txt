@@ -497,6 +497,22 @@ Model TOSD7Flier
 	FrameIndex TOS1 A 0 0
 }
 
+Model TOSD7FlierBig
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "Models/mapobjects/tos/D-7"
+	Model 0 "D7.md3"
+
+	Scale 80.0 80.0 80.0
+
+	ZOffset 16.0
+
+	FrameIndex TOS1 A 0 0
+}
+
+
 Model TOSDY100
 {
 	USEACTORPITCH

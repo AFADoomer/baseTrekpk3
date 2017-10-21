@@ -11,6 +11,7 @@ class Decoration : SwitchableDecoration
 	int user_destroyed;
 	int user_fadeincount;
 	int destructiontype;
+	string user_caption;
 
 	Default
 	{
@@ -23,7 +24,7 @@ class Decoration : SwitchableDecoration
 		+DONTTHRUST
 		+NOTAUTOAIMED
 		Height 16;
-		Radius 8;
+		Radius 1;
 		Health 99999;
 		Mass 999999;
 		Species "Decoration";
@@ -130,10 +131,12 @@ class Decoration : SwitchableDecoration
 			Scale.X = user_scaleX;
 			Scale.Y = user_scaleY;
 		}
+
 		if (bNoGravity) {
 			bDontThrust = TRUE;
 			bPushable = FALSE;
 		}
+
 		A_SetSize(Radius * Scale.X, Height * Scale.Y);
 	}
 }

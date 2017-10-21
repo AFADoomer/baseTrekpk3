@@ -715,10 +715,21 @@ class TOSSprayBottle : DestroyableDecoration
 	}
 }
 
-class TOSMedicalMute : DestroyableDecoration { Default { Height 8; } }
-class TOSMedicalJugBlue : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
-class TOSMedicalJugGold : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
-class TOSMedicalLampshadeBlue : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
-class TOSMedicalLampshadeGold : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
-class TOSMedicalPillarBlue : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
-class TOSMedicalPillarGold : DestroyableDecoration { Default { Height 8; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalMute : DestroyableDecoration { Default { Height 8; Radius 2; } }
+class TOSMedicalJugBlue : DestroyableDecoration { Default { Height 8; Radius 2; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalJugGold : DestroyableDecoration { Default { Height 8; Radius 2; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalLampshadeBlue : DestroyableDecoration { Default { Height 8; Radius 2; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalLampshadeGold : DestroyableDecoration { Default { Height 8; Radius 2; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalPillarBlue : DestroyableDecoration { Default { Height 8; Radius 2; RenderStyle "Translucent"; Alpha 0.7; } }
+class TOSMedicalPillarGold : DestroyableDecoration { Default { Height 8; Radius 2; RenderStyle "Translucent"; Alpha 0.7; } }
+
+class TOSProtoplaser : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSProtoplaser2 : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSProtoplaser3 : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSScalpel : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSScalpel2 : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSScalpel3 : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSScalpel4 : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSScalpel5 : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSScalpel6 : DestroyableDecoration { Default { Radius 0; Height 0; } }
+class TOSScalpel7 : DestroyableDecoration { Default { Radius 0; Height 0; } }

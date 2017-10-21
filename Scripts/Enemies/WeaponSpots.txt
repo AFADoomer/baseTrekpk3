@@ -22,8 +22,8 @@ class PhaserSpot : Actor
 	States
 	{
 		Spawn:
-			TNT1 A 1;
-			TNT1 A 0 {
+			TOS1 A 1;
+			TOS1 A 0 {
 				if (master)
 				{
 					offsets = (RotateVector(master.Vec2To(self), -master.angle), pos.z - master.pos.z);
@@ -32,10 +32,11 @@ class PhaserSpot : Actor
 					bFriendly = master.bFriendly;
 					species = master.species;
 				}
+				return ResolveState("SpawnLoop");
 			}
 		SpawnLoop:
-			TNT1 A 1;
-			TNT1 A 0 {
+			TOS1 A 1;
+			TOS1 A 0 {
 				if (master) {
 					A_Warp(AAPTR_MASTER, offsets.x * cos(master.pitch), offsets.y * cos(master.roll), offsets.z - offsets.x * sin(master.pitch) - offsets.y * sin(master.roll), angleoffset, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION);
 
@@ -53,7 +54,9 @@ class PhaserSpot : Actor
 					if (!fov) { fov = 180.0; }
 				}
 
-				if (!target || target == master) { A_ChangeToCloserTarget(2048, fov); }
+				if (!target || target == master) {
+					if (level.time % 35 == 0) { A_ChangeToCloserTarget(2048, fov); }
+				}
 
 				if (target) {
 					if (target.health <= 0 || target.bInvisible || target.alpha <= FRandom[CloakFlicker](0, 0.5)) { target = null; }
@@ -68,7 +71,7 @@ class PhaserSpot : Actor
 			}
 			Loop;
 		WeaponFire:
-			TNT1 A 0 {
+			TOS1 A 0 {
 				if (timeout <= 0 && absangle(AngleTo(target), angle) <= (fov / 2)) {
 					if (!firetime) { firetime = Random[PhaserFire](35, 70); }
 
@@ -86,7 +89,7 @@ class PhaserSpot : Actor
 			}
 			Goto SpawnLoop;
 		Death:
-			TNT1 A 1;
+			TOS1 A 1;
 			Stop;
 	}
 
@@ -122,14 +125,11 @@ class PhaserSpot : Actor
 
 		target = null;
 
-		while ( (mo = TrekEnemyFlier(EnemyFinder.Next())) )
+		ThinkerIterator TorpedoFinder = ThinkerIterator.Create("PhotonGrenade");
+
+		while ( (mo = PhotonGrenade(TorpedoFinder.Next())) )
 		{
-			if (mo.health <= 0 || mo.bDormant || mo.bMissile) { continue; }
-			if (master) {
-				if (mo == master || mo == master.target) { continue; }
-			}
-			if (mo.bFriendly == bFriendly) { continue; }
-			if (mo.species == species) { continue; }
+			if (mo.tracer != self) { continue; }
 			if (mo.bInvisible) { continue; }
 			if (mo.alpha < 0.25) { continue; }
 			if (Distance3d(mo) > range) { continue; }
@@ -138,11 +138,14 @@ class PhaserSpot : Actor
 			target = mo;
 		}
 
-		ThinkerIterator TorpedoFinder = ThinkerIterator.Create("PhotonGrenade");
-
-		while ( (mo = PhotonGrenade(TorpedoFinder.Next())) )
+		while ( (mo = TrekEnemyFlier(EnemyFinder.Next())) )
 		{
-			if (mo.tracer != self) { continue; }
+			if (mo.health <= 0 || mo.bDormant || mo.bMissile) { continue; }
+			if (master) {
+				if (mo == master || mo == master.target) { continue; }
+			}
+			if (mo.bFriendly == bFriendly) { continue; }
+			if (mo.species == species) { continue; }
 			if (mo.bInvisible) { continue; }
 			if (mo.alpha < 0.25) { continue; }
 			if (Distance3d(mo) > range) { continue; }
@@ -168,6 +171,8 @@ class PhaserSpot : Actor
 				}
 			}
 		}
+
+		if (!target) { A_LookEx(LOF_NOJUMP, 0, 0, 0, 360); }
 	}
 }
 
@@ -176,12 +181,110 @@ class PhotonTorpedoSpot : PhaserSpot
 	States
 	{
 		WeaponFire:
-			TNT1 A 0 {
+			TOS1 A 0 {
 				if (timeout <= 0 && absangle(AngleTo(target), angle) <= (fov / 2) && GetDistance(target) < 2048) {
 					A_FireTorpedo("PhotonTorpedo");
 					timeout = 140;
 				}
 			}
 			Goto SpawnLoop;
+	}
+}
+
+class TOSPhaserEmplacement : PhaserSpot
+{
+	int minpitch;
+	double startangle;
+	double maxangle;
+	bool fire;
+
+	Default
+	{
+		//$Arg0 "Minimum Pitch"
+		//$Arg0ToolTip "Minimum angle above horizontal that the phaser can aim (90 means straight up only, -90 means unrestricted. 0 gets remapped to -90)"
+		//$Arg1 "Maximum Angle"
+		//$Arg1ToolTip "Maximum angle from center that the phaser can aim (default of 0 means unrestricted)"
+
+
+		+SOLID
+		+SHOOTABLE
+		+DONTTHRUST
+		+FRIENDLY
+		+NOBLOOD
+		-INVISIBLE
+		-NOBLOCKMAP
+		Radius 44;
+		Height 44;
+		Scale 1.0;
+		Health 2500;
+	}
+
+	States
+	{
+		WeaponFire:
+			TOS1 A 0 {
+				if (fire && timeout <= 0 && CheckSight(target)) {
+					if (!firetime) { firetime = Random[PhaserFire](35, 70); }
+
+					if (firecount > firetime || GetDistance(target) > 2048) {
+						timeout = 70;
+						firetime = 0;
+						firecount = 0;
+					} else {
+						double sweepamt = ((-firetime / 2) + firecount) / GetDistance(target) / 32;
+
+						A_FirePhaser("LaserBeam_Planet", "SmallRedLight", "PhaserHitW", damage:10, zoffset:-16);
+						firecount++;
+					}
+				}
+			}
+			Goto SpawnLoop;
+		Death:
+			TOS1 A 0 {
+				Spawn("FireSpawner", pos);
+				Actor debris = Spawn("DebrisSpawner", pos + (0, 0, 50));
+				if (debris) { debris.scale = (5, 5); }
+			}
+			Stop;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		if (globalfreeze || level.Frozen) { return; }
+
+		if (health <= 0) { return; }
+
+		if (target)
+		{
+			A_Face(target, 5, 5);
+		}
+		else
+		{
+			if (angle < startangle - 1) { angle++; }
+			if (angle > startangle + 1) { angle--; }
+
+			if (pitch > -44) { pitch--; }
+			if (pitch < -46) { pitch++; }
+		}
+
+		fire = true;
+
+		if (pitch > minpitch) { pitch = minpitch; fire = false;}
+		if (deltaangle(angle, startangle) > maxangle) { angle = startangle + maxangle; fire = false; }
+		if (deltaangle(angle, startangle) < -maxangle) { angle = startangle - maxangle; fire = false; }
+	}
+
+	override void PostBeginPlay()
+	{
+		fov = 360.0;
+		startangle = angle;
+
+		minpitch = -args[0];
+		if (minpitch == 0) { minpitch = 90; }
+
+		maxangle = args[1];
+		if (maxangle == 0) { maxangle = 180; }
 	}
 }
