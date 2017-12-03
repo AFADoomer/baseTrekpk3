@@ -5,6 +5,7 @@ class LaserBeam : Actor
 		+NOGRAVITY
 		+NOINTERACTION
 		+NOBLOCKMAP
+		+BRIGHT
 		Radius 0;
 		Height 0;
 		RenderStyle "Add";

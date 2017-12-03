@@ -1178,3 +1178,17 @@ Texture WALL_EX5, 492, 492
 	YScale 3.8
 	Patch "Textures/Enterprise/Walls/WALL_EX5.png", 0, 0
 }
+
+Texture WOOD3, 256, 256
+{
+	XScale 16.0
+	YScale 16.0
+	Patch "Textures/Enterprise/Floors/Wood3.png", 0, 0
+}
+
+Texture TILE_GLA, 256, 256
+{
+	XScale 32.0
+	YScale 32.0
+	Patch "Textures/Enterprise/Walls/Tile_Glass.png", 0, 0
+}

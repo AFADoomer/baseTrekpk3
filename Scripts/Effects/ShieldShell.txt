@@ -15,7 +15,8 @@ class ShieldShell : Actor
 			TOS1 A 1 Bright {
 				if (master) {
 					Scale.X = master.radius / 14;
-					Scale.Y = TrekEnemyFlier(master).scaleheight / 30;
+					Scale.Y = Scale.X;
+//					Scale.Y = TrekEnemy(master).scaleheight / 30;
 					if (!zoffset) { zoffset = pos.z - master.pos.z; }
 					if (!xoffset) { xoffset = pos.x - master.pos.x; }
 					A_Warp(AAPTR_MASTER, xoffset, 0, zoffset, 0, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION);

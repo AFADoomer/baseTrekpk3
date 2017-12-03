@@ -1,18 +1,24 @@
-class TOSBoPFlier : TrekEnemyFlier
+class TOSBoPFlier : ShipNavigator
 {
 	Default
 	{
 		Radius 14;
 		Height 10;
 		Health 800;
-		TrekEnemyFlier.CanCloak True;
+//		TrekEnemyFlier.CanCloak True;
 		Speed 4;
 		Obituary "%o's ship was destroyed by a Romulan Bird of Prey.";
-		TrekEnemyFlier.CenterofGravityZ 3;
-		TrekEnemyFlier.CenterofGravityX 3;
-		TrekEnemyFlier.Maneuverability 384;
-		TrekEnemyFlier.FOV 30;
+//		TrekEnemyFlier.CenterofGravityZ 3;
+//		TrekEnemyFlier.CenterofGravityX 3;
+//		TrekEnemyFlier.Maneuverability 384;
+//		TrekEnemyFlier.FOV 30;
 		Species "Romulan";
+
+//		TrekEnemyFlier.FireDelay 175;
+		Navigator.TurnSpeed 3;
+		Navigator.FireDelay 175;
+		Navigator.HasCloak True;
+		Navigator.MissileFOV 30;
 	}
 
 	States

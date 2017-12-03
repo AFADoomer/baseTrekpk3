@@ -1,6 +1,6 @@
 class DoorHandler : Actor
 {
-	bool single;
+	bool single, walkablemidtex;
 	int moveamt, maxmoveamt, movetimeout, activationradius, locknumber;
 	double movespeed, olddir;
 	Array<Line> Lines;
@@ -10,6 +10,7 @@ class DoorHandler : Actor
 	Property MoveSpeed:movespeed;
 	Property SingleDoor:single;
 	Property ActivationRadius:ActivationRadius;
+	Property MidTex:walkablemidtex;
 
 	Default
 	{
@@ -18,6 +19,10 @@ class DoorHandler : Actor
 		//$Arg0ToolTip "What key should this door use (default none)?"
 		//$Arg0Type 11
 		//$Arg0Enum "keys"
+		//$Arg1 "No height blocking"
+		//$Arg1ToolTip "Disables height blocking for the door - normally only used if the door is a 3D midtex and the upped/lower areas need to be passable"
+		//$Arg1Type 11
+		//$Arg1Enum { 0 = "False"; 1 = "True"; }
 
 		+SPECIAL
 		+INVISIBLE
@@ -45,6 +50,8 @@ class DoorHandler : Actor
 		A_SetSize(activationradius);
 
 		BlockLinesIterator it = BlockLinesIterator.Create(self, -1);
+
+		walkablemidtex = args[1];
       
 		While (it.Next())
 		{
@@ -63,8 +70,16 @@ class DoorHandler : Actor
 						Lines.Push(current);
 					}
 
-					current.flags |= Line.ML_3DMIDTEX;
-					current.flags |= Line.ML_BLOCKSIGHT;
+					if (walkablemidtex) // If you want the door to be passable in 3D space, it needs to be a 3D midtex - some blocking issues, unfortunately...  Doesn't stop hitscans.
+					{
+						current.flags |= Line.ML_3DMIDTEX;
+						current.flags |= Line.ML_BLOCKSIGHT;
+					}
+					else // By default, the line will block everything
+					{
+						current.flags |= Line.ML_BLOCKING;
+						current.flags |= Line.ML_BLOCKEVERYTHING;
+					}
 
 					lastindex = current.Index();
 				}
@@ -100,32 +115,64 @@ class DoorHandler : Actor
 			Lines[1].sidedef[1].AddTextureXOffset(1, single ? -dir : dir);
 		}
 
-		if (dir < 0 && moveamt < maxmoveamt / 2)
+		if (dir < 0 && moveamt < maxmoveamt / 2) // Door is opening
 		{
 			if (Lines[0])
 			{
-				Lines[0].flags |= Line.ML_3DMIDTEX;
-				Lines[0].flags |= Line.ML_BLOCKSIGHT;
+				if (walkablemidtex)
+				{
+					Lines[0].flags |= Line.ML_3DMIDTEX;
+					Lines[0].flags |= Line.ML_BLOCKSIGHT;
+				}
+				else
+				{
+					Lines[0].flags |= Line.ML_BLOCKING;
+					Lines[0].flags |= Line.ML_BLOCKEVERYTHING;
+				}
 			}
 
 			if (Lines[1])
 			{
-				Lines[1].flags |= Line.ML_3DMIDTEX;
-				Lines[1].flags |= Line.ML_BLOCKSIGHT;
+				if (walkablemidtex)
+				{
+					Lines[1].flags |= Line.ML_3DMIDTEX;
+					Lines[1].flags |= Line.ML_BLOCKSIGHT;
+				}
+				else
+				{
+					Lines[1].flags |= Line.ML_BLOCKING;
+					Lines[1].flags |= Line.ML_BLOCKEVERYTHING;
+				}
 			}
 		}
-		else if (dir > 0 && moveamt > maxmoveamt / 2)
+		else if (dir > 0 && moveamt > maxmoveamt / 2) // Door is closing
 		{
 			if (Lines[0])
 			{
-				Lines[0].flags &= ~Line.ML_3DMIDTEX;
-				Lines[0].flags &= ~Line.ML_BLOCKSIGHT;
+				if (walkablemidtex)
+				{
+					Lines[0].flags &= ~Line.ML_3DMIDTEX;
+					Lines[0].flags &= ~Line.ML_BLOCKSIGHT;
+				}
+				else
+				{
+					Lines[0].flags &= ~Line.ML_BLOCKING;
+					Lines[0].flags &= ~Line.ML_BLOCKEVERYTHING;
+				}
 			}
 
 			if (Lines[1])
 			{
-				Lines[1].flags &= ~Line.ML_3DMIDTEX;
-				Lines[1].flags &= ~Line.ML_BLOCKSIGHT;
+				if (walkablemidtex)
+				{
+					Lines[1].flags &= ~Line.ML_3DMIDTEX;
+					Lines[1].flags &= ~Line.ML_BLOCKSIGHT;
+				}
+				else
+				{
+					Lines[1].flags &= ~Line.ML_BLOCKING;
+					Lines[1].flags &= ~Line.ML_BLOCKEVERYTHING;
+				}
 			}
 		}
 

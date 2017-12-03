@@ -13,6 +13,18 @@ class SpriteDecoration : Decoration
 		Radius 0;
 		Health 50;
 	}
+
+	override void PostBeginPlay()
+	{
+		// Compatibility for some old sprites that weren't updated after the FLATSPRITE updates...
+		if (bWallSprite && pitch)
+		{
+			bWallSprite = false;
+			bFlatSprite = true;
+
+			pitch = 270 - pitch;
+		}
+	}
 }
 
 class UsableSpriteDecoration : UsableDecoration
@@ -21,7 +33,19 @@ class UsableSpriteDecoration : UsableDecoration
 	{
 		+WALLSPRITE;
 		+ROLLSPRITE;
+		+ROLLCENTER;
 		-SOLID;
+	}
+
+	override void PostBeginPlay()
+	{
+		if (bWallSprite && pitch)
+		{
+			bWallSprite = false;
+			bFlatSprite = true;
+
+			pitch = 270 - pitch;
+		}
 	}
 }
 
@@ -637,8 +661,8 @@ class TOSWallThingPanel2 : UsableSpriteDecoration
 	{
 		//$Title "Wall Planton: Lighted Panel (Flat)" 
 		//$Sprite PANLA0
-		-WALLSPRITE
-		+FLATSPRITE
+		-WALLSPRITE;
+		+FLATSPRITE;
 		Health 100;
 		Height 24;
 		Radius 16;
@@ -697,7 +721,6 @@ class TOSWallThingShuttlebayStatus : UsableSpriteDecoration
 		Health 100;
 		Height 0;
 		Radius 0;
-
 	}
 
 	States

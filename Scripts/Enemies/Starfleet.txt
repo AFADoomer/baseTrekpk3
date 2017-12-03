@@ -1,4 +1,4 @@
-class TOSEnterpriseFlier : TrekEnemyFlier
+class TOSEnterpriseFlier : ShipNavigator
 {
 	Default
 	{
@@ -9,13 +9,22 @@ class TOSEnterpriseFlier : TrekEnemyFlier
 		Health 1000;
 		Speed 2;
 		Obituary "%o's ship was destroyed by a Starship.";
+/*
 		TrekEnemyFlier.NonAggressive True;
 		TrekEnemyFlier.CenterofGravityZ 0;
 		TrekEnemyFlier.CenterofGravityX -26;
 		TrekEnemyFlier.Maneuverability 64;
 		TrekEnemyFlier.FOV 135;
 		TrekEnemyFlier.TorpedoChance 16;
+*/
 		Species "Starfleet";
+
+//		TrekEnemyFlier.FireDelay 35;
+		TrekEnemy.NonAggressive True;
+		Navigator.MissileFOV 135;
+		Navigator.TorpedoChance 16;
+		Navigator.FireDelay 35;
+		Navigator.TurnSpeed 2;
 	}
 
 	States
@@ -49,17 +58,28 @@ class TOSEnterpriseFlier : TrekEnemyFlier
 	}
 }
 
-class TOSRahmanFlier : TOSEnterpriseFlier
+class TOSRahmanFlier : ShipNavigator
 {
 	Default
 	{
+		+FRIENDLY
 		Height 20;
+		Radius 28;
 		Mass 500;
 		Health 700;
+		Speed 2;
+		Obituary "%o's ship was destroyed by a Starship.";
+/*
 		TrekEnemyFlier.CenterofGravityZ -4;
 		TrekEnemyFlier.Maneuverability 48;
 		TrekEnemyFlier.FOV 160;
 		TrekEnemyFlier.TorpedoChance 24;
+*/
+		TrekEnemy.NonAggressive True;
+		Navigator.MissileFOV 160;
+		Navigator.TorpedoChance 24;
+		Navigator.FireDelay 35;
+		Navigator.TurnSpeed 2;
 	}
 
 	States
@@ -76,7 +96,7 @@ class TOSRahmanFlier : TOSEnterpriseFlier
 				[temp, mo] = A_SpawnItemEx("PhaserSpot", 1, 0.25, -0.5, flags:SXF_SETMASTER);
 				if (temp) { PhaserSpot(mo).independent = True; }
 			}
-			Goto TrekEnemyFlier::Spawn;
+			Goto Super::Spawn;
 		Missile:
 			Goto Missile.Torpedo;
 	}

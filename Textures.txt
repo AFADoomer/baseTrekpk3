@@ -262,6 +262,20 @@ Texture DOOR_PHR, 256, 320
 	Patch "Textures/Enterprise/Doors/DOOR_PHR.png", -123, 0
 }
 
+Texture DOOR_THL, 256, 320
+{
+	XScale 3.4
+	YScale 3.4
+	Patch "Textures/Enterprise/Doors/DOOR_THL.png", 0, 0
+}
+
+Texture DOOR_THR, 256, 320
+{
+	XScale 3.4
+	YScale 3.4
+	Patch "Textures/Enterprise/Doors/DOOR_THR.png", -123, 0
+}
+
 Texture Dr1M, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M.jpg", 0, 0}
 Texture Dr1M_Bl, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_Bl.jpg", 0, 0}
 Texture Dr1M_G, 256, 512 {XScale 4.0 YScale 4.0 Patch "Textures/Enterprise/Doors/Mirror/Dr1M_G.jpg", 0, 0}

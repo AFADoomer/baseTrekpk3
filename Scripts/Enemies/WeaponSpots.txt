@@ -40,12 +40,12 @@ class PhaserSpot : Actor
 				if (master) {
 					A_Warp(AAPTR_MASTER, offsets.x * cos(master.pitch), offsets.y * cos(master.roll), offsets.z - offsets.x * sin(master.pitch) - offsets.y * sin(master.roll), angleoffset, WARPF_COPYPITCH | WARPF_COPYINTERPOLATION);
 
-					let momaster = TrekEnemyFlier(master);
+					let momaster = ShipNavigator(master);
 
 					if (momaster)
 					{
 						if (!independent) { target = momaster.target; }
-						if (!fov) { fov = momaster.fov; }
+						if (!fov) { fov = momaster.missilefov; }
 						if (momaster.passive) { return ResolveState("SpawnLoop"); }
 					}
 
@@ -99,9 +99,11 @@ class PhaserSpot : Actor
 
 		if (light && !(target is "PlayerPawn")) { light = null; }
 
+		A_FaceTarget(0, 0, 0, 0, FAF_MIDDLE);
+
 		A_PlaySound(snd, 0, 1.0);
-		A_CustomRailgun(damage, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT |  RGF_SILENT | RGF_EXPLICITANGLE, 1, 0, hitpuff, angleoffset, pitchoffset, dist, 4, 3.0, 0, beam, zoffset);
-		A_CustomRailgun(0, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT | RGF_EXPLICITANGLE, 1, 0, "NoPuff", angleoffset, pitchoffset, dist, 1, FRandom(6.0, 8.0), 0, light, zoffset);
+		A_CustomRailgun(damage, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT |  RGF_SILENT | RGF_EXPLICITANGLE, 0, 0, hitpuff, angleoffset, pitchoffset, dist, 4, 3.0, 0, beam, zoffset);
+		A_CustomRailgun(0, xoffset, "", "", RGF_CENTERZ | RGF_NOPIERCING | RGF_FULLBRIGHT | RGF_SILENT | RGF_EXPLICITANGLE, 0, 0, "NoPuff", angleoffset, pitchoffset, dist, 1, FRandom(6.0, 8.0), 0, light, zoffset);
 	}
 
 	void A_FireTorpedo(class<Actor> torpedo, double xoffset = 0, double zoffset = 0, bool gravity = false)
@@ -120,7 +122,7 @@ class PhaserSpot : Actor
 
 	void A_ChangeToCloserTarget(double range = 2048, double fov = 0)
 	{
-		ThinkerIterator EnemyFinder = ThinkerIterator.Create("TrekEnemyFlier");
+		ThinkerIterator EnemyFinder = ThinkerIterator.Create("TrekEnemy");
 		Actor mo;
 
 		target = null;
@@ -138,7 +140,7 @@ class PhaserSpot : Actor
 			target = mo;
 		}
 
-		while ( (mo = TrekEnemyFlier(EnemyFinder.Next())) )
+		while ( (mo = TrekEnemy(EnemyFinder.Next())) )
 		{
 			if (mo.health <= 0 || mo.bDormant || mo.bMissile) { continue; }
 			if (master) {

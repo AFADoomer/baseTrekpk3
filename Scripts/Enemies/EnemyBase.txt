@@ -6,6 +6,10 @@ class TrekEnemy : Actor //For common inheritance of action functions
 	double old_pitch;
 	double old_roll;
 	Actor lastDamageSource;
+	int helpcalltimeout;
+	bool passive;
+
+	Property NonAggressive:passive;
 
 	override int TakeSpecialDamage(Actor inflictor, Actor source, int damage, Name damagetype)
 	{
@@ -20,21 +24,17 @@ class TrekEnemy : Actor //For common inheritance of action functions
 
 	void A_FireDisruptor(int variance = 1, int ammoamt = 1, double zoffset = 60, double yoffset = 0)
 	{
-		old_pitch = pitch;
-		old_roll = roll;
-		let mo = A_SpawnProjectile("DisruptorBolt", zoffset, yoffset, Random[Disruptor](-variance, variance), CMF_OFFSETPITCH | CMF_SAVEPITCH | CMF_BADPITCH, Random[Disruptor](-variance, variance), AAPTR_TARGET);
+		let mo = A_SpawnProjectile("DisruptorBolt", zoffset, yoffset, Random[Disruptor](-variance, variance), CMF_OFFSETPITCH | CMF_SAVEPITCH, Random[Disruptor](-variance, variance), AAPTR_TARGET);
 
 		if (mo)
 		{
 			mo.master = self;
 			mo.tracer = target;
 			mo.scale = scale;
+			mo.pitch = pitch;
 		}
 
 		user_ammo -= ammoamt;
-		angle = old_angle;
-		pitch = old_pitch;
-		roll = old_roll;
 	}
 
 	void A_FireDisruptorGrenade(int variance = 5, int ammoamt = 10)
@@ -72,24 +72,18 @@ class TrekEnemy : Actor //For common inheritance of action functions
 
 	void A_FireTorpedo(class<Actor> torpedo, int ammoamt = 1, double xoffset = 0, double zoffset = 60, bool gravity = false, int damage = -1)
 	{
-		old_pitch = pitch;
-		old_roll = roll;
 		let mo = A_SpawnProjectile(torpedo, zoffset, xoffset, Random[Torpedo](-1, 1), CMF_OFFSETPITCH | CMF_SAVEPITCH | CMF_BADPITCH, Random[Torpedo](-1, 1), AAPTR_TARGET);
 
 		if (mo)
 		{
 			mo.bNoGravity = !gravity;
-//			mo.master = self;
+			mo.master = self;
 			mo.tracer = target;
 			mo.scale.x *= scale.x;
 			mo.scale.y *= scale.y;
 
 			user_ammo -= ammoamt;
 		}
-
-		angle = old_angle;
-		pitch = old_pitch;
-		roll = old_roll;
 	}
 
 	double, double, int GetBestSideMove(double range = 128)
@@ -104,7 +98,7 @@ class TrekEnemy : Actor //For common inheritance of action functions
 		return right, angle - 90, 1; // Otherwise, dodge right
 	}
 
-	double GetMoveDistance(double angle, double range)
+	virtual double GetMoveDistance(double angle, double range)
 	{
 		bool blocked;
 
@@ -118,6 +112,54 @@ class TrekEnemy : Actor //For common inheritance of action functions
 		}
 
 		return range;
+	}
+
+	void A_DamageSigns(bool shield = True, double zoffset = 0, double xoffset = -4.0)
+	{
+		bool sp;
+		Actor mo;
+
+		if (health < SpawnHealth() / 3)
+		{
+			[sp, mo] = A_SpawnItemEx("FlareUp", 0, 0, 0, flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH | SXF_TRANSFERROLL);
+			mo.Scale.X = 0.01;
+			mo.Scale.Y = 0.01;
+		}
+
+		double bounce = 2500 / mass;
+
+		angle += FRandom(-bounce, bounce);
+		pitch += FRandom(-bounce, bounce);
+		roll += FRandom(-bounce, bounce);
+
+		A_PlaySound("effects/explosion", CHAN_AUTO, 1.0);
+
+		Passive = False;
+	}
+
+	void A_CallHelp(double range = 2048, int maxhelp = 3)
+	{
+		if (helpcalltimeout <= 0)
+		{
+			int helpercount;
+
+			ThinkerIterator FriendFinder = ThinkerIterator.Create("TrekEnemy", Thinker.STAT_DEFAULT);
+			TrekEnemy mo;
+			while ( (mo = TrekEnemy(FriendFinder.Next())) && (helpercount < maxhelp) )
+			{
+				if (mo.bFriendly != bFriendly) { continue; }
+				if (mo == self || mo.health <= 0 || mo.target || mo.bDormant) { continue; }
+
+				if (Distance3d(mo) > range) { continue; }
+
+				mo.passive = False;
+
+				mo.target = target;
+				helpercount++;
+			}
+
+			helpcalltimeout = 145;
+		}
 	}
 }
 
@@ -651,28 +693,343 @@ class TrekEnemyActor : TrekEnemy
 	}
 }
 
-class TrekEnemyFlier : TrekEnemy
+class Navigator : TrekEnemy
 {
-	bool bDoFire;
-	bool hasCloak;
-	double centerzoffset;
-	double centerxoffset;
-	double scaleheight;
-	double fov;
-	double turnradius;
-	bool passive;
-	int timeout;
-	int continuousfirethreshold;
-	int turndir;
+	double turnspeed;
+	double destangle;
+	double destpitch;
+	double destroll;
+	double destz;
+	double destalpha;
+	double missilefov;
+	int stepspeed;
+	int randomturnchance;
+	double turndist;
+	int firedelaytime;
+	double floatdir;
+	int firedelay;
+	Vector3 oldpos;
+	bool floating;
+	bool staticmissile;
+	Vector3 move;
+	bool user_sidemove;
+	double user_sidemovedist;
+	double startangle;
+	double user_maxheight;
+	double user_minheight;
+	double sidemovetimer;
+	double user_speed;
+	bool user_hascloak;
 	int torpedochance;
 
-	Property FOV:fov;
-	Property Maneuverability:turnradius;
-	Property CanCloak:hascloak;
-	Property NonAggressive:passive;
+	Property TurnSpeed:turnspeed;
+	Property StepSpeed:stepspeed;
+	Property MissileFOV:missilefov;
+	Property RandomTurnChance:randomturnchance;
+	Property TurnDistance:turndist;
+	Property FireDelay:firedelay;
+	Property Floating:floating;
+	Property StaticMissile:staticmissile;
+	Property SideMove:user_sidemove;
+	Property SideMoveDistance:user_sidemovedist;
+	Property HasCloak:user_hascloak;
 	Property TorpedoChance:torpedochance;
-	Property CenterofGravityZ:centerzoffset;
-	Property CenterofGravityX:centerxoffset;
+
+	Default
+	{
+		Monster;
+		+NOGRAVITY
+
+		Health 400;
+		Radius 16;
+		Height 10;
+		Speed 2;
+		MaxStepHeight 0;
+		Renderstyle "Translucent";
+		Alpha 1.0;
+
+		Navigator.TurnSpeed 3;
+		Navigator.StepSpeed 1;
+		Navigator.MissileFOV 15.0;
+		Navigator.RandomTurnChance 1;
+		Navigator.TurnDistance 256.0;
+		Navigator.FireDelay 350;
+		Navigator.Floating True;
+		Navigator.SideMoveDistance 256.0;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		if (globalfreeze || level.Frozen || !bShootable || health <= 0) { return; }
+
+		movecount--;
+		reactiontime--;
+		firedelaytime--;
+
+		// Roll and pitch will automatically recenter themselves over time
+		if (destroll > 0) { destroll = max(0, destroll - 1); }
+		else if (destroll < 0) { destroll = min(0, destroll + 1); }
+
+		if (destpitch > 0) { destpitch = max(0, destpitch - 1); }
+		else if (destpitch < 0) { destpitch = min(0, destpitch + 1); }
+
+		// Gradually move to the target roll and pitch
+		if (roll >= destroll) { roll = max(destroll, roll - 0.5); } 
+		else if (roll < destroll) { roll = min(destroll, roll + 0.5); }
+
+		if (pitch >= destpitch) { pitch = max(destpitch, pitch - 0.5); } 
+		else if (pitch < destpitch) { pitch = min( destpitch, pitch + 0.5); }
+
+		if (alpha >= destalpha) { alpha = max(destalpha, alpha - 0.005); } 
+		else if (alpha < destalpha) { alpha = min( destalpha, alpha + 0.005); }
+
+		bNoTarget = alpha < 0.75;
+
+		A_LookEx(LOF_NOJUMP, fov:360);
+
+		if (user_sidemove)
+		{
+			if (target) { A_Face(target, 1, 1, 0, 0, FAF_MIDDLE); }
+			else if (startangle) { destangle = startangle; }
+		}
+
+		if (user_hascloak)
+		{
+			if (!target || firedelaytime > firedelaytime / 4) { destalpha = 0; }
+			else { destalpha = 1.0; }
+		}
+
+		if (movecount <= 0)
+		{
+			DoNavigation();
+
+			movecount = stepspeed;
+		}
+
+		if (!bDormant && !passive && target)
+		{
+			if (target.health <= 0 || !target.bShootable)
+			{
+				target = null; 
+				return;
+			}
+
+			if (firedelaytime <= 0 && alpha >= 1.0)
+			{
+				if (abs(deltaangle(angle, AngleTo(target))) <= missilefov && abs(PitchTo(target)) <= missilefov && CheckSight(target) && CheckLOF(CLOFF_FROMBASE | CLOFF_SKIPENEMY | CLOFF_NOAIM))
+				{
+					if (!InStateSequence(CurState, MissileState)) { SetStateLabel("Missile"); }
+				}
+			}
+		}
+	}
+
+	override void PostBeginPlay()
+	{
+		destangle = angle;
+		destpitch = pitch;
+		floatdir = 0;
+		turndist *= scale.x;
+		turnspeed *= scale.x;
+		firedelaytime = firedelay;
+		destz = user_minheight != 0 ? user_minheight : floorz + height;
+		move = (0, 0, 0);
+		startangle = angle;
+		if (user_speed) { speed = user_speed; }
+		destalpha = 1.0;
+
+		if (bFriendly) { passive = True; species = "Starfleet"; }
+		else if (species == "Starfleet") { species = "Pirate"; passive = false; }
+		else { passive = false; }
+	}
+
+	void DoNavigation()
+	{
+		double dodgedistance;
+		double olddestangle = destangle;
+		double oldangle = angle;
+		double front = GetMoveDistance(0, turndist);
+
+		if (!user_sidemove && (front < radius + turndist || (randomturnchance > 0 && Random() < randomturnchance) || pos.xy == oldpos.xy)) // If we need to turn
+		{
+			if (target && firedelaytime <= 0 && Distance3D(target) > radius + turndist && CheckSight(target))
+			{
+				A_Face(target, turnspeed, turnspeed, 0, 0, FAF_MIDDLE);
+				if (Distance3D(target) > 512) { destangle = deltaangle(angle, AngleTo(target)); }
+			}
+			else if (firedelaytime <= 0)
+			{
+				[dodgedistance, destangle] = GetBestMove(); // Get the direction (left or right) that is the best to dodge, and how far you can dodge there
+
+				if (pos.xy == oldpos.xy) { destangle = angle + 45; }
+
+				if (angle >= destangle) { angle = max(destangle, angle - turnspeed); } 
+				else if (angle < destangle) { angle = min( destangle, angle + turnspeed); }
+			}
+		}
+
+		if (floating)
+		{
+			if (BlockingLine)
+			{
+				double frontheight, backheight, stepup, stepdown;
+
+				if (BlockingLine.frontsector) { frontheight = BlockingLine.frontsector.floorplane.ZatPoint(pos.xy); }
+				else { frontheight = -65536; }
+
+				if (BlockingLine.backsector) { backheight = BlockingLine.backsector.floorplane.ZatPoint(pos.xy); }
+				else { backheight = -65536; }
+
+				stepup = max(frontheight, backheight);
+
+				if (stepup > pos.z)
+				{
+					destz = stepup + height;
+				}
+
+				if (BlockingLine.frontsector) { frontheight = BlockingLine.frontsector.ceilingplane.ZatPoint(pos.xy); }
+				else { frontheight = 65536; }
+
+				if (BlockingLine.backsector) { backheight = BlockingLine.backsector.ceilingplane.ZatPoint(pos.xy); }
+				else { backheight = 65536; }
+
+				stepdown = min(frontheight, backheight);
+
+				if (stepdown < pos.z)
+				{
+					destz = stepdown - height;
+				}
+			}
+			else
+			{
+				if ((user_maxheight != 0 ? user_maxheight : ceilingz) < pos.z + height * 2) { destz -= 0.5; }
+				else if ((user_minheight != 0 ? user_minheight : floorz) > pos.z - height * 2) { destz += 0.5; }
+				else if (target)
+				{
+					// Home in on the middle of the target, not the feet
+					if (target.pos.z + target.height / 2 < pos.z + 1) { destz -= 0.5; }
+					else if (target.pos.z + target.height / 2 > pos.z - 1) { destz += 0.5; }
+					else { destz = pos.z; }
+				}
+				else { destz = pos.z; }
+			}
+
+			if (abs(destz - pos.z) > 2)
+			{
+				floatdir = clamp(destz - pos.z, -1, 1);
+			}
+			else { floatdir = 0; }
+		}
+		else { floatdir = 0; }
+
+		if (user_sidemove)
+		{
+			double stepsize = user_sidemovedist / 360;
+
+			double moveamt = cos(sidemovetimer / (user_sidemovedist / 128));
+			int facedir = abs(deltaangle(angle, startangle)) > 90 ? 1 : -1;
+
+			move.x = 0;
+			move.y = speed * moveamt;
+			move.z = floatdir * speed * abs(sin(pitch));
+
+			destroll = speed * moveamt * facedir;
+
+			vel = (RotateVector(move.xy, startangle), move.z);
+
+			sidemovetimer += speed;
+		}
+		else if (staticmissile && InStateSequence(CurState, MissileState))
+		{
+			A_Face(target, turnspeed, turnspeed, 0, 0, FAF_MIDDLE);
+
+			move.x *= 0.95;
+			move.y = 0;
+			move.z *= 0.95;
+
+			vel = (RotateVector(move.xy, angle), move.z);
+		}
+		else
+		{
+			move.x = (move.x + speed * cos(pitch)) / 2;
+			move.y = 0;
+			move.z = floatdir * speed * abs(sin(pitch));
+
+			vel = (RotateVector(move.xy, angle), move.z);
+		}
+
+		if (abs(angle - oldangle) > 1 && !user_sidemove)
+		{
+			if (destroll > -45 && angle > oldangle) { destroll -= turnspeed; }
+			if (destroll < 45 && angle < oldangle) { destroll += turnspeed; }
+		}
+
+		if (floating)
+		{
+			if (abs(destpitch) < 45) { destpitch = clamp(pos.z - destz, -45, 45); }
+		}
+
+		oldpos = pos;
+	}
+
+	double, double GetBestMove()
+	{
+		for (double a = 15; a <= 90; a += 15)
+		{
+			double left = GetMoveDistance(a, turndist);
+			double right = GetMoveDistance(-a, turndist);
+
+			if (left > right) return left, angle + a; // If there's more space on the left, dodge left
+			else if (right > left) return right, angle - a; // Otherwise, dodge right
+		}
+
+		return 0, destangle; // Otherwise, stay on this course
+	}
+
+	override double GetMoveDistance(double angle, double range = 256)
+	{
+		bool blocked;
+
+		for (double i = radius; i <= radius + range; i += Speed)
+		{
+			tracer = null;
+
+			blocked = CheckBlock(CBF_SETTRACER, AAPTR_DEFAULT, i, 0, 0, angle);
+
+			if (blocked) { return i; }
+		}
+
+		return range;
+	}
+
+	double PitchTo(Actor mo)
+	{
+		double distxy = max(Distance2D(mo), 1);
+		double distz = pos.z - mo.pos.z;
+
+		return clamp(atan(distz / distxy) - pitch, -90, 90);
+	}
+}
+
+class Walker : Navigator
+{
+	Default
+	{
+		Monster;
+		+FLOORCLIP
+		+PUSHABLE
+		-NOGRAVITY
+
+		Navigator.StaticMissile True;
+		Navigator.TurnDistance 96.0;
+	}
+}
+
+class ShipNavigator : Navigator
+{
+	int shotcount;
 
 	Default
 	{
@@ -687,36 +1044,14 @@ class TrekEnemyFlier : TrekEnemy
 		Speed 1;
 		Health 1000;
 		Mass 500;
-		MaxDropOffHeight 99999;
 	}
 
 	States
 	{
 		Spawn:
-			TOS1 A 1;
-			"####" # 0 {
-				if (bFriendly) { passive = True; species = "Starfleet"; }
-				else if (species == "Starfleet") { species = "Pirate"; }
-				scaleheight = height;
-				height = max(height, 32);
-				return ResolveState("Stand");
-			}
-		Stand:
-			"####" # 1 {
-				ACS_NamedExecuteAlways("SetRadarTID",0);
-				ACS_NamedExecuteAlways("A_SetupThing",0);
-				bDoFire = False;
-				bNoGravity = True; //Just in case?
-			}
-			"####" # Random(0, 35);
-			"####" # 1 {
-				return ResolveState("Chase");
-			}
+		See:
 		Chase:
-			"####" # 1;
-			"####" # 0 {
-				A_ShipLookChase(turnradius, fov);
-			}
+			TOS1 A 1;
 			Loop;
 		Missile:
 		Missile.KlingonTorpedo:
@@ -724,7 +1059,7 @@ class TrekEnemyFlier : TrekEnemy
 			"####" # 0 {
 				if (Random[TorpedoJump]() < torpedochance) {
 					A_FireTorpedo("DisruptorGrenade", zoffset: 0);
-					timeout = 70;
+					firedelaytime = 70;
 					return ResolveState("Chase");
 				}
 				return ResolveState("Missile.Disruptor");
@@ -733,14 +1068,14 @@ class TrekEnemyFlier : TrekEnemy
 		Missile.Disruptor:
 			"####" # 1;
 			"####" # 0 {
-				if (user_FireCount > 3) {
-					timeout = 70;
-					user_FireCount = 0;
+				if (shotcount > 3) {
+					firedelaytime = 70;
+					shotcount = 0;
 				} else {
 					A_FireDisruptor(0, zoffset:16 * (1 - sin(roll)) * scale.y, yoffset: 18 * cos(roll) * scale.x);
 					A_FireDisruptor(0, zoffset:16 * (1 + sin(roll)) * scale.y, yoffset: -18 * cos(roll) * scale.x);
-					timeout = 10;
-					user_FireCount++;
+					firedelaytime = 10;
+					shotcount++;
 				}
 				return ResolveState("Chase");
 			}
@@ -749,7 +1084,7 @@ class TrekEnemyFlier : TrekEnemy
 			"####" # 0 {
 				if (Random[TorpedoJump]() < torpedochance) {
 					A_FireTorpedo("PhotonTorpedo", zoffset: 0);
-					timeout = 70 + 32 - torpedochance;
+					firedelaytime = 70 + 32 - torpedochance;
 					return ResolveState("Chase");
 				}
 				return ResolveState("Chase");
@@ -758,15 +1093,14 @@ class TrekEnemyFlier : TrekEnemy
 			"####" # 1;
 			"####" # 0 {
 				A_FireTorpedo("RomulanTorpedo", zoffset: 0);
-				timeout = 350;
+				firedelaytime = 350;
 				return ResolveState("Chase");
 			}
 		Pain:
 			"####" # 1; 
 			"####" # 0 {
 				A_CallHelp();
-				A_DamageSigns(True, centerzoffset, centerxoffset);
-				A_ShipLookChase(turnradius, fov);
+				A_DamageSigns(True);
 				return ResolveState("Chase");
 			}
 		Death:
@@ -785,369 +1119,6 @@ class TrekEnemyFlier : TrekEnemy
 				A_SetRoll(roll + FRandom(-30.0, 30.0), SPF_INTERPOLATE);
 			}
 			Stop;
-	}
-}
-
-extend class TrekEnemyFlier
-{
-	vector3 old_pos;
-	double anglediff;
-	double old_z;
-	double destangle;
-	double destz;
-	double longrun;
-	int floatdir;
-	int bursttimeout;
-	int runtime;
-	int dodgetime;
-	bool bRun;
-	bool attacked;
-	actor nexttarget;
-	int closestactortimeout;
-	int targetchangetimeout;
-	int helpcalltimeout;
-	double dodgeangle;
-	double dodgedistance;
-	int dodgedir;
-
-	void A_CallHelp(double range = 2048, int maxhelp = 3)
-	{
-		if (helpcalltimeout <= 0)
-		{
-			int helpercount;
-
-			ThinkerIterator FriendFinder = ThinkerIterator.Create("TrekEnemyFlier", Thinker.STAT_DEFAULT);
-			TrekEnemyFlier mo;
-			while ( (mo = TrekEnemyFlier(FriendFinder.Next())) && (helpercount < maxhelp) )
-			{
-				if (mo.bFriendly != bFriendly) { continue; }
-				if (mo == self || mo.health <= 0 || mo.target || mo.bDormant) { continue; }
-
-				if (Distance3d(mo) > range) { continue; }
-
-				mo.passive = False;
-				mo.runtime = 0;
-
-				mo.target = target;
-				helpercount++;
-			}
-
-			helpcalltimeout = 70;
-		}
-	}
-
-	actor A_ClosestActor(void)
-	{
-
-		ThinkerIterator Finder = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
-		Actor mo, closest;
-		while (mo = Actor(Finder.Next()))
-		{
-			if (mo == self || !mo.bShootable || mo.bDormant) { continue; }
-			if (mo.alpha < 0.25) { continue; }
-			if (Distance3d(mo) > 512) { continue; }
-
-			if (mo is "TrekEnemyFlier" || mo is "TOSOrbit" || mo is "TOSSun")
-			{
-				if (closest && Distance3d(mo) > Distance3d(closest)) { continue; }
-			}
-			else if (mo is "PhotonGrenade")
-			{
-				if (mo.target == self) { continue; }
-				if (mo.tracer != self) { continue; }
-			}
-			else { continue; }
-
-			closest = mo;
-		}
-
-		return closest;
-	}
-
-	bool A_ChangeToCloserTarget(double range = 4096, double fov = 360)
-	{
-		if (!target || targetchangetimeout <= 0) { 
-			Actor old_target = target;
-
-			ThinkerIterator EnemyFinder = ThinkerIterator.Create("Actor", Thinker.STAT_DEFAULT);
-			Actor mo;
-
-			while ( (mo = Actor(EnemyFinder.Next())) )
-			{
-				if (!mo.bIsMonster || mo == self || mo.health <= 0 || mo.bDormant) { continue; }
-				if (mo.bFriendly == bFriendly) { continue; }
-				if (mo.species == species) { continue; }
-				if (mo.bInvisible) { continue; }
-				if (mo.alpha < 0.25) { continue; }
-				if (Distance3d(mo) > range) { continue; }
-				if (target && Distance3d(mo) > Distance3d(target)) { continue; }
-				if (fov && absangle(AngleTo(mo), angle) > (fov / 2)) { continue; }
-				if (!CheckSight(mo)) { continue; }
-
-				if (Random[ChangeTarget]() > 128) { target = mo; }
-				else { nexttarget = mo; }
-			}
-
-			if (!bFriendly) //Check for players if not friendly...
-			{
-				for (int i = 0; i < MAXPLAYERS; i++)
-				{
-					PlayerPawn mo = players[i].mo;
-					if (playeringame[i] && mo)
-					{
-						if (players[i].cheats & CF_NOTARGET) { continue; }
-						if (mo.alpha < 0.25) { continue; }
-						if (Distance3d(mo) > range) { continue; }
-						if (target && Distance3d(mo) > Distance3d(target)) { continue; }
-						if (fov && absangle(AngleTo(mo), angle) > (fov / 2)) { continue; }
-
-						target = mo;
-					}
-				}
-			}
-
-			if (target == old_target) { target = nexttarget; return False; }
-
-			targetchangetimeout = 35;
-			return True;
-		}
-		return False;
-	}
-
-	void A_DamageSigns(bool shield = True, double zoffset = 0, double xoffset = -4.0)
-	{
-		bool sp;
-		Actor mo;
-		if (shield && health > SpawnHealth() / 3) { //Shield flare
-			A_SpawnItemEx("ShieldShell", xoffset, 0, zoffset, flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH | SXF_TRANSFERROLL | SXF_SETMASTER);
-		} else { //Damage/Explosions
-			[sp, mo] = A_SpawnItemEx("FlareUp", 0, 0, 0, flags:SXF_TRANSFERSCALE | SXF_TRANSFERPITCH | SXF_TRANSFERROLL);
-			mo.Scale.X = 0.01;
-			mo.Scale.Y = 0.01;
-
-			double bounce = 2500 / mass;
-
-			angle += FRandom(-bounce, bounce);
-			pitch += FRandom(-bounce, bounce);
-			roll += FRandom(-bounce, bounce);
-
-			A_PlaySound("effects/explosion", CHAN_AUTO, 1.0);
-		}
-
-		Passive = False;
-	}
-
-	void A_ShipLookChase(double dist = 256, double fov = 25.0)
-	{
-		int collisiondistance;
-
-		Actor closest;
-		if (closestactortimeout <= 0) { closest = A_ClosestActor(); closestactortimeout = 35; }
-
-		if (old_angle) { anglediff = angle - old_angle; }
-		else
-		{
-			A_ChangeToCloserTarget(); 
-
-			anglediff = 0;
-		}
-
-		old_angle = angle;
-
-		if (anglediff > 180) { anglediff -= 360; }
-		else if (anglediff < -180) { anglediff += 360; }
-
-		if (anglediff > 0 && anglediff < 1) { anglediff = 1; }
-		else if (anglediff < 0 && anglediff > -1) { anglediff = -1; }
-		
-		if (roll >= 1) { roll -= 0.5; } 
-		else if (roll <= -1) { roll += 0.5; }
-
-		if (pitch >= 1) { pitch -= 0.5; } 
-		else if (pitch <= -1) { pitch += 0.5; }
-
-		if (closest)
-		{
-			collisiondistance = int((height / 2 > radius ? height / 2 : radius) * sqrt(2) + (closest.height / 2 > closest.radius ? closest.height / 2 : closest.radius) * sqrt(2));
-			if (closest is "PhotonGrenade") { collisiondistance = 2048.0; }
-		}
-
-		if (lastDamageSource && Random[DamageReact]() < 32)
-		{
-			if (lastDamageSource.bFriendly != bFriendly && lastDamageSource.species != species)
-			{
-				nexttarget = target;
-				target = lastDamageSource;
-				lastDamageSource = null;
-			}
-		}
-
-		if (!target) { target = nexttarget; nexttarget = null; }
-
-		[dodgedistance, dodgeangle, dodgedir] = GetBestSideMove(Radius * 7); // Get the direction (left or right) that is the best to dodge, and how far you can dodge there
-		if (dodgedir != 0) { destangle -= dodgedir * Speed; }
-
-		if (closest && Distance3d(closest) <= collisiondistance * 3) // Collision avoidance
-		{
-			if (closest.tracer != self && Distance3d(closest) <= collisiondistance)
-			{
-				A_Explode(32);
-				A_DamageSigns();
-			}
-
-			if (dodgetime <= 0)
-			{
-				if (closest.tracer == self)
-				{
-					nexttarget = target;
-					target = closest.target;
-					A_CallHelp();
-					target = closest;
-					bDoFire = True;
-				}
-
-				if (closest.pos.z > pos.z) { floatdir = -1; destz = Max(pos.z - 2 * height, floorz + height); }
-				else if (closest.pos.z < pos.z) { floatdir = 1; destz = Min(pos.z + 2 * height, ceilingz - height); }
-				else
-				{
-					if (closest.pos.x > pos.x) { floatdir = -1; destz = Max(pos.z - height, floorz + height); }
-					else { floatdir = 1; destz = Min(pos.z + height, ceilingz - height); }
-				}
-
-				if (destz <= floorz + height || destz >= ceilingz - height) { destz = (ceilingz - floorz) / 2; floatdir *= -1; }
-
-				destangle = (angle + (RandomPick[ShipCollisionAvoidance](-1, 1) * Random[ShipCollisionAvoidance](70, 110))) % 360;
-
-				dodgetime = Random[DodgingTime](35, 105);
-			}
-		}
-		else if (target && pos != old_pos && !passive)
-		{
-			if (Distance3d(target) < dist * (longrun + 1) ||
-				closest && Distance3d(target) < dist)
-			{
-				if (!bRun)
-				{
-					destangle = angle + (dodgedir != 0 ? dodgedir * Random[ShipAngle](-150, 0) : Random[ShipAngle](-150, 150));
-
-					destz = Min(Max(FRandom[ShipZ](pos.z - 64.0, pos.z + 64.0), floorz + 2 * height), ceilingz - 2 * height);
-					longrun = FRandom[ShipRun](0.0, 3.0);
-
-					bRun = True;
-				}
-				else
-				{
-					if (destz > pos.z + 1) { floatdir = 1; }
-					else if (destz < pos.z - 1) { floatdir = -1; }
-					else { floatdir = 0; }
-
-					if (hascloak) { if (alpha > 0) { A_SetRenderStyle(alpha - 0.005, STYLE_Translucent); } }
-					else { bDoFire = True; }
-				}
-			}
-			else
-			{
-				bRun = False;
-
-				A_FaceTarget(1, 1, 0, 0, FAF_TOP);
-
-				if (target.pos.z > pos.z + 1) { floatdir = 1; }
-				else if (target.pos.z < pos.z - 1) { floatdir = -1; }
-				else { floatdir = 0; }
-
-				if (hascloak && alpha < 1.0) { alpha += 0.005; }
-				else if (health > 0) { A_SetRenderStyle(1.0, STYLE_Normal); bDoFire = True; }
-			}
-
-			if (target.health <= 0 || target.bInvisible || target.alpha <= FRandom[CloakFlicker](0, 0.5)) { A_ChangeToCloserTarget(fov:fov); }
-		}
-		else
-		{
-			if (pos == old_pos && runtime > 0) // && !bRun)
-			{
-				destangle = angle + 180;
-
-				destz = Min(Max(FRandom[ShipZ](pos.z - 64.0, pos.z + 64.0), floorz + 2 * height), ceilingz - 2 * height);
-				runtime = int(dist * 3);
-				bRun = True;
-			}
-
-			if (!bRun)
-			{
-				destangle = angle + Random[ShipAngle](-150, 150);
-
-				destz = Min(Max(FRandom[ShipZ](pos.z - 64.0, pos.z + 64.0), floorz + height), ceilingz - height);
-				runtime = int(dist * FRandom[ShipRun](0.0, 3.0));
-				bRun = True;
-			}
-			else
-			{
-				if (hascloak) { if (alpha > 0) {A_SetRenderStyle(alpha - 0.005, STYLE_Translucent); } }	
-
-				if (destz > pos.z + 1) { floatdir = 1; }
-				else if (destz < pos.z - 1) { floatdir = -1; }
-				else { floatdir = 0; }
-
-				floatdir = 0;
-
-				if (runtime <= 0)
-				{
-					bRun = False;
-					runtime = 0;
-					A_ChangeToCloserTarget(fov:fov);
-				}
-				else
-				{
-					runtime--;
-					A_ChangeToCloserTarget(fov:fov);
-				}
-			}
-			if (!target) { bDoFire = False; }
-		}
-
-		if (target && Distance3d(target) < 1024 && abs(roll - anglediff) < 90) { roll -= anglediff; }
-
-		if (destangle > angle + 1) { angle += 0.5; }
-		else if (destangle < angle - 1) { angle -= 0.5; }
-
-		if (abs(pitch) < 45) { pitch -= floatdir; }
-
-		old_pos = pos;
-
-		A_ChangeVelocity(speed, -dodgedir * speed / 2, floatdir * speed / 3, CVF_RELATIVE | CVF_REPLACE);
-		A_PlaySound("ship/hum", CHAN_AUTO, 5.0);
-
-		if (timeout) { timeout--; }
-		if (dodgetime) { dodgetime--; }
-
-		if (bDoFire && target && target.health > 0) //Lets the ship fire while moving smoothly
-		{
-			if (timeout <= 0 && abs(angleto(target) - angle) < fov / 2) //'timeout' tics between firing, 'fov' degrees of firing range left/right
-			{
-				if (health <= 0) return;
-				if (A_CheckLOF("null", CLOFF_SKIPENEMY, 2048, 0, 0, 0, 0, 0, AAPTR_TARGET))
-				{
-					SetStateLabel("Missile");
-				}
-			}
-		}
-		else { continuousfirethreshold = 0; }
-
-		if (passive) { target = null; }
-	}
-
-	override void PostBeginPlay()
-	{
-		timeout = Random(35, 105); //Randomize initial attack delay
-	}
-
-	override void Tick()
-	{
-		Super.Tick();
-
-		if (closestactortimeout > 0) { closestactortimeout--; }
-		if (targetchangetimeout > 0) { targetchangetimeout--; }
-		if (helpcalltimeout > 0) { helpcalltimeout--; }
 	}
 }
 

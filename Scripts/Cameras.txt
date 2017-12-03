@@ -13,9 +13,9 @@ class AutoCamera : Actor
 		left = null;
 		right = null;
 
-		ThinkerIterator Finder = ThinkerIterator.Create("TrekEnemyFlier");
+		ThinkerIterator Finder = ThinkerIterator.Create("TrekEnemy");
 
-		while ( (mo = TrekEnemyFlier(Finder.Next())) )
+		while ( (mo = TrekEnemy(Finder.Next())) )
 		{
 			if (mo == self || mo.health <= 0 || mo.bDormant) { continue; }
 			if (mo.alpha < 0.85) { continue; }
@@ -55,9 +55,9 @@ class AutoCamera : Actor
 
 	void A_FaceClosestActor(void)
 	{
-		ThinkerIterator Finder = ThinkerIterator.Create("TrekEnemyFlier");
+		ThinkerIterator Finder = ThinkerIterator.Create("TrekEnemy");
 		Actor mo, closest;
-		while ( (mo = TrekEnemyFlier(Finder.Next())) )
+		while ( (mo = TrekEnemy(Finder.Next())) )
 		{
 			if (mo == self || mo.health <= 0 || mo.bDormant) { continue; }
 			if (mo.alpha < 0.75) { continue; }

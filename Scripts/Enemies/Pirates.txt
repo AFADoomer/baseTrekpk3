@@ -66,7 +66,7 @@ class TOSPirateCapt : TOSPirate
 	}
 }
 
-class TOSAnaxagorasFlier : TrekEnemyFlier
+class TOSAnaxagorasFlier : ShipNavigator
 {
 	Default
 	{
@@ -75,12 +75,19 @@ class TOSAnaxagorasFlier : TrekEnemyFlier
 		Health 600;
 		Speed 1;
 		Obituary "%o's ship was destroyed by a rogue Starship.";
+		Species "Pirate";
+/*
 		TrekEnemyFlier.CenterofGravityZ -4;
 		TrekEnemyFlier.CenterofGravityX -14;
 		TrekEnemyFlier.Maneuverability 92;
 		TrekEnemyFlier.FOV 135;
 		TrekEnemyFlier.TorpedoChance 2;
-		Species "Pirate";
+		TrekEnemyFlier.FireDelay 35;
+*/
+		Navigator.TurnSpeed 2;
+		Navigator.MissileFOV 135;
+		Navigator.TorpedoChance 2;
+		Navigator.FireDelay 35;
 	}
 
 	States

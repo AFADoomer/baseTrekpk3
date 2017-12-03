@@ -13,7 +13,7 @@ class TOSKlingon : TrekEnemyActor
 	}
 }
 
-class TOSD7Flier : TrekEnemyFlier
+class TOSD7Flier : ShipNavigator
 {
 	Default
 	{
@@ -23,11 +23,18 @@ class TOSD7Flier : TrekEnemyFlier
 		Health 1200;
 		Speed 3;
 		Obituary "%o's ship was destroyed by a Klingon cruiser.";
+/*
 		TrekEnemyFlier.CenterofGravityZ 15;
 		TrekEnemyFlier.CenterofGravityX 2;
 		TrekEnemyFlier.Maneuverability 256;
 		TrekEnemyFlier.FOV 25;
 		TrekEnemyFlier.TorpedoChance 24;
+		TrekEnemyFlier.FireDelay 50;
+*/
+		Navigator.TurnSpeed 4;
+		Navigator.MissileFOV 25;
+		Navigator.TorpedoChance 24;
+		Navigator.FireDelay 50;
 
 		Species "Klingon";
 	}
@@ -37,14 +44,14 @@ class TOSD7FlierBig : TOSD7Flier
 {
 	Default
 	{
-		+AVOIDMELEE;
+		+AVOIDMELEE
 		+NOBLOCKMONST
 		MeleeRange 512;
 		Radius 440;
 		Height 400;
 		Speed 60;
-		TrekEnemyFlier.CenterofGravityZ 300;
-		TrekEnemyFlier.CenterofGravityX 40;
+//		TrekEnemyFlier.CenterofGravityZ 300;
+//		TrekEnemyFlier.CenterofGravityX 40;
 	}
 
 	override void Tick()
